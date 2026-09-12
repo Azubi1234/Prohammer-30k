@@ -1,0 +1,46 @@
+name: Clean Fast Attack squad-wide wargear interactions
+on:
+  push:
+    paths:
+      - '.github/workflows/fast-attack-cleanup.yml'
+permissions:
+  contents: write
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Suppress redundant Sergeant melta bombs
+        shell: bash
+        run: |
+          python <<'PY'
+          import xml.etree.ElementTree as ET
+          from collections import Counter
+          P='Legiones Astartes.cat'; N='http://www.battlescribe.net/schema/catalogueSchema'; ET.register_namespace('',N); Q=lambda x:f'{{{N}}}{x}'
+          t=ET.parse(P);r=t.getroot()
+          def byid(i):
+              for e in r.iter():
+                  if e.get('id')==i:return e
+              raise SystemExit('Missing '+i)
+          def add_suppress(link_id,squad_id):
+              e=byid(link_id); ms=e.find(Q('modifiers'))
+              if ms is None: ms=ET.SubElement(e,Q('modifiers'))
+              # idempotent by removing prior suppress modifiers on this squad id
+              for m in list(ms):
+                  if any(c.get('childId')==squad_id for c in m.iter(Q('condition'))):ms.remove(m)
+              for field,value in [('hidden','true'),(link_id+'-max','0')]:
+                  m=ET.SubElement(ms,Q('modifier'),{'type':'set','value':value,'field':field});cs=ET.SubElement(m,Q('conditions'));ET.SubElement(cs,Q('condition'),{'type':'atLeast','value':'1','field':'selections','scope':'root-entry','childId':squad_id,'shared':'true','includeChildSelections':'true'})
+          add_suppress('fa-seeker-sgt-melta','fa-seeker-melta')
+          add_suppress('fa-bike-sgt-melta','fa-bike-melta')
+          add_suppress('fa-sky-sgt-melta','fa-sky-melta')
+          r.set('revision',str(int(r.get('revision'))+1))
+          c=r.find(Q('comment')); c.text='Revision 19: Fast Attack cleanup: squad-wide Melta Bomb upgrades now suppress the redundant Sergeant Melta Bomb option; all six Fast Attack entries retain their source-accurate points and options.'
+          ids=[e.get('id') for e in r.iter() if e.get('id')]; d=[i for i,n in Counter(ids).items() if n>1]
+          if d: raise SystemExit('Duplicate ids: '+repr(d[:20]))
+          ET.indent(t,space='  ');t.write(P,encoding='UTF-8',xml_declaration=True)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'Legiones Astartes.cat'
+          git commit -m 'Polish Fast Attack wargear interactions'
+          git push
