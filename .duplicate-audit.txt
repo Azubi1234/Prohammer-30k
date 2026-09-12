@@ -1,0 +1,14 @@
+DUPLICATE XML IDS
+none
+
+DUPLICATE DIRECT OPTIONS WITHIN A GROUP
+GROUP Dedicated Transport [veteran-transport]
+ duplicate names: {'Rhino': 2, 'Drop Pod': 2, 'Dreadclaw Drop Pod': 3}
+ duplicate targets: {'transport-rhino': 2, 'transport-drop-pod': 2, 'transport-dreadclaw': 3}
+  ('Rhino', 'transport-rhino', 'veteran-tr-rhino')
+  ('Drop Pod', 'transport-drop-pod', 'veteran-tr-pod')
+  ('Dreadclaw Drop Pod', 'transport-dreadclaw', 'veteran-tr-dc')
+  ('Dreadclaw Drop Pod', 'transport-dreadclaw', 'terminator-tr-dc')
+  ('Rhino', 'transport-rhino', 'destroyer-tr-rhino')
+  ('Drop Pod', 'transport-drop-pod', 'destroyer-tr-pod')
+  ('Dreadclaw Drop Pod', 'transport-dreadclaw', 'destroyer-tr-dc')
