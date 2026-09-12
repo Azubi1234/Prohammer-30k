@@ -2,15 +2,15 @@
 <catalogue
   id="cat-30a0-30b0-30c0-0001"
   name="Legiones Astartes"
-  revision="4"
+  revision="5"
   battleScribeVersion="2.03"
   library="false"
   gameSystemId="sys-a1d2-5ede-e74f-7479"
   gameSystemRevision="4"
   type="catalogue"
   xmlns="http://www.battlescribe.net/schema/catalogueSchema">
-  <comment>Starter faction catalogue for Prohammer 30k.</comment>
-  <readme>This catalogue currently contains one temporary test unit so New Recruit can load and validate the roster structure. It will be replaced by the proper Legiones Astartes entries.</readme>
+  <comment>Starter faction catalogue for Prohammer 30k. Revision 5 expands the working Tactical Squad test with selectable weapons and wargear.</comment>
+  <readme>The Tactical Squad is still a data-structure test. Weapon profiles and fixed-cost wargear are now wired in. Squad-wide per-model grenade pricing and the conditional special/heavy weapon relationship will be refined after this test.</readme>
 
   <selectionEntries>
     <selectionEntry type="unit" import="true" name="[TEST] Legion Tactical Squad" hidden="false" id="test-tactical-unit">
@@ -43,6 +43,166 @@
           </costs>
         </selectionEntry>
       </selectionEntries>
+
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Basic Weapon" id="test-basic-weapon-group" hidden="false">
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="test-basic-min"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="test-basic-max"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Bolter" hidden="false" id="link-bolter" type="selectionEntry" targetId="gear-bolter" defaultAmount="1"/>
+            <entryLink import="true" name="Bolt Pistol" hidden="false" id="link-bolt-pistol" type="selectionEntry" targetId="gear-bolt-pistol"/>
+          </entryLinks>
+        </selectionEntryGroup>
+
+        <selectionEntryGroup name="Special Weapons [TEST]" id="test-special-group" hidden="false">
+          <constraints>
+            <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="test-special-max"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Flamer" hidden="false" id="link-flamer" type="selectionEntry" targetId="gear-flamer">
+              <costs><cost name="Points" typeId="pts" value="6"/></costs>
+            </entryLink>
+            <entryLink import="true" name="Meltagun" hidden="false" id="link-meltagun" type="selectionEntry" targetId="gear-meltagun">
+              <costs><cost name="Points" typeId="pts" value="10"/></costs>
+            </entryLink>
+            <entryLink import="true" name="Plasma Gun" hidden="false" id="link-plasma-gun" type="selectionEntry" targetId="gear-plasma-gun">
+              <costs><cost name="Points" typeId="pts" value="6"/></costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+
+        <selectionEntryGroup name="Heavy Weapon [TEST]" id="test-heavy-group" hidden="false">
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="test-heavy-max"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Heavy Bolter" hidden="false" id="link-heavy-bolter" type="selectionEntry" targetId="gear-heavy-bolter">
+              <costs><cost name="Points" typeId="pts" value="5"/></costs>
+            </entryLink>
+            <entryLink import="true" name="Missile Launcher" hidden="false" id="link-missile-launcher" type="selectionEntry" targetId="gear-missile-launcher">
+              <costs><cost name="Points" typeId="pts" value="10"/></costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+
+        <selectionEntryGroup name="Squad Wargear [TEST]" id="test-wargear-group" hidden="false">
+          <entryLinks>
+            <entryLink import="true" name="Frag Grenades" hidden="false" id="link-frag" type="selectionEntry" targetId="gear-frag">
+              <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="link-frag-max"/></constraints>
+            </entryLink>
+            <entryLink import="true" name="Krak Grenades" hidden="false" id="link-krak" type="selectionEntry" targetId="gear-krak">
+              <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="link-krak-max"/></constraints>
+            </entryLink>
+            <entryLink import="true" name="Legion Vexilla" hidden="false" id="link-vexilla" type="selectionEntry" targetId="gear-vexilla">
+              <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="link-vexilla-max"/></constraints>
+            </entryLink>
+            <entryLink import="true" name="Nuncio Vox" hidden="false" id="link-nuncio" type="selectionEntry" targetId="gear-nuncio">
+              <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="link-nuncio-max"/></constraints>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+
+        <selectionEntryGroup name="Melee / Armoury Samples [TEST]" id="test-melee-group" hidden="false">
+          <constraints>
+            <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="test-melee-max"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Power Weapon" hidden="false" id="link-power-weapon" type="selectionEntry" targetId="gear-power-weapon"/>
+            <entryLink import="true" name="Power Fist" hidden="false" id="link-power-fist" type="selectionEntry" targetId="gear-power-fist"/>
+            <entryLink import="true" name="Rending Weapon" hidden="false" id="link-rending" type="selectionEntry" targetId="gear-rending"/>
+            <entryLink import="true" name="Refractor Field" hidden="false" id="link-refractor" type="selectionEntry" targetId="gear-refractor"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
   </selectionEntries>
+
+  <sharedSelectionEntries>
+    <selectionEntry type="upgrade" import="true" name="Bolter" hidden="false" id="gear-bolter">
+      <profiles><profile name="Bolter" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-bolter"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire</characteristic>
+      </characteristics></profile></profiles>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Bolt Pistol" hidden="false" id="gear-bolt-pistol">
+      <profiles><profile name="Bolt Pistol" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-bolt-pistol"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">12&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Pistol</characteristic>
+      </characteristics></profile></profiles>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Heavy Bolter" hidden="false" id="gear-heavy-bolter">
+      <profiles><profile name="Heavy Bolter" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-heavy-bolter"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">36&quot;</characteristic><characteristic name="S" typeId="ranged-s">5</characteristic><characteristic name="AP" typeId="ranged-ap">4</characteristic><characteristic name="Type" typeId="ranged-type">Heavy 3</characteristic>
+      </characteristics></profile></profiles>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Flamer" hidden="false" id="gear-flamer">
+      <profiles><profile name="Flamer" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-flamer"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">Template</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Assault 1</characteristic>
+      </characteristics></profile></profiles>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Meltagun" hidden="false" id="gear-meltagun">
+      <profiles><profile name="Meltagun" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-meltagun"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">12&quot;</characteristic><characteristic name="S" typeId="ranged-s">8</characteristic><characteristic name="AP" typeId="ranged-ap">1</characteristic><characteristic name="Type" typeId="ranged-type">Assault 1, Melta</characteristic>
+      </characteristics></profile></profiles>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Plasma Gun" hidden="false" id="gear-plasma-gun">
+      <profiles><profile name="Plasma Gun" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-plasma-gun"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">7</characteristic><characteristic name="AP" typeId="ranged-ap">2</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire, Gets Hot</characteristic>
+      </characteristics></profile></profiles>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Missile Launcher" hidden="false" id="gear-missile-launcher">
+      <profiles>
+        <profile name="Missile Launcher (Krak)" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-missile-krak"><characteristics>
+          <characteristic name="Range" typeId="ranged-range">48&quot;</characteristic><characteristic name="S" typeId="ranged-s">8</characteristic><characteristic name="AP" typeId="ranged-ap">3</characteristic><characteristic name="Type" typeId="ranged-type">Heavy 1</characteristic>
+        </characteristics></profile>
+        <profile name="Missile Launcher (Frag)" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-missile-frag"><characteristics>
+          <characteristic name="Range" typeId="ranged-range">48&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">6</characteristic><characteristic name="Type" typeId="ranged-type">Heavy 1, Blast</characteristic>
+        </characteristics></profile>
+      </profiles>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Frag Grenades" hidden="false" id="gear-frag">
+      <comment>TEST: final Tactical Squad cost must scale at +1 point per model.</comment>
+      <rules><rule name="Frag Grenades" id="rule-frag" hidden="false"><description>Troops armed with frag grenades that charge enemy in or behind cover fight with Initiative 10, so they strike simultaneously with defenders.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Krak Grenades" hidden="false" id="gear-krak">
+      <comment>TEST: final Tactical Squad cost must scale at +2 points per model.</comment>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Legion Vexilla" hidden="false" id="gear-vexilla">
+      <costs><cost name="Points" typeId="pts" value="10"/></costs>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Nuncio Vox" hidden="false" id="gear-nuncio">
+      <costs><cost name="Points" typeId="pts" value="10"/></costs>
+      <rules><rule name="Nuncio Vox" id="rule-nuncio" hidden="false"><description>Any friendly unit arriving via Deep Strike may choose to deploy within 6&quot; of the bearer and does not scatter, provided the first model is placed within 6&quot; and not within 1&quot; of an enemy model. The bearer must be on the table at the start of the turn and may not be falling back, pinned, or inside a transport vehicle.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Power Weapon" hidden="false" id="gear-power-weapon">
+      <costs><cost name="Points" typeId="pts" value="15"/></costs>
+      <rules><rule name="Power Weapon" id="rule-power-weapon" hidden="false"><description>A model armed with a power weapon ignores Armour Saves.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Power Fist" hidden="false" id="gear-power-fist">
+      <costs><cost name="Points" typeId="pts" value="25"/></costs>
+      <rules><rule name="Power Fist" id="rule-power-fist" hidden="false"><description>Doubles the user&apos;s Strength (maximum 10), ignores Armour Saves, and always strikes at Initiative 1.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Rending Weapon" hidden="false" id="gear-rending">
+      <costs><cost name="Points" typeId="pts" value="5"/></costs>
+      <rules><rule name="Rending Weapon" id="rule-rending" hidden="false"><description>A To Hit roll of 6 automatically causes a wound with no Armour Save. Against vehicles, an Armour Penetration roll of 6 allows a further D6 to be rolled and added to the total.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Refractor Field" hidden="false" id="gear-refractor">
+      <costs><cost name="Points" typeId="pts" value="15"/></costs>
+      <rules><rule name="Refractor Field" id="rule-refractor" hidden="false"><description>Confers a 5+ Invulnerable Save.</description></rule></rules>
+    </selectionEntry>
+  </sharedSelectionEntries>
 </catalogue>
