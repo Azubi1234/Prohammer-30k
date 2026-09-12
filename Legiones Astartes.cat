@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalogue
+  id="cat-30a0-30b0-30c0-0001"
+  name="Legiones Astartes"
+  revision="2"
+  battleScribeVersion="2.03"
+  library="false"
+  gameSystemId="sys-a1d2-5ede-e74f-7479"
+  gameSystemRevision="2"
+  type="catalogue"
+  xmlns="http://www.battlescribe.net/schema/catalogueSchema">
+  <comment>Blank starter faction catalogue for Prohammer 30k.</comment>
+  <readme>This catalogue intentionally contains no units yet. It exists so the faction and roster structure can be tested before unit data is added.</readme>
+</catalogue>
