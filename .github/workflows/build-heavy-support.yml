@@ -1,0 +1,410 @@
+name: Build core Heavy Support catalogue entries
+on:
+  push:
+    paths:
+      - '.github/workflows/build-heavy-support.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Heavy Support section
+        shell: bash
+        run: |
+          cat > /tmp/build_hs.py <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          PATH = Path('Legiones Astartes.cat')
+          NS = 'http://www.battlescribe.net/schema/catalogueSchema'
+          ET.register_namespace('', NS)
+          q = lambda t: f'{{{NS}}}{t}'
+          tree = ET.parse(PATH)
+          root = tree.getroot()
+          shared = root.find(q('sharedSelectionEntries'))
+          top = root.find(q('selectionEntries'))
+
+          # Idempotent rebuild of this section.
+          for x in list(top):
+              if x.get('id','').startswith('hs-'):
+                  top.remove(x)
+          for x in list(shared):
+              if x.get('id','').startswith('hsgear-'):
+                  shared.remove(x)
+
+          def el(parent, tag, **attrs):
+              attrs = {k: str(v).lower() if isinstance(v, bool) else str(v) for k,v in attrs.items()}
+              return ET.SubElement(parent, q(tag), attrs)
+
+          def text_el(parent, tag, text, **attrs):
+              x = el(parent, tag, **attrs); x.text = text; return x
+
+          def container(parent, tag):
+              x = parent.find(q(tag))
+              return x if x is not None else el(parent, tag)
+
+          def cost(parent, value):
+              cs = container(parent, 'costs')
+              el(cs, 'cost', name='Points', typeId='pts', value=value)
+
+          def constraint(parent, cid, ctype, value, field='selections', scope='parent', include=False, automatic=None):
+              cs = container(parent, 'constraints')
+              a = dict(id=cid, type=ctype, value=value, field=field, scope=scope, shared='true', includeChildSelections='true' if include else 'false')
+              if automatic is not None: a['automatic'] = 'true' if automatic else 'false'
+              return el(cs, 'constraint', **a)
+
+          def add_rule(parent, name, rid, desc):
+              rs = container(parent, 'rules')
+              r = el(rs, 'rule', name=name, id=rid, hidden='false')
+              text_el(r, 'description', desc)
+              return r
+
+          def profile(parent, name, pid, ptype, tname, chars):
+              ps = container(parent, 'profiles')
+              p = el(ps, 'profile', name=name, id=pid, typeId=ptype, typeName=tname, hidden='false')
+              cs = el(p, 'characteristics')
+              for cname, ctid, val in chars:
+                  text_el(cs, 'characteristic', str(val), name=cname, typeId=ctid)
+              return p
+
+          def ranged(parent, name, pid, rng, s, ap, typ):
+              return profile(parent, name, pid, 'prof-ranged', 'Ranged Weapon', [
+                  ('Range','ranged-range',rng), ('S','ranged-s',s), ('AP','ranged-ap',ap), ('Type','ranged-type',typ)])
+
+          def vehicle(parent, name, pid, bs, front, side, rear):
+              return profile(parent, name, pid, 'prof-vehicle', 'Vehicle', [
+                  ('BS','vehicle-bs',bs), ('Front','vehicle-front',front), ('Side','vehicle-side',side), ('Rear','vehicle-rear',rear)])
+
+          def walker(parent, name, pid, ws, bs, s, front, side, rear, ini, att):
+              return profile(parent, name, pid, 'prof-walker', 'Walker', [
+                  ('WS','walker-ws',ws), ('BS','walker-bs',bs), ('S','walker-s',s), ('Front','walker-front',front),
+                  ('Side','walker-side',side), ('Rear','walker-rear',rear), ('I','walker-i',ini), ('A','walker-a',att)])
+
+          def marine_profile(parent, name, pid, ws, bs, s, t, w, ini, a, ld, sv):
+              return profile(parent, name, pid, 'prof-model', 'Model', [
+                  ('WS','model-ws',ws), ('BS','model-bs',bs), ('S','model-s',s), ('T','model-t',t), ('W','model-w',w),
+                  ('I','model-i',ini), ('A','model-a',a), ('Ld','model-ld',ld), ('Sv','model-sv',sv)])
+
+          def category(unit):
+              cl = container(unit, 'categoryLinks')
+              el(cl, 'categoryLink', targetId='cat-heavy', id=unit.get('id')+'-cat', primary='true', name='Heavy Support', hidden='false')
+
+          def shared_by_name(name):
+              for s in shared.findall(q('selectionEntry')):
+                  if s.get('name') == name:
+                      return s
+              return None
+
+          def ensure_ranged(name, sid, profiles, rule_text=None):
+              old = shared_by_name(name)
+              if old is not None: return old.get('id')
+              s = el(shared, 'selectionEntry', type='upgrade', import_='true', name=name, hidden='false', id=sid)
+              # ElementTree needs real attribute name, not import_.
+              s.set('import','true'); s.attrib.pop('import_',None)
+              for i,(pname,rng,st,ap,typ) in enumerate(profiles):
+                  ranged(s,pname,f'{sid}-p{i}',rng,st,ap,typ)
+              if rule_text: add_rule(s,name,f'{sid}-rule',rule_text)
+              return sid
+
+          def ensure_rule_item(name, sid, desc):
+              old = shared_by_name(name)
+              if old is not None: return old.get('id')
+              s = el(shared, 'selectionEntry', type='upgrade', name=name, hidden='false', id=sid)
+              s.set('import','true')
+              add_rule(s,name,f'{sid}-rule',desc)
+              return sid
+
+          def target(name, fallback_id=None, fallback_desc=None):
+              s = shared_by_name(name)
+              if s is not None: return s.get('id')
+              return ensure_rule_item(name, fallback_id or ('hsgear-'+name.lower().replace(' ','-')), fallback_desc or f'Use the {name} rules and profile from the current Legiones Astartes/ProHammer rules.')
+
+          def group(parent, name, gid, maxv=None, minv=None, include=True):
+              gs = container(parent, 'selectionEntryGroups')
+              g = el(gs, 'selectionEntryGroup', name=name, id=gid, hidden='false')
+              if minv is not None: constraint(g,gid+'-min','min',minv,include=include)
+              if maxv is not None: constraint(g,gid+'-max','max',maxv,include=include)
+              return g
+
+          def max_by_count(parent, cid, model_id, max_total=3):
+              constraint(parent,cid,'max',1,include=True)
+              mods = container(parent,'modifiers')
+              for n in range(2,max_total+1):
+                  m = el(mods,'modifier',type='set',value=n,field=cid)
+                  cs = el(m,'conditions')
+                  el(cs,'condition',type='atLeast',value=n,field='selections',scope='root-entry',childId=model_id,shared='true',includeChildSelections='true')
+
+          def max_entry_by_count(entry, cid, model_id, max_total=3):
+              constraint(entry,cid,'max',1,include=False)
+              mods = container(entry,'modifiers')
+              for n in range(2,max_total+1):
+                  m = el(mods,'modifier',type='set',value=n,field=cid)
+                  cs = el(m,'conditions')
+                  el(cs,'condition',type='atLeast',value=n,field='selections',scope='root-entry',childId=model_id,shared='true',includeChildSelections='true')
+
+          def entry_link(g, display, lid, target_name, pts=0, maxv=1, model_id=None):
+              ls = container(g,'entryLinks')
+              tid = target(target_name)
+              x = el(ls,'entryLink',name=display,id=lid,type='selectionEntry',targetId=tid,hidden='false')
+              x.set('import','true')
+              if model_id:
+                  max_entry_by_count(x,lid+'-max',model_id)
+              elif maxv is not None:
+                  constraint(x,lid+'-max','max',maxv,include=False)
+              if pts: cost(x,pts)
+              return x
+
+          def local_upgrade(parent, name, uid, pts=0, maxv=1, model_id=None, desc=None, profiles=None):
+              ss = container(parent,'selectionEntries')
+              x = el(ss,'selectionEntry',type='upgrade',name=name,id=uid,hidden='false')
+              x.set('import','true')
+              if model_id: max_entry_by_count(x,uid+'-max',model_id)
+              elif maxv is not None: constraint(x,uid+'-max','max',maxv,include=False)
+              if pts: cost(x,pts)
+              if profiles:
+                  for i,(pname,rng,st,ap,typ) in enumerate(profiles): ranged(x,pname,f'{uid}-p{i}',rng,st,ap,typ)
+              if desc: add_rule(x,name,uid+'-rule',desc)
+              return x
+
+          def add_common_vehicle_upgrades(model, prefix, model_id, names):
+              descs = {
+                  'Hunter-Killer Missile':'Unlimited range, S8 AP3, Heavy 1, One Use.',
+                  'Dozer Blade':'Use the normal ProHammer Dozer Blade rule.',
+                  'Extra Armour':'Use the normal ProHammer Extra Armour rule.',
+                  'Auxiliary Drive':"At the start of the controlling player's Movement phase, if the vehicle is Immobilised, roll a D6. On a 4+, remove one Immobilised result; it may move normally that phase.",
+                  'Armoured Ceramite':'Melta weapons do not receive their additional Armour Penetration die against this vehicle, regardless of range.',
+                  'Power of the Machine Spirit':'Use the normal ProHammer Power of the Machine Spirit rule.'
+              }
+              costs = {'Hunter-Killer Missile':5,'Dozer Blade':5,'Extra Armour':5,'Auxiliary Drive':10,'Armoured Ceramite':20,'Power of the Machine Spirit':25}
+              for nm in names:
+                  local_upgrade(model,nm,f'{prefix}-up-{nm.lower().replace(" ","-")}',costs[nm],model_id=model_id,desc=descs[nm])
+
+          def add_pintle(model, prefix, model_id):
+              g = group(model,'Pintle-mounted Weapon',prefix+'-pintle')
+              max_by_count(g,prefix+'-pintle-max',model_id)
+              opts = [('Twin-linked Bolter','Twin-linked Bolter',5),('Combi-Flamer','Combi-Flamer',5),('Combi-Grenade Launcher','Combi-Grenade Launcher',5),('Combi-Meltagun','Combi-Meltagun',5),('Combi-Plasma Gun','Combi-Plasma Gun',5),('Combi-Volkite Charger','Combi-Volkite Charger',5),('Heavy Bolter','Heavy Bolter',10),('Heavy Flamer','Heavy Flamer',10),('Multi-Melta','Multi-Melta',15),('Havoc Launcher','Havoc Launcher',15)]
+              for i,(disp,tgt,pts) in enumerate(opts): entry_link(g,disp,f'{prefix}-p{i}',tgt,pts,maxv=3)
+              return g
+
+          def squadron_unit(name, uid, model_name, model_id, pts, stats, walker_stats=None):
+              u = el(top,'selectionEntry',type='unit',name=name,id=uid,hidden='false'); u.set('import','true'); category(u)
+              ss = container(u,'selectionEntries')
+              m = el(ss,'selectionEntry',type='model',name=model_name,id=model_id,hidden='false',defaultAmount='1'); m.set('import','true')
+              constraint(m,model_id+'-min','min',1,include=False,automatic=True); constraint(m,model_id+'-max','max',3,include=False)
+              cost(m,pts)
+              if walker_stats: walker(m,model_name,model_id+'-prof',*walker_stats)
+              else: vehicle(m,model_name,model_id+'-prof',*stats)
+              return u,m
+
+          # Shared profiles used across the Heavy Support section.
+          ensure_ranged('Twin-linked Lascannon','hsgear-tl-lascannon',[('Twin-linked Lascannon','48"','9','2','Heavy 1, Twin-linked')])
+          ensure_ranged('Twin-linked Heavy Bolter','hsgear-tl-heavy-bolter',[('Twin-linked Heavy Bolter','36"','5','4','Heavy 3, Twin-linked')])
+          ensure_ranged('Twin-linked Heavy Flamer','hsgear-tl-heavy-flamer',[('Twin-linked Heavy Flamer','Template','5','4','Assault 1, Twin-linked')])
+          ensure_ranged('Twin-linked Multi-Melta','hsgear-tl-multimelta',[('Twin-linked Multi-Melta','24"','8','1','Heavy 1, Melta, Twin-linked')])
+          ensure_ranged('Twin-linked Volkite Culverin','hsgear-tl-volkite-culverin',[('Twin-linked Volkite Culverin','45"','6','5','Heavy 4, Rending, Twin-linked')])
+          ensure_ranged('Predator Cannon','hsgear-predator-cannon',[('Predator Cannon','48"','7','4','Heavy 4')])
+          ensure_ranged('Executioner Plasma Destroyer','hsgear-executioner',[('Executioner Plasma Destroyer','36"','7','2','Heavy 3, Blast')])
+          ensure_ranged('Magna-Melta','hsgear-magna-melta',[('Magna-Melta','18"','8','1','Heavy 1, Large Blast, Melta')])
+          ensure_ranged('Laser Destroyer Array','hsgear-laser-destroyer-array',[('Laser Destroyer Array','36"','9','1','Ordnance 1, Twin-linked')])
+          ensure_ranged('Quad Lascannon','hsgear-quad-lascannon',[('Quad Lascannon','48"','9','2','Heavy 2, Twin-linked')])
+          ensure_ranged('Laser Destroyer','hsgear-laser-destroyer',[('Laser Destroyer','48"','10','1','Heavy 1, Twin-linked')])
+          ensure_ranged('Scorpius Multi-launcher','hsgear-scorpius',[('Scorpius Multi-launcher','48"','8','3','Heavy 1, Barrage, Blast')])
+          ensure_ranged('Twin-linked Accelerator Autocannon','hsgear-accelerator',[('Twin-linked Accelerator Autocannon','48"','7','4','Heavy 6, Twin-linked, Rending, Rapid Tracking')])
+          ensure_ranged('Anvilus Autocannon Battery','hsgear-anvilus',[('Anvilus Autocannon Battery','48"','8','4','Heavy 4')])
+          ensure_ranged('Hellfire Plasma Cannonade','hsgear-hellfire',[('Hellfire Plasma Cannonade — Sustained','36"','7','2','Heavy 4'),('Hellfire Plasma Cannonade — Maximal','36"','7','2','Heavy 1, Large Blast, Plasma Overload')])
+          ensure_ranged('Arachnus Heavy Lascannon Battery','hsgear-arachnus',[('Arachnus Heavy Lascannon Battery','48"','10','2','Heavy 2')])
+          ensure_ranged('Aiolos Missile Launcher','hsgear-aiolos',[('Aiolos Missile Launcher','60"','6','3','Heavy 3, Pinning')])
+          ensure_ranged('Neutron Beam Laser','hsgear-neutron',[('Neutron Beam Laser','36"','10','1','Ordnance 2, Concussive')])
+          ensure_ranged('Leviathan Storm Cannon','hsgear-lev-storm',[('Leviathan Storm Cannon','24"','7','3','Heavy 6')])
+          ensure_ranged('Cyclonic Melta Lance','hsgear-lev-melta',[('Cyclonic Melta Lance','18"','9','1','Heavy 3, Melta')])
+          ensure_ranged('Grav-flux Bombard','hsgear-gravflux',[('Grav-flux Bombard','18"','Special','2','Heavy 1, Large Blast, Concussive, Ignores Cover, Graviton Collapse')])
+          ensure_ranged('Phosphex Discharger','hsgear-phosphex-dis',[('Phosphex Discharger','6–18"','5','2','Heavy 3, Barrage, Blast, Poisoned (3+), One Use')])
+          ensure_rule_item('Flamestorm Cannon','hsgear-flamestorm','The profile is not reproduced in this army list; use the applicable ProHammer/Legion Flamestorm Cannon profile.')
+          ensure_rule_item('Demolisher Cannon','hsgear-demolisher','The profile is not reproduced in this army list; use the applicable ProHammer Demolisher Cannon profile.')
+
+          # 1. Legion Heavy Support Squad.
+          u = el(top,'selectionEntry',type='unit',name='Legion Heavy Support Squad',id='hs-heavy-support-squad',hidden='false'); u.set('import','true'); category(u); cost(u,75)
+          marine_profile(u,'Legion Space Marine','hs-hss-marine-prof',4,4,4,4,1,4,1,8,'3+')
+          marine_profile(u,'Legion Sergeant','hs-hss-sergeant-prof',4,4,4,4,1,4,2,9,'3+')
+          add_rule(u,'Standard Wargear','hs-hss-wargear','4 Legion Space Marines and 1 Legion Sergeant. Power Armour, Bolter, Bolt pistol and Frag grenades. The unit has Legiones Astartes; the Sergeant is a Character.')
+          add_rule(u,'Sergeant Armoury','hs-hss-armoury-rule','The Sergeant may select up to 50 points of additional permitted weapons and wargear from the Space Marine Armoury. Normal Sergeant weapon limits apply. Unit-specific replacements take precedence over duplicate Armoury purchases.')
+          ss=container(u,'selectionEntries')
+          addm=el(ss,'selectionEntry',type='upgrade',name='Additional Legion Space Marine',id='hs-hss-additional',hidden='false'); addm.set('import','true'); constraint(addm,'hs-hss-additional-max','max',5); cost(addm,15)
+          g=group(u,'Heavy Weapons — up to four Marines', 'hs-hss-heavy', maxv=4)
+          for i,(nm,pts) in enumerate([('Heavy Bolter',15),('Autocannon',20),('Missile Launcher',20),('Volkite Culverin',20),('Multi-Melta',25),('Plasma Cannon',30),('Lascannon',35)]): entry_link(g,nm+' (replaces Bolter)',f'hs-hss-hw-{i}',nm,pts,maxv=4)
+          g=group(u,'Squad Equipment','hs-hss-eq')
+          entry_link(g,'Legion Vexilla','hs-hss-vex','Legion Vexilla',10)
+          entry_link(g,'Nuncio Vox','hs-hss-nuncio','Nuncio Vox',10)
+          kr=entry_link(g,'Krak Grenades (+2 pts/model)','hs-hss-krak','Krak Grenades',10)
+          mods=container(kr,'modifiers'); m=el(mods,'modifier',type='increment',value='2',field='pts'); reps=el(m,'repeats'); el(reps,'repeat',value='1',repeats='1',field='selections',scope='root-entry',childId='hs-hss-additional',shared='true',roundUp='false',includeChildSelections='false')
+          local_upgrade(u,'Hardened Armour (entire squad)','hs-hss-hardened',25,desc='Failed Armour Saves caused by Blast or Template weapons may be re-rolled. Reduce Advance additional distance, Charge distance and Pursuit distance by 1". Counts as Void Hardened where applicable.')
+          g=group(u,'Legion Sergeant — Bolter Replacement','hs-hss-sgt-bolter',maxv=1)
+          for i,(disp,tgt,pts) in enumerate([('Chainsword','Chainsword',0),('Combat Blade','Combat Blade',0),('Combi-Flamer','Combi-Flamer',10),('Combi-Volkite','Combi-Volkite Charger',10),('Combi-Meltagun','Combi-Meltagun',15),('Combi-Plasma Gun','Combi-Plasma Gun',15)]): entry_link(g,disp,f'hs-hss-sb-{i}',tgt,pts)
+          g=group(u,'Legion Sergeant — Bolt Pistol Replacement','hs-hss-sgt-pistol',maxv=1)
+          for i,(nm,pts) in enumerate([('Volkite Serpenta',5),('Hand Flamer',5),('Plasma Pistol',15)]): entry_link(g,nm,f'hs-hss-sp-{i}',nm,pts)
+          g=group(u,'Legion Sergeant — Equipment','hs-hss-sgt-eq')
+          local_upgrade(g,'Signum','hs-hss-signum',15,desc='The unit may re-roll one failed shooting To Hit roll per Shooting phase.')
+          entry_link(g,'Melta Bombs','hs-hss-sgt-melta','Melta Bombs',5)
+          arm=group(u,'Additional Sergeant Armoury (max 50 pts)','hs-hss-armoury')
+          constraint(arm,'hs-hss-armoury-pts','max',50,field='pts',scope='parent',include=True)
+          aw=group(arm,'Armoury Weapons','hs-hss-armoury-weapons',maxv=2)
+          for i,(nm,pts) in enumerate([('Lightning Claw',25),('Pair of Lightning Claws',30),('Power Fist',25),('Power Weapon',15),('Rending Weapon',5),('Thunder Hammer',30)]): entry_link(aw,nm,f'hs-hss-aw-{i}',nm,pts)
+          ag=group(arm,'Armoury Wargear','hs-hss-armoury-wargear')
+          for i,(nm,pts) in enumerate([('Combat Shield',5),('Auspex',2),('Bionics',10),('Purity Seals',5),('Teleport Homer',5)]): entry_link(ag,nm,f'hs-hss-ag-{i}',nm,pts)
+          spec=group(u,'Heavy Support Specialist','hs-hss-specialist',maxv=1)
+          local_upgrade(spec,'Armistos','hs-hss-armistos',20,desc='Fire Control: When this Heavy Support Squad enters Overwatch, its models may declare Overwatch targets out to the normal maximum range of their weapons rather than being restricted to 24". All other Overwatch rules and restrictions apply normally.')
+          local_upgrade(spec,'Siege Breaker','hs-hss-siegebreaker',35,desc='Art of Destruction: Heavy weapons fired by this unit receive +1 to Armour Penetration rolls against vehicles and fortifications. This does not apply to pistols, grenades or close-combat attacks.')
+          dt=group(u,'Dedicated Transport','hs-hss-transport',maxv=1)
+          ls=container(dt,'entryLinks'); rh=el(ls,'entryLink',name='Legion Rhino Armoured Carrier',id='hs-hss-rhino',type='selectionEntry',targetId=target('Legion Rhino Armoured Carrier'),hidden='false'); rh.set('import','true'); constraint(rh,'hs-hss-rhino-max','max',1)
+
+          # 2. Predator Strike Squadron.
+          u,m=squadron_unit('Legion Predator Strike Squadron','hs-predator','Legion Predator Tank','hs-predator-model',100,(4,13,11,10))
+          add_rule(m,'Standard Wargear','hs-pred-wg','Predator Cannon, Searchlight and Smoke Launchers.')
+          ranged(m,'Predator Cannon','hs-pred-base','48"','7','4','Heavy 4')
+          g=group(m,'Turret Weapon Replacement','hs-pred-turret'); max_by_count(g,'hs-pred-turret-max','hs-predator-model')
+          for i,(nm,pts) in enumerate([('Twin-linked Lascannon',20),('Flamestorm Cannon',15),('Heavy Conversion Beamer',35),('Magna-Melta',45),('Executioner Plasma Destroyer',55)]): entry_link(g,nm,f'hs-pred-tur-{i}',nm,pts,maxv=3)
+          g=group(m,'Sponson Pair','hs-pred-sponson'); max_by_count(g,'hs-pred-sponson-max','hs-predator-model')
+          for i,(disp,tgt,pts) in enumerate([('Heavy Bolter Sponsons','Heavy Bolter',10),('Heavy Flamer Sponsons','Heavy Flamer',10),('Lascannon Sponsons','Lascannon',25)]): entry_link(g,disp,f'hs-pred-sp-{i}',tgt,pts,maxv=3)
+          add_common_vehicle_upgrades(m,'hs-pred','hs-predator-model',['Hunter-Killer Missile','Dozer Blade','Extra Armour','Auxiliary Drive','Armoured Ceramite','Power of the Machine Spirit']); add_pintle(m,'hs-pred','hs-predator-model')
+
+          # 3. Vindicator Squadron.
+          u,m=squadron_unit('Legion Vindicator Siege Tank Squadron','hs-vindicator','Legion Vindicator','hs-vindicator-model',120,(4,13,11,10))
+          add_rule(m,'Standard Wargear','hs-vind-wg','Demolisher Cannon, Combi-bolter, Searchlight and Smoke Launchers.')
+          add_rule(m,'Power Capacitor','hs-vind-cap','If a Vindicator armed with a Laser Destroyer Array remained stationary in its Movement phase, it may fire the weapon as Ordnance 2, Twin-linked. Alternatively it may fire an Overcharged Volley as Ordnance 3, Twin-linked; after firing an Overcharged Volley, on a D6 roll of 1 the Vindicator suffers an automatic Glancing Hit.')
+          local_upgrade(m,'Laser Destroyer Array (replaces Demolisher Cannon)','hs-vind-laser',10,model_id='hs-vindicator-model',profiles=[('Laser Destroyer Array','36"','9','1','Ordnance 1, Twin-linked')])
+          add_common_vehicle_upgrades(m,'hs-vind','hs-vindicator-model',['Hunter-Killer Missile','Dozer Blade','Extra Armour','Auxiliary Drive','Armoured Ceramite','Power of the Machine Spirit']); add_pintle(m,'hs-vind','hs-vindicator-model')
+
+          # 4. Land Raider Battle Squadron.
+          u=el(top,'selectionEntry',type='unit',name='Legion Land Raider Battle Squadron',id='hs-land-raider',hidden='false'); u.set('import','true'); category(u)
+          add_rule(u,'Squadron Composition','hs-lr-comp-rule','Select 1–3 Land Raiders. Any may be Phobos or Proteus patterns; no more than one may be an Achilles.')
+          comp=group(u,'Land Raider Patterns','hs-lr-patterns',minv=1,maxv=3)
+          def add_lr_pattern(name,pid,pts,base_wg,extra_rules=None,maxv=3):
+              ss=container(comp,'selectionEntries'); x=el(ss,'selectionEntry',type='model',name=name,id=pid,hidden='false'); x.set('import','true'); constraint(x,pid+'-max','max',maxv); cost(x,pts); vehicle(x,name,pid+'-prof',4,14,14,14); add_rule(x,'Standard Wargear',pid+'-wg',base_wg)
+              if extra_rules:
+                  for rn,rd in extra_rules: add_rule(x,rn,pid+'-'+rn.lower().replace(' ','-'),rd)
+              return x
+          ph=add_lr_pattern('Land Raider Phobos','hs-lr-phobos',250,'Two Twin-linked Lascannons, Twin-linked Heavy Bolter, Searchlight and Smoke Launchers. Power of the Machine Spirit; Assault Vehicle; Transport Capacity 10.',[('Assault Vehicle','Units may charge after disembarking as allowed by ProHammer.')])
+          ranged(ph,'Twin-linked Lascannon','hs-lr-phobos-las','48"','9','2','Heavy 1, Twin-linked'); ranged(ph,'Twin-linked Heavy Bolter','hs-lr-phobos-hb','36"','5','4','Heavy 3, Twin-linked')
+          pr=add_lr_pattern('Land Raider Proteus','hs-lr-proteus',200,'Two Twin-linked Lascannons, Searchlight and Smoke Launchers. Power of the Machine Spirit; Transport Capacity 10.')
+          ranged(pr,'Twin-linked Lascannon','hs-lr-proteus-las','48"','9','2','Heavy 1, Twin-linked')
+          ach=add_lr_pattern('Land Raider Achilles','hs-lr-achilles',275,'Quad Launcher with Frag and Shatter Shells; two Twin-linked Multi-Meltas; Extra Armour; Armoured Ceramite; Searchlight and Smoke Launchers. Power of the Machine Spirit; Transport Capacity 6.',[('Ferromantic Invulnerability','Weapons with Melta do not roll an additional Armour Penetration die against the Achilles. Weapons with Lance do not reduce its Armour Value.')],maxv=1)
+          ranged(ach,'Quad Launcher — Frag','hs-lr-ach-frag','12–60"','5','5','Heavy 4, Barrage, Blast, Shell Shock'); ranged(ach,'Quad Launcher — Shatter','hs-lr-ach-shatter','36"','8','4','Heavy 4, Sunder'); ranged(ach,'Twin-linked Multi-Melta','hs-lr-ach-mm','24"','8','1','Heavy 1, Melta, Twin-linked')
+          for x,pfx,mid in [(ph,'hs-lr-ph','hs-lr-phobos'),(pr,'hs-lr-pr','hs-lr-proteus'),(ach,'hs-lr-ac','hs-lr-achilles')]:
+              add_common_vehicle_upgrades(x,pfx,mid,['Hunter-Killer Missile','Dozer Blade','Extra Armour','Auxiliary Drive','Armoured Ceramite']); add_pintle(x,pfx,mid)
+          g=group(pr,'Optional Hull-mounted Weapon','hs-lr-proteus-hull'); max_by_count(g,'hs-lr-proteus-hull-max','hs-lr-proteus')
+          for i,(nm,pts) in enumerate([('Twin-linked Heavy Bolter',20),('Twin-linked Heavy Flamer',20),('Twin-linked Lascannon',30)]): entry_link(g,nm,f'hs-lr-pr-hull-{i}',nm,pts,maxv=3)
+          local_upgrade(pr,'Explorator Augury Web','hs-lr-proteus-web',50,model_id='hs-lr-proteus',desc='The Proteus gains Scout. At the start of the controlling player’s turn before Reserve rolls, choose Disruption Mode (opponent suffers -1 to all Reserve rolls) or Relay Mode (controlling player may re-roll failed Reserve rolls) until the next controlling turn. Multiple webs give no additional benefit and only one mode may be active for the army. A Proteus with the Web has Transport Capacity 8.')
+
+          # 5. 0–1 Artillery Tank Squadron: chassis choice enforces same-type vehicles.
+          u=el(top,'selectionEntry',type='unit',name='0–1 Legion Artillery Tank Squadron',id='hs-artillery',hidden='false'); u.set('import','true'); category(u); constraint(u,'hs-artillery-roster-max','max',1,scope='roster',include=False)
+          add_rule(u,'Squadron Composition','hs-artillery-comp','1–3 vehicles. Every vehicle in the squadron must be of the same type.')
+          ag=group(u,'Artillery Type','hs-artillery-type',minv=1,maxv=1)
+          def artillery_choice(name,pid,pts,stats,wg,profiles):
+              ss=container(ag,'selectionEntries'); x=el(ss,'selectionEntry',type='model',name=name,id=pid,hidden='false',defaultAmount='1'); x.set('import','true'); cost(x,pts); constraint(x,pid+'-max','max',1)
+              vehicle(x,name,pid+'-prof',*stats); add_rule(x,'Standard Wargear',pid+'-wg',wg)
+              for i,(pn,rng,st,ap,typ) in enumerate(profiles): ranged(x,pn,f'{pid}-wp{i}',rng,st,ap,typ)
+              addv=local_upgrade(x,'Additional '+name,pid+'-additional',pts,maxv=2)
+              return x,addv
+          wh,whadd=artillery_choice('Legion Whirlwind','hs-art-whirlwind',75,(4,11,11,10),'Whirlwind Launcher, Twin-linked Bolter, Searchlight and Smoke Launchers.',[('Whirlwind Launcher — Vengeance','12–48"','5','4','Ordnance 1, Barrage, Large Blast'),('Whirlwind Launcher — Castellan','12–48"','4','5','Ordnance 1, Barrage, Large Blast, Ignores Cover')])
+          ba,baadd=artillery_choice('Legion Basilisk','hs-art-basilisk',140,(4,12,10,10),'Earthshaker Cannon, Heavy Bolter, Searchlight and Smoke Launchers.',[('Earthshaker Cannon','36–240"','9','3','Ordnance 1, Barrage, Large Blast')])
+          me,meadd=artillery_choice('Legion Medusa','hs-art-medusa',155,(4,12,10,10),'Medusa Siege Gun, Heavy Bolter, Searchlight and Smoke Launchers.',[('Medusa Siege Gun','36"','10','2','Ordnance 1, Barrage, Large Blast')])
+          local_upgrade(wh,'Hyperios Warheads (replace Vengeance & Castellan)','hs-art-hyperios',0,maxv=1,profiles=[('Hyperios Warheads','48"','8','3','Heavy 1, Skyfire, Interceptor')])
+          def art_opts(x,pfx,addid):
+              # Upgrades are selectable once per vehicle; quantity is represented by choosing counts up to three.
+              for nm,pts in [('Hunter-Killer Missile',5),('Dozer Blade',5),('Extra Armour',5),('Auxiliary Drive',10)]:
+                  z=local_upgrade(x,nm,pfx+'-'+nm.lower().replace(' ','-'),pts,maxv=3,desc={'Auxiliary Drive':"At the start of the controlling player's Movement phase, if the vehicle is Immobilised, roll a D6. On a 4+, remove one Immobilised result.",'Hunter-Killer Missile':'Unlimited range, S8 AP3, Heavy 1, One Use.','Dozer Blade':'Use the normal ProHammer Dozer Blade rule.','Extra Armour':'Use the normal ProHammer Extra Armour rule.'}[nm])
+              # Up to one pintle per vehicle; 1 base + up to 2 additional = max 3.
+              pg=group(x,'Pintle-mounted Weapons (max one per vehicle)',pfx+'-pintle',maxv=3)
+              for i,(disp,tgt,pts) in enumerate([('Twin-linked Bolter','Twin-linked Bolter',5),('Combi-Flamer','Combi-Flamer',5),('Combi-Grenade Launcher','Combi-Grenade Launcher',5),('Combi-Meltagun','Combi-Meltagun',5),('Combi-Plasma Gun','Combi-Plasma Gun',5),('Combi-Volkite Charger','Combi-Volkite Charger',5),('Heavy Bolter','Heavy Bolter',10),('Heavy Flamer','Heavy Flamer',10),('Multi-Melta','Multi-Melta',15),('Havoc Launcher','Havoc Launcher',15)]): entry_link(pg,disp,pfx+f'-p{i}',tgt,pts,maxv=3)
+          art_opts(wh,'hs-art-wh','hs-art-whirlwind-additional'); art_opts(ba,'hs-art-ba','hs-art-basilisk-additional'); art_opts(me,'hs-art-me','hs-art-medusa-additional')
+          add_rule(u,'New Recruit note','hs-art-note','For a two- or three-vehicle squadron, select the appropriate number of Additional vehicles. Vehicle upgrades and pintle weapons may be selected in matching quantities up to the number of vehicles in the squadron; do not assign more than one copy of a given upgrade to the same vehicle.')
+
+          # 6. Whirlwind Scorpius.
+          u=el(top,'selectionEntry',type='unit',name='Legion Whirlwind Scorpius',id='hs-scorpius',hidden='false'); u.set('import','true'); category(u); cost(u,115); vehicle(u,'Whirlwind Scorpius','hs-scorpius-prof',4,13,12,10)
+          ranged(u,'Scorpius Multi-launcher','hs-scorpius-weapon','48"','8','3','Heavy 1, Barrage, Blast'); add_rule(u,'Standard Wargear','hs-scorpius-wg','Scorpius Multi-launcher, Twin-linked Bolter, Searchlight and Smoke Launchers.'); add_rule(u,'Rocket Barrage','hs-scorpius-barrage','If the Whirlwind Scorpius remained stationary during its Movement phase, the Scorpius Multi-launcher becomes Heavy 1+D3 for that Shooting phase.')
+          for nm,pts in [('Hunter-Killer Missile',5),('Dozer Blade',5),('Extra Armour',5)]: local_upgrade(u,nm,'hs-scorpius-'+nm.lower().replace(' ','-'),pts,desc='Use the normal ProHammer '+nm+' rule.')
+          pg=group(u,'Additional Pintle-mounted Weapon','hs-scorpius-pintle',maxv=1)
+          for i,(disp,tgt,pts) in enumerate([('Twin-linked Bolter','Twin-linked Bolter',5),('Combi-Flamer','Combi-Flamer',5),('Combi-Grenade Launcher','Combi-Grenade Launcher',5),('Combi-Meltagun','Combi-Meltagun',5),('Combi-Plasma Gun','Combi-Plasma Gun',5),('Combi-Volkite Charger','Combi-Volkite Charger',5),('Heavy Bolter','Heavy Bolter',10),('Heavy Flamer','Heavy Flamer',10),('Multi-Melta','Multi-Melta',15),('Havoc Launcher','Havoc Launcher',15)]): entry_link(pg,disp,f'hs-scorpius-p{i}',tgt,pts)
+
+          # 7. Spartan Assault Tank.
+          u=el(top,'selectionEntry',type='unit',name='Legion Spartan Assault Tank',id='hs-spartan',hidden='false'); u.set('import','true'); category(u); cost(u,305); vehicle(u,'Legion Spartan','hs-spartan-prof',4,14,14,14)
+          ranged(u,'Quad Lascannon','hs-spartan-quad','48"','9','2','Heavy 2, Twin-linked'); add_rule(u,'Standard Wargear','hs-spartan-wg','Two Quad Lascannons, Twin-linked Heavy Bolter, Extra Armour, Searchlight and Smoke Launchers. Power of the Machine Spirit; Assault Vehicle; Transport Capacity 25.')
+          wg=group(u,'Main Weapon Replacements','hs-spartan-replace')
+          local_upgrade(wg,'Two Laser Destroyers (replace both Quad Lascannons)','hs-spartan-laser',0,profiles=[('Laser Destroyer','48"','10','1','Heavy 1, Twin-linked')])
+          entry_link(wg,'Twin-linked Heavy Flamer (replaces Twin-linked Heavy Bolter)','hs-spartan-hf','Twin-linked Heavy Flamer',0)
+          for nm,pts,desc in [('Hunter-Killer Missile',5,'Unlimited range, S8 AP3, Heavy 1, One Use.'),('Dozer Blade',5,'Use the normal ProHammer Dozer Blade rule.'),('Auxiliary Drive',10,"At the start of the controlling player's Movement phase, if Immobilised, on a 4+ remove one Immobilised result."),('Frag Assault Launchers',10,'Passengers charging during the same turn they disembark count as equipped with Frag Grenades for that Assault phase.'),('Armoured Ceramite',20,'Melta weapons do not gain an additional Armour Penetration die against this vehicle.'),('Flare Shield',45,'Against shooting attacks striking the Front Armour, reduce the Strength of Blast and Template weapons by 2 and all other ranged attacks by 1. No effect in close combat.')]: local_upgrade(u,nm,'hs-spartan-'+nm.lower().replace(' ','-'),pts,desc=desc)
+          pg=group(u,'Pintle-mounted Weapon','hs-spartan-pintle',maxv=1)
+          for i,(disp,tgt,pts) in enumerate([('Twin-linked Bolter','Twin-linked Bolter',5),('Combi-Flamer','Combi-Flamer',5),('Combi-Grenade Launcher','Combi-Grenade Launcher',5),('Combi-Meltagun','Combi-Meltagun',5),('Combi-Plasma Gun','Combi-Plasma Gun',5),('Combi-Volkite Charger','Combi-Volkite Charger',5),('Heavy Bolter','Heavy Bolter',10),('Heavy Flamer','Heavy Flamer',10),('Multi-Melta','Multi-Melta',15),('Havoc Launcher','Havoc Launcher',15)]): entry_link(pg,disp,f'hs-spartan-p{i}',tgt,pts)
+
+          # 8. Sicaran Battle Tank.
+          u=el(top,'selectionEntry',type='unit',name='Legion Sicaran Battle Tank',id='hs-sicaran',hidden='false'); u.set('import','true'); category(u); cost(u,185); vehicle(u,'Legion Sicaran','hs-sicaran-prof',4,13,12,12)
+          ranged(u,'Twin-linked Accelerator Autocannon','hs-sicaran-gun','48"','7','4','Heavy 6, Twin-linked, Rending, Rapid Tracking'); add_rule(u,'Standard Wargear','hs-sicaran-wg','Twin-linked Accelerator Autocannon, Heavy Bolter, Extra Armour, Searchlight and Smoke Launchers. Vehicle (Fast, Tank).'); add_rule(u,'Rapid Tracking','hs-sicaran-rapid','Jink saves may not be taken against attacks made with the Accelerator Autocannon.')
+          entry_link(group(u,'Hull Weapon Replacement','hs-sicaran-hull',maxv=1),'Heavy Flamer (replaces Heavy Bolter)','hs-sicaran-hf','Heavy Flamer',0)
+          sg=group(u,'Sponson Pair','hs-sicaran-sponson',maxv=1); entry_link(sg,'Heavy Bolter Sponsons','hs-sicaran-sp-hb','Heavy Bolter',10); entry_link(sg,'Lascannon Sponsons','hs-sicaran-sp-las','Lascannon',25)
+          for nm,pts,desc in [('Hunter-Killer Missile',5,'Unlimited range, S8 AP3, Heavy 1, One Use.'),('Dozer Blade',5,'Use the normal ProHammer Dozer Blade rule.'),('Auxiliary Drive',10,'On a 4+ at the start of the Movement phase, remove one Immobilised result.'),('Armoured Ceramite',20,'Melta weapons do not gain an additional Armour Penetration die against this vehicle.')]: local_upgrade(u,nm,'hs-sicaran-'+nm.lower().replace(' ','-'),pts,desc=desc)
+          pg=group(u,'Pintle-mounted Weapon','hs-sicaran-pintle',maxv=1)
+          for i,(disp,tgt,pts) in enumerate([('Twin-linked Bolter','Twin-linked Bolter',5),('Combi-Flamer','Combi-Flamer',5),('Combi-Grenade Launcher','Combi-Grenade Launcher',5),('Combi-Meltagun','Combi-Meltagun',5),('Combi-Plasma Gun','Combi-Plasma Gun',5),('Combi-Volkite Charger','Combi-Volkite Charger',5),('Heavy Bolter','Heavy Bolter',10),('Heavy Flamer','Heavy Flamer',10),('Multi-Melta','Multi-Melta',15),('Havoc Launcher','Havoc Launcher',15)]): entry_link(pg,disp,f'hs-sicaran-p{i}',tgt,pts)
+
+          # 9. Deredeo Pattern Dreadnought.
+          u=el(top,'selectionEntry',type='unit',name='Deredeo Pattern Dreadnought',id='hs-deredeo',hidden='false'); u.set('import','true'); category(u); cost(u,185); walker(u,'Deredeo Dreadnought','hs-deredeo-prof',4,5,6,13,12,11,4,1)
+          ranged(u,'Anvilus Autocannon Battery','hs-deredeo-anvilus','48"','8','4','Heavy 4'); add_rule(u,'Standard Wargear','hs-deredeo-wg','Anvilus Autocannon Battery, Twin-linked Heavy Bolter, Extra Armour, Searchlight and Smoke Launchers.'); add_rule(u,'Atomantic Shielding','hs-deredeo-atomantic','Each time the vehicle suffers a Glancing or Penetrating Hit from shooting, on a 5+ the hit is ignored; in close combat, on a 6+ it is ignored. Roll before the Vehicle Damage table. If it suffers an Explodes! result, add +1" to the explosion radius.'); add_rule(u,'Helical Targeting Array','hs-deredeo-helical',"At the beginning of the controlling player's turn, the Deredeo may activate the array. If it does, it must remain stationary that turn and its ranged weapons gain Skyfire and Interceptor until the beginning of its next turn.")
+          g=group(u,'Primary Battery','hs-deredeo-primary',maxv=1); entry_link(g,'Hellfire Plasma Cannonade','hs-deredeo-hellfire','Hellfire Plasma Cannonade',35); entry_link(g,'Arachnus Heavy Lascannon Battery','hs-deredeo-arachnus','Arachnus Heavy Lascannon Battery',50)
+          add_rule(u,'Plasma Overload','hs-deredeo-overload','After firing the Hellfire Plasma Cannonade in Maximal mode, roll a D6. On a 1, the Deredeo suffers an automatic Glancing Hit; this hit may not be prevented by cover saves or Atomantic Shielding.')
+          entry_link(group(u,'Secondary Weapon','hs-deredeo-secondary',maxv=1),'Twin-linked Heavy Flamer (replaces Twin-linked Heavy Bolter)','hs-deredeo-hf','Twin-linked Heavy Flamer',0)
+          local_upgrade(u,'Armoured Ceramite','hs-deredeo-ceramite',20,desc='Melta weapons do not gain an additional Armour Penetration die against this vehicle.')
+          cg=group(u,'Carapace System','hs-deredeo-carapace',maxv=1); entry_link(cg,'Aiolos Missile Launcher','hs-deredeo-aiolos','Aiolos Missile Launcher',35); local_upgrade(cg,'Atomantic Pavaise','hs-deredeo-pavaise',50,desc='Improves Atomantic Shielding against shooting from 5+ to 4+. Friendly Infantry within 3" gain a 6+ Invulnerable Save against shooting; if they already have an Invulnerable Save, improve it by 1 to a maximum of 3+.')
+
+          # 10. Sicaran Venator.
+          u=el(top,'selectionEntry',type='unit',name='Sicaran Venator Tank Destroyer',id='hs-venator',hidden='false'); u.set('import','true'); category(u); cost(u,190); vehicle(u,'Sicaran Venator','hs-venator-prof',4,13,12,12); ranged(u,'Neutron Beam Laser','hs-venator-neutron','36"','10','1','Ordnance 2, Concussive'); add_rule(u,'Standard Wargear','hs-venator-wg','Neutron Beam Laser, Heavy Bolter, Extra Armour, Searchlight and Smoke Launchers. Vehicle (Fast, Tank).')
+          sg=group(u,'Sponson Pair','hs-venator-sponson',maxv=1); entry_link(sg,'Heavy Bolter Sponsons','hs-venator-sp-hb','Heavy Bolter',20); entry_link(sg,'Lascannon Sponsons','hs-venator-sp-las','Lascannon',40)
+          for nm,pts,desc in [('Hunter-Killer Missile',5,'Unlimited range, S8 AP3, Heavy 1, One Use.'),('Dozer Blade',5,'Use the normal ProHammer Dozer Blade rule.'),('Auxiliary Drive',10,'On a 4+ at the start of the Movement phase, remove one Immobilised result.'),('Armoured Ceramite',20,'Melta weapons do not gain an additional Armour Penetration die against this vehicle.')]: local_upgrade(u,nm,'hs-venator-'+nm.lower().replace(' ','-'),pts,desc=desc)
+          pg=group(u,'Additional Pintle-mounted Weapon','hs-venator-pintle',maxv=1)
+          for i,(disp,tgt,pts) in enumerate([('Twin-linked Bolter','Twin-linked Bolter',5),('Combi-Flamer','Combi-Flamer',5),('Combi-Grenade Launcher','Combi-Grenade Launcher',5),('Combi-Meltagun','Combi-Meltagun',5),('Combi-Plasma Gun','Combi-Plasma Gun',5),('Combi-Volkite Charger','Combi-Volkite Charger',5),('Heavy Bolter','Heavy Bolter',10),('Heavy Flamer','Heavy Flamer',10),('Multi-Melta','Multi-Melta',15),('Havoc Launcher','Havoc Launcher',15)]): entry_link(pg,disp,f'hs-venator-p{i}',tgt,pts)
+
+          # 11. Achilles-Alpha Pattern Land Raider.
+          u=el(top,'selectionEntry',type='unit',name='Achilles-Alpha Pattern Land Raider',id='hs-achilles-alpha',hidden='false'); u.set('import','true'); category(u); cost(u,300); vehicle(u,'Achilles-Alpha','hs-achilles-alpha-prof',4,14,14,14)
+          ranged(u,'Quad Launcher — Frag','hs-aa-frag','12–60"','5','5','Heavy 4, Barrage, Blast, Shell Shock'); ranged(u,'Quad Launcher — Shatter','hs-aa-shatter','36"','8','4','Heavy 4, Sunder'); ranged(u,'Twin-linked Volkite Culverin','hs-aa-volkite','45"','6','5','Heavy 4, Rending, Twin-linked')
+          add_rule(u,'Standard Wargear','hs-aa-wg','Quad Launcher with Frag and Shatter Shells, two Twin-linked Volkite Culverins, Extra Armour, Searchlight and Smoke Launchers. Power of the Machine Spirit; Transport Capacity 6.'); add_rule(u,'Enhanced Ferromantic Rites','hs-aa-ferro','Melta weapons do not roll an additional Armour Penetration die; Lance weapons do not reduce the Achilles-Alpha’s Armour Value; apply -1 to Vehicle Damage table rolls caused by Penetrating Hits.'); add_rule(u,'Galvanic Traction Drive','hs-aa-traction','May re-roll failed Dangerous Terrain tests.')
+          ammo=group(u,'Quad Launcher Ammunition','hs-aa-ammo'); local_upgrade(ammo,'Incendiary Shells','hs-aa-incendiary',5,profiles=[('Quad Launcher — Incendiary','12–60"','4','5','Heavy 4, Barrage, Blast, Ignores Cover')]); local_upgrade(ammo,'Splinter Shells','hs-aa-splinter',10,profiles=[('Quad Launcher — Splinter','12–36"','2','4','Heavy 4, Barrage, Blast, Rending')]); local_upgrade(ammo,'Phosphex Canister Shot — requires Siege Breaker','hs-aa-phosphex',20,profiles=[('Quad Launcher — Phosphex','12–36"','4','3','Heavy 4, Barrage, Blast, Poisoned (3+), Crawling Fire, Lingering Death')],desc='May only be selected if the army contains a Siege Breaker or another rule specifically granting access to Phosphex ammunition.')
+
+          # 12. Leviathan Siege Dreadnought.
+          u=el(top,'selectionEntry',type='unit',name='Leviathan Siege Dreadnought',id='hs-leviathan',hidden='false'); u.set('import','true'); category(u); cost(u,270); walker(u,'Leviathan Siege Dreadnought','hs-leviathan-prof',5,5,8,13,13,12,4,4)
+          ranged(u,'Meltagun','hs-lev-melta-base','12"','8','1','Assault 1, Melta'); ranged(u,'Heavy Flamer','hs-lev-hf-base','Template','5','4','Assault 1'); add_rule(u,'Standard Wargear','hs-lev-wg','Two Leviathan Siege Claws, each with an inbuilt Meltagun; two Heavy Flamers; Extra Armour; Frag grenades; Searchlight; Smoke Launchers.'); add_rule(u,'Reinforced Atomantic Shielding','hs-lev-shield','Each time the Leviathan suffers a Glancing or Penetrating Hit, on a 4+ the hit is ignored, before rolling on the Vehicle Damage table. If it suffers an Explodes! result, increase the Strength of the explosion by D3 and its radius by D3".'); add_rule(u,'Crushing Charge','hs-lev-charge','On a turn in which the Leviathan charges, it may resolve two of its normally allowed close-combat attacks at Initiative 10 instead of only one as normally permitted by Hammer of Wrath.'); add_rule(u,'Move Through Cover','hs-lev-mtc','Uses the normal ProHammer Move Through Cover rule.'); add_rule(u,'Leviathan Siege Claw','hs-lev-claw-rule','Counts as a Dreadnought Close Combat Weapon.'); add_rule(u,'Leviathan Siege Drill','hs-lev-drill-rule','Counts as a Dreadnought Close Combat Weapon with Armourbane.'); add_rule(u,'Arm Replacement and Attacks','hs-lev-arms-rule','Either Siege Claw and its Meltagun may be replaced by a ranged weapon. For each Siege Claw replaced by a ranged weapon, reduce the Leviathan’s Attacks characteristic by 1.')
+          def lev_arm(gid,label):
+              g=group(u,label,gid,minv=1,maxv=1); local_upgrade(g,'Leviathan Siege Claw + Meltagun',gid+'-claw',0); local_upgrade(g,'Leviathan Siege Drill + Meltagun',gid+'-drill',5); entry_link(g,'Leviathan Storm Cannon',gid+'-storm','Leviathan Storm Cannon',10); entry_link(g,'Cyclonic Melta Lance',gid+'-melta','Cyclonic Melta Lance',20); entry_link(g,'Grav-flux Bombard',gid+'-grav','Grav-flux Bombard',20); return g
+          lev_arm('hs-lev-arm-a','Arm A'); lev_arm('hs-lev-arm-b','Arm B')
+          local_upgrade(u,'Twin-linked Volkite Caliver (replaces one Heavy Flamer)','hs-lev-vcal',5,maxv=2,profiles=[('Twin-linked Volkite Caliver','30"','6','5','Heavy 2, Rending, Twin-linked')])
+          entry_link(group(u,'Optional Equipment','hs-lev-eq'),'Phosphex Discharger','hs-lev-phosphex','Phosphex Discharger',15); local_upgrade(u,'Armoured Ceramite','hs-lev-ceramite',20,desc='Melta weapons do not gain an additional Armour Penetration die against this vehicle.')
+          add_rule(u,'Graviton Collapse','hs-lev-grav-collapse','Against non-vehicle models hit by a Grav-flux Bombard, roll 2D6; if the result is greater than the model’s Strength it suffers a wound. Against vehicles, do not use the normal ProHammer Graviton rule; instead roll 3D6 for Armour Penetration.')
+          dt=group(u,'Dedicated Transport','hs-lev-transport',maxv=1); ls=container(dt,'entryLinks'); dp=el(ls,'entryLink',name='Legion Dreadnought Drop Pod',id='hs-lev-dreadpod',type='selectionEntry',targetId=target('Legion Dreadnought Drop Pod'),hidden='false'); dp.set('import','true'); constraint(dp,'hs-lev-dreadpod-max','max',1)
+
+          # Header / revision.
+          root.set('revision', str(int(root.get('revision','19')) + 1))
+          comment = root.find(q('comment'))
+          if comment is not None: comment.text = 'Revision 20: Added the complete core Heavy Support section: Heavy Support Squad, Predator, Vindicator, Land Raider Squadron, Artillery Squadron, Whirlwind Scorpius, Spartan, Sicaran, Deredeo, Sicaran Venator, Achilles-Alpha and Leviathan.'
+          readme = root.find(q('readme'))
+          if readme is not None: readme.text = 'Core Troops, Elites, Fast Attack and Heavy Support entries follow the current Legiones Astartes Army List. Shared weapons and transports are reused through links where practical. Unit-specific replacements take precedence over generic Armoury access, squad-wide upgrades suppress redundant character purchases where practical, and items may not be selected more than once unless specifically permitted.'
+
+          # Basic validation: unique IDs and XML round-trip.
+          ids={}; dup=[]
+          for n in root.iter():
+              i=n.get('id')
+              if i:
+                  if i in ids: dup.append(i)
+                  ids[i]=1
+          if dup: raise SystemExit('Duplicate IDs: '+', '.join(sorted(set(dup))))
+          ET.indent(tree, space='  ')
+          tree.write(PATH, encoding='UTF-8', xml_declaration=True)
+          ET.parse(PATH)
+          print('Heavy Support build complete, revision',root.get('revision'))
+          PY
+          python /tmp/build_hs.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'Legiones Astartes.cat'
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add core Heavy Support section'
+            git push
+          fi
