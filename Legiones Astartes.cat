@@ -2,13 +2,47 @@
 <catalogue
   id="cat-30a0-30b0-30c0-0001"
   name="Legiones Astartes"
-  revision="3"
+  revision="4"
   battleScribeVersion="2.03"
   library="false"
   gameSystemId="sys-a1d2-5ede-e74f-7479"
-  gameSystemRevision="3"
+  gameSystemRevision="4"
   type="catalogue"
   xmlns="http://www.battlescribe.net/schema/catalogueSchema">
-  <comment>Blank starter faction catalogue for Prohammer 30k.</comment>
-  <readme>This catalogue intentionally contains no units yet. It exists so the faction and roster structure can be tested before unit data is added.</readme>
+  <comment>Starter faction catalogue for Prohammer 30k.</comment>
+  <readme>This catalogue currently contains one temporary test unit so New Recruit can load and validate the roster structure. It will be replaced by the proper Legiones Astartes entries.</readme>
+
+  <selectionEntries>
+    <selectionEntry type="unit" import="true" name="[TEST] Legion Tactical Squad" hidden="false" id="test-tactical-unit">
+      <categoryLinks>
+        <categoryLink targetId="cat-troops" id="test-tactical-category" primary="true" name="Troops" hidden="false"/>
+      </categoryLinks>
+      <selectionEntries>
+        <selectionEntry type="model" import="true" name="Legionary" hidden="false" id="test-legionary-model" defaultAmount="5">
+          <profiles>
+            <profile name="Legionary" typeId="prof-model" typeName="Model" hidden="false" id="test-legionary-profile">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">1</characteristic>
+                <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <constraints>
+            <constraint type="min" value="5" field="selections" scope="parent" shared="true" id="test-legionary-min" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+            <constraint type="max" value="20" field="selections" scope="parent" shared="true" id="test-legionary-max" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+          </constraints>
+          <costs>
+            <cost name="Points" typeId="pts" value="15"/>
+          </costs>
+        </selectionEntry>
+      </selectionEntries>
+    </selectionEntry>
+  </selectionEntries>
 </catalogue>
