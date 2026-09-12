@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<stdin>", line 13, in <module>
+  File "elites_builder.py", line 99
+    attrs=dict(type=typ,import='true',name=name,hidden=hidden,id=sid)
+                        ^^^^^^
+SyntaxError: invalid syntax
