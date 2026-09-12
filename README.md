@@ -4,7 +4,7 @@ Custom Horus Heresy army lists adapted for **ProHammer Classic** and **New Recru
 
 ## Current status
 
-The repository currently contains the core New Recruit game system and a blank `Legiones Astartes` faction catalogue.
+The repository currently contains the core New Recruit game system and a starter `Legiones Astartes` faction catalogue.
 
 ### Core system
 
@@ -21,7 +21,7 @@ The repository currently contains the core New Recruit game system and a blank `
   - Fast Attack: 0–3
   - Heavy Support: 0–3
 
-The default roster limit is **2000 points**.
+The default roster limit is **unrestricted (-1)**. Players choose the points limit for each game.
 
 ## New Recruit
 
@@ -29,4 +29,4 @@ Use this repository as the New Recruit source:
 
 `https://github.com/Azubi1234/Prohammer-30k`
 
-The army catalogue is intentionally empty for now. Generic Legiones Astartes units will be added next.
+The `Legiones Astartes` catalogue currently contains one temporary **[TEST] Legion Tactical Squad**. It exists only to verify that the catalogue loads correctly in New Recruit before the proper army entries are added.
