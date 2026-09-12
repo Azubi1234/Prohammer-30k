@@ -1,0 +1,41 @@
+name: Diagnose Elites builder
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Capture builder error
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import traceback
+          wf=Path('.github/workflows/apply-elites-batch.yml').read_text(encoding='utf-8')
+          body=wf.split("          python3 - <<'PY'\n",1)[1].split("\n          PY",1)[0]
+          script='\n'.join(line[10:] if line.startswith('          ') else line for line in body.splitlines())
+          for bad in [
+              "              constraint(tr,'veteran-transport-max','max',1,include=True)\n",
+              "              constraint(tr,'terminator-transport-max','max',1,include=True)\n",
+              "              constraint(tr,'destroyer-transport-max','max',1,include=True)\n",
+          ]:
+              script=script.replace(bad,'')
+          try:
+              exec(compile(script,'elites_builder.py','exec'),{})
+              msg='NO ERROR\n'
+          except Exception:
+              msg=traceback.format_exc()
+          except SystemExit as e:
+              msg='SystemExit: '+str(e)+'\n'
+          Path('.elites-error.txt').write_text(msg,encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .elites-error.txt
+          git commit -m "Capture Elites builder diagnostic [skip ci]"
+          git push
