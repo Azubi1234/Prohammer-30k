@@ -2,25 +2,45 @@
 <catalogue
   id="cat-30a0-30b0-30c0-0001"
   name="Legiones Astartes"
-  revision="5"
+  revision="6"
   battleScribeVersion="2.03"
   library="false"
   gameSystemId="sys-a1d2-5ede-e74f-7479"
   gameSystemRevision="4"
   type="catalogue"
   xmlns="http://www.battlescribe.net/schema/catalogueSchema">
-  <comment>Starter faction catalogue for Prohammer 30k. Revision 5 expands the working Tactical Squad test with selectable weapons and wargear.</comment>
-  <readme>The Tactical Squad is still a data-structure test. Weapon profiles and fixed-cost wargear are now wired in. Squad-wide per-model grenade pricing and the conditional special/heavy weapon relationship will be refined after this test.</readme>
+  <comment>Prohammer 30k Legiones Astartes catalogue. Revision 6 promotes the Legion Tactical Squad from test entry to a full playable entry.</comment>
+  <readme>The Legion Tactical Squad is now wired with composition, weapons, grenade pricing and rules, wargear, Veteran Sergeant Armoury access, and its 10-model Rhino transport.</readme>
 
   <selectionEntries>
-    <selectionEntry type="unit" import="true" name="[TEST] Legion Tactical Squad" hidden="false" id="test-tactical-unit">
+    <selectionEntry type="unit" import="true" name="Legion Tactical Squad" hidden="false" id="tac-unit">
       <categoryLinks>
-        <categoryLink targetId="cat-troops" id="test-tactical-category" primary="true" name="Troops" hidden="false"/>
+        <categoryLink targetId="cat-troops" id="tac-category" primary="true" name="Troops" hidden="false"/>
       </categoryLinks>
+
       <selectionEntries>
-        <selectionEntry type="model" import="true" name="Legionary" hidden="false" id="test-legionary-model" defaultAmount="5">
+        <selectionEntry type="model" import="true" name="Legionary" hidden="false" id="tac-legionary-model" defaultAmount="4">
+          <constraints>
+            <constraint type="min" value="4" field="selections" scope="parent" shared="true" id="tac-legionary-min" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+            <constraint type="max" value="19" field="selections" scope="parent" shared="true" id="tac-legionary-max" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Close Combat Weapon" hidden="false" id="tac-legionary-ccw" type="selectionEntry" targetId="gear-ccw" defaultAmount="1"/>
+          </entryLinks>
+          <selectionEntryGroups>
+            <selectionEntryGroup name="Basic Weapon" id="tac-legionary-basic-group" hidden="false" defaultSelectionEntryId="tac-legionary-bolter">
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="tac-legionary-basic-min" automatic="true"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="tac-legionary-basic-max" automatic="true"/>
+              </constraints>
+              <entryLinks>
+                <entryLink import="true" name="Bolter" hidden="false" id="tac-legionary-bolter" type="selectionEntry" targetId="gear-bolter" defaultAmount="1"/>
+                <entryLink import="true" name="Bolt Pistol" hidden="false" id="tac-legionary-bolt-pistol" type="selectionEntry" targetId="gear-bolt-pistol"/>
+              </entryLinks>
+            </selectionEntryGroup>
+          </selectionEntryGroups>
           <profiles>
-            <profile name="Legionary" typeId="prof-model" typeName="Model" hidden="false" id="test-legionary-profile">
+            <profile name="Legionary" typeId="prof-model" typeName="Model" hidden="false" id="tac-legionary-profile">
               <characteristics>
                 <characteristic name="WS" typeId="model-ws">4</characteristic>
                 <characteristic name="BS" typeId="model-bs">4</characteristic>
@@ -34,10 +54,126 @@
               </characteristics>
             </profile>
           </profiles>
+          <costs>
+            <cost name="Points" typeId="pts" value="15"/>
+          </costs>
+        </selectionEntry>
+
+        <selectionEntry type="model" import="true" name="Sergeant" hidden="false" id="tac-sergeant-model" defaultAmount="1">
           <constraints>
-            <constraint type="min" value="5" field="selections" scope="parent" shared="true" id="test-legionary-min" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-            <constraint type="max" value="20" field="selections" scope="parent" shared="true" id="test-legionary-max" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="tac-sergeant-min" automatic="true"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="tac-sergeant-max" automatic="true"/>
           </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Close Combat Weapon" hidden="false" id="tac-sergeant-ccw" type="selectionEntry" targetId="gear-ccw" defaultAmount="1"/>
+          </entryLinks>
+          <selectionEntryGroups>
+            <selectionEntryGroup name="Basic Weapon" id="tac-sergeant-basic-group" hidden="false" defaultSelectionEntryId="tac-sergeant-bolter">
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="tac-sergeant-basic-min" automatic="true"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="tac-sergeant-basic-max" automatic="true"/>
+              </constraints>
+              <entryLinks>
+                <entryLink import="true" name="Bolter" hidden="false" id="tac-sergeant-bolter" type="selectionEntry" targetId="gear-bolter" defaultAmount="1"/>
+                <entryLink import="true" name="Bolt Pistol" hidden="false" id="tac-sergeant-bolt-pistol" type="selectionEntry" targetId="gear-bolt-pistol"/>
+              </entryLinks>
+            </selectionEntryGroup>
+
+            <selectionEntryGroup name="Rank" id="tac-sergeant-rank-group" hidden="false" defaultSelectionEntryId="rank-sergeant">
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="tac-sergeant-rank-min" automatic="true"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="tac-sergeant-rank-max" automatic="true"/>
+              </constraints>
+              <selectionEntries>
+                <selectionEntry type="upgrade" import="true" name="Sergeant" hidden="false" id="rank-sergeant" defaultAmount="1">
+                  <profiles>
+                    <profile name="Sergeant" typeId="prof-model" typeName="Model" hidden="false" id="prof-tac-sergeant">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">4</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">1</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                </selectionEntry>
+
+                <selectionEntry type="upgrade" import="true" name="Veteran Sergeant" hidden="false" id="rank-veteran-sergeant">
+                  <selectionEntryGroups>
+                    <selectionEntryGroup name="Veteran Sergeant Armoury — Weapons" id="vet-armoury-weapons" hidden="false">
+                      <constraints>
+                        <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="vet-armoury-weapons-max"/>
+                      </constraints>
+                      <entryLinks>
+                        <entryLink import="true" name="Bolt Pistol" hidden="false" id="vet-bolt-pistol" type="selectionEntry" targetId="gear-bolt-pistol"><costs><cost name="Points" typeId="pts" value="1"/></costs></entryLink>
+                        <entryLink import="true" name="Close Combat Weapon" hidden="false" id="vet-ccw" type="selectionEntry" targetId="gear-ccw"><costs><cost name="Points" typeId="pts" value="1"/></costs></entryLink>
+                        <entryLink import="true" name="Lightning Claw" hidden="false" id="vet-lightning-claw" type="selectionEntry" targetId="gear-lightning-claw"><costs><cost name="Points" typeId="pts" value="25"/></costs></entryLink>
+                        <entryLink import="true" name="Pair of Lightning Claws" hidden="false" id="vet-lightning-claws-pair" type="selectionEntry" targetId="gear-lightning-claws-pair"><costs><cost name="Points" typeId="pts" value="30"/></costs></entryLink>
+                        <entryLink import="true" name="Plasma Pistol" hidden="false" id="vet-plasma-pistol" type="selectionEntry" targetId="gear-plasma-pistol"><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+                        <entryLink import="true" name="Power Fist" hidden="false" id="vet-power-fist" type="selectionEntry" targetId="gear-power-fist"><costs><cost name="Points" typeId="pts" value="25"/></costs></entryLink>
+                        <entryLink import="true" name="Power Weapon" hidden="false" id="vet-power-weapon" type="selectionEntry" targetId="gear-power-weapon"><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+                        <entryLink import="true" name="Thunder Hammer" hidden="false" id="vet-thunder-hammer" type="selectionEntry" targetId="gear-thunder-hammer"><costs><cost name="Points" typeId="pts" value="30"/></costs></entryLink>
+                        <entryLink import="true" name="Rending Weapon" hidden="false" id="vet-rending" type="selectionEntry" targetId="gear-rending"><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                        <entryLink import="true" name="Chainaxe" hidden="false" id="vet-chainaxe" type="selectionEntry" targetId="gear-chainaxe"><costs><cost name="Points" typeId="pts" value="4"/></costs></entryLink>
+                        <entryLink import="true" name="Bolter" hidden="false" id="vet-bolter" type="selectionEntry" targetId="gear-bolter"><costs><cost name="Points" typeId="pts" value="2"/></costs></entryLink>
+                        <entryLink import="true" name="Combi-Flamer" hidden="false" id="vet-combi-flamer" type="selectionEntry" targetId="gear-combi-flamer"><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+                        <entryLink import="true" name="Combi-Grenade Launcher" hidden="false" id="vet-combi-grenade" type="selectionEntry" targetId="gear-combi-grenade"><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+                        <entryLink import="true" name="Combi-Plasma Gun" hidden="false" id="vet-combi-plasma" type="selectionEntry" targetId="gear-combi-plasma"><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+                        <entryLink import="true" name="Combi-Meltagun" hidden="false" id="vet-combi-melta" type="selectionEntry" targetId="gear-combi-melta"><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+                        <entryLink import="true" name="Storm Bolter" hidden="false" id="vet-storm-bolter" type="selectionEntry" targetId="gear-storm-bolter"><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                      </entryLinks>
+                    </selectionEntryGroup>
+
+                    <selectionEntryGroup name="Veteran Sergeant Armoury — Wargear" id="vet-armoury-wargear" hidden="false">
+                      <entryLinks>
+                        <entryLink import="true" name="Auspex" hidden="false" id="vet-auspex" type="selectionEntry" targetId="gear-auspex"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-auspex-max"/></constraints><costs><cost name="Points" typeId="pts" value="2"/></costs></entryLink>
+                        <entryLink import="true" name="Bionics" hidden="false" id="vet-bionics" type="selectionEntry" targetId="gear-bionics"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-bionics-max"/></constraints><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+                        <entryLink import="true" name="Frag Grenades (Sergeant only)" hidden="false" id="vet-frag" type="selectionEntry" targetId="gear-frag"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-frag-max"/></constraints><costs><cost name="Points" typeId="pts" value="1"/></costs></entryLink>
+                        <entryLink import="true" name="Iron Halo" hidden="false" id="vet-iron-halo" type="selectionEntry" targetId="gear-iron-halo"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-iron-halo-max"/></constraints><costs><cost name="Points" typeId="pts" value="25"/></costs></entryLink>
+                        <entryLink import="true" name="Refractor Field" hidden="false" id="vet-refractor" type="selectionEntry" targetId="gear-refractor"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-refractor-max"/></constraints><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+                        <entryLink import="true" name="Krak Grenades (Sergeant only)" hidden="false" id="vet-krak" type="selectionEntry" targetId="gear-krak"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-krak-max"/></constraints><costs><cost name="Points" typeId="pts" value="2"/></costs></entryLink>
+                        <entryLink import="true" name="Master-Crafted Weapon" hidden="false" id="vet-master-crafted" type="selectionEntry" targetId="gear-master-crafted"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-master-crafted-max"/></constraints><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+                        <entryLink import="true" name="Melta Bombs" hidden="false" id="vet-melta-bombs" type="selectionEntry" targetId="gear-melta-bombs"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-melta-bombs-max"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                        <entryLink import="true" name="Purity Seals" hidden="false" id="vet-purity-seals" type="selectionEntry" targetId="gear-purity-seals"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-purity-seals-max"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                        <entryLink import="true" name="Teleport Homer" hidden="false" id="vet-teleport-homer" type="selectionEntry" targetId="gear-teleport-homer"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-teleport-homer-max"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                        <entryLink import="true" name="Boarding Shield" hidden="false" id="vet-boarding-shield" type="selectionEntry" targetId="gear-boarding-shield"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-boarding-shield-max"/></constraints><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+                        <entryLink import="true" name="Combat Shield" hidden="false" id="vet-combat-shield" type="selectionEntry" targetId="gear-combat-shield"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-combat-shield-max"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                        <entryLink import="true" name="Metal Storm Ammunition" hidden="false" id="vet-metal-storm" type="selectionEntry" targetId="gear-metal-storm"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-metal-storm-max"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                        <entryLink import="true" name="Inferno Bolts" hidden="false" id="vet-inferno-bolts" type="selectionEntry" targetId="gear-inferno-bolts"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-inferno-bolts-max"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                        <entryLink import="true" name="Kraken Bolts" hidden="false" id="vet-kraken-bolts" type="selectionEntry" targetId="gear-kraken-bolts"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="vet-kraken-bolts-max"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                      </entryLinks>
+                    </selectionEntryGroup>
+                  </selectionEntryGroups>
+                  <profiles>
+                    <profile name="Veteran Sergeant" typeId="prof-model" typeName="Model" hidden="false" id="prof-tac-veteran-sergeant">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">4</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">2</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <rules>
+                    <rule name="Space Marine Armoury" id="rule-vet-armoury" hidden="false">
+                      <description>A Veteran Sergeant has access to the Space Marine Armoury. A model using the Armoury may carry up to two weapons, no more than one of which may be two-handed. The Veteran Sergeant&apos;s +1 Attack from Terminator Honours is already included in the profile and Terminator Honours may not be purchased again. Items restricted to Independent Characters, Librarians, Apothecaries, Techmarines, Standard Bearers, or Terminator-armoured models are not offered here.</description>
+                    </rule>
+                  </rules>
+                  <costs><cost name="Points" typeId="pts" value="15"/></costs>
+                </selectionEntry>
+              </selectionEntries>
+            </selectionEntryGroup>
+          </selectionEntryGroups>
           <costs>
             <cost name="Points" typeId="pts" value="15"/>
           </costs>
@@ -45,81 +181,99 @@
       </selectionEntries>
 
       <selectionEntryGroups>
-        <selectionEntryGroup name="Basic Weapon" id="test-basic-weapon-group" hidden="false">
+        <selectionEntryGroup name="Special Weapons" id="tac-special-group" hidden="false">
+          <modifiers>
+            <modifier type="set" value="1" field="tac-special-max">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="gear-heavy-bolter" shared="true" includeChildSelections="true"/>
+                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="gear-missile-launcher" shared="true" includeChildSelections="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
           <constraints>
-            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="test-basic-min"/>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="test-basic-max"/>
+            <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="tac-special-max"/>
           </constraints>
           <entryLinks>
-            <entryLink import="true" name="Bolter" hidden="false" id="link-bolter" type="selectionEntry" targetId="gear-bolter" defaultAmount="1"/>
-            <entryLink import="true" name="Bolt Pistol" hidden="false" id="link-bolt-pistol" type="selectionEntry" targetId="gear-bolt-pistol"/>
+            <entryLink import="true" name="Flamer" hidden="false" id="tac-flamer" type="selectionEntry" targetId="gear-flamer"><costs><cost name="Points" typeId="pts" value="6"/></costs></entryLink>
+            <entryLink import="true" name="Meltagun" hidden="false" id="tac-meltagun" type="selectionEntry" targetId="gear-meltagun"><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+            <entryLink import="true" name="Plasma Gun" hidden="false" id="tac-plasma-gun" type="selectionEntry" targetId="gear-plasma-gun"><costs><cost name="Points" typeId="pts" value="6"/></costs></entryLink>
           </entryLinks>
         </selectionEntryGroup>
 
-        <selectionEntryGroup name="Special Weapons [TEST]" id="test-special-group" hidden="false">
+        <selectionEntryGroup name="Heavy Weapon" id="tac-heavy-group" hidden="false">
           <constraints>
-            <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="test-special-max"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="tac-heavy-max"/>
           </constraints>
           <entryLinks>
-            <entryLink import="true" name="Flamer" hidden="false" id="link-flamer" type="selectionEntry" targetId="gear-flamer">
-              <costs><cost name="Points" typeId="pts" value="6"/></costs>
-            </entryLink>
-            <entryLink import="true" name="Meltagun" hidden="false" id="link-meltagun" type="selectionEntry" targetId="gear-meltagun">
-              <costs><cost name="Points" typeId="pts" value="10"/></costs>
-            </entryLink>
-            <entryLink import="true" name="Plasma Gun" hidden="false" id="link-plasma-gun" type="selectionEntry" targetId="gear-plasma-gun">
-              <costs><cost name="Points" typeId="pts" value="6"/></costs>
-            </entryLink>
+            <entryLink import="true" name="Heavy Bolter" hidden="false" id="tac-heavy-bolter" type="selectionEntry" targetId="gear-heavy-bolter"><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+            <entryLink import="true" name="Missile Launcher" hidden="false" id="tac-missile-launcher" type="selectionEntry" targetId="gear-missile-launcher"><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
           </entryLinks>
         </selectionEntryGroup>
 
-        <selectionEntryGroup name="Heavy Weapon [TEST]" id="test-heavy-group" hidden="false">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="test-heavy-max"/>
-          </constraints>
+        <selectionEntryGroup name="Squad Wargear" id="tac-wargear-group" hidden="false">
           <entryLinks>
-            <entryLink import="true" name="Heavy Bolter" hidden="false" id="link-heavy-bolter" type="selectionEntry" targetId="gear-heavy-bolter">
-              <costs><cost name="Points" typeId="pts" value="5"/></costs>
+            <entryLink import="true" name="Frag Grenades" hidden="false" id="tac-frag" type="selectionEntry" targetId="gear-frag">
+              <modifiers>
+                <modifier type="increment" value="1" field="pts">
+                  <repeats><repeat value="1" repeats="1" field="selections" scope="parent" childId="model" shared="true" roundUp="false"/></repeats>
+                </modifier>
+              </modifiers>
+              <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="tac-frag-max"/></constraints>
             </entryLink>
-            <entryLink import="true" name="Missile Launcher" hidden="false" id="link-missile-launcher" type="selectionEntry" targetId="gear-missile-launcher">
-              <costs><cost name="Points" typeId="pts" value="10"/></costs>
+            <entryLink import="true" name="Krak Grenades" hidden="false" id="tac-krak" type="selectionEntry" targetId="gear-krak">
+              <modifiers>
+                <modifier type="increment" value="2" field="pts">
+                  <repeats><repeat value="1" repeats="1" field="selections" scope="parent" childId="model" shared="true" roundUp="false"/></repeats>
+                </modifier>
+              </modifiers>
+              <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="tac-krak-max"/></constraints>
             </entryLink>
-          </entryLinks>
-        </selectionEntryGroup>
-
-        <selectionEntryGroup name="Squad Wargear [TEST]" id="test-wargear-group" hidden="false">
-          <entryLinks>
-            <entryLink import="true" name="Frag Grenades" hidden="false" id="link-frag" type="selectionEntry" targetId="gear-frag">
-              <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="link-frag-max"/></constraints>
+            <entryLink import="true" name="Legion Vexilla" hidden="false" id="tac-vexilla" type="selectionEntry" targetId="gear-vexilla">
+              <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="tac-vexilla-max"/></constraints>
             </entryLink>
-            <entryLink import="true" name="Krak Grenades" hidden="false" id="link-krak" type="selectionEntry" targetId="gear-krak">
-              <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="link-krak-max"/></constraints>
+            <entryLink import="true" name="Nuncio Vox" hidden="false" id="tac-nuncio" type="selectionEntry" targetId="gear-nuncio">
+              <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="tac-nuncio-max"/></constraints>
             </entryLink>
-            <entryLink import="true" name="Legion Vexilla" hidden="false" id="link-vexilla" type="selectionEntry" targetId="gear-vexilla">
-              <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="link-vexilla-max"/></constraints>
-            </entryLink>
-            <entryLink import="true" name="Nuncio Vox" hidden="false" id="link-nuncio" type="selectionEntry" targetId="gear-nuncio">
-              <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="link-nuncio-max"/></constraints>
-            </entryLink>
-          </entryLinks>
-        </selectionEntryGroup>
-
-        <selectionEntryGroup name="Melee / Armoury Samples [TEST]" id="test-melee-group" hidden="false">
-          <constraints>
-            <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="test-melee-max"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="Power Weapon" hidden="false" id="link-power-weapon" type="selectionEntry" targetId="gear-power-weapon"/>
-            <entryLink import="true" name="Power Fist" hidden="false" id="link-power-fist" type="selectionEntry" targetId="gear-power-fist"/>
-            <entryLink import="true" name="Rending Weapon" hidden="false" id="link-rending" type="selectionEntry" targetId="gear-rending"/>
-            <entryLink import="true" name="Refractor Field" hidden="false" id="link-refractor" type="selectionEntry" targetId="gear-refractor"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
+
+      <entryLinks>
+        <entryLink import="true" name="Rhino" hidden="true" id="tac-rhino-link" type="selectionEntry" targetId="unit-rhino">
+          <modifiers>
+            <modifier type="set" value="false" field="hidden">
+              <conditions>
+                <condition type="equalTo" value="10" field="selections" scope="parent" childId="model" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="tac-rhino-max"/></constraints>
+        </entryLink>
+      </entryLinks>
+
+      <rules>
+        <rule name="Unit Composition" id="rule-tac-composition" hidden="false">
+          <description>One Space Marine Sergeant and between four and nineteen Space Marines (5–20 models total).</description>
+        </rule>
+        <rule name="Weapon Options" id="rule-tac-weapons" hidden="false">
+          <description>One Space Marine may take a Heavy Bolter or Missile Launcher. In addition, one Space Marine may take a Flamer, Meltagun or Plasma Gun; if no Heavy Weapon is selected, up to two Space Marines may take Special Weapons.</description>
+        </rule>
+        <rule name="Dedicated Transport" id="rule-tac-transport" hidden="false">
+          <description>If the squad consists of exactly 10 models, it may take a Rhino as a dedicated transport for +50 points.</description>
+        </rule>
+      </rules>
     </selectionEntry>
   </selectionEntries>
 
   <sharedSelectionEntries>
+    <selectionEntry type="upgrade" import="true" name="Close Combat Weapon" hidden="false" id="gear-ccw">
+      <rules><rule name="Close Combat Weapon" id="rule-ccw" hidden="false"><description>A normal close combat weapon with no additional special rules.</description></rule></rules>
+    </selectionEntry>
+
     <selectionEntry type="upgrade" import="true" name="Bolter" hidden="false" id="gear-bolter">
       <profiles><profile name="Bolter" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-bolter"><characteristics>
         <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire</characteristic>
@@ -129,6 +283,12 @@
     <selectionEntry type="upgrade" import="true" name="Bolt Pistol" hidden="false" id="gear-bolt-pistol">
       <profiles><profile name="Bolt Pistol" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-bolt-pistol"><characteristics>
         <characteristic name="Range" typeId="ranged-range">12&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Pistol</characteristic>
+      </characteristics></profile></profiles>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Storm Bolter" hidden="false" id="gear-storm-bolter">
+      <profiles><profile name="Storm Bolter" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-storm-bolter"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Assault 2</characteristic>
       </characteristics></profile></profiles>
     </selectionEntry>
 
@@ -142,18 +302,21 @@
       <profiles><profile name="Flamer" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-flamer"><characteristics>
         <characteristic name="Range" typeId="ranged-range">Template</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Assault 1</characteristic>
       </characteristics></profile></profiles>
+      <rules><rule name="Template" id="rule-flamer-template" hidden="false"><description>Template weapons automatically hit models fully under the template; models partially under it are hit on a 4+. Template weapons ignore cover saves. See the ProHammer Template rules for placement, Snap Fire, and shooting into engagements.</description></rule></rules>
     </selectionEntry>
 
     <selectionEntry type="upgrade" import="true" name="Meltagun" hidden="false" id="gear-meltagun">
       <profiles><profile name="Meltagun" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-meltagun"><characteristics>
         <characteristic name="Range" typeId="ranged-range">12&quot;</characteristic><characteristic name="S" typeId="ranged-s">8</characteristic><characteristic name="AP" typeId="ranged-ap">1</characteristic><characteristic name="Type" typeId="ranged-type">Assault 1, Melta</characteristic>
       </characteristics></profile></profiles>
+      <rules><rule name="Melta" id="rule-melta" hidden="false"><description>When making armour penetration rolls, roll 2D6 instead of D6 if the target is at half range or less.</description></rule></rules>
     </selectionEntry>
 
     <selectionEntry type="upgrade" import="true" name="Plasma Gun" hidden="false" id="gear-plasma-gun">
       <profiles><profile name="Plasma Gun" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-plasma-gun"><characteristics>
         <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">7</characteristic><characteristic name="AP" typeId="ranged-ap">2</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire, Gets Hot</characteristic>
       </characteristics></profile></profiles>
+      <rules><rule name="Gets Hot" id="rule-gets-hot" hidden="false"><description>If a model firing this weapon rolls a 1 to hit, it suffers an automatic wound and may take an armour or invulnerable save. Vehicles are not affected by Gets Hot.</description></rule></rules>
     </selectionEntry>
 
     <selectionEntry type="upgrade" import="true" name="Missile Launcher" hidden="false" id="gear-missile-launcher">
@@ -165,44 +328,242 @@
           <characteristic name="Range" typeId="ranged-range">48&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">6</characteristic><characteristic name="Type" typeId="ranged-type">Heavy 1, Blast</characteristic>
         </characteristics></profile>
       </profiles>
+      <rules><rule name="Blast" id="rule-missile-blast" hidden="false"><description>Frag missiles use the Blast rules from ProHammer: place the blast marker over a hittable model and roll to hit; on a miss, scatter 2D6&quot; up to the maximum scatter distance described in the core rules.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Plasma Pistol" hidden="false" id="gear-plasma-pistol">
+      <profiles><profile name="Plasma Pistol" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-plasma-pistol"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">12&quot;</characteristic><characteristic name="S" typeId="ranged-s">7</characteristic><characteristic name="AP" typeId="ranged-ap">2</characteristic><characteristic name="Type" typeId="ranged-type">Pistol, Gets Hot</characteristic>
+      </characteristics></profile></profiles>
+      <rules><rule name="Gets Hot" id="rule-plasma-pistol-hot" hidden="false"><description>If a model firing this weapon rolls a 1 to hit, it suffers an automatic wound and may take an armour or invulnerable save. Vehicles are not affected by Gets Hot.</description></rule></rules>
     </selectionEntry>
 
     <selectionEntry type="upgrade" import="true" name="Frag Grenades" hidden="false" id="gear-frag">
-      <comment>TEST: final Tactical Squad cost must scale at +1 point per model.</comment>
-      <rules><rule name="Frag Grenades" id="rule-frag" hidden="false"><description>Troops armed with frag grenades that charge enemy in or behind cover fight with Initiative 10, so they strike simultaneously with defenders.</description></rule></rules>
+      <costs><cost name="Points" typeId="pts" value="0"/></costs>
+      <rules>
+        <rule name="Frag Grenades — Assaulting Cover" id="rule-frag-cover" hidden="false"><description>Models with frag grenades that charge an enemy in or behind cover fight at Initiative 10 during that assault, striking simultaneously with defenders.</description></rule>
+        <rule name="Frag Grenades — Vehicle Attack (ProHammer)" id="rule-frag-vehicle" hidden="false"><description>A model may exchange all of its normal melee attacks for ONE grenade attack against a vehicle, rolled to hit normally. Frag grenade armour penetration is Strength 4 + D6. Grenades can only be used in melee against vehicle units. Against a non-immobilised Walker, grenade attacks only hit on a 6+.</description></rule>
+      </rules>
     </selectionEntry>
 
     <selectionEntry type="upgrade" import="true" name="Krak Grenades" hidden="false" id="gear-krak">
-      <comment>TEST: final Tactical Squad cost must scale at +2 points per model.</comment>
+      <costs><cost name="Points" typeId="pts" value="0"/></costs>
+      <rules>
+        <rule name="Krak Grenades — Vehicle Attack (ProHammer)" id="rule-krak-vehicle" hidden="false"><description>A model may exchange all of its normal melee attacks for ONE grenade attack against a vehicle, rolled to hit normally. Krak grenade armour penetration is Strength 6 + D6. Grenades can only be used in melee against vehicle units. Against a non-immobilised Walker, grenade attacks only hit on a 6+.</description></rule>
+      </rules>
     </selectionEntry>
 
     <selectionEntry type="upgrade" import="true" name="Legion Vexilla" hidden="false" id="gear-vexilla">
       <costs><cost name="Points" typeId="pts" value="10"/></costs>
+      <rules><rule name="Legion Vexilla" id="rule-vexilla" hidden="false"><description>A unit with a Legion Vexilla adds +1 to its combat resolution.</description></rule></rules>
     </selectionEntry>
 
     <selectionEntry type="upgrade" import="true" name="Nuncio Vox" hidden="false" id="gear-nuncio">
       <costs><cost name="Points" typeId="pts" value="10"/></costs>
-      <rules><rule name="Nuncio Vox" id="rule-nuncio" hidden="false"><description>Any friendly unit arriving via Deep Strike may choose to deploy within 6&quot; of the bearer and does not scatter, provided the first model is placed within 6&quot; and not within 1&quot; of an enemy model. The bearer must be on the table at the start of the turn and may not be falling back, pinned, or inside a transport vehicle.</description></rule></rules>
+      <rules><rule name="Nuncio Vox" id="rule-nuncio" hidden="false"><description>Any friendly unit arriving via Deep Strike may choose to deploy within 6&quot; of the bearer. If it does so, it does not scatter, provided the first model is placed within 6&quot; of the bearer and not within 1&quot; of an enemy model. The bearer must be on the table at the start of the turn and may not be falling back, pinned, or inside a transport vehicle.</description></rule></rules>
     </selectionEntry>
 
     <selectionEntry type="upgrade" import="true" name="Power Weapon" hidden="false" id="gear-power-weapon">
-      <costs><cost name="Points" typeId="pts" value="15"/></costs>
-      <rules><rule name="Power Weapon" id="rule-power-weapon" hidden="false"><description>A model armed with a power weapon ignores Armour Saves.</description></rule></rules>
+      <rules><rule name="Power Weapon" id="rule-power-weapon" hidden="false"><description>Close combat attacks made with a power weapon ignore Armour Saves.</description></rule></rules>
     </selectionEntry>
 
     <selectionEntry type="upgrade" import="true" name="Power Fist" hidden="false" id="gear-power-fist">
-      <costs><cost name="Points" typeId="pts" value="25"/></costs>
-      <rules><rule name="Power Fist" id="rule-power-fist" hidden="false"><description>Doubles the user&apos;s Strength (maximum 10), ignores Armour Saves, and always strikes at Initiative 1.</description></rule></rules>
+      <rules><rule name="Power Fist" id="rule-power-fist" hidden="false"><description>Doubles the user&apos;s Strength, to a maximum of 10, ignores Armour Saves, and strikes at Initiative 1.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Lightning Claw" hidden="false" id="gear-lightning-claw">
+      <rules><rule name="Lightning Claw" id="rule-lightning-claw" hidden="false"><description>Counts as a power weapon and allows failed rolls to wound to be re-rolled. A model only gains the +1 Attack bonus for an additional close combat weapon if the second weapon is also a Lightning Claw.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Pair of Lightning Claws" hidden="false" id="gear-lightning-claws-pair">
+      <rules><rule name="Pair of Lightning Claws" id="rule-lightning-claws-pair" hidden="false"><description>Counts as two single-handed weapon choices. The attacks ignore Armour Saves, failed rolls to wound may be re-rolled, and the pair grants the normal +1 Attack for two close combat weapons.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Thunder Hammer" hidden="false" id="gear-thunder-hammer">
+      <rules><rule name="Thunder Hammer" id="rule-thunder-hammer" hidden="false"><description>Counts as a power fist. A model wounded but not killed by it may not attack again until the end of the next Assault phase. Vehicles struck suffer a Crew Shaken result in addition to any other damage result.</description></rule></rules>
     </selectionEntry>
 
     <selectionEntry type="upgrade" import="true" name="Rending Weapon" hidden="false" id="gear-rending">
-      <costs><cost name="Points" typeId="pts" value="5"/></costs>
-      <rules><rule name="Rending Weapon" id="rule-rending" hidden="false"><description>A To Hit roll of 6 automatically causes a wound with no Armour Save. Against vehicles, an Armour Penetration roll of 6 allows a further D6 to be rolled and added to the total.</description></rule></rules>
+      <rules><rule name="Rending Weapon" id="rule-rending" hidden="false"><description>Any roll to hit of 6 automatically causes a wound with no Armour Save possible. Against vehicles, an Armour Penetration roll of 6 allows a further D6 to be rolled and added to the total.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Chainaxe" hidden="false" id="gear-chainaxe">
+      <rules><rule name="Chainaxe" id="rule-chainaxe" hidden="false"><description>Attacks count as normal close combat attacks, except the maximum Armour Save that may be taken against a wound caused by this weapon is 4+.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Combi-Flamer" hidden="false" id="gear-combi-flamer">
+      <profiles>
+        <profile name="Combi-Flamer (Bolter)" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-combi-flamer-bolter"><characteristics>
+          <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire</characteristic>
+        </characteristics></profile>
+        <profile name="Combi-Flamer (Flamer)" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-combi-flamer-secondary"><characteristics>
+          <characteristic name="Range" typeId="ranged-range">Template</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Assault 1, One Use</characteristic>
+        </characteristics></profile>
+      </profiles>
+      <rules><rule name="Combi-Weapon" id="rule-combi-flamer" hidden="false"><description>The bolter component may be fired any number of times. The flamer component may be fired once per battle. The two components may not be fired at the same time.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Combi-Grenade Launcher" hidden="false" id="gear-combi-grenade">
+      <profiles>
+        <profile name="Combi-Grenade Launcher (Bolter)" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-combi-grenade-bolter"><characteristics>
+          <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire</characteristic>
+        </characteristics></profile>
+        <profile name="Grenade Launcher (Frag)" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-grenade-frag"><characteristics>
+          <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">3</characteristic><characteristic name="AP" typeId="ranged-ap">6</characteristic><characteristic name="Type" typeId="ranged-type">Assault 1, Blast, One Use</characteristic>
+        </characteristics></profile>
+        <profile name="Grenade Launcher (Krak)" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-grenade-krak"><characteristics>
+          <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">6</characteristic><characteristic name="AP" typeId="ranged-ap">4</characteristic><characteristic name="Type" typeId="ranged-type">Assault 1, One Use</characteristic>
+        </characteristics></profile>
+      </profiles>
+      <rules><rule name="Combi-Weapon" id="rule-combi-grenade" hidden="false"><description>The bolter component may be fired any number of times. The grenade launcher component may be fired once per battle, using either its frag or krak profile. The components may not be fired at the same time.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Combi-Plasma Gun" hidden="false" id="gear-combi-plasma">
+      <profiles>
+        <profile name="Combi-Plasma (Bolter)" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-combi-plasma-bolter"><characteristics>
+          <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire</characteristic>
+        </characteristics></profile>
+        <profile name="Combi-Plasma (Plasma Gun)" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-combi-plasma-secondary"><characteristics>
+          <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">7</characteristic><characteristic name="AP" typeId="ranged-ap">2</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire, Gets Hot, One Use</characteristic>
+        </characteristics></profile>
+      </profiles>
+      <rules><rule name="Combi-Weapon" id="rule-combi-plasma" hidden="false"><description>The bolter component may be fired any number of times. The plasma component may be fired once per battle. The two components may not be fired at the same time.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Combi-Meltagun" hidden="false" id="gear-combi-melta">
+      <profiles>
+        <profile name="Combi-Melta (Bolter)" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-combi-melta-bolter"><characteristics>
+          <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire</characteristic>
+        </characteristics></profile>
+        <profile name="Combi-Melta (Meltagun)" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-combi-melta-secondary"><characteristics>
+          <characteristic name="Range" typeId="ranged-range">12&quot;</characteristic><characteristic name="S" typeId="ranged-s">8</characteristic><characteristic name="AP" typeId="ranged-ap">1</characteristic><characteristic name="Type" typeId="ranged-type">Assault 1, Melta, One Use</characteristic>
+        </characteristics></profile>
+      </profiles>
+      <rules><rule name="Combi-Weapon" id="rule-combi-melta" hidden="false"><description>The bolter component may be fired any number of times. The meltagun component may be fired once per battle. The two components may not be fired at the same time. Melta rolls 2D6 for armour penetration at half range or less.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Auspex" hidden="false" id="gear-auspex">
+      <rules><rule name="Auspex" id="rule-auspex" hidden="false"><description>If enemy Infiltrators set up within 4D6&quot; of the bearer, the bearer may take a free shot at them before the battle begins; if the bearer is in a unit, the whole unit may shoot. Normal shooting rules apply.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Bionics" hidden="false" id="gear-bionics">
+      <rules><rule name="Bionics" id="rule-bionics" hidden="false"><description>If the model is killed, place it on its side. At the start of the next turn, on a D6 roll of 6 it stands back up with 1 Wound; otherwise remove it. If the entire unit is wiped out at once this does not apply, except for Independent Characters.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Iron Halo" hidden="false" id="gear-iron-halo">
+      <constraints><constraint type="max" value="1" field="selections" scope="roster" shared="true" id="iron-halo-roster-max" includeChildSelections="true" includeChildForces="true"/></constraints>
+      <rules><rule name="Iron Halo" id="rule-iron-halo" hidden="false"><description>Confers a 4+ Invulnerable Save.</description></rule></rules>
     </selectionEntry>
 
     <selectionEntry type="upgrade" import="true" name="Refractor Field" hidden="false" id="gear-refractor">
-      <costs><cost name="Points" typeId="pts" value="15"/></costs>
       <rules><rule name="Refractor Field" id="rule-refractor" hidden="false"><description>Confers a 5+ Invulnerable Save.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Master-Crafted Weapon" hidden="false" id="gear-master-crafted">
+      <rules><rule name="Master-Crafted Weapon" id="rule-master-crafted" hidden="false"><description>Choose a weapon already carried by the model. It follows its normal rules, but the model may re-roll one failed roll to hit per turn with that weapon. Grenades may not be master-crafted.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Melta Bombs" hidden="false" id="gear-melta-bombs">
+      <rules><rule name="Melta Bombs" id="rule-melta-bombs" hidden="false"><description>A model may exchange all normal melee attacks for ONE melta bomb attack against a vehicle, rolled to hit normally. Armour penetration is Strength 8 + 2D6. Grenade attacks against a non-immobilised Walker only hit on a 6+.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Purity Seals" hidden="false" id="gear-purity-seals">
+      <rules><rule name="Purity Seals" id="rule-purity-seals" hidden="false"><description>If the bearer falls back, roll one extra D6 for the fall back distance and choose which dice results to use. If the bearer is part of a unit, this benefit applies to the whole unit.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Teleport Homer" hidden="false" id="gear-teleport-homer">
+      <rules><rule name="Teleport Homer" id="rule-teleport-homer" hidden="false"><description>If the Deep Strike template for teleporting Terminators is centred on the bearer, the unit does not scatter. This only works for teleporting troops, not jump packs, Drop Pods or other means of transport.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Boarding Shield" hidden="false" id="gear-boarding-shield">
+      <rules><rule name="Boarding Shield" id="rule-boarding-shield" hidden="false"><description>Confers a 5+ Invulnerable Save, but always occupies one hand in close combat.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Combat Shield" hidden="false" id="gear-combat-shield">
+      <rules><rule name="Combat Shield" id="rule-combat-shield" hidden="false"><description>Confers a 6+ Invulnerable Save and allows the user to use both hands in close combat.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Metal Storm Ammunition" hidden="false" id="gear-metal-storm">
+      <profiles><profile name="Bolter — Metal Storm" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-metal-storm"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">18&quot;</characteristic><characteristic name="S" typeId="ranged-s">3</characteristic><characteristic name="AP" typeId="ranged-ap">-</characteristic><characteristic name="Type" typeId="ranged-type">Assault 2</characteristic>
+      </characteristics></profile></profiles>
+      <rules><rule name="Special Issue Ammunition" id="rule-metal-storm" hidden="false"><description>Used with a bolter or the bolter component of a combi-weapon. This replaces the normal bolter profile while this ammunition is used.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Inferno Bolts" hidden="false" id="gear-inferno-bolts">
+      <profiles><profile name="Bolter — Inferno Bolts" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-inferno-bolts"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire</characteristic>
+      </characteristics></profile></profiles>
+      <rules><rule name="Inferno Bolts" id="rule-inferno-bolts" hidden="false"><description>Re-roll failed rolls to wound, but not vehicle armour penetration rolls.</description></rule></rules>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Kraken Bolts" hidden="false" id="gear-kraken-bolts">
+      <profiles><profile name="Bolter — Kraken Bolts" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-kraken-bolts"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">30&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">4</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire</characteristic>
+      </characteristics></profile></profiles>
+    </selectionEntry>
+
+    <selectionEntry type="unit" import="true" name="Rhino" hidden="false" id="unit-rhino">
+      <categoryLinks><categoryLink targetId="cat-transport" id="rhino-category" primary="true" name="Dedicated Transport" hidden="false"/></categoryLinks>
+      <entryLinks>
+        <entryLink import="true" name="Storm Bolter" hidden="false" id="rhino-storm-bolter" type="selectionEntry" targetId="gear-storm-bolter" defaultAmount="1"/>
+      </entryLinks>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Vehicle Upgrades" id="rhino-upgrades" hidden="false">
+          <entryLinks>
+            <entryLink import="true" name="Dozer Blade" hidden="false" id="rhino-dozer" type="selectionEntry" targetId="gear-dozer"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="rhino-dozer-max"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+            <entryLink import="true" name="Extra Armour" hidden="false" id="rhino-extra-armour" type="selectionEntry" targetId="gear-extra-armour"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="rhino-extra-armour-max"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+            <entryLink import="true" name="Hunter-Killer Missile" hidden="false" id="rhino-hunter-killer" type="selectionEntry" targetId="gear-hunter-killer"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="rhino-hunter-killer-max"/></constraints><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+            <entryLink import="true" name="Pintle-Mounted Storm Bolter" hidden="false" id="rhino-pintle-storm" type="selectionEntry" targetId="gear-pintle-storm"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="rhino-pintle-storm-max"/></constraints><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+            <entryLink import="true" name="Havoc Missile Launcher" hidden="false" id="rhino-havoc" type="selectionEntry" targetId="gear-havoc"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="rhino-havoc-max"/></constraints><costs><cost name="Points" typeId="pts" value="20"/></costs></entryLink>
+            <entryLink import="true" name="Searchlight" hidden="false" id="rhino-searchlight" type="selectionEntry" targetId="gear-searchlight"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="rhino-searchlight-max"/></constraints><costs><cost name="Points" typeId="pts" value="1"/></costs></entryLink>
+            <entryLink import="true" name="Smoke Launchers" hidden="false" id="rhino-smoke" type="selectionEntry" targetId="gear-smoke"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="rhino-smoke-max"/></constraints><costs><cost name="Points" typeId="pts" value="3"/></costs></entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+      <profiles>
+        <profile name="Rhino" typeId="prof-vehicle" typeName="Vehicle" hidden="false" id="prof-rhino"><characteristics>
+          <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+          <characteristic name="Front" typeId="vehicle-front">11</characteristic>
+          <characteristic name="Side" typeId="vehicle-side">11</characteristic>
+          <characteristic name="Rear" typeId="vehicle-rear">10</characteristic>
+        </characteristics></profile>
+      </profiles>
+      <rules>
+        <rule name="Type" id="rule-rhino-type" hidden="false"><description>Tank. Crew: Space Marines.</description></rule>
+        <rule name="Transport" id="rule-rhino-transport" hidden="false"><description>Transport Capacity: 10 Space Marines. May not carry Terminators.</description></rule>
+      </rules>
+      <costs><cost name="Points" typeId="pts" value="50"/></costs>
+    </selectionEntry>
+
+    <selectionEntry type="upgrade" import="true" name="Dozer Blade" hidden="false" id="gear-dozer">
+      <rules><rule name="Dozer Blade" id="rule-dozer" hidden="false"><description>A vehicle equipped with a dozer blade may re-roll a failed Difficult Terrain test as long as it is not going to move more than 6&quot; that turn.</description></rule></rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Extra Armour" hidden="false" id="gear-extra-armour">
+      <rules><rule name="Extra Armour" id="rule-extra-armour" hidden="false"><description>Crew Stunned results are treated as Crew Shaken instead.</description></rule></rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Hunter-Killer Missile" hidden="false" id="gear-hunter-killer">
+      <profiles><profile name="Hunter-Killer Missile" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-hunter-killer"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">Unlimited</characteristic><characteristic name="S" typeId="ranged-s">8</characteristic><characteristic name="AP" typeId="ranged-ap">3</characteristic><characteristic name="Type" typeId="ranged-type">Heavy 1, One Use</characteristic>
+      </characteristics></profile></profiles>
+      <rules><rule name="Hunter-Killer Missile" id="rule-hunter-killer" hidden="false"><description>Treated as a krak missile with unlimited range and may only be used once per battle.</description></rule></rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Pintle-Mounted Storm Bolter" hidden="false" id="gear-pintle-storm">
+      <profiles><profile name="Pintle-Mounted Storm Bolter" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-pintle-storm"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">24&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Assault 2</characteristic>
+      </characteristics></profile></profiles>
+      <rules><rule name="Pintle-Mounted Storm Bolter" id="rule-pintle-storm" hidden="false"><description>Counts as an extra storm bolter that can be fired in addition to the vehicle&apos;s other eligible weapons.</description></rule></rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Havoc Missile Launcher" hidden="false" id="gear-havoc">
+      <profiles><profile name="Havoc Missile Launcher" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-havoc"><characteristics>
+        <characteristic name="Range" typeId="ranged-range">48&quot;</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Heavy 2, Blast</characteristic>
+      </characteristics></profile></profiles>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Searchlight" hidden="false" id="gear-searchlight">
+      <rules><rule name="Searchlight" id="rule-searchlight" hidden="false"><description>In Night Fight conditions, a vehicle may illuminate a spotted enemy unit so friendly units may fire at it normally; the vehicle can then be seen and fired at in return.</description></rule></rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Smoke Launchers" hidden="false" id="gear-smoke">
+      <rules><rule name="Smoke Launchers" id="rule-smoke" hidden="false"><description>Once per game, after moving, the vehicle may activate smoke instead of shooting. Until its next turn, penetrating hits against it count as glancing hits.</description></rule></rules>
     </selectionEntry>
   </sharedSelectionEntries>
 </catalogue>
