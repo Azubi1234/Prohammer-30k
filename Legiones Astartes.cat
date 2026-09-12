@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="17" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="7" type="catalogue">
-  <comment>Revision 17: Cleaned the Elites transport selectors: Veteran, Terminator and Destroyer squads now each show only their own legal transport options once, while continuing to reuse the shared transport entries.</comment>
-  <readme>Core Troops and Elites entries follow the current Legiones Astartes Army List. Shared weapons and transports are reused through links rather than duplicated. Unit-specific replacements take precedence over generic Armoury access, squad-wide upgrades suppress redundant character purchases where practical, and items may not be selected more than once unless specifically permitted.</readme>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="18" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="7" type="catalogue">
+  <comment>Revision 18: Added the complete core Fast Attack section: Legion Seekers, Bikes, Sky Hunters, Attack Bikes, Land Speeders and Javelin Attack Speeders, using shared weapon/transport links and source-accurate points and options.</comment>
+  <readme>Core Troops, Elites and Fast Attack entries follow the current Legiones Astartes Army List. Shared weapons and transports are reused through links rather than duplicated. Unit-specific replacements take precedence over generic Armoury access, squad-wide upgrades suppress redundant character purchases where practical, and items may not be selected more than once unless specifically permitted.</readme>
   <sharedSelectionEntries>
     <selectionEntry type="upgrade" import="true" name="Bolter" hidden="false" id="gear-bolter">
       <profiles>
@@ -1262,6 +1262,123 @@
           <description>A Dreadnought may charge during a turn in which it disembarks from this Drop Pod, but may not charge during the same turn in which the Drop Pod itself arrived by Deep Strike.</description>
         </rule>
       </rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" name="M.40 Targeter and Stalker Bolter" hidden="false" id="fa-gear-stalker" import="true">
+      <profiles>
+        <profile name="M.40 Targeter and Stalker Bolter" id="fa-gear-stalker-prof-0" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">24"</characteristic>
+            <characteristic name="S" typeId="ranged-s">4</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">5</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Heavy 2, Pinning</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+    <selectionEntry type="upgrade" name="Heavy Bolter with Suspensor and Hellfire Rounds" hidden="false" id="fa-gear-seeker-hb" import="true">
+      <profiles>
+        <profile name="Heavy Bolter - Suspensor Fire" id="fa-gear-seeker-hb-prof-0" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">18"</characteristic>
+            <characteristic name="S" typeId="ranged-s">5</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">4</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Assault 3</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Heavy Bolter - Hellfire Round" id="fa-gear-seeker-hb-prof-1" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">36"</characteristic>
+            <characteristic name="S" typeId="ranged-s">5</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">4</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Heavy 1, Blast, Hellfire</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <rules>
+        <rule name="Hellfire" id="fa-gear-seeker-hb-rule-0" hidden="false">
+          <description>Hellfire attacks wound non-vehicle targets on a 2+ unless a better roll would normally be required; resolve other effects normally.</description>
+        </rule>
+      </rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" name="Twin-linked Flamer" hidden="false" id="fa-gear-tl-flamer" import="true">
+      <profiles>
+        <profile name="Twin-linked Flamer" id="fa-gear-tl-flamer-prof-0" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">Template</characteristic>
+            <characteristic name="S" typeId="ranged-s">4</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">5</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Assault 1, Twin-linked</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+    <selectionEntry type="upgrade" name="Twin-linked Meltagun" hidden="false" id="fa-gear-tl-melta" import="true">
+      <profiles>
+        <profile name="Twin-linked Meltagun" id="fa-gear-tl-melta-prof-0" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">12"</characteristic>
+            <characteristic name="S" typeId="ranged-s">8</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">1</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Assault 1, Melta, Twin-linked</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+    <selectionEntry type="upgrade" name="Twin-linked Plasma Gun" hidden="false" id="fa-gear-tl-plasma" import="true">
+      <profiles>
+        <profile name="Twin-linked Plasma Gun" id="fa-gear-tl-plasma-prof-0" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">24"</characteristic>
+            <characteristic name="S" typeId="ranged-s">7</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">2</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Rapid Fire, Gets Hot, Twin-linked</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+    <selectionEntry type="upgrade" name="Typhoon Missile Launcher" hidden="false" id="fa-gear-typhoon" import="true">
+      <profiles>
+        <profile name="Typhoon Missile Launcher" id="fa-gear-typhoon-prof-0" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">48"</characteristic>
+            <characteristic name="S" typeId="ranged-s">5</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">5</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Heavy 1, Blast</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+    <selectionEntry type="upgrade" name="Twin-linked Cyclone Missile Launcher" hidden="false" id="fa-gear-tl-cyclone" import="true">
+      <profiles>
+        <profile name="Twin-linked Cyclone Missile Launcher - Frag" id="fa-gear-tl-cyclone-prof-0" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">48"</characteristic>
+            <characteristic name="S" typeId="ranged-s">4</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">6</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Heavy 2, Blast, Twin-linked</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Twin-linked Cyclone Missile Launcher - Krak" id="fa-gear-tl-cyclone-prof-1" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">48"</characteristic>
+            <characteristic name="S" typeId="ranged-s">8</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">3</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Heavy 2, Twin-linked</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+    <selectionEntry type="upgrade" name="Twin-linked Lascannon" hidden="false" id="fa-gear-tl-las" import="true">
+      <profiles>
+        <profile name="Twin-linked Lascannon" id="fa-gear-tl-las-prof-0" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">48"</characteristic>
+            <characteristic name="S" typeId="ranged-s">9</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">2</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Heavy 1, Twin-linked</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
     </selectionEntry>
   </sharedSelectionEntries>
   <selectionEntries>
@@ -3849,7 +3966,7 @@
                 <constraint id="veteran-tr-dc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
               </constraints>
             </entryLink>
-            </entryLinks>
+          </entryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -3861,7 +3978,7 @@
                 <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="veteran-jump-packs" shared="true" includeChildSelections="true" />
               </conditions>
             </modifier>
-            </modifiers>
+          </modifiers>
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>
@@ -4339,7 +4456,31 @@
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntryGroup>
-      <selectionEntryGroup name="Dedicated Transport" id="terminator-transport" hidden="false"><constraints><constraint id="terminator-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" /></constraints><entryLinks><entryLink import="true" name="Dreadclaw Drop Pod" hidden="false" id="terminator-tr-dc" type="selectionEntry" targetId="transport-dreadclaw"><constraints><constraint id="terminator-tr-dc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints></entryLink></entryLinks><modifiers><modifier type="set" value="true" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="root-entry" childId="terminator-additional" shared="true" includeChildSelections="true" /></conditions></modifier><modifier type="set" value="0" field="terminator-transport-max"><conditions><condition type="atLeast" value="1" field="selections" scope="root-entry" childId="terminator-additional" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup></selectionEntryGroups>
+        <selectionEntryGroup name="Dedicated Transport" id="terminator-transport" hidden="false">
+          <constraints>
+            <constraint id="terminator-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Dreadclaw Drop Pod" hidden="false" id="terminator-tr-dc" type="selectionEntry" targetId="transport-dreadclaw">
+              <constraints>
+                <constraint id="terminator-tr-dc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+            </entryLink>
+          </entryLinks>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="terminator-additional" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="0" field="terminator-transport-max">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="terminator-additional" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Legion Destroyer Squad" hidden="false" id="destroyer-unit">
       <categoryLinks>
@@ -4762,7 +4903,41 @@
             </entryLink>
           </entryLinks>
         </selectionEntryGroup>
-      <selectionEntryGroup name="Dedicated Transport" id="destroyer-transport" hidden="false"><constraints><constraint id="destroyer-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" /></constraints><entryLinks><entryLink import="true" name="Rhino" hidden="false" id="destroyer-tr-rhino" type="selectionEntry" targetId="transport-rhino"><constraints><constraint id="destroyer-tr-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints></entryLink><entryLink import="true" name="Drop Pod" hidden="false" id="destroyer-tr-pod" type="selectionEntry" targetId="transport-drop-pod"><constraints><constraint id="destroyer-tr-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints></entryLink><entryLink import="true" name="Dreadclaw Drop Pod" hidden="false" id="destroyer-tr-dc" type="selectionEntry" targetId="transport-dreadclaw"><constraints><constraint id="destroyer-tr-dc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints></entryLink></entryLinks><modifiers><modifier type="set" value="true" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="root-entry" childId="destroyer-jump-packs" shared="true" includeChildSelections="true" /></conditions></modifier><modifier type="set" value="0" field="destroyer-transport-max"><conditions><condition type="atLeast" value="1" field="selections" scope="root-entry" childId="destroyer-jump-packs" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup></selectionEntryGroups>
+        <selectionEntryGroup name="Dedicated Transport" id="destroyer-transport" hidden="false">
+          <constraints>
+            <constraint id="destroyer-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Rhino" hidden="false" id="destroyer-tr-rhino" type="selectionEntry" targetId="transport-rhino">
+              <constraints>
+                <constraint id="destroyer-tr-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+            </entryLink>
+            <entryLink import="true" name="Drop Pod" hidden="false" id="destroyer-tr-pod" type="selectionEntry" targetId="transport-drop-pod">
+              <constraints>
+                <constraint id="destroyer-tr-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+            </entryLink>
+            <entryLink import="true" name="Dreadclaw Drop Pod" hidden="false" id="destroyer-tr-dc" type="selectionEntry" targetId="transport-dreadclaw">
+              <constraints>
+                <constraint id="destroyer-tr-dc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+            </entryLink>
+          </entryLinks>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="destroyer-jump-packs" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="0" field="destroyer-transport-max">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="destroyer-jump-packs" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Techmarine Covenant" hidden="false" id="techmarine-covenant">
       <categoryLinks>
@@ -8315,6 +8490,1903 @@
               </rules>
             </selectionEntry>
           </selectionEntries>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+    </selectionEntry>
+    <selectionEntry type="unit" name="Legion Seeker Squad" hidden="false" id="fa-seeker" import="true">
+      <categoryLinks>
+        <categoryLink targetId="cat-fast" id="fa-seeker-cat" primary="true" name="Fast Attack" hidden="false" />
+      </categoryLinks>
+      <costs>
+        <cost name="Points" typeId="pts" value="155" />
+      </costs>
+      <selectionEntries>
+        <selectionEntry type="model" name="Legion Seekers (included)" hidden="false" id="fa-seeker-included" import="true" defaultAmount="4">
+          <constraints>
+            <constraint id="fa-seeker-included-min" type="min" value="4" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+            <constraint id="fa-seeker-included-max" type="max" value="4" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+          </constraints>
+          <profiles>
+            <profile name="Legion Seekers (included)" id="fa-seeker-included-prof" typeId="prof-model" typeName="Model" hidden="false">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">5</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">1</characteristic>
+                <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+        <selectionEntry type="model" name="Legion Seeker Sergeant" hidden="false" id="fa-seeker-sgt" import="true" defaultAmount="1">
+          <constraints>
+            <constraint id="fa-seeker-sgt-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+            <constraint id="fa-seeker-sgt-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+          </constraints>
+          <profiles>
+            <profile name="Legion Seeker Sergeant" id="fa-seeker-sgt-prof" typeId="prof-model" typeName="Model" hidden="false">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">5</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+        <selectionEntry type="model" name="Additional Legion Seeker" hidden="false" id="fa-seeker-add" import="true">
+          <constraints>
+            <constraint id="fa-seeker-add-max" type="max" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+          </constraints>
+          <costs>
+            <cost name="Points" typeId="pts" value="20" />
+          </costs>
+          <profiles>
+            <profile name="Additional Legion Seeker" id="fa-seeker-add-prof" typeId="prof-model" typeName="Model" hidden="false">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">5</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">1</characteristic>
+                <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+      </selectionEntries>
+      <rules>
+        <rule name="Standard Wargear" id="fa-seeker-std" hidden="false">
+          <description>Power Armour; Bolter; Bolt Pistol; Frag Grenades; Special Issue Ammunition.</description>
+        </rule>
+        <rule name="Legiones Astartes" id="fa-seeker-la" hidden="false">
+          <description>Legiones Astartes; also has And They Shall Know No Fear as presented in ProHammer Classic and is not Fearless.</description>
+        </rule>
+        <rule name="Infiltrate &amp; Move Through Cover" id="fa-seeker-move" hidden="false">
+          <description>The squad has Infiltrate and Move Through Cover as defined in ProHammer Classic.</description>
+        </rule>
+        <rule name="Marked for Death" id="fa-seeker-mark" hidden="false">
+          <description>After deployment, nominate one enemy unit for each Legion Seeker Squad. Against its nominated target, the squad re-rolls To Hit rolls of 1 and To Wound rolls of 1; against vehicles it re-rolls Armour Penetration rolls of 1 instead of To Wound rolls. If the target is destroyed, no new target is selected.</description>
+        </rule>
+        <rule name="Special Issue Ammunition" id="fa-seeker-ammo-rule" hidden="false">
+          <description>Whenever the squad fires Bolters, Foeblaster Boltguns or the bolter component of Combi-weapons, choose one ammunition type for all eligible models: Dragonfire, Hellfire, Kraken or Vengeance. Use the profiles shown below.</description>
+        </rule>
+      </rules>
+      <profiles>
+        <profile name="Dragonfire Bolts" id="fa-seeker-ammo-0" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">24"</characteristic>
+            <characteristic name="S" typeId="ranged-s">4</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">5</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Rapid Fire, Ignores Cover</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Hellfire Bolts" id="fa-seeker-ammo-1" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">24"</characteristic>
+            <characteristic name="S" typeId="ranged-s">X</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">5</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Rapid Fire, Poisoned (2+)</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Kraken Bolts" id="fa-seeker-ammo-2" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">30"</characteristic>
+            <characteristic name="S" typeId="ranged-s">4</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">4</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Rapid Fire</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Vengeance Rounds" id="fa-seeker-ammo-3" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false">
+          <characteristics>
+            <characteristic name="Range" typeId="ranged-range">18"</characteristic>
+            <characteristic name="S" typeId="ranged-s">4</characteristic>
+            <characteristic name="AP" typeId="ranged-ap">3</characteristic>
+            <characteristic name="Type" typeId="ranged-type">Rapid Fire, Gets Hot</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Bolter Replacements" id="fa-seeker-bolter-repl" hidden="false">
+          <constraints>
+            <constraint id="fa-seeker-bolter-repl-max" type="max" value="4" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="5" field="fa-seeker-bolter-repl-max">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-seeker-add" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="6" field="fa-seeker-bolter-repl-max">
+              <conditions>
+                <condition type="atLeast" value="2" field="selections" scope="root-entry" childId="fa-seeker-add" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="7" field="fa-seeker-bolter-repl-max">
+              <conditions>
+                <condition type="atLeast" value="3" field="selections" scope="root-entry" childId="fa-seeker-add" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="8" field="fa-seeker-bolter-repl-max">
+              <conditions>
+                <condition type="atLeast" value="4" field="selections" scope="root-entry" childId="fa-seeker-add" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="9" field="fa-seeker-bolter-repl-max">
+              <conditions>
+                <condition type="atLeast" value="5" field="selections" scope="root-entry" childId="fa-seeker-add" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <entryLinks>
+            <entryLink name="Combi-Flamer (replaces Bolter)" hidden="false" id="fa-seeker-cf" type="selectionEntry" targetId="gear-combi-flamer" import="true">
+              <constraints>
+                <constraint id="fa-seeker-cf-max" type="max" value="9" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="5" />
+              </costs>
+            </entryLink>
+            <entryLink name="Combi-Volkite (replaces Bolter)" hidden="false" id="fa-seeker-cv" type="selectionEntry" targetId="gear-combi-volkite" import="true">
+              <constraints>
+                <constraint id="fa-seeker-cv-max" type="max" value="9" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="5" />
+              </costs>
+            </entryLink>
+            <entryLink name="Combi-Meltagun (replaces Bolter)" hidden="false" id="fa-seeker-cm" type="selectionEntry" targetId="gear-combi-melta" import="true">
+              <constraints>
+                <constraint id="fa-seeker-cm-max" type="max" value="9" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+            <entryLink name="Combi-Plasma Gun (replaces Bolter)" hidden="false" id="fa-seeker-cp" type="selectionEntry" targetId="gear-combi-plasma" import="true">
+              <constraints>
+                <constraint id="fa-seeker-cp-max" type="max" value="9" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+          <selectionEntryGroups>
+            <selectionEntryGroup name="Special Weapons (maximum two)" id="fa-seeker-special" hidden="false">
+              <constraints>
+                <constraint id="fa-seeker-special-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+              </constraints>
+              <entryLinks>
+                <entryLink name="Flamer (replaces Bolter)" hidden="false" id="fa-seeker-sp-fl" type="selectionEntry" targetId="gear-flamer" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sp-fl-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Meltagun (replaces Bolter)" hidden="false" id="fa-seeker-sp-me" type="selectionEntry" targetId="gear-meltagun" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sp-me-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Plasma Gun (replaces Bolter)" hidden="false" id="fa-seeker-sp-pg" type="selectionEntry" targetId="gear-plasma-gun" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sp-pg-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="12" />
+                  </costs>
+                </entryLink>
+                <entryLink name="M.40 Targeter and Stalker Bolter (replaces Bolter)" hidden="false" id="fa-seeker-sp-m40" type="selectionEntry" targetId="fa-gear-stalker" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sp-m40-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Heavy Bolter with Suspensor and Hellfire Rounds (replaces Bolter)" hidden="false" id="fa-seeker-sp-hb" type="selectionEntry" targetId="fa-gear-seeker-hb" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sp-hb-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Volkite Charger (replaces Bolter)" hidden="false" id="fa-seeker-sp-vc" type="selectionEntry" targetId="gear-volkite-charger" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sp-vc-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Volkite Caliver (replaces Bolter)" hidden="false" id="fa-seeker-sp-vcal" type="selectionEntry" targetId="gear-volkite-caliver" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sp-vcal-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+              </entryLinks>
+            </selectionEntryGroup>
+          </selectionEntryGroups>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Squad Equipment" id="fa-seeker-eq" hidden="false">
+          <constraints>
+            <constraint id="fa-seeker-eq-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <entryLinks>
+            <entryLink name="Nuncio Vox" hidden="false" id="fa-seeker-nuncio" type="selectionEntry" targetId="gear-nuncio" import="true">
+              <constraints>
+                <constraint id="fa-seeker-nuncio-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Squad-wide Equipment" id="fa-seeker-squad" hidden="false">
+          <entryLinks>
+            <entryLink name="Krak Grenades (+2 pts/model)" hidden="false" id="fa-seeker-krak" type="selectionEntry" targetId="gear-krak" import="true">
+              <constraints>
+                <constraint id="fa-seeker-krak-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+              <modifiers>
+                <modifier type="increment" value="2" field="pts">
+                  <repeats>
+                    <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="fa-seeker-add" shared="true" roundUp="false" includeChildSelections="false" />
+                  </repeats>
+                </modifier>
+              </modifiers>
+            </entryLink>
+            <entryLink name="Melta Bombs (+5 pts/model)" hidden="false" id="fa-seeker-melta" type="selectionEntry" targetId="gear-melta-bombs" import="true">
+              <constraints>
+                <constraint id="fa-seeker-melta-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="25" />
+              </costs>
+              <modifiers>
+                <modifier type="increment" value="5" field="pts">
+                  <repeats>
+                    <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="fa-seeker-add" shared="true" roundUp="false" includeChildSelections="false" />
+                  </repeats>
+                </modifier>
+              </modifiers>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Legion Seeker Sergeant" id="fa-seeker-sergeant" hidden="false">
+          <selectionEntryGroups>
+            <selectionEntryGroup name="Sergeant Bolt Pistol Replacement" id="fa-seeker-sgtw-pistol" hidden="false">
+              <constraints>
+                <constraint id="fa-seeker-sgtw-pistol-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+              </constraints>
+              <entryLinks>
+                <entryLink name="Volkite Serpenta" hidden="false" id="fa-seeker-sgtw-vs" type="selectionEntry" targetId="gear-volkite-serpenta" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgtw-vs-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Hand Flamer" hidden="false" id="fa-seeker-sgtw-hf" type="selectionEntry" targetId="gear-hand-flamer" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgtw-hf-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Plasma Pistol" hidden="false" id="fa-seeker-sgtw-pp" type="selectionEntry" targetId="gear-plasma-pistol" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgtw-pp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+              </entryLinks>
+            </selectionEntryGroup>
+            <selectionEntryGroup name="Sergeant Melee Weapon" id="fa-seeker-sgtw-melee" hidden="false">
+              <constraints>
+                <constraint id="fa-seeker-sgtw-melee-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+              </constraints>
+              <entryLinks>
+                <entryLink name="Power Weapon" hidden="false" id="fa-seeker-sgtw-pw" type="selectionEntry" targetId="gear-power-weapon" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgtw-pw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Lightning Claw" hidden="false" id="fa-seeker-sgtw-lc" type="selectionEntry" targetId="gear-lightning-claw" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgtw-lc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Power Fist" hidden="false" id="fa-seeker-sgtw-pf" type="selectionEntry" targetId="gear-power-fist" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgtw-pf-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+              </entryLinks>
+            </selectionEntryGroup>
+            <selectionEntryGroup name="Additional Sergeant Armoury (max 50 pts)" id="fa-seeker-sgt-armoury" hidden="false">
+              <constraints>
+                <constraint id="fa-seeker-sgt-armoury-pts-max" type="max" value="50" field="pts" scope="parent" shared="true" includeChildSelections="true" />
+              </constraints>
+              <entryLinks>
+                <entryLink name="Pair of Lightning Claws" hidden="false" id="fa-seeker-sgt-arm-pair-lightning-claws" type="selectionEntry" targetId="gear-pair-lightning-claws" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-pair-lightning-claws-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="30" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Rending Weapon" hidden="false" id="fa-seeker-sgt-arm-rending" type="selectionEntry" targetId="gear-rending" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-rending-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Thunder Hammer" hidden="false" id="fa-seeker-sgt-arm-thunder" type="selectionEntry" targetId="gear-thunder" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-thunder-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="30" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Bolter" hidden="false" id="fa-seeker-sgt-arm-combi-bolter" type="selectionEntry" targetId="gear-combi-bolter" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-combi-bolter-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Flamer" hidden="false" id="fa-seeker-sgt-arm-combi-flamer" type="selectionEntry" targetId="gear-combi-flamer" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-combi-flamer-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Grenade Launcher" hidden="false" id="fa-seeker-sgt-arm-combi-grenade" type="selectionEntry" targetId="gear-combi-grenade" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-combi-grenade-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Meltagun" hidden="false" id="fa-seeker-sgt-arm-combi-melta" type="selectionEntry" targetId="gear-combi-melta" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-combi-melta-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Plasma Gun" hidden="false" id="fa-seeker-sgt-arm-combi-plasma" type="selectionEntry" targetId="gear-combi-plasma" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-combi-plasma-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Volkite Charger" hidden="false" id="fa-seeker-sgt-arm-combi-volkite" type="selectionEntry" targetId="gear-combi-volkite" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-combi-volkite-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Storm Bolter" hidden="false" id="fa-seeker-sgt-arm-storm-bolter" type="selectionEntry" targetId="gear-storm-bolter" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-storm-bolter-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combat Shield" hidden="false" id="fa-seeker-sgt-arm-combat-shield" type="selectionEntry" targetId="gear-combat-shield" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-combat-shield-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Auspex" hidden="false" id="fa-seeker-sgt-arm-auspex" type="selectionEntry" targetId="gear-auspex" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-auspex-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="2" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Bionics" hidden="false" id="fa-seeker-sgt-arm-bionics" type="selectionEntry" targetId="gear-bionics" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-bionics-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Purity Seals" hidden="false" id="fa-seeker-sgt-arm-purity" type="selectionEntry" targetId="gear-purity" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-purity-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Teleport Homer" hidden="false" id="fa-seeker-sgt-arm-homer" type="selectionEntry" targetId="gear-homer" import="true">
+                  <constraints>
+                    <constraint id="fa-seeker-sgt-arm-homer-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+              </entryLinks>
+              <rules>
+                <rule name="Sergeant Armoury Restrictions" id="fa-seeker-sgt-arm-rule" hidden="false">
+                  <description>Up to 50 points of permitted additional Space Marine Armoury equipment. Standard wargear and unit-specific options are not repeated here. No item may be selected more than once unless specifically permitted; normal Armoury weapon limits still apply.</description>
+                </rule>
+              </rules>
+            </selectionEntryGroup>
+          </selectionEntryGroups>
+          <entryLinks>
+            <entryLink name="Melta Bombs" hidden="false" id="fa-seeker-sgt-melta" type="selectionEntry" targetId="gear-melta-bombs" import="true">
+              <constraints>
+                <constraint id="fa-seeker-sgt-melta-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="5" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Dedicated Transport" id="fa-seeker-transport" hidden="false">
+          <constraints>
+            <constraint id="fa-seeker-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <entryLinks>
+            <entryLink name="Rhino" hidden="false" id="fa-seeker-rhino" type="selectionEntry" targetId="transport-rhino" import="true">
+              <constraints>
+                <constraint id="fa-seeker-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+            </entryLink>
+            <entryLink name="Drop Pod" hidden="false" id="fa-seeker-pod" type="selectionEntry" targetId="transport-drop-pod" import="true">
+              <constraints>
+                <constraint id="fa-seeker-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+            </entryLink>
+            <entryLink name="Dreadclaw Drop Pod" hidden="false" id="fa-seeker-dreadclaw" type="selectionEntry" targetId="transport-dreadclaw" import="true">
+              <constraints>
+                <constraint id="fa-seeker-dreadclaw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+    </selectionEntry>
+    <selectionEntry type="unit" name="Legion Bike Squadron" hidden="false" id="fa-bike" import="true">
+      <categoryLinks>
+        <categoryLink targetId="cat-fast" id="fa-bike-cat" primary="true" name="Fast Attack" hidden="false" />
+      </categoryLinks>
+      <costs>
+        <cost name="Points" typeId="pts" value="90" />
+      </costs>
+      <selectionEntries>
+        <selectionEntry type="model" name="Legion Bikers (included)" hidden="false" id="fa-bike-included" import="true" defaultAmount="2">
+          <constraints>
+            <constraint id="fa-bike-included-min" type="min" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+            <constraint id="fa-bike-included-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+          </constraints>
+          <profiles>
+            <profile name="Legion Bikers (included)" id="fa-bike-included-prof" typeId="prof-model" typeName="Model" hidden="false">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">5</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">1</characteristic>
+                <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+        <selectionEntry type="model" name="Legion Biker Sergeant" hidden="false" id="fa-bike-sgt" import="true" defaultAmount="1">
+          <constraints>
+            <constraint id="fa-bike-sgt-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+            <constraint id="fa-bike-sgt-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+          </constraints>
+          <profiles>
+            <profile name="Legion Biker Sergeant" id="fa-bike-sgt-prof" typeId="prof-model" typeName="Model" hidden="false">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">5</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+        <selectionEntry type="model" name="Additional Legion Biker" hidden="false" id="fa-bike-add" import="true">
+          <constraints>
+            <constraint id="fa-bike-add-max" type="max" value="7" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+          </constraints>
+          <costs>
+            <cost name="Points" typeId="pts" value="30" />
+          </costs>
+          <profiles>
+            <profile name="Additional Legion Biker" id="fa-bike-add-prof" typeId="prof-model" typeName="Model" hidden="false">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">5</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">1</characteristic>
+                <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+      </selectionEntries>
+      <rules>
+        <rule name="Standard Wargear" id="fa-bike-std" hidden="false">
+          <description>Power Armour; Space Marine Bike with Twin-linked Bolters; Bolt Pistol; Chainsword; Frag Grenades.</description>
+        </rule>
+        <rule name="Legiones Astartes" id="fa-bike-la" hidden="false">
+          <description>Legiones Astartes; also has And They Shall Know No Fear as presented in ProHammer Classic and is not Fearless.</description>
+        </rule>
+      </rules>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Squad-wide Equipment" id="fa-bike-squad" hidden="false">
+          <entryLinks>
+            <entryLink name="Krak Grenades (+2 pts/model)" hidden="false" id="fa-bike-krak" type="selectionEntry" targetId="gear-krak" import="true">
+              <constraints>
+                <constraint id="fa-bike-krak-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="6" />
+              </costs>
+              <modifiers>
+                <modifier type="increment" value="2" field="pts">
+                  <repeats>
+                    <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="fa-bike-add" shared="true" roundUp="false" includeChildSelections="false" />
+                  </repeats>
+                </modifier>
+              </modifiers>
+            </entryLink>
+            <entryLink name="Melta Bombs (+5 pts/model)" hidden="false" id="fa-bike-melta" type="selectionEntry" targetId="gear-melta-bombs" import="true">
+              <constraints>
+                <constraint id="fa-bike-melta-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="15" />
+              </costs>
+              <modifiers>
+                <modifier type="increment" value="5" field="pts">
+                  <repeats>
+                    <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="fa-bike-add" shared="true" roundUp="false" includeChildSelections="false" />
+                  </repeats>
+                </modifier>
+              </modifiers>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Special Weapons — up to two Bikers replace Bolt Pistols" id="fa-bike-special" hidden="false">
+          <constraints>
+            <constraint id="fa-bike-special-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <entryLinks>
+            <entryLink name="Flamer" hidden="false" id="fa-bike-sp-f" type="selectionEntry" targetId="gear-flamer" import="true">
+              <constraints>
+                <constraint id="fa-bike-sp-f-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="5" />
+              </costs>
+            </entryLink>
+            <entryLink name="Meltagun" hidden="false" id="fa-bike-sp-m" type="selectionEntry" targetId="gear-meltagun" import="true">
+              <constraints>
+                <constraint id="fa-bike-sp-m-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+            <entryLink name="Plasma Gun" hidden="false" id="fa-bike-sp-p" type="selectionEntry" targetId="gear-plasma-gun" import="true">
+              <constraints>
+                <constraint id="fa-bike-sp-p-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="15" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Bike Weapons — entire squad" id="fa-bike-mounted" hidden="false">
+          <constraints>
+            <constraint id="fa-bike-mounted-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <entryLinks>
+            <entryLink name="Twin-linked Flamers (+10 pts/model)" hidden="false" id="fa-bike-tlf" type="selectionEntry" targetId="fa-gear-tl-flamer" import="true">
+              <constraints>
+                <constraint id="fa-bike-tlf-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="30" />
+              </costs>
+              <modifiers>
+                <modifier type="increment" value="10" field="pts">
+                  <repeats>
+                    <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="fa-bike-add" shared="true" roundUp="false" includeChildSelections="false" />
+                  </repeats>
+                </modifier>
+              </modifiers>
+            </entryLink>
+            <entryLink name="Twin-linked Meltaguns (+20 pts/model)" hidden="false" id="fa-bike-tlm" type="selectionEntry" targetId="fa-gear-tl-melta" import="true">
+              <constraints>
+                <constraint id="fa-bike-tlm-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="60" />
+              </costs>
+              <modifiers>
+                <modifier type="increment" value="20" field="pts">
+                  <repeats>
+                    <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="fa-bike-add" shared="true" roundUp="false" includeChildSelections="false" />
+                  </repeats>
+                </modifier>
+              </modifiers>
+            </entryLink>
+            <entryLink name="Twin-linked Plasma Guns (+20 pts/model)" hidden="false" id="fa-bike-tlp" type="selectionEntry" targetId="fa-gear-tl-plasma" import="true">
+              <constraints>
+                <constraint id="fa-bike-tlp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="60" />
+              </costs>
+              <modifiers>
+                <modifier type="increment" value="20" field="pts">
+                  <repeats>
+                    <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="fa-bike-add" shared="true" roundUp="false" includeChildSelections="false" />
+                  </repeats>
+                </modifier>
+              </modifiers>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Squad Equipment — choose one" id="fa-bike-eq" hidden="false">
+          <constraints>
+            <constraint id="fa-bike-eq-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <entryLinks>
+            <entryLink name="Legion Vexilla" hidden="false" id="fa-bike-vex" type="selectionEntry" targetId="gear-vexilla" import="true">
+              <constraints>
+                <constraint id="fa-bike-vex-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+            <entryLink name="Nuncio Vox" hidden="false" id="fa-bike-nuncio" type="selectionEntry" targetId="gear-nuncio" import="true">
+              <constraints>
+                <constraint id="fa-bike-nuncio-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Legion Biker Sergeant" id="fa-bike-sergeant" hidden="false">
+          <selectionEntryGroups>
+            <selectionEntryGroup name="Sergeant Bolt Pistol Replacement" id="fa-bike-sgtw-pistol" hidden="false">
+              <constraints>
+                <constraint id="fa-bike-sgtw-pistol-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+              </constraints>
+              <entryLinks>
+                <entryLink name="Volkite Serpenta" hidden="false" id="fa-bike-sgtw-vs" type="selectionEntry" targetId="gear-volkite-serpenta" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgtw-vs-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Hand Flamer" hidden="false" id="fa-bike-sgtw-hf" type="selectionEntry" targetId="gear-hand-flamer" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgtw-hf-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Plasma Pistol" hidden="false" id="fa-bike-sgtw-pp" type="selectionEntry" targetId="gear-plasma-pistol" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgtw-pp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+              </entryLinks>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-bike-sgtw-pair" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="0" field="fa-bike-sgtw-pistol-max">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-bike-sgtw-pair" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntryGroup>
+            <selectionEntryGroup name="Sergeant Melee Weapon" id="fa-bike-sgtw-melee" hidden="false">
+              <constraints>
+                <constraint id="fa-bike-sgtw-melee-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+              </constraints>
+              <entryLinks>
+                <entryLink name="Rending Weapon" hidden="false" id="fa-bike-sgtw-rw" type="selectionEntry" targetId="gear-rending" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgtw-rw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Power Weapon" hidden="false" id="fa-bike-sgtw-pw" type="selectionEntry" targetId="gear-power-weapon" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgtw-pw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Lightning Claw" hidden="false" id="fa-bike-sgtw-lc" type="selectionEntry" targetId="gear-lightning-claw" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgtw-lc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Power Fist" hidden="false" id="fa-bike-sgtw-pf" type="selectionEntry" targetId="gear-power-fist" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgtw-pf-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Thunder Hammer" hidden="false" id="fa-bike-sgtw-th" type="selectionEntry" targetId="gear-thunder" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgtw-th-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="20" />
+                  </costs>
+                </entryLink>
+              </entryLinks>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-bike-sgtw-pair" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="0" field="fa-bike-sgtw-melee-max">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-bike-sgtw-pair" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntryGroup>
+            <selectionEntryGroup name="Alternative: replace Bolt Pistol and Chainsword" id="fa-bike-sgtw-pairg" hidden="false">
+              <constraints>
+                <constraint id="fa-bike-sgtw-pairg-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+              </constraints>
+              <entryLinks>
+                <entryLink name="Pair of Lightning Claws" hidden="false" id="fa-bike-sgtw-pair" type="selectionEntry" targetId="gear-pair-lightning-claws" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgtw-pair-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="20" />
+                  </costs>
+                </entryLink>
+              </entryLinks>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-bike-sgtw-pistol" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="0" field="fa-bike-sgtw-pairg-max">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-bike-sgtw-pistol" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-bike-sgtw-melee" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="0" field="fa-bike-sgtw-pairg-max">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-bike-sgtw-melee" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntryGroup>
+            <selectionEntryGroup name="Additional Sergeant Armoury (max 50 pts)" id="fa-bike-sgt-armoury" hidden="false">
+              <constraints>
+                <constraint id="fa-bike-sgt-armoury-pts-max" type="max" value="50" field="pts" scope="parent" shared="true" includeChildSelections="true" />
+              </constraints>
+              <entryLinks>
+                <entryLink name="Combi-Bolter" hidden="false" id="fa-bike-sgt-arm-combi-bolter" type="selectionEntry" targetId="gear-combi-bolter" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgt-arm-combi-bolter-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Flamer" hidden="false" id="fa-bike-sgt-arm-combi-flamer" type="selectionEntry" targetId="gear-combi-flamer" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgt-arm-combi-flamer-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Grenade Launcher" hidden="false" id="fa-bike-sgt-arm-combi-grenade" type="selectionEntry" targetId="gear-combi-grenade" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgt-arm-combi-grenade-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Meltagun" hidden="false" id="fa-bike-sgt-arm-combi-melta" type="selectionEntry" targetId="gear-combi-melta" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgt-arm-combi-melta-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Plasma Gun" hidden="false" id="fa-bike-sgt-arm-combi-plasma" type="selectionEntry" targetId="gear-combi-plasma" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgt-arm-combi-plasma-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Volkite Charger" hidden="false" id="fa-bike-sgt-arm-combi-volkite" type="selectionEntry" targetId="gear-combi-volkite" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgt-arm-combi-volkite-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Storm Bolter" hidden="false" id="fa-bike-sgt-arm-storm-bolter" type="selectionEntry" targetId="gear-storm-bolter" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgt-arm-storm-bolter-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combat Shield" hidden="false" id="fa-bike-sgt-arm-combat-shield" type="selectionEntry" targetId="gear-combat-shield" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgt-arm-combat-shield-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Auspex" hidden="false" id="fa-bike-sgt-arm-auspex" type="selectionEntry" targetId="gear-auspex" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgt-arm-auspex-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="2" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Bionics" hidden="false" id="fa-bike-sgt-arm-bionics" type="selectionEntry" targetId="gear-bionics" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgt-arm-bionics-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Purity Seals" hidden="false" id="fa-bike-sgt-arm-purity" type="selectionEntry" targetId="gear-purity" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgt-arm-purity-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Teleport Homer" hidden="false" id="fa-bike-sgt-arm-homer" type="selectionEntry" targetId="gear-homer" import="true">
+                  <constraints>
+                    <constraint id="fa-bike-sgt-arm-homer-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+              </entryLinks>
+              <rules>
+                <rule name="Sergeant Armoury Restrictions" id="fa-bike-sgt-arm-rule" hidden="false">
+                  <description>Up to 50 points of permitted additional Space Marine Armoury equipment. Standard wargear and unit-specific options are not repeated here. No item may be selected more than once unless specifically permitted; normal Armoury weapon limits still apply.</description>
+                </rule>
+              </rules>
+            </selectionEntryGroup>
+          </selectionEntryGroups>
+          <entryLinks>
+            <entryLink name="Melta Bombs" hidden="false" id="fa-bike-sgt-melta" type="selectionEntry" targetId="gear-melta-bombs" import="true">
+              <constraints>
+                <constraint id="fa-bike-sgt-melta-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="5" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+    </selectionEntry>
+    <selectionEntry type="unit" name="Legion Sky Hunter Jetbike Squadron" hidden="false" id="fa-sky-hunter" import="true">
+      <categoryLinks>
+        <categoryLink targetId="cat-fast" id="fa-sky-hunter-cat" primary="true" name="Fast Attack" hidden="false" />
+      </categoryLinks>
+      <costs>
+        <cost name="Points" typeId="pts" value="150" />
+      </costs>
+      <selectionEntries>
+        <selectionEntry type="model" name="Legion Sky Hunters (included)" hidden="false" id="fa-sky-included" import="true" defaultAmount="2">
+          <constraints>
+            <constraint id="fa-sky-included-min" type="min" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+            <constraint id="fa-sky-included-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+          </constraints>
+          <profiles>
+            <profile name="Legion Sky Hunters (included)" id="fa-sky-included-prof" typeId="prof-model" typeName="Model" hidden="false">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">5</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">1</characteristic>
+                <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                <characteristic name="Sv" typeId="model-sv">2+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+        <selectionEntry type="model" name="Sky Hunter Sergeant" hidden="false" id="fa-sky-sgt" import="true" defaultAmount="1">
+          <constraints>
+            <constraint id="fa-sky-sgt-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+            <constraint id="fa-sky-sgt-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+          </constraints>
+          <profiles>
+            <profile name="Sky Hunter Sergeant" id="fa-sky-sgt-prof" typeId="prof-model" typeName="Model" hidden="false">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">5</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">2+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+        <selectionEntry type="model" name="Additional Legion Sky Hunter" hidden="false" id="fa-sky-add" import="true">
+          <constraints>
+            <constraint id="fa-sky-add-max" type="max" value="7" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+          </constraints>
+          <costs>
+            <cost name="Points" typeId="pts" value="35" />
+          </costs>
+          <profiles>
+            <profile name="Additional Legion Sky Hunter" id="fa-sky-add-prof" typeId="prof-model" typeName="Model" hidden="false">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">5</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">1</characteristic>
+                <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                <characteristic name="Sv" typeId="model-sv">2+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+      </selectionEntries>
+      <rules>
+        <rule name="Standard Wargear" id="fa-sky-std" hidden="false">
+          <description>Power Armour; Legion Scimitar Jetbike with Heavy Bolter; Bolt Pistol; Chainsword; Frag Grenades.</description>
+        </rule>
+        <rule name="Legiones Astartes &amp; Deep Strike" id="fa-sky-la" hidden="false">
+          <description>Legiones Astartes and Deep Strike. The unit also has And They Shall Know No Fear as presented in ProHammer Classic and is not Fearless.</description>
+        </rule>
+      </rules>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Squad-wide Equipment" id="fa-sky-squad" hidden="false">
+          <entryLinks>
+            <entryLink name="Krak Grenades (+2 pts/model)" hidden="false" id="fa-sky-krak" type="selectionEntry" targetId="gear-krak" import="true">
+              <constraints>
+                <constraint id="fa-sky-krak-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="6" />
+              </costs>
+              <modifiers>
+                <modifier type="increment" value="2" field="pts">
+                  <repeats>
+                    <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="fa-sky-add" shared="true" roundUp="false" includeChildSelections="false" />
+                  </repeats>
+                </modifier>
+              </modifiers>
+            </entryLink>
+            <entryLink name="Melta Bombs (+5 pts/model)" hidden="false" id="fa-sky-melta" type="selectionEntry" targetId="gear-melta-bombs" import="true">
+              <constraints>
+                <constraint id="fa-sky-melta-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="15" />
+              </costs>
+              <modifiers>
+                <modifier type="increment" value="5" field="pts">
+                  <repeats>
+                    <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="fa-sky-add" shared="true" roundUp="false" includeChildSelections="false" />
+                  </repeats>
+                </modifier>
+              </modifiers>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Jetbike Weapons — one per three models" id="fa-sky-weapons" hidden="false">
+          <constraints>
+            <constraint id="fa-sky-weapons-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="2" field="fa-sky-weapons-max">
+              <conditions>
+                <condition type="atLeast" value="3" field="selections" scope="root-entry" childId="fa-sky-add" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="3" field="fa-sky-weapons-max">
+              <conditions>
+                <condition type="atLeast" value="6" field="selections" scope="root-entry" childId="fa-sky-add" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <entryLinks>
+            <entryLink name="Multi-Melta (replaces Heavy Bolter)" hidden="false" id="fa-sky-mm" type="selectionEntry" targetId="gear-multimelta" import="true">
+              <constraints>
+                <constraint id="fa-sky-mm-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+            <entryLink name="Volkite Culverin (replaces Heavy Bolter)" hidden="false" id="fa-sky-vc" type="selectionEntry" targetId="gear-volkite-culverin" import="true">
+              <constraints>
+                <constraint id="fa-sky-vc-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+            <entryLink name="Plasma Cannon (replaces Heavy Bolter)" hidden="false" id="fa-sky-pc" type="selectionEntry" targetId="gear-plasma-cannon" import="true">
+              <constraints>
+                <constraint id="fa-sky-pc-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="15" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Sky Hunter Sergeant" id="fa-sky-sergeant" hidden="false">
+          <selectionEntryGroups>
+            <selectionEntryGroup name="Sergeant Bolt Pistol Replacement" id="fa-sky-sgtw-pistol" hidden="false">
+              <constraints>
+                <constraint id="fa-sky-sgtw-pistol-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+              </constraints>
+              <entryLinks>
+                <entryLink name="Volkite Serpenta" hidden="false" id="fa-sky-sgtw-vs" type="selectionEntry" targetId="gear-volkite-serpenta" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgtw-vs-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Hand Flamer" hidden="false" id="fa-sky-sgtw-hf" type="selectionEntry" targetId="gear-hand-flamer" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgtw-hf-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Plasma Pistol" hidden="false" id="fa-sky-sgtw-pp" type="selectionEntry" targetId="gear-plasma-pistol" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgtw-pp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+              </entryLinks>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-sky-sgtw-pair" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="0" field="fa-sky-sgtw-pistol-max">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-sky-sgtw-pair" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntryGroup>
+            <selectionEntryGroup name="Sergeant Melee Weapon" id="fa-sky-sgtw-melee" hidden="false">
+              <constraints>
+                <constraint id="fa-sky-sgtw-melee-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+              </constraints>
+              <entryLinks>
+                <entryLink name="Rending Weapon" hidden="false" id="fa-sky-sgtw-rw" type="selectionEntry" targetId="gear-rending" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgtw-rw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Power Weapon" hidden="false" id="fa-sky-sgtw-pw" type="selectionEntry" targetId="gear-power-weapon" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgtw-pw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Lightning Claw" hidden="false" id="fa-sky-sgtw-lc" type="selectionEntry" targetId="gear-lightning-claw" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgtw-lc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Power Fist" hidden="false" id="fa-sky-sgtw-pf" type="selectionEntry" targetId="gear-power-fist" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgtw-pf-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Thunder Hammer" hidden="false" id="fa-sky-sgtw-th" type="selectionEntry" targetId="gear-thunder" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgtw-th-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="20" />
+                  </costs>
+                </entryLink>
+              </entryLinks>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-sky-sgtw-pair" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="0" field="fa-sky-sgtw-melee-max">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-sky-sgtw-pair" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntryGroup>
+            <selectionEntryGroup name="Alternative: replace Bolt Pistol and Chainsword" id="fa-sky-sgtw-pairg" hidden="false">
+              <constraints>
+                <constraint id="fa-sky-sgtw-pairg-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+              </constraints>
+              <entryLinks>
+                <entryLink name="Pair of Lightning Claws" hidden="false" id="fa-sky-sgtw-pair" type="selectionEntry" targetId="gear-pair-lightning-claws" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgtw-pair-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="20" />
+                  </costs>
+                </entryLink>
+              </entryLinks>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-sky-sgtw-pistol" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="0" field="fa-sky-sgtw-pairg-max">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-sky-sgtw-pistol" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-sky-sgtw-melee" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="0" field="fa-sky-sgtw-pairg-max">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-sky-sgtw-melee" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntryGroup>
+            <selectionEntryGroup name="Additional Sergeant Armoury (max 50 pts)" id="fa-sky-sgt-armoury" hidden="false">
+              <constraints>
+                <constraint id="fa-sky-sgt-armoury-pts-max" type="max" value="50" field="pts" scope="parent" shared="true" includeChildSelections="true" />
+              </constraints>
+              <entryLinks>
+                <entryLink name="Combi-Bolter" hidden="false" id="fa-sky-sgt-arm-combi-bolter" type="selectionEntry" targetId="gear-combi-bolter" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgt-arm-combi-bolter-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Flamer" hidden="false" id="fa-sky-sgt-arm-combi-flamer" type="selectionEntry" targetId="gear-combi-flamer" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgt-arm-combi-flamer-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Grenade Launcher" hidden="false" id="fa-sky-sgt-arm-combi-grenade" type="selectionEntry" targetId="gear-combi-grenade" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgt-arm-combi-grenade-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Meltagun" hidden="false" id="fa-sky-sgt-arm-combi-melta" type="selectionEntry" targetId="gear-combi-melta" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgt-arm-combi-melta-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Plasma Gun" hidden="false" id="fa-sky-sgt-arm-combi-plasma" type="selectionEntry" targetId="gear-combi-plasma" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgt-arm-combi-plasma-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combi-Volkite Charger" hidden="false" id="fa-sky-sgt-arm-combi-volkite" type="selectionEntry" targetId="gear-combi-volkite" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgt-arm-combi-volkite-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Storm Bolter" hidden="false" id="fa-sky-sgt-arm-storm-bolter" type="selectionEntry" targetId="gear-storm-bolter" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgt-arm-storm-bolter-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Combat Shield" hidden="false" id="fa-sky-sgt-arm-combat-shield" type="selectionEntry" targetId="gear-combat-shield" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgt-arm-combat-shield-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Auspex" hidden="false" id="fa-sky-sgt-arm-auspex" type="selectionEntry" targetId="gear-auspex" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgt-arm-auspex-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="2" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Bionics" hidden="false" id="fa-sky-sgt-arm-bionics" type="selectionEntry" targetId="gear-bionics" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgt-arm-bionics-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="10" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Purity Seals" hidden="false" id="fa-sky-sgt-arm-purity" type="selectionEntry" targetId="gear-purity" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgt-arm-purity-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+                <entryLink name="Teleport Homer" hidden="false" id="fa-sky-sgt-arm-homer" type="selectionEntry" targetId="gear-homer" import="true">
+                  <constraints>
+                    <constraint id="fa-sky-sgt-arm-homer-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="5" />
+                  </costs>
+                </entryLink>
+              </entryLinks>
+              <rules>
+                <rule name="Sergeant Armoury Restrictions" id="fa-sky-sgt-arm-rule" hidden="false">
+                  <description>Up to 50 points of permitted additional Space Marine Armoury equipment. Standard wargear and unit-specific options are not repeated here. No item may be selected more than once unless specifically permitted; normal Armoury weapon limits still apply.</description>
+                </rule>
+              </rules>
+            </selectionEntryGroup>
+          </selectionEntryGroups>
+          <entryLinks>
+            <entryLink name="Melta Bombs" hidden="false" id="fa-sky-sgt-melta" type="selectionEntry" targetId="gear-melta-bombs" import="true">
+              <constraints>
+                <constraint id="fa-sky-sgt-melta-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="5" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+    </selectionEntry>
+    <selectionEntry type="unit" name="Legion Attack Bike Squadron" hidden="false" id="fa-attack-bike" import="true">
+      <categoryLinks>
+        <categoryLink targetId="cat-fast" id="fa-attack-bike-cat" primary="true" name="Fast Attack" hidden="false" />
+      </categoryLinks>
+      <selectionEntries>
+        <selectionEntry type="model" name="Legion Attack Bike" hidden="false" id="fa-attack-bike-model" import="true" defaultAmount="1">
+          <constraints>
+            <constraint id="fa-attack-bike-model-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+            <constraint id="fa-attack-bike-model-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+          </constraints>
+          <costs>
+            <cost name="Points" typeId="pts" value="40" />
+          </costs>
+          <profiles>
+            <profile name="Legion Attack Bike" id="fa-attack-bike-model-prof" typeId="prof-model" typeName="Model" hidden="false">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">5</characteristic>
+                <characteristic name="W" typeId="model-w">2</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">1</characteristic>
+                <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+      </selectionEntries>
+      <rules>
+        <rule name="Standard Wargear" id="fa-attack-bike-std" hidden="false">
+          <description>Power Armour; Legion Attack Bike with Twin-linked Bolters; Heavy Bolter; Bolt Pistol; Chainsword; Frag Grenades.</description>
+        </rule>
+        <rule name="Legiones Astartes" id="fa-attack-bike-la" hidden="false">
+          <description>Legiones Astartes; also has And They Shall Know No Fear as presented in ProHammer Classic and is not Fearless.</description>
+        </rule>
+      </rules>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Heavy Bolter Replacements" id="fa-attack-bike-weapons" hidden="false">
+          <constraints>
+            <constraint id="fa-attack-bike-weapons-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="2" field="fa-attack-bike-weapons-max">
+              <conditions>
+                <condition type="atLeast" value="2" field="selections" scope="root-entry" childId="fa-attack-bike-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="3" field="fa-attack-bike-weapons-max">
+              <conditions>
+                <condition type="atLeast" value="3" field="selections" scope="root-entry" childId="fa-attack-bike-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <entryLinks>
+            <entryLink name="Heavy Flamer" hidden="false" id="fa-attack-bike-hf" type="selectionEntry" targetId="gear-heavy-flamer" import="true">
+              <constraints>
+                <constraint id="fa-attack-bike-hf-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+            </entryLink>
+            <entryLink name="Autocannon" hidden="false" id="fa-attack-bike-ac" type="selectionEntry" targetId="gear-autocannon" import="true">
+              <constraints>
+                <constraint id="fa-attack-bike-ac-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="5" />
+              </costs>
+            </entryLink>
+            <entryLink name="Multi-Melta" hidden="false" id="fa-attack-bike-mm" type="selectionEntry" targetId="gear-multimelta" import="true">
+              <constraints>
+                <constraint id="fa-attack-bike-mm-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Squadron Equipment" id="fa-attack-bike-squad" hidden="false">
+          <entryLinks>
+            <entryLink name="Krak Grenades (+2 pts/model)" hidden="false" id="fa-attack-bike-krak" type="selectionEntry" targetId="gear-krak" import="true">
+              <constraints>
+                <constraint id="fa-attack-bike-krak-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <modifiers>
+                <modifier type="increment" value="2" field="pts">
+                  <repeats>
+                    <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="fa-attack-bike-model" shared="true" roundUp="false" includeChildSelections="false" />
+                  </repeats>
+                </modifier>
+              </modifiers>
+            </entryLink>
+            <entryLink name="Melta Bombs (+5 pts/model)" hidden="false" id="fa-attack-bike-melta" type="selectionEntry" targetId="gear-melta-bombs" import="true">
+              <constraints>
+                <constraint id="fa-attack-bike-melta-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <modifiers>
+                <modifier type="increment" value="5" field="pts">
+                  <repeats>
+                    <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="fa-attack-bike-model" shared="true" roundUp="false" includeChildSelections="false" />
+                  </repeats>
+                </modifier>
+              </modifiers>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+    </selectionEntry>
+    <selectionEntry type="unit" name="Legion Land Speeder Squadron" hidden="false" id="fa-land-speeder" import="true">
+      <categoryLinks>
+        <categoryLink targetId="cat-fast" id="fa-land-speeder-cat" primary="true" name="Fast Attack" hidden="false" />
+      </categoryLinks>
+      <selectionEntries>
+        <selectionEntry type="model" name="Legion Land Speeder" hidden="false" id="fa-land-speeder-model" import="true" defaultAmount="1">
+          <constraints>
+            <constraint id="fa-land-speeder-model-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+            <constraint id="fa-land-speeder-model-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+          </constraints>
+          <costs>
+            <cost name="Points" typeId="pts" value="50" />
+          </costs>
+          <profiles>
+            <profile name="Legion Land Speeder" id="fa-land-speeder-model-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+              <characteristics>
+                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                <characteristic name="Front" typeId="vehicle-front">10</characteristic>
+                <characteristic name="Side" typeId="vehicle-side">10</characteristic>
+                <characteristic name="Rear" typeId="vehicle-rear">10</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+      </selectionEntries>
+      <rules>
+        <rule name="Standard Wargear" id="fa-land-speeder-std" hidden="false">
+          <description>Heavy Bolter.</description>
+        </rule>
+        <rule name="Deep Strike" id="fa-land-speeder-ds" hidden="false">
+          <description>The squadron has Deep Strike as defined in ProHammer Classic.</description>
+        </rule>
+        <rule name="Armoured Crew" id="fa-land-speeder-armoured" hidden="false">
+          <description>The crew are protected by Power Armour and the enclosed fighting position. A Legion Land Speeder does not count as Open-topped.</description>
+        </rule>
+      </rules>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Heavy Bolter Replacements" id="fa-land-speeder-primary" hidden="false">
+          <constraints>
+            <constraint id="fa-land-speeder-primary-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="2" field="fa-land-speeder-primary-max">
+              <conditions>
+                <condition type="atLeast" value="2" field="selections" scope="root-entry" childId="fa-land-speeder-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="3" field="fa-land-speeder-primary-max">
+              <conditions>
+                <condition type="atLeast" value="3" field="selections" scope="root-entry" childId="fa-land-speeder-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <entryLinks>
+            <entryLink name="Heavy Flamer" hidden="false" id="fa-land-speeder-pr-hf" type="selectionEntry" targetId="gear-heavy-flamer" import="true">
+              <constraints>
+                <constraint id="fa-land-speeder-pr-hf-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+            </entryLink>
+            <entryLink name="Multi-Melta" hidden="false" id="fa-land-speeder-pr-mm" type="selectionEntry" targetId="gear-multimelta" import="true">
+              <constraints>
+                <constraint id="fa-land-speeder-pr-mm-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+            <entryLink name="Volkite Culverin" hidden="false" id="fa-land-speeder-pr-vc" type="selectionEntry" targetId="gear-volkite-culverin" import="true">
+              <constraints>
+                <constraint id="fa-land-speeder-pr-vc-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Additional Weapons — one per Speeder" id="fa-land-speeder-additional" hidden="false">
+          <constraints>
+            <constraint id="fa-land-speeder-additional-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="2" field="fa-land-speeder-additional-max">
+              <conditions>
+                <condition type="atLeast" value="2" field="selections" scope="root-entry" childId="fa-land-speeder-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="3" field="fa-land-speeder-additional-max">
+              <conditions>
+                <condition type="atLeast" value="3" field="selections" scope="root-entry" childId="fa-land-speeder-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <entryLinks>
+            <entryLink name="Heavy Flamer" hidden="false" id="fa-land-speeder-add-hf" type="selectionEntry" targetId="gear-heavy-flamer" import="true">
+              <constraints>
+                <constraint id="fa-land-speeder-add-hf-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+            <entryLink name="Heavy Bolter" hidden="false" id="fa-land-speeder-add-hb" type="selectionEntry" targetId="gear-heavy-bolter" import="true">
+              <constraints>
+                <constraint id="fa-land-speeder-add-hb-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+            <entryLink name="Havoc Launcher" hidden="false" id="fa-land-speeder-add-hav" type="selectionEntry" targetId="gear-havoc" import="true">
+              <constraints>
+                <constraint id="fa-land-speeder-add-hav-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="15" />
+              </costs>
+            </entryLink>
+            <entryLink name="Graviton Gun" hidden="false" id="fa-land-speeder-add-grav" type="selectionEntry" targetId="gear-graviton-gun" import="true">
+              <constraints>
+                <constraint id="fa-land-speeder-add-grav-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="15" />
+              </costs>
+            </entryLink>
+            <entryLink name="Assault Cannon" hidden="false" id="fa-land-speeder-add-ac" type="selectionEntry" targetId="gear-assault-cannon" import="true">
+              <constraints>
+                <constraint id="fa-land-speeder-add-ac-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="20" />
+              </costs>
+            </entryLink>
+            <entryLink name="Plasma Cannon" hidden="false" id="fa-land-speeder-add-pc" type="selectionEntry" targetId="gear-plasma-cannon" import="true">
+              <constraints>
+                <constraint id="fa-land-speeder-add-pc-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="25" />
+              </costs>
+            </entryLink>
+            <entryLink name="Typhoon Missile Launcher" hidden="false" id="fa-land-speeder-add-typ" type="selectionEntry" targetId="fa-gear-typhoon" import="true">
+              <constraints>
+                <constraint id="fa-land-speeder-add-typ-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="25" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Hunter-Killer Missiles — up to two per Speeder" id="fa-land-speeder-hk" hidden="false">
+          <constraints>
+            <constraint id="fa-land-speeder-hk-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="4" field="fa-land-speeder-hk-max">
+              <conditions>
+                <condition type="atLeast" value="2" field="selections" scope="root-entry" childId="fa-land-speeder-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="6" field="fa-land-speeder-hk-max">
+              <conditions>
+                <condition type="atLeast" value="3" field="selections" scope="root-entry" childId="fa-land-speeder-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <entryLinks>
+            <entryLink name="Hunter-Killer Missile" hidden="false" id="fa-land-speeder-hk-item" type="selectionEntry" targetId="gear-hk" import="true">
+              <constraints>
+                <constraint id="fa-land-speeder-hk-item-max" type="max" value="6" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="5" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+    </selectionEntry>
+    <selectionEntry type="unit" name="Legion Javelin Attack Speeder Squadron" hidden="false" id="fa-javelin" import="true">
+      <categoryLinks>
+        <categoryLink targetId="cat-fast" id="fa-javelin-cat" primary="true" name="Fast Attack" hidden="false" />
+      </categoryLinks>
+      <selectionEntries>
+        <selectionEntry type="model" name="Javelin Attack Speeder" hidden="false" id="fa-javelin-model" import="true" defaultAmount="1">
+          <constraints>
+            <constraint id="fa-javelin-model-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" automatic="true" />
+            <constraint id="fa-javelin-model-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+          </constraints>
+          <costs>
+            <cost name="Points" typeId="pts" value="75" />
+          </costs>
+          <profiles>
+            <profile name="Javelin Attack Speeder" id="fa-javelin-model-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+              <characteristics>
+                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                <characteristic name="Front" typeId="vehicle-front">11</characteristic>
+                <characteristic name="Side" typeId="vehicle-side">11</characteristic>
+                <characteristic name="Rear" typeId="vehicle-rear">10</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+      </selectionEntries>
+      <rules>
+        <rule name="Standard Wargear" id="fa-javelin-std" hidden="false">
+          <description>Heavy Bolter; Twin-linked Cyclone Missile Launcher.</description>
+        </rule>
+        <rule name="Deep Strike &amp; Outflank" id="fa-javelin-deploy" hidden="false">
+          <description>The squadron has Deep Strike and Outflank as defined in ProHammer Classic.</description>
+        </rule>
+        <rule name="Strafing Run" id="fa-javelin-strafe" hidden="false">
+          <description>When shooting Assault, Heavy, Rapid Fire or Salvo weapons at ground units that are not Flyers or Skimmers, the vehicle gains +1 Ballistic Skill and all such shots count as Pinning, as defined in ProHammer Classic.</description>
+        </rule>
+        <rule name="Armoured Crew" id="fa-javelin-armoured" hidden="false">
+          <description>A Javelin Attack Speeder does not count as Open-topped.</description>
+        </rule>
+      </rules>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Cyclone Missile Launcher Replacement" id="fa-javelin-cyclone" hidden="false">
+          <constraints>
+            <constraint id="fa-javelin-cyclone-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="2" field="fa-javelin-cyclone-max">
+              <conditions>
+                <condition type="atLeast" value="2" field="selections" scope="root-entry" childId="fa-javelin-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="3" field="fa-javelin-cyclone-max">
+              <conditions>
+                <condition type="atLeast" value="3" field="selections" scope="root-entry" childId="fa-javelin-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <entryLinks>
+            <entryLink name="Twin-linked Lascannon" hidden="false" id="fa-javelin-tllas" type="selectionEntry" targetId="fa-gear-tl-las" import="true">
+              <constraints>
+                <constraint id="fa-javelin-tllas-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Heavy Bolter Replacement" id="fa-javelin-primary" hidden="false">
+          <constraints>
+            <constraint id="fa-javelin-primary-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="2" field="fa-javelin-primary-max">
+              <conditions>
+                <condition type="atLeast" value="2" field="selections" scope="root-entry" childId="fa-javelin-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="3" field="fa-javelin-primary-max">
+              <conditions>
+                <condition type="atLeast" value="3" field="selections" scope="root-entry" childId="fa-javelin-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <entryLinks>
+            <entryLink name="Heavy Flamer" hidden="false" id="fa-javelin-hf" type="selectionEntry" targetId="gear-heavy-flamer" import="true">
+              <constraints>
+                <constraint id="fa-javelin-hf-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+            </entryLink>
+            <entryLink name="Multi-Melta" hidden="false" id="fa-javelin-mm" type="selectionEntry" targetId="gear-multimelta" import="true">
+              <constraints>
+                <constraint id="fa-javelin-mm-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="10" />
+              </costs>
+            </entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Vehicle Equipment" id="fa-javelin-eq" hidden="false">
+          <constraints>
+            <constraint id="fa-javelin-eq-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="2" field="fa-javelin-eq-max">
+              <conditions>
+                <condition type="atLeast" value="2" field="selections" scope="root-entry" childId="fa-javelin-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="3" field="fa-javelin-eq-max">
+              <conditions>
+                <condition type="atLeast" value="3" field="selections" scope="root-entry" childId="fa-javelin-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <selectionEntries>
+            <selectionEntry type="upgrade" name="Searchlight" hidden="false" id="fa-javelin-search" import="true">
+              <constraints>
+                <constraint id="fa-javelin-search-max" type="max" value="3" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="1" />
+              </costs>
+              <rules>
+                <rule name="Searchlight" id="fa-javelin-search-rule" hidden="false">
+                  <description>When Night Fighting is in effect, the vehicle may illuminate itself and a chosen target, negating the effects of Night Fighting for those models as described in ProHammer Classic.</description>
+                </rule>
+              </rules>
+            </selectionEntry>
+          </selectionEntries>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Hunter-Killer Missiles — up to two per Speeder" id="fa-javelin-hk" hidden="false">
+          <constraints>
+            <constraint id="fa-javelin-hk-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="4" field="fa-javelin-hk-max">
+              <conditions>
+                <condition type="atLeast" value="2" field="selections" scope="root-entry" childId="fa-javelin-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+            <modifier type="set" value="6" field="fa-javelin-hk-max">
+              <conditions>
+                <condition type="atLeast" value="3" field="selections" scope="root-entry" childId="fa-javelin-model" shared="true" includeChildSelections="true" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <entryLinks>
+            <entryLink name="Hunter-Killer Missile" hidden="false" id="fa-javelin-hk-item" type="selectionEntry" targetId="gear-hk" import="true">
+              <constraints>
+                <constraint id="fa-javelin-hk-item-max" type="max" value="6" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="5" />
+              </costs>
+            </entryLink>
+          </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>
