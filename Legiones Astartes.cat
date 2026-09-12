@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="14" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="4" type="catalogue">
-  <comment>Revision 14: Added the Legion Reconnaissance Squad from the current army list, with mixed individual weapon swaps, Recon Armour, Cameleoline, Support Squad restrictions and cleaned Sergeant Armoury options.</comment>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="15" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="5" type="catalogue">
+  <comment>Revision 15: Forced a full New Recruit data refresh after adding the Legion Reconnaissance Squad from the current army list, with mixed individual weapon swaps, Recon Armour, Cameleoline, Support Squad restrictions and cleaned Sergeant Armoury options.</comment>
   <readme>The Legion Tactical, Assault, Breacher Siege and Reconnaissance Squads follow the current Legiones Astartes Army List. Squad Sergeants may not select the same item more than once unless a unit entry specifically permits it. Unit-specific weapon replacements are not repeated in additional Armoury lists, and squad-wide wargear prevents purchasing the same item again for the Sergeant.</readme>
 
   <sharedSelectionEntries>
