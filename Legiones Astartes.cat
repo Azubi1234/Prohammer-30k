@@ -2,11 +2,11 @@
 <catalogue
   id="cat-30a0-30b0-30c0-0001"
   name="Legiones Astartes"
-  revision="2"
+  revision="3"
   battleScribeVersion="2.03"
   library="false"
   gameSystemId="sys-a1d2-5ede-e74f-7479"
-  gameSystemRevision="2"
+  gameSystemRevision="3"
   type="catalogue"
   xmlns="http://www.battlescribe.net/schema/catalogueSchema">
   <comment>Blank starter faction catalogue for Prohammer 30k.</comment>
