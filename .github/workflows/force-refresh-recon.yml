@@ -1,0 +1,47 @@
+name: Force New Recruit refresh
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  refresh:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump system and catalogue revisions
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          cat = Path('Legiones Astartes.cat')
+          gst = Path('Prohammer 30k.gst')
+          c = cat.read_text(encoding='utf-8')
+          g = gst.read_text(encoding='utf-8')
+
+          if 'id="recon-unit"' not in c:
+              raise SystemExit('Recon unit missing from catalogue')
+          if 'revision="14"' not in c or 'gameSystemRevision="4"' not in c:
+              raise SystemExit('Unexpected catalogue revision state')
+          if 'revision="4"' not in g:
+              raise SystemExit('Unexpected game system revision state')
+
+          c = c.replace('revision="14"', 'revision="15"', 1)
+          c = c.replace('gameSystemRevision="4"', 'gameSystemRevision="5"', 1)
+          c = c.replace('Revision 14: Added the Legion Reconnaissance Squad', 'Revision 15: Forced a full New Recruit data refresh after adding the Legion Reconnaissance Squad', 1)
+          g = g.replace('revision="4"', 'revision="5"', 1)
+
+          cat.write_text(c, encoding='utf-8')
+          gst.write_text(g, encoding='utf-8')
+
+          ET.parse(cat)
+          ET.parse(gst)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Legiones Astartes.cat" "Prohammer 30k.gst"
+          git commit -m "Force New Recruit refresh for Recon Squad [skip ci]"
+          git push
