@@ -13,13 +13,13 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import textwrap
           payload = Path('.github/workflows/apply-rev13.yml').read_text(encoding='utf-8')
           start_token = "          python3 - <<'PY'\n"
           end_token = "\n          PY\n"
           start = payload.index(start_token) + len(start_token)
           end = payload.index(end_token, start)
-          code = textwrap.dedent(payload[start:end])
+          raw = payload[start:end]
+          code = '\n'.join(line[10:] if line.startswith('          ') else line for line in raw.splitlines())
           exec(compile(code, 'rev13_payload.py', 'exec'))
           PY
           git config user.name "github-actions[bot]"
