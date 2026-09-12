@@ -1,0 +1,178 @@
+name: Apply rev13 Breacher Squad
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Legion Breacher Siege Squad
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          import xml.etree.ElementTree as ET
+          from collections import Counter
+
+          p = Path('Legiones Astartes.cat')
+          text = p.read_text(encoding='utf-8')
+          if 'id="breacher-unit"' in text:
+              raise SystemExit('Breacher unit already present; refusing duplicate insertion.')
+          if 'revision="12"' not in text:
+              raise SystemExit('Expected catalogue revision 12.')
+
+          text = text.replace('revision="12"', 'revision="13"', 1)
+          text = re.sub(r'<comment>.*?</comment>', '<comment>Revision 13: Added the Legion Breacher Siege Squad from the current army list, including Hardened Armour, specialist weapons, Sergeant replacements and restricted non-duplicate Armoury options.</comment>', text, count=1)
+          text = re.sub(r'<readme>.*?</readme>', '<readme>The Legion Tactical, Assault and Breacher Siege Squads follow the current Legiones Astartes Army List. Squad Sergeants may not select the same item more than once unless a unit entry specifically permits it. Unit-specific weapon replacements are not repeated in additional Armoury lists, and squad-wide wargear prevents purchasing the same item again for the Sergeant.</readme>', text, count=1)
+
+          shared = r'''
+    <selectionEntry type="upgrade" import="true" name="Hardened Power Armour" hidden="false" id="gear-hardened-power-armour">
+      <rules><rule name="Hardened Armour" id="rule-hardened-armour" hidden="false"><description>Failed Armour Saves caused by Blast or Template weapons may be re-rolled. When the unit makes an Advance Move, reduce the additional distance rolled by 1&quot;. Reduce any Charge distance or Pursuit distance rolled by the unit by 1&quot;. In missions which use Void Hardened armour, models with Hardened Armour count as Void Hardened. These movement penalties also apply to a model wearing Artificer Armour if that model is part of a Breacher Squad.</description></rule></rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Boarding Shield" hidden="false" id="gear-boarding-shield">
+      <rules><rule name="Boarding Shield" id="rule-boarding-shield" hidden="false"><description>Grants a 5+ Invulnerable Save. A Boarding Shield occupies one of the bearer&apos;s hands in close combat; the bearer therefore only receives the +1 Attack bonus for fighting with two weapons if another rule specifically allows it.</description></rule></rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Graviton Gun" hidden="false" id="gear-graviton-gun">
+      <profiles><profile name="Graviton Gun" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-graviton-gun"><characteristics><characteristic name="Range" typeId="ranged-range">18&quot;</characteristic><characteristic name="S" typeId="ranged-s">Special</characteristic><characteristic name="AP" typeId="ranged-ap">4</characteristic><characteristic name="Type" typeId="ranged-type">Heavy 1, Blast, Concussive, Graviton</characteristic></characteristics></profile></profiles>
+      <rules><rule name="Graviton" id="rule-graviton-gun" hidden="false"><description>Against non-vehicle models, the number required To Wound is equal to the target&apos;s Armour Save: 2+ armour is wounded on a 2+, 3+ on a 3+, 4+ on a 4+, and so on. Against vehicles, do not make a normal Armour Penetration roll; roll a D6 for each hit and on a 6 the vehicle is Immobilised.</description></rule></rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Lascutter" hidden="false" id="gear-lascutter">
+      <profiles><profile name="Lascutter" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-lascutter"><characteristics><characteristic name="Range" typeId="ranged-range">-</characteristic><characteristic name="S" typeId="ranged-s">9</characteristic><characteristic name="AP" typeId="ranged-ap">2</characteristic><characteristic name="Type" typeId="ranged-type">Melee, Unwieldy, Cumbersome</characteristic></characteristics></profile></profiles>
+      <rules><rule name="Cumbersome" id="rule-cumbersome-lascutter" hidden="false"><description>A model attacking with a Cumbersome weapon may make only one attack with that weapon during the Assault phase, regardless of its Attacks characteristic or any bonuses. That attack is made at Weapon Skill 1.</description></rule></rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Breaching Charge" hidden="false" id="gear-breaching-charge">
+      <profiles><profile name="Breaching Charge" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-breaching-charge"><characteristics><characteristic name="Range" typeId="ranged-range">Special</characteristic><characteristic name="S" typeId="ranged-s">8</characteristic><characteristic name="AP" typeId="ranged-ap">2</characteristic><characteristic name="Type" typeId="ranged-type">Melee, Blast, One Use, Wrecker</characteristic></characteristics></profile></profiles>
+      <rules><rule name="Breaching Charge" id="rule-breaching-charge" hidden="false"><description>May be used once per battle during an Assault phase instead of the bearer&apos;s normal close-combat attacks. The bearer makes a single attack against an enemy unit with which he is engaged. If it hits, place a Blast marker in base contact with the bearer so that it covers as many enemy models as possible without covering friendly models; models beneath the marker are struck using the Breaching Charge profile.</description></rule><rule name="Wrecker" id="rule-wrecker-breaching" hidden="false"><description>Against Fortifications, buildings, barricades or other immobile structures, a Wrecker attack may re-roll a failed Armour Penetration roll. Where a mission uses a Building Damage table, add +1 to any roll made on that table by a Wrecker attack.</description></rule></rules>
+    </selectionEntry>
+'''
+          marker = '  </sharedSelectionEntries>'
+          if marker not in text:
+              raise SystemExit('sharedSelectionEntries marker missing')
+          text = text.replace(marker, shared + '\n' + marker, 1)
+
+          unit = r'''
+    <selectionEntry type="unit" import="true" name="Legion Breacher Siege Squad" hidden="false" id="breacher-unit">
+      <categoryLinks><categoryLink targetId="cat-troops" id="breacher-cat" primary="true" name="Troops" hidden="false"/></categoryLinks>
+      <rules>
+        <rule name="Standard Wargear" id="breacher-standard-wargear" hidden="false"><description>Every model is equipped with Hardened Power Armour, a Bolter, a Bolt Pistol, a Boarding Shield and Frag Grenades.</description></rule>
+        <rule name="Legiones Astartes" id="breacher-legiones" hidden="false"><description>All models have And They Shall Know No Fear as presented in ProHammer Classic and gain the named Legiones Astartes rule of their chosen Legion. They are not Fearless.</description></rule>
+        <rule name="Frag Grenades" id="breacher-frag" hidden="false"><description>Frag Grenades use the normal ProHammer Frag Grenade and Assault Grenade rules. Against vehicles, Frag Grenades have Strength 4 + D6 Armour Penetration.</description></rule>
+        <rule name="Dedicated Transport" id="breacher-transport-rule" hidden="false"><description>A Legion Breacher Siege Squad containing ten models or fewer may select a Land Raider, Land Raider Proteus or Land Raider Phobos as a Dedicated Transport where permitted by the relevant vehicle entry. A Legion Breacher Siege Squad may not select a Rhino or Drop Pod unless specifically permitted by a Rite of War or Legion-specific rule.</description></rule>
+      </rules>
+      <entryLinks>
+        <entryLink import="true" name="Hardened Power Armour" hidden="false" id="breacher-standard-armour" type="selectionEntry" targetId="gear-hardened-power-armour" defaultAmount="1"><constraints><constraint type="min" value="1" field="selections" scope="parent" shared="true" id="breacher-standard-armour-min" includeChildSelections="false" automatic="true"/><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-standard-armour-max" includeChildSelections="false" automatic="true"/></constraints></entryLink>
+        <entryLink import="true" name="Bolter" hidden="false" id="breacher-standard-bolter" type="selectionEntry" targetId="gear-bolter" defaultAmount="1"><constraints><constraint type="min" value="1" field="selections" scope="parent" shared="true" id="breacher-standard-bolter-min" includeChildSelections="false" automatic="true"/><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-standard-bolter-max" includeChildSelections="false" automatic="true"/></constraints></entryLink>
+        <entryLink import="true" name="Bolt Pistol" hidden="false" id="breacher-standard-bp" type="selectionEntry" targetId="gear-bolt-pistol" defaultAmount="1"><constraints><constraint type="min" value="1" field="selections" scope="parent" shared="true" id="breacher-standard-bp-min" includeChildSelections="false" automatic="true"/><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-standard-bp-max" includeChildSelections="false" automatic="true"/></constraints></entryLink>
+        <entryLink import="true" name="Boarding Shield" hidden="false" id="breacher-standard-shield" type="selectionEntry" targetId="gear-boarding-shield" defaultAmount="1"><constraints><constraint type="min" value="1" field="selections" scope="parent" shared="true" id="breacher-standard-shield-min" includeChildSelections="false" automatic="true"/><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-standard-shield-max" includeChildSelections="false" automatic="true"/></constraints></entryLink>
+      </entryLinks>
+      <selectionEntries>
+        <selectionEntry type="model" import="true" name="Legion Breacher Marine" hidden="false" id="breacher-marine" defaultAmount="9">
+          <constraints><constraint type="min" value="9" field="selections" scope="parent" shared="true" id="breacher-marine-min" includeChildSelections="false"/><constraint type="max" value="19" field="selections" scope="parent" shared="true" id="breacher-marine-max" includeChildSelections="false"/></constraints>
+          <costs><cost name="Points" typeId="pts" value="15"/></costs>
+          <profiles><profile name="Legion Breacher Marine" typeId="prof-model" typeName="Model" hidden="false" id="prof-breacher-marine"><characteristics><characteristic name="WS" typeId="model-ws">4</characteristic><characteristic name="BS" typeId="model-bs">4</characteristic><characteristic name="S" typeId="model-s">4</characteristic><characteristic name="T" typeId="model-t">4</characteristic><characteristic name="W" typeId="model-w">1</characteristic><characteristic name="I" typeId="model-i">4</characteristic><characteristic name="A" typeId="model-a">1</characteristic><characteristic name="Ld" typeId="model-ld">8</characteristic><characteristic name="Sv" typeId="model-sv">3+</characteristic></characteristics></profile></profiles>
+        </selectionEntry>
+        <selectionEntry type="model" import="true" name="Legion Breacher Sergeant" hidden="false" id="breacher-sergeant" defaultAmount="1">
+          <constraints><constraint type="min" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-min" includeChildSelections="false" automatic="true"/><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-max" includeChildSelections="false" automatic="true"/></constraints>
+          <costs><cost name="Points" typeId="pts" value="15"/></costs>
+          <profiles><profile name="Legion Breacher Sergeant" typeId="prof-model" typeName="Model" hidden="false" id="prof-breacher-sergeant"><characteristics><characteristic name="WS" typeId="model-ws">4</characteristic><characteristic name="BS" typeId="model-bs">4</characteristic><characteristic name="S" typeId="model-s">4</characteristic><characteristic name="T" typeId="model-t">4</characteristic><characteristic name="W" typeId="model-w">1</characteristic><characteristic name="I" typeId="model-i">4</characteristic><characteristic name="A" typeId="model-a">2</characteristic><characteristic name="Ld" typeId="model-ld">9</characteristic><characteristic name="Sv" typeId="model-sv">3+</characteristic></characteristics></profile></profiles>
+          <rules><rule name="Sergeant Armoury" id="breacher-rule-sgt-armoury" hidden="false"><description>The Sergeant may select up to 50 points of additional permitted weapons and wargear from the Space Marine Armoury. Only items marked for Squad Sergeants are available. The Sergeant may carry no more than two weapons, only one of which may be two-handed. No item may be selected more than once unless a unit entry specifically permits otherwise. Unit-specific replacement options are available at the points costs shown in this squad entry and are not repeated in the additional Armoury. The Sergeant may not select Artificer Armour from this unit entry.</description></rule></rules>
+          <selectionEntryGroups>
+            <selectionEntryGroup name="Replace Bolter" id="breacher-sgt-bolter" hidden="false"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-bolter-max" includeChildSelections="false"/></constraints><entryLinks>
+              <entryLink import="true" name="Combi-Flamer" hidden="false" id="breacher-sgt-cf" type="selectionEntry" targetId="gear-combi-flamer"><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+              <entryLink import="true" name="Combi-Volkite Charger" hidden="false" id="breacher-sgt-cv" type="selectionEntry" targetId="gear-combi-volkite"><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+              <entryLink import="true" name="Combi-Meltagun" hidden="false" id="breacher-sgt-cm" type="selectionEntry" targetId="gear-combi-melta"><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+              <entryLink import="true" name="Combi-Plasma Gun" hidden="false" id="breacher-sgt-cp" type="selectionEntry" targetId="gear-combi-plasma"><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+            </entryLinks></selectionEntryGroup>
+            <selectionEntryGroup name="Replace Bolt Pistol" id="breacher-sgt-pistol" hidden="false"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-pistol-max" includeChildSelections="false"/></constraints><entryLinks>
+              <entryLink import="true" name="Volkite Serpenta" hidden="false" id="breacher-sgt-vs" type="selectionEntry" targetId="gear-volkite-serpenta"><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+              <entryLink import="true" name="Hand Flamer" hidden="false" id="breacher-sgt-hf" type="selectionEntry" targetId="gear-hand-flamer"><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+              <entryLink import="true" name="Plasma Pistol" hidden="false" id="breacher-sgt-pp" type="selectionEntry" targetId="gear-plasma-pistol"><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+            </entryLinks></selectionEntryGroup>
+            <selectionEntryGroup name="Sergeant Wargear" id="breacher-sgt-unit-wargear" hidden="false"><entryLinks>
+              <entryLink import="true" name="Breaching Charge" hidden="false" id="breacher-sgt-charge" type="selectionEntry" targetId="gear-breaching-charge"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-charge-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+              <entryLink import="true" name="Melta Bombs" hidden="false" id="breacher-sgt-melta" type="selectionEntry" targetId="gear-melta-bombs"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-melta-max" includeChildSelections="false"/></constraints><modifiers><modifier type="set" value="true" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="root-entry" childId="breacher-squad-melta" shared="true" includeChildSelections="true"/></conditions></modifier><modifier type="set" value="0" field="breacher-sgt-melta-max"><conditions><condition type="atLeast" value="1" field="selections" scope="root-entry" childId="breacher-squad-melta" shared="true" includeChildSelections="true"/></conditions></modifier></modifiers><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+            </entryLinks></selectionEntryGroup>
+            <selectionEntryGroup name="Additional Sergeant Armoury (max 50 pts)" id="breacher-sgt-armoury" hidden="false">
+              <constraints><constraint type="max" value="50" field="pts" scope="parent" shared="true" id="breacher-sgt-armoury-pts-max" includeChildSelections="true"/></constraints>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Additional Armoury Weapon (replaces one carried weapon)" id="breacher-sgt-armoury-weapons" hidden="false"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-armoury-weapons-max" includeChildSelections="true"/></constraints><selectionEntryGroups>
+                  <selectionEntryGroup name="Single-Handed Weapons" id="breacher-sgt-armoury-single" hidden="false"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-armoury-single-max" includeChildSelections="false"/></constraints><entryLinks>
+                    <entryLink import="true" name="Lightning Claw" hidden="false" id="breacher-sgt-arm-lc" type="selectionEntry" targetId="gear-lightning-claw"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-arm-lc-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="25"/></costs></entryLink>
+                    <entryLink import="true" name="Power Fist" hidden="false" id="breacher-sgt-arm-pf" type="selectionEntry" targetId="gear-power-fist"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-arm-pf-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="25"/></costs></entryLink>
+                    <entryLink import="true" name="Power Weapon" hidden="false" id="breacher-sgt-arm-pw" type="selectionEntry" targetId="gear-power-weapon"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-arm-pw-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+                    <entryLink import="true" name="Rending Weapon" hidden="false" id="breacher-sgt-arm-rw" type="selectionEntry" targetId="gear-rending"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-arm-rw-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                    <entryLink import="true" name="Thunder Hammer" hidden="false" id="breacher-sgt-arm-th" type="selectionEntry" targetId="gear-thunder"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-arm-th-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="30"/></costs></entryLink>
+                  </entryLinks></selectionEntryGroup>
+                  <selectionEntryGroup name="Two-Handed Weapons" id="breacher-sgt-armoury-two" hidden="false"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-armoury-two-max" includeChildSelections="false"/></constraints><entryLinks>
+                    <entryLink import="true" name="Combi-Bolter" hidden="false" id="breacher-sgt-arm-cb" type="selectionEntry" targetId="gear-combi-bolter"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-arm-cb-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                    <entryLink import="true" name="Combi-Grenade Launcher" hidden="false" id="breacher-sgt-arm-cg" type="selectionEntry" targetId="gear-combi-grenade"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-arm-cg-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+                    <entryLink import="true" name="Storm Bolter" hidden="false" id="breacher-sgt-arm-sb" type="selectionEntry" targetId="gear-storm-bolter"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-arm-sb-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                  </entryLinks></selectionEntryGroup>
+                </selectionEntryGroups></selectionEntryGroup>
+                <selectionEntryGroup name="Wargear" id="breacher-sgt-armoury-wargear" hidden="false"><entryLinks>
+                  <entryLink import="true" name="Auspex" hidden="false" id="breacher-sgt-auspex" type="selectionEntry" targetId="gear-auspex"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-auspex-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="2"/></costs></entryLink>
+                  <entryLink import="true" name="Bionics" hidden="false" id="breacher-sgt-bionics" type="selectionEntry" targetId="gear-bionics"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-bionics-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+                  <entryLink import="true" name="Purity Seals" hidden="false" id="breacher-sgt-purity" type="selectionEntry" targetId="gear-purity"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-purity-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                  <entryLink import="true" name="Teleport Homer" hidden="false" id="breacher-sgt-homer" type="selectionEntry" targetId="gear-homer"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-sgt-homer-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                </entryLinks></selectionEntryGroup>
+              </selectionEntryGroups>
+            </selectionEntryGroup>
+          </selectionEntryGroups>
+        </selectionEntry>
+      </selectionEntries>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Squad-wide Wargear" id="breacher-squad-wargear" hidden="false"><entryLinks>
+          <entryLink import="true" name="Melta Bombs (+5 pts/model)" hidden="false" id="breacher-squad-melta" type="selectionEntry" targetId="gear-melta-bombs"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-squad-melta-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs><modifiers><modifier type="increment" value="5" field="pts"><repeats><repeat value="1" repeats="1" field="selections" scope="root-entry" childId="breacher-marine" shared="true" roundUp="false" includeChildSelections="false"/></repeats></modifier></modifiers></entryLink>
+          <entryLink import="true" name="Krak Grenades (+2 pts/model)" hidden="false" id="breacher-squad-krak" type="selectionEntry" targetId="gear-krak"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-squad-krak-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="2"/></costs><modifiers><modifier type="increment" value="2" field="pts"><repeats><repeat value="1" repeats="1" field="selections" scope="root-entry" childId="breacher-marine" shared="true" roundUp="false" includeChildSelections="false"/></repeats></modifier></modifiers></entryLink>
+        </entryLinks></selectionEntryGroup>
+        <selectionEntryGroup name="Specialist Weapons (1 per 5 models)" id="breacher-specialists" hidden="false">
+          <constraints><constraint type="max" value="2" field="selections" scope="parent" shared="true" id="breacher-specialists-max" includeChildSelections="true"/></constraints>
+          <modifiers><modifier type="set" value="3" field="breacher-specialists-max"><conditions><condition type="atLeast" value="14" field="selections" scope="root-entry" childId="breacher-marine" shared="true" includeChildSelections="false"/></conditions></modifier><modifier type="set" value="4" field="breacher-specialists-max"><conditions><condition type="atLeast" value="19" field="selections" scope="root-entry" childId="breacher-marine" shared="true" includeChildSelections="false"/></conditions></modifier></modifiers>
+          <entryLinks>
+            <entryLink import="true" name="Volkite Charger (replaces Bolter)" hidden="false" id="breacher-sp-vc" type="selectionEntry" targetId="gear-volkite-charger"><constraints><constraint type="max" value="4" field="selections" scope="parent" shared="true" id="breacher-sp-vc-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+            <entryLink import="true" name="Volkite Caliver (replaces Bolter)" hidden="false" id="breacher-sp-vcal" type="selectionEntry" targetId="gear-volkite-caliver"><constraints><constraint type="max" value="4" field="selections" scope="parent" shared="true" id="breacher-sp-vcal-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+            <entryLink import="true" name="Rotor Cannon (replaces Bolter)" hidden="false" id="breacher-sp-rotor" type="selectionEntry" targetId="gear-rotor"><constraints><constraint type="max" value="4" field="selections" scope="parent" shared="true" id="breacher-sp-rotor-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="4"/></costs></entryLink>
+            <entryLink import="true" name="Flamer (replaces Bolter)" hidden="false" id="breacher-sp-flamer" type="selectionEntry" targetId="gear-flamer"><constraints><constraint type="max" value="4" field="selections" scope="parent" shared="true" id="breacher-sp-flamer-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+            <entryLink import="true" name="Meltagun (replaces Bolter)" hidden="false" id="breacher-sp-melta" type="selectionEntry" targetId="gear-meltagun"><constraints><constraint type="max" value="4" field="selections" scope="parent" shared="true" id="breacher-sp-melta-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+            <entryLink import="true" name="Plasma Gun (replaces Bolter)" hidden="false" id="breacher-sp-plasma" type="selectionEntry" targetId="gear-plasma-gun"><constraints><constraint type="max" value="4" field="selections" scope="parent" shared="true" id="breacher-sp-plasma-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+            <entryLink import="true" name="Lascutter (replaces Bolter)" hidden="false" id="breacher-sp-lascutter" type="selectionEntry" targetId="gear-lascutter"><constraints><constraint type="max" value="4" field="selections" scope="parent" shared="true" id="breacher-sp-lascutter-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+            <entryLink import="true" name="Graviton Gun (replaces Bolter)" hidden="false" id="breacher-sp-grav" type="selectionEntry" targetId="gear-graviton-gun"><constraints><constraint type="max" value="4" field="selections" scope="parent" shared="true" id="breacher-sp-grav-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Squad Equipment" id="breacher-equipment" hidden="false"><entryLinks>
+          <entryLink import="true" name="Legion Vexilla" hidden="false" id="breacher-vexilla" type="selectionEntry" targetId="gear-vexilla"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-vexilla-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+          <entryLink import="true" name="Nuncio Vox" hidden="false" id="breacher-nuncio" type="selectionEntry" targetId="gear-nuncio"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="breacher-nuncio-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+        </entryLinks></selectionEntryGroup>
+      </selectionEntryGroups>
+      <costs><cost name="Points" typeId="pts" value="50"/></costs>
+    </selectionEntry>
+'''
+
+          end_marker = '\n  </selectionEntries>\n</catalogue>'
+          if end_marker not in text:
+              raise SystemExit('root selectionEntries marker missing')
+          text = text.replace(end_marker, '\n' + unit + end_marker, 1)
+
+          ET.fromstring(text)
+          ids = re.findall(r'\bid="([^"]+)"', text)
+          dup = [k for k,v in Counter(ids).items() if v > 1]
+          if dup:
+              raise SystemExit('Duplicate ids: ' + ', '.join(dup[:20]))
+          targets = re.findall(r'\btargetId="([^"]+)"', text)
+          missing = sorted(set(targets) - set(ids) - {'cat-hq','cat-troops','cat-elites','cat-fast','cat-heavy','cat-transport','cat-low'})
+          if missing:
+              raise SystemExit('Unresolved targetIds: ' + ', '.join(missing[:30]))
+
+          p.write_text(text, encoding='utf-8')
+          print('Revision 13 XML validated; Breacher Siege Squad inserted.')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Legiones Astartes.cat"
+          git commit -m "Add Legion Breacher Siege Squad revision 13"
+          git push
