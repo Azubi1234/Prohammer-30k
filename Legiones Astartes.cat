@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="18" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="7" type="catalogue">
-  <comment>Revision 18: Added the complete core Fast Attack section: Legion Seekers, Bikes, Sky Hunters, Attack Bikes, Land Speeders and Javelin Attack Speeders, using shared weapon/transport links and source-accurate points and options.</comment>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="19" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="7" type="catalogue">
+  <comment>Revision 19: Fast Attack cleanup: squad-wide Melta Bomb upgrades now suppress the redundant Sergeant Melta Bomb option; all six Fast Attack entries retain their source-accurate points and options.</comment>
   <readme>Core Troops, Elites and Fast Attack entries follow the current Legiones Astartes Army List. Shared weapons and transports are reused through links rather than duplicated. Unit-specific replacements take precedence over generic Armoury access, squad-wide upgrades suppress redundant character purchases where practical, and items may not be selected more than once unless specifically permitted.</readme>
   <sharedSelectionEntries>
     <selectionEntry type="upgrade" import="true" name="Bolter" hidden="false" id="gear-bolter">
@@ -9004,6 +9004,18 @@
               <costs>
                 <cost name="Points" typeId="pts" value="5" />
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-seeker-melta" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="0" field="fa-seeker-sgt-melta-max">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-seeker-melta" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+              </modifiers>
             </entryLink>
           </entryLinks>
         </selectionEntryGroup>
@@ -9512,6 +9524,18 @@
               <costs>
                 <cost name="Points" typeId="pts" value="5" />
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-bike-melta" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="0" field="fa-bike-sgt-melta-max">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-bike-melta" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+              </modifiers>
             </entryLink>
           </entryLinks>
         </selectionEntryGroup>
@@ -9935,6 +9959,18 @@
               <costs>
                 <cost name="Points" typeId="pts" value="5" />
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-sky-melta" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+                <modifier type="set" value="0" field="fa-sky-sgt-melta-max">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fa-sky-melta" shared="true" includeChildSelections="true" />
+                  </conditions>
+                </modifier>
+              </modifiers>
             </entryLink>
           </entryLinks>
         </selectionEntryGroup>
