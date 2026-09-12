@@ -2,13 +2,13 @@
 <gameSystem
   id="sys-a1d2-5ede-e74f-7479"
   name="Prohammer 30k"
-  revision="3"
+  revision="4"
   battleScribeVersion="2.03"
   authorName="Prohammer 30k Project"
   type="gameSystem"
   xmlns="http://www.battlescribe.net/schema/gameSystemSchema">
   <comment>Horus Heresy army lists adapted for use with ProHammer Classic.</comment>
-  <readme>Core system skeleton for Prohammer 30k. Contains points, core profile types, battlefield roles and the standard Force Organisation Chart. Unit entries are intentionally not included yet.</readme>
+  <readme>Core system skeleton for Prohammer 30k. Contains points, core profile types, battlefield roles and the standard Force Organisation Chart.</readme>
 
   <costTypes>
     <costType id="pts" name="Points" defaultCostLimit="-1" hidden="false"/>
