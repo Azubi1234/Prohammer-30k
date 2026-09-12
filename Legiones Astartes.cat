@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="16" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="6" type="catalogue">
-  <comment>Revision 16: Added the complete core Elites section from the current Legiones Astartes Army List: Veteran, Terminator, Destroyer, Techmarine Covenant, Legion Dreadnought, Contemptor Dreadnought and Rapier Weapons Battery, plus the Dreadnought Drop Pod and required weapon profiles.</comment>
-  <readme>Core Troops and Elites entries follow the current Legiones Astartes Army List. New Recruit options avoid duplicate standard wargear, unit-specific replacements take precedence over generic Armoury access, squad-wide upgrades suppress redundant character purchases where practical, and items may not be selected more than once unless specifically permitted.</readme>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="17" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="7" type="catalogue">
+  <comment>Revision 17: Cleaned the Elites transport selectors: Veteran, Terminator and Destroyer squads now each show only their own legal transport options once, while continuing to reuse the shared transport entries.</comment>
+  <readme>Core Troops and Elites entries follow the current Legiones Astartes Army List. Shared weapons and transports are reused through links rather than duplicated. Unit-specific replacements take precedence over generic Armoury access, squad-wide upgrades suppress redundant character purchases where practical, and items may not be selected more than once unless specifically permitted.</readme>
   <sharedSelectionEntries>
     <selectionEntry type="upgrade" import="true" name="Bolter" hidden="false" id="gear-bolter">
       <profiles>
@@ -3849,39 +3849,7 @@
                 <constraint id="veteran-tr-dc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
               </constraints>
             </entryLink>
-            <entryLink import="true" name="Dreadclaw Drop Pod" hidden="false" id="terminator-tr-dc" type="selectionEntry" targetId="transport-dreadclaw">
-              <constraints>
-                <constraint id="terminator-tr-dc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="terminator-additional" shared="true" includeChildSelections="true" />
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="0" field="terminator-tr-dc-max">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="terminator-additional" shared="true" includeChildSelections="true" />
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Rhino" hidden="false" id="destroyer-tr-rhino" type="selectionEntry" targetId="transport-rhino">
-              <constraints>
-                <constraint id="destroyer-tr-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
-              </constraints>
-            </entryLink>
-            <entryLink import="true" name="Drop Pod" hidden="false" id="destroyer-tr-pod" type="selectionEntry" targetId="transport-drop-pod">
-              <constraints>
-                <constraint id="destroyer-tr-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
-              </constraints>
-            </entryLink>
-            <entryLink import="true" name="Dreadclaw Drop Pod" hidden="false" id="destroyer-tr-dc" type="selectionEntry" targetId="transport-dreadclaw">
-              <constraints>
-                <constraint id="destroyer-tr-dc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
-              </constraints>
-            </entryLink>
-          </entryLinks>
+            </entryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -3893,17 +3861,7 @@
                 <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="veteran-jump-packs" shared="true" includeChildSelections="true" />
               </conditions>
             </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="destroyer-jump-packs" shared="true" includeChildSelections="true" />
-              </conditions>
-            </modifier>
-            <modifier type="set" value="0" field="destroyer-transport-max">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="destroyer-jump-packs" shared="true" includeChildSelections="true" />
-              </conditions>
-            </modifier>
-          </modifiers>
+            </modifiers>
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>
@@ -4381,7 +4339,7 @@
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntryGroup>
-      </selectionEntryGroups>
+      <selectionEntryGroup name="Dedicated Transport" id="terminator-transport" hidden="false"><constraints><constraint id="terminator-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" /></constraints><entryLinks><entryLink import="true" name="Dreadclaw Drop Pod" hidden="false" id="terminator-tr-dc" type="selectionEntry" targetId="transport-dreadclaw"><constraints><constraint id="terminator-tr-dc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints></entryLink></entryLinks><modifiers><modifier type="set" value="true" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="root-entry" childId="terminator-additional" shared="true" includeChildSelections="true" /></conditions></modifier><modifier type="set" value="0" field="terminator-transport-max"><conditions><condition type="atLeast" value="1" field="selections" scope="root-entry" childId="terminator-additional" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup></selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Legion Destroyer Squad" hidden="false" id="destroyer-unit">
       <categoryLinks>
@@ -4804,7 +4762,7 @@
             </entryLink>
           </entryLinks>
         </selectionEntryGroup>
-      </selectionEntryGroups>
+      <selectionEntryGroup name="Dedicated Transport" id="destroyer-transport" hidden="false"><constraints><constraint id="destroyer-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" /></constraints><entryLinks><entryLink import="true" name="Rhino" hidden="false" id="destroyer-tr-rhino" type="selectionEntry" targetId="transport-rhino"><constraints><constraint id="destroyer-tr-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints></entryLink><entryLink import="true" name="Drop Pod" hidden="false" id="destroyer-tr-pod" type="selectionEntry" targetId="transport-drop-pod"><constraints><constraint id="destroyer-tr-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints></entryLink><entryLink import="true" name="Dreadclaw Drop Pod" hidden="false" id="destroyer-tr-dc" type="selectionEntry" targetId="transport-dreadclaw"><constraints><constraint id="destroyer-tr-dc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints></entryLink></entryLinks><modifiers><modifier type="set" value="true" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="root-entry" childId="destroyer-jump-packs" shared="true" includeChildSelections="true" /></conditions></modifier><modifier type="set" value="0" field="destroyer-transport-max"><conditions><condition type="atLeast" value="1" field="selections" scope="root-entry" childId="destroyer-jump-packs" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup></selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Techmarine Covenant" hidden="false" id="techmarine-covenant">
       <categoryLinks>

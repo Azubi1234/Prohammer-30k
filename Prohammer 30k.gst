@@ -2,7 +2,7 @@
 <gameSystem
   id="sys-a1d2-5ede-e74f-7479"
   name="Prohammer 30k"
-  revision="6"
+  revision="7"
   battleScribeVersion="2.03"
   authorName="Prohammer 30k Project"
   type="gameSystem"
