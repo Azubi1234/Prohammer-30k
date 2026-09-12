@@ -1,0 +1,59 @@
+name: Audit duplicate New Recruit options
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  audit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit catalogue option groups
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          from collections import Counter, defaultdict
+
+          p=Path('Legiones Astartes.cat')
+          ns={'bs':'http://www.battlescribe.net/schema/catalogueSchema'}
+          root=ET.parse(p).getroot()
+          lines=[]
+          seen_ids=Counter()
+          for e in root.iter():
+              if 'id' in e.attrib:
+                  seen_ids[e.attrib['id']]+=1
+          dup_ids=[(i,c) for i,c in seen_ids.items() if c>1]
+          lines.append('DUPLICATE XML IDS')
+          lines += [f'{i}: {c}' for i,c in dup_ids] or ['none']
+          lines.append('')
+          lines.append('DUPLICATE DIRECT OPTIONS WITHIN A GROUP')
+          found=False
+          for g in root.iter('{http://www.battlescribe.net/schema/catalogueSchema}selectionEntryGroup'):
+              direct=[]
+              for container_tag in ('entryLinks','selectionEntries','selectionEntryGroups'):
+                  cont=g.find('{http://www.battlescribe.net/schema/catalogueSchema}'+container_tag)
+                  if cont is not None:
+                      for ch in list(cont):
+                          direct.append((ch.attrib.get('name',''),ch.attrib.get('targetId',''),ch.attrib.get('id','')))
+              names=Counter(n for n,_,_ in direct if n)
+              targets=Counter(t for _,t,_ in direct if t)
+              dn={n:c for n,c in names.items() if c>1}
+              dt={t:c for t,c in targets.items() if c>1}
+              if dn or dt:
+                  found=True
+                  lines.append(f"GROUP {g.attrib.get('name')} [{g.attrib.get('id')}]")
+                  if dn: lines.append(' duplicate names: '+repr(dn))
+                  if dt: lines.append(' duplicate targets: '+repr(dt))
+                  for item in direct: lines.append('  '+repr(item))
+          if not found: lines.append('none')
+          Path('.duplicate-audit.txt').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .duplicate-audit.txt
+          git commit -m "Write duplicate option audit [skip ci]"
+          git push
