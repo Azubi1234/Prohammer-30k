@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="13" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="4" type="catalogue">
-  <comment>Revision 13: Added the Legion Breacher Siege Squad from the current army list, including Hardened Armour, specialist weapons, Sergeant replacements and restricted non-duplicate Armoury options.</comment>
-  <readme>The Legion Tactical, Assault and Breacher Siege Squads follow the current Legiones Astartes Army List. Squad Sergeants may not select the same item more than once unless a unit entry specifically permits it. Unit-specific weapon replacements are not repeated in additional Armoury lists, and squad-wide wargear prevents purchasing the same item again for the Sergeant.</readme>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="14" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="4" type="catalogue">
+  <comment>Revision 14: Added the Legion Reconnaissance Squad from the current army list, with mixed individual weapon swaps, Recon Armour, Cameleoline, Support Squad restrictions and cleaned Sergeant Armoury options.</comment>
+  <readme>The Legion Tactical, Assault, Breacher Siege and Reconnaissance Squads follow the current Legiones Astartes Army List. Squad Sergeants may not select the same item more than once unless a unit entry specifically permits it. Unit-specific weapon replacements are not repeated in additional Armoury lists, and squad-wide wargear prevents purchasing the same item again for the Sergeant.</readme>
 
   <sharedSelectionEntries>
     <selectionEntry type="upgrade" import="true" name="Bolter" hidden="false" id="gear-bolter">
@@ -137,6 +137,24 @@
     <selectionEntry type="upgrade" import="true" name="Breaching Charge" hidden="false" id="gear-breaching-charge">
       <profiles><profile name="Breaching Charge" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-breaching-charge"><characteristics><characteristic name="Range" typeId="ranged-range">Special</characteristic><characteristic name="S" typeId="ranged-s">8</characteristic><characteristic name="AP" typeId="ranged-ap">2</characteristic><characteristic name="Type" typeId="ranged-type">Melee, Blast, One Use, Wrecker</characteristic></characteristics></profile></profiles>
       <rules><rule name="Breaching Charge" id="rule-breaching-charge" hidden="false"><description>May be used once per battle during an Assault phase instead of the bearer&apos;s normal close-combat attacks. The bearer makes a single attack against an enemy unit with which he is engaged. If it hits, place a Blast marker in base contact with the bearer so that it covers as many enemy models as possible without covering friendly models; models beneath the marker are struck using the Breaching Charge profile.</description></rule><rule name="Wrecker" id="rule-wrecker-breaching" hidden="false"><description>Against Fortifications, buildings, barricades or other immobile structures, a Wrecker attack may re-roll a failed Armour Penetration roll. Where a mission uses a Building Damage table, add +1 to any roll made on that table by a Wrecker attack.</description></rule></rules>
+    </selectionEntry>
+
+
+    <selectionEntry type="upgrade" import="true" name="Recon Armour" hidden="false" id="gear-recon-armour">
+      <rules><rule name="Recon Armour" id="rule-recon-armour" hidden="false"><description>Recon Armour confers a 4+ Armour Save.</description></rule></rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Astartes Shotgun" hidden="false" id="gear-astartes-shotgun">
+      <profiles><profile name="Astartes Shotgun" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-astartes-shotgun"><characteristics><characteristic name="Range" typeId="ranged-range">12&quot;</characteristic><characteristic name="S" typeId="ranged-s">3</characteristic><characteristic name="AP" typeId="ranged-ap">-</characteristic><characteristic name="Type" typeId="ranged-type">Assault 2</characteristic></characteristics></profile></profiles>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Sniper Rifle" hidden="false" id="gear-sniper-rifle">
+      <profiles><profile name="Sniper Rifle" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false" id="prof-sniper-rifle"><characteristics><characteristic name="Range" typeId="ranged-range">36&quot;</characteristic><characteristic name="S" typeId="ranged-s">3</characteristic><characteristic name="AP" typeId="ranged-ap">6</characteristic><characteristic name="Type" typeId="ranged-type">Heavy 1, Sniper</characteristic></characteristics></profile></profiles>
+      <rules><rule name="Sniper" id="rule-sniper-rifle" hidden="false"><description>Uses the normal Sniper weapon rules from ProHammer Classic.</description></rule></rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Combat Blade" hidden="false" id="gear-combat-blade">
+      <rules><rule name="Combat Blade" id="rule-combat-blade" hidden="false"><description>Close Combat Weapon. Uses the bearer&apos; Strength and permits normal Armour Saves.</description></rule></rules>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Cameleoline" hidden="false" id="gear-cameleoline">
+      <rules><rule name="Cameleoline" id="rule-cameleoline" hidden="false"><description>A model equipped with Cameleoline gains the Stealth special rule.</description></rule></rules>
     </selectionEntry>
 
   </sharedSelectionEntries>
@@ -488,6 +506,158 @@
       </selectionEntryGroups>
       <costs><cost name="Points" typeId="pts" value="50"/></costs>
     </selectionEntry>
+
+
+    <selectionEntry type="unit" import="true" name="Legion Reconnaissance Squad" hidden="false" id="recon-unit">
+      <categoryLinks><categoryLink targetId="cat-troops" id="recon-cat" primary="true" name="Troops" hidden="false"/></categoryLinks>
+      <rules>
+        <rule name="Standard Wargear" id="recon-standard-wargear" hidden="false"><description>Every model is equipped with Recon Armour, a Bolter, a Bolt Pistol and Frag Grenades.</description></rule>
+        <rule name="Legiones Astartes" id="recon-legiones" hidden="false"><description>All models have And They Shall Know No Fear as presented in ProHammer Classic and gain the named Legiones Astartes rule of their chosen Legion. They are not Fearless.</description></rule>
+        <rule name="Support Squad" id="recon-support-squad" hidden="false"><description>This unit may be selected as a Troops choice, but may not fulfil either of the army&apos; two compulsory Troops selections unless a Legion-specific rule or Rite of War removes this restriction.</description></rule>
+        <rule name="Scout" id="recon-scout" hidden="false"><description>Uses the normal Scout rule from ProHammer Classic.</description></rule>
+        <rule name="Infiltrate" id="recon-infiltrate" hidden="false"><description>Uses the normal Infiltrate rule from ProHammer Classic.</description></rule>
+        <rule name="Move Through Cover" id="recon-mtc" hidden="false"><description>Uses the normal Move Through Cover rule from ProHammer Classic.</description></rule>
+        <rule name="Acute Senses" id="recon-acute-senses" hidden="false"><description>Uses the normal Acute Senses rule from ProHammer Classic.</description></rule>
+        <rule name="Frag Grenades" id="recon-frag" hidden="false"><description>Frag Grenades use the normal ProHammer Frag Grenade and Assault Grenade rules. Against vehicles, Frag Grenades have Strength 4 + D6 Armour Penetration.</description></rule>
+      </rules>
+
+      <entryLinks>
+        <entryLink import="true" name="Recon Armour" hidden="false" id="recon-standard-armour" type="selectionEntry" targetId="gear-recon-armour" defaultAmount="1"><constraints><constraint type="min" value="1" field="selections" scope="parent" shared="true" id="recon-standard-armour-min" includeChildSelections="false" automatic="true"/><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-standard-armour-max" includeChildSelections="false" automatic="true"/></constraints></entryLink>
+        <entryLink import="true" name="Bolter" hidden="false" id="recon-standard-bolter" type="selectionEntry" targetId="gear-bolter" defaultAmount="1"><constraints><constraint type="min" value="1" field="selections" scope="parent" shared="true" id="recon-standard-bolter-min" includeChildSelections="false" automatic="true"/><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-standard-bolter-max" includeChildSelections="false" automatic="true"/></constraints></entryLink>
+        <entryLink import="true" name="Bolt Pistol" hidden="false" id="recon-standard-bp" type="selectionEntry" targetId="gear-bolt-pistol" defaultAmount="1"><constraints><constraint type="min" value="1" field="selections" scope="parent" shared="true" id="recon-standard-bp-min" includeChildSelections="false" automatic="true"/><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-standard-bp-max" includeChildSelections="false" automatic="true"/></constraints></entryLink>
+      </entryLinks>
+
+      <selectionEntries>
+        <selectionEntry type="model" import="true" name="Legion Recon Marine" hidden="false" id="recon-marine" defaultAmount="4">
+          <constraints><constraint type="min" value="4" field="selections" scope="parent" shared="true" id="recon-marine-min" includeChildSelections="false"/><constraint type="max" value="9" field="selections" scope="parent" shared="true" id="recon-marine-max" includeChildSelections="false"/></constraints>
+          <costs><cost name="Points" typeId="pts" value="14"/></costs>
+          <profiles><profile name="Legion Recon Marine" typeId="prof-model" typeName="Model" hidden="false" id="prof-recon-marine"><characteristics><characteristic name="WS" typeId="model-ws">4</characteristic><characteristic name="BS" typeId="model-bs">4</characteristic><characteristic name="S" typeId="model-s">4</characteristic><characteristic name="T" typeId="model-t">4</characteristic><characteristic name="W" typeId="model-w">1</characteristic><characteristic name="I" typeId="model-i">4</characteristic><characteristic name="A" typeId="model-a">1</characteristic><characteristic name="Ld" typeId="model-ld">8</characteristic><characteristic name="Sv" typeId="model-sv">4+</characteristic></characteristics></profile></profiles>
+        </selectionEntry>
+
+        <selectionEntry type="model" import="true" name="Legion Recon Sergeant" hidden="false" id="recon-sergeant" defaultAmount="1">
+          <constraints><constraint type="min" value="1" field="selections" scope="parent" shared="true" id="recon-sgt-min" includeChildSelections="false" automatic="true"/><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-sgt-max" includeChildSelections="false" automatic="true"/></constraints>
+          <costs><cost name="Points" typeId="pts" value="14"/></costs>
+          <profiles><profile name="Legion Recon Sergeant" typeId="prof-model" typeName="Model" hidden="false" id="prof-recon-sergeant"><characteristics><characteristic name="WS" typeId="model-ws">4</characteristic><characteristic name="BS" typeId="model-bs">4</characteristic><characteristic name="S" typeId="model-s">4</characteristic><characteristic name="T" typeId="model-t">4</characteristic><characteristic name="W" typeId="model-w">1</characteristic><characteristic name="I" typeId="model-i">4</characteristic><characteristic name="A" typeId="model-a">2</characteristic><characteristic name="Ld" typeId="model-ld">9</characteristic><characteristic name="Sj" typeId="model-sv">4+</characteristic></characteristics></profile></profiles>
+          <rules><rule name="Sergeant Armoury" id="recon-rule-sgt-armoury" hidden="false"><description>The Sergeant may select up to 50 points of additional permitted weapons and wargear from the Space Marine Armoury. Only items marked for Squad Sergeants are available. No item may be selected more than once unless a unit entry specifically permits otherwise. Unit-specific replacement options are not repeated in the additional Armoury. Any additional Armoury weapon replaces one of the Sergeant&apos; existing weapons so that he never carries more than two weapons; a pair of Lightning Claws replaces both.</description></rule></rules>
+
+          <selectionEntryGroups>
+            <selectionEntryGroup name="Sergeant Weapon Options" id="recon-sgt-weapons" hidden="false">
+              <constraints><constraint type="max" value="2" field="selections" scope="parent" shared="true" id="recon-sgt-weapons-max" includeChildSelections="true"/></constraints>
+              <modifiers><modifier type="set" value="1" field="recon-sgt-weapons-max"><conditions><condition type="atLeast" value="1" field="selections" scope="parent" childId="recon-sgt-pair-claws" shared="true" includeChildSelections="true"/></conditions></modifier></modifiers>
+
+              <selectionEntries>
+                <selectionEntry type="upgrade" import="true" name="Pair of Lightning Claws (Armoury; replaces both weapons)" hidden="false" id="recon-sgt-pair-claws">
+                  <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-sgt-pair-claws-max" includeChildSelections="false"/></constraints>
+                  <costs><cost name="Points" typeId="pts" value="30"/></costs>
+                  <entryLinks><entryLink import="true" name="Pair of Lightning Claws" hidden="false" id="recon-sgt-pair-claws-link" type="selectionEntry" targetId="gear-pair-claws" defaultAmount="1"/></entryLinks>
+                </selectionEntry>
+              </selectionEntries>
+
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Replace Bolter" id="recon-sgt-bolter" hidden="false">
+                  <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-sgt-bolter-max" includeChildSelections="false"/></constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="Astartes Shotgun" hidden="false" id="recon-sgt-shotgun" type="selectionEntry" targetId="gear-astartes-shotgun"/>
+                    <entryLink import="true" name="Chainsword" hidden="false" id="recon-sgt-chainsword" type="selectionEntry" targetId="gear-chainsword"/>
+                    <entryLink import="true" name="Combat Blade" hidden="false" id="recon-sgt-combat-blade" type="selectionEntry" targetId="gear-combat-blade"/>
+                    <entryLink import="true" name="Sniper Rifle" hidden="false" id="recon-sgt-sniper" type="selectionEntry" targetId="gear-sniper-rifle"><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                    <entryLink import="true" name="Combi-Flamer" hidden="false" id="recon-sgt-cf" type="selectionEntry" targetId="gear-combi-flamer"><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+                    <entryLink import="true" name="Combi-Volkite Charger" hidden="false" id="recon-sgt-cv" type="selectionEntry" targetId="gear-combi-volkite"><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+                    <entryLink import="true" name="Combi-Meltagun" hidden="false" id="recon-sgt-cm" type="selectionEntry" targetId="gear-combi-melta"><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+                    <entryLink import="true" name="Combi-Plasma Gun" hidden="false" id="recon-sgt-cp" type="selectionEntry" targetId="gear-combi-plasma"><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+                  </entryLinks>
+                </selectionEntryGroup>
+
+                <selectionEntryGroup name="Replace Bolt Pistol" id="recon-sgt-pistol" hidden="false">
+                  <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-sgt-pistol-max" includeChildSelections="false"/></constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="Volkite Serpenta" hidden="false" id="recon-sgt-vs" type="selectionEntry" targetId="gear-volkite-serpenta"><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                    <entryLink import="true" name="Hand Flamer" hidden="false" id="recon-sgt-hf" type="selectionEntry" targetId="gear-hand-flamer"><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                    <entryLink import="true" name="Plasma Pistol" hidden="false" id="recon-sgt-pp" type="selectionEntry" targetId="gear-plasma-pistol"><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+                  </entryLinks>
+                </selectionEntryGroup>
+
+                <selectionEntryGroup name="Additional Armoury Weapon (replaces one existing weapon)" id="recon-sgt-armoury-weapon" hidden="false">
+                  <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-sgt-armoury-weapon-max" includeChildSelections="false"/></constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="Lightning Claw" hidden="false" id="recon-sgt-arm-lc" type="selectionEntry" targetId="gear-lightning-claw"><costs><cost name="Points" typeId="pts" value="25"/></costs></entryLink>
+                    <entryLink import="true" name="Power Fist" hidden="false" id="recon-sgt-arm-pf" type="selectionEntry" targetId="gear-power-fist"><costs><cost name="Points" typeId="pts" value="25"/></costs></entryLink>
+                    <entryLink import="true" name="Power Weapon" hidden="false" id="recon-sgt-arm-pw" type="selectionEntry" targetId="gear-power-weapon"><costs><cost name="Points" typeId="pts" value="15"/></costs></entryLink>
+                    <entryLink import="true" name="Rending Weapon" hidden="false" id="recon-sgt-arm-rw" type="selectionEntry" targetId="gear-rending"><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                    <entryLink import="true" name="Thunder Hammer" hidden="false" id="recon-sgt-arm-th" type="selectionEntry" targetId="gear-thunder"><costs><cost name="Points" typeId="pts" value="30"/></costs></entryLink>
+                    <entryLink import="true" name="Combi-Bolter" hidden="false" id="recon-sgt-arm-cb" type="selectionEntry" targetId="gear-combi-bolter"><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                    <entryLink import="true" name="Combi-Grenade Launcher" hidden="false" id="recon-sgt-arm-cg" type="selectionEntry" targetId="gear-combi-grenade"><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+                    <entryLink import="true" name="Storm Bolter" hidden="false" id="recon-sgt-arm-sb" type="selectionEntry" targetId="gear-storm-bolter"><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                  </entryLinks>
+                </selectionEntryGroup>
+              </selectionEntryGroups>
+            </selectionEntryGroup>
+
+            <selectionEntryGroup name="Sergeant Wargear" id="recon-sgt-wargear" hidden="false">
+              <entryLinks>
+                <entryLink import="true" name="Melta Bombs" hidden="false" id="recon-sgt-melta-bombs" type="selectionEntry" targetId="gear-melta-bombs">
+                  <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-sgt-melta-bombs-max" includeChildSelections="false"/></constraints>
+                  <modifiers>
+                    <modifier type="set" value="true" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="root-entry" childId="recon-squad-melta-bombs" shared="true" includeChildSelections="true"/></conditions></modifier>
+                    <modifier type="set" value="0" field="recon-sgt-melta-bombs-max"><conditions><condition type="atLeast" value="1" field="selections" scope="root-entry" childId="recon-squad-melta-bombs" shared="true" includeChildSelections="true"/></conditions></modifier>
+                  </modifiers>
+                  <costs><cost name="Points" typeId="pts" value="5"/></costs>
+                </entryLink>
+              </entryLinks>
+            </selectionEntryGroup>
+
+            <selectionEntryGroup name="Additional Sergeant Armoury (max 50 pts)" id="recon-sgt-armoury" hidden="false">
+              <constraints><constraint type="max" value="50" field="pts" scope="parent" shared="true" id="recon-sgt-armoury-pts-max" includeChildSelections="true"/></constraints>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Wargear" id="recon-sgt-armoury-wargear" hidden="false">
+                  <entryLinks>
+                    <entryLink import="true" name="Auspex" hidden="false" id="recon-sgt-auspex" type="selectionEntry" targetId="gear-auspex"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-sgt-auspex-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="2"/></costs></entryLink>
+                    <entryLink import="true" name="Bionics" hidden="false" id="recon-sgt-bionics" type="selectionEntry" targetId="gear-bionics"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-sgt-bionics-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+                    <entryLink import="true" name="Combat Shield" hidden="false" id="recon-sgt-combat-shield" type="selectionEntry" targetId="gear-combat-shield"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-sgt-combat-shield-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                    <entryLink import="true" name="Purity Seals" hidden="false" id="recon-sgt-purity" type="selectionEntry" targetId="gear-purity"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-sgt-purity-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                    <entryLink import="true" name="Teleport Homer" hidden="false" id="recon-sgt-homer" type="selectionEntry" targetId="gear-homer"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-sgt-homer-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+                  </entryLinks>
+                </selectionEntryGroup>
+              </selectionEntryGroups>
+            </selectionEntryGroup>
+          </selectionEntryGroups>
+        </selectionEntry>
+      </selectionEntries>
+
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Recon Marine Bolter Replacements" id="recon-marine-weapons" hidden="false">
+          <constraints><constraint type="max" value="4" field="selections" scope="parent" shared="true" id="recon-marine-weapons-max" includeChildSelections="true"/></constraints>
+          <modifiers>
+            <modifier type="set" value="5" field="recon-marine-weapons-max"><conditions><condition type="atLeast" value="5" field="selections" scope="root-entry" childId="recon-marine" shared="true" includeChildSelections="false"/></conditions></modifier>
+            <modifier type="set" value="6" field="recon-marine-weapons-max"><conditions><condition type="atLeast" value="6" field="selections" scope="root-entry" childId="recon-marine" shared="true" includeChildSelections="false"/></conditions></modifier>
+            <modifier type="set" value="7" field="recon-marine-weapons-max"><conditions><condition type="atLeast" value="7" field="selections" scope="root-entry" childId="recon-marine" shared="true" includeChildSelections="false"/></conditions></modifier>
+            <modifier type="set" value="8" field="recon-marine-weapons-max"><conditions><condition type="atLeast" value="8" field="selections" scope="root-entry" childId="recon-marine" shared="true" includeChildSelections="false"/></conditions></modifier>
+            <modifier type="set" value="9" field="recon-marine-weapons-max"><conditions><condition type="atLeast" value="9" field="selections" scope="root-entry" childId="recon-marine" shared="true" includeChildSelections="false"/></conditions></modifier>
+          </modifiers>
+          <entryLinks>
+            <entryLink import="true" name="Astartes Shotgun (replaces Bolter)" hidden="false" id="recon-marine-shotgun" type="selectionEntry" targetId="gear-astartes-shotgun"><constraints><constraint type="max" value="9" field="selections" scope="parent" shared="true" id="recon-marine-shotgun-max" includeChildSelections="false"/></constraints></entryLink>
+            <entryLink import="true" name="Chainsword (replaces Bolter)" hidden="false" id="recon-marine-chainsword" type="selectionEntry" targetId="gear-chainsword"><constraints><constraint type="max" value="9" field="selections" scope="parent" shared="true" id="recon-marine-chainsword-max" includeChildSelections="false"/></constraints></entryLink>
+            <entryLink import="true" name="Combat Blade (replaces Bolter)" hidden="false" id="recon-marine-combat-blade" type="selectionEntry" targetId="gear-combat-blade"><constraints><constraint type="max" value="9" field="selections" scope="parent" shared="true" id="recon-marine-combat-blade-max" includeChildSelections="false"/></constraints></entryLink>
+            <entryLink import="true" name="Sniper Rifle (replaces Bolter)" hidden="false" id="recon-marine-sniper" type="selectionEntry" targetId="gear-sniper-rifle"><constraints><constraint type="max" value="9" field="selections" scope="parent" shared="true" id="recon-marine-sniper-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs></entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+
+        <selectionEntryGroup name="Squad Equipment" id="recon-squad-equipment" hidden="false">
+          <entryLinks>
+            <entryLink import="true" name="Nuncio Vox" hidden="false" id="recon-nuncio" type="selectionEntry" targetId="gear-nuncio"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-nuncio-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="10"/></costs></entryLink>
+            <entryLink import="true" name="Cameleoline (+5 pts/model)" hidden="false" id="recon-squad-cameleoline" type="selectionEntry" targetId="gear-cameleoline"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-squad-cameleoline-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs><modifiers><modifier type="increment" value="5" field="pts"><repeats><repeat value="1" repeats="1" field="selections" scope="root-entry" childId="recon-marine" shared="true" roundUp="false" includeChildSelections="false"/></repeats></modifier></modifiers></entryLink>
+            <entryLink import="true" name="Krak Grenades (+2 pts/model)" hidden="false" id="recon-squad-krak" type="selectionEntry" targetId="gear-krak"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-squad-krak-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="2"/></costs><modifiers><modifier type="increment" value="2" field="pts"><repeats><repeat value="1" repeats="1" field="selections" scope="root-entry" childId="recon-marine" shared="true" roundUp="false" includeChildSelections="false"/></repeats></modifier></modifiers></entryLink>
+            <entryLink import="true" name="Melta Bombs (+5 pts/model)" hidden="false" id="recon-squad-melta-bombs" type="selectionEntry" targetId="gear-melta-bombs"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-squad-melta-bombs-max" includeChildSelections="false"/></constraints><costs><cost name="Points" typeId="pts" value="5"/></costs><modifiers><modifier type="increment" value="5" field="pts"><repeats><repeat value="1" repeats="1" field="selections" scope="root-entry" childId="recon-marine" shared="true" roundUp="false" includeChildSelections="false"/></repeats></modifier></modifiers></entryLink>
+          </entryLinks>
+        </selectionEntryGroup>
+
+        <selectionEntryGroup name="Dedicated Transport" id="recon-transport" hidden="false">
+          <constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-transport-max" includeChildSelections="false"/></constraints>
+          <entryLinks><entryLink import="true" name="Rhino" hidden="false" id="recon-rhino" type="selectionEntry" targetId="transport-rhino"><constraints><constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-rhino-max" includeChildSelections="false"/></constraints></entryLink></entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+    </selectionEntry>
+
 
   </selectionEntries>
 </catalogue>
