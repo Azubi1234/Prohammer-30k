@@ -17,7 +17,7 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
-          import base64, string
+          import base64, string, re
           files = [Path(f'.github/rev32/part0{i}.b64') for i in range(4)]
           pieces = []
           allowed = set(string.ascii_letters + string.digits + '+/=')
@@ -37,7 +37,10 @@ jobs:
                   raise RuntimeError(f'{f}: base64 decode failed: {exc}') from exc
               print(f'{f}: decoded {len(decoded)} bytes')
               pieces.append(decoded)
-          Path('/tmp/rev32_low_aero.py').write_bytes(b''.join(pieces))
+          source = b''.join(pieces).decode('utf-8')
+          # Repair two staged line-wrap typos where the opening dictionary bracket was omitted.
+          source = re.sub(r'AERO_ARMOURY\s*\n\s*"([^"]+)"\]\)', r'AERO_ARMOURY["\1"])', source)
+          Path('/tmp/rev32_low_aero.py').write_text(source, encoding='utf-8')
           PY
           python -m py_compile /tmp/rev32_low_aero.py
       - name: Apply Revision 32
