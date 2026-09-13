@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="23" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="7" type="catalogue">
-  <comment>Revision 23: Added Lords of War and Aeronautica Imperialis slots, restricted Psychic Hoods to Librarians, removed cosmetic HQ prefixes from wargear labels, and simplified Tactical Squad automatic/scaling wargear presentation.</comment>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="24" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="7" type="catalogue">
+  <comment>Revision 24: Synced final generic Army List corrections: centralized Refractor Field restrictions and corrected Recon Company and Sky Hunter Phalanx.</comment>
   <readme>Core Legiones Astartes catalogue with Army Configuration, generic HQ/Consuls and the first Legion expansion. Selecting I — Dark Angels unlocks Hexagrammaton Wing choices, Dark Angels Rites, armoury options, unique units, named characters and the Lion while retaining the standard Legion roster. Revision 23 adds universal Lords of War and Aeronautica Imperialis slots, gates Psychic Hoods to Librarians, removes cosmetic HQ prefixes from wargear labels, and simplifies Tactical Squad base/scaling wargear presentation.</readme>
   <sharedSelectionEntries>
     <selectionEntry type="upgrade" import="true" name="Bolter" hidden="false" id="gear-bolter">
@@ -1701,7 +1701,7 @@
     <selectionEntry type="upgrade" import="true" name="Refractor Field" hidden="false" id="gear-hq-refractor">
       <rules>
         <rule name="Refractor Field" id="gear-hq-refractor-rule" hidden="false">
-          <description>Grants a 5+ Invulnerable Save.</description>
+          <description>A Refractor Field grants a 5+ Invulnerable Save. A Sergeant may only purchase a Refractor Field if his squad is purchased at its maximum starting strength. A model that already has a 5+ or better Invulnerable Save may not purchase a Refractor Field.</description>
         </rule>
       </rules>
     </selectionEntry>
@@ -2358,6 +2358,23 @@
                   </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
+              <entryLinks>
+                <entryLink import="true" name="Refractor Field" hidden="false" id="rev24-tactical-unit-sgt-refractor" type="selectionEntry" targetId="gear-hq-refractor">
+                  <constraints>
+                    <constraint id="rev24-tactical-unit-sgt-refractor-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                  <modifiers>
+                    <modifier id="rev24-rf-max-tactical-unit" type="set" value="true" field="hidden">
+                      <conditions>
+                        <condition type="lessThan" value="19" field="selections" scope="root-entry" childId="tac-marine" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
+              </entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntry>
@@ -3137,6 +3154,23 @@
                   </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
+              <entryLinks>
+                <entryLink import="true" name="Refractor Field" hidden="false" id="rev24-assault-unit-sgt-refractor" type="selectionEntry" targetId="gear-hq-refractor">
+                  <constraints>
+                    <constraint id="rev24-assault-unit-sgt-refractor-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                  <modifiers>
+                    <modifier id="rev24-rf-max-assault-unit" type="set" value="true" field="hidden">
+                      <conditions>
+                        <condition type="lessThan" value="19" field="selections" scope="root-entry" childId="assault-marine" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
+              </entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntry>
@@ -4278,6 +4312,23 @@
                   </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
+              <entryLinks>
+                <entryLink import="true" name="Refractor Field" hidden="false" id="rev24-recon-unit-sgt-refractor" type="selectionEntry" targetId="gear-hq-refractor">
+                  <constraints>
+                    <constraint id="rev24-recon-unit-sgt-refractor-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                  <modifiers>
+                    <modifier id="rev24-rf-max-recon-unit" type="set" value="true" field="hidden">
+                      <conditions>
+                        <condition type="lessThan" value="9" field="selections" scope="root-entry" childId="recon-marine" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
+              </entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntry>
@@ -5169,6 +5220,21 @@
                 </modifier>
               </modifiers>
             </entryLink>
+            <entryLink import="true" name="Refractor Field" hidden="false" id="rev24-veteran-unit-sgt-refractor" type="selectionEntry" targetId="gear-hq-refractor">
+              <constraints>
+                <constraint id="rev24-veteran-unit-sgt-refractor-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="15" />
+              </costs>
+              <modifiers>
+                <modifier id="rev24-rf-max-veteran-unit" type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="lessThan" value="5" field="selections" scope="root-entry" childId="veteran-additional" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </entryLink>
           </entryLinks>
           <rules>
             <rule name="Sergeant Armoury Restrictions" id="veteran-sgt-arm-rule" hidden="false">
@@ -5705,19 +5771,6 @@
                 </entryLink>
               </entryLinks>
               <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Refractor Field" hidden="false" id="terminator-sgt-refractor">
-                  <constraints>
-                    <constraint id="terminator-sgt-refractor-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
-                  </constraints>
-                  <costs>
-                    <cost name="Points" typeId="pts" value="15" />
-                  </costs>
-                  <rules>
-                    <rule name="Refractor Field" id="terminator-sgt-refractor-rule" hidden="false">
-                      <description>5+ Invulnerable Save. The bearer chooses which available save to use against each attack.</description>
-                    </rule>
-                  </rules>
-                </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Iron Halo" hidden="false" id="terminator-sgt-halo">
                   <constraints>
                     <constraint id="terminator-sgt-halo-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
@@ -6300,6 +6353,21 @@
                     <modifier type="set" value="true" field="hidden">
                       <conditions>
                         <condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-i" shared="true" includeChildSelections="true" includeChildForces="false" />
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
+                <entryLink import="true" name="Refractor Field" hidden="false" id="rev24-destroyer-unit-sgt-refractor" type="selectionEntry" targetId="gear-hq-refractor">
+                  <constraints>
+                    <constraint id="rev24-destroyer-unit-sgt-refractor-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                  <modifiers>
+                    <modifier id="rev24-rf-max-destroyer-unit" type="set" value="true" field="hidden">
+                      <conditions>
+                        <condition type="lessThan" value="5" field="selections" scope="root-entry" childId="destroyer-additional" shared="true" includeChildSelections="false" includeChildForces="false" />
                       </conditions>
                     </modifier>
                   </modifiers>
@@ -10915,6 +10983,21 @@
                     <cost name="Points" typeId="pts" value="5" />
                   </costs>
                 </entryLink>
+                <entryLink import="true" name="Refractor Field" hidden="false" id="rev24-fa-seeker-sgt-refractor" type="selectionEntry" targetId="gear-hq-refractor">
+                  <constraints>
+                    <constraint id="rev24-fa-seeker-sgt-refractor-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                  <modifiers>
+                    <modifier id="rev24-rf-max-fa-seeker" type="set" value="true" field="hidden">
+                      <conditions>
+                        <condition type="lessThan" value="5" field="selections" scope="root-entry" childId="fa-seeker-add" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
               </entryLinks>
               <rules>
                 <rule name="Sergeant Armoury Restrictions" id="fa-seeker-sgt-arm-rule" hidden="false">
@@ -11575,6 +11658,21 @@
                     <cost name="Points" typeId="pts" value="5" />
                   </costs>
                 </entryLink>
+                <entryLink import="true" name="Refractor Field" hidden="false" id="rev24-fa-bike-sgt-refractor" type="selectionEntry" targetId="gear-hq-refractor">
+                  <constraints>
+                    <constraint id="rev24-fa-bike-sgt-refractor-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                  <modifiers>
+                    <modifier id="rev24-rf-max-fa-bike" type="set" value="true" field="hidden">
+                      <conditions>
+                        <condition type="lessThan" value="7" field="selections" scope="root-entry" childId="fa-bike-add" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
               </entryLinks>
               <rules>
                 <rule name="Sergeant Armoury Restrictions" id="fa-bike-sgt-arm-rule" hidden="false">
@@ -12119,6 +12217,21 @@
                   <costs>
                     <cost name="Points" typeId="pts" value="5" />
                   </costs>
+                </entryLink>
+                <entryLink import="true" name="Refractor Field" hidden="false" id="rev24-fa-sky-hunter-sgt-refractor" type="selectionEntry" targetId="gear-hq-refractor">
+                  <constraints>
+                    <constraint id="rev24-fa-sky-hunter-sgt-refractor-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+                  </constraints>
+                  <costs>
+                    <cost name="Points" typeId="pts" value="15" />
+                  </costs>
+                  <modifiers>
+                    <modifier id="rev24-rf-max-fa-sky-hunter" type="set" value="true" field="hidden">
+                      <conditions>
+                        <condition type="lessThan" value="7" field="selections" scope="root-entry" childId="fa-sky-add" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </conditions>
+                    </modifier>
+                  </modifiers>
                 </entryLink>
               </entryLinks>
               <rules>
@@ -13345,6 +13458,23 @@
               </entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
+          <entryLinks>
+            <entryLink import="true" name="Refractor Field" hidden="false" id="rev24-hs-heavy-support-squad-sgt-refractor" type="selectionEntry" targetId="gear-hq-refractor">
+              <constraints>
+                <constraint id="rev24-hs-heavy-support-squad-sgt-refractor-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+              </constraints>
+              <costs>
+                <cost name="Points" typeId="pts" value="15" />
+              </costs>
+              <modifiers>
+                <modifier id="rev24-rf-max-hs-heavy-support-squad" type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="lessThan" value="5" field="selections" scope="root-entry" childId="hs-hss-additional" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </entryLink>
+          </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Heavy Support Specialist" id="hs-hss-specialist" hidden="false">
           <constraints>
@@ -18290,14 +18420,6 @@
                 <cost name="Points" typeId="pts" value="10" />
               </costs>
             </entryLink>
-            <entryLink import="true" name="Refractor Field" id="hq-praetor-wg-2" type="selectionEntry" targetId="gear-hq-refractor" hidden="false">
-              <constraints>
-                <constraint id="hq-praetor-wg-2-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
-              </constraints>
-              <costs>
-                <cost name="Points" typeId="pts" value="15" />
-              </costs>
-            </entryLink>
             <entryLink import="true" name="Auspex" id="hq-praetor-wg-3" type="selectionEntry" targetId="gear-hq-auspex" hidden="false">
               <constraints>
                 <constraint id="hq-praetor-wg-3-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
@@ -20647,6 +20769,53 @@
               <costs>
                 <cost name="Points" typeId="pts" value="15" />
               </costs>
+              <modifiers>
+                <modifier id="rev24-cent-rf-1" type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-term" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+                <modifier id="rev24-cent-rf-2" type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-tart" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+                <modifier id="rev24-cent-rf-3" type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-cat" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+                <modifier id="rev24-cent-rf-4" type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-wg-1" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+                <modifier id="rev24-cent-rf-5" type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-iron-halo" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+                <modifier id="rev24-cent-rf-6" type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-ret-tc-arm-n" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+                <modifier id="rev24-cent-rf-7" type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-ret-tc-arm-t" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+                <modifier id="rev24-cent-rf-8" type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-ret-tc-arm-c" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+                <modifier id="rev24-cent-rf-9" type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-consul-chaplain" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+              </modifiers>
             </entryLink>
             <entryLink import="true" name="Auspex" id="hq-centurion-wg-3" type="selectionEntry" targetId="gear-hq-auspex" hidden="false">
               <constraints>
@@ -22595,7 +22764,7 @@
               </costs>
               <rules>
                 <rule name="Legion Recon Company" id="rite-recon-rule" hidden="false">
-                  <description>Effects — compulsory Troops must be Legion Scout Squads. Units with Infiltrate may use it even if the mission normally forbids it. Any model in a Legion Veteran Squad may replace its bolter, or both bolt pistol and close-combat weapon, with a Sniper Rifle for +5. A unit deployed using Infiltrate or a pre-game Scout move improves its Cover Save by +1 during the first game turn, max 3+. Limitations — no Terminator or Cataphractii Armour; all Heavy Support choices begin in Reserve.</description>
+                  <description>Effects — compulsory Troops must be Legion Reconnaissance Squads. Units in this army which possess Infiltrate may use it even if the mission would not normally permit Infiltrators. Any model in a Legion Veteran Squad may replace its bolter, or both its bolt pistol and close-combat weapon, with a Sniper Rifle for +5 points. A unit which deployed using Infiltrate or made a pre-game Scout move improves any Cover Save it receives by +1 during the first game turn, to a maximum of 3+. Limitations — no model in the army may be equipped with Terminator Armour or Cataphractii Terminator Armour. All Heavy Support choices must begin the battle in Reserve and enter play using the normal Reserve rules.</description>
                 </rule>
               </rules>
             </selectionEntry>
@@ -22634,7 +22803,7 @@
               </costs>
               <rules>
                 <rule name="Sky Hunter Phalanx" id="rite-skyhunter-rule" hidden="false">
-                  <description>Effects — Legion Bike Squadrons with the Jetbike Upgrade may be Troops and compulsory Troops must be Jetbike Squadrons. An Independent Character with a Space Marine Bike may upgrade it to a Jetbike for +5. Once per battle each Jetbike Squadron may move completely off a table edge into Ongoing Reserves and return next turn by Outflank. Limitations — at least one Independent Character must be on a Jetbike; no Castraferrum or Contemptor Dreadnoughts; no more than one Heavy Support choice.</description>
+                  <description>Effects — Legion Sky Hunter Jetbike Squadrons may be selected as Troops choices. The army’s compulsory Troops choices must be Legion Sky Hunter Jetbike Squadrons. These units do not also occupy a Fast Attack choice. An Independent Character equipped with a Space Marine Bike may upgrade it to a Jetbike for an additional +5 points. The model follows the normal rules for Jetbikes. Once per battle, each Legion Sky Hunter Jetbike Squadron may voluntarily leave the battlefield. If every model can move completely off a table edge, remove the unit to Ongoing Reserves; it returns during the controlling player’s following turn using the normal Outflank rules. Limitations — at least one Independent Character in the army must be mounted on a Jetbike. The army may not include Castraferrum or Contemptor Dreadnoughts. The army may include no more than one Heavy Support choice.</description>
                 </rule>
               </rules>
             </selectionEntry>
