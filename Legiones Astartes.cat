@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="38" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="13" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="39" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="13" type="catalogue">
   <comment>Revision 32: adds the complete Legiones Astartes Lords of War and Aeronautica Imperialis selections from the supplied project source files. Lords of War use the existing 0-1 Lords of War slot; Aeronautica aircraft consume their listed Fast Attack or Heavy Support slots. Unit profiles, weapons, wargear options and source special rules are exposed in New Recruit.</comment>
   <readme>Core Legiones Astartes catalogue for Prohammer 30k. Revision 32 includes the generic Legion army list and Consuls, Dark Angels package, Legiones Astartes Lords of War, and Legiones Astartes Aeronautica Imperialis aircraft. Experimental Wargear and Units remains excluded.</readme>
   <sharedSelectionEntries>
@@ -2304,7 +2304,7 @@
                       </entryLinks>
                     </selectionEntryGroup>
                   </selectionEntryGroups>
-                </selectionEntryGroup>
+                <entryLinks><entryLink id="r39-phosphex-sgt-weapons" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-sgt-weapons-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks></selectionEntryGroup>
                 <selectionEntryGroup name="Sergeant Armoury - Wargear" id="sgt-wargear" hidden="false">
                   <entryLinks>
                     <entryLink import="true" name="Auspex" hidden="false" id="sgt-auspex" type="selectionEntry" targetId="gear-auspex">
@@ -2355,7 +2355,7 @@
                         <cost name="Points" typeId="pts" value="5" />
                       </costs>
                     </entryLink>
-                  </entryLinks>
+                  <entryLink id="r39-phosphex-sgt-wargear" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-sgt-wargear-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
               <entryLinks>
@@ -2374,7 +2374,7 @@
                     </modifier>
                   </modifiers>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntry>
@@ -3099,7 +3099,7 @@
                     <cost name="Points" typeId="pts" value="5" />
                   </costs>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-assault-sgt-unit-wargear" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-assault-sgt-unit-wargear-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
             </selectionEntryGroup>
             <selectionEntryGroup name="Additional Sergeant Armoury (max 50 pts)" id="assault-sgt-armoury" hidden="false">
               <constraints>
@@ -3110,7 +3110,7 @@
                   <constraints>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="assault-sgt-armoury-weapons-max" includeChildSelections="true" />
                   </constraints>
-                  <modifiers>
+                  <entryLinks><entryLink id="r39-phosphex-assault-sgt-armoury-weapons" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-assault-sgt-armoury-weapons-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks><modifiers>
                     <modifier type="set" value="true" field="hidden">
                       <conditions>
                         <condition type="atLeast" value="1" field="selections" scope="assault-sergeant" childId="assault-sgt-pair-claws" shared="true" includeChildSelections="true" />
@@ -3179,7 +3179,7 @@
                             <cost name="Points" typeId="pts" value="5" />
                           </costs>
                         </entryLink>
-                      </entryLinks>
+                      <entryLink id="r39-phosphex-assault-sgt-armoury-twohand" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-assault-sgt-armoury-twohand-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
                     </selectionEntryGroup>
                   </selectionEntryGroups>
                 </selectionEntryGroup>
@@ -3217,7 +3217,7 @@
                         <cost name="Points" typeId="pts" value="5" />
                       </costs>
                     </entryLink>
-                  </entryLinks>
+                  <entryLink id="r39-phosphex-assault-sgt-armoury-wargear" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-assault-sgt-armoury-wargear-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
               <entryLinks>
@@ -3236,7 +3236,7 @@
                     </modifier>
                   </modifiers>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-assault-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-assault-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntry>
@@ -3656,7 +3656,7 @@
                     <cost name="Points" typeId="pts" value="5" />
                   </costs>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-breacher-sgt-unit-wargear" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-breacher-sgt-unit-wargear-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
             </selectionEntryGroup>
             <selectionEntryGroup name="Additional Sergeant Armoury (max 50 pts)" id="breacher-sgt-armoury" hidden="false">
               <constraints>
@@ -3713,7 +3713,7 @@
                             <cost name="Points" typeId="pts" value="30" />
                           </costs>
                         </entryLink>
-                      </entryLinks>
+                      <entryLink id="r39-phosphex-breacher-sgt-armoury-single" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-breacher-sgt-armoury-single-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
                     </selectionEntryGroup>
                     <selectionEntryGroup name="Two-Handed Weapons" id="breacher-sgt-armoury-two" hidden="false">
                       <constraints>
@@ -3744,10 +3744,10 @@
                             <cost name="Points" typeId="pts" value="5" />
                           </costs>
                         </entryLink>
-                      </entryLinks>
+                      <entryLink id="r39-phosphex-breacher-sgt-armoury-two" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-breacher-sgt-armoury-two-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
                     </selectionEntryGroup>
                   </selectionEntryGroups>
-                </selectionEntryGroup>
+                <entryLinks><entryLink id="r39-phosphex-breacher-sgt-armoury-weapons" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-breacher-sgt-armoury-weapons-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks></selectionEntryGroup>
                 <selectionEntryGroup name="Wargear" id="breacher-sgt-armoury-wargear" hidden="false">
                   <entryLinks>
                     <entryLink import="true" name="Auspex" hidden="false" id="breacher-sgt-auspex" type="selectionEntry" targetId="gear-auspex">
@@ -3782,10 +3782,10 @@
                         <cost name="Points" typeId="pts" value="5" />
                       </costs>
                     </entryLink>
-                  </entryLinks>
+                  <entryLink id="r39-phosphex-breacher-sgt-armoury-wargear" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-breacher-sgt-armoury-wargear-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
-            </selectionEntryGroup>
+            <entryLinks><entryLink id="r39-phosphex-breacher-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-breacher-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks></selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntry>
       <selectionEntry id="r37-breacher-shieldwall" name="Shield Wall (Legion Breacher Company)" type="upgrade" hidden="true" import="true"><constraints><constraint id="r37-breacher-shieldwall-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><rules><rule name="Shield Wall (Legion Breacher Company)" id="r37-breacher-shieldwall-rule" hidden="false"><description>Models equipped with Boarding Shields may re-roll results of 1 when making an Invulnerable Save granted by their Boarding Shield.</description></rule></rules><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-breacher" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry></selectionEntries>
@@ -4300,7 +4300,7 @@
                         <cost name="Points" typeId="pts" value="5" />
                       </costs>
                     </entryLink>
-                  </entryLinks>
+                  <entryLink id="r39-phosphex-recon-sgt-armoury-weapon" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-recon-sgt-armoury-weapon-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
             </selectionEntryGroup>
@@ -4326,7 +4326,7 @@
                     <cost name="Points" typeId="pts" value="5" />
                   </costs>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-recon-sgt-wargear" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-recon-sgt-wargear-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
             </selectionEntryGroup>
             <selectionEntryGroup name="Additional Sergeant Armoury (max 50 pts)" id="recon-sgt-armoury" hidden="false">
               <constraints>
@@ -4375,7 +4375,7 @@
                         <cost name="Points" typeId="pts" value="5" />
                       </costs>
                     </entryLink>
-                  </entryLinks>
+                  <entryLink id="r39-phosphex-recon-sgt-armoury-wargear" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-recon-sgt-armoury-wargear-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
               <entryLinks>
@@ -4394,7 +4394,7 @@
                     </modifier>
                   </modifiers>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-recon-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-recon-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntry>
@@ -5417,7 +5417,7 @@
                 </modifier>
               </modifiers>
             </entryLink>
-          </entryLinks>
+          <entryLink id="r39-phosphex-veteran-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-veteran-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
           <rules>
             <rule name="Sergeant Armoury Restrictions" id="veteran-sgt-arm-rule" hidden="false">
               <description>The Sergeant may select up to 50 points of permitted Space Marine Armoury equipment. Unit-specific options and equipment already carried are not repeated here. No item may be selected more than once unless specifically permitted. A Pair of Lightning Claws counts as two weapon choices.</description>
@@ -6017,7 +6017,7 @@
                     <cost name="Points" typeId="pts" value="5" />
                   </costs>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-terminator-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-terminator-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Iron Halo" hidden="false" id="terminator-sgt-halo">
                   <constraints>
@@ -6370,7 +6370,7 @@
               <costs>
                 <cost name="Points" typeId="pts" value="25" />
               </costs>
-            </entryLink>
+            <modifiers><modifier type="set" value="true" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink>
             <entryLink import="true" name="Calibanite Plasma Pistol" hidden="false" id="da22-alt-pp-6" type="selectionEntry" targetId="da22-plasma-pistol">
               <constraints>
                 <constraint id="da22-alt-pp-6-2" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" />
@@ -6620,7 +6620,7 @@
                     </modifier>
                   </modifiers>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-destroyer-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-destroyer-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
               <rules>
                 <rule name="Sergeant Armoury Restrictions" id="destroyer-sgt-arm-rule" hidden="false">
                   <description>Unit-specific Chainsword replacements and standard equipment are not duplicated here. No item may be selected more than once unless specifically permitted. A Pair of Lightning Claws counts as two weapon choices. Artificer Armour is not present in the current Destroyer Sergeant entry and is therefore not offered.</description>
@@ -6819,23 +6819,7 @@
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
-      <selectionEntryGroup id="r35-destroyer-special" name="Destroyer Company — Special Pistols (up to 4)" hidden="true" collective="false" import="true"><constraints><constraint id="r35-destroyer-special-max" type="max" value="4" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><entryLinks><entryLink import="true" name="Flamer (replaces one Bolt Pistol) — +10 pts" hidden="false" id="r35-destroyer-flamer" type="selectionEntry" targetId="gear-flamer">
-              <constraints>
-                <constraint id="r35-flamer-destroyer-w-hf-max" type="max" value="4" field="selections" scope="parent" shared="true" includeChildSelections="false" />
-              </constraints>
-              <costs>
-                <cost name="Points" typeId="pts" value="10" />
-              </costs>
-            </entryLink>
-            <entryLink import="true" name="Grenade Launcher (replaces one Bolt Pistol) — +10 pts" hidden="false" id="r35-destroyer-grenade-launcher" type="selectionEntry" targetId="r37-gear-grenade-launcher">
-                  <constraints>
-                    <constraint id="r35-grenade-launcher-destroyer-sgt-cg-max" type="max" value="4" field="selections" scope="parent" shared="true" includeChildSelections="false" />
-                  </constraints>
-                  <costs>
-                    <cost name="Points" typeId="pts" value="10" />
-                  </costs>
-                </entryLink>
-                </entryLinks><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup></selectionEntryGroups>
+      <selectionEntryGroup id="r39-destroyer-rad-0-destroyer-unit" name="Destroyer Company — Rad Missile Launchers (2 per 5 models)" hidden="true" collective="false" import="true"><constraints><constraint id="r39-destroyer-rad-0-destroyer-unit-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="true" /></constraints><entryLinks><entryLink id="r39-destroyer-rad-0-destroyer-unit-link" name="Missile Launcher with Suspensor Web and Rad Missiles (replaces one Bolt Pistol)" type="selectionEntry" targetId="gear-rad-missile" hidden="false" import="true"><constraints><constraint id="r39-destroyer-rad-0-destroyer-unit-link-max" type="max" value="4" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="25" /></costs></entryLink></entryLinks><modifiers><modifier type="set" value="4" field="r39-destroyer-rad-0-destroyer-unit-max"><conditions><condition type="atLeast" value="5" field="selections" scope="root-entry" childId="destroyer-additional" shared="true" includeChildSelections="true" /></conditions></modifier><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup></selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Techmarine Covenant" hidden="false" id="techmarine-covenant">
       <categoryLinks>
@@ -11526,7 +11510,7 @@
                     </modifier>
                   </modifiers>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-fa-seeker-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-fa-seeker-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
               <rules>
                 <rule name="Sergeant Armoury Restrictions" id="fa-seeker-sgt-arm-rule" hidden="false">
                   <description>Up to 50 points of permitted additional Space Marine Armoury equipment. Standard wargear and unit-specific options are not repeated here. No item may be selected more than once unless specifically permitted; normal Armoury weapon limits still apply.</description>
@@ -12267,7 +12251,7 @@
                     </modifier>
                   </modifiers>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-fa-bike-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-fa-bike-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
               <rules>
                 <rule name="Sergeant Armoury Restrictions" id="fa-bike-sgt-arm-rule" hidden="false">
                   <description>Up to 50 points of permitted additional Space Marine Armoury equipment. Standard wargear and unit-specific options are not repeated here. No item may be selected more than once unless specifically permitted; normal Armoury weapon limits still apply.</description>
@@ -12827,7 +12811,7 @@
                     </modifier>
                   </modifiers>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-fa-sky-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-fa-sky-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
               <rules>
                 <rule name="Sergeant Armoury Restrictions" id="fa-sky-sgt-arm-rule" hidden="false">
                   <description>Up to 50 points of permitted additional Space Marine Armoury equipment. Standard wargear and unit-specific options are not repeated here. No item may be selected more than once unless specifically permitted; normal Armoury weapon limits still apply.</description>
@@ -13945,7 +13929,7 @@
                 <cost name="Points" typeId="pts" value="5" />
               </costs>
             </entryLink>
-          </entryLinks>
+          <entryLink id="r39-phosphex-hs-hss-sgt-eq" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-hs-hss-sgt-eq-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Additional Sergeant Armoury (max 50 pts)" id="hs-hss-armoury" hidden="false">
           <constraints>
@@ -14068,7 +14052,7 @@
                 </modifier>
               </modifiers>
             </entryLink>
-          </entryLinks>
+          <entryLink id="r39-phosphex-hs-hss-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-hs-hss-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Heavy Support Specialist" id="hs-hss-specialist" hidden="false">
           <constraints>
@@ -19158,7 +19142,7 @@
                 <cost name="Points" typeId="pts" value="5" />
               </costs>
             </entryLink>
-          </entryLinks>
+          <entryLink id="r39-phosphex-hq-praetor-wargear" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-hq-praetor-wargear-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Retinue (does not occupy a separate FOC slot)" id="hq-praetor-retinue" hidden="false">
           <constraints>
@@ -19573,7 +19557,7 @@
                         </modifier>
                       </modifiers>
                     </entryLink>
-                  </entryLinks>
+                  <entryLink id="r39-phosphex-hq-praetor-ret-honour-champ-arm" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-hq-praetor-ret-honour-champ-arm-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
                 </selectionEntryGroup>
                 <selectionEntryGroup name="Dedicated Transport" id="hq-praetor-ret-honour-transport" hidden="false">
                   <constraints>
@@ -21562,7 +21546,7 @@
                 <cost name="Points" typeId="pts" value="25" />
               </costs>
             </entryLink>
-          </entryLinks>
+          <entryLink id="r39-phosphex-hq-centurion-wargear" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-hq-centurion-wargear-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Command Retinue (does not occupy a separate FOC slot)" id="hq-centurion-retinue" hidden="false">
           <constraints>
@@ -23421,7 +23405,11 @@
                 <rule name="Legion Destroyer Company" id="rite-destroyer-rule" hidden="false">
                   <description>Effects — Legion Destroyer Squads may be Troops and compulsory Troops must be Destroyers; Legion-specific Destroyer selection limits are ignored. Up to four models in each Destroyer Squad may replace one bolt pistol with a flamer or grenade launcher for +10/model. Limitations — at least one Destroyer Squad must upgrade its Sergeant to a Moritat; no more than one Heavy Support choice.</description>
                 </rule>
-              <rule name="Builder Effects" id="r35-note-legion-destroyer-company" hidden="false"><description>A Destroyer Troops entry and Rite-only special-pistol block are enabled automatically. The Moritat and Heavy Support clauses still apply.</description></rule></rules>
+              <rule name="Builder Effects" id="r35-note-legion-destroyer-company" hidden="false"><description>A Destroyer Troops entry and Rite-only special-pistol block are enabled automatically. The Moritat and Heavy Support clauses still apply.</description></rule><rule id="r39-destroyer-rite-rule" name="Rite of War" hidden="false"><description>Destroyer Formation: Legion Destroyer Squads may be selected as Troops choices. The army’s compulsory Troops choices must be Legion Destroyer Squads. Any Legion-specific restriction limiting the number of Legion Destroyer Squads which may be selected is ignored while using this Rite of War.
+
+Forbidden Arsenal: Any Legiones Astartes Character in the army that does not normally have access to Phosphex Bombs may take one Phosphex Bomb for +10 points. In addition, for every five models in a Legion Destroyer Squad, up to two Legion Destroyers may replace one Bolt Pistol with a Missile Launcher with Suspensor Web and Rad Missiles for +25 points per model, instead of the normal limit of one model per five. A Missile Launcher equipped with Rad Missiles may only fire Rad Missiles and may not use Frag or Krak Missiles.
+
+Limitations: At least one Legion Destroyer Squad in the army must upgrade its Sergeant to a Moritat. The army may include no more than one Heavy Support choice.</description></rule></rules>
             </selectionEntry>
             <selectionEntry type="upgrade" name="Fury of the Ancients" id="rite-ancients" hidden="false" import="true">
               <constraints>
@@ -24602,7 +24590,7 @@
       <costs>
         <cost name="Points" typeId="pts" value="200" />
       </costs>
-      <categoryLinks>
+      <entryLinks><entryLink id="r39-phosphex-hq-da22-corswain" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-hq-da22-corswain-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks><categoryLinks>
         <categoryLink id="da22-corswain-cat" name="HQ" hidden="false" targetId="cat-hq" />
       </categoryLinks>
       <modifiers>
@@ -24652,7 +24640,7 @@
       <costs>
         <cost name="Points" typeId="pts" value="225" />
       </costs>
-      <categoryLinks>
+      <entryLinks><entryLink id="r39-phosphex-hq-da22-sedras" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-hq-da22-sedras-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks><categoryLinks>
         <categoryLink id="da22-sedras-cat" name="HQ" hidden="false" targetId="cat-hq" />
       </categoryLinks>
       <modifiers>
@@ -24705,7 +24693,7 @@
       <costs>
         <cost name="Points" typeId="pts" value="185" />
       </costs>
-      <categoryLinks>
+      <entryLinks><entryLink id="r39-phosphex-hq-da22-redloss" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-hq-da22-redloss-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks><categoryLinks>
         <categoryLink id="da22-redloss-cat" name="HQ" hidden="false" targetId="cat-hq" />
       </categoryLinks>
       <modifiers>
@@ -24752,7 +24740,7 @@
       <costs>
         <cost name="Points" typeId="pts" value="190" />
       </costs>
-      <categoryLinks>
+      <entryLinks><entryLink id="r39-phosphex-hq-da22-holguin" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-hq-da22-holguin-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks><categoryLinks>
         <categoryLink id="da22-holguin-cat" name="HQ" hidden="false" targetId="cat-hq" />
       </categoryLinks>
       <modifiers>
@@ -25593,7 +25581,7 @@
                 </modifier>
               </modifiers>
             </entryLink>
-          </entryLinks>
+          <entryLink id="r39-phosphex-r35-pride-veteran-veteran-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-r35-pride-veteran-veteran-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
           <rules>
             <rule name="Sergeant Armoury Restrictions" id="r35-pride-veteran-veteran-sgt-arm-rule" hidden="false">
               <description>The Sergeant may select up to 50 points of permitted Space Marine Armoury equipment. Unit-specific options and equipment already carried are not repeated here. No item may be selected more than once unless specifically permitted. A Pair of Lightning Claws counts as two weapon choices.</description>
@@ -26193,7 +26181,7 @@
                     <cost name="Points" typeId="pts" value="5" />
                   </costs>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-r35-pride-terminator-terminator-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-r35-pride-terminator-terminator-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Iron Halo" hidden="false" id="r35-pride-terminator-terminator-sgt-halo">
                   <constraints>
@@ -27022,7 +27010,7 @@
               <costs>
                 <cost name="Points" typeId="pts" value="25" />
               </costs>
-            </entryLink>
+            <modifiers><modifier type="set" value="true" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink>
             <entryLink import="true" name="Calibanite Plasma Pistol" hidden="false" id="r35-destroyer-troops-da22-alt-pp-6" type="selectionEntry" targetId="da22-plasma-pistol">
               <constraints>
                 <constraint id="r35-destroyer-troops-da22-alt-pp-6-2" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="false" />
@@ -27272,7 +27260,7 @@
                     </modifier>
                   </modifiers>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-r35-destroyer-troops-destroyer-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-r35-destroyer-troops-destroyer-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
               <rules>
                 <rule name="Sergeant Armoury Restrictions" id="r35-destroyer-troops-destroyer-sgt-arm-rule" hidden="false">
                   <description>Unit-specific Chainsword replacements and standard equipment are not duplicated here. No item may be selected more than once unless specifically permitted. A Pair of Lightning Claws counts as two weapon choices. Artificer Armour is not present in the current Destroyer Sergeant entry and is therefore not offered.</description>
@@ -27471,7 +27459,7 @@
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
-      </selectionEntryGroups>
+      <selectionEntryGroup id="r39-destroyer-rad-1-r35-destroyer-troops-destroyer-unit" name="Destroyer Company — Rad Missile Launchers (2 per 5 models)" hidden="true" collective="false" import="true"><constraints><constraint id="r39-destroyer-rad-1-r35-destroyer-troops-destroyer-unit-max" type="max" value="2" field="selections" scope="parent" shared="true" includeChildSelections="true" /></constraints><entryLinks><entryLink id="r39-destroyer-rad-1-r35-destroyer-troops-destroyer-unit-link" name="Missile Launcher with Suspensor Web and Rad Missiles (replaces one Bolt Pistol)" type="selectionEntry" targetId="gear-rad-missile" hidden="false" import="true"><constraints><constraint id="r39-destroyer-rad-1-r35-destroyer-troops-destroyer-unit-link-max" type="max" value="4" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="25" /></costs></entryLink></entryLinks><modifiers><modifier type="set" value="4" field="r39-destroyer-rad-1-r35-destroyer-troops-destroyer-unit-max"><conditions><condition type="atLeast" value="5" field="selections" scope="root-entry" childId="r35-destroyer-troops-destroyer-additional" shared="true" includeChildSelections="true" /></conditions></modifier><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup></selectionEntryGroups>
     <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry>
     <selectionEntry type="unit" import="true" name="Legion Dreadnought" hidden="true" id="r35-fury-dread-dreadnought-unit">
       <categoryLinks>
@@ -29174,7 +29162,7 @@
                     </modifier>
                   </modifiers>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r39-phosphex-r35-sky-troops-fa-sky-sgt-armoury" name="Phosphex Bomb (Destroyer Company)" type="selectionEntry" targetId="gear-phosphex-bomb" hidden="true" import="true"><constraints><constraint id="r39-phosphex-r35-sky-troops-fa-sky-sgt-armoury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="10" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-destroyer" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
               <rules>
                 <rule name="Sergeant Armoury Restrictions" id="r35-sky-troops-fa-sky-sgt-arm-rule" hidden="false">
                   <description>Up to 50 points of permitted additional Space Marine Armoury equipment. Standard wargear and unit-specific options are not repeated here. No item may be selected more than once unless specifically permitted; normal Armoury weapon limits still apply.</description>
