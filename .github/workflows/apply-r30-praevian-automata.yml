@@ -1,0 +1,35 @@
+name: Apply Revision 30 Praevian Automata
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-r30-praevian-automata.yml'
+      - '.github/build/apply_r30_praevian_automata.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply Revision 30 Praevian automata correction
+        shell: bash
+        run: |
+          set -euo pipefail
+          python .github/build/apply_r30_praevian_automata.py
+          git diff --check
+      - name: Commit Revision 30 catalogue
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat'
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git commit -m 'Revision 30: use Castellax and Vorax for Praevian'
+            git push
+          fi
