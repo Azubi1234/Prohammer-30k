@@ -1,0 +1,538 @@
+name: Apply Revision 28 Consul Cleanup
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-consul-cleanup-r28.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply Consul, psychic and weapon-profile cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          from collections import Counter
+
+          CAT = Path('Legiones Astartes.cat')
+          CANON = Path('.github/workflows/canonicalize-newrecruit.yml')
+          NS = 'http://www.battlescribe.net/schema/catalogueSchema'
+          ET.register_namespace('', NS)
+          Q = lambda t: f'{{{NS}}}{t}'
+
+          tree = ET.parse(CAT)
+          root = tree.getroot()
+          assert root.tag == Q('catalogue')
+          assert root.get('gameSystemRevision') == '12', root.get('gameSystemRevision')
+          root.set('revision', '28')
+          root.set('gameSystemRevision', '12')
+
+          comment = root.find(Q('comment'))
+          if comment is not None:
+              comment.text = ('Revision 28: Consul cleanup — granted wargear is now explicit, Consul special rules are split out, '
+                              'ProHammer psychic disciplines/powers are selectable, generic Force Weapons are removed from normal HQ armouries, '
+                              'Moritat pistol pairs and Vigilator ammunition are implemented, Praevian source-backed automata are exposed, and '
+                              'Demolisher/Flamestorm Cannon profiles are restored.')
+
+          def by_id(id_):
+              for e in root.iter():
+                  if e.get('id') == id_:
+                      return e
+              return None
+
+          def parent_map():
+              return {c:p for p in root.iter() for c in p}
+
+          def remove_by_id(id_):
+              e = by_id(id_)
+              if e is None:
+                  return False
+              p = parent_map().get(e)
+              if p is not None:
+                  p.remove(e)
+                  return True
+              return False
+
+          def direct(parent, tag):
+              return parent.find(Q(tag))
+
+          ORDER = {
+              'constraints':10, 'costs':20, 'profiles':30, 'rules':40,
+              'selectionEntries':50, 'selectionEntryGroups':60, 'entryLinks':70,
+              'categoryLinks':80, 'modifiers':90,
+          }
+          def ensure_container(parent, tag):
+              x = direct(parent, tag)
+              if x is not None:
+                  return x
+              x = ET.Element(Q(tag))
+              rank = ORDER.get(tag, 999)
+              inserted = False
+              for i,ch in enumerate(list(parent)):
+                  local = ch.tag.split('}')[-1]
+                  if ORDER.get(local, 999) > rank:
+                      parent.insert(i, x)
+                      inserted = True
+                      break
+              if not inserted:
+                  parent.append(x)
+              return x
+
+          def clear_r28(parent):
+              for p in list(parent.iter()):
+                  for ch in list(p):
+                      if (ch.get('id') or '').startswith('r28-'):
+                          p.remove(ch)
+
+          # Idempotent on manual reruns.
+          clear_r28(root)
+
+          shared = direct(root, 'sharedSelectionEntries')
+          assert shared is not None
+
+          def add_cost(e, value):
+              costs = ensure_container(e, 'costs')
+              ET.SubElement(costs, Q('cost'), {'name':'Points','typeId':'pts','value':str(value)})
+
+          def add_constraint(parent, id_, typ, value, field='selections', scope='parent', child=True, automatic=False):
+              cs = ensure_container(parent, 'constraints')
+              a = {'id':id_, 'type':typ, 'value':str(value), 'field':field, 'scope':scope,
+                   'shared':'true', 'includeChildSelections':'true' if child else 'false'}
+              if automatic:
+                  a['automatic'] = 'true'
+              return ET.SubElement(cs, Q('constraint'), a)
+
+          def add_rule(parent, id_, name, desc):
+              rules = ensure_container(parent, 'rules')
+              old = by_id(id_)
+              if old is not None:
+                  op = parent_map().get(old)
+                  if op is not None: op.remove(old)
+              r = ET.SubElement(rules, Q('rule'), {'name':name,'id':id_,'hidden':'false'})
+              ET.SubElement(r, Q('description')).text = desc
+              return r
+
+          def add_ranged_profile(parent, id_, name, rng, s, ap, typ):
+              profiles = ensure_container(parent, 'profiles')
+              p = ET.SubElement(profiles, Q('profile'), {'name':name,'id':id_,'typeId':'prof-ranged','typeName':'Ranged Weapon','hidden':'false'})
+              chars = ET.SubElement(p, Q('characteristics'))
+              for n,tid,val in [('Range','ranged-range',rng),('S','ranged-s',s),('AP','ranged-ap',ap),('Type','ranged-type',typ)]:
+                  ET.SubElement(chars, Q('characteristic'), {'name':n,'typeId':tid}).text = val
+              return p
+
+          def shared_upgrade(id_, name, rule_name=None, rule_desc=None, profiles=None):
+              e = ET.SubElement(shared, Q('selectionEntry'), {'type':'upgrade','import':'true','name':name,'hidden':'false','id':id_})
+              for pr in profiles or []:
+                  add_ranged_profile(e, *pr)
+              if rule_desc:
+                  add_rule(e, id_+'-rule', rule_name or name, rule_desc)
+              return e
+
+          def auto_link(parent, id_, name, target_id, cost=None):
+              links = ensure_container(parent, 'entryLinks')
+              e = ET.SubElement(links, Q('entryLink'), {'import':'true','name':name,'id':id_,'type':'selectionEntry',
+                                                       'targetId':target_id,'hidden':'false','defaultAmount':'1'})
+              add_constraint(e, id_+'-min', 'min', 1, child=False, automatic=True)
+              add_constraint(e, id_+'-max', 'max', 1, child=False)
+              if cost is not None:
+                  add_cost(e, cost)
+              return e
+
+          def condition(parent, typ, value, child_id, scope='root-entry'):
+              return ET.SubElement(parent, Q('condition'), {'type':typ,'value':str(value),'field':'selections','scope':scope,
+                                                            'childId':child_id,'shared':'true','includeChildSelections':'true'})
+
+          def hidden_unless(entry, selector_id, scope='root-entry'):
+              mods = ensure_container(entry, 'modifiers')
+              m = ET.SubElement(mods, Q('modifier'), {'type':'set','value':'true','field':'hidden'})
+              cs = ET.SubElement(m, Q('conditions'))
+              condition(cs, 'lessThan', 1, selector_id, scope)
+
+          def hidden_if(entry, selected_id, scope='root-entry'):
+              mods = ensure_container(entry, 'modifiers')
+              m = ET.SubElement(mods, Q('modifier'), {'type':'set','value':'true','field':'hidden'})
+              cs = ET.SubElement(m, Q('conditions'))
+              condition(cs, 'atLeast', 1, selected_id, scope)
+
+          def set_constraint_when(group, constraint_id, value, child_id):
+              mods = ensure_container(group, 'modifiers')
+              m = ET.SubElement(mods, Q('modifier'), {'type':'set','value':str(value),'field':constraint_id})
+              cs = ET.SubElement(m, Q('conditions'))
+              condition(cs, 'atLeast', 1, child_id)
+
+          def local_upgrade(container, id_, name, cost=0, default=False, maxv=1, minv=None):
+              a = {'type':'upgrade','name':name,'id':id_,'hidden':'false','import':'true'}
+              if default: a['defaultAmount'] = '1'
+              e = ET.SubElement(container, Q('selectionEntry'), a)
+              if minv is not None: add_constraint(e, id_+'-min', 'min', minv, child=False, automatic=default)
+              add_constraint(e, id_+'-max', 'max', maxv, child=False)
+              if cost: add_cost(e, cost)
+              return e
+
+          # ---------- Shared visible Consul wargear ----------
+          crozius = shared_upgrade('r28-gear-crozius','Crozius Arcanum','Crozius Arcanum','Counts as a Power Weapon and ignores Armour Saves.')
+          rosarius = shared_upgrade('r28-gear-rosarius','Rosarius','Rosarius','Grants a 4+ Invulnerable Save. A Rosarius does not count towards the normal army limit on Iron Halos.')
+          servo = shared_upgrade('r28-gear-servo-arm','Servo-Arm','Servo-Arm','Grants one additional Power Fist-style close-combat attack, rolled separately, and +1 to Battlesmith repair rolls. A normal 5+ Battlesmith repair therefore succeeds on a 4+ while the Servo-Arm is retained.')
+          cognis = shared_upgrade('r28-gear-cognis-signum','Cognis Signum','Cognis Signum','The no-scatter deployment range of the bearer’s Nuncio Vox is increased from 6” to 12”. If upgraded with a Targeting Matrix, it also provides the normal benefits of a Signum to the unit joined by the bearer.')
+          maul = shared_upgrade('r28-gear-aether-shock-maul','Aether-shock Maul','Aether-shock Maul','Counts as a Power Weapon. Against Psykers and models with the Daemon special rule, it always wounds on a 2+.')
+          cortex_controller = shared_upgrade('r28-gear-cortex-controller','Cortex Controller','Cortex Controller','Friendly Battle-Automata within 6” automatically pass their Command Uplink or equivalent control test. The Praevian’s accompanying Maniple is controlled normally by this item.')
+          cortex_designator = shared_upgrade('r28-gear-cortex-designator','Cortex Designator','Cortex Designator','When the Praevian scores one or more successful To Hit rolls with a shooting weapon against an enemy unit, his attached Battle-Automata Maniple gains Preferred Enemy against that unit until the end of the current player turn. No unsaved Wound is required.')
+          sia = shared_upgrade('r28-gear-special-issue-ammunition','Special Issue Ammunition', profiles=[
+              ('r28-prof-sia-dragon','Dragonfire Bolts','24”','4','5','Rapid Fire, Ignores Cover'),
+              ('r28-prof-sia-hellfire','Hellfire Bolts','24”','X','5','Rapid Fire, Poison (2+)'),
+              ('r28-prof-sia-kraken','Kraken Bolts','30”','4','4','Rapid Fire'),
+              ('r28-prof-sia-vengeance','Vengeance Rounds','18”','4','3','Rapid Fire, Gets Hot'),
+          ])
+          add_rule(sia,'r28-gear-sia-rule','Special Issue Ammunition','Each time the bearer fires an eligible bolt weapon, select one ammunition profile. Only one ammunition type may be used for that shooting attack.')
+
+          # ---------- Restore vehicle weapon profiles ----------
+          for name, pid, vals in [
+              ('Demolisher Cannon','r28-prof-demolisher',('24”','10','2','Ordnance 1, Large Blast')),
+              ('Flamestorm Cannon','r28-prof-flamestorm',('Template','6','3','Heavy 1')),
+          ]:
+              matches = [e for e in shared.findall(Q('selectionEntry')) if e.get('name') == name]
+              assert matches, f'Missing shared {name}'
+              e = matches[0]
+              profiles = direct(e,'profiles')
+              if profiles is not None:
+                  for ch in list(profiles): profiles.remove(ch)
+              add_ranged_profile(e,pid,name,*vals)
+              rules = direct(e,'rules')
+              if rules is not None:
+                  for r in list(rules):
+                      if r.get('name') == name:
+                          d = r.find(Q('description'))
+                          if d is not None: d.text = 'Use the weapon profile shown above.'
+
+          # ---------- Generic Force Weapon is not a normal Armoury choice ----------
+          assert remove_by_id('hq-centurion-sw-3') or by_id('hq-centurion-sw-3') is None
+          remove_by_id('hq-praetor-sw-3')
+
+          consul_ids = {
+              'chap':'hq-consul-chaplain','lib':'hq-consul-librarian','mor':'hq-consul-moritat','del':'hq-consul-delegatus',
+              'eso':'hq-consul-esoterist','forge':'hq-consul-forge','herald':'hq-consul-herald','signals':'hq-consul-signals',
+              'med':'hq-consul-medicae','null':'hq-consul-null','vig':'hq-consul-vigilator','prae':'hq-consul-praevian',
+          }
+          C = {k:by_id(v) for k,v in consul_ids.items()}
+          assert all(C.values()), [k for k,v in C.items() if v is None]
+
+          # Make old omnibus rule entries summaries so output does not duplicate all details.
+          for key,e in C.items():
+              for r in (direct(e,'rules') or []):
+                  if r.get('id') == consul_ids[key]+'-rule':
+                      d = r.find(Q('description'))
+                      if d is not None: d.text = f'This Centurion is upgraded to {e.get("name")}. Granted wargear and special rules are shown separately below.'
+
+          # ---------- Chaplain ----------
+          auto_link(C['chap'],'r28-chap-crozius','Crozius Arcanum','r28-gear-crozius')
+          auto_link(C['chap'],'r28-chap-rosarius','Rosarius','r28-gear-rosarius')
+          add_rule(C['chap'],'r28-chap-honour','Honour of the Legion','The Chaplain and any unit he has joined have the Fearless special rule.')
+          add_rule(C['chap'],'r28-chap-liturgies','Liturgies of Battle','In a player turn in which the Chaplain and a unit he has joined successfully charge, the Chaplain and all models in that unit may re-roll failed To Hit rolls in close combat for that Assault phase.')
+
+          # ---------- Psychic selection system ----------
+          DISCIPLINES = {
+              'Biomancy':[
+                  ('Smite','Witchfire. Range 18”, S4 AP2 Assault 4.',('18”','4','2','Assault 4')),
+                  ('Iron Arm','Blessing — targets Psyker. Adds +2 Strength and +1 Toughness.',None),
+                  ('Enfeeble','Malediction — enemy unit within 24”. -1 Strength and Toughness; treats all movement as Difficult Terrain.',None),
+                  ('Life Leech','Witchfire. Range 18”, S6 AP2 Assault 2. If it causes at least one unsaved Wound, a model within 6” of the Psyker regains a Wound.',('18”','6','2','Assault 2')),
+                  ('Warp Speed','Blessing — targets Psyker. Adds +3 Initiative and +3 Attacks and grants Fleet.',None),
+                  ('Endurance','Blessing — friendly unit within 24”. The unit gains Eternal Warrior, Feel No Pain (5+) and Relentless.',None),
+                  ('Haemorrhage','Focused Witchfire — range 18”. Resolve the ProHammer Haemorrhage Toughness-test chain effect.',None),
+              ],
+              'Divination':[
+                  ('Prescience','Blessing — friendly unit within 12”. Re-roll all failed To Hit rolls.',None),
+                  ('Foreboding','Blessing — targets Psyker. Psyker and joined unit gain Counter-Attack and may fire reaction fire using the full number of allowed shots.',None),
+                  ('Forewarning','Blessing — friendly unit within 12”. Unit gains a 4+ Invulnerable Save.',None),
+                  ('Perfect Timing','Blessing — targets Psyker. Psyker and joined unit ignore Cover when shooting an enemy unit.',None),
+                  ('Precognition','Blessing — targets Psyker. Re-roll failed To Hit, To Wound and Saving Throw rolls as described in ProHammer.',None),
+                  ('Misfortune','Malediction — enemy unit within 24”. Attacks against the target count as Rending.',None),
+                  ('Scrier’s Gaze','Blessing — targets Psyker. Use the ProHammer reserve, Outflank and mystery-objective re-roll effects.',None),
+              ],
+              'Pyromancy':[
+                  ('Flame Breath','Witchfire. Template, S5 AP4 Assault 1, Soul Blaze.',('Template','5','4','Assault 1, Soul Blaze')),
+                  ('Fiery Form','Blessing — targets Psyker. Gains a 4+ Invulnerable Save; melee attacks cause Soul Blaze; re-roll failed Wounds inflicted by other Pyromancy powers.',None),
+                  ('Molton Beam','Beam. Range 12”, S8 AP1 Assault 1, Melta.',('12”','8','1','Assault 1, Melta')),
+                  ('Fire Shield','Blessing — friendly unit within 24”. Gains a 4+ Cover Save; enemy units within 6” treat all terrain, including open ground, as Dangerous Terrain.',None),
+                  ('Sunburst','Nova. Range 9”, S4 AP5 Assault 2D6, Ignores Cover, Soul Blaze.',('9”','4','5','Assault 2D6, Ignores Cover, Soul Blaze')),
+                  ('Inferno','Witchfire. Range 24”, S4 AP5 Assault 1, Large Blast, Ignores Cover, Soul Blaze.',('24”','4','5','Assault 1, Large Blast, Ignores Cover, Soul Blaze')),
+                  ('Spontaneous Combustion','Focused Witchfire — range 18”. Resolve the S6 AP3 Soul Blaze hit and secondary blast as described in ProHammer.',None),
+              ],
+              'Telekinesis':[
+                  ('Assail','Beam. Range 18”, S6 AP– Assault 1, Strikedown.',('18”','6','–','Assault 1, Strikedown')),
+                  ('Crush','Focused Witchfire — range 18”. Roll 2D6 for the hit’s Strength and another D6 for AP.',None),
+                  ('Objuration Mechanicum','Malediction — enemy unit within 24”. Target ranged weapons gain Gets Hot; Vehicles suffer an immediate Haywire hit.',None),
+                  ('Shockwave','Nova. Range 9”, S4 AP– Assault 2D6, Pinning.',('9”','4','–','Assault 2D6, Pinning')),
+                  ('Levitation','Blessing — targets Psyker. Psyker and joined unit may immediately move up to 12”; cannot charge this turn and count as having moved.',None),
+                  ('Telekine Dome','Blessing — targets Psyker. Psyker and all friendly models within 12” gain a 5+ Invulnerable Save against shooting attacks.',None),
+                  ('Psychic Maelstrom','Witchfire. Range 12”, S10 AP1 Assault 1, Barrage, Large Blast.',('12”','10','1','Assault 1, Barrage, Large Blast')),
+              ],
+              'Telepathy':[
+                  ('Psychic Shriek','Witchfire — range 18”. Roll 3D6 and subtract target Leadership; the unit suffers Wounds equal to the result with no Armour or Cover Saves.',None),
+                  ('Dominate','Malediction — enemy unit within 24”. Target must pass a Leadership test each time it attempts to move, Advance, shoot, charge or use a psychic power.',None),
+                  ('Mental Fortitude','Blessing — friendly unit within 24”. If Falling Back, immediately Regroups; target gains Fearless.',None),
+                  ('Terrify','Malediction — enemy unit within 24”. -1 Leadership; treats opposing units as causing Fear; must take a Casualty Test at end of turn.',None),
+                  ('Hallucination','Malediction — enemy unit within 24”. Roll a D6 and apply the ProHammer Hallucination result.',None),
+                  ('Invisibility','Blessing — friendly unit within 24”. Opposing units suffer -1 To Hit with ranged and melee attacks against the target.',None),
+                  ('Shrouding','Blessing — targets Psyker. All friendly models within 6” gain Shrouded.',None),
+              ],
+              'Sanctic Daemonology':[
+                  ('Banishment','Malediction — enemy Daemon unit within 24”. All models in target unit suffer -1 to their Invulnerable Saves.',None),
+                  ('Gate of Infinity','Blessing — targets Psyker. Remove Psyker and joined unit and immediately redeploy using Deep Strike.',None),
+                  ('Hammerhand','Blessing — targets Psyker. Psyker and joined unit gain +2 Strength.',None),
+                  ('Sanctuary','Blessing — targets Psyker. Psyker and joined unit receive +1 to Invulnerable Saves, or gain a 6+ Invulnerable Save; Daemons treat all terrain within 12” as Dangerous Terrain.',None),
+                  ('Purge Soul','Focused Witchfire — range 24”. Psyker and target roll D6 + Leadership; if Psyker is equal or higher, target suffers one automatic Wound with no Armour or Cover Save.',None),
+                  ('Cleansing Flame','Nova. Range 9”, S5 AP4 Assault 2D6, Ignores Cover, Soul Blaze.',('9”','5','4','Assault 2D6, Ignores Cover, Soul Blaze')),
+                  ('Vortex of Doom','Witchfire. Range 12”, S10 AP1 Assault 1, Blast, Vortex.',('12”','10','1','Assault 1, Blast, Vortex')),
+              ],
+              'Malefic Daemonology':[
+                  ('Summoning','Conjuration — range 12”. Summons the Daemon unit choices listed in ProHammer.',None),
+                  ('Cursed Earth','Blessing — targets Psyker. Daemons within 12” gain +1 to Invulnerable Saves; Deep Striking Daemons do not scatter when their centre model is placed within 12”.',None),
+                  ('Dark Flame','Witchfire. Template, S4 AP5 Assault 1, Soul Blaze, Torrent.',('Template','4','5','Assault 1, Soul Blaze, Torrent')),
+                  ('Sacrifice','Conjuration — range 6”. Summons a Herald with up to 30 points of wargear; one friendly model within 6” suffers one Wound with no save.',None),
+                  ('Incursion','Conjuration — range 12”. Summons the Daemon cavalry/beast choices listed in ProHammer.',None),
+                  ('Infernal Gaze','Beam. Range 18”, S3 AP4 Assault 1, Armourbane, Fleshbane.',('18”','3','4','Assault 1, Armourbane, Fleshbane')),
+              ],
+          }
+
+          def psychic_ui(consul, prefix, allowed, power_count=1, epistolary_id=None):
+              groups = ensure_container(consul,'selectionEntryGroups')
+              dg = ET.SubElement(groups,Q('selectionEntryGroup'),{'name':'Psychic Discipline(s)','id':prefix+'-disc-group','hidden':'false'})
+              add_constraint(dg,prefix+'-disc-min','min',1)
+              add_constraint(dg,prefix+'-disc-max','max',1)
+              de = ET.SubElement(dg,Q('selectionEntries'))
+              disc_ids = {}
+              for idx,name in enumerate(allowed):
+                  did = f'{prefix}-disc-{idx}'
+                  disc_ids[name] = did
+                  x = local_upgrade(de,did,name,0,False,1)
+                  add_rule(x,did+'-rule',name,f'This Psyker may select psychic powers from the {name} discipline as permitted by its Consul entry and ProHammer Classic.')
+              pg = ET.SubElement(groups,Q('selectionEntryGroup'),{'name':'Psychic Powers','id':prefix+'-power-group','hidden':'false'})
+              pmin = add_constraint(pg,prefix+'-power-min','min',power_count)
+              pmax = add_constraint(pg,prefix+'-power-max','max',power_count)
+              pe = ET.SubElement(pg,Q('selectionEntries'))
+              n=0
+              for dname in allowed:
+                  for pname,desc,profile in DISCIPLINES[dname]:
+                      pid=f'{prefix}-power-{n}'; n+=1
+                      x=local_upgrade(pe,pid,pname,0,False,1)
+                      add_rule(x,pid+'-rule',pname,desc)
+                      if profile:
+                          add_ranged_profile(x,pid+'-prof',pname,*profile)
+                      hidden_unless(x,disc_ids[dname])
+              if epistolary_id:
+                  set_constraint_when(dg,prefix+'-disc-max',2,epistolary_id)
+                  set_constraint_when(pg,prefix+'-power-min',2,epistolary_id)
+                  set_constraint_when(pg,prefix+'-power-max',2,epistolary_id)
+              return dg,pg
+
+          # ---------- Librarian ----------
+          auto_link(C['lib'],'r28-lib-force','Force Weapon','gear-hq-force')
+          add_rule(C['lib'],'r28-lib-psyker','Psyker (Mastery Level 1)','The Librarian is a Psyker with Mastery Level 1 and follows the ProHammer Classic psychic rules.')
+          add_rule(C['lib'],'r28-lib-support','Legion Support Officer','May not fulfil the compulsory HQ selection unless another rule specifically permits it.')
+          add_rule(C['lib'],'r28-lib-powers','Psychic Powers','Select powers from Biomancy, Divination, Pyromancy, Telekinesis or Telepathy. Daemonology is not available. ProHammer permits powers to be chosen rather than randomly generated.')
+          ep = None
+          for x in C['lib'].iter():
+              if 'Epistolary' in (x.get('name') or '') and x.get('id') != C['lib'].get('id'):
+                  ep = x; break
+          assert ep is not None, 'Epistolary upgrade not found'
+          psychic_ui(C['lib'],'r28-lib',['Biomancy','Divination','Pyromancy','Telekinesis','Telepathy'],1,ep.get('id'))
+
+          # ---------- Moritat ----------
+          for nm,desc in [
+              ('Scout','Uses the normal ProHammer Scout special rule.'),
+              ('Counter-Attack','Uses the normal ProHammer Counter-Attack special rule.'),
+              ('Dual Pistols','The Moritat may fire both pistols in the Shooting phase. If he does so, he may not fire any other weapon that phase.'),
+              ('Lone Killer','The Moritat may not fulfil a compulsory HQ choice, may never be the Warlord, and may only join a Legion Destroyer Squad. He may not benefit from beneficial psychic powers used by another model or another model’s Leadership/re-rolls.'),
+              ('Chain Fire','When firing his pistols, each successful To Hit roll immediately generates another shot with that pistol against the same target, continuing until it misses. Maximum 12 successful hits in total. Gets Hot on a natural 1 ends the attack. After Chain Fire the Moritat may not charge that turn and may not shoot in his following Shooting phase.'),
+          ]:
+              add_rule(C['mor'],'r28-mor-'+nm.lower().replace(' ','-'),nm,desc)
+          groups=ensure_container(C['mor'],'selectionEntryGroups')
+          mg=ET.SubElement(groups,Q('selectionEntryGroup'),{'name':'Pistol Pair','id':'r28-mor-pair-group','hidden':'false'})
+          add_constraint(mg,'r28-mor-pair-min','min',1); add_constraint(mg,'r28-mor-pair-max','max',1)
+          me=ET.SubElement(mg,Q('selectionEntries'))
+          pairs=[
+              ('r28-mor-bolt','Two Bolt Pistols',0,('12”','4','5','Pistol'),'The Moritat carries two Bolt Pistols.'),
+              ('r28-mor-hand','Two Hand Flamers',10,('Template','3','6','Pistol'),'Both Bolt Pistols are replaced by Hand Flamers.'),
+              ('r28-mor-plasma','Two Plasma Pistols',30,('12”','7','2','Pistol, Gets Hot'),'Both Bolt Pistols are replaced by Plasma Pistols.'),
+          ]
+          for i,(id_,name,cost,prof,desc) in enumerate(pairs):
+              x=local_upgrade(me,id_,name,cost,i==0,1,1 if i==0 else None)
+              add_ranged_profile(x,id_+'-prof',name,*prof)
+              add_rule(x,id_+'-rule',name,desc)
+          da=local_upgrade(me,'r28-mor-calibanite','Two Calibanite Plasma Pistols',30,False,1)
+          add_ranged_profile(da,'r28-mor-calibanite-prof','Calibanite Plasma Pistol (x2)','12”','6','2','Pistol')
+          add_rule(da,'r28-mor-calibanite-rule','Ancient Plasma Weaponry','Both Bolt Pistols are replaced by Calibanite Plasma Pistols. Calibanite Plasma weapons do not have Gets Hot.')
+          mods=ensure_container(da,'modifiers'); m=ET.SubElement(mods,Q('modifier'),{'type':'set','value':'true','field':'hidden'}); cs=ET.SubElement(m,Q('conditions'))
+          condition(cs,'lessThan',1,'legion-i','roster')
+          # Hide normal single pistol Armoury purchases while Moritat pair is active.
+          for wid in ['hq-centurion-sw-4','hq-centurion-sw-7','hq-centurion-sw-13','da22-alt-pp-17']:
+              x=by_id(wid)
+              if x is not None: hidden_if(x,'hq-consul-moritat')
+
+          # ---------- Delegatus ----------
+          add_rule(C['del'],'r28-del-master','Master of the Legion','The Delegatus has Master of the Legion. A Detachment containing a model with this rule may select one Rite of War for which it qualifies, subject to the normal Master of the Legion limits.')
+          add_rule(C['del'],'r28-del-authority','Delegated Authority','May possess Master of the Legion in an army of fewer than 1,000 points. Unless the army contains its Primarch, a Delegatus with Master of the Legion must be the Warlord. A Detachment containing a Delegatus may not also contain a Legion Praetor.')
+
+          # ---------- Esoterist ----------
+          auto_link(C['eso'],'r28-eso-force','Force Weapon','gear-hq-force')
+          add_rule(C['eso'],'r28-eso-psyker','Psyker (Mastery Level 1)','The Esoterist is a Psyker with Mastery Level 1 and follows the ProHammer Classic psychic rules.')
+          add_rule(C['eso'],'r28-eso-support','Legion Support Officer','May not fulfil the compulsory HQ selection unless another rule specifically permits it.')
+          add_rule(C['eso'],'r28-eso-lore','Forbidden Lore','Select powers from Sanctic Daemonology or Malefic Daemonology regardless of Legion or Allegiance. Possession is not selectable because ProHammer restricts it to Mastery Level 2 or greater.')
+          psychic_ui(C['eso'],'r28-eso',['Sanctic Daemonology','Malefic Daemonology'],1)
+
+          # ---------- Forge Lord ----------
+          auto_link(C['forge'],'r28-forge-artificer','Artificer Armour','gear-hq-artificer')
+          auto_link(C['forge'],'r28-forge-servo','Servo-Arm','r28-gear-servo-arm')
+          add_rule(C['forge'],'r28-forge-battlesmith','Battlesmith','During the Shooting phase, instead of firing a weapon, a Forge Lord in base contact with or embarked upon a friendly damaged Vehicle may attempt a repair. On 5+, remove one Engine Damaged, Weapon Destroyed or Immobilised result. The Servo-Arm grants +1, so the Forge Lord normally succeeds on 4+.')
+          add_rule(C['forge'],'r28-forge-armoury','Lord of the Armoury','May select equipment restricted to Techmarines from the Space Marine Armoury in addition to equipment normally available to a Centurion.')
+
+          # ---------- Herald ----------
+          add_rule(C['herald'],'r28-herald-support','Legion Support Officer','May not fulfil the compulsory HQ selection unless another rule specifically permits it.')
+          add_rule(C['herald'],'r28-herald-banner','Banner of Allegiance','Use the selected Banner of the Aquila or Banner of the Eye rules shown by the Herald upgrade.')
+          add_rule(C['herald'],'r28-herald-fallen','Fallen Honour','If the Herald is slain, the opposing player gains +1 Victory Point in missions using Victory Points.')
+
+          # ---------- Master of Signals ----------
+          auto_link(C['signals'],'r28-signals-nuncio','Nuncio Vox','gear-nuncio')
+          auto_link(C['signals'],'r28-signals-cognis','Cognis Signum','r28-gear-cognis-signum')
+          add_rule(C['signals'],'r28-signals-support','Legion Support Officer','May not fulfil the compulsory HQ selection unless another rule specifically permits it.')
+          add_rule(C['signals'],'r28-signals-cognis-rule','Cognis Signum','The Master of Signals’ Nuncio Vox no-scatter range is 12” instead of 6”. The optional Targeting Matrix also grants the normal Signum benefit to his joined unit.')
+          # Existing Orbital Bombardment block is intentionally retained.
+
+          # ---------- Primus Medicae ----------
+          add_rule(C['med'],'r28-med-support','Legion Support Officer','May not fulfil the compulsory HQ selection unless another rule specifically permits it.')
+          add_rule(C['med'],'r28-med-sacred','Sacred Trust','In a mission using Victory Points, whenever a friendly Legiones Astartes Infantry or Jump Infantry unit with a model within 6” is completely destroyed by the enemy, roll a D6. On 5+, gain 50 Victory Points. A unit for which Victory Points are recovered through the Primus Medicae’s Reductor may not also generate Victory Points through Sacred Trust.')
+
+          # ---------- Primus Nullificator ----------
+          auto_link(C['null'],'r28-null-maul','Aether-shock Maul','r28-gear-aether-shock-maul')
+          for nm,desc in [
+              ('Psyker (Mastery Level 1)','The Nullificator is a Psyker with Mastery Level 1 and follows the ProHammer Classic psychic rules.'),
+              ('Legion Support Officer','May not fulfil the compulsory HQ selection unless another rule specifically permits it.'),
+              ('Adamantium Will','Uses the normal ProHammer Adamantium Will special rule.'),
+              ('Hexagrammic Wards','An enemy Psyker using a psychic power which directly targets the Nullificator or a unit he has joined suffers -1 Leadership for that Psychic Test.'),
+              ('Credo Annihilato','The Nullificator and any unit he has joined have Preferred Enemy (Daemons).'),
+          ]:
+              add_rule(C['null'],'r28-null-'+nm.lower().replace(' ','-').replace('(','').replace(')',''),nm,desc)
+          # One mandatory discipline plus one selected Sanctic power.
+          psychic_ui(C['null'],'r28-null',['Sanctic Daemonology'],1)
+
+          # ---------- Vigilator ----------
+          auto_link(C['vig'],'r28-vig-bolter','Bolter','gear-bolter')
+          auto_link(C['vig'],'r28-vig-camo','Cameleoline','gear-cameleoline')
+          auto_link(C['vig'],'r28-vig-sia','Special Issue Ammunition','r28-gear-special-issue-ammunition')
+          add_rule(C['vig'],'r28-vig-scout','Scout','Uses the normal ProHammer Scout special rule.')
+          add_rule(C['vig'],'r28-vig-stealth','Stealth','Uses the normal ProHammer Stealth special rule. Cameleoline is shown as granted wargear.')
+          add_rule(C['vig'],'r28-vig-sabotage','Sabotage','After both armies deploy but before the first turn, nominate one enemy unit, Vehicle or Fortification on the battlefield; an Independent Character may only be selected if part of another unit. The target suffers D6 Strength 5 AP6 hits; against Vehicles/Fortifications use the lowest Armour Value. Casualties do not cause Morale or Pinning tests.')
+          add_rule(C['vig'],'r28-vig-ammo-rule','Special Issue Ammunition','The Vigilator may use Dragonfire, Hellfire, Kraken or Vengeance ammunition with his Bolter, overriding the normal Seeker-only restriction. The four profiles are shown under his granted Special Issue Ammunition.')
+
+          # ---------- Praevian ----------
+          auto_link(C['prae'],'r28-prae-controller','Cortex Controller','r28-gear-cortex-controller')
+          auto_link(C['prae'],'r28-prae-designator','Cortex Designator','r28-gear-cortex-designator')
+          add_rule(C['prae'],'r28-prae-support','Legion Support Officer','May not fulfil the compulsory HQ selection unless another rule specifically permits it.')
+          add_rule(C['prae'],'r28-prae-cybernetica','Master of Cybernetica','The Praevian must begin attached to his purchased Battle-Automata Maniple and may not voluntarily leave it while any Automata remain. The Maniple occupies no additional Force Organisation slot. If the Praevian is slain, normal Cybernetica Cortex/Programmed Behaviour rules apply.')
+          add_rule(C['prae'],'r28-prae-inductees','Legion Inductees','Before deployment choose the Praevian’s Legiones Astartes rule, Furious Charge, Tank Hunters or Scout for the accompanying Battle-Automata Maniple. If Scout is chosen the Praevian also gains Scout while attached.')
+          groups=ensure_container(C['prae'],'selectionEntryGroups')
+          pg=ET.SubElement(groups,Q('selectionEntryGroup'),{'name':'Praevian Battle-Automata','id':'r28-prae-automata-group','hidden':'false'})
+          add_constraint(pg,'r28-prae-automata-max','max',1)
+          pse=ET.SubElement(pg,Q('selectionEntries'))
+          man=ET.SubElement(pse,Q('selectionEntry'),{'type':'unit','name':'Castellan Class Robot Maniple (Mechanicum source)','id':'r28-prae-castellan','hidden':'false','import':'true'})
+          add_constraint(man,'r28-prae-castellan-max','max',1,child=False)
+          add_cost(man,105)
+          profiles=ensure_container(man,'profiles')
+          mp=ET.SubElement(profiles,Q('profile'),{'name':'Castellan Class Robot','id':'r28-prae-castellan-prof','typeId':'prof-model','typeName':'Model','hidden':'false'})
+          chars=ET.SubElement(mp,Q('characteristics'))
+          for n,tid,val in [('WS','model-ws','3'),('BS','model-bs','3'),('S','model-s','5(10)'),('T','model-t','6'),('W','model-w','3'),('I','model-i','3'),('A','model-a','2'),('Ld','model-ld','8'),('Sv','model-sv','3+')]:
+              ET.SubElement(chars,Q('characteristic'),{'name':n,'typeId':tid}).text=val
+          add_rule(man,'r28-prae-castellan-wg','Standard Wargear','Two Dreadnought Close Combat Weapons, Twin-linked Bolter and shoulder-mounted Heavy Bolter.')
+          add_rule(man,'r28-prae-castellan-uplink','Command Uplink','At the start of every phase, if not within 6” of a friendly Cortex Controller, the unit must pass its Command Uplink Leadership test before acting. The Praevian’s Cortex Controller controls his accompanying Maniple normally.')
+          add_rule(man,'r28-prae-castellan-targeting','Targeting Protocols','The model may fire its two weapons at the same target if both are in range.')
+          add_rule(man,'r28-prae-castellan-type','Monstrous Creature','Castellan Class Robots count as Monstrous Creatures for rules and modifiers.')
+          add_rule(man,'r28-prae-source-note','Source Note','The generic Praevian entry calls for Castellax or Vorax Battle-Automata, while the supplied Mechanicum army list presently provides a Castellan Class Robot profile. This option reproduces that available Mechanicum profile without silently inventing a Vorax profile or equating the names.')
+          mse=ensure_container(man,'selectionEntries')
+          extra=local_upgrade(mse,'r28-prae-castellan-extra','Additional Castellan Class Robot',105,False,3)
+          wg=ensure_container(man,'selectionEntryGroups')
+          shoulder=ET.SubElement(wg,Q('selectionEntryGroup'),{'name':'Shoulder Weapon Replacements','id':'r28-prae-castellan-shoulder','hidden':'false'})
+          add_constraint(shoulder,'r28-prae-castellan-shoulder-max','max',4)
+          sse=ET.SubElement(shoulder,Q('selectionEntries'))
+          for id_,nm,cost,prof in [
+              ('r28-prae-assault','Assault Cannon',35,('24”','6','4','Heavy 4, Rending')),
+              ('r28-prae-mm','Multi-Melta',40,('24”','8','1','Heavy 1, Melta')),
+              ('r28-prae-pc','Plasma Cannon',45,('36”','7','2','Heavy 1, Blast, Gets Hot')),
+          ]:
+              x=local_upgrade(sse,id_,nm,cost,False,4); add_ranged_profile(x,id_+'-prof',nm,*prof)
+          bolterrep=ET.SubElement(wg,Q('selectionEntryGroup'),{'name':'Twin-linked Bolter Replacements','id':'r28-prae-castellan-bolterrep','hidden':'false'})
+          add_constraint(bolterrep,'r28-prae-castellan-bolterrep-max','max',4)
+          bre=ET.SubElement(bolterrep,Q('selectionEntries'))
+          fl=local_upgrade(bre,'r28-prae-flamer','Flamer',5,False,4); add_ranged_profile(fl,'r28-prae-flamer-prof','Flamer','Template','4','5','Assault 1')
+          add_rule(man,'r28-prae-upgrade-limit','Robot Upgrade Limit','Weapon replacement selections may not exceed the number of Castellan Class Robots actually present in the Maniple; each robot may replace each listed weapon no more than once.')
+
+          # ---------- Centurion statline changes caused by mandatory Consul armour ----------
+          cent_prof=by_id('hq-centurion-prof')
+          assert cent_prof is not None
+          mods=ensure_container(cent_prof,'modifiers')
+          for id_,val,child in [
+              ('r28-cent-sv-forge','2+','hq-consul-forge'),
+              ('r28-cent-sv-null','2+/4+','hq-consul-null'),
+          ]:
+              m=ET.SubElement(mods,Q('modifier'),{'type':'set','field':'model-sv','value':val})
+              cs=ET.SubElement(m,Q('conditions')); condition(cs,'atLeast',1,child)
+
+          # ---------- Validation ----------
+          ids=[e.get('id') for e in root.iter() if e.get('id')]
+          dup=[k for k,v in Counter(ids).items() if v>1]
+          assert not dup, f'Duplicate IDs: {dup[:20]}'
+          all_ids=set(ids)
+          bad=[]
+          for e in root.iter(Q('entryLink')):
+              t=e.get('targetId')
+              if t and t not in all_ids: bad.append((e.get('id'),t))
+          assert not bad, f'Broken entryLinks: {bad[:20]}'
+          for need in ['r28-gear-crozius','r28-gear-special-issue-ammunition','r28-lib-disc-group','r28-mor-pair-group','r28-prae-castellan','r28-prof-demolisher','r28-prof-flamestorm']:
+              assert by_id(need) is not None, need
+          assert by_id('hq-centurion-sw-3') is None, 'Generic Centurion Force Weapon still present'
+          assert root.get('revision') == '28' and root.get('gameSystemRevision') == '12'
+
+          # Canonical New Recruit XML: default namespace, never ns0.
+          body=ET.tostring(root,encoding='unicode',short_empty_elements=True)
+          assert body.startswith('<catalogue '), body[:120]
+          assert f'xmlns="{NS}"' in body[:500]
+          xml='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'+body+'\n'
+          assert '<ns0:' not in xml
+          CAT.write_text(xml,encoding='utf-8',newline='\n')
+          ET.parse(CAT)
+
+          # Keep the canonicalizer from rolling the catalogue back to revision 27.
+          txt=CANON.read_text(encoding='utf-8')
+          txt=txt.replace("rewrite(CAT, CAT_NS, 'catalogue', revision=27, game_system_revision=12)",
+                          "rewrite(CAT, CAT_NS, 'catalogue', revision=28, game_system_revision=12)")
+          txt=txt.replace("assert cr.get('revision') == '27'", "assert cr.get('revision') == '28'")
+          txt=txt.replace("Canonical New Recruit XML ready: GST rev 12 / CAT rev 27", "Canonical New Recruit XML ready: GST rev 12 / CAT rev 28")
+          assert "revision=28, game_system_revision=12" in txt
+          assert "cr.get('revision') == '28'" in txt
+          CANON.write_text(txt,encoding='utf-8',newline='\n')
+
+          print('REV28 READY')
+          print('Catalogue: revision 28 / GST linkage 12')
+          print('Consuls:', ', '.join(e.get('name') for e in C.values()))
+          print('Psychic powers materialised:', sum(len(v) for v in DISCIPLINES.values()))
+          print('Praevian automata: Castellan Class Robot profile from supplied Mechanicum source; Vorax intentionally not invented')
+          PY
+          git diff --check
+      - name: Commit Revision 28
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' '.github/workflows/canonicalize-newrecruit.yml'
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git commit -m 'Revision 28: clean up Consuls and psychic options'
+            git push
+          fi
