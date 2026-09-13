@@ -1,0 +1,31 @@
+name: Test current rules source exports
+on:
+  push:
+    paths:
+      - '.github/workflows/test-source-exports.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Google Docs exports
+        shell: bash
+        run: |
+          set -euxo pipefail
+          declare -A DOCS
+          DOCS[army]='1Rem0x-V74HRqpCBlqDGD5x4sTUQ0lEw-WB9xvqOUkIA'
+          DOCS[legions]='15yOQ5xqfa7QAJ15GlHqN7F4HvO_jk6K1w5fQ2xkGngk'
+          DOCS[low]='1ZDtRchn_AtKUGT922-EyoyXfZDajVwAdl-QeyhZG-S4'
+          DOCS[aero]='1wkGCuVmsIeBmhRyZR0X9ftQUSqG3RDwlSY774Zt749Y'
+          for name in army legions low aero; do
+            id="${DOCS[$name]}"
+            for fmt in md txt; do
+              url="https://docs.google.com/document/d/${id}/export?format=${fmt}"
+              code=$(curl -L -sS -o "${name}.${fmt}" -w '%{http_code}' "$url")
+              echo "$name $fmt HTTP=$code bytes=$(wc -c < "${name}.${fmt}") type=$(file -b "${name}.${fmt}")"
+              head -c 120 "${name}.${fmt}" | tr '\n' ' ' || true
+              echo
+            done
+          done
