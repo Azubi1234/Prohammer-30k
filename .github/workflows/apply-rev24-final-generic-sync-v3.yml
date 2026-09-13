@@ -95,13 +95,19 @@ jobs:
               gated.append((n,s.get('name'),int(mx)))
 
           # Correct the two revised generic Rites.
-          x=byid('rite-recon-rule'); assert x is not None; d=x.find(q('description')) or ET.SubElement(x,q('description'))
+          x=byid('rite-recon-rule'); assert x is not None
+          d=x.find(q('description'))
+          if d is None:d=ET.SubElement(x,q('description'))
           d.text='Effects — compulsory Troops must be Legion Reconnaissance Squads. Units in this army which possess Infiltrate may use it even if the mission would not normally permit Infiltrators. Any model in a Legion Veteran Squad may replace its bolter, or both its bolt pistol and close-combat weapon, with a Sniper Rifle for +5 points. A unit which deployed using Infiltrate or made a pre-game Scout move improves any Cover Save it receives by +1 during the first game turn, to a maximum of 3+. Limitations — no model in the army may be equipped with Terminator Armour or Cataphractii Terminator Armour. All Heavy Support choices must begin the battle in Reserve and enter play using the normal Reserve rules.'
-          x=byid('rite-skyhunter-rule'); assert x is not None; d=x.find(q('description')) or ET.SubElement(x,q('description'))
+          x=byid('rite-skyhunter-rule'); assert x is not None
+          d=x.find(q('description'))
+          if d is None:d=ET.SubElement(x,q('description'))
           d.text='Effects — Legion Sky Hunter Jetbike Squadrons may be selected as Troops choices. The army’s compulsory Troops choices must be Legion Sky Hunter Jetbike Squadrons. These units do not also occupy a Fast Attack choice. An Independent Character equipped with a Space Marine Bike may upgrade it to a Jetbike for an additional +5 points. The model follows the normal rules for Jetbikes. Once per battle, each Legion Sky Hunter Jetbike Squadron may voluntarily leave the battlefield. If every model can move completely off a table edge, remove the unit to Ongoing Reserves; it returns during the controlling player’s following turn using the normal Outflank rules. Limitations — at least one Independent Character in the army must be mounted on a Jetbike. The army may not include Castraferrum or Contemptor Dreadnoughts. The army may include no more than one Heavy Support choice.'
 
           r.set('revision','24')
-          c=r.find(q('comment')) or ET.SubElement(r,q('comment')); c.text='Revision 24: Synced final generic Army List corrections: centralized Refractor Field restrictions and corrected Recon Company and Sky Hunter Phalanx.'
+          c=r.find(q('comment'))
+          if c is None:c=ET.SubElement(r,q('comment'))
+          c.text='Revision 24: Synced final generic Army List corrections: centralized Refractor Field restrictions and corrected Recon Company and Sky Hunter Phalanx.'
           ET.indent(t,space='  '); t.write(P,encoding='UTF-8',xml_declaration=True)
           rr=ET.parse(P).getroot(); ids=[e.get('id') for e in rr.iter() if e.get('id')]; dup=[k for k,v in Counter(ids).items() if v>1]
           assert not dup,dup[:20]; assert rr.get('revision')=='24'; assert byid('hq-praetor-wg-2') is None; assert byid('terminator-sgt-refractor') is None
