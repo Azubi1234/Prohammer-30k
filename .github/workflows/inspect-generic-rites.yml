@@ -1,0 +1,43 @@
+name: Inspect generic rites structure
+on:
+  push:
+    paths:
+      - '.github/workflows/inspect-generic-rites.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect catalogue structure
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          NS='http://www.battlescribe.net/schema/catalogueSchema'
+          C=lambda t:f'{{{NS}}}{t}'
+          r=ET.parse('Legiones Astartes.cat').getroot()
+          print('CAT REV', r.get('revision'), 'GST', r.get('gameSystemRevision'))
+          print('\nTOP LEVEL CONFIG ENTRIES')
+          top=r.find(C('sharedSelectionEntries'))
+          for e in top.findall(C('selectionEntry')):
+              cats=[x.get('targetId') for x in (e.find(C('categoryLinks')) or [])]
+              if 'cat-config' in cats or e.get('type')=='upgrade':
+                  if any(k in (e.get('name') or '').lower() for k in ['config','rite','legion','allegiance']):
+                      print(e.get('id'), '|', e.get('name'), '|', cats)
+          print('\nTARGET UNITS')
+          names=['Legion Veteran Squad','Legion Terminator Squad','Legion Tactical Squad','Legion Assault Squad','Legion Breacher Siege Squad','Legion Reconnaissance Squad','Legion Destroyer Squad','Legion Dreadnought','Legion Contemptor Dreadnought','Legion Sky Hunter Jetbike Squadron','Legion Predator Strike Squadron','Legion Techmarine Covenant']
+          for n in names:
+              found=[]
+              for e in r.iter(C('selectionEntry')):
+                  if e.get('name')==n:
+                      cats=[x.get('targetId') for x in (e.find(C('categoryLinks')) or [])]
+                      found.append((e.get('id'),cats))
+              print(n, found)
+          print('\nTOP LEVEL CONFIG CATEGORY MEMBERS')
+          for e in top.findall(C('selectionEntry')):
+              cats=[x.get('targetId') for x in (e.find(C('categoryLinks')) or [])]
+              if 'cat-config' in cats:
+                  print(e.get('id'), '|', e.get('name'), '| type', e.get('type'))
+          PY
