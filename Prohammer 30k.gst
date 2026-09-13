@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="12" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
+<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="13" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
   <comment>Horus Heresy army lists adapted for use with ProHammer Classic.</comment>
   <readme>Core system skeleton for Prohammer 30k. Contains points, core profile types, battlefield roles, mandatory Army Configuration and the standard Force Organisation Chart.</readme>
   <costTypes>
@@ -33,7 +33,7 @@
         <characteristicType id="vehicle-front" name="Front" />
         <characteristicType id="vehicle-side" name="Side" />
         <characteristicType id="vehicle-rear" name="Rear" />
-      </characteristicTypes>
+      <characteristicType id="vehicle-sp" name="SP" /></characteristicTypes>
     </profileType>
     <profileType id="prof-walker" name="Walker">
       <characteristicTypes>
@@ -96,13 +96,8 @@
           </constraints>
         </categoryLink>
         <categoryLink id="fl-transport" name="Dedicated Transport" hidden="false" targetId="cat-transport" />
-        <categoryLink id="fl-low" name="Lords of War" hidden="false" targetId="cat-low" />
-        <categoryLink id="fl-aero" name="Aeronautica Imperialis" hidden="false" targetId="cat-aero">
-          <constraints>
-            <constraint id="fl-aero-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
-          </constraints>
-        </categoryLink>
-      </categoryLinks>
+        <categoryLink id="fl-low" name="Lords of War" hidden="false" targetId="cat-low"><constraints><constraint id="fl-low-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" /></constraints></categoryLink>
+        </categoryLinks>
     </forceEntry>
   </forceEntries>
 </gameSystem>
