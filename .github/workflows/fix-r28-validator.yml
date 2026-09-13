@@ -1,0 +1,47 @@
+name: Fix Revision 28 Validator
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-r28-validator.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Limit target validation to Revision 28 links
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('.github/workflows/apply-consul-cleanup-r28.yml')
+          s=p.read_text(encoding='utf-8')
+          old="""          bad=[]
+          for e in root.iter(Q('entryLink')):
+              t=e.get('targetId')
+              if t and t not in all_ids: bad.append((e.get('id'),t))
+          assert not bad, f'Broken entryLinks: {bad[:20]}'
+"""
+          new="""          bad=[]
+          for e in root.iter(Q('entryLink')):
+              # The working Rev27 catalogue contains several older pre-existing dangling
+              # links. Rev28 must not introduce any NEW dangling targets, but this cleanup
+              # release does not silently alter unrelated legacy entries.
+              if not (e.get('id') or '').startswith('r28-'):
+                  continue
+              t=e.get('targetId')
+              if t and t not in all_ids: bad.append((e.get('id'),t))
+          assert not bad, f'Broken Revision 28 entryLinks: {bad[:20]}'
+"""
+          assert old in s, 'validator block not found'
+          p.write_text(s.replace(old,new),encoding='utf-8',newline='\n')
+          PY
+          git diff --check
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add '.github/workflows/apply-consul-cleanup-r28.yml'
+          git commit -m 'Fix Revision 28 validator scope'
+          git push
