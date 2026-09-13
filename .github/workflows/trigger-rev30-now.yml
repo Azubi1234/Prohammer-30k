@@ -1,0 +1,8 @@
+name: trigger rev30 now
+on:
+  workflow_dispatch:
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ok
