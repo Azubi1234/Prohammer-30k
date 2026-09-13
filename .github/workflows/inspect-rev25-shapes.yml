@@ -1,0 +1,34 @@
+name: Inspect rev25 parsed shapes
+on:
+  push:
+    paths: ['.github/workflows/inspect-rev25-shapes.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch sources and print parser object shapes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p sources
+          curl -L -sS 'https://docs.google.com/document/d/1Rem0x-V74HRqpCBlqDGD5x4sTUQ0lEw-WB9xvqOUkIA/export?format=md' -o 'sources/Legiones Astartes Army List.md'
+          curl -L -sS 'https://docs.google.com/document/d/15yOQ5xqfa7QAJ15GlHqN7F4HvO_jk6K1w5fQ2xkGngk/export?format=md' -o 'sources/Forces of the Legions.md'
+          curl -L -sS 'https://docs.google.com/document/d/1ZDtRchn_AtKUGT922-EyoyXfZDajVwAdl-QeyhZG-S4/export?format=md' -o 'sources/Lords of War.md'
+          curl -L -sS 'https://docs.google.com/document/d/1wkGCuVmsIeBmhRyZR0X9ftQUSqG3RDwlSY774Zt749Y/export?format=md' -o 'sources/Areonautica Imperialis.md'
+          sed '/^CAT=Path(/,$d' .github/build/rev25_partial.py > /tmp/p.py
+          cat >> /tmp/p.py <<'PY'
+          from pprint import pprint
+          for li in [1,3,5,8,16]:
+              L=LEGIONS[li]
+              print('\nLEGION',L['roman'],L['name'])
+              print('ENTRY SAMPLE'); pprint(L['entries'][0])
+              print('RITE SAMPLE'); pprint(L['rites'][0])
+              if L['consuls']:
+                  print('CONSUL SAMPLE'); pprint(L['consuls'][0])
+          print('\nLOW SAMPLE'); pprint(LOW[0]); pprint(LOW[-1])
+          print('\nAERO SAMPLE'); pprint(AERO[0]); pprint(AERO[-1])
+          PY
+          python /tmp/p.py
