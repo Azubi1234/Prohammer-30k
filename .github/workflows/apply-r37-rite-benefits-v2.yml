@@ -1,0 +1,211 @@
+name: Apply Revision 37 Rite benefits v2
+on:
+  push:
+    paths: ['.github/workflows/apply-r37-rite-benefits-v2.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply Rite-specific builder options and Praetor Armoury cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import copy, re
+          import xml.etree.ElementTree as ET
+
+          CAT=Path('Legiones Astartes.cat')
+          NS='http://www.battlescribe.net/schema/catalogueSchema'
+          ET.register_namespace('',NS)
+          C=lambda t:f'{{{NS}}}{t}'
+          tree=ET.parse(CAT); root=tree.getroot()
+          assert root.get('revision')=='36', root.get('revision')
+          assert root.get('gameSystemRevision')=='13'
+
+          ORDER={'constraints':10,'costs':20,'profiles':30,'rules':40,'selectionEntries':50,'selectionEntryGroups':60,'entryLinks':70,'categoryLinks':80,'modifiers':90}
+          def ensure(p,t):
+              q=p.find(C(t))
+              if q is not None:return q
+              q=ET.Element(C(t)); rank=ORDER.get(t,999)
+              for i,ch in enumerate(list(p)):
+                  if ORDER.get(ch.tag.split('}')[-1],999)>rank:
+                      p.insert(i,q);return q
+              p.append(q);return q
+          def byid(i): return next((e for e in root.iter() if e.get('id')==i),None)
+          def norm(s): return re.sub(r'[^a-z0-9]+',' ',(s or '').lower()).strip()
+          def addmax(e,i,v,scope='parent'):
+              ET.SubElement(ensure(e,'constraints'),C('constraint'),{'id':i,'type':'max','value':str(v),'field':'selections','scope':scope,'shared':'true','includeChildSelections':'false'})
+          def addcost(e,val):
+              ET.SubElement(ensure(e,'costs'),C('cost'),{'name':'Points','typeId':'pts','value':str(val)})
+          def addrule(e,i,n,d):
+              rs=ensure(e,'rules'); r=ET.SubElement(rs,C('rule'),{'name':n,'id':i,'hidden':'false'}); ET.SubElement(r,C('description')).text=d; return r
+          def condition(mod,child,scope='force',typ='atLeast',value='1'):
+              ET.SubElement(ensure(mod,'conditions'),C('condition'),{'type':typ,'value':value,'field':'selections','scope':scope,'childId':child,'shared':'true','includeChildSelections':'true'})
+          def gate_visible(e,rite_id):
+              e.set('hidden','true')
+              m=ET.SubElement(ensure(e,'modifiers'),C('modifier'),{'type':'set','value':'false','field':'hidden'})
+              condition(m,rite_id)
+              return e
+          def remap(elem,prefix):
+              x=copy.deepcopy(elem); olds=[q.get('id') for q in x.iter() if q.get('id')]
+              mp={o:f'{prefix}-{o}' for o in olds}
+              for q in x.iter():
+                  if q.get('id') in mp:q.set('id',mp[q.get('id')])
+                  for a in ('targetId','childId'):
+                      if q.get(a) in mp:q.set(a,mp[q.get(a)])
+              return x
+          def has_target(group,target):
+              return any(x.get('targetId')==target for x in group.iter(C('entryLink')))
+
+          # Resolve the catalogue's real Rite IDs by their displayed names. Some
+          # generic Rites existed before Revision 35 and therefore kept older IDs.
+          rites_group=byid('config-rites'); assert rites_group is not None
+          rite_titles={
+            'pride':'Pride of the Legion','orbital':'Orbital Assault','spearhead':'Armoured Spearhead',
+            'breakthrough':'Armoured Breakthrough','assault':'Legion Assault Company','breacher':'Legion Breacher Company',
+            'recon':'Legion Recon Company','destroyer':'Legion Destroyer Company','fury':'Fury of the Ancients',
+            'sky':'Sky Hunter Phalanx','tactical':'Legion Tactical Company'
+          }
+          R={}
+          rite_entries=list(rites_group.iter(C('selectionEntry')))
+          for key,title in rite_titles.items():
+              e=next((q for q in rite_entries if norm(q.get('name'))==norm(title)),None)
+              assert e is not None, f'Missing Rite by name: {title}'
+              R[key]=e.get('id')
+          print('Resolved Rite IDs:',R)
+
+          # PRAETOR ARMOURY CLEANUP
+          pg=byid('hq-praetor-wargear'); assert pg is not None
+          links=pg.find(C('entryLinks')); removed=[]
+          if links is not None:
+              for e in list(links):
+                  if norm(e.get('name')) in {'combat shield','boarding shield','refractor field'}:
+                      removed.append(e.get('name')); links.remove(e)
+          assert {'Combat Shield','Boarding Shield'}.issubset(set(removed)), removed
+
+          # SKY HUNTER PHALANX — JETBIKE COMMAND
+          bike=byid('gear-hq-bike'); assert bike is not None
+          for group_id,prefix in [('hq-praetor-mob','r37-praetor-jetbike'),('hq-centurion-mob','r37-centurion-jetbike')]:
+              g=byid(group_id); assert g is not None
+              if byid(prefix) is None:
+                  jet=remap(bike,prefix+'-gear')
+                  jet.set('id',prefix); jet.set('name','Jetbike (Sky Hunter Phalanx)'); jet.set('type','upgrade')
+                  costs=jet.find(C('costs'))
+                  if costs is not None:
+                      for c in list(costs): costs.remove(c)
+                  addcost(jet,40); addmax(jet,prefix+'-max',1)
+                  addrule(jet,prefix+'-rule','Jetbike Command','Replaces the model’s Space Marine Bike. This option includes the normal +35 point Space Marine Bike and the +5 point Sky Hunter Phalanx Jetbike upgrade. The model follows the normal rules for Jetbikes.')
+                  gate_visible(jet,R['sky']); ensure(g,'selectionEntries').append(jet)
+
+          rapid='Once per battle, during its Movement phase, if every model in this unit can move completely off a table edge, remove the unit and place it into Ongoing Reserves. It returns during the controlling player’s following turn using the normal Outflank rules.'
+          for uid in ('fa-sky-hunter','r35-sky-troops-fa-sky-hunter'):
+              u=byid(uid)
+              if u is not None and byid('r37-rapid-'+uid) is None:
+                  n=ET.SubElement(ensure(u,'selectionEntries'),C('selectionEntry'),{'id':'r37-rapid-'+uid,'name':'Rapid Encirclement (Sky Hunter Phalanx)','type':'upgrade','hidden':'true','import':'true'})
+                  addmax(n,'r37-rapid-'+uid+'-max',1); addrule(n,'r37-rapid-'+uid+'-rule','Rapid Encirclement',rapid); gate_visible(n,R['sky'])
+
+          # ORBITAL ASSAULT — real Drop Pod / Dreadclaw choices for ordinary
+          # Legion Infantry transport groups, using Rhino access as the marker.
+          orbital_added=[]
+          for g in list(root.iter(C('selectionEntryGroup'))):
+              if 'dedicated transport' not in norm(g.get('name')): continue
+              if not any('rhino' in norm(x.get('name')) for x in g.iter(C('entryLink'))): continue
+              for target,label,cost,suffix in [('transport-drop-pod','Legion Drop Pod (Orbital Assault)',50,'pod'),('transport-dreadclaw','Anvillus Pattern Dreadclaw Drop Pod (Orbital Assault)',65,'dreadclaw')]:
+                  if has_target(g,target): continue
+                  eid=f"r37-orbital-{g.get('id')}-{suffix}"
+                  el=ET.SubElement(ensure(g,'entryLinks'),C('entryLink'),{'id':eid,'name':label,'type':'selectionEntry','targetId':target,'hidden':'true','import':'true'})
+                  addmax(el,eid+'-max',1); addcost(el,cost); gate_visible(el,R['orbital']); orbital_added.append(eid)
+          for gid in ('dreadnought-transport','contemptor-transport'):
+              g=byid(gid); assert g is not None
+              for target,label,cost,suffix in [('transport-drop-pod','Legion Drop Pod (Orbital Assault)',50,'pod'),('transport-dreadclaw','Anvillus Pattern Dreadclaw Drop Pod (Orbital Assault)',65,'dreadclaw')]:
+                  eid=f'r37-orbital-{gid}-{suffix}'
+                  if byid(eid) is not None: continue
+                  el=ET.SubElement(ensure(g,'entryLinks'),C('entryLink'),{'id':eid,'name':label,'type':'selectionEntry','targetId':target,'hidden':'true','import':'true'})
+                  addmax(el,eid+'-max',1); addcost(el,cost); gate_visible(el,R['orbital']); orbital_added.append(eid)
+          for uid in ('terminator-unit','r35-pride-terminator-terminator-unit'):
+              u=byid(uid)
+              if u is not None and byid('r37-orbital-teleport-'+uid) is None:
+                  n=ET.SubElement(ensure(u,'selectionEntries'),C('selectionEntry'),{'id':'r37-orbital-teleport-'+uid,'name':'Teleport Assault (Orbital Assault)','type':'upgrade','hidden':'true','import':'true'})
+                  addmax(n,'r37-orbital-teleport-'+uid+'-max',1)
+                  addrule(n,'r37-orbital-teleport-'+uid+'-rule','Teleport Assault','A unit composed entirely of models wearing Terminator Armour or Cataphractii Terminator Armour may deploy using Deep Strike even if the mission would not normally permit Deep Strike.')
+                  gate_visible(n,R['orbital'])
+
+          # ARMOURED SPEARHEAD — clone the catalogue's complete Land Raider
+          # Dedicated Transport selector into eligible ordinary Infantry groups.
+          template=byid('hq-praetor-ret-honour-land-lrgrp'); assert template is not None
+          spear_added=[]
+          for g in list(root.iter(C('selectionEntryGroup'))):
+              if 'dedicated transport' not in norm(g.get('name')): continue
+              if g is template: continue
+              if not any('rhino' in norm(x.get('name')) for x in g.iter(C('entryLink'))): continue
+              if any('land raider' in norm(x.get('name')) for x in g.iter(C('selectionEntryGroup'))): continue
+              sid='r37-spear-'+g.get('id')
+              if byid(sid) is not None: continue
+              lr=remap(template,sid+'-src'); lr.set('id',sid); lr.set('name','Land Raider Dedicated Transport (Armoured Spearhead)')
+              gate_visible(lr,R['spearhead']); ensure(g,'selectionEntryGroups').append(lr); spear_added.append(sid)
+
+          # DESTROYER COMPANY — correct Rev35's placeholder targets and add the
+          # actual standard Frag/Krak Grenade Launcher profile from the source.
+          shared=ensure(root,'sharedSelectionEntries')
+          gl=byid('r37-gear-grenade-launcher')
+          if gl is None:
+              gl=ET.SubElement(shared,C('selectionEntry'),{'id':'r37-gear-grenade-launcher','name':'Grenade Launcher','type':'upgrade','hidden':'false','import':'true'})
+              profs=ensure(gl,'profiles')
+              for suf,name,s,ap,typ in [('frag','Grenade Launcher – Frag','3','6','Assault 1, Blast'),('krak','Grenade Launcher – Krak','6','4','Assault 1')]:
+                  p=ET.SubElement(profs,C('profile'),{'id':'r37-gl-'+suf,'name':name,'typeId':'prof-ranged','typeName':'Ranged Weapon','hidden':'false'})
+                  cs=ET.SubElement(p,C('characteristics'))
+                  for n,tid,val in [('Range','ranged-range','24"'),('S','ranged-s',s),('AP','ranged-ap',ap),('Type','ranged-type',typ)]: ET.SubElement(cs,C('characteristic'),{'name':n,'typeId':tid}).text=val
+          df=byid('r35-destroyer-flamer'); dg=byid('r35-destroyer-grenade-launcher')
+          assert df is not None and dg is not None and byid('gear-flamer') is not None
+          df.set('targetId','gear-flamer'); df.set('name','Flamer (replaces one Bolt Pistol) — +10 pts')
+          dg.set('targetId','r37-gear-grenade-launcher'); dg.set('name','Grenade Launcher (replaces one Bolt Pistol) — +10 pts')
+
+          # Conditional rules are surfaced directly on the affected units so the
+          # roster shows the benefit where it matters, not just in the Rite text.
+          def rite_note(uid,nid,title,text,rite):
+              u=byid(uid)
+              if u is None or byid(nid) is not None:return
+              e=ET.SubElement(ensure(u,'selectionEntries'),C('selectionEntry'),{'id':nid,'name':title,'type':'upgrade','hidden':'true','import':'true'})
+              addmax(e,nid+'-max',1); addrule(e,nid+'-rule',title,text); gate_visible(e,rite)
+          death_from_above='Any unit composed entirely of models equipped with Jump Packs may deploy using Deep Strike even if the mission would not normally permit Deep Strike. Resolve arrival using the normal ProHammer Deep Strike rules.'
+          for uid in ('veteran-unit','assault-unit'): rite_note(uid,'r37-assault-dfa-'+uid,'Death from Above (Legion Assault Company)',death_from_above,R['assault'])
+          rite_note('breacher-unit','r37-breacher-shieldwall','Shield Wall (Legion Breacher Company)','Models equipped with Boarding Shields may re-roll results of 1 when making an Invulnerable Save granted by their Boarding Shield.',R['breacher'])
+          rite_note('recon-unit','r37-recon-forward','Forward Positions (Legion Recon Company)','Units which deploy using Infiltrate or make a pre-game Scout move improve any Cover Save they receive by +1 during the first game turn, to a maximum of 3+.',R['recon'])
+          rite_note('tactical-unit','r37-tactical-fury','Fury of the Legion (Legion Tactical Company)','Once per battle, when this Legion Tactical Squad remained stationary and is selected to shoot, every bolter fired by the squad fires one additional shot that Shooting phase. Weapons other than bolters receive no extra shots. A unit which uses this rule may not charge during the same turn.',R['tactical'])
+
+          root.set('revision','37')
+          body=ET.tostring(root,encoding='unicode',short_empty_elements=True)
+          CAT.write_text('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'+body+'\n',encoding='utf-8',newline='\n')
+
+          rr=ET.parse(CAT).getroot(); assert rr.get('revision')=='37'; assert rr.get('gameSystemRevision')=='13'
+          txt=CAT.read_text(encoding='utf-8'); assert '<ns0:' not in txt[:5000]
+          rpg=next(x for x in rr.iter() if x.get('id')=='hq-praetor-wargear')
+          own={norm(x.get('name')) for x in rpg.findall('.//'+C('entryLink'))}
+          assert 'combat shield' not in own and 'boarding shield' not in own and 'refractor field' not in own
+          rcg=next(x for x in rr.iter() if x.get('id')=='hq-centurion-wargear')
+          cown={norm(x.get('name')) for x in rcg.findall('.//'+C('entryLink'))}
+          assert 'combat shield' in cown and 'boarding shield' in cown
+          for i in ('r37-praetor-jetbike','r37-centurion-jetbike'): assert next((x for x in rr.iter() if x.get('id')==i),None) is not None
+          rdf=next(x for x in rr.iter() if x.get('id')=='r35-destroyer-flamer'); rdg=next(x for x in rr.iter() if x.get('id')=='r35-destroyer-grenade-launcher')
+          assert rdf.get('targetId')=='gear-flamer'; assert rdg.get('targetId')=='r37-gear-grenade-launcher'
+          assert orbital_added, 'No Orbital Assault transport links added'
+          assert spear_added, 'No Armoured Spearhead Land Raider groups added'
+          print('Revision 37 applied')
+          print('Praetor removed:',removed)
+          print('Orbital Assault links added:',len(orbital_added))
+          print('Armoured Spearhead transport groups added:',len(spear_added))
+          PY
+          git diff --check
+      - name: Commit Revision 37
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat'
+          git commit -m 'Revision 37: implement generic Rite benefits and clean Praetor Armoury'
+          git push
