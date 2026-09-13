@@ -1,0 +1,221 @@
+name: Apply Revision 30 Praevian automata fix
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/apply-rev30-praevian-automata.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch Praevian automata
+        shell: python
+        run: |
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          from collections import Counter
+
+          CAT = Path('Legiones Astartes.cat')
+          NS = 'http://www.battlescribe.net/schema/catalogueSchema'
+          ET.register_namespace('', NS)
+          Q = lambda t: f'{{{NS}}}{t}'
+
+          tree = ET.parse(CAT)
+          root = tree.getroot()
+          assert root.get('id') == 'cat-30a0-30b0-30c0-0001'
+          assert root.get('revision') == '29', root.get('revision')
+          assert root.get('gameSystemRevision') == '12', root.get('gameSystemRevision')
+
+          def by_id(id_):
+              for e in root.iter():
+                  if e.get('id') == id_:
+                      return e
+              return None
+
+          def pmap():
+              return {c:p for p in root.iter() for c in p}
+
+          def direct(parent, tag):
+              return parent.find(Q(tag))
+
+          ORDER = {
+              'constraints': 10, 'costs': 20, 'profiles': 30, 'rules': 40,
+              'selectionEntries': 50, 'selectionEntryGroups': 60,
+              'entryLinks': 70, 'categoryLinks': 80, 'modifiers': 90,
+          }
+
+          def ensure_container(parent, tag):
+              x = direct(parent, tag)
+              if x is not None:
+                  return x
+              x = ET.Element(Q(tag))
+              rank = ORDER.get(tag, 999)
+              for i, ch in enumerate(list(parent)):
+                  if ORDER.get(ch.tag.split('}')[-1], 999) > rank:
+                      parent.insert(i, x)
+                      return x
+              parent.append(x)
+              return x
+
+          def add_constraint(parent, id_, typ, value, scope='parent'):
+              cs = ensure_container(parent, 'constraints')
+              return ET.SubElement(cs, Q('constraint'), {
+                  'id':id_, 'type':typ, 'value':str(value), 'field':'selections',
+                  'scope':scope, 'shared':'true', 'includeChildSelections':'true'
+              })
+
+          def add_cost(parent, value):
+              costs = ensure_container(parent, 'costs')
+              ET.SubElement(costs, Q('cost'), {'name':'Points','typeId':'pts','value':str(value)})
+
+          def add_rule(parent, id_, name, desc):
+              rules = ensure_container(parent, 'rules')
+              r = ET.SubElement(rules, Q('rule'), {'id':id_, 'name':name, 'hidden':'false'})
+              ET.SubElement(r, Q('description')).text = desc
+              return r
+
+          def add_model_profile(parent, id_, name, vals):
+              profiles = ensure_container(parent, 'profiles')
+              p = ET.SubElement(profiles, Q('profile'), {
+                  'id':id_, 'name':name, 'typeId':'prof-model', 'typeName':'Model', 'hidden':'false'
+              })
+              cs = ET.SubElement(p, Q('characteristics'))
+              tids = [('WS','model-ws'),('BS','model-bs'),('S','model-s'),('T','model-t'),('W','model-w'),('I','model-i'),('A','model-a'),('Ld','model-ld'),('Sv','model-sv')]
+              for (n,tid),v in zip(tids, vals):
+                  ET.SubElement(cs, Q('characteristic'), {'name':n,'typeId':tid}).text = v
+
+          def add_ranged(parent, id_, name, rng, s, ap, typ):
+              profiles = ensure_container(parent, 'profiles')
+              p = ET.SubElement(profiles, Q('profile'), {
+                  'id':id_, 'name':name, 'typeId':'prof-ranged', 'typeName':'Ranged Weapon', 'hidden':'false'
+              })
+              cs = ET.SubElement(p, Q('characteristics'))
+              for n,tid,v in [('Range','ranged-range',rng),('S','ranged-s',s),('AP','ranged-ap',ap),('Type','ranged-type',typ)]:
+                  ET.SubElement(cs, Q('characteristic'), {'name':n,'typeId':tid}).text = v
+
+          def add_upgrade(container, id_, name, cost=0, maxv=1, desc=None):
+              e = ET.SubElement(container, Q('selectionEntry'), {
+                  'type':'upgrade','name':name,'id':id_,'hidden':'false','import':'true'
+              })
+              add_constraint(e, id_+'-max', 'max', maxv)
+              if cost:
+                  add_cost(e, cost)
+              if desc:
+                  add_rule(e, id_+'-rule', name, desc)
+              return e
+
+          praev = by_id('hq-consul-praevian')
+          assert praev is not None
+
+          # Remove the temporary Rev29 source-workaround group (Castellan robot).
+          groups = ensure_container(praev, 'selectionEntryGroups')
+          for g in list(groups):
+              if g.get('id') in {'r29-prae-automata-group','r30-prae-automata-group'}:
+                  groups.remove(g)
+
+          # Make Master of Cybernetica explicit now that the correct source units exist.
+          old_rule = by_id('r29-prae-cybernetica')
+          assert old_rule is not None
+          d = old_rule.find(Q('description'))
+          assert d is not None
+          d.text = ('The Praevian must be accompanied by either a Castellax Class Battle-Automata Maniple or a Vorax Class Battle-Automata Maniple. '
+                    'The Maniple does not occupy an additional Force Organisation slot. The Praevian must begin the battle attached to it and may not voluntarily leave while any Battle-Automata remain. '
+                    'The accompanying Maniple may not take Paragon of Metal. If the Praevian is slain, normal Cybernetica Cortex and Programmed Behaviour rules apply.')
+
+          group = ET.SubElement(groups, Q('selectionEntryGroup'), {
+              'name':'Praevian Battle-Automata Maniple', 'id':'r30-prae-automata-group', 'hidden':'false'
+          })
+          add_constraint(group, 'r30-prae-automata-min', 'min', 1)
+          add_constraint(group, 'r30-prae-automata-max', 'max', 1)
+          ses = ET.SubElement(group, Q('selectionEntries'))
+
+          # CASTELLAX — Mechanicum source, p.31.
+          cast = ET.SubElement(ses, Q('selectionEntry'), {
+              'type':'unit','name':'Castellax Class Battle-Automata Maniple','id':'r30-prae-castellax','hidden':'false','import':'true'
+          })
+          add_cost(cast, 105)
+          add_model_profile(cast, 'r30-prae-castellax-profile', 'Castellax', ['3','4','6','7','4','3','2','7','3+/5+'])
+          add_rule(cast, 'r30-prae-castellax-wargear', 'Standard Wargear', 'Mauler Bolt Cannon; two Bolters; Shock Chargers; Atomantic Shielding.')
+          add_rule(cast, 'r30-prae-castellax-rules', 'Special Rules', 'Cybernetica Cortex; Reactor Blast; Rage. The normal Support Unit restriction is irrelevant while this Maniple is purchased as part of a Praevian HQ choice.')
+          add_rule(cast, 'r30-prae-castellax-shield', 'Atomantic Shielding', 'A Castellax has a 5+ Invulnerable Save against shooting attacks and a 6+ Invulnerable Save in close combat.')
+          add_ranged(cast, 'r30-prae-mbc-prof', 'Mauler Bolt Cannon', '24”', '6', '4', 'Heavy 3')
+          add_rule(cast, 'r30-prae-shock-prof', 'Shock Chargers', 'Melee weapon: Strength User +1, AP -, Melee, Concussive.')
+          add_rule(cast, 'r30-prae-blades-prof', 'Battle-Automata Power Blades', 'Melee weapon: Strength User, AP -, Melee, Specialist Weapon.')
+          add_rule(cast, 'r30-prae-wrecker-prof', 'Siege Wrecker', 'Melee weapon: Strength 10, AP -, Melee, Unwieldy, Armourbane.')
+          ce = ensure_container(cast, 'selectionEntries')
+          add_upgrade(ce, 'r30-prae-cast-extra', 'Additional Castellax', 105, 4)
+          cg = ensure_container(cast, 'selectionEntryGroups')
+          cgen = ET.SubElement(cg, Q('selectionEntryGroup'), {'name':'Maniple Equipment','id':'r30-prae-cast-gen','hidden':'false'})
+          cges = ET.SubElement(cgen, Q('selectionEntries'))
+          add_upgrade(cges, 'r30-prae-cast-search', 'Searchlights', 1, 5, 'Purchase for each Castellax equipped.')
+          add_upgrade(cges, 'r30-prae-cast-frag', 'Frag Grenades', 5, 5, 'Purchase for each Castellax equipped.')
+          add_upgrade(cges, 'r30-prae-cast-infra', 'Infravisors', 5, 5, 'Purchase for each Castellax equipped.')
+          add_upgrade(cges, 'r30-prae-cast-eta', 'Enhanced Targeting Arrays', 15, 5, 'Purchase for each Castellax equipped.')
+          cw = ET.SubElement(cg, Q('selectionEntryGroup'), {'name':'Weapon Replacements','id':'r30-prae-cast-weapons','hidden':'false'})
+          cwes = ET.SubElement(cw, Q('selectionEntries'))
+          add_upgrade(cwes, 'r30-prae-cast-mm', 'Replace Mauler Bolt Cannon with Multi-Melta', 0, 5)
+          add_upgrade(cwes, 'r30-prae-cast-darkfire', 'Replace Mauler Bolt Cannon with Darkfire Cannon', 20, 5)
+          add_upgrade(cwes, 'r30-prae-cast-flamer', 'Replace a Bolter with Flamer', 5, 10, 'Each Castellax may replace either or both Bolters.')
+          add_upgrade(cwes, 'r30-prae-cast-blades', 'Replace Shock Chargers with two Battle-Automata Power Blades', 10, 5)
+          add_upgrade(cwes, 'r30-prae-cast-wrecker', 'Replace Shock Chargers with Siege Wrecker', 20, 5)
+          add_rule(cast, 'r30-prae-cast-option-limit', 'Option Limits', 'Per-model selections may not exceed the number of Castellax actually present. A Castellax may replace its Mauler Bolt Cannon once, either or both Bolters, and its Shock Chargers once. Paragon of Metal is not available to a Praevian Maniple.')
+
+          # VORAX — Mechanicum source, p.39.
+          vor = ET.SubElement(ses, Q('selectionEntry'), {
+              'type':'unit','name':'Vorax Class Battle-Automata Maniple','id':'r30-prae-vorax','hidden':'false','import':'true'
+          })
+          add_cost(vor, 65)
+          add_model_profile(vor, 'r30-prae-vorax-profile', 'Vorax', ['4','4','6','6','3','4','2(3)','7','4+'])
+          add_rule(vor, 'r30-prae-vorax-wargear', 'Standard Wargear', 'Lightning Gun; two Rotor Cannons; Battle-Automata Power Blades; Infravisor.')
+          add_rule(vor, 'r30-prae-vorax-rules', 'Special Rules', 'Cybernetica Cortex; Fleet; Scout.')
+          add_rule(vor, 'r30-prae-vorax-blades', 'Battle-Automata Power Blades', 'Melee weapon: Strength User, AP -, Melee, Rending, Paired.')
+          add_ranged(vor, 'r30-prae-vorax-bio-prof', 'Bio-corrosive Rotor Cannon', '15”', '3', '6', 'Salvo 3/4, Poisoned (4+)')
+          ve = ensure_container(vor, 'selectionEntries')
+          add_upgrade(ve, 'r30-prae-vorax-extra', 'Additional Vorax', 65, 5)
+          vg = ensure_container(vor, 'selectionEntryGroups')
+          vgen = ET.SubElement(vg, Q('selectionEntryGroup'), {'name':'Maniple Equipment','id':'r30-prae-vorax-gen','hidden':'false'})
+          vges = ET.SubElement(vgen, Q('selectionEntries'))
+          add_upgrade(vges, 'r30-prae-vorax-search', 'Searchlights', 1, 6, 'Purchase for each Vorax equipped.')
+          add_upgrade(vges, 'r30-prae-vorax-frag', 'Frag Grenades', 5, 6, 'Purchase for each Vorax equipped.')
+          add_upgrade(vges, 'r30-prae-vorax-eta', 'Enhanced Targeting Arrays', 15, 6, 'Purchase for each Vorax equipped.')
+          vw = ET.SubElement(vg, Q('selectionEntryGroup'), {'name':'Weapon Options','id':'r30-prae-vorax-weapons','hidden':'false'})
+          vwes = ET.SubElement(vw, Q('selectionEntries'))
+          add_upgrade(vwes, 'r30-prae-vorax-irad', 'Replace Lightning Gun with Irad Cleanser', 10, 6)
+          add_upgrade(vwes, 'r30-prae-vorax-bio', 'Bio-corrosive Ammunition', 10, 6, 'Purchase for each Vorax. Its Rotor Cannons use the Bio-corrosive Rotor Cannon profile shown above.')
+          add_rule(vor, 'r30-prae-vorax-option-limit', 'Option Limits', 'Per-model selections may not exceed the number of Vorax actually present. Paragon of Metal is not available to a Praevian Maniple.')
+
+          # Revision metadata.
+          root.set('revision', '30')
+          root.set('gameSystemRevision', '12')
+          comment = root.find(Q('comment'))
+          if comment is not None:
+              comment.text = ('Revision 30: final Legiones Astartes list cleanup — Praevian Battle-Automata now use the supplied Mechanicum Castellax and Vorax profiles and options; removed the temporary Castellan workaround.')
+
+          # Basic integrity checks.
+          ids = [e.get('id') for e in root.iter() if e.get('id')]
+          dups = [k for k,v in Counter(ids).items() if v > 1]
+          assert not dups, f'Duplicate IDs: {dups[:20]}'
+          assert by_id('r30-prae-castellax') is not None
+          assert by_id('r30-prae-vorax') is not None
+          assert by_id('r29-prae-castellan') is None
+
+          ET.indent(tree, space='  ')
+          body = ET.tostring(root, encoding='unicode', short_empty_elements=True)
+          out = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n' + body + '\n'
+          assert '<ns0:' not in out and 'xmlns:ns0=' not in out
+          CAT.write_text(out, encoding='utf-8', newline='\n')
+          print('REV30 OK: Praevian now selects exactly one supplied Mechanicum Castellax or Vorax Maniple.')
+      - name: Commit Revision 30
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Legiones Astartes.cat"
+          git diff --cached --quiet && exit 0
+          git commit -m "Revision 30: use Castellax and Vorax for Praevian"
+          git push
