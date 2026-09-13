@@ -10,34 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build focused structure report
+      - name: Write exact option report
         run: |
           python - <<'PY' > inspection-generic-rites.txt
           import xml.etree.ElementTree as ET
           NS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{NS}}}{t}'
           r=ET.parse('Legiones Astartes.cat').getroot()
           def byid(i): return next((e for e in r.iter() if e.get('id')==i),None)
-          def walk(e,d=0,maxd=4):
-              if d>maxd:return
-              nm=e.get('name',''); ident=e.get('id',''); typ=e.get('type',''); hid=e.get('hidden','')
-              if ident or nm: print('  '*d+f'{e.tag.split("}")[-1]} id={ident} name={nm!r} type={typ} hidden={hid}')
-              for ch in e:
-                  if ch.tag in {C('selectionEntries'),C('selectionEntryGroups'),C('entryLinks'),C('categoryLinks'),C('constraints')}:
-                      print('  '*(d+1)+ch.tag.split('}')[-1])
-                      for x in ch: walk(x,d+2,maxd)
+          ids=['veteran-jump-packs','veteran-transport','destroyer-unit','dreadnought-unit','contemptor-unit','hq-praetor','hq-centurion','rite-assault-company','rite-recon-company','rite-sky-hunter']
           print('CAT',r.get('revision'),'GST',r.get('gameSystemRevision'))
-          for i in ['veteran-unit','tactical-unit','assault-unit','breacher-unit','recon-unit','destroyer-unit','dreadnought-unit','contemptor-unit','fa-sky-hunter','hs-predator','hq-praetor','hq-centurion']:
-              print('\n###',i); e=byid(i); walk(e,0,7) if e is not None else print('MISSING')
-          print('\n### relevant global selection entries')
-          keys=['drop pod','dreadclaw','land raider phobos','land raider proteus','spartan','jump pack','space marine bike','jetbike','sniper rifle','flamer','grenade launcher','boarding shield','terminator armour','cataphractii']
-          for e in r.iter(C('selectionEntry')):
-              n=(e.get('name') or '').lower()
-              if any(k in n for k in keys): print(e.get('id'),'|',e.get('name'),'|',e.get('type'))
+          for i in ids:
+              e=byid(i); print('\n###',i); print(ET.tostring(e,encoding='unicode')[:40000] if e is not None else 'MISSING')
           PY
       - name: Commit report
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add inspection-generic-rites.txt
-          git commit -m 'Add temporary generic rites structure report' || exit 0
+          git commit -m 'Refresh temporary generic rites report' || exit 0
           git push
