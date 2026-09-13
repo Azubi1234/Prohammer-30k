@@ -33,8 +33,6 @@ jobs:
                       if node.get('field') in idmap: node.set('field',idmap[node.get('field')])
                       if node.get('childId') in idmap: node.set('childId',idmap[node.get('childId')])
                   y.set('id',f'da22-alt-{suffix}-{n}'); y.set('targetId',new_target); y.set('name',new_name); y.set('hidden','false')"""
-          # Dedent the replacement's continuation lines back to the function's indentation.
-          new='\n'.join(line[8:] if i else line for i,line in enumerate(new.splitlines()))
           if old not in src:
               raise RuntimeError('plasma cloning target not found')
           src=src.replace(old,new,1)
