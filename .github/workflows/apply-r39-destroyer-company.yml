@@ -1,0 +1,186 @@
+name: Apply Revision 39 Destroyer Company rework
+on:
+  push:
+    paths: ['.github/workflows/apply-r39-destroyer-company.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply Destroyer Company Forbidden Arsenal rework
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import xml.etree.ElementTree as ET
+
+          CAT=Path('Legiones Astartes.cat')
+          NS='http://www.battlescribe.net/schema/catalogueSchema'
+          ET.register_namespace('',NS)
+          C=lambda t:f'{{{NS}}}{t}'
+          tree=ET.parse(CAT); root=tree.getroot()
+          assert root.get('revision')=='38', root.get('revision')
+          assert root.get('gameSystemRevision')=='13'
+
+          ORDER={'constraints':10,'costs':20,'profiles':30,'rules':40,'selectionEntries':50,'selectionEntryGroups':60,'entryLinks':70,'categoryLinks':80,'modifiers':90}
+          def ensure(p,t):
+              q=p.find(C(t))
+              if q is not None:return q
+              q=ET.Element(C(t)); rank=ORDER.get(t,999)
+              for i,ch in enumerate(list(p)):
+                  if ORDER.get(ch.tag.split('}')[-1],999)>rank:
+                      p.insert(i,q); return q
+              p.append(q); return q
+          def norm(s): return re.sub(r'[^a-z0-9]+',' ',(s or '').lower()).strip()
+          def byid(i): return next((e for e in root.iter() if e.get('id')==i),None)
+          def addmax(e,i,v,scope='parent',children=False):
+              ET.SubElement(ensure(e,'constraints'),C('constraint'),{'id':i,'type':'max','value':str(v),'field':'selections','scope':scope,'shared':'true','includeChildSelections':'true' if children else 'false'})
+          def addcost(e,val): ET.SubElement(ensure(e,'costs'),C('cost'),{'name':'Points','typeId':'pts','value':str(val)})
+          def condition(mod,child,scope='force',typ='atLeast',value='1',children=True):
+              ET.SubElement(ensure(mod,'conditions'),C('condition'),{'type':typ,'value':str(value),'field':'selections','scope':scope,'childId':child,'shared':'true','includeChildSelections':'true' if children else 'false'})
+          def gate_visible(e,rite):
+              e.set('hidden','true')
+              m=ET.SubElement(ensure(e,'modifiers'),C('modifier'),{'type':'set','value':'false','field':'hidden'})
+              condition(m,rite)
+          def hide_with_rite(e,rite):
+              m=ET.SubElement(ensure(e,'modifiers'),C('modifier'),{'type':'set','value':'true','field':'hidden'})
+              condition(m,rite)
+          def has_target(e,target,direct=False):
+              xs=e.findall(C('entryLinks')+'/'+C('entryLink')) if direct else e.iter(C('entryLink'))
+              return any(x.get('targetId')==target for x in xs)
+
+          # Locate the live Rite by name rather than relying on historic IDs.
+          rite=next((e for e in root.iter(C('selectionEntry')) if norm(e.get('name'))=='legion destroyer company'),None)
+          assert rite is not None, 'Legion Destroyer Company Rite missing'
+          rite_id=rite.get('id')
+
+          # Replace the displayed Rite rules with the agreed Forbidden Arsenal text.
+          text=(
+          'Destroyer Formation: Legion Destroyer Squads may be selected as Troops choices. The army’s compulsory Troops choices must be Legion Destroyer Squads. Any Legion-specific restriction limiting the number of Legion Destroyer Squads which may be selected is ignored while using this Rite of War.\n\n'
+          'Forbidden Arsenal: Any Legiones Astartes Character in the army that does not normally have access to Phosphex Bombs may take one Phosphex Bomb for +10 points. In addition, for every five models in a Legion Destroyer Squad, up to two Legion Destroyers may replace one Bolt Pistol with a Missile Launcher with Suspensor Web and Rad Missiles for +25 points per model, instead of the normal limit of one model per five. A Missile Launcher equipped with Rad Missiles may only fire Rad Missiles and may not use Frag or Krak Missiles.\n\n'
+          'Limitations: At least one Legion Destroyer Squad in the army must upgrade its Sergeant to a Moritat. The army may include no more than one Heavy Support choice.'
+          )
+          rules=ensure(rite,'rules')
+          rr=next((r for r in rules.findall(C('rule')) if norm(r.get('name'))=='rite of war'),None)
+          if rr is None:
+              rr=ET.SubElement(rules,C('rule'),{'id':'r39-destroyer-rite-rule','name':'Rite of War','hidden':'false'})
+          desc=rr.find(C('description'))
+          if desc is None: desc=ET.SubElement(rr,C('description'))
+          desc.text=text
+
+          # Remove the obsolete Flamer/Grenade Launcher Forbidden Arsenal block.
+          pm={c:p for p in root.iter() for c in p}
+          removed_old=[]
+          for g in list(root.iter(C('selectionEntryGroup'))):
+              if g.get('id')=='r35-destroyer-special' or norm(g.get('name')).startswith('destroyer company special pistols'):
+                  p=pm.get(g)
+                  if p is not None:
+                      p.remove(g); removed_old.append(g.get('id'))
+
+          # Apply the new 2-per-5 Rad Missile allowance to every Destroyer Squad
+          # definition (normal Elites entry and Rite-gated Troops duplicate).
+          destroyers=[e for e in root.iter(C('selectionEntry')) if norm(e.get('name'))=='legion destroyer squad' and e.get('type')=='unit']
+          assert len(destroyers)>=2, len(destroyers)
+          rad_groups=[]
+          for idx,u in enumerate(destroyers):
+              # Find the normal weapon group and its Rad Missile link.
+              wg=next((g for g in u.iter(C('selectionEntryGroup')) if norm(g.get('name')).startswith('destroyer weapons 1 per 5 models')),None)
+              assert wg is not None, u.get('id')
+              old_rad=next((x for x in wg.iter(C('entryLink')) if x.get('targetId')=='gear-rad-missile'),None)
+              assert old_rad is not None, u.get('id')
+              hide_with_rite(old_rad,rite_id)
+
+              # Find Additional Legion Destroyer to scale 2/5 -> 4/10.
+              additional=next((e for e in u.iter(C('selectionEntry')) if norm(e.get('name'))=='additional legion destroyer'),None)
+              assert additional is not None, u.get('id')
+
+              sid=f"r39-destroyer-rad-{idx}-{u.get('id')}"
+              groups=ensure(u,'selectionEntryGroups')
+              g=ET.SubElement(groups,C('selectionEntryGroup'),{'id':sid,'name':'Destroyer Company — Rad Missile Launchers (2 per 5 models)','hidden':'true','collective':'false','import':'true'})
+              addmax(g,sid+'-max',2,'parent',True)
+              # At 10 models (five Additional Destroyers), increase the group maximum to four.
+              m=ET.SubElement(ensure(g,'modifiers'),C('modifier'),{'type':'set','value':'4','field':sid+'-max'})
+              condition(m,additional.get('id'),'root-entry','atLeast','5',True)
+              gate_visible(g,rite_id)
+              el=ET.SubElement(ensure(g,'entryLinks'),C('entryLink'),{'id':sid+'-link','name':'Missile Launcher with Suspensor Web and Rad Missiles (replaces one Bolt Pistol)','type':'selectionEntry','targetId':'gear-rad-missile','hidden':'false','import':'true'})
+              addmax(el,sid+'-link-max',4)
+              addcost(el,25)
+              rad_groups.append(sid)
+
+          # Forbidden Arsenal Phosphex Bombs. Add a single +10 point Rite-gated
+          # option to generic HQ wargear, Sergeant/Champion armouries and individual
+          # HQ character entries. Existing Phosphex access is left unchanged.
+          eligible_groups=[]
+          for g in root.iter(C('selectionEntryGroup')):
+              n=norm(g.get('name')); i=(g.get('id') or '').lower()
+              eligible=(
+                  g.get('id') in {'hq-praetor-wargear','hq-centurion-wargear'} or
+                  ('sergeant' in n and ('wargear' in n or 'armoury' in n or 'equipment' in n)) or
+                  ('champion' in n and ('wargear' in n or 'armoury' in n or 'equipment' in n)) or
+                  ('techmarine' in n and ('wargear' in n or 'armoury' in n or 'equipment' in n)) or
+                  ('sgt-wargear' in i) or ('sgt-armoury' in i)
+              )
+              if eligible and not has_target(g,'gear-phosphex-bomb'):
+                  eligible_groups.append(g)
+
+          phos_added=[]
+          used_ids=set(e.get('id') for e in root.iter() if e.get('id'))
+          def unique(base):
+              x=base; k=1
+              while x in used_ids:
+                  x=f'{base}-{k}'; k+=1
+              used_ids.add(x); return x
+          for g in eligible_groups:
+              eid=unique('r39-phosphex-'+re.sub(r'[^A-Za-z0-9_-]+','-',g.get('id') or 'group'))
+              el=ET.SubElement(ensure(g,'entryLinks'),C('entryLink'),{'id':eid,'name':'Phosphex Bomb (Destroyer Company)','type':'selectionEntry','targetId':'gear-phosphex-bomb','hidden':'true','import':'true'})
+              addmax(el,eid+'-max',1); addcost(el,10); gate_visible(el,rite_id); phos_added.append(eid)
+
+          # Also grant the Rite option directly to individual HQ character units
+          # which do not expose a generic Armoury group (primarily named characters).
+          group_words=('squad','covenant','maniple','detachment','command squad','honour guard','automata')
+          for u in root.iter(C('selectionEntry')):
+              if u.get('type')!='unit': continue
+              cats=u.find(C('categoryLinks'))
+              if cats is None or not any(cl.get('targetId')=='cat-hq' for cl in cats.findall(C('categoryLink'))): continue
+              if u.get('id') in {'hq-praetor','hq-centurion'}: continue
+              un=norm(u.get('name'))
+              if any(w in un for w in group_words): continue
+              if has_target(u,'gear-phosphex-bomb'): continue
+              # Require at least one model profile somewhere in the entry, keeping vehicles/support units out.
+              if not any(p.get('typeId')=='prof-model' for p in u.iter(C('profile'))): continue
+              eid=unique('r39-phosphex-hq-'+re.sub(r'[^A-Za-z0-9_-]+','-',u.get('id') or 'character'))
+              el=ET.SubElement(ensure(u,'entryLinks'),C('entryLink'),{'id':eid,'name':'Phosphex Bomb (Destroyer Company)','type':'selectionEntry','targetId':'gear-phosphex-bomb','hidden':'true','import':'true'})
+              addmax(el,eid+'-max',1); addcost(el,10); gate_visible(el,rite_id); phos_added.append(eid)
+
+          assert phos_added, 'No Character Phosphex options added'
+          root.set('revision','39')
+          body=ET.tostring(root,encoding='unicode',short_empty_elements=True)
+          CAT.write_text('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'+body+'\n',encoding='utf-8',newline='\n')
+
+          # Validation.
+          rr=ET.parse(CAT).getroot(); assert rr.get('revision')=='39'; assert rr.get('gameSystemRevision')=='13'
+          txt=CAT.read_text(encoding='utf-8'); assert '<ns0:' not in txt[:5000]
+          assert 'Special Pistols (up to 4)' not in txt
+          assert 'Destroyer Company — Rad Missile Launchers (2 per 5 models)' in txt
+          assert 'Phosphex Bomb (Destroyer Company)' in txt
+          assert 'up to two Legion Destroyers may replace one Bolt Pistol' in txt
+          print('Revision 39 applied')
+          print('Rite ID:',rite_id)
+          print('Removed old Forbidden Arsenal groups:',removed_old)
+          print('Rad Missile Rite groups:',rad_groups)
+          print('Character Phosphex options added:',len(phos_added))
+          PY
+          git diff --check
+      - name: Commit Revision 39
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat'
+          git commit -m 'Revision 39: rework Destroyer Company Forbidden Arsenal'
+          git push
