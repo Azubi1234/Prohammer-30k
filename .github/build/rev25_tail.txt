@@ -1,0 +1,180 @@
+        if re.search(r'\bmay\b|replace|entire|for every|one model|any model|up to',s,re.I) and not re.search(r'[+-]\s*\d+\s*points|\bFree\b',s,re.I):
+            context=s
+        m=re.search(r'^(?:•\s*)?(?:-\s*)?(.+?)(?:\.{2,}|\s{2,}|\s)\s*([+-])\s*([0-9]+)\s*points?(.*)$',s,re.I)
+        free=False
+        if not m:
+            mf=re.search(r'^(?:•\s*)?(?:-\s*)?(.+?)(?:\.{2,}|\s{2,}|\s)\s*Free\s*$',s,re.I)
+            if mf:
+                name=mf.group(1).strip(); cost=0; tail=''; free=True
+            else: continue
+        else:
+            name=m.group(1).strip(); cost=int(m.group(3))*(1 if m.group(2)=='+' else -1); tail=m.group(4)
+        if re.search(r'additional .*model',name,re.I): continue
+        # avoid title line or weird costs embedded in explanatory sentence
+        if len(name)>100 or name.lower().startswith(('one ', 'the ')) and 'may' in name.lower():
+            # if this is actually lead+item combined, skip
+            pass
+        ctx=(context+' '+tail+' '+s).lower()
+        squadwide='per model' in ctx and any(k in ctx for k in ['entire squad','entire unit','entire pack','entire squadron','every model'])
+        maxsel=1
+        if 'any model' in ctx: maxsel=max_models
+        fm=re.search(r'for every (\w+) models',ctx)
+        if fm:
+            d=WORDNUM.get(fm.group(1), int(fm.group(1)) if fm.group(1).isdigit() else 5)
+            maxsel=max(1,max_models//d)
+        um=re.search(r'up to (\w+)',ctx)
+        if um and 'additional' not in ctx:
+            maxsel=WORDNUM.get(um.group(1), int(um.group(1)) if um.group(1).isdigit() else maxsel)
+        if 'each' in tail.lower() and maxsel==1:
+            um=re.search(r'up to (\w+)',context.lower())
+            if um: maxsel=WORDNUM.get(um.group(1),maxsel)
+        opts.append({'name':name,'cost':cost,'max':maxsel,'squadwide':squadwide,'per_model_cost':cost if squadwide else None,'context':context[:180]})
+    # dedup same name/cost/context rough
+    out=[]; seen=set()
+    for o in opts:
+        key=(o['name'].lower(),o['cost'],o['context'].lower())
+        if key not in seen:
+            seen.add(key); out.append(o)
+    return out
+
+def parse_entries(path, section_ranges=None):
+    lines=Path(path).read_text(encoding='utf-8').splitlines()
+    return lines
+
+# main Forces parser
+lines=Path('sources/Forces of the Legions.md').read_text(encoding='utf-8').splitlines()
+legs=[]
+for i,l in enumerate(lines):
+    m=re.match(r'### ([IVXLCDM]+) — (.+)',l)
+    if m: legs.append((i,m.group(1),m.group(2).strip()))
+legs.append((len(lines),'','END'))
+legdata=[]
+for li in range(len(legs)-1):
+    s,roman,name=legs[li]; e=legs[li+1][0]
+    def is_heading(i):
+        l=lines[i].strip()
+        if not(l.startswith('**') and l.endswith('**') and re.search(r'[—-].*\d',l)): return False
+        nxt='\n'.join(lines[i+1:min(i+18,e)])
+        return bool(re.search(r'\|\s*\|\s*(?:WS|BS)\s*\|',nxt,re.I) or 'Unit Composition' in nxt or re.search(r'may be selected as an HQ choice',nxt,re.I))
+    poss=[i for i in range(s,e) if is_heading(i)]
+    entries=[]
+    for k,i in enumerate(poss):
+        end=poss[k+1] if k+1<len(poss) else e
+        title,cost,isplus=title_cost(lines[i])
+        block=lines[i:end]
+        hdr,rows=profile_table(block)
+        base=parse_base_count(block)
+        extra=extra_models(block)
+        entries.append({'title':title,'cost':cost,'isplus':isplus,'foc':infer_foc(block,title),'allegiance':allegiance(block),'base_count':base,'extra':extra,'profile_headers':hdr,'profile_rows':rows,'details':plain_block(block[1:]),'options':simple_options(block,base,extra)})
+    # pre-entry text for rules/armoury/rites
+    first=poss[0] if poss else e
+    pre=lines[s+1:first]
+    # parse rites: marker line containing RITE OF WAR:, next bold line title, block until next rite marker or first entry
+    rites=[]
+    i=s
+    while i<first:
+        if 'RITE OF WAR:' in clean_md(lines[i]).upper():
+            j=i+1
+            while j<first and not (lines[j].strip().startswith('**') and lines[j].strip().endswith('**')): j+=1
+            if j<first:
+                rtitle=clean_md(lines[j])
+                k=j+1
+                while k<first and 'RITE OF WAR:' not in clean_md(lines[k]).upper(): k+=1
+                rb=lines[j:k]
+                rites.append({'title':rtitle,'text':plain_block(rb[1:]),'allegiance':allegiance(rb)})
+                i=k; continue
+        i+=1
+    # consul/special HQ upgrades before units
+    consul=[]
+    for i in range(s,first):
+        l=lines[i].strip()
+        if l.startswith('**') and l.endswith('**') and ('CONSUL' in clean_md(l).upper() or clean_md(l).upper().startswith('IRON FATHER')) and re.search(r'\+\s*\d+',clean_md(l)):
+            title,cost,isp=title_cost(l)
+            # block until next bold heading of same/high level within reasonable area
+            k=i+1
+            while k<first:
+                ss=lines[k].strip()
+                if k>i+1 and ss.startswith('**') and ss.endswith('**') and (re.search(r'RITE OF WAR|SQUAD|PACK|COHORT|MANIPLE|ARMOURY|CONSUL|IRON FATHER',clean_md(ss),re.I)):
+                    break
+                k+=1
+            consul.append({'title':title,'cost':cost,'text':plain_block(lines[i+1:k])})
+    # build a compact legion reference from pre excluding rite blocks? just entire pre text (can be huge); limit 12000 chars
+    pretext=plain_block(pre)
+    legdata.append({'roman':roman,'name':name,'reference':pretext[:16000],'rites':rites,'consuls':consul,'entries':entries})
+
+# Supplement parser generic
+def parse_supp(path, start_heading, stop_heading=None):
+    ls=Path(path).read_text(encoding='utf-8').splitlines()
+    # find section start by exact heading phrase
+    s=0;e=len(ls)
+    for i,l in enumerate(ls):
+        if clean_md(l).upper()==start_heading.upper(): s=i+1; break
+    if stop_heading:
+        for i in range(s,len(ls)):
+            if clean_md(ls[i]).upper()==stop_heading.upper(): e=i; break
+    # headings price+ first profile in next18
+    poss=[]
+    for i in range(s,e):
+        l=ls[i].strip()
+        if not(l.startswith('**') and l.endswith('**') and re.search(r'[—-].*\d',l)): continue
+        nxt='\n'.join(ls[i+1:min(i+18,e)])
+        if re.search(r'\|\s*\|\s*(?:WS|BS)\s*\|',nxt,re.I) or 'Unit Composition' in nxt:
+            poss.append(i)
+    out=[]
+    for k,i in enumerate(poss):
+        end=poss[k+1] if k+1<len(poss) else e
+        title,cost,isplus=title_cost(ls[i]); block=ls[i:end]
+        hdr,rows=profile_table(block); base=parse_base_count(block); extra=extra_models(block)
+        out.append({'title':title,'cost':cost,'foc':infer_foc(block,title),'base_count':base,'extra':extra,'profile_headers':hdr,'profile_rows':rows,'details':plain_block(block[1:]),'options':simple_options(block,base,extra)})
+    return out
+
+low=parse_supp('sources/Lords of War.md','LEGIONES ASTARTES','TALONS OF THE EMPEROR')
+aero=parse_supp('sources/Areonautica Imperialis.md','LEGIONES ASTARTES','EXERCITUS ET MECHANICUS')
+
+
+LEGIONS=legdata
+LOW=low
+AERO=aero
+LOW_WEAPONS=[{'Weapon': 'Neutron Laser Battery', 'Range': '72"', 'S': '10', 'AP': '1', 'Type': 'Ordnance D3, Blast, Twin-linked, Concussive, Shock Pulse, Feedback'}, {'Weapon': 'Dreadhammer Siege Cannon — Standard', 'Range': '24"', 'S': '10', 'AP': '1', 'Type': 'Ordnance 1, Massive Blast, Ignores Cover'}, {'Weapon': 'Dreadhammer Siege Cannon — Diverted', 'Range': '48"', 'S': '10', 'AP': '1', 'Type': 'Ordnance 1, Massive Blast, Ignores Cover, Divert Power'}, {'Weapon': 'Volcano Cannon', 'Range': '120"', 'S': '10', 'AP': '2', 'Type': 'Ordnance 1, Large Blast, Titan Killer'}, {'Weapon': 'Twin-linked Volcano Cannon', 'Range': '120"', 'S': '10', 'AP': '2', 'Type': 'Ordnance 1, Large Blast, Titan Killer, Twin-linked'}, {'Weapon': 'Plasma Blastgun — Rapid', 'Range': '72"', 'S': '8', 'AP': '2', 'Type': 'Ordnance 2, Massive Blast'}, {'Weapon': 'Plasma Blastgun — Overload', 'Range': '96"', 'S': '10', 'AP': '2', 'Type': 'Ordnance 1, Apocalyptic Blast'}, {'Weapon': 'Fellblade Accelerator Cannon — HE', 'Range': '100"', 'S': '8', 'AP': '3', 'Type': 'Ordnance 1, Massive Blast, Twin-linked'}, {'Weapon': 'Fellblade Accelerator Cannon — AE', 'Range': '100"', 'S': '9', 'AP': '2', 'Type': 'Heavy 1, Blast, Armourbane, Twin-linked'}, {'Weapon': 'Quad Lascannon', 'Range': '48"', 'S': '9', 'AP': '2', 'Type': 'Heavy 2, Twin-linked'}, {'Weapon': 'Laser Destroyer', 'Range': '36"', 'S': '9', 'AP': '1', 'Type': 'Ordnance 1, Twin-linked'}, {'Weapon': 'Volkite Carronade', 'Range': '48"', 'S': '8', 'AP': '2', 'Type': 'Ordnance 1, Heavy Beam, Deflagrate, Haywire, Ignores Cover'}, {'Weapon': 'Siege Melta Array', 'Range': '12"', 'S': '9', 'AP': '1', 'Type': 'Heavy 4, Blast, Melta, Stone Burner'}, {'Weapon': 'Skyreaper Battery', 'Range': '48"', 'S': '7', 'AP': '4', 'Type': 'Heavy 5, Twin-linked, Skyfire, Interceptor'}, {'Weapon': 'Thunderhawk Cannon', 'Range': '72"', 'S': '8', 'AP': '3', 'Type': 'Ordnance 1, Massive Blast'}, {'Weapon': 'Turbo-laser Destructor', 'Range': '96"', 'S': '10', 'AP': '2', 'Type': 'Ordnance 1, Large Blast, Titan Killer'}, {'Weapon': 'Thunderhawk Cluster Bomb', 'Range': '—', 'S': '6', 'AP': '4', 'Type': 'Bomb 6, Barrage, Large Blast, One Use'}, {'Weapon': 'Dreadstrike Missile', 'Range': '120"', 'S': '10', 'AP': '2', 'Type': 'Ordnance 1, Blast, One Use'}, {'Weapon': 'Macro-bomb Cluster', 'Range': '—', 'S': '8', 'AP': '3', 'Type': 'Bomb 1, Apocalyptic Barrage (3D6), Sunder, One Use'}, {'Weapon': 'Orbital Strike', 'Range': 'Unlimited', 'S': '10', 'AP': '1', 'Type': 'Ordnance 1, Massive Blast, Barrage, Titan Killer, Indirect Only'}, {'Weapon': 'Baneblade Cannon', 'Range': '72"', 'S': '9', 'AP': '2', 'Type': 'Ordnance 1, Apocalyptic Blast'}, {'Weapon': 'Vulcan Mega-Bolter', 'Range': '60"', 'S': '6', 'AP': '3', 'Type': 'Heavy 15'}, {'Weapon': 'Stormsword Siege Cannon', 'Range': '36"', 'S': '10', 'AP': '1', 'Type': 'Ordnance 1, Apocalyptic Blast, Ignores Cover'}, {'Weapon': 'Stormhammer Cannon', 'Range': '60"', 'S': '9', 'AP': '2', 'Type': 'Ordnance 1, Massive Blast, Shred, Pinning'}, {'Weapon': 'Dual Battlecannon', 'Range': '72"', 'S': '8', 'AP': '3', 'Type': 'Ordnance 2, Large Blast, Twin-linked'}, {'Weapon': 'Bomb', 'Range': '—', 'S': '6', 'AP': '4', 'Type': 'Bomb 1, Blast, One Use'}, {'Weapon': 'Hellstrike Missile', 'Range': '72"', 'S': '8', 'AP': '2', 'Type': 'Heavy 1, Sunder, One Use'}, {'Weapon': 'Stormhammer Cannon', 'Range': '60"', 'S': '9', 'AP': '2', 'Type': 'Ordnance 1, Massive Blast, Shred, Pinning'}, {'Weapon': 'Dual Battlecannon', 'Range': '72"', 'S': '8', 'AP': '3', 'Type': 'Ordnance 2, Large Blast, Twin-linked'}]
+AERO_WEAPONS=[{'Weapon': 'Avenger Bolt Cannon', 'Range': '36"', 'S': '6', 'AP': '3', 'Type': 'Heavy 7'}, {'Weapon': 'Defensive Heavy Stubber', 'Range': '36"', 'S': '4', 'AP': '6', 'Type': 'Heavy 3, Skyfire'}, {'Weapon': 'Electromagnetic Storm Charge', 'Range': '—', 'S': '3', 'AP': '4', 'Type': 'Bomb 1, Large Blast, Haywire, Concussive, One Use'}, {'Weapon': 'Hellstrike Missile', 'Range': '72"', 'S': '8', 'AP': '2', 'Type': 'Heavy 1, Sunder, One Use'}, {'Weapon': 'Kinetic Piercer Missile', 'Range': '48"', 'S': '6', 'AP': '2', 'Type': 'Heavy 1, Armourbane, Heat Seeker, One Use'}, {'Weapon': 'Kraken Penetrator Heavy Missile', 'Range': '36"', 'S': '8', 'AP': '1', 'Type': 'Heavy 1, Armourbane, One Use'}, {'Weapon': 'Magna-Melta', 'Range': '18"', 'S': '8', 'AP': '1', 'Type': 'Heavy 1, Large Blast, Melta'}, {'Weapon': 'Phosphex Bomb Cluster', 'Range': '—', 'S': '5', 'AP': '2', 'Type': 'Bomb 2, Barrage, Blast, Poisoned (3+), Crawling Fire, Lingering Death, Deadly Cargo, One Use'}, {'Weapon': 'Quad Heavy Bolter', 'Range': '36"', 'S': '5', 'AP': '4', 'Type': 'Heavy 6, Twin-linked'}, {'Weapon': 'Rad Missile', 'Range': '48"', 'S': '4', 'AP': '3', 'Type': 'Heavy 1, Blast, Fleshbane, Rad-phage'}, {'Weapon': 'Reaper Autocannon Battery', 'Range': '36"', 'S': '7', 'AP': '4', 'Type': 'Heavy 4, Twin-linked'}, {'Weapon': 'Sunfury Heavy Missile', 'Range': '36"', 'S': '6', 'AP': '3', 'Type': 'Heavy 1, Large Blast, Blind, One Use'}, {'Weapon': 'Tactical Bomb', 'Range': '—', 'S': '6', 'AP': '4', 'Type': 'Bomb 1, Barrage, Blast, One Use'}, {'Weapon': 'Tempest Rocket', 'Range': '60"', 'S': '6', 'AP': '4', 'Type': 'Heavy 1, Sunder, One Use'}, {'Weapon': 'Vengeance Launcher', 'Range': '48"', 'S': '5', 'AP': '4', 'Type': 'Heavy 2, Large Blast'}, {'Weapon': 'Xiphon Rotary Missile Launcher', 'Range': '60"', 'S': '8', 'AP': '2', 'Type': 'Heavy 2, Cluster Warhead, Terminal Tracking'}, {'Weapon': 'Avenger Bolt Cannon', 'Range': '36"', 'S': '6', 'AP': '3', 'Type': 'Heavy 7'}, {'Weapon': 'Defensive Heavy Stubber', 'Range': '36"', 'S': '4', 'AP': '6', 'Type': 'Heavy 3, Skyfire'}, {'Weapon': 'Electromagnetic Storm Charge', 'Range': '—', 'S': '3', 'AP': '4', 'Type': 'Bomb 1, Large Blast, Haywire, Concussive, One Use'}, {'Weapon': 'Hellstrike Missile', 'Range': '72"', 'S': '8', 'AP': '2', 'Type': 'Heavy 1, Sunder, One Use'}, {'Weapon': 'Kinetic Piercer Missile', 'Range': '48"', 'S': '6', 'AP': '2', 'Type': 'Heavy 1, Armourbane, Heat Seeker, One Use'}]
+
+CAT=Path('Legiones Astartes.cat'); GST=Path('Prohammer 30k.gst')
+# Idempotency guard: workflow may retrigger after its own commit.
+try:
+    _probe=ET.parse(CAT).getroot()
+    if int(_probe.get('revision','0'))>=25:
+        print('REV25_ALREADY_APPLIED'); raise SystemExit(0)
+except FileNotFoundError:
+    raise
+CNS='http://www.battlescribe.net/schema/catalogueSchema'; GNS='http://www.battlescribe.net/schema/gameSystemSchema'
+ET.register_namespace('', CNS); ET.register_namespace('', GNS)
+C=lambda t:f'{{{CNS}}}{t}'; G=lambda t:f'{{{GNS}}}{t}'
+
+def slug(s):
+    s=unicodedata.normalize('NFKD',s).encode('ascii','ignore').decode().lower()
+    s=re.sub(r'[^a-z0-9]+','-',s).strip('-')
+    return s[:70] or 'x'
+
+def find_id(root, idv):
+    for e in root.iter():
+        if e.get('id')==idv: return e
+    return None
+
+def child(parent, tag, ns=CNS):
+    q=f'{{{ns}}}{tag}'
+    for x in parent:
+        if x.tag==q: return x
+    return ET.SubElement(parent,q)
+
+def remove_r25(root):
+    # Remove generated rev25 nodes on a rerun.
+    for p in list(root.iter()):
+        for ch in list(p):
+            if ch.get('id','').startswith('r25-'):
+                p.remove(ch)
+
+def cost(parent, v):
+    cs=child(parent,'costs'); ET.SubElement(cs,C('cost'),{'name':'Points','typeId':'pts','value':str(v)})
+
+def constraint(parent,idv,typ,val,scope='parent',field='selections'):
+    cs=child(parent,'constraints'); ET.SubElement(cs,C('constraint'),{'id':idv,'ty
