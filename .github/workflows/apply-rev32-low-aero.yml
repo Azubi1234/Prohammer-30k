@@ -31,15 +31,19 @@ jobs:
               if bad:
                   raise RuntimeError(f'{f}: invalid base64 character(s): {bad[:10]}')
               compact += '=' * (-len(compact) % 4)
-              try:
-                  decoded = base64.b64decode(compact, validate=True)
-              except Exception as exc:
-                  raise RuntimeError(f'{f}: base64 decode failed: {exc}') from exc
+              decoded = base64.b64decode(compact, validate=True)
               print(f'{f}: decoded {len(decoded)} bytes')
               pieces.append(decoded)
           source = b''.join(pieces).decode('utf-8')
-          # Repair two staged line-wrap typos where the opening dictionary bracket was omitted.
+          # Repair staged source typos introduced during chunk transfer.
           source = re.sub(r'AERO_ARMOURY\s*\n\s*"([^"]+)"\]\)', r'AERO_ARMOURY["\1"])', source)
+          # The current GST did not yet have the intended LoW cap; apply that in the post-pass below.
+          a = '# Keep the standard one-Lord-of-War cap if the GST already provides it.'
+          b = '# Remove earlier experimental/materialised copies of these same units.'
+          if a in source and b in source:
+              start = source.index(a)
+              end = source.index(b)
+              source = source[:start] + '# Lords of War FOC cap is applied to the GST in the publishing post-pass.\n' + source[end:]
           Path('/tmp/rev32_low_aero.py').write_text(source, encoding='utf-8')
           PY
           python -m py_compile /tmp/rev32_low_aero.py
@@ -51,14 +55,86 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import xml.etree.ElementTree as ET
-          c = Path('Legiones Astartes.cat')
-          r = ET.parse(c).getroot()
-          assert r.get('revision') == '32', r.get('revision')
-          assert r.get('gameSystemRevision') == '12', r.get('gameSystemRevision')
-          t = c.read_text(encoding='utf-8')
-          assert '<ns0:' not in t[:2000]
-          assert '\n<catalogue ' in t[:300]
-          print('Revision 32 validation OK')
+
+          CAT = Path('Legiones Astartes.cat')
+          GST = Path('Prohammer 30k.gst')
+          CNS = 'http://www.battlescribe.net/schema/catalogueSchema'
+          GNS = 'http://www.battlescribe.net/schema/gameSystemSchema'
+          C = lambda t: f'{{{CNS}}}{t}'
+          G = lambda t: f'{{{GNS}}}{t}'
+
+          ctree = ET.parse(CAT)
+          cr = ctree.getroot()
+          gtree = ET.parse(GST)
+          gr = gtree.getroot()
+
+          assert cr.get('revision') == '32', cr.get('revision')
+          assert gr.get('revision') == '12', gr.get('revision')
+
+          # Structure Points are part of the Lords of War vehicle statline.
+          vehicle_type = next(x for x in gr.iter(G('profileType')) if x.get('id') == 'prof-vehicle')
+          chars = vehicle_type.find(G('characteristicTypes'))
+          if not any(x.get('id') == 'vehicle-sp' for x in chars.findall(G('characteristicType'))):
+              ET.SubElement(chars, G('characteristicType'), {'id':'vehicle-sp', 'name':'SP'})
+
+          # Lords of War use the normal LoW slot, capped at 0-1.
+          force = next(x for x in gr.iter(G('forceEntry')) if x.get('id') == 'force-standard')
+          links = force.find(G('categoryLinks'))
+          low = next(x for x in links.findall(G('categoryLink')) if x.get('targetId') == 'cat-low')
+          constraints = low.find(G('constraints'))
+          if constraints is None:
+              constraints = ET.SubElement(low, G('constraints'))
+          if not any(x.get('type') == 'max' for x in constraints.findall(G('constraint'))):
+              ET.SubElement(constraints, G('constraint'), {
+                  'id':'fl-low-max','field':'selections','scope':'parent','value':'1',
+                  'percentValue':'false','shared':'true','includeChildSelections':'false',
+                  'includeChildForces':'false','type':'max'
+              })
+
+          # Aeronautica is supplementary: its aircraft consume FA/HS slots, not a separate force slot.
+          for link in list(links.findall(G('categoryLink'))):
+              if link.get('targetId') == 'cat-aero':
+                  links.remove(link)
+
+          # This is a game-system change, so publish GST 13 and link CAT 32 to it.
+          gr.set('revision', '13')
+          cr.set('gameSystemRevision', '13')
+
+          def write(path, root, ns, root_name):
+              ET.register_namespace('', ns)
+              body = ET.tostring(root, encoding='unicode', short_empty_elements=True)
+              assert body.startswith(f'<{root_name} ')
+              assert f'xmlns="{ns}"' in body[:500]
+              assert '<ns0:' not in body[:2000]
+              path.write_text('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n' + body + '\n', encoding='utf-8', newline='\n')
+
+          write(GST, gr, GNS, 'gameSystem')
+          write(CAT, cr, CNS, 'catalogue')
+
+          # Final cross-file and data integrity checks.
+          gr2 = ET.parse(GST).getroot()
+          cr2 = ET.parse(CAT).getroot()
+          assert gr2.get('revision') == cr2.get('gameSystemRevision') == '13'
+          assert cr2.get('revision') == '32'
+          assert any(x.get('id') == 'vehicle-sp' for x in gr2.iter(G('characteristicType')))
+          low2 = next(x for x in gr2.iter(G('categoryLink')) if x.get('targetId') == 'cat-low')
+          assert any(x.get('type') == 'max' and x.get('value') == '1' for x in low2.iter(G('constraint')))
+          assert not any(x.get('targetId') == 'cat-aero' for x in gr2.iter(G('categoryLink')))
+
+          text = CAT.read_text(encoding='utf-8')
+          for name in [
+              'Legion Cerberus Heavy Tank Destroyer','Legion Typhon Heavy Siege Tank',
+              'Legion Falchion Super-heavy Tank Destroyer','Legion Stormblade Super-heavy Tank',
+              'Legion Fellblade Super-heavy Tank','Legion Glaive Super-heavy Special Weapons Tank',
+              'Legion Mastodon Heavy Assault Transport','Legion Thunderhawk Transporter',
+              'Legion Thunderhawk Gunship','Sokar Pattern Stormbird',
+              'Primaris-Lightning Strike Fighter','Xiphon Pattern Interceptor',
+              'Legion Storm Eagle Assault Gunship','Legion Fire Raptor Gunship','Legion Caestus Assault Ram'
+          ]:
+              assert name in text, name
+          assert '\n<catalogue ' in text[:300]
+          assert '<ns0:' not in text[:2000]
+          print('Revision 32 validation OK: CAT 32 / GST 13, 10 LoW + 5 Aeronautica')
           PY
           git diff --check
       - name: Commit Revision 32 data
@@ -66,9 +142,9 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add 'Legiones Astartes.cat'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst'
           if git diff --cached --quiet; then
-            echo 'No catalogue changes'
+            echo 'No game-data changes'
           else
             git commit -m 'Revision 32: add Lords of War and Aeronautica'
             git push
