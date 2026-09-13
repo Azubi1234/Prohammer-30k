@@ -1,0 +1,186 @@
+name: Apply Revision 34 layout cleanup
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-rev34-layout.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move Aeronautica into normal FOC sections and add supplement notice
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          CAT = Path('Legiones Astartes.cat')
+          CNS = 'http://www.battlescribe.net/schema/catalogueSchema'
+          C = lambda t: f'{{{CNS}}}{t}'
+
+          tree = ET.parse(CAT)
+          root = tree.getroot()
+          assert root.get('revision') == '33', root.get('revision')
+          assert root.get('gameSystemRevision') == '13', root.get('gameSystemRevision')
+
+          FAST = {
+              'Primaris-Lightning Strike Fighter',
+              'Xiphon Pattern Interceptor',
+              'Legion Storm Eagle Assault Gunship',
+          }
+          HEAVY = {
+              'Legion Fire Raptor Gunship',
+              'Legion Caestus Assault Ram',
+          }
+          LOW = {
+              'Legion Cerberus Heavy Tank Destroyer',
+              'Legion Typhon Heavy Siege Tank',
+              'Legion Falchion Super-heavy Tank Destroyer',
+              'Legion Stormblade Super-heavy Tank',
+              'Legion Fellblade Super-heavy Tank',
+              'Legion Glaive Super-heavy Special Weapons Tank',
+              'Legion Mastodon Heavy Assault Transport',
+              'Legion Thunderhawk Transporter',
+              'Legion Thunderhawk Gunship',
+              'Sokar Pattern Stormbird',
+          }
+
+          def direct(parent, tag):
+              return parent.find(C(tag))
+
+          def ensure(parent, tag):
+              found = direct(parent, tag)
+              if found is not None:
+                  return found
+              x = ET.Element(C(tag))
+              order = {
+                  'constraints':10,'costs':20,'profiles':30,'rules':40,
+                  'selectionEntries':50,'selectionEntryGroups':60,'entryLinks':70,
+                  'categoryLinks':80,'modifiers':90,
+              }
+              rank = order.get(tag, 999)
+              for i, child in enumerate(list(parent)):
+                  local = child.tag.split('}')[-1]
+                  if order.get(local, 999) > rank:
+                      parent.insert(i, x)
+                      return x
+              parent.append(x)
+              return x
+
+          def find_entry(name):
+              matches = [e for e in root.iter(C('selectionEntry')) if e.get('name') == name]
+              if len(matches) != 1:
+                  raise RuntimeError(f'{name}: expected one entry, found {len(matches)}')
+              return matches[0]
+
+          def set_single_foc(entry, target_id, display_name, suffix):
+              links = ensure(entry, 'categoryLinks')
+              for link in list(links.findall(C('categoryLink'))):
+                  if link.get('targetId') in {'cat-fast','cat-heavy','cat-aero'}:
+                      links.remove(link)
+              ET.SubElement(links, C('categoryLink'), {
+                  'id': f'r34-cat-{suffix}',
+                  'name': display_name,
+                  'targetId': target_id,
+                  'hidden': 'false',
+                  'primary': 'true',
+              })
+
+          for name in FAST:
+              set_single_foc(find_entry(name), 'cat-fast', 'Fast Attack', name.lower().replace(' ','-')[:36])
+
+          for name in HEAVY:
+              set_single_foc(find_entry(name), 'cat-heavy', 'Heavy Support', name.lower().replace(' ','-')[:36])
+
+          # Keep Lords of War in their own normal FOC section and remove any stray Aeronautica categorisation.
+          for name in LOW:
+              entry = find_entry(name)
+              links = ensure(entry, 'categoryLinks')
+              for link in list(links.findall(C('categoryLink'))):
+                  if link.get('targetId') in {'cat-aero','cat-fast','cat-heavy'}:
+                      links.remove(link)
+              low_links = [l for l in links.findall(C('categoryLink')) if l.get('targetId') == 'cat-low']
+              if not low_links:
+                  ET.SubElement(links, C('categoryLink'), {
+                      'id': f'r34-low-{name.lower().replace(" ","-")[:36]}',
+                      'name': 'Lords of War',
+                      'targetId': 'cat-low',
+                      'hidden': 'false',
+                      'primary': 'true',
+                  })
+              else:
+                  low_links[0].set('primary', 'true')
+                  for extra in low_links[1:]:
+                      links.remove(extra)
+
+          # Add a visible notice to the mandatory Configuration entry so it appears at the top of the roster.
+          config_entries = []
+          for e in root.iter(C('selectionEntry')):
+              links = e.find(C('categoryLinks'))
+              if links is not None and any(l.get('targetId') == 'cat-config' for l in links.findall(C('categoryLink'))):
+                  config_entries.append(e)
+          if not config_entries:
+              raise RuntimeError('Could not find Configuration selection entry')
+
+          banner_name = 'Supplementary Units — Opponent Agreement'
+          banner_text = ('Lords of War and Aeronautica are supplementary choices. Before the battle, '
+                         'agree with your opponent whether these units are permitted and whether your mission, '
+                         'event, or agreed game size imposes any additional restrictions.')
+          for cfg in config_entries:
+              rules = ensure(cfg, 'rules')
+              for old in list(rules.findall(C('rule'))):
+                  if old.get('name') == banner_name or old.get('id') == 'r34-supplement-banner':
+                      rules.remove(old)
+              rule = ET.SubElement(rules, C('rule'), {
+                  'id':'r34-supplement-banner',
+                  'name':banner_name,
+                  'hidden':'false',
+              })
+              ET.SubElement(rule, C('description')).text = banner_text
+
+          root.set('revision', '34')
+
+          ET.register_namespace('', CNS)
+          body = ET.tostring(root, encoding='unicode', short_empty_elements=True)
+          assert body.startswith('<catalogue ')
+          assert f'xmlns="{CNS}"' in body[:500]
+          assert '<ns0:' not in body[:2000]
+          CAT.write_text('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n' + body + '\n', encoding='utf-8', newline='\n')
+
+          # Validation
+          rr = ET.parse(CAT).getroot()
+          assert rr.get('revision') == '34'
+          assert rr.get('gameSystemRevision') == '13'
+          for name in FAST:
+              e = next(x for x in rr.iter(C('selectionEntry')) if x.get('name') == name)
+              tids = {x.get('targetId') for x in e.iter(C('categoryLink'))}
+              assert 'cat-fast' in tids and 'cat-aero' not in tids and 'cat-heavy' not in tids, (name, tids)
+          for name in HEAVY:
+              e = next(x for x in rr.iter(C('selectionEntry')) if x.get('name') == name)
+              tids = {x.get('targetId') for x in e.iter(C('categoryLink'))}
+              assert 'cat-heavy' in tids and 'cat-aero' not in tids and 'cat-fast' not in tids, (name, tids)
+          for name in LOW:
+              e = next(x for x in rr.iter(C('selectionEntry')) if x.get('name') == name)
+              tids = {x.get('targetId') for x in e.iter(C('categoryLink'))}
+              assert 'cat-low' in tids and 'cat-aero' not in tids, (name, tids)
+          assert banner_name in CAT.read_text(encoding='utf-8')
+          print('Revision 34 validation OK: Aeronautica moved to FA/HS; LoW isolated; opponent notice added')
+          PY
+          git diff --check
+      - name: Commit Revision 34
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat'
+          if git diff --cached --quiet; then
+            echo 'No catalogue changes'
+          else
+            git commit -m 'Revision 34: organize Aeronautica and Lords of War'
+            git push
+          fi
