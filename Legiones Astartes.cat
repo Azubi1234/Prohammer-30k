@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="26" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="11" type="catalogue">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="27" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="12" type="catalogue">
   <comment>Revision 24: Synced final generic Army List corrections: centralized Refractor Field restrictions and corrected Recon Company and Sky Hunter Phalanx.</comment>
   <readme>Core Legiones Astartes catalogue with Army Configuration, generic HQ/Consuls and the first Legion expansion. Selecting I — Dark Angels unlocks Hexagrammaton Wing choices, Dark Angels Rites, armoury options, unique units, named characters and the Lion while retaining the standard Legion roster. Revision 23 adds universal Lords of War and Aeronautica Imperialis slots, gates Psychic Hoods to Librarians, removes cosmetic HQ prefixes from wargear labels, and simplifies Tactical Squad base/scaling wargear presentation.</readme>
   <sharedSelectionEntries>
