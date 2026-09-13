@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="36" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="13" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="37" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="13" type="catalogue">
   <comment>Revision 32: adds the complete Legiones Astartes Lords of War and Aeronautica Imperialis selections from the supplied project source files. Lords of War use the existing 0-1 Lords of War slot; Aeronautica aircraft consume their listed Fast Attack or Heavy Support slots. Unit profiles, weapons, wargear options and source special rules are exposed in New Recruit.</comment>
   <readme>Core Legiones Astartes catalogue for Prohammer 30k. Revision 32 includes the generic Legion army list and Consuls, Dark Angels package, Legiones Astartes Lords of War, and Legiones Astartes Aeronautica Imperialis aircraft. Experimental Wargear and Units remains excluded.</readme>
   <sharedSelectionEntries>
@@ -2056,7 +2056,7 @@
         </rule>
       </rules>
     </selectionEntry>
-  <selectionEntry type="upgrade" import="true" name="Crozius Arcanum" hidden="false" id="r29-gear-crozius"><rules><rule name="Crozius Arcanum" id="r29-gear-crozius-rule" hidden="false"><description>Counts as a Power Weapon and ignores Armour Saves.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Rosarius" hidden="false" id="r29-gear-rosarius"><rules><rule name="Rosarius" id="r29-gear-rosarius-rule" hidden="false"><description>Grants a 4+ Invulnerable Save.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Servo-Arm" hidden="false" id="r29-gear-servo-arm"><rules><rule name="Servo-Arm" id="r29-gear-servo-arm-rule" hidden="false"><description>Grants one additional Power Fist-style close-combat attack, rolled separately, and +1 to Battlesmith repair rolls. A normal 5+ repair therefore succeeds on a 4+ while the Servo-Arm is retained.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Cognis Signum" hidden="false" id="r29-gear-cognis-signum"><rules><rule name="Cognis Signum" id="r29-gear-cognis-signum-rule" hidden="false"><description>The no-scatter deployment range of the bearer’s Nuncio Vox is increased from 6” to 12”. A Targeting Matrix also provides the normal Signum benefit to the bearer’s joined unit.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Aether-shock Maul" hidden="false" id="r29-gear-aether-shock-maul"><rules><rule name="Aether-shock Maul" id="r29-gear-aether-shock-maul-rule" hidden="false"><description>Counts as a Power Weapon. Against Psykers and models with the Daemon special rule, it always wounds on a 2+.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Cortex Controller" hidden="false" id="r29-gear-cortex-controller"><rules><rule name="Cortex Controller" id="r29-gear-cortex-controller-rule" hidden="false"><description>Friendly Battle-Automata within 6” automatically pass Command Uplink or equivalent control tests. The Praevian’s accompanying Maniple is controlled normally by this item.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Cortex Designator" hidden="false" id="r29-gear-cortex-designator"><rules><rule name="Cortex Designator" id="r29-gear-cortex-designator-rule" hidden="false"><description>When the Praevian scores one or more successful To Hit rolls with a shooting weapon against an enemy unit, his attached Battle-Automata Maniple gains Preferred Enemy against that unit until the end of the current player turn. No unsaved Wound is required.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Special Issue Ammunition" hidden="false" id="r29-gear-special-issue-ammunition"><profiles><profile name="Dragonfire Bolts" id="r29-sia-dragon" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false"><characteristics><characteristic name="Range" typeId="ranged-range">24”</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire, Ignores Cover</characteristic></characteristics></profile><profile name="Hellfire Bolts" id="r29-sia-hellfire" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false"><characteristics><characteristic name="Range" typeId="ranged-range">24”</characteristic><characteristic name="S" typeId="ranged-s">X</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire, Poison (2+)</characteristic></characteristics></profile><profile name="Kraken Bolts" id="r29-sia-kraken" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false"><characteristics><characteristic name="Range" typeId="ranged-range">30”</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">4</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire</characteristic></characteristics></profile><profile name="Vengeance Rounds" id="r29-sia-vengeance" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false"><characteristics><characteristic name="Range" typeId="ranged-range">18”</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">3</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire, Gets Hot</characteristic></characteristics></profile></profiles><rules><rule name="Special Issue Ammunition" id="r29-sia-rule" hidden="false"><description>Each time the bearer fires an eligible bolt weapon, select one ammunition profile. Only one ammunition type may be used for that shooting attack.</description></rule></rules></selectionEntry></sharedSelectionEntries>
+  <selectionEntry type="upgrade" import="true" name="Crozius Arcanum" hidden="false" id="r29-gear-crozius"><rules><rule name="Crozius Arcanum" id="r29-gear-crozius-rule" hidden="false"><description>Counts as a Power Weapon and ignores Armour Saves.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Rosarius" hidden="false" id="r29-gear-rosarius"><rules><rule name="Rosarius" id="r29-gear-rosarius-rule" hidden="false"><description>Grants a 4+ Invulnerable Save.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Servo-Arm" hidden="false" id="r29-gear-servo-arm"><rules><rule name="Servo-Arm" id="r29-gear-servo-arm-rule" hidden="false"><description>Grants one additional Power Fist-style close-combat attack, rolled separately, and +1 to Battlesmith repair rolls. A normal 5+ repair therefore succeeds on a 4+ while the Servo-Arm is retained.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Cognis Signum" hidden="false" id="r29-gear-cognis-signum"><rules><rule name="Cognis Signum" id="r29-gear-cognis-signum-rule" hidden="false"><description>The no-scatter deployment range of the bearer’s Nuncio Vox is increased from 6” to 12”. A Targeting Matrix also provides the normal Signum benefit to the bearer’s joined unit.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Aether-shock Maul" hidden="false" id="r29-gear-aether-shock-maul"><rules><rule name="Aether-shock Maul" id="r29-gear-aether-shock-maul-rule" hidden="false"><description>Counts as a Power Weapon. Against Psykers and models with the Daemon special rule, it always wounds on a 2+.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Cortex Controller" hidden="false" id="r29-gear-cortex-controller"><rules><rule name="Cortex Controller" id="r29-gear-cortex-controller-rule" hidden="false"><description>Friendly Battle-Automata within 6” automatically pass Command Uplink or equivalent control tests. The Praevian’s accompanying Maniple is controlled normally by this item.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Cortex Designator" hidden="false" id="r29-gear-cortex-designator"><rules><rule name="Cortex Designator" id="r29-gear-cortex-designator-rule" hidden="false"><description>When the Praevian scores one or more successful To Hit rolls with a shooting weapon against an enemy unit, his attached Battle-Automata Maniple gains Preferred Enemy against that unit until the end of the current player turn. No unsaved Wound is required.</description></rule></rules></selectionEntry><selectionEntry type="upgrade" import="true" name="Special Issue Ammunition" hidden="false" id="r29-gear-special-issue-ammunition"><profiles><profile name="Dragonfire Bolts" id="r29-sia-dragon" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false"><characteristics><characteristic name="Range" typeId="ranged-range">24”</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire, Ignores Cover</characteristic></characteristics></profile><profile name="Hellfire Bolts" id="r29-sia-hellfire" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false"><characteristics><characteristic name="Range" typeId="ranged-range">24”</characteristic><characteristic name="S" typeId="ranged-s">X</characteristic><characteristic name="AP" typeId="ranged-ap">5</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire, Poison (2+)</characteristic></characteristics></profile><profile name="Kraken Bolts" id="r29-sia-kraken" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false"><characteristics><characteristic name="Range" typeId="ranged-range">30”</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">4</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire</characteristic></characteristics></profile><profile name="Vengeance Rounds" id="r29-sia-vengeance" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false"><characteristics><characteristic name="Range" typeId="ranged-range">18”</characteristic><characteristic name="S" typeId="ranged-s">4</characteristic><characteristic name="AP" typeId="ranged-ap">3</characteristic><characteristic name="Type" typeId="ranged-type">Rapid Fire, Gets Hot</characteristic></characteristics></profile></profiles><rules><rule name="Special Issue Ammunition" id="r29-sia-rule" hidden="false"><description>Each time the bearer fires an eligible bolt weapon, select one ammunition profile. Only one ammunition type may be used for that shooting attack.</description></rule></rules></selectionEntry><selectionEntry id="r37-gear-grenade-launcher" name="Grenade Launcher" type="upgrade" hidden="false" import="true"><profiles><profile id="r37-gl-frag" name="Grenade Launcher – Frag" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false"><characteristics><characteristic name="Range" typeId="ranged-range">24"</characteristic><characteristic name="S" typeId="ranged-s">3</characteristic><characteristic name="AP" typeId="ranged-ap">6</characteristic><characteristic name="Type" typeId="ranged-type">Assault 1, Blast</characteristic></characteristics></profile><profile id="r37-gl-krak" name="Grenade Launcher – Krak" typeId="prof-ranged" typeName="Ranged Weapon" hidden="false"><characteristics><characteristic name="Range" typeId="ranged-range">24"</characteristic><characteristic name="S" typeId="ranged-s">6</characteristic><characteristic name="AP" typeId="ranged-ap">4</characteristic><characteristic name="Type" typeId="ranged-type">Assault 1</characteristic></characteristics></profile></profiles></selectionEntry></sharedSelectionEntries>
   <selectionEntries>
     <selectionEntry type="unit" import="true" name="Legion Tactical Squad" hidden="false" id="tactical-unit">
       <categoryLinks>
@@ -2378,7 +2378,7 @@
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r37-tactical-fury" name="Fury of the Legion (Legion Tactical Company)" type="upgrade" hidden="true" import="true"><constraints><constraint id="r37-tactical-fury-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><rules><rule name="Fury of the Legion (Legion Tactical Company)" id="r37-tactical-fury-rule" hidden="false"><description>Once per battle, when this Legion Tactical Squad remained stationary and is selected to shoot, every bolter fired by the squad fires one additional shot that Shooting phase. Weapons other than bolters receive no extra shots. A unit which uses this rule may not charge during the same turn.</description></rule></rules><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-tactical" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Squad Weapons" id="tac-loadout" hidden="false" defaultSelectionEntryId="load-standard">
           <constraints>
@@ -2686,7 +2686,73 @@
           </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Dedicated Transport" id="tac-transport" hidden="true">
-          <modifiers>
+          <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-tac-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-tac-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-tac-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><modifiers>
             <modifier type="set" value="false" field="hidden">
               <conditions>
                 <condition type="equalTo" value="9" field="selections" scope="root-entry" childId="tac-marine" shared="true" includeChildSelections="false" />
@@ -3174,7 +3240,7 @@
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r37-assault-dfa-assault-unit" name="Death from Above (Legion Assault Company)" type="upgrade" hidden="true" import="true"><constraints><constraint id="r37-assault-dfa-assault-unit-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><rules><rule name="Death from Above (Legion Assault Company)" id="r37-assault-dfa-assault-unit-rule" hidden="false"><description>Any unit composed entirely of models equipped with Jump Packs may deploy using Deep Strike even if the mission would not normally permit Deep Strike. Resolve arrival using the normal ProHammer Deep Strike rules.</description></rule></rules><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-assault" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Squad-wide Wargear" id="assault-squad-wargear" hidden="false">
           <entryLinks>
@@ -3722,7 +3788,7 @@
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r37-breacher-shieldwall" name="Shield Wall (Legion Breacher Company)" type="upgrade" hidden="true" import="true"><constraints><constraint id="r37-breacher-shieldwall-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><rules><rule name="Shield Wall (Legion Breacher Company)" id="r37-breacher-shieldwall-rule" hidden="false"><description>Models equipped with Boarding Shields may re-roll results of 1 when making an Invulnerable Save granted by their Boarding Shield.</description></rule></rules><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-breacher" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Squad-wide Wargear" id="breacher-squad-wargear" hidden="false">
           <entryLinks>
@@ -4332,7 +4398,7 @@
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r37-recon-forward" name="Forward Positions (Legion Recon Company)" type="upgrade" hidden="true" import="true"><constraints><constraint id="r37-recon-forward-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><rules><rule name="Forward Positions (Legion Recon Company)" id="r37-recon-forward-rule" hidden="false"><description>Units which deploy using Infiltrate or make a pre-game Scout move improve any Cover Save they receive by +1 during the first game turn, to a maximum of 3+.</description></rule></rules><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-recon" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Recon Marine Bolter Replacements" id="recon-marine-weapons" hidden="false">
           <constraints>
@@ -4452,13 +4518,79 @@
           <constraints>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-transport-max" includeChildSelections="false" />
           </constraints>
-          <entryLinks>
+          <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-recon-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-recon-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-recon-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-recon-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-recon-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-recon-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-recon-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-recon-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-recon-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-recon-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-recon-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-recon-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><entryLinks>
             <entryLink import="true" name="Rhino" hidden="false" id="recon-rhino" type="selectionEntry" targetId="transport-rhino">
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="recon-rhino-max" includeChildSelections="false" />
               </constraints>
             </entryLink>
-          </entryLinks>
+          <entryLink id="r37-orbital-recon-transport-pod" name="Legion Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-drop-pod" hidden="true" import="true"><constraints><constraint id="r37-orbital-recon-transport-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="50" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink><entryLink id="r37-orbital-recon-transport-dreadclaw" name="Anvillus Pattern Dreadclaw Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-dreadclaw" hidden="true" import="true"><constraints><constraint id="r37-orbital-recon-transport-dreadclaw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="65" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Hexagrammaton Wing" hidden="false" id="da-wing-recon-unit" collective="false" import="true">
           <constraints>
@@ -4626,7 +4758,7 @@
             </profile>
           </profiles>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r37-assault-dfa-veteran-unit" name="Death from Above (Legion Assault Company)" type="upgrade" hidden="true" import="true"><constraints><constraint id="r37-assault-dfa-veteran-unit-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><rules><rule name="Death from Above (Legion Assault Company)" id="r37-assault-dfa-veteran-unit-rule" hidden="false"><description>Any unit composed entirely of models equipped with Jump Packs may deploy using Deep Strike even if the mission would not normally permit Deep Strike. Resolve arrival using the normal ProHammer Deep Strike rules.</description></rule></rules><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-assault" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry></selectionEntries>
       <costs>
         <cost name="Points" typeId="pts" value="125" />
       </costs>
@@ -5296,7 +5428,73 @@
           <constraints>
             <constraint id="veteran-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
           </constraints>
-          <entryLinks>
+          <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-veteran-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><entryLinks>
             <entryLink import="true" name="Rhino" hidden="false" id="veteran-tr-rhino" type="selectionEntry" targetId="transport-rhino">
               <constraints>
                 <constraint id="veteran-tr-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
@@ -5492,7 +5690,7 @@
             </profile>
           </profiles>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r37-orbital-teleport-terminator-unit" name="Teleport Assault (Orbital Assault)" type="upgrade" hidden="true" import="true"><constraints><constraint id="r37-orbital-teleport-terminator-unit-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><rules><rule name="Teleport Assault" id="r37-orbital-teleport-terminator-unit-rule" hidden="false"><description>A unit composed entirely of models wearing Terminator Armour or Cataphractii Terminator Armour may deploy using Deep Strike even if the mission would not normally permit Deep Strike.</description></rule></rules><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry></selectionEntries>
       <costs>
         <cost name="Points" typeId="pts" value="175" />
       </costs>
@@ -6445,7 +6643,73 @@
           <constraints>
             <constraint id="destroyer-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
           </constraints>
-          <entryLinks>
+          <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-destroyer-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><entryLinks>
             <entryLink import="true" name="Rhino" hidden="false" id="destroyer-tr-rhino" type="selectionEntry" targetId="transport-rhino">
               <constraints>
                 <constraint id="destroyer-tr-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
@@ -6555,7 +6819,7 @@
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
-      <selectionEntryGroup id="r35-destroyer-special" name="Destroyer Company — Special Pistols (up to 4)" hidden="true" collective="false" import="true"><constraints><constraint id="r35-destroyer-special-max" type="max" value="4" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><entryLinks><entryLink import="true" name="Flamer (replaces one Bolt Pistol) — +10 pts" hidden="false" id="r35-destroyer-flamer" type="selectionEntry" targetId="gear-hand-flamer">
+      <selectionEntryGroup id="r35-destroyer-special" name="Destroyer Company — Special Pistols (up to 4)" hidden="true" collective="false" import="true"><constraints><constraint id="r35-destroyer-special-max" type="max" value="4" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><entryLinks><entryLink import="true" name="Flamer (replaces one Bolt Pistol) — +10 pts" hidden="false" id="r35-destroyer-flamer" type="selectionEntry" targetId="gear-flamer">
               <constraints>
                 <constraint id="r35-flamer-destroyer-w-hf-max" type="max" value="4" field="selections" scope="parent" shared="true" includeChildSelections="false" />
               </constraints>
@@ -6563,7 +6827,7 @@
                 <cost name="Points" typeId="pts" value="10" />
               </costs>
             </entryLink>
-            <entryLink import="true" name="Grenade Launcher (replaces one Bolt Pistol) — +10 pts" hidden="false" id="r35-destroyer-grenade-launcher" type="selectionEntry" targetId="gear-combi-grenade">
+            <entryLink import="true" name="Grenade Launcher (replaces one Bolt Pistol) — +10 pts" hidden="false" id="r35-destroyer-grenade-launcher" type="selectionEntry" targetId="r37-gear-grenade-launcher">
                   <constraints>
                     <constraint id="r35-grenade-launcher-destroyer-sgt-cg-max" type="max" value="4" field="selections" scope="parent" shared="true" includeChildSelections="false" />
                   </constraints>
@@ -6864,13 +7128,79 @@
               <constraints>
                 <constraint id="techmarine-I-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
               </constraints>
-              <entryLinks>
+              <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-techmarine-I-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><entryLinks>
                 <entryLink import="true" name="Rhino" hidden="false" id="techmarine-I-rhino" type="selectionEntry" targetId="transport-rhino">
                   <constraints>
                     <constraint id="techmarine-I-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
                   </constraints>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r37-orbital-techmarine-I-transport-pod" name="Legion Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-drop-pod" hidden="true" import="true"><constraints><constraint id="r37-orbital-techmarine-I-transport-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="50" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink><entryLink id="r37-orbital-techmarine-I-transport-dreadclaw" name="Anvillus Pattern Dreadclaw Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-dreadclaw" hidden="true" import="true"><constraints><constraint id="r37-orbital-techmarine-I-transport-dreadclaw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="65" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
               <modifiers>
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
@@ -7605,13 +7935,79 @@
               <constraints>
                 <constraint id="techmarine-II-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
               </constraints>
-              <entryLinks>
+              <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-techmarine-II-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><entryLinks>
                 <entryLink import="true" name="Rhino" hidden="false" id="techmarine-II-rhino" type="selectionEntry" targetId="transport-rhino">
                   <constraints>
                     <constraint id="techmarine-II-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
                   </constraints>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r37-orbital-techmarine-II-transport-pod" name="Legion Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-drop-pod" hidden="true" import="true"><constraints><constraint id="r37-orbital-techmarine-II-transport-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="50" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink><entryLink id="r37-orbital-techmarine-II-transport-dreadclaw" name="Anvillus Pattern Dreadclaw Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-dreadclaw" hidden="true" import="true"><constraints><constraint id="r37-orbital-techmarine-II-transport-dreadclaw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="65" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
               <modifiers>
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
@@ -8346,13 +8742,79 @@
               <constraints>
                 <constraint id="techmarine-III-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
               </constraints>
-              <entryLinks>
+              <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-techmarine-III-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><entryLinks>
                 <entryLink import="true" name="Rhino" hidden="false" id="techmarine-III-rhino" type="selectionEntry" targetId="transport-rhino">
                   <constraints>
                     <constraint id="techmarine-III-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
                   </constraints>
                 </entryLink>
-              </entryLinks>
+              <entryLink id="r37-orbital-techmarine-III-transport-pod" name="Legion Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-drop-pod" hidden="true" import="true"><constraints><constraint id="r37-orbital-techmarine-III-transport-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="50" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink><entryLink id="r37-orbital-techmarine-III-transport-dreadclaw" name="Anvillus Pattern Dreadclaw Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-dreadclaw" hidden="true" import="true"><constraints><constraint id="r37-orbital-techmarine-III-transport-dreadclaw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="65" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
               <modifiers>
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
@@ -9469,7 +9931,7 @@
                 <constraint id="dreadnought-dreadpod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
               </constraints>
             </entryLink>
-          </entryLinks>
+          <entryLink id="r37-orbital-dreadnought-transport-pod" name="Legion Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-drop-pod" hidden="true" import="true"><constraints><constraint id="r37-orbital-dreadnought-transport-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="50" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink><entryLink id="r37-orbital-dreadnought-transport-dreadclaw" name="Anvillus Pattern Dreadclaw Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-dreadclaw" hidden="true" import="true"><constraints><constraint id="r37-orbital-dreadnought-transport-dreadclaw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="65" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Hexagrammaton Wing" hidden="false" id="da-wing-dreadnought-unit" collective="false" import="true">
           <constraints>
@@ -10064,7 +10526,7 @@
                 <constraint id="contemptor-dreadpod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
               </constraints>
             </entryLink>
-          </entryLinks>
+          <entryLink id="r37-orbital-contemptor-transport-pod" name="Legion Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-drop-pod" hidden="true" import="true"><constraints><constraint id="r37-orbital-contemptor-transport-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="50" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink><entryLink id="r37-orbital-contemptor-transport-dreadclaw" name="Anvillus Pattern Dreadclaw Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-dreadclaw" hidden="true" import="true"><constraints><constraint id="r37-orbital-contemptor-transport-dreadclaw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="65" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Hexagrammaton Wing" hidden="false" id="da-wing-contemptor-unit" collective="false" import="true">
           <constraints>
@@ -11099,7 +11561,73 @@
           <constraints>
             <constraint id="fa-seeker-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
           </constraints>
-          <entryLinks>
+          <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-fa-seeker-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><entryLinks>
             <entryLink name="Rhino" hidden="false" id="fa-seeker-rhino" type="selectionEntry" targetId="transport-rhino" import="true">
               <constraints>
                 <constraint id="fa-seeker-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
@@ -11925,7 +12453,7 @@
             </profile>
           </profiles>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r37-rapid-fa-sky-hunter" name="Rapid Encirclement (Sky Hunter Phalanx)" type="upgrade" hidden="true" import="true"><constraints><constraint id="r37-rapid-fa-sky-hunter-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><rules><rule name="Rapid Encirclement" id="r37-rapid-fa-sky-hunter-rule" hidden="false"><description>Once per battle, during its Movement phase, if every model in this unit can move completely off a table edge, remove the unit and place it into Ongoing Reserves. It returns during the controlling player’s following turn using the normal Outflank rules.</description></rule></rules><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-skyhunter" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry></selectionEntries>
       <rules>
         <rule name="Standard Wargear" id="fa-sky-std" hidden="false">
           <description>Power Armour; Legion Scimitar Jetbike with Heavy Bolter; Bolt Pistol; Chainsword; Frag Grenades.</description>
@@ -13579,13 +14107,79 @@
           <constraints>
             <constraint id="hs-hss-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
           </constraints>
-          <entryLinks>
+          <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-hs-hss-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><entryLinks>
             <entryLink name="Legion Rhino Armoured Carrier" id="hs-hss-rhino" type="selectionEntry" targetId="transport-rhino" hidden="false" import="true">
               <constraints>
                 <constraint id="hs-hss-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
               </constraints>
             </entryLink>
-          </entryLinks>
+          <entryLink id="r37-orbital-hs-hss-transport-pod" name="Legion Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-drop-pod" hidden="true" import="true"><constraints><constraint id="r37-orbital-hs-hss-transport-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="50" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink><entryLink id="r37-orbital-hs-hss-transport-dreadclaw" name="Anvillus Pattern Dreadclaw Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-dreadclaw" hidden="true" import="true"><constraints><constraint id="r37-orbital-hs-hss-transport-dreadclaw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="65" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Hexagrammaton Wing" hidden="false" id="da-wing-hs-heavy-support-squad" collective="false" import="true">
           <constraints>
@@ -18153,7 +18747,14 @@
           <constraints>
             <constraint id="hq-praetor-mob-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
           </constraints>
-          <entryLinks>
+          <selectionEntries><selectionEntry type="upgrade" import="true" name="Jetbike (Sky Hunter Phalanx)" hidden="true" id="r37-praetor-jetbike">
+      <constraints><constraint id="r37-praetor-jetbike-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="40" /></costs><rules>
+        <rule name="Space Marine Bike" id="r37-praetor-jetbike-gear-gear-hq-bike-rule" hidden="false">
+          <description>The bearer becomes Bike unit type and follows the normal ProHammer Bike rules. The bike is armed with twin-linked bolters. It may not be combined with a Jump Pack, Jetbike or Terminator Armour.</description>
+        </rule>
+      <rule name="Jetbike Command" id="r37-praetor-jetbike-rule" hidden="false"><description>Replaces the model’s Space Marine Bike. This option includes the normal +35 point Space Marine Bike and the +5 point Sky Hunter Phalanx Jetbike upgrade. The model follows the normal rules for Jetbikes.</description></rule></rules>
+    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-skyhunter" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry>
+    </selectionEntries><entryLinks>
             <entryLink import="true" name="Jump Pack" id="hq-praetor-jump" type="selectionEntry" targetId="gear-hq-jump" hidden="false">
               <constraints>
                 <constraint id="hq-praetor-jump-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
@@ -18462,22 +19063,6 @@
             <constraint id="hq-praetor-wargear-pts-max" type="max" value="100" field="pts" scope="parent" shared="true" includeChildSelections="true" />
           </constraints>
           <entryLinks>
-            <entryLink import="true" name="Combat Shield" id="hq-praetor-wg-0" type="selectionEntry" targetId="gear-hq-combat-shield" hidden="false">
-              <constraints>
-                <constraint id="hq-praetor-wg-0-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
-              </constraints>
-              <costs>
-                <cost name="Points" typeId="pts" value="5" />
-              </costs>
-            </entryLink>
-            <entryLink import="true" name="Boarding Shield" id="hq-praetor-wg-1" type="selectionEntry" targetId="gear-hq-boarding" hidden="false">
-              <constraints>
-                <constraint id="hq-praetor-wg-1-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
-              </constraints>
-              <costs>
-                <cost name="Points" typeId="pts" value="10" />
-              </costs>
-            </entryLink>
             <entryLink import="true" name="Auspex" id="hq-praetor-wg-3" type="selectionEntry" targetId="gear-hq-auspex" hidden="false">
               <constraints>
                 <constraint id="hq-praetor-wg-3-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
@@ -19005,7 +19590,7 @@
                         <constraint id="hq-praetor-ret-honour-drop-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
                       </constraints>
                     </entryLink>
-                  </entryLinks>
+                  <entryLink id="r37-orbital-hq-praetor-ret-honour-transport-dreadclaw" name="Anvillus Pattern Dreadclaw Drop Pod (Orbital Assault)" type="selectionEntry" targetId="transport-dreadclaw" hidden="true" import="true"><constraints><constraint id="r37-orbital-hq-praetor-ret-honour-transport-dreadclaw-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="65" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></entryLink></entryLinks>
                   <selectionEntryGroups>
                     <selectionEntryGroup name="Land Raider Dedicated Transport" id="hq-praetor-ret-honour-land-lrgrp" hidden="false">
                       <constraints>
@@ -20391,7 +20976,14 @@
           <constraints>
             <constraint id="hq-centurion-mob-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
           </constraints>
-          <entryLinks>
+          <selectionEntries><selectionEntry type="upgrade" import="true" name="Jetbike (Sky Hunter Phalanx)" hidden="true" id="r37-centurion-jetbike">
+      <constraints><constraint id="r37-centurion-jetbike-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="40" /></costs><rules>
+        <rule name="Space Marine Bike" id="r37-centurion-jetbike-gear-gear-hq-bike-rule" hidden="false">
+          <description>The bearer becomes Bike unit type and follows the normal ProHammer Bike rules. The bike is armed with twin-linked bolters. It may not be combined with a Jump Pack, Jetbike or Terminator Armour.</description>
+        </rule>
+      <rule name="Jetbike Command" id="r37-centurion-jetbike-rule" hidden="false"><description>Replaces the model’s Space Marine Bike. This option includes the normal +35 point Space Marine Bike and the +5 point Sky Hunter Phalanx Jetbike upgrade. The model follows the normal rules for Jetbikes.</description></rule></rules>
+    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-skyhunter" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry>
+    </selectionEntries><entryLinks>
             <entryLink import="true" name="Jump Pack" id="hq-centurion-jump" type="selectionEntry" targetId="gear-hq-jump" hidden="false">
               <constraints>
                 <constraint id="hq-centurion-jump-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
@@ -23170,7 +23762,73 @@
           <constraints>
             <constraint id="da22-dwc-transport-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
           </constraints>
-          <entryLinks>
+          <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-da22-dwc-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><entryLinks>
             <entryLink import="true" name="Rhino" hidden="false" id="da22-dwc-tr-rh" type="selectionEntry" targetId="transport-rhino">
               <constraints>
                 <constraint id="da22-dwc-tr-rh-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
@@ -23774,7 +24432,73 @@
           <constraints>
             <constraint id="da22-int-transport-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
           </constraints>
-          <entryLinks>
+          <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-da22-int-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><entryLinks>
             <entryLink import="true" name="Rhino" hidden="false" id="da22-int-tr-rh" type="selectionEntry" targetId="transport-rhino">
               <constraints>
                 <constraint id="da22-int-tr-rh-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
@@ -24880,7 +25604,73 @@
           <constraints>
             <constraint id="r35-pride-veteran-veteran-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
           </constraints>
-          <entryLinks>
+          <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-r35-pride-veteran-veteran-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><entryLinks>
             <entryLink import="true" name="Rhino" hidden="false" id="r35-pride-veteran-veteran-tr-rhino" type="selectionEntry" targetId="transport-rhino">
               <constraints>
                 <constraint id="r35-pride-veteran-veteran-tr-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
@@ -25076,7 +25866,7 @@
             </profile>
           </profiles>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r37-orbital-teleport-r35-pride-terminator-terminator-unit" name="Teleport Assault (Orbital Assault)" type="upgrade" hidden="true" import="true"><constraints><constraint id="r37-orbital-teleport-r35-pride-terminator-terminator-unit-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><rules><rule name="Teleport Assault" id="r37-orbital-teleport-r35-pride-terminator-terminator-unit-rule" hidden="false"><description>A unit composed entirely of models wearing Terminator Armour or Cataphractii Terminator Armour may deploy using Deep Strike even if the mission would not normally permit Deep Strike.</description></rule></rules><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-orbital" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry></selectionEntries>
       <costs>
         <cost name="Points" typeId="pts" value="175" />
       </costs>
@@ -26505,7 +27295,73 @@
           <constraints>
             <constraint id="r35-destroyer-troops-destroyer-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
           </constraints>
-          <entryLinks>
+          <selectionEntryGroups><selectionEntryGroup name="Land Raider Dedicated Transport (Armoured Spearhead)" id="r37-spear-r35-destroyer-troops-destroyer-transport" hidden="true">
+                      <constraints>
+                        <constraint id="r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-lrgrp-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" />
+                      </constraints>
+                      <rules>
+                        <rule name="Land Raider Dedicated Transport" id="r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-lrrule" hidden="false">
+                          <description>Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.</description>
+                        </rule>
+                      </rules>
+                      <selectionEntries>
+                        <selectionEntry type="model" name="Land Raider Phobos" id="r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="250" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Phobos" id="r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Proteus" id="r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="200" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Proteus" id="r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                        <selectionEntry type="model" name="Land Raider Achilles" id="r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-achilles" hidden="false" import="true">
+                          <constraints>
+                            <constraint id="r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+                          </constraints>
+                          <costs>
+                            <cost name="Points" typeId="pts" value="275" />
+                          </costs>
+                          <profiles>
+                            <profile name="Land Raider Achilles" id="r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-achilles-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                              <characteristics>
+                                <characteristic name="BS" typeId="vehicle-bs">4</characteristic>
+                                <characteristic name="Front" typeId="vehicle-front">14</characteristic>
+                                <characteristic name="Side" typeId="vehicle-side">14</characteristic>
+                                <characteristic name="Rear" typeId="vehicle-rear">14</characteristic>
+                              </characteristics>
+                            </profile>
+                          </profiles>
+                        </selectionEntry>
+                      </selectionEntries>
+                    <modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-spearhead" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntryGroup>
+                  </selectionEntryGroups><entryLinks>
             <entryLink import="true" name="Rhino" hidden="false" id="r35-destroyer-troops-destroyer-tr-rhino" type="selectionEntry" targetId="transport-rhino">
               <constraints>
                 <constraint id="r35-destroyer-troops-destroyer-tr-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
@@ -27944,7 +28800,7 @@
             </profile>
           </profiles>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r37-rapid-r35-sky-troops-fa-sky-hunter" name="Rapid Encirclement (Sky Hunter Phalanx)" type="upgrade" hidden="true" import="true"><constraints><constraint id="r37-rapid-r35-sky-troops-fa-sky-hunter-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><rules><rule name="Rapid Encirclement" id="r37-rapid-r35-sky-troops-fa-sky-hunter-rule" hidden="false"><description>Once per battle, during its Movement phase, if every model in this unit can move completely off a table edge, remove the unit and place it into Ongoing Reserves. It returns during the controlling player’s following turn using the normal Outflank rules.</description></rule></rules><modifiers><modifier type="set" value="false" field="hidden"><conditions><condition type="atLeast" value="1" field="selections" scope="force" childId="rite-skyhunter" shared="true" includeChildSelections="true" /></conditions></modifier></modifiers></selectionEntry></selectionEntries>
       <rules>
         <rule name="Standard Wargear" id="r35-sky-troops-fa-sky-std" hidden="false">
           <description>Power Armour; Legion Scimitar Jetbike with Heavy Bolter; Bolt Pistol; Chainsword; Frag Grenades.</description>
