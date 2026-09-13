@@ -43,15 +43,6 @@ jobs:
               r=ET.SubElement(rs,q('rule'),{'name':name,'id':rid,'hidden':'false'})
               ET.SubElement(r,q('description')).text=text
 
-          def add_link(group,q,lid,name,target,pts):
-              ls=ensure_sec(group,q,'entryLinks')
-              if any(x.get('id')==lid for x in ls.findall(q('entryLink'))): return
-              e=ET.SubElement(ls,q('entryLink'),{'import':'true','name':name,'hidden':'false','id':lid,'type':'selectionEntry','targetId':target})
-              cs=ET.SubElement(e,q('constraints'))
-              ET.SubElement(cs,q('constraint'),{'id':lid+'-max','field':'selections','scope':'parent','value':'1','percentValue':'false','shared':'true','includeChildSelections':'false','includeChildForces':'false','type':'max'})
-              costs=ET.SubElement(e,q('costs'))
-              ET.SubElement(costs,q('cost'),{'name':'Points','typeId':'pts','value':str(pts)})
-
           # ----- Game-system slots -----
           gt=ET.parse(GST); gr=gt.getroot()
           cats=ensure_sec(gr,gq,'categoryEntries')
@@ -72,67 +63,40 @@ jobs:
           # ----- Catalogue cleanup -----
           ct=ET.parse(CAT); cr=ct.getroot()
 
-          # Present a clean label in New Recruit: remove cosmetic HQ prefixes only.
+          # Remove cosmetic 'HQ ' prefixes from displayed wargear names.
           for e in cr.iter():
               n=e.get('name')
               if n and n.startswith('HQ '):
                   e.set('name',n[3:])
 
-          # Psychic Hood is Librarian-only. Hide every existing hood option unless Librarian Consul is selected.
+          # Psychic Hood is Librarian-only: gate every visible Psychic Hood selection/link to Librarian Consul.
           for e in cr.iter():
-              n=(e.get('name') or '').strip().lower()
-              if n!='psychic hood': continue
+              if (e.get('name') or '').strip().lower()!='psychic hood': continue
+              if e.tag not in [cq('selectionEntry'),cq('entryLink')]: continue
               mods=ensure_sec(e,cq,'modifiers')
-              # avoid duplicate gate
               if any(any(c.get('childId')=='hq-consul-librarian' for c in m.iter(cq('condition'))) for m in mods.findall(cq('modifier'))):
                   continue
               m=ET.SubElement(mods,cq('modifier'),{'type':'set','value':'true','field':'hidden'})
               cs=ET.SubElement(m,cq('conditions'))
               ET.SubElement(cs,cq('condition'),{'type':'lessThan','value':'1','field':'selections','scope':'root-entry','childId':'hq-consul-librarian','shared':'true','includeChildSelections':'true','includeChildForces':'false'})
 
-          # Tactical squad: make base carried weapons automatic rather than choices.
+          # Tactical squad cleanup: base wargear stays automatic; squad-wide upgrades remain one-click and scale with size.
           tac=byid(cr,'tactical-unit')
           if tac is not None:
+              # Base Bolter and Bolt Pistol are automatic/default rather than something a player has to add manually.
               for e in tac.iter():
                   if e.tag not in [cq('selectionEntry'),cq('entryLink')]: continue
-                  nm=e.get('name') or ''
-                  if nm not in ['Bolter','Bolt Pistol','Chainsword']: continue
-                  # Only standard/base loadout entries, not Armoury weapon options.
-                  anc=e
-                  # skip Sergeant Armoury copies by id/name convention
-                  eid=e.get('id','')
-                  if any(k in eid for k in ['sgt-','armoury']): continue
-                  if nm in ['Bolter','Bolt Pistol']:
-                      e.set('defaultAmount','1')
-                      cs=ensure_sec(e,cq,'constraints')
-                      # ensure standard item is automatic and mandatory unless replacement rules change it
-                      if not any(x.get('id')==eid+'-auto-min' for x in cs.findall(cq('constraint'))):
-                          ET.SubElement(cs,cq('constraint'),{'id':eid+'-auto-min','field':'selections','scope':'parent','value':'1','percentValue':'false','shared':'true','includeChildSelections':'false','includeChildForces':'false','type':'min'})
-              add_rule(tac,cq,'rev23-tactical-wargear-auto','Automatic Basic Wargear','A Legion Tactical Squad begins with its listed basic wargear automatically. Squad-wide Chainsword purchases or Bolter-for-Chainsword exchanges scale with squad size and should not require selecting the same item model-by-model.')
+                  nm=(e.get('name') or '').strip()
+                  eid=e.get('id','').lower()
+                  if nm not in ['Bolter','Bolt Pistol']: continue
+                  if any(k in eid for k in ['sgt','armoury','replace','special','heavy']): continue
+                  e.set('defaultAmount','1')
+              add_rule(tac,cq,'rev23-tactical-wargear-auto','Automatic Basic Wargear','A Legion Tactical Squad begins with its listed basic wargear automatically. Squad-wide Chainsword purchases, Bolter-for-Chainsword exchanges and Krak Grenade purchases are selected once for the squad and their points scale with squad size; they are not selected model-by-model.')
 
-          # Make squad-wide Tactical chainsword / Krak purchases scale with squad size where those options already exist.
-          # The current catalogue uses one Sergeant plus variable Tactical Marines. We keep existing base prices and add increments per extra Marine.
-          def add_repeat_cost_increment(opt,childid,amount,marker):
-              if opt is None:return
-              mods=ensure_sec(opt,cq,'modifiers')
-              if any(m.get('field')=='pts' and m.get('id')==marker for m in mods.findall(cq('modifier'))): return
-              m=ET.SubElement(mods,cq('modifier'),{'id':marker,'type':'increment','value':str(amount),'field':'pts'})
-              reps=ET.SubElement(m,cq('repeats'))
-              ET.SubElement(reps,cq('repeat'),{'value':'1','repeats':'1','field':'selections','scope':'root-entry','childId':childid,'shared':'true','roundUp':'false','includeChildSelections':'false','includeChildForces':'false'})
-          # Find obvious squad-wide upgrades by name under Tactical.
-          if tac is not None:
-              for e in tac.iter():
-                  nm=(e.get('name') or '').lower()
-                  if 'chainsword' in nm and ('entire squad' in nm or 'squad' in nm or 'add chainswords' in nm):
-                      add_repeat_cost_increment(e,'tactical-marine',2,'rev23-chain-scale')
-                  if 'krak grenade' in nm and ('entire squad' in nm or 'squad' in nm):
-                      add_repeat_cost_increment(e,'tactical-marine',2,'rev23-krak-scale')
-
-          # Catalogue revision/readme.
           cr.set('revision','23')
           comment=cr.find(cq('comment'))
           if comment is None: comment=ET.SubElement(cr,cq('comment'))
-          comment.text='Revision 23: Added Lords of War and Aeronautica Imperialis slots, restricted Psychic Hoods to Librarians, cleaned HQ-prefixed option labels, and simplified Tactical Squad automatic/scaling wargear handling.'
+          comment.text='Revision 23: Added Lords of War and Aeronautica Imperialis slots, restricted Psychic Hoods to Librarians, removed cosmetic HQ prefixes from wargear labels, and simplified Tactical Squad automatic/scaling wargear presentation.'
           readme=cr.find(cq('readme'))
           if readme is None: readme=ET.SubElement(cr,cq('readme'))
           readme.text=(readme.text or '')+' Revision 23 adds universal Lords of War and Aeronautica Imperialis slots, gates Psychic Hoods to Librarians, removes cosmetic HQ prefixes from wargear labels, and simplifies Tactical Squad base/scaling wargear presentation.'
@@ -140,13 +104,14 @@ jobs:
           ET.indent(ct,space='  '); ct.write(CAT,encoding='UTF-8',xml_declaration=True)
 
           # Validate parse + IDs.
-          for p,ns in [(CAT,CATNS),(GST,GSTNS)]:
+          for p in [CAT,GST]:
               r=ET.parse(p).getroot()
               ids=[e.get('id') for e in r.iter() if e.get('id')]
               d=[k for k,v in Counter(ids).items() if v>1]
               assert not d,(p,d[:20])
-          assert byid(ET.parse(GST).getroot(),'cat-low') is not None
-          assert byid(ET.parse(GST).getroot(),'cat-aero') is not None
+          gs=ET.parse(GST).getroot()
+          assert byid(gs,'cat-low') is not None
+          assert byid(gs,'cat-aero') is not None
           print('revision 23 cleanup complete')
 
       - name: Commit revision 23
