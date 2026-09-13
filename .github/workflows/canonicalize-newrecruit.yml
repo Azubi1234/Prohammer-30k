@@ -1,0 +1,81 @@
+name: Canonicalize New Recruit XML
+on:
+  push:
+    paths:
+      - '.github/workflows/canonicalize-newrecruit.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  canonicalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rewrite BattleScribe XML in canonical New Recruit form
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          CAT = Path('Legiones Astartes.cat')
+          GST = Path('Prohammer 30k.gst')
+
+          CAT_NS = 'http://www.battlescribe.net/schema/catalogueSchema'
+          GST_NS = 'http://www.battlescribe.net/schema/gameSystemSchema'
+
+          def rewrite(path, ns, root_name, revision=None, game_system_revision=None):
+              tree = ET.parse(path)
+              root = tree.getroot()
+              assert root.tag == f'{{{ns}}}{root_name}', (path, root.tag)
+              ET.register_namespace('', ns)
+              if revision is not None:
+                  root.set('revision', str(revision))
+              if game_system_revision is not None:
+                  root.set('gameSystemRevision', str(game_system_revision))
+              # New Recruit working community repos use an unprefixed root element
+              # with the BattleScribe schema as the default namespace.
+              body = ET.tostring(root, encoding='unicode', short_empty_elements=True)
+              assert body.startswith(f'<{root_name} '), body[:120]
+              assert f'xmlns="{ns}"' in body[:500], body[:500]
+              xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n' + body + '\n'
+              path.write_text(xml, encoding='utf-8', newline='\n')
+
+          rewrite(GST, GST_NS, 'gameSystem', revision=12)
+          rewrite(CAT, CAT_NS, 'catalogue', revision=27, game_system_revision=12)
+
+          # Cross-file compatibility checks.
+          gr = ET.parse(GST).getroot()
+          cr = ET.parse(CAT).getroot()
+          assert gr.get('id') == cr.get('gameSystemId')
+          assert gr.get('revision') == cr.get('gameSystemRevision') == '12'
+          assert cr.get('revision') == '27'
+
+          # Literal first-line/root checks guard against ElementTree reintroducing ns0 prefixes.
+          g = GST.read_text(encoding='utf-8')
+          c = CAT.read_text(encoding='utf-8')
+          assert '\n<gameSystem ' in g[:300]
+          assert '\n<catalogue ' in c[:300]
+          assert '<ns0:' not in g[:1000]
+          assert '<ns0:' not in c[:1000]
+          print('Canonical New Recruit XML ready: GST rev 12 / CAT rev 27')
+          PY
+          cat > .gitattributes <<'EOF'
+          * text=auto
+          *.cat text eol=lf
+          *.gst text eol=lf
+          EOF
+          git diff --check
+      - name: Commit canonical data
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' .gitattributes
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git commit -m 'Reformat game data for canonical New Recruit import'
+            git push
+          fi
