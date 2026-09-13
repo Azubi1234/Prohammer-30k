@@ -1,0 +1,8 @@
+name: Apply Revision 30 Praevian automata fix secondary
+on:
+  workflow_dispatch:
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo secondary
