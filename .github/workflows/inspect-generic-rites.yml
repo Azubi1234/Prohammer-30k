@@ -10,22 +10,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Write exact option report
+      - name: Write top-level roster link report
         run: |
           python - <<'PY' > inspection-generic-rites.txt
           import xml.etree.ElementTree as ET
           NS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{NS}}}{t}'
           r=ET.parse('Legiones Astartes.cat').getroot()
           def byid(i): return next((e for e in r.iter() if e.get('id')==i),None)
-          ids=['veteran-jump-packs','veteran-transport','destroyer-unit','dreadnought-unit','contemptor-unit','hq-praetor','hq-centurion','rite-assault-company','rite-recon-company','rite-sky-hunter']
           print('CAT',r.get('revision'),'GST',r.get('gameSystemRevision'))
-          for i in ids:
-              e=byid(i); print('\n###',i); print(ET.tostring(e,encoding='unicode')[:40000] if e is not None else 'MISSING')
+          print('\n### ROOT CHILD CONTAINERS')
+          for ch in r:
+              print(ch.tag.split('}')[-1], len(list(ch)))
+          print('\n### ROOT ENTRY LINKS RELEVANT')
+          links=r.find(C('entryLinks'))
+          if links is not None:
+              for e in links.findall(C('entryLink')):
+                  tid=e.get('targetId',''); n=e.get('name','')
+                  if any(k in tid for k in ['veteran','terminator','predator','destroyer','dreadnought','contemptor','sky-hunter']) or any(k in n.lower() for k in ['veteran','terminator','predator','destroyer','dreadnought','contemptor','sky hunter']):
+                      print(ET.tostring(e,encoding='unicode'))
+          print('\n### ORIGINAL + R35 CLONES')
+          for i in ['veteran-unit','terminator-unit','hs-predator','destroyer-unit','dreadnought-unit','contemptor-unit','fa-sky-hunter','r35-pride-veteran-veteran-unit','r35-pride-terminator-terminator-unit','r35-breakthrough-predator-hs-predator','r35-destroyer-troops-destroyer-unit','r35-fury-dread-dreadnought-unit','r35-fury-contemptor-contemptor-unit','r35-skyhunter-troops-fa-sky-hunter']:
+              e=byid(i); print('\n',i, 'FOUND' if e is not None else 'MISSING')
+              if e is not None:
+                  cats=e.find(C('categoryLinks'))
+                  print('hidden=',e.get('hidden'),'name=',e.get('name'))
+                  if cats is not None:
+                      for c in cats.findall(C('categoryLink')): print('CATLINK',c.attrib)
+                  mods=e.find(C('modifiers'))
+                  if mods is not None: print('MODS',ET.tostring(mods,encoding='unicode')[:5000])
           PY
       - name: Commit report
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add inspection-generic-rites.txt
-          git commit -m 'Refresh temporary generic rites report' || exit 0
+          git commit -m 'Refresh top-level Rite link report' || exit 0
           git push
