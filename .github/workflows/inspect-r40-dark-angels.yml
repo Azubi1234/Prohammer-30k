@@ -5,7 +5,7 @@ on:
       - '.github/workflows/inspect-r40-dark-angels.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   inspect:
     runs-on: ubuntu-latest
@@ -14,7 +14,7 @@ jobs:
       - name: Inspect Dark Angels entries, Rites and targets
         shell: bash
         run: |
-          python - <<'PY'
+          python - <<'PY' > .github/r40-dark-angels-inspect.txt
           import xml.etree.ElementTree as ET
           from pathlib import Path
           CAT=Path('Legiones Astartes.cat')
@@ -25,8 +25,7 @@ jobs:
           def cats(e):
               return [(x.get('name'),x.get('targetId')) for x in e.findall('./b:categoryLinks/b:categoryLink',ns)]
           def path(e):
-              parts=[]
-              x=e
+              parts=[]; x=e
               while x is not None and x is not root:
                   n=x.get('name')
                   if n: parts.append(f"{x.tag.split('}')[-1]}:{x.get('id')}:{n}")
@@ -35,17 +34,14 @@ jobs:
           print('\n### DA TOP-LEVEL ENTRIES')
           for e in root.findall('.//b:selectionEntry',ns):
               i=e.get('id',''); n=e.get('name','')
-              if i.startswith('da22-') and parent.get(e) is not None and parent[e].tag.endswith('selectionEntries'):
-                  # only entries whose nearest selectionEntry ancestor is absent
-                  a=parent.get(parent.get(e))
-                  has_se_ancestor=False
-                  x=parent.get(e)
-                  while x is not None and x is not root:
-                      if x.tag.endswith('selectionEntry'):
-                          has_se_ancestor=True; break
-                      x=parent.get(x)
-                  if not has_se_ancestor:
-                      print(i,'|',n,'| cats=',cats(e),'| hidden=',e.get('hidden'))
+              if not i.startswith('da22-'): continue
+              x=parent.get(e); has_se_ancestor=False
+              while x is not None and x is not root:
+                  if x.tag.endswith('selectionEntry'):
+                      has_se_ancestor=True; break
+                  x=parent.get(x)
+              if not has_se_ancestor:
+                  print(i,'|',n,'| cats=',cats(e),'| hidden=',e.get('hidden'))
           print('\n### ALL DA UNIQUE UNIT / CHARACTER CATEGORY LINKS')
           keys=['Deathwing Companion','Deathwing Terminator Companion','Inner Circle Knights Cenobium','Dreadwing Interemptor','Firewing Enigmatus','Corswain','Marduk Sedras','Farith Redloss','Holguin','Lion El']
           for e in root.findall('.//b:selectionEntry',ns):
@@ -53,11 +49,12 @@ jobs:
               if any(k.lower() in n.lower() for k in keys):
                   print(e.get('id'),'|',n,'| cats=',cats(e),'|',path(e))
           print('\n### DARK ANGELS RITES')
+          rite_names=['The Storm of War','The Unbroken Vow','The Eskaton Imperative','The Steel Fist',"The Seeker's Arrow","The Serpent's Bane"]
           for e in root.findall('.//b:selectionEntry',ns):
               n=e.get('name','')
-              if n in ['The Storm of War','The Unbroken Vow','The Eskaton Imperative','The Steel Fist',"The Seeker's Arrow","The Serpent's Bane"] or 'Storm of War' in n or 'Unbroken Vow' in n or 'Eskaton' in n or 'Steel Fist' in n or "Seeker's Arrow" in n or "Serpent's Bane" in n:
+              if n in rite_names or any(r.lower() in n.lower() for r in rite_names):
                   print(e.get('id'),'|',n,'|',path(e))
-                  for r in e.findall('./b:rules/b:rule',ns): print(' RULE',r.get('name'),':',(r.findtext('b:description',default='',namespaces=ns) or '')[:400].replace('\n',' '))
+                  for r in e.findall('./b:rules/b:rule',ns): print(' RULE',r.get('name'),':',(r.findtext('b:description',default='',namespaces=ns) or '')[:800].replace('\n',' '))
           print('\n### GENERIC TARGET IDS')
           targets=['Legion Tactical Squad','Legion Assault Squad','Legion Veteran Squad','Legion Terminator Squad','Legion Destroyer Squad','Legion Predator Strike Squadron','Legion Predator Squadron','Legion Bike Squadron','Legion Sky Hunter Jetbike Squadron','Legion Seeker Squad','Legion Praetor','Legion Centurion']
           for e in root.findall('.//b:selectionEntry',ns):
@@ -68,4 +65,19 @@ jobs:
               n=x.get('name',''); i=x.get('id','')
               if i.startswith('da22-') or any(k in n for k in ['Calibanite','Terranic','Plasma Repeater','Plasma Burner','Stasis Shell','Molecular Acid','Teleportation Transponder']):
                   print(i,'|',n,'| target=',x.get('targetId'),'|',path(x))
+          print('\n### RELEVANT UNIT CHILD GROUPS')
+          for e in root.findall('.//b:selectionEntry',ns):
+              if e.get('name') in targets or e.get('id') in ['da22-interemptors','da22-deathwing-companions','da22-deathwing-terminators','da22-cenobium','da22-enigmatus']:
+                  print('\nUNIT',e.get('id'),e.get('name'))
+                  for g in e.findall('./b:selectionEntryGroups/b:selectionEntryGroup',ns): print(' GROUP',g.get('id'),g.get('name'),'hidden=',g.get('hidden'))
+                  for l in e.findall('./b:entryLinks/b:entryLink',ns): print(' LINK',l.get('id'),l.get('name'),'->',l.get('targetId'),'hidden=',l.get('hidden'))
           PY
+          cat .github/r40-dark-angels-inspect.txt
+      - name: Commit inspection report
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add .github/r40-dark-angels-inspect.txt
+          git commit -m 'Add Revision 40 Dark Angels inspection report' || exit 0
+          git push
