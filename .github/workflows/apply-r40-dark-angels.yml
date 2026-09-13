@@ -1,0 +1,379 @@
+name: Apply Revision 40 Dark Angels completion
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-r40-dark-angels.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Finish Dark Angels package
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          from copy import deepcopy
+          import xml.etree.ElementTree as ET
+
+          CAT=Path('Legiones Astartes.cat')
+          NS='http://www.battlescribe.net/schema/catalogueSchema'
+          Q=lambda t:f'{{{NS}}}{t}'
+          ET.register_namespace('',NS)
+          tree=ET.parse(CAT); root=tree.getroot()
+          top=root.find(Q('selectionEntries'))
+          shared=root.find(Q('sharedSelectionEntries'))
+          assert top is not None and shared is not None
+
+          def rebuild():
+              return {e.get('id'):e for e in root.iter() if e.get('id')}
+          idx=rebuild()
+          def get(i):
+              e=idx.get(i)
+              if e is None: raise KeyError(i)
+              return e
+          def ensure(parent,tag):
+              e=parent.find(Q(tag))
+              if e is None: e=ET.SubElement(parent,Q(tag))
+              return e
+          def points(el):
+              for c in el.findall('./'+Q('costs')+'/'+Q('cost')):
+                  if c.get('typeId')=='pts':
+                      try:return float(c.get('value','0'))
+                      except:return 0
+              return 0
+          def add_cost(el,val):
+              cs=ensure(el,'costs')
+              ET.SubElement(cs,Q('cost'),{'name':'Points','typeId':'pts','value':str(int(val) if float(val).is_integer() else val)})
+          def max_value(el,default=1):
+              vals=[]
+              for c in el.findall('./'+Q('constraints')+'/'+Q('constraint')):
+                  if c.get('type')=='max' and c.get('field')=='selections':
+                      try: vals.append(int(float(c.get('value','1'))))
+                      except: pass
+              return max(vals) if vals else default
+          def add_max(el,id_,val,scope='parent',include='false'):
+              cs=ensure(el,'constraints')
+              ET.SubElement(cs,Q('constraint'),{'id':id_,'type':'max','value':str(val),'field':'selections','scope':scope,'shared':'true','includeChildSelections':include})
+          def condition_modifier(el,unhide=True,conditions=()):
+              mods=ensure(el,'modifiers')
+              m=ET.SubElement(mods,Q('modifier'),{'type':'set','value':'false' if unhide else 'true','field':'hidden'})
+              cg=ET.SubElement(ET.SubElement(m,Q('conditionGroups')),Q('conditionGroup'),{'type':'and'})
+              cs=ET.SubElement(cg,Q('conditions'))
+              for typ,val,scope,child in conditions:
+                  ET.SubElement(cs,Q('condition'),{'type':typ,'value':str(val),'field':'selections','scope':scope,'childId':child,'shared':'true','includeChildSelections':'true'})
+              return m
+          def add_rule(el,id_,name,desc):
+              rs=ensure(el,'rules')
+              old=next((r for r in rs.findall(Q('rule')) if r.get('id')==id_),None)
+              if old is None:
+                  old=ET.SubElement(rs,Q('rule'),{'id':id_,'name':name,'hidden':'false'})
+                  ET.SubElement(old,Q('description'))
+              old.set('name',name); old.find(Q('description')).text=desc
+              return old
+          def clone_prefixed(src,prefix):
+              c=deepcopy(src)
+              ids=[e.get('id') for e in c.iter() if e.get('id')]
+              mp={x:prefix+x for x in ids}
+              for e in c.iter():
+                  if e.get('id') in mp: e.set('id',mp[e.get('id')])
+              for e in c.iter():
+                  for a in ('targetId','childId','field'):
+                      v=e.get(a)
+                      if v in mp: e.set(a,mp[v])
+              return c
+          def category(el,cat_id,name):
+              old=el.find(Q('categoryLinks'))
+              if old is not None: el.remove(old)
+              cs=ET.SubElement(el,Q('categoryLinks'))
+              ET.SubElement(cs,Q('categoryLink'),{'id':el.get('id')+'-cat','targetId':cat_id,'name':name,'hidden':'false','primary':'true'})
+          def wing_group(el):
+              return next((g for g in el.findall('.//'+Q('selectionEntryGroup')) if g.get('name')=='Hexagrammaton Wing'),None)
+          def wing_child(el,name):
+              g=wing_group(el)
+              if g is None:return None
+              return next((s for s in g.findall('./'+Q('selectionEntries')+'/'+Q('selectionEntry')) if s.get('name')==name),None)
+          def force_wing(el,name):
+              g=wing_group(el)
+              if g is None:return
+              se=g.find(Q('selectionEntries'))
+              if se is None:return
+              wanted=[x for x in list(se) if x.get('name')==name]
+              assert wanted,(el.get('id'),name)
+              for x in list(se):
+                  if x.get('name')!=name: se.remove(x)
+              # make exactly one wing mandatory on the Rite-specific copy
+              cs=ensure(g,'constraints')
+              for c in list(cs):
+                  if c.get('type') in ('min','max'): cs.remove(c)
+              ET.SubElement(cs,Q('constraint'),{'id':g.get('id')+'-r40-min','type':'min','value':'1','field':'selections','scope':'parent','shared':'true','includeChildSelections':'true'})
+              ET.SubElement(cs,Q('constraint'),{'id':g.get('id')+'-r40-max','type':'max','value':'1','field':'selections','scope':'parent','shared':'true','includeChildSelections':'true'})
+              g.set('hidden','false')
+          def gate_rite(el,rite):
+              el.set('hidden','true')
+              condition_modifier(el,True,[('atLeast',1,'roster','legion-i'),('atLeast',1,'force',rite)])
+          def strip_transport_groups(el):
+              for parent in el.iter():
+                  for ch in list(parent):
+                      if ch.tag==Q('selectionEntryGroup') and 'Dedicated Transport' in ch.get('name',''):
+                          parent.remove(ch)
+          def troop_copy(src_id,new_id,rite,wing,rule_name,rule_desc,name=None,strip_transport=False):
+              if new_id in idx:return get(new_id)
+              c=clone_prefixed(get(src_id),new_id+'-')
+              c.set('id',new_id)
+              if name:c.set('name',name)
+              category(c,'cat-troops','Troops')
+              gate_rite(c,rite)
+              if wing: force_wing(c,wing)
+              if strip_transport: strip_transport_groups(c)
+              add_rule(c,new_id+'-rite-rule',rule_name,rule_desc)
+              top.append(c)
+              return c
+
+          # --- Correct permanent Dark Angels FOC positions ---
+          for uid in ['da22-deathwing-companions','da22-deathwing-term-comp','da22-cenobium','da22-interemptors','da22-enigmatus']:
+              category(get(uid),'cat-elites','Elites')
+          for uid in ['da22-corswain','da22-sedras','da22-redloss','da22-holguin']:
+              category(get(uid),'cat-hq','HQ')
+          category(get('da22-lion'),'cat-low','Lords of War')
+          # Lion is Loyalist only.
+          lion=get('da22-lion')
+          condition_modifier(lion,False,[('atLeast',1,'roster','allegiance-traitor')])
+
+          # --- Complete Dark Angels Armoury access from the source clauses ---
+          idx=rebuild()
+          shared_name={e.get('id'):e.get('name','') for e in shared.findall(Q('selectionEntry'))}
+          # plasma replacements wherever the normal plasma weapon can actually be selected
+          plasma_map={
+            'Plasma Pistol':[('da22-plasma-pistol',0,'Calibanite Plasma Pistol')],
+            'Plasma Gun':[('da22-plasma-gun',0,'Calibanite Plasma Gun'),('da22-plasma-repeater',10,'Plasma Repeater'),('da22-plasma-burner',5,'Plasma Burner')],
+            'Plasma Cannon':[('da22-plasma-cannon',0,'Calibanite Plasma Cannon')],
+          }
+          parent={c:p for p in root.iter() for c in p}
+          original_links=list(root.findall('.//'+Q('entryLink')))
+          for link in original_links:
+              t=link.get('targetId'); base=shared_name.get(t)
+              if base not in plasma_map: continue
+              p=parent.get(link)
+              if p is None: continue
+              sib_targets={x.get('targetId') for x in p.findall(Q('entryLink'))}
+              for target,delta,nm in plasma_map[base]:
+                  if target in sib_targets: continue
+                  nl=ET.Element(Q('entryLink'),{'id':'r40-da-plasma-'+link.get('id')+'-'+target,'name':nm,'type':'selectionEntry','targetId':target,'hidden':'true','import':'true'})
+                  add_max(nl,nl.get('id')+'-max',max_value(link))
+                  add_cost(nl,points(link)+delta)
+                  condition_modifier(nl,True,[('atLeast',1,'roster','legion-i')])
+                  p.append(nl)
+          # Warblade wherever a Power Weapon is selectable: same base cost +10.
+          idx=rebuild(); parent={c:p for p in root.iter() for c in p}
+          power_ids={e.get('id') for e in shared.findall(Q('selectionEntry')) if e.get('name')=='Power Weapon'}
+          for link in list(root.findall('.//'+Q('entryLink'))):
+              if link.get('targetId') not in power_ids: continue
+              p=parent.get(link)
+              if p is None or any(x.get('targetId')=='da22-warblade' for x in p.findall(Q('entryLink'))): continue
+              nl=ET.Element(Q('entryLink'),{'id':'r40-da-warblade-'+link.get('id'),'name':'Calibanite Warblade','type':'selectionEntry','targetId':'da22-warblade','hidden':'true','import':'true'})
+              add_max(nl,nl.get('id')+'-max',max_value(link))
+              add_cost(nl,points(link)+10)
+              condition_modifier(nl,True,[('atLeast',1,'roster','legion-i')])
+              p.append(nl)
+
+          # Unit-level ammunition group: Stasis Shells and Molecular Acid Shells only appear when the matching weapon is selected.
+          idx=rebuild(); parent={c:p for p in root.iter() for c in p}
+          top_units=[e for e in top.findall(Q('selectionEntry')) if e.get('type')=='unit']
+          all_named={e.get('id'):e.get('name','') for e in root.findall('.//'+Q('selectionEntry'))}
+          for unit in top_units:
+              candidates=[]
+              for link in unit.findall('.//'+Q('entryLink')):
+                  target_name=all_named.get(link.get('targetId'),shared_name.get(link.get('targetId'),''))
+                  lname=link.get('name','')
+                  kind=None; target=None
+                  if target_name in ['Missile Launcher','Missile Launcher with Suspensor Web','Missile Launcher with Suspensor Web and Rad Missiles'] or lname.startswith('Missile Launcher'):
+                      kind='Stasis Shells — Missile'; target='da22-stasis-missile'
+                  elif target_name=='Grenade Launcher' or (lname.startswith('Grenade Launcher') and 'Combi' not in lname):
+                      kind='Stasis Shells — Grenade'; target='da22-stasis-grenade'
+                  elif target_name in ['Heavy Bolter','Twin-linked Heavy Bolter'] or lname in ['Heavy Bolter','Twin-linked Heavy Bolter']:
+                      kind='Molecular Acid Shells'; target='da22-acid-hb'
+                  if kind: candidates.append((link,kind,target))
+              if not candidates: continue
+              groups=ensure(unit,'selectionEntryGroups')
+              gid='r40-da-ammo-'+unit.get('id')
+              g=next((x for x in groups.findall(Q('selectionEntryGroup')) if x.get('id')==gid),None)
+              if g is None:
+                  g=ET.SubElement(groups,Q('selectionEntryGroup'),{'id':gid,'name':'Dark Angels Armoury — Ammunition','hidden':'false','collective':'false','import':'true'})
+                  sel=ET.SubElement(g,Q('entryLinks'))
+              else: sel=ensure(g,'entryLinks')
+              existing={x.get('id') for x in sel.findall(Q('entryLink'))}
+              for link,kind,target in candidates:
+                  lid=gid+'-'+link.get('id')
+                  if lid in existing: continue
+                  nl=ET.SubElement(sel,Q('entryLink'),{'id':lid,'name':kind+' (for '+link.get('name','weapon')+')','type':'selectionEntry','targetId':target,'hidden':'true','import':'true'})
+                  add_max(nl,lid+'-max',max_value(link))
+                  add_cost(nl,7 if target=='da22-acid-hb' else 5)
+                  condition_modifier(nl,True,[('atLeast',1,'roster','legion-i'),('atLeast',1,'root-entry',link.get('id'))])
+
+          # Teleportation Transponders: generic Terminator unit +15.
+          def root_link(unit,id_,cost,conditions=()):
+              ls=ensure(unit,'entryLinks')
+              if any(x.get('id')==id_ for x in ls.findall(Q('entryLink'))):return
+              l=ET.SubElement(ls,Q('entryLink'),{'id':id_,'name':'Teleportation Transponders','type':'selectionEntry','targetId':'da22-transponders','hidden':'true','import':'true'})
+              add_max(l,id_+'-max',1); add_cost(l,cost)
+              condition_modifier(l,True,[('atLeast',1,'roster','legion-i')]+list(conditions))
+          root_link(get('terminator-unit'),'r40-da-term-transponders',15)
+          root_link(get('da22-cenobium'),'r40-da-cenobium-transponders',15)
+          for uid in ['da22-sedras','da22-holguin']:
+              root_link(get(uid),'r40-da-'+uid+'-transponders',10)
+          # Generic Praetor/Centurion ICs: only while wearing Terminator armour, and place it in Additional Wargear so it counts toward Armoury limit.
+          for uid,prefix in [('hq-praetor','hq-praetor'),('hq-centurion','hq-centurion')]:
+              u=get(uid)
+              wg=next((g for g in u.findall('./'+Q('selectionEntryGroups')+'/'+Q('selectionEntryGroup')) if g.get('name','').startswith('Additional Wargear')),None)
+              if wg is not None:
+                  els=ensure(wg,'entryLinks'); lid='r40-da-'+uid+'-transponders'
+                  if not any(x.get('id')==lid for x in els.findall(Q('entryLink'))):
+                      l=ET.SubElement(els,Q('entryLink'),{'id':lid,'name':'Teleportation Transponders','type':'selectionEntry','targetId':'da22-transponders','hidden':'true','import':'true'})
+                      add_max(l,lid+'-max',1); add_cost(l,10)
+                      mods=ensure(l,'modifiers')
+                      m=ET.SubElement(mods,Q('modifier'),{'type':'set','value':'false','field':'hidden'})
+                      cgs=ET.SubElement(m,Q('conditionGroups')); cg=ET.SubElement(cgs,Q('conditionGroup'),{'type':'and'}); cs=ET.SubElement(cg,Q('conditions'))
+                      ET.SubElement(cs,Q('condition'),{'type':'atLeast','value':'1','field':'selections','scope':'roster','childId':'legion-i','shared':'true','includeChildSelections':'true'})
+                      og=ET.SubElement(cgs,Q('conditionGroup'),{'type':'or'}); ocs=ET.SubElement(og,Q('conditions'))
+                      for x in [prefix+'-term',prefix+'-tart',prefix+'-cat']:
+                          ET.SubElement(ocs,Q('condition'),{'type':'atLeast','value':'1','field':'selections','scope':'root-entry','childId':x,'shared':'true','includeChildSelections':'true'})
+          # Embedded Terminator Command Squads also get the unit-level +15 option.
+          for u in root.findall('.//'+Q('selectionEntry')):
+              if 'Terminator Command Squad' in u.get('name',''):
+                  root_link(u,'r40-da-trans-'+u.get('id'),15)
+
+          idx=rebuild()
+          # --- Rite-specific force organisation variants ---
+          storm_tac=troop_copy('tactical-unit','r40-da-storm-tactical','da22-rite-storm','Stormwing','Storm of War — Compulsory Formation','This Rite-specific entry represents a compulsory 20-model Stormwing Tactical Squad. It may not select a Dedicated Transport.','Legion Tactical Squad (Storm of War compulsory)',True)
+          storm_ass=troop_copy('assault-unit','r40-da-storm-assault','da22-rite-storm','Stormwing','Storm of War — Compulsory Formation','This Rite-specific entry represents a compulsory 20-model Stormwing Assault Squad. It may not select a Dedicated Transport.','Legion Assault Squad (Storm of War compulsory)',True)
+          vow_vet=troop_copy('veteran-unit','r40-da-vow-veteran','da22-rite-vow','Deathwing','The Hammer of Caliban','Selected as a Troops choice by The Unbroken Vow. This Rite-specific copy is fixed to the Deathwing.')
+          vow_term=troop_copy('terminator-unit','r40-da-vow-terminator','da22-rite-vow','Deathwing','The Hammer of Caliban','Selected as a Troops choice by The Unbroken Vow. This Rite-specific copy is fixed to the Deathwing.')
+          esk_dest=troop_copy('destroyer-unit','r40-da-eskaton-destroyer','da22-rite-eskaton','Dreadwing','Dread Legion','Selected as a Troops choice by The Eskaton Imperative. This Rite-specific copy is fixed to the Dreadwing.')
+          esk_int=troop_copy('da22-interemptors','r40-da-eskaton-interemptor','da22-rite-eskaton',None,'Dread Legion','Dreadwing Interemptors count as Troops under The Eskaton Imperative.')
+          steel_pred=troop_copy('hs-predator','r40-da-steel-predator','da22-rite-steel','Ironwing','Iron Brethren','Selected as a Troops choice by The Steel Fist. This Rite-specific copy is fixed to the Ironwing.')
+          arrow_bike=troop_copy('fa-bike','r40-da-arrow-bike','da22-rite-arrow','Ravenwing','Ravenwing Host','Selected as a Troops choice by The Seeker’s Arrow. This Rite-specific copy is fixed to the Ravenwing. It gains Outflank and Hit & Run while the Rite is active.')
+          arrow_sky=troop_copy('fa-sky-hunter','r40-da-arrow-sky','da22-rite-arrow','Ravenwing','Ravenwing Host','Selected as a Troops choice by The Seeker’s Arrow. This Rite-specific copy is fixed to the Ravenwing. It gains Outflank and Hit & Run while the Rite is active.')
+          serpent_seek=troop_copy('fa-seeker','r40-da-serpent-seeker','da22-rite-serpent','Firewing','Seeker Formations','Selected as a Troops choice by The Serpent’s Bane. This Rite-specific copy is fixed to the Firewing.')
+          serpent_ass=troop_copy('assault-unit','r40-da-serpent-assault','da22-rite-serpent','Firewing','The Serpent’s Bane — Compulsory Formation','This Rite-specific copy represents a Firewing Assault Squad eligible to fulfil compulsory Troops.','Legion Assault Squad (Serpent’s Bane compulsory)')
+
+          idx=rebuild()
+          # Storm of War: add a full embedded Centurion builder to the Rite-specific 20-model copies; no Consul, no retinue, fixed Stormwing.
+          def add_embedded_centurion(unit):
+              gs=ensure(unit,'selectionEntryGroups'); gid='r40-da-storm-centurion-group-'+unit.get('id')
+              if any(g.get('id')==gid for g in gs.findall(Q('selectionEntryGroup'))):return
+              g=ET.SubElement(gs,Q('selectionEntryGroup'),{'id':gid,'name':'Storm of War — Embedded Legion Centurion (20-model squad only)','hidden':'false','collective':'false','import':'true'})
+              add_max(g,gid+'-max',1,include='true')
+              ses=ET.SubElement(g,Q('selectionEntries'))
+              c=clone_prefixed(get('hq-centurion'),gid+'-')
+              c.set('id',gid+'-centurion'); c.set('name','Legion Centurion'); c.set('hidden','false')
+              cl=c.find(Q('categoryLinks'))
+              if cl is not None:c.remove(cl)
+              cons=c.find(Q('constraints'))
+              if cons is not None:c.remove(cons)
+              sgs=c.find(Q('selectionEntryGroups'))
+              if sgs is not None:
+                  for x in list(sgs):
+                      if x.get('name') in ['Legion Consul Upgrade','Command Retinue (does not occupy a separate FOC slot)'] or 'Retinue' in x.get('name',''):
+                          sgs.remove(x)
+              force_wing(c,'Stormwing')
+              rs=c.find(Q('rules'))
+              if rs is not None:
+                  for r in list(rs):
+                      if r.get('name') in ['Independent Character','Legion Consuls']: rs.remove(r)
+              add_rule(c,gid+'-rule','Masters of the Storm of War','Purchased at its normal points cost as part of this 20-model squad. It occupies no HQ slot, is part of the squad and may not voluntarily leave, may not take a Consul upgrade, may not be the Warlord and must belong to the Stormwing.')
+              ses.append(c)
+          add_embedded_centurion(storm_tac); add_embedded_centurion(storm_ass)
+
+          # Steel Fist: actual Rite-only Land Raider/Spartan dedicated transport selections for eligible Infantry squads.
+          idx=rebuild()
+          def by_name(name):
+              return next((e for e in root.findall('.//'+Q('selectionEntry')) if e.get('name')==name),None)
+          phobos=by_name('Land Raider Phobos'); proteus=by_name('Land Raider Proteus'); spartan=by_name('Legion Spartan Assault Tank')
+          assert phobos is not None and proteus is not None and spartan is not None
+          steel_names={
+            'Legion Tactical Squad','Legion Despoiler Squad','Legion Breacher Siege Squad','Legion Reconnaissance Squad','Legion Veteran Squad','Legion Terminator Squad','Legion Destroyer Squad','Legion Seeker Squad','Legion Heavy Support Squad',
+            'Deathwing Companion Detachment','Deathwing Terminator Companion Detachment','Inner Circle Knights Cenobium','Dreadwing Interemptor Squad'
+          }
+          for u in list(top.findall(Q('selectionEntry'))):
+              if u.get('name') not in steel_names: continue
+              iw=wing_child(u,'Ironwing')
+              # fixed-Wing DA units that are not Ironwing are not eligible.
+              if iw is None: continue
+              groups=ensure(u,'selectionEntryGroups'); gid='r40-da-steel-transport-'+u.get('id')
+              if any(g.get('id')==gid for g in groups.findall(Q('selectionEntryGroup'))): continue
+              g=ET.SubElement(groups,Q('selectionEntryGroup'),{'id':gid,'name':'Steel Fist — Armoured Assault Dedicated Transport','hidden':'true','collective':'false','import':'true'})
+              add_max(g,gid+'-max',1,include='true')
+              condition_modifier(g,True,[('atLeast',1,'roster','legion-i'),('atLeast',1,'force','da22-rite-steel'),('atLeast',1,'root-entry',iw.get('id'))])
+              ses=ET.SubElement(g,Q('selectionEntries'))
+              for src,label in [(phobos,'Land Raider Phobos (10 models or fewer)'),(proteus,'Land Raider Proteus (10 models or fewer)'),(spartan,'Legion Spartan Assault Tank (11–20 models)')]:
+                  c=clone_prefixed(src,gid+'-'+src.get('id')+'-'); c.set('id',gid+'-'+src.get('id')); c.set('name',label); c.set('hidden','false')
+                  cl=c.find(Q('categoryLinks'))
+                  if cl is not None:c.remove(cl)
+                  add_rule(c,c.get('id')+'-rite-size','Armoured Assault','Select Phobos/Proteus only for an Ironwing Infantry unit of 10 models or fewer; select the Spartan only for an Ironwing Infantry unit of 11–20 models. Normal Transport Capacity restrictions apply.')
+                  ses.append(c)
+
+          # Serpent's Bane: selectable Forward Deployment on up to three Firewing Troops units.
+          idx=rebuild()
+          if 'r40-da-forward-deployment' not in idx:
+              fd=ET.SubElement(shared,Q('selectionEntry'),{'id':'r40-da-forward-deployment','name':'Forward Deployment — Infiltrate','type':'upgrade','hidden':'false','import':'true'})
+              add_max(fd,'r40-da-forward-deployment-max',3,'roster','false')
+              add_rule(fd,'r40-da-forward-deployment-rule','Forward Deployment','Under The Serpent’s Bane, up to three Firewing Troops units may gain the Infiltrate special rule.')
+          for u in list(top.findall(Q('selectionEntry'))):
+              if not any(c.get('targetId')=='cat-troops' for c in u.findall('./'+Q('categoryLinks')+'/'+Q('categoryLink'))):continue
+              fw=wing_child(u,'Firewing')
+              if fw is None:continue
+              ls=ensure(u,'entryLinks'); lid='r40-da-forward-'+u.get('id')
+              if any(x.get('id')==lid for x in ls.findall(Q('entryLink'))):continue
+              l=ET.SubElement(ls,Q('entryLink'),{'id':lid,'name':'Forward Deployment — Infiltrate','type':'selectionEntry','targetId':'r40-da-forward-deployment','hidden':'true','import':'true'})
+              add_max(l,lid+'-max',1); add_cost(l,0)
+              condition_modifier(l,True,[('atLeast',1,'roster','legion-i'),('atLeast',1,'force','da22-rite-serpent'),('atLeast',1,'root-entry',fw.get('id'))])
+
+          # Put the Rite interactions directly on Wing rules so their bonuses are visible on affected units, not only in Configuration.
+          wing_extra={
+            'Stormwing':'If The Storm of War is selected: stationary Stormwing units also use the Stormwing re-roll during the normal Shooting phase; Stormwing Infantry containing a Stormwing Character gains Stubborn.',
+            'Deathwing':'If The Unbroken Vow is selected: a Deathwing unit within 6" of an Objective gains Feel No Pain (6+), or improves existing Feel No Pain by one step to a maximum of 4+; a Deathwing Independent Character within 12" of an Objective gains +1 Attack.',
+            'Dreadwing':'If The Eskaton Imperative is selected: Dreadwing Infantry gain Move Through Cover and all Dreadwing models may re-roll failed Dangerous Terrain tests.',
+            'Ironwing':'If The Steel Fist is selected: a Transport Vehicle carrying an Ironwing Independent Character gains a 6+ Invulnerable Save against shooting, or improves an existing Invulnerable Save by one step to a maximum of 4+.',
+            'Ravenwing':'If The Seeker’s Arrow is selected: Ravenwing Infantry, Bikes and Jetbikes gain Outflank; Ravenwing Bikes and Jetbikes gain Hit & Run. At the start of each Dark Angels turn choose +2" Turbo-Boost/Advance, +2" Charge, or +2" Consolidation for all Ravenwing units until the next Dark Angels turn.',
+            'Firewing':'If The Serpent’s Bane is selected: against a nominated Priority Target, Firewing models re-roll To Hit rolls of 1 and To Wound rolls of 1 (Armour Penetration rolls of 1 against Vehicles); a Firewing Independent Character gains +1 Attack in melee with a Priority Target. Up to three Firewing Troops units may select Forward Deployment — Infiltrate.'
+          }
+          for r in root.findall('.//'+Q('rule')):
+              nm=r.get('name')
+              if nm not in wing_extra:continue
+              d=r.find(Q('description'))
+              if d is None: d=ET.SubElement(r,Q('description'))
+              text=d.text or ''
+              if wing_extra[nm] not in text: d.text=text.rstrip()+(' ' if text.strip() else '')+wing_extra[nm]
+
+          # Refresh ids and validate the Dark Angels package.
+          idx=rebuild()
+          expected={
+            'da22-deathwing-companions':'cat-elites','da22-deathwing-term-comp':'cat-elites','da22-cenobium':'cat-elites','da22-interemptors':'cat-elites','da22-enigmatus':'cat-elites',
+            'da22-corswain':'cat-hq','da22-sedras':'cat-hq','da22-redloss':'cat-hq','da22-holguin':'cat-hq','da22-lion':'cat-low',
+            'r40-da-vow-veteran':'cat-troops','r40-da-vow-terminator':'cat-troops','r40-da-eskaton-destroyer':'cat-troops','r40-da-eskaton-interemptor':'cat-troops','r40-da-steel-predator':'cat-troops','r40-da-arrow-bike':'cat-troops','r40-da-arrow-sky':'cat-troops','r40-da-serpent-seeker':'cat-troops'
+          }
+          for uid,cat in expected.items():
+              e=get(uid); assert any(x.get('targetId')==cat for x in e.findall('./'+Q('categoryLinks')+'/'+Q('categoryLink'))),(uid,cat)
+          assert get('da22-lion').get('name').startswith('Lion El')
+          assert get('r40-da-forward-deployment') is not None
+          root.set('revision','40'); root.set('gameSystemRevision','13')
+          body=ET.tostring(root,encoding='unicode',short_empty_elements=True)
+          xml='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'+body+'\n'
+          CAT.write_text(xml,encoding='utf-8',newline='\n')
+          print('Revision 40 Dark Angels complete')
+          PY
+          git diff --check
+          rm -f .github/r40-dark-angels-inspect.txt .github/workflows/inspect-r40-dark-angels.yml
+      - name: Commit Revision 40
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' .github
+          git commit -m 'Revision 40: finish Dark Angels package' || exit 0
+          git push
