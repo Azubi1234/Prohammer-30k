@@ -1,0 +1,98 @@
+name: Apply Revision 36 generic Rite force-org fix
+on:
+  push:
+    paths: ['.github/workflows/fix-generic-rites-r36.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move Rite duplicate units into selectable force-org entries
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          CAT=Path('Legiones Astartes.cat')
+          NS='http://www.battlescribe.net/schema/catalogueSchema'
+          ET.register_namespace('',NS)
+          C=lambda t:f'{{{NS}}}{t}'
+          tree=ET.parse(CAT); root=tree.getroot()
+          assert root.get('revision')=='35', root.get('revision')
+          assert root.get('gameSystemRevision')=='13'
+
+          shared=root.find(C('sharedSelectionEntries'))
+          selectable=root.find(C('selectionEntries'))
+          assert shared is not None and selectable is not None
+
+          # These were already cloned in Revision 35 with Troops category links and
+          # Rite-gated hidden modifiers, but sharedSelectionEntries are definitions,
+          # not top-level roster choices. Move the cloned roots into selectionEntries
+          # so New Recruit actually presents them in the Troops force-org section.
+          clone_ids=[
+              'r35-pride-veteran-veteran-unit',
+              'r35-pride-terminator-terminator-unit',
+              'r35-breakthrough-predator-hs-predator',
+              'r35-destroyer-troops-destroyer-unit',
+              'r35-fury-dread-dreadnought-unit',
+              'r35-fury-contemptor-contemptor-unit',
+              'r35-sky-troops-fa-sky-hunter',
+          ]
+
+          direct_shared={e.get('id'):e for e in shared.findall(C('selectionEntry'))}
+          direct_selectable={e.get('id'):e for e in selectable.findall(C('selectionEntry'))}
+
+          moved=[]
+          for cid in clone_ids:
+              if cid in direct_selectable:
+                  e=direct_selectable[cid]
+              else:
+                  e=direct_shared.get(cid)
+                  assert e is not None, f'Missing Rite clone {cid}'
+                  shared.remove(e)
+                  selectable.append(e)
+                  moved.append(cid)
+
+              cats=e.find(C('categoryLinks'))
+              assert cats is not None, cid
+              primary=None
+              for cl in cats.findall(C('categoryLink')):
+                  if cl.get('primary')=='true':
+                      primary=cl; break
+              assert primary is not None, cid
+              assert primary.get('targetId')=='cat-troops', (cid, primary.attrib)
+
+          root.set('revision','36')
+          body=ET.tostring(root,encoding='unicode',short_empty_elements=True)
+          xml='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'+body+'\n'
+          CAT.write_text(xml,encoding='utf-8',newline='\n')
+
+          # Validation: the Rite variants must now be direct selectable roots,
+          # not merely shared definitions.
+          rr=ET.parse(CAT).getroot()
+          assert rr.get('revision')=='36'
+          rs=rr.find(C('selectionEntries')); rshared=rr.find(C('sharedSelectionEntries'))
+          selectable_ids={e.get('id') for e in rs.findall(C('selectionEntry'))}
+          shared_ids={e.get('id') for e in rshared.findall(C('selectionEntry'))}
+          for cid in clone_ids:
+              assert cid in selectable_ids, cid
+              assert cid not in shared_ids, cid
+          text=CAT.read_text(encoding='utf-8')
+          assert '<ns0:' not in text[:2000]
+          print('Revision 36: Rite Troops variants are direct force-org selections')
+          print('Moved:', ', '.join(moved))
+          PY
+          git diff --check
+      - name: Commit Revision 36
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat'
+          git commit -m 'Revision 36: expose Rite units in force organisation'
+          git push
