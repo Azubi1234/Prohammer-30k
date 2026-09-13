@@ -1,0 +1,25 @@
+name: Inspect revision 21 builder
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/inspect-rev21.yml'
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect builder source
+        shell: python
+        run: |
+          from pathlib import Path
+          import base64,zlib
+          payload=''.join(Path(f'.github/build/rev21.{i:02d}').read_text().strip() for i in range(4))
+          src=zlib.decompress(base64.b64decode(payload)).decode('utf-8')
+          lines=src.splitlines()
+          print('TOTAL LINES',len(lines))
+          for i,line in enumerate(lines,1):
+              if i <= 220 or 430 <= i <= 620:
+                  print(f'{i:04d}: {line}')
