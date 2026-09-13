@@ -1,0 +1,52 @@
+name: Inspect R39 Destroyer targets
+on:
+  push:
+    paths: ['.github/workflows/inspect-r39-destroyer.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect relevant catalogue nodes
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          CAT=Path('Legiones Astartes.cat')
+          NS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{NS}}}{t}'
+          root=ET.parse(CAT).getroot()
+          pm={c:p for p in root.iter() for c in p}
+          def path(e):
+              parts=[]
+              while e is not None:
+                  if e.get('id') or e.get('name'):
+                      parts.append(f"{e.tag.split('}')[-1]}:{e.get('id')}:{e.get('name')}")
+                  e=pm.get(e)
+              return ' > '.join(reversed(parts))
+          keys=('destroyer','rad missile','phosphex','moritat','missile launcher with suspensor','missile launcher')
+          out=[f"CAT rev={root.get('revision')} GST={root.get('gameSystemRevision')}\n"]
+          for e in root.iter():
+              n=(e.get('name') or '').lower()
+              if any(k in n for k in keys):
+                  out.append('\n### '+path(e))
+                  # Dump this node and descendants, compact but enough to inspect constraints/modifiers/targets.
+                  for q in e.iter():
+                      tag=q.tag.split('}')[-1]
+                      if tag in ('selectionEntry','selectionEntryGroup','entryLink','constraint','modifier','condition','cost','rule','description','profile','characteristic'):
+                          attrs=' '.join(f'{k}={v!r}' for k,v in q.attrib.items())
+                          txt=(q.text or '').strip()
+                          out.append('  '+tag+' '+attrs+((' TEXT='+txt) if txt else ''))
+          Path('inspection-r39-destroyer.txt').write_text('\n'.join(out),encoding='utf-8')
+          PY
+      - name: Commit inspection
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add inspection-r39-destroyer.txt
+          git commit -m 'Inspect Revision 39 Destroyer Company targets' || exit 0
+          git push
