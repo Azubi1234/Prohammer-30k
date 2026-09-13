@@ -1,0 +1,211 @@
+name: Apply Revision 35 generic Rites
+on:
+  push:
+    paths: ['.github/workflows/apply-generic-rites-r35.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply generic Rite of War mechanics
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import copy, re
+          import xml.etree.ElementTree as ET
+
+          CAT=Path('Legiones Astartes.cat')
+          NS='http://www.battlescribe.net/schema/catalogueSchema'
+          ET.register_namespace('',NS)
+          C=lambda t:f'{{{NS}}}{t}'
+          tree=ET.parse(CAT); root=tree.getroot()
+          assert root.get('revision')=='34', root.get('revision')
+          assert root.get('gameSystemRevision')=='13'
+
+          ORDER={'constraints':10,'costs':20,'profiles':30,'rules':40,'selectionEntries':50,'selectionEntryGroups':60,'entryLinks':70,'categoryLinks':80,'modifiers':90}
+          def ensure(parent,tag):
+              q=parent.find(C(tag))
+              if q is not None:return q
+              q=ET.Element(C(tag)); rank=ORDER.get(tag,999)
+              for i,ch in enumerate(list(parent)):
+                  if ORDER.get(ch.tag.split('}')[-1],999)>rank:
+                      parent.insert(i,q); return q
+              parent.append(q); return q
+          def byid(i): return next((e for e in root.iter() if e.get('id')==i),None)
+          def cost(e,val):
+              cs=ensure(e,'costs')
+              ET.SubElement(cs,C('cost'),{'name':'Points','typeId':'pts','value':str(val)})
+          def max_constraint(e,ident,val,scope='force'):
+              cs=ensure(e,'constraints')
+              ET.SubElement(cs,C('constraint'),{'id':ident,'field':'selections','scope':scope,'value':str(val),'percentValue':'false','shared':'true','includeChildSelections':'false','includeChildForces':'false','type':'max'})
+          def cond(parent,rite_id,typ='atLeast',value='1'):
+              conditions=ensure(parent,'conditions') if parent.tag!=C('conditions') else parent
+              return ET.SubElement(conditions,C('condition'),{'field':'selections','scope':'force','value':value,'percentValue':'false','shared':'true','includeChildSelections':'true','includeChildForces':'false','childId':rite_id,'type':typ})
+          def hidden_modifier(e,rite_id,show=False,extra_child=None):
+              mods=ensure(e,'modifiers')
+              m=ET.SubElement(mods,C('modifier'),{'type':'set','value':'false' if show else 'true','field':'hidden'})
+              cs=ensure(m,'conditions')
+              ET.SubElement(cs,C('condition'),{'field':'selections','scope':'force','value':'1','percentValue':'false','shared':'true','includeChildSelections':'true','includeChildForces':'false','childId':rite_id,'type':'atLeast'})
+              if extra_child:
+                  ET.SubElement(cs,C('condition'),{'field':'selections','scope':'parent','value':'1','percentValue':'false','shared':'true','includeChildSelections':'true','includeChildForces':'false','childId':extra_child,'type':'atLeast'})
+              return m
+          def add_rule(e,ident,name,text):
+              rules=ensure(e,'rules')
+              if any(x.get('id')==ident for x in rules): return
+              r=ET.SubElement(rules,C('rule'),{'id':ident,'name':name,'hidden':'false'})
+              ET.SubElement(r,C('description')).text=text
+          def remap_clone(elem,prefix):
+              cl=copy.deepcopy(elem)
+              oldids=[x.get('id') for x in cl.iter() if x.get('id')]
+              mapping={old:f'{prefix}-{old}' for old in oldids}
+              for x in cl.iter():
+                  if x.get('id') in mapping:x.set('id',mapping[x.get('id')])
+                  for a in ('targetId','childId'):
+                      if x.get(a) in mapping:x.set(a,mapping[x.get(a)])
+              return cl
+          def make_troops_clone(src_id,rite_id,prefix,max_selections=None):
+              src=byid(src_id); assert src is not None,src_id
+              cl=remap_clone(src,prefix)
+              cl.set('hidden','true')
+              # Change only the root battlefield-role category, preserving any extra category links.
+              cats=cl.find(C('categoryLinks')); assert cats is not None
+              role=None
+              for x in cats.findall(C('categoryLink')):
+                  if x.get('targetId') in {'cat-hq','cat-troops','cat-elites','cat-fast','cat-heavy'}:
+                      role=x; break
+              assert role is not None,(src_id,'role')
+              role.set('targetId','cat-troops'); role.set('name','Troops'); role.set('id',f'{prefix}-cat-troops')
+              hidden_modifier(cl,rite_id,show=True)
+              if max_selections is not None:max_constraint(cl,f'{prefix}-force-max',max_selections,'force')
+              add_rule(cl,f'{prefix}-rite-note','Rite of War Selection',f'This Troops version is available only while {byid(rite_id).get("name")} is selected.')
+              ensure(root,'sharedSelectionEntries').append(cl)
+              return cl
+          def find_group(unit_id,needle):
+              u=byid(unit_id); assert u is not None
+              return next((g for g in u.iter(C('selectionEntryGroup')) if needle.lower() in (g.get('name') or '').lower()),None)
+          def find_named(name): return [e for e in root.iter(C('selectionEntry')) if (e.get('name') or '').lower()==name.lower()]
+
+          # Alternate Force Organisation choices. These are true duplicate roster choices in Troops,
+          # gated by the selected Rite, so taking the Troops version does not consume the original slot.
+          make_troops_clone('veteran-unit','rite-pride','r35-pride-veteran')
+          make_troops_clone('terminator-unit','rite-pride','r35-pride-terminator')
+          make_troops_clone('hs-predator','rite-armoured-breakthrough','r35-breakthrough-predator',2)
+          make_troops_clone('destroyer-unit','rite-destroyer-company','r35-destroyer-troops')
+          make_troops_clone('dreadnought-unit','rite-fury-ancients','r35-fury-dread')
+          make_troops_clone('contemptor-unit','rite-fury-ancients','r35-fury-contemptor')
+          make_troops_clone('fa-sky-hunter','rite-sky-hunter','r35-skyhunter-troops')
+
+          # Absolute selection restrictions which can be expressed safely in the catalogue.
+          # Sky Hunter Phalanx forbids both generic Dreadnought entries.
+          hidden_modifier(byid('dreadnought-unit'),'rite-sky-hunter',show=False)
+          hidden_modifier(byid('contemptor-unit'),'rite-sky-hunter',show=False)
+          # Recon Company forbids generic Terminator squads and selectable Terminator armour.
+          hidden_modifier(byid('terminator-unit'),'rite-recon-company',show=False)
+          for nm in ('Terminator Armour','Tartaros Terminator Armour','Cataphractii Terminator Armour'):
+              for e in find_named(nm): hidden_modifier(e,'rite-recon-company',show=False)
+
+          # Assault Company: the existing squad-wide Veteran Jump Pack option is cloned at the Rite price.
+          vjp=byid('veteran-jump-packs')
+          if vjp is not None:
+              parent_map={c:p for p in root.iter() for c in p}
+              parent=parent_map[vjp]
+              ritejp=remap_clone(vjp,'r35-assault-jp')
+              ritejp.set('name','Jump Packs (Legion Assault Company — +10 pts/model)')
+              ritejp.set('hidden','true')
+              # Existing option is already built to price per model. Preserve that machinery and change 15 -> 10.
+              for x in ritejp.iter():
+                  if x.tag==C('cost') and x.get('typeId')=='pts' and abs(float(x.get('value','0'))-15)<0.001:x.set('value','10')
+                  if x.tag==C('modifier') and x.get('field')=='pts' and x.get('value') is not None and abs(float(x.get('value','0'))-15)<0.001:x.set('value','10')
+              hidden_modifier(ritejp,'rite-assault-company',show=True)
+              parent.append(ritejp)
+              hidden_modifier(vjp,'rite-assault-company',show=False)
+
+          # Recon Company: add the source-authorised Veteran sniper rifle replacement into Bolter Replacements.
+          vg=find_group('veteran-unit','Bolter Replacements')
+          if vg is not None:
+              candidates=[x for x in root.iter(C('entryLink')) if 'sniper rifle' in (x.get('name') or '').lower()]
+              if candidates:
+                  el=copy.deepcopy(candidates[0]); old=el.get('id'); el.set('id','r35-recon-veteran-sniper')
+                  for x in el.iter():
+                      if x is not el and x.get('id'): x.set('id','r35-recon-'+x.get('id'))
+                  el.set('name','Sniper Rifle (Recon Company; replaces Bolter or Bolt Pistol + Chainsword)')
+                  el.set('hidden','true')
+                  # Force source price to +5 where the copied link itself carries a points value.
+                  for x in el.iter(C('cost')):
+                      if x.get('typeId')=='pts':x.set('value','5')
+                  hidden_modifier(el,'rite-recon-company',show=True)
+                  ensure(vg,'entryLinks').append(el)
+
+          # Destroyer Company: present an explicit Rite-only special-weapons block (max four selections).
+          du=byid('destroyer-unit')
+          if du is not None:
+              src_links=[x for x in du.iter(C('entryLink')) if any(k in (x.get('name') or '').lower() for k in ('flamer','grenade launcher'))]
+              if src_links:
+                  groups=ensure(du,'selectionEntryGroups')
+                  g=ET.SubElement(groups,C('selectionEntryGroup'),{'id':'r35-destroyer-special','name':'Destroyer Company — Special Pistols (up to 4)','hidden':'true','collective':'false','import':'true'})
+                  max_constraint(g,'r35-destroyer-special-max',4,'parent')
+                  hidden_modifier(g,'rite-destroyer-company',show=True)
+                  links=ensure(g,'entryLinks')
+                  seen=set()
+                  for src in src_links:
+                      key=(src.get('name') or '').lower()
+                      if key in seen:continue
+                      seen.add(key)
+                      z=copy.deepcopy(src); z.set('id','r35-destroyer-'+re.sub('[^a-z0-9]+','-',key).strip('-'))
+                      for x in z.iter(C('constraint')):
+                          x.set('id','r35-'+x.get('id','constraint'))
+                          if x.get('type')=='max':x.set('value','4')
+                      z.set('name',(src.get('name') or '').replace('replaces','replaces one Bolt Pistol;'))
+                      links.append(z)
+
+          # Clear builder-facing notes on each generic Rite so manual deployment/gameplay limitations remain explicit.
+          notes={
+            'rite-pride':'Veterans and Terminators now appear as Troops choices while this Rite is selected. The compulsory-Troops and Price of Failure clauses remain mandatory.',
+            'rite-orbital':'Transport, Reserve and Deep Strike permissions/limitations in this Rite must be followed. Unit-specific Drop Pod/Dreadclaw choices remain governed by capacity and the Rite text.',
+            'rite-armoured-spearhead':'Land Raider transport eligibility and the requirement for Infantry to begin embarked must be followed exactly as written.',
+            'rite-armoured-breakthrough':'Predator Strike Squadrons now appear in Troops while selected; the Rite permits no more than two such Troops selections and no more than one Fast Attack choice.',
+            'rite-assault-company':'The Veteran squad-wide Jump Pack option is repriced to +10 points per model while this Rite is selected. Compulsory Assault Squads, the Jump Pack character requirement and Heavy Support limit still apply.',
+            'rite-breacher-company':'Compulsory Breacher Squads, Boarding Shield character requirement and Fast Attack limitation remain mandatory.',
+            'rite-recon-company':'Veterans gain their Rite-only Sniper Rifle option. Generic Terminator armour choices and the generic Terminator Squad are hidden while this Rite is selected; all other Terminator-armoured models remain prohibited by the Rite text.',
+            'rite-destroyer-company':'Destroyer Squads now appear as Troops and the Rite-only Flamer/Grenade Launcher allowance is exposed. The compulsory Destroyer and Moritat requirements and Heavy Support limitation remain mandatory.',
+            'rite-fury-ancients':'Castraferrum and Contemptor Dreadnoughts now appear as Troops choices. The compulsory-Dreadnought, Techmarine and Victory Point clauses remain mandatory.',
+            'rite-sky-hunter':'Sky Hunter Jetbike Squadrons now appear as Troops choices and generic Dreadnoughts are unavailable. The Jetbike character requirement and Heavy Support limitation remain mandatory.',
+            'rite-tactical-company':'The army must include at least three Legion Tactical Squads, which must fulfil the compulsory Troops selections. Fury of the Legion functions exactly as written.'
+          }
+          for rid,text in notes.items():
+              e=byid(rid); assert e is not None,rid
+              add_rule(e,'r35-'+rid+'-builder','Builder Effects',text)
+
+          # Bump and canonicalise.
+          root.set('revision','35'); root.set('gameSystemRevision','13')
+          body=ET.tostring(root,encoding='unicode',short_empty_elements=True)
+          xml='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'+body+'\n'
+          CAT.write_text(xml,encoding='utf-8',newline='\n')
+
+          # Validation: XML, canonical namespace, unique IDs and expected generated entries.
+          rr=ET.parse(CAT).getroot(); assert rr.get('revision')=='35'
+          text=CAT.read_text(encoding='utf-8'); assert '<ns0:' not in text[:2000]
+          ids=[]
+          for e in rr.iter():
+              if e.get('id'):ids.append(e.get('id'))
+          dups={x for x in ids if ids.count(x)>1}
+          assert not dups, sorted(dups)[:20]
+          allids=set(ids)
+          for rid in ['r35-pride-veteran-veteran-unit','r35-pride-terminator-terminator-unit','r35-breakthrough-predator-hs-predator','r35-destroyer-troops-destroyer-unit','r35-fury-dread-dreadnought-unit','r35-fury-contemptor-contemptor-unit','r35-skyhunter-troops-fa-sky-hunter']:
+              assert rid in allids,rid
+          print('Generic Rites mechanically integrated: Catalogue Revision 35')
+          PY
+          git diff --check
+      - name: Commit Revision 35
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat'
+          git commit -m 'Revision 35: mechanize generic Rites of War'
+          git push
