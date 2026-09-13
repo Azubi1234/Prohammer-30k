@@ -1,8 +1,0 @@
-name: rev30 watch
-on:
-  workflow_dispatch:
-jobs:
-  noop:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo watch
