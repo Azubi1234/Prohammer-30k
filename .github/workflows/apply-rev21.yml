@@ -46,36 +46,41 @@ jobs:
           import base64, zlib
           payload=''.join(Path(f'.github/build/rev21.{i:02d}').read_text().strip() for i in range(4))
           script=zlib.decompress(base64.b64decode(payload)).decode('utf-8')
-          replacements={
-            "assert len(ids)==len(set(ids)), 'duplicate XML ids detected'":"from collections import Counter\ndups=[k for k,v in Counter(ids).items() if v>1]\nprint('BUILDER DUPLICATE IDS:',dups)",
-            "assert required in names, required":"print('BUILDER REQUIRED:',required,'present=',required in names)",
+          fixes={
+            "ss=sec(parent,'selectionEntries')":"ss=parent if parent.tag==q('selectionEntries') else sec(parent,'selectionEntries')",
+            "catlink(p,'cat-hq','HQ','hq-praetor-cat')":"catlink(p,'cat-hq','HQ','hq-praetor-foc-cat')",
+            "catlink(c,'cat-hq','HQ','hq-centurion-cat')":"catlink(c,'cat-hq','HQ','hq-centurion-foc-cat')",
           }
-          for needle,replacement in replacements.items():
-              if needle not in script:
-                  raise RuntimeError('expected diagnostic target not found: '+needle)
-              script=script.replace(needle,replacement)
+          for old,new in fixes.items():
+              if old not in script:
+                  raise RuntimeError('expected builder target not found: '+old)
+              script=script.replace(old,new,1)
           Path('/tmp/build_hq.py').write_text(script)
           exec(compile(script,'/tmp/build_hq.py','exec'))
-      - name: Diagnose generated XML
+      - name: Validate XML
         shell: python
         run: |
           import xml.etree.ElementTree as ET
           from collections import Counter
           cat=ET.parse('Legiones Astartes.cat').getroot()
           gst=ET.parse('Prohammer 30k.gst').getroot()
-          print('REVISIONS',cat.get('revision'),gst.get('revision'))
-          for label,r in [('CAT',cat),('GST',gst)]:
+          assert cat.get('revision')=='21'
+          assert gst.get('revision')=='8'
+          for r in (cat,gst):
               ids=[e.get('id') for e in r.iter() if e.get('id')]
               dups=[k for k,v in Counter(ids).items() if v>1]
-              print(label,'DUPLICATES',dups)
+              assert not dups, 'duplicate IDs: '+','.join(dups)
           ns='http://www.battlescribe.net/schema/catalogueSchema'
           q=lambda t:'{%s}%s'%(ns,t)
-          for container_name in ['selectionEntries','sharedSelectionEntries']:
-              container=cat.find(q(container_name))
-              names=[] if container is None else [e.get('name') for e in container.findall(q('selectionEntry'))]
-              print(container_name,'COUNT',len(names))
-              print(container_name,'HQ MATCHES',[n for n in names if n and any(k in n for k in ['Configuration','Praetor','Centurion','Damocles','Command Squad','Honour Guard'])])
-          raise SystemExit('diagnostic run complete')
+          names=[e.get('name') for e in cat.find(q('selectionEntries')).findall(q('selectionEntry'))]
+          for x in ['Army Configuration','Legion Praetor','Legion Centurion','Damocles Command Rhino']:
+              assert x in names,x
+          cfg=next(e for e in cat.find(q('selectionEntries')).findall(q('selectionEntry')) if e.get('name')=='Army Configuration')
+          legions=[e for e in cfg.iter(q('selectionEntry')) if (e.get('id') or '').startswith('legion-')]
+          rites=[e for e in cfg.iter(q('selectionEntry')) if (e.get('id') or '').startswith('rite-') and not (e.get('id') or '').endswith('-rule')]
+          assert len(legions)==18, len(legions)
+          assert len(rites)==11, len(rites)
+          print('validated revision',cat.get('revision'),'GST',gst.get('revision'),'legions',len(legions),'rites',len(rites))
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
