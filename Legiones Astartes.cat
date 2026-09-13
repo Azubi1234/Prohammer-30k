@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="22" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="7" type="catalogue">
-  <comment>Revision 22: Added Dark Angels Legion integration: mandatory Hexagrammaton Wings, Legion armoury foundations and plasma alternatives, six Legion Rites, unique formations, named characters and Lion El Jonson.</comment>
-  <readme>Core Legiones Astartes catalogue with Army Configuration, generic HQ/Consuls and the first Legion expansion. Selecting I — Dark Angels unlocks Hexagrammaton Wing choices, Dark Angels Rites, armoury options, unique units, named characters and the Lion while retaining the standard Legion roster.</readme>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="23" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="7" type="catalogue">
+  <comment>Revision 23: Added Lords of War and Aeronautica Imperialis slots, restricted Psychic Hoods to Librarians, removed cosmetic HQ prefixes from wargear labels, and simplified Tactical Squad automatic/scaling wargear presentation.</comment>
+  <readme>Core Legiones Astartes catalogue with Army Configuration, generic HQ/Consuls and the first Legion expansion. Selecting I — Dark Angels unlocks Hexagrammaton Wing choices, Dark Angels Rites, armoury options, unique units, named characters and the Lion while retaining the standard Legion roster. Revision 23 adds universal Lords of War and Aeronautica Imperialis slots, gates Psychic Hoods to Librarians, removes cosmetic HQ prefixes from wargear labels, and simplifies Tactical Squad base/scaling wargear presentation.</readme>
   <sharedSelectionEntries>
     <selectionEntry type="upgrade" import="true" name="Bolter" hidden="false" id="gear-bolter">
       <profiles>
@@ -1670,191 +1670,198 @@
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Artificer Armour" hidden="false" id="gear-hq-artificer">
+    <selectionEntry type="upgrade" import="true" name="Artificer Armour" hidden="false" id="gear-hq-artificer">
       <rules>
-        <rule name="HQ Artificer Armour" id="gear-hq-artificer-rule" hidden="false">
+        <rule name="Artificer Armour" id="gear-hq-artificer-rule" hidden="false">
           <description>Artificer Armour grants a 2+ Armour Save and does not count as Terminator Armour.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Terminator Armour" hidden="false" id="gear-hq-terminator">
+    <selectionEntry type="upgrade" import="true" name="Terminator Armour" hidden="false" id="gear-hq-terminator">
       <rules>
-        <rule name="HQ Terminator Armour" id="gear-hq-terminator-rule" hidden="false">
+        <rule name="Terminator Armour" id="gear-hq-terminator-rule" hidden="false">
           <description>2+ Armour Save, 5+ Invulnerable Save, Relentless, Bulky and Deep Strike; may not make Pursuit moves and may not embark upon Rhinos or Drop Pods.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Tartaros Terminator Armour" hidden="false" id="gear-hq-tartaros">
+    <selectionEntry type="upgrade" import="true" name="Tartaros Terminator Armour" hidden="false" id="gear-hq-tartaros">
       <rules>
-        <rule name="HQ Tartaros Terminator Armour" id="gear-hq-tartaros-rule" hidden="false">
+        <rule name="Tartaros Terminator Armour" id="gear-hq-tartaros-rule" hidden="false">
           <description>2+ Armour Save, 5+ Invulnerable Save, Relentless, Bulky and Deep Strike; may make Pursuit moves; may not embark upon Rhinos or Drop Pods.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Cataphractii Terminator Armour" hidden="false" id="gear-hq-cataphractii">
+    <selectionEntry type="upgrade" import="true" name="Cataphractii Terminator Armour" hidden="false" id="gear-hq-cataphractii">
       <rules>
-        <rule name="HQ Cataphractii Terminator Armour" id="gear-hq-cataphractii-rule" hidden="false">
+        <rule name="Cataphractii Terminator Armour" id="gear-hq-cataphractii-rule" hidden="false">
           <description>2+ Armour Save, 4+ Invulnerable Save, Relentless, Bulky and Deep Strike; may not Advance, make Pursuit moves or fire Overwatch; may not embark upon Rhinos or Drop Pods.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Refractor Field" hidden="false" id="gear-hq-refractor">
+    <selectionEntry type="upgrade" import="true" name="Refractor Field" hidden="false" id="gear-hq-refractor">
       <rules>
-        <rule name="HQ Refractor Field" id="gear-hq-refractor-rule" hidden="false">
+        <rule name="Refractor Field" id="gear-hq-refractor-rule" hidden="false">
           <description>Grants a 5+ Invulnerable Save.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Iron Halo" hidden="false" id="gear-hq-iron-halo">
+    <selectionEntry type="upgrade" import="true" name="Iron Halo" hidden="false" id="gear-hq-iron-halo">
       <rules>
-        <rule name="HQ Iron Halo" id="gear-hq-iron-halo-rule" hidden="false">
+        <rule name="Iron Halo" id="gear-hq-iron-halo-rule" hidden="false">
           <description>Grants a 4+ Invulnerable Save. An army may normally contain no more than one Iron Halo unless specifically stated otherwise.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Boarding Shield" hidden="false" id="gear-hq-boarding">
+    <selectionEntry type="upgrade" import="true" name="Boarding Shield" hidden="false" id="gear-hq-boarding">
       <rules>
-        <rule name="HQ Boarding Shield" id="gear-hq-boarding-rule" hidden="false">
+        <rule name="Boarding Shield" id="gear-hq-boarding-rule" hidden="false">
           <description>Grants a 5+ Invulnerable Save, occupies one hand and prevents the bonus Attack for fighting with two weapons.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Combat Shield" hidden="false" id="gear-hq-combat-shield">
+    <selectionEntry type="upgrade" import="true" name="Combat Shield" hidden="false" id="gear-hq-combat-shield">
       <rules>
-        <rule name="HQ Combat Shield" id="gear-hq-combat-shield-rule" hidden="false">
+        <rule name="Combat Shield" id="gear-hq-combat-shield-rule" hidden="false">
           <description>Grants a 6+ Invulnerable Save; does not occupy a hand and does not prevent the two-weapon bonus Attack.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Jump Pack" hidden="false" id="gear-hq-jump">
+    <selectionEntry type="upgrade" import="true" name="Jump Pack" hidden="false" id="gear-hq-jump">
       <rules>
-        <rule name="HQ Jump Pack" id="gear-hq-jump-rule" hidden="false">
+        <rule name="Jump Pack" id="gear-hq-jump-rule" hidden="false">
           <description>The bearer becomes Jump Infantry and follows the normal ProHammer Jump Infantry rules. It may not be combined with a Bike, Jetbike or Terminator Armour.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Space Marine Bike" hidden="false" id="gear-hq-bike">
+    <selectionEntry type="upgrade" import="true" name="Space Marine Bike" hidden="false" id="gear-hq-bike">
       <rules>
-        <rule name="HQ Space Marine Bike" id="gear-hq-bike-rule" hidden="false">
+        <rule name="Space Marine Bike" id="gear-hq-bike-rule" hidden="false">
           <description>The bearer becomes Bike unit type and follows the normal ProHammer Bike rules. The bike is armed with twin-linked bolters. It may not be combined with a Jump Pack, Jetbike or Terminator Armour.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Auspex" hidden="false" id="gear-hq-auspex">
+    <selectionEntry type="upgrade" import="true" name="Auspex" hidden="false" id="gear-hq-auspex">
       <rules>
-        <rule name="HQ Auspex" id="gear-hq-auspex-rule" hidden="false">
+        <rule name="Auspex" id="gear-hq-auspex-rule" hidden="false">
           <description>Detects Infiltrators and permits the pre-game anti-Infiltrator fire described in the Space Marine Armoury.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Bionics" hidden="false" id="gear-hq-bionics">
+    <selectionEntry type="upgrade" import="true" name="Bionics" hidden="false" id="gear-hq-bionics">
       <rules>
-        <rule name="HQ Bionics" id="gear-hq-bionics-rule" hidden="false">
+        <rule name="Bionics" id="gear-hq-bionics-rule" hidden="false">
           <description>When the bearer loses its final Wound, it may recover as described by the Space Marine Armoury on a roll of 6.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Digital Weapons" hidden="false" id="gear-hq-digital">
+    <selectionEntry type="upgrade" import="true" name="Digital Weapons" hidden="false" id="gear-hq-digital">
       <rules>
-        <rule name="HQ Digital Weapons" id="gear-hq-digital-rule" hidden="false">
+        <rule name="Digital Weapons" id="gear-hq-digital-rule" hidden="false">
           <description>Independent Character only; re-roll one failed To Wound roll per Assault phase.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Master-crafted Weapon" hidden="false" id="gear-hq-mastercraft">
+    <selectionEntry type="upgrade" import="true" name="Master-crafted Weapon" hidden="false" id="gear-hq-mastercraft">
       <rules>
-        <rule name="HQ Master-crafted Weapon" id="gear-hq-mastercraft-rule" hidden="false">
+        <rule name="Master-crafted Weapon" id="gear-hq-mastercraft-rule" hidden="false">
           <description>Apply to one weapon; re-roll one failed To Hit roll per player turn with that weapon.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Nuncio Vox" hidden="false" id="gear-hq-nuncio">
+    <selectionEntry type="upgrade" import="true" name="Nuncio Vox" hidden="false" id="gear-hq-nuncio">
       <rules>
-        <rule name="HQ Nuncio Vox" id="gear-hq-nuncio-rule" hidden="false">
+        <rule name="Nuncio Vox" id="gear-hq-nuncio-rule" hidden="false">
           <description>Assists friendly Deep Striking units as described in the Space Marine Armoury.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Psychic Hood" hidden="false" id="gear-hq-hood">
+    <selectionEntry type="upgrade" import="true" name="Psychic Hood" hidden="false" id="gear-hq-hood">
       <rules>
-        <rule name="HQ Psychic Hood" id="gear-hq-hood-rule" hidden="false">
+        <rule name="Psychic Hood" id="gear-hq-hood-rule" hidden="false">
           <description>Psykers only. May attempt to nullify enemy psychic powers using the ProHammer Psychic Hood rules.</description>
         </rule>
       </rules>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="hq-consul-librarian" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </conditions>
+        </modifier>
+      </modifiers>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Purity Seals" hidden="false" id="gear-hq-purity">
+    <selectionEntry type="upgrade" import="true" name="Purity Seals" hidden="false" id="gear-hq-purity">
       <rules>
-        <rule name="HQ Purity Seals" id="gear-hq-purity-rule" hidden="false">
+        <rule name="Purity Seals" id="gear-hq-purity-rule" hidden="false">
           <description>Improves control of Fall Back distance as described in the Space Marine Armoury.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Signum" hidden="false" id="gear-hq-signum">
+    <selectionEntry type="upgrade" import="true" name="Signum" hidden="false" id="gear-hq-signum">
       <rules>
-        <rule name="HQ Signum" id="gear-hq-signum-rule" hidden="false">
+        <rule name="Signum" id="gear-hq-signum-rule" hidden="false">
           <description>The bearer's unit may re-roll one failed shooting To Hit roll per Shooting phase.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Teleport Homer" hidden="false" id="gear-hq-homer">
+    <selectionEntry type="upgrade" import="true" name="Teleport Homer" hidden="false" id="gear-hq-homer">
       <rules>
-        <rule name="HQ Teleport Homer" id="gear-hq-homer-rule" hidden="false">
+        <rule name="Teleport Homer" id="gear-hq-homer-rule" hidden="false">
           <description>Friendly units arriving by teleportation do not scatter when deployed within the permitted range of the active Homer.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Terminator Honours" hidden="false" id="gear-hq-honours">
+    <selectionEntry type="upgrade" import="true" name="Terminator Honours" hidden="false" id="gear-hq-honours">
       <rules>
-        <rule name="HQ Terminator Honours" id="gear-hq-honours-rule" hidden="false">
+        <rule name="Terminator Honours" id="gear-hq-honours-rule" hidden="false">
           <description>The bearer gains +1 Attack.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Melta Bombs" hidden="false" id="gear-hq-melta-bombs">
+    <selectionEntry type="upgrade" import="true" name="Melta Bombs" hidden="false" id="gear-hq-melta-bombs">
       <rules>
-        <rule name="HQ Melta Bombs" id="gear-hq-melta-bombs-rule" hidden="false">
+        <rule name="Melta Bombs" id="gear-hq-melta-bombs-rule" hidden="false">
           <description>Against a vehicle in close combat, the bearer may exchange normal attacks for one Melta Bomb attack at Strength 8 + 2D6 Armour Penetration.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Narthecium" hidden="false" id="gear-hq-narthecium">
+    <selectionEntry type="upgrade" import="true" name="Narthecium" hidden="false" id="gear-hq-narthecium">
       <rules>
-        <rule name="HQ Narthecium" id="gear-hq-narthecium-rule" hidden="false">
+        <rule name="Narthecium" id="gear-hq-narthecium-rule" hidden="false">
           <description>A unit containing an Apothecary with a Narthecium may ignore the first eligible failed saving throw it suffers during each player turn, subject to the restrictions in the army list.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Reductor" hidden="false" id="gear-hq-reductor">
+    <selectionEntry type="upgrade" import="true" name="Reductor" hidden="false" id="gear-hq-reductor">
       <rules>
-        <rule name="HQ Reductor" id="gear-hq-reductor-rule" hidden="false">
+        <rule name="Reductor" id="gear-hq-reductor-rule" hidden="false">
           <description>If Victory Points are used and the Apothecary survives, recover 1 Victory Point for each slain friendly Legiones Astartes model that belonged to his unit, including attached Independent Characters.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Legion Vexilla" hidden="false" id="gear-hq-vexilla">
+    <selectionEntry type="upgrade" import="true" name="Legion Vexilla" hidden="false" id="gear-hq-vexilla">
       <rules>
-        <rule name="HQ Legion Vexilla" id="gear-hq-vexilla-rule" hidden="false">
+        <rule name="Legion Vexilla" id="gear-hq-vexilla-rule" hidden="false">
           <description>The bearer's unit adds +1 to its combat-resolution score. This bonus is not cumulative.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Sacred Standard" hidden="false" id="gear-hq-sacred">
+    <selectionEntry type="upgrade" import="true" name="Sacred Standard" hidden="false" id="gear-hq-sacred">
       <rules>
-        <rule name="HQ Sacred Standard" id="gear-hq-sacred-rule" hidden="false">
+        <rule name="Sacred Standard" id="gear-hq-sacred-rule" hidden="false">
           <description>Friendly Legiones Astartes units add +1 to combat-resolution in any close combat within 6". Not cumulative with another Sacred Standard or Legion Standard.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Legion Standard" hidden="false" id="gear-hq-legion-standard">
+    <selectionEntry type="upgrade" import="true" name="Legion Standard" hidden="false" id="gear-hq-legion-standard">
       <rules>
-        <rule name="HQ Legion Standard" id="gear-hq-legion-standard-rule" hidden="false">
+        <rule name="Legion Standard" id="gear-hq-legion-standard-rule" hidden="false">
           <description>Combines the effects of a Sacred Standard and a Crusade Relic. Only an army of 2,000 points or more may include one; it normally counts as the army's Crusade Relic.</description>
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="HQ Grenade Harness" hidden="false" id="gear-hq-grenade-harness">
+    <selectionEntry type="upgrade" import="true" name="Grenade Harness" hidden="false" id="gear-hq-grenade-harness">
       <rules>
-        <rule name="HQ Grenade Harness" id="gear-hq-grenade-harness-rule" hidden="false">
+        <rule name="Grenade Harness" id="gear-hq-grenade-harness-rule" hidden="false">
           <description>One-use 8" S3 AP– Assault 2, Blast grenade weapon; grants the Frag Grenade benefit where applicable.</description>
         </rule>
       </rules>
@@ -2067,6 +2074,9 @@
         </rule>
         <rule name="Fury of the Legion" id="tactical-fury" hidden="false">
           <description>The squad may declare Fury of the Legion in its Shooting phase if it did not move in the preceding Movement phase, did not arrive from Reserves or Deep Strike or disembark that turn, and at least five models remain armed with Bolters or Bolt Pistols. Models armed with Bolters or Bolt Pistols may fire those weapons twice: a Bolter fires 2 shots up to 24" or 4 shots up to 12", and a Bolt Pistol fires 2 shots. All Fury attacks are directed at the same target unless another rule permits otherwise. After using Fury, the squad may not enter Overwatch, make Return Fire or Stand &amp; Shoot reactions, or fire during its next friendly Shooting phase.</description>
+        </rule>
+        <rule name="Automatic Basic Wargear" id="rev23-tactical-wargear-auto" hidden="false">
+          <description>A Legion Tactical Squad begins with its listed basic wargear automatically. Squad-wide Chainsword purchases, Bolter-for-Chainsword exchanges and Krak Grenade purchases are selected once for the squad and their points scale with squad size; they are not selected model-by-model.</description>
         </rule>
       </rules>
       <selectionEntries>
@@ -18335,6 +18345,13 @@
               <costs>
                 <cost name="Points" typeId="pts" value="25" />
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="hq-consul-librarian" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+              </modifiers>
             </entryLink>
             <entryLink import="true" name="Purity Seals" id="hq-praetor-wg-9" type="selectionEntry" targetId="gear-hq-purity" hidden="false">
               <constraints>
@@ -20678,6 +20695,13 @@
               <costs>
                 <cost name="Points" typeId="pts" value="25" />
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="hq-consul-librarian" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
+              </modifiers>
             </entryLink>
             <entryLink import="true" name="Purity Seals" id="hq-centurion-wg-9" type="selectionEntry" targetId="gear-hq-purity" hidden="false">
               <constraints>
