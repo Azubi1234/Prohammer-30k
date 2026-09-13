@@ -1,0 +1,10 @@
+name: Revision 30 Praevian trigger
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-rev30-praevian-automata-trigger.yml'
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo trigger
