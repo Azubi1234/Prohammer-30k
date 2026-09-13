@@ -1,0 +1,2159 @@
+CAT 34 GST 13
+
+### veteran-unit
+selectionEntry id=veteran-unit name='Legion Veteran Squad' type=unit hidden=false
+  categoryLinks
+    categoryLink id=veteran-unit-cat name='Elites' type= hidden=false
+  selectionEntries
+    selectionEntry id=veteran-included name='Legion Veterans (included)' type=model hidden=false
+      constraints
+        constraint id=veteran-included-min name='' type=min hidden=
+        constraint id=veteran-included-max name='' type=max hidden=
+    selectionEntry id=veteran-sergeant name='Legion Veteran Sergeant' type=model hidden=false
+      constraints
+        constraint id=veteran-sergeant-min name='' type=min hidden=
+        constraint id=veteran-sergeant-max name='' type=max hidden=
+    selectionEntry id=veteran-additional name='Additional Legion Veteran' type=model hidden=false
+      constraints
+        constraint id=veteran-additional-max name='' type=max hidden=
+  selectionEntryGroups
+    selectionEntryGroup id=veteran-tactics name='Veteran Tactic (choose one)' type= hidden=false
+      constraints
+        constraint id=veteran-tactics-min name='' type=min hidden=
+        constraint id=veteran-tactics-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=veteran-tactic-resolve name='Resolve' type=upgrade hidden=false
+          constraints
+            constraint id=veteran-tactic-resolve-max name='' type=max hidden=
+        selectionEntry id=veteran-tactic-assault name='Assault Veterans' type=upgrade hidden=false
+          constraints
+            constraint id=veteran-tactic-assault-max name='' type=max hidden=
+        selectionEntry id=veteran-tactic-counter name='Counter-Assault' type=upgrade hidden=false
+          constraints
+            constraint id=veteran-tactic-counter-max name='' type=max hidden=
+        selectionEntry id=veteran-tactic-machine name='Machine Killers' type=upgrade hidden=false
+          constraints
+            constraint id=veteran-tactic-machine-max name='' type=max hidden=
+        selectionEntry id=veteran-tactic-recon name='Recon Veterans' type=upgrade hidden=false
+          constraints
+            constraint id=veteran-tactic-recon-max name='' type=max hidden=
+        selectionEntry id=veteran-tactic-marksmen name='Marksmen' type=upgrade hidden=false
+          constraints
+            constraint id=veteran-tactic-marksmen-max name='' type=max hidden=
+    selectionEntryGroup id=veteran-melee name='Close Combat Weapon Replacements' type= hidden=false
+      constraints
+        constraint id=veteran-melee-max name='' type=max hidden=
+      entryLinks
+        entryLink id=veteran-melee-chainaxe name='Chainaxe (replaces Chainsword)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-melee-chainaxe-max name='' type=max hidden=
+        entryLink id=veteran-melee-rending name='Rending Weapon (replaces Chainsword)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-melee-rending-max name='' type=max hidden=
+        entryLink id=veteran-melee-power name='Power Weapon (replaces Chainsword)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-melee-power-max name='' type=max hidden=
+    selectionEntryGroup id=veteran-ranged name='Bolter Replacements' type= hidden=false
+      constraints
+        constraint id=veteran-ranged-max name='' type=max hidden=
+      entryLinks
+        entryLink id=veteran-ranged-foe name='Foeblaster Boltgun (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-ranged-foe-max name='' type=max hidden=
+        entryLink id=veteran-ranged-cf name='Combi-Flamer (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-ranged-cf-max name='' type=max hidden=
+        entryLink id=veteran-ranged-cv name='Combi-Volkite Charger (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-ranged-cv-max name='' type=max hidden=
+        entryLink id=veteran-ranged-cm name='Combi-Meltagun (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-ranged-cm-max name='' type=max hidden=
+        entryLink id=veteran-ranged-cp name='Combi-Plasma Gun (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-ranged-cp-max name='' type=max hidden=
+    selectionEntryGroup id=veteran-individual name='Individual Wargear' type= hidden=false
+      entryLinks
+        entryLink id=veteran-shields name='Combat Shield (per model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-shields-max name='' type=max hidden=
+        entryLink id=veteran-bombs name='Melta Bombs (per model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-bombs-max name='' type=max hidden=
+        entryLink id=veteran-krak name='Krak Grenades (+2 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-krak-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=veteran-jump-packs name='Jump Packs (+15 pts/model)' type=upgrade hidden=false
+          constraints
+            constraint id=veteran-jump-packs-max name='' type=max hidden=
+    selectionEntryGroup id=veteran-specialists name='Specialist Weapons (1 per 5 models)' type= hidden=false
+      constraints
+        constraint id=veteran-specialists-max name='' type=max hidden=
+      entryLinks
+        entryLink id=veteran-sp-rotor name='Rotor Cannon (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sp-rotor-max name='' type=max hidden=
+        entryLink id=veteran-sp-flamer name='Flamer (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sp-flamer-max name='' type=max hidden=
+        entryLink id=veteran-sp-melta name='Meltagun (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sp-melta-max name='' type=max hidden=
+        entryLink id=veteran-sp-plasma name='Plasma Gun (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sp-plasma-max name='' type=max hidden=
+        entryLink id=veteran-sp-vc name='Volkite Charger (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sp-vc-max name='' type=max hidden=
+        entryLink id=veteran-sp-vcal name='Volkite Caliver (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sp-vcal-max name='' type=max hidden=
+        entryLink id=veteran-sp-hf name='Heavy Flamer with Suspensor Web (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sp-hf-max name='' type=max hidden=
+        entryLink id=veteran-sp-hb name='Heavy Bolter with Suspensor Web (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sp-hb-max name='' type=max hidden=
+        entryLink id=veteran-sp-ml name='Missile Launcher with Suspensor Web (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sp-ml-max name='' type=max hidden=
+        entryLink id=da22-alt-pg-2 name='Calibanite Plasma Gun' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pg-2-2 name='' type=max hidden=
+        entryLink id=da22-alt-pr-2 name='Plasma Repeater' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pr-2-2 name='' type=max hidden=
+        entryLink id=da22-alt-pb-2 name='Plasma Burner' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pb-2-2 name='' type=max hidden=
+    selectionEntryGroup id=veteran-equipment name='Squad Equipment' type= hidden=false
+      entryLinks
+        entryLink id=veteran-vexilla name='Legion Vexilla' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-vexilla-max name='' type=max hidden=
+        entryLink id=veteran-nuncio name='Nuncio Vox' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-nuncio-max name='' type=max hidden=
+    selectionEntryGroup id=veteran-sgt-armoury name='Legion Veteran Sergeant — Additional Armoury (max 50 pts)' type= hidden=false
+      constraints
+        constraint id=veteran-sgt-armoury-pts-max name='' type=max hidden=
+      entryLinks
+        entryLink id=veteran-sgt-hf name='Hand Flamer' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-hf-max name='' type=max hidden=
+        entryLink id=veteran-sgt-lc name='Lightning Claw' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-lc-max name='' type=max hidden=
+        entryLink id=veteran-sgt-pair name='Pair of Lightning Claws' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-pair-max name='' type=max hidden=
+        entryLink id=veteran-sgt-pp name='Plasma Pistol' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-pp-max name='' type=max hidden=
+        entryLink id=veteran-sgt-pf name='Power Fist' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-pf-max name='' type=max hidden=
+        entryLink id=veteran-sgt-th name='Thunder Hammer' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-th-max name='' type=max hidden=
+        entryLink id=veteran-sgt-vs name='Volkite Serpenta' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-vs-max name='' type=max hidden=
+        entryLink id=veteran-sgt-cb name='Combi-Bolter' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-cb-max name='' type=max hidden=
+        entryLink id=veteran-sgt-cg name='Combi-Grenade Launcher' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-cg-max name='' type=max hidden=
+        entryLink id=veteran-sgt-sb name='Storm Bolter' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-sb-max name='' type=max hidden=
+        entryLink id=veteran-sgt-auspex name='Auspex' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-auspex-max name='' type=max hidden=
+        entryLink id=veteran-sgt-bionics name='Bionics' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-bionics-max name='' type=max hidden=
+        entryLink id=veteran-sgt-purity name='Purity Seals' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-purity-max name='' type=max hidden=
+        entryLink id=veteran-sgt-homer name='Teleport Homer' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-sgt-homer-max name='' type=max hidden=
+        entryLink id=da22-alt-pp-5 name='Calibanite Plasma Pistol' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pp-5-2 name='' type=max hidden=
+        entryLink id=rev24-veteran-unit-sgt-refractor name='Refractor Field' type=selectionEntry hidden=false
+          constraints
+            constraint id=rev24-veteran-unit-sgt-refractor-max name='' type=max hidden=
+    selectionEntryGroup id=veteran-transport name='Dedicated Transport' type= hidden=false
+      constraints
+        constraint id=veteran-transport-max name='' type=max hidden=
+      entryLinks
+        entryLink id=veteran-tr-rhino name='Rhino' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-tr-rhino-max name='' type=max hidden=
+        entryLink id=veteran-tr-pod name='Drop Pod' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-tr-pod-max name='' type=max hidden=
+        entryLink id=veteran-tr-dc name='Dreadclaw Drop Pod' type=selectionEntry hidden=false
+          constraints
+            constraint id=veteran-tr-dc-max name='' type=max hidden=
+    selectionEntryGroup id=da-wing-veteran-unit name='Hexagrammaton Wing' type= hidden=false
+      constraints
+        constraint id=da-wing-veteran-unit-min name='' type=min hidden=
+        constraint id=da-wing-veteran-unit-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=da-wing-veteran-unit-0 name='Stormwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-veteran-unit-0-max name='' type=max hidden=
+        selectionEntry id=da-wing-veteran-unit-1 name='Deathwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-veteran-unit-1-max name='' type=max hidden=
+        selectionEntry id=da-wing-veteran-unit-2 name='Dreadwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-veteran-unit-2-max name='' type=max hidden=
+        selectionEntry id=da-wing-veteran-unit-3 name='Ironwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-veteran-unit-3-max name='' type=max hidden=
+        selectionEntry id=da-wing-veteran-unit-4 name='Firewing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-veteran-unit-4-max name='' type=max hidden=
+        selectionEntry id=da-wing-veteran-unit-5 name='Ravenwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-veteran-unit-5-max name='' type=max hidden=
+
+### tactical-unit
+selectionEntry id=tactical-unit name='Legion Tactical Squad' type=unit hidden=false
+  categoryLinks
+    categoryLink id=tactical-cat name='Troops' type= hidden=false
+  selectionEntries
+    selectionEntry id=tac-marine name='Legion Tactical Marine' type=model hidden=false
+      constraints
+        constraint id=tac-marine-min name='' type=min hidden=
+        constraint id=tac-marine-max name='' type=max hidden=
+    selectionEntry id=tac-sergeant name='Legion Tactical Sergeant' type=model hidden=false
+      constraints
+        constraint id=tac-sgt-min name='' type=min hidden=
+        constraint id=tac-sgt-max name='' type=max hidden=
+      selectionEntryGroups
+        selectionEntryGroup id=sgt-armoury name='Sergeant Armoury (max 50 pts)' type= hidden=false
+          constraints
+            constraint id=sgt-armoury-pts-max name='' type=max hidden=
+          selectionEntryGroups
+            selectionEntryGroup id=sgt-weapons name='Sergeant Armoury - Weapons' type= hidden=false
+              constraints
+              selectionEntryGroups
+            selectionEntryGroup id=sgt-wargear name='Sergeant Armoury - Wargear' type= hidden=false
+              entryLinks
+          entryLinks
+            entryLink id=rev24-tactical-unit-sgt-refractor name='Refractor Field' type=selectionEntry hidden=false
+              constraints
+  selectionEntryGroups
+    selectionEntryGroup id=tac-loadout name='Squad Weapons' type= hidden=false
+      constraints
+        constraint id=load-min name='' type=min hidden=
+        constraint id=load-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=load-standard name='Bolters + Bolt Pistols' type=upgrade hidden=false
+          entryLinks
+            entryLink id=load-standard-b name='Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=load-standard-p name='Bolt Pistol' type=selectionEntry hidden=false
+              constraints
+        selectionEntry id=load-add-chainswords name='Bolters + Bolt Pistols + Chainswords (+2 pts/model)' type=upgrade hidden=false
+          entryLinks
+            entryLink id=load-add-b name='Bolter' type=selectionEntry hidden=false
+            entryLink id=load-add-p name='Bolt Pistol' type=selectionEntry hidden=false
+            entryLink id=load-add-c name='Chainsword' type=selectionEntry hidden=false
+        selectionEntry id=load-exchange name='Exchange Bolters for Chainswords (Free)' type=upgrade hidden=false
+          entryLinks
+            entryLink id=load-ex-p name='Bolt Pistol' type=selectionEntry hidden=false
+            entryLink id=load-ex-c name='Chainsword' type=selectionEntry hidden=false
+    selectionEntryGroup id=tac-grenades name='Squad Grenades' type= hidden=false
+      entryLinks
+        entryLink id=tac-krak name='Krak Grenades (+2 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=tac-krak-max name='' type=max hidden=
+    selectionEntryGroup id=tac-heavy-weapons name='Heavy Weapons' type= hidden=false
+      constraints
+        constraint id=tac-heavy-max name='' type=max hidden=
+      entryLinks
+        entryLink id=hv-hb name='Heavy Bolter' type=selectionEntry hidden=false
+          constraints
+            constraint id=hv-hb-max name='' type=max hidden=
+        entryLink id=hv-ml name='Missile Launcher' type=selectionEntry hidden=false
+          constraints
+            constraint id=hv-ml-max name='' type=max hidden=
+        entryLink id=hv-ac name='Autocannon' type=selectionEntry hidden=false
+          constraints
+            constraint id=hv-ac-max name='' type=max hidden=
+        entryLink id=hv-mm name='Multi-Melta' type=selectionEntry hidden=false
+          constraints
+            constraint id=hv-mm-max name='' type=max hidden=
+        entryLink id=hv-pc name='Plasma Cannon' type=selectionEntry hidden=false
+          constraints
+            constraint id=hv-pc-max name='' type=max hidden=
+        entryLink id=hv-lc name='Lascannon' type=selectionEntry hidden=false
+          constraints
+            constraint id=hv-lc-max name='' type=max hidden=
+        entryLink id=da22-alt-pc-0 name='Calibanite Plasma Cannon' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pc-0-2 name='' type=max hidden=
+    selectionEntryGroup id=tac-special-weapons name='Special Weapons' type= hidden=false
+      constraints
+        constraint id=tac-special-max name='' type=max hidden=
+      entryLinks
+        entryLink id=sp-f name='Flamer' type=selectionEntry hidden=false
+          constraints
+            constraint id=sp-f-max name='' type=max hidden=
+        entryLink id=sp-m name='Meltagun' type=selectionEntry hidden=false
+          constraints
+            constraint id=sp-m-max name='' type=max hidden=
+        entryLink id=sp-p name='Plasma Gun' type=selectionEntry hidden=false
+          constraints
+            constraint id=sp-p-max name='' type=max hidden=
+        entryLink id=sp-vc name='Volkite Charger' type=selectionEntry hidden=false
+          constraints
+            constraint id=sp-vc-max name='' type=max hidden=
+        entryLink id=sp-vcal name='Volkite Caliver' type=selectionEntry hidden=false
+          constraints
+            constraint id=sp-vcal-max name='' type=max hidden=
+        entryLink id=sp-r name='Rotor Cannon' type=selectionEntry hidden=false
+          constraints
+            constraint id=sp-r-max name='' type=max hidden=
+        entryLink id=da22-alt-pg-0 name='Calibanite Plasma Gun' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pg-0-2 name='' type=max hidden=
+        entryLink id=da22-alt-pr-0 name='Plasma Repeater' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pr-0-2 name='' type=max hidden=
+        entryLink id=da22-alt-pb-0 name='Plasma Burner' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pb-0-2 name='' type=max hidden=
+    selectionEntryGroup id=tac-equipment name='Squad Equipment' type= hidden=false
+      entryLinks
+        entryLink id=tac-vexilla name='Legion Vexilla' type=selectionEntry hidden=false
+          constraints
+            constraint id=tac-vexilla-max name='' type=max hidden=
+        entryLink id=tac-nuncio name='Nuncio Vox' type=selectionEntry hidden=false
+          constraints
+            constraint id=tac-nuncio-max name='' type=max hidden=
+    selectionEntryGroup id=tac-transport name='Dedicated Transport' type= hidden=true
+      constraints
+        constraint id=tac-transport-max name='' type=max hidden=
+      entryLinks
+        entryLink id=tac-rhino name='Rhino' type=selectionEntry hidden=false
+          constraints
+            constraint id=tac-rhino-max name='' type=max hidden=
+        entryLink id=tac-drop-pod name='Drop Pod' type=selectionEntry hidden=false
+          constraints
+            constraint id=tac-drop-pod-max name='' type=max hidden=
+        entryLink id=tac-dreadclaw name='Dreadclaw Drop Pod' type=selectionEntry hidden=false
+          constraints
+            constraint id=tac-dreadclaw-max name='' type=max hidden=
+    selectionEntryGroup id=da-wing-tactical-unit name='Hexagrammaton Wing' type= hidden=false
+      constraints
+        constraint id=da-wing-tactical-unit-min name='' type=min hidden=
+        constraint id=da-wing-tactical-unit-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=da-wing-tactical-unit-0 name='Stormwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-tactical-unit-0-max name='' type=max hidden=
+        selectionEntry id=da-wing-tactical-unit-1 name='Deathwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-tactical-unit-1-max name='' type=max hidden=
+        selectionEntry id=da-wing-tactical-unit-2 name='Dreadwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-tactical-unit-2-max name='' type=max hidden=
+        selectionEntry id=da-wing-tactical-unit-3 name='Ironwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-tactical-unit-3-max name='' type=max hidden=
+        selectionEntry id=da-wing-tactical-unit-4 name='Firewing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-tactical-unit-4-max name='' type=max hidden=
+        selectionEntry id=da-wing-tactical-unit-5 name='Ravenwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-tactical-unit-5-max name='' type=max hidden=
+
+### assault-unit
+selectionEntry id=assault-unit name='Legion Assault Squad' type=unit hidden=false
+  categoryLinks
+    categoryLink id=assault-cat name='Troops' type= hidden=false
+  entryLinks
+    entryLink id=assault-standard-bp name='Bolt Pistol' type=selectionEntry hidden=false
+      constraints
+        constraint id=assault-standard-bp-min name='' type=min hidden=
+        constraint id=assault-standard-bp-max name='' type=max hidden=
+    entryLink id=assault-standard-cs name='Chainsword' type=selectionEntry hidden=false
+      constraints
+        constraint id=assault-standard-cs-min name='' type=min hidden=
+        constraint id=assault-standard-cs-max name='' type=max hidden=
+  selectionEntries
+    selectionEntry id=assault-marine name='Legion Assault Marine' type=model hidden=false
+      constraints
+        constraint id=assault-marine-min name='' type=min hidden=
+        constraint id=assault-marine-max name='' type=max hidden=
+    selectionEntry id=assault-sergeant name='Legion Assault Sergeant' type=model hidden=false
+      constraints
+        constraint id=assault-sgt-min name='' type=min hidden=
+        constraint id=assault-sgt-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=assault-sgt-pair-claws name='Pair of Lightning Claws (replaces Bolt Pistol and Chainsword)' type=upgrade hidden=false
+          constraints
+            constraint id=assault-sgt-pair-claws-max name='' type=max hidden=
+          entryLinks
+            entryLink id=assault-sgt-pair-claws-link name='Pair of Lightning Claws' type=selectionEntry hidden=false
+      selectionEntryGroups
+        selectionEntryGroup id=assault-sgt-pistol name='Replace Bolt Pistol' type= hidden=false
+          constraints
+            constraint id=assault-sgt-pistol-max name='' type=max hidden=
+          entryLinks
+            entryLink id=assault-sgt-pistol-vs name='Volkite Serpenta' type=selectionEntry hidden=false
+            entryLink id=assault-sgt-pistol-hf name='Hand Flamer' type=selectionEntry hidden=false
+            entryLink id=assault-sgt-pistol-pp name='Plasma Pistol' type=selectionEntry hidden=false
+            entryLink id=da22-alt-pp-1 name='Calibanite Plasma Pistol' type=selectionEntry hidden=false
+        selectionEntryGroup id=assault-sgt-melee name='Replace Chainsword' type= hidden=false
+          constraints
+            constraint id=assault-sgt-melee-max name='' type=max hidden=
+          entryLinks
+            entryLink id=assault-sgt-melee-r name='Rending Weapon' type=selectionEntry hidden=false
+            entryLink id=assault-sgt-melee-pw name='Power Weapon' type=selectionEntry hidden=false
+            entryLink id=assault-sgt-melee-lc name='Lightning Claw' type=selectionEntry hidden=false
+            entryLink id=assault-sgt-melee-pf name='Power Fist' type=selectionEntry hidden=false
+            entryLink id=assault-sgt-melee-th name='Thunder Hammer' type=selectionEntry hidden=false
+        selectionEntryGroup id=assault-sgt-unit-wargear name='Sergeant Wargear' type= hidden=false
+          entryLinks
+            entryLink id=assault-sgt-shield name='Combat Shield' type=selectionEntry hidden=false
+              constraints
+            entryLink id=assault-sgt-melta-bombs name='Melta Bombs' type=selectionEntry hidden=false
+              constraints
+        selectionEntryGroup id=assault-sgt-armoury name='Additional Sergeant Armoury (max 50 pts)' type= hidden=false
+          constraints
+            constraint id=assault-sgt-armoury-pts-max name='' type=max hidden=
+          selectionEntryGroups
+            selectionEntryGroup id=assault-sgt-armoury-weapons name='Additional Armoury Weapon' type= hidden=false
+              constraints
+              selectionEntryGroups
+            selectionEntryGroup id=assault-sgt-armoury-wargear name='Wargear' type= hidden=false
+              entryLinks
+          entryLinks
+            entryLink id=rev24-assault-unit-sgt-refractor name='Refractor Field' type=selectionEntry hidden=false
+              constraints
+  selectionEntryGroups
+    selectionEntryGroup id=assault-squad-wargear name='Squad-wide Wargear' type= hidden=false
+      entryLinks
+        entryLink id=assault-squad-shields name='Combat Shields (+5 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=assault-squad-shields-max name='' type=max hidden=
+        entryLink id=assault-squad-melta-bombs name='Melta Bombs (+5 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=assault-squad-melta-bombs-max name='' type=max hidden=
+        entryLink id=assault-squad-krak name='Krak Grenades (+2 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=assault-squad-krak-max name='' type=max hidden=
+    selectionEntryGroup id=assault-weapon-exchanges name='Assault Weapon Exchanges (1 per 5 models)' type= hidden=false
+      constraints
+        constraint id=assault-weapon-exchanges-max name='' type=max hidden=
+      entryLinks
+        entryLink id=assault-ex-rending name='Rending Weapon (replaces Chainsword)' type=selectionEntry hidden=false
+          constraints
+            constraint id=assault-ex-rending-max name='' type=max hidden=
+        entryLink id=assault-ex-power name='Power Weapon (replaces Chainsword)' type=selectionEntry hidden=false
+          constraints
+            constraint id=assault-ex-power-max name='' type=max hidden=
+        entryLink id=assault-ex-serpenta name='Volkite Serpenta (replaces Bolt Pistol)' type=selectionEntry hidden=false
+          constraints
+            constraint id=assault-ex-serpenta-max name='' type=max hidden=
+        entryLink id=assault-ex-handflamer name='Hand Flamer (replaces Bolt Pistol)' type=selectionEntry hidden=false
+          constraints
+            constraint id=assault-ex-handflamer-max name='' type=max hidden=
+        entryLink id=assault-ex-plasma name='Plasma Pistol (replaces Bolt Pistol)' type=selectionEntry hidden=false
+          constraints
+            constraint id=assault-ex-plasma-max name='' type=max hidden=
+        entryLink id=da22-alt-pp-2 name='Calibanite Plasma Pistol' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pp-2-2 name='' type=max hidden=
+    selectionEntryGroup id=assault-equipment name='Squad Equipment' type= hidden=false
+      entryLinks
+        entryLink id=assault-vexilla name='Legion Vexilla' type=selectionEntry hidden=false
+          constraints
+            constraint id=assault-vexilla-max name='' type=max hidden=
+        entryLink id=assault-nuncio name='Nuncio Vox' type=selectionEntry hidden=false
+          constraints
+            constraint id=assault-nuncio-max name='' type=max hidden=
+    selectionEntryGroup id=da-wing-assault-unit name='Hexagrammaton Wing' type= hidden=false
+      constraints
+        constraint id=da-wing-assault-unit-min name='' type=min hidden=
+        constraint id=da-wing-assault-unit-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=da-wing-assault-unit-0 name='Stormwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-assault-unit-0-max name='' type=max hidden=
+        selectionEntry id=da-wing-assault-unit-1 name='Deathwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-assault-unit-1-max name='' type=max hidden=
+        selectionEntry id=da-wing-assault-unit-2 name='Dreadwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-assault-unit-2-max name='' type=max hidden=
+        selectionEntry id=da-wing-assault-unit-3 name='Ironwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-assault-unit-3-max name='' type=max hidden=
+        selectionEntry id=da-wing-assault-unit-4 name='Firewing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-assault-unit-4-max name='' type=max hidden=
+        selectionEntry id=da-wing-assault-unit-5 name='Ravenwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-assault-unit-5-max name='' type=max hidden=
+
+### breacher-unit
+selectionEntry id=breacher-unit name='Legion Breacher Siege Squad' type=unit hidden=false
+  categoryLinks
+    categoryLink id=breacher-cat name='Troops' type= hidden=false
+  entryLinks
+    entryLink id=breacher-standard-armour name='Hardened Power Armour' type=selectionEntry hidden=false
+      constraints
+        constraint id=breacher-standard-armour-min name='' type=min hidden=
+        constraint id=breacher-standard-armour-max name='' type=max hidden=
+    entryLink id=breacher-standard-bolter name='Bolter' type=selectionEntry hidden=false
+      constraints
+        constraint id=breacher-standard-bolter-min name='' type=min hidden=
+        constraint id=breacher-standard-bolter-max name='' type=max hidden=
+    entryLink id=breacher-standard-bp name='Bolt Pistol' type=selectionEntry hidden=false
+      constraints
+        constraint id=breacher-standard-bp-min name='' type=min hidden=
+        constraint id=breacher-standard-bp-max name='' type=max hidden=
+    entryLink id=breacher-standard-shield name='Boarding Shield' type=selectionEntry hidden=false
+      constraints
+        constraint id=breacher-standard-shield-min name='' type=min hidden=
+        constraint id=breacher-standard-shield-max name='' type=max hidden=
+  selectionEntries
+    selectionEntry id=breacher-marine name='Legion Breacher Marine' type=model hidden=false
+      constraints
+        constraint id=breacher-marine-min name='' type=min hidden=
+        constraint id=breacher-marine-max name='' type=max hidden=
+    selectionEntry id=breacher-sergeant name='Legion Breacher Sergeant' type=model hidden=false
+      constraints
+        constraint id=breacher-sgt-min name='' type=min hidden=
+        constraint id=breacher-sgt-max name='' type=max hidden=
+      selectionEntryGroups
+        selectionEntryGroup id=breacher-sgt-bolter name='Replace Bolter' type= hidden=false
+          constraints
+            constraint id=breacher-sgt-bolter-max name='' type=max hidden=
+          entryLinks
+            entryLink id=breacher-sgt-cf name='Combi-Flamer' type=selectionEntry hidden=false
+            entryLink id=breacher-sgt-cv name='Combi-Volkite Charger' type=selectionEntry hidden=false
+            entryLink id=breacher-sgt-cm name='Combi-Meltagun' type=selectionEntry hidden=false
+            entryLink id=breacher-sgt-cp name='Combi-Plasma Gun' type=selectionEntry hidden=false
+        selectionEntryGroup id=breacher-sgt-pistol name='Replace Bolt Pistol' type= hidden=false
+          constraints
+            constraint id=breacher-sgt-pistol-max name='' type=max hidden=
+          entryLinks
+            entryLink id=breacher-sgt-vs name='Volkite Serpenta' type=selectionEntry hidden=false
+            entryLink id=breacher-sgt-hf name='Hand Flamer' type=selectionEntry hidden=false
+            entryLink id=breacher-sgt-pp name='Plasma Pistol' type=selectionEntry hidden=false
+            entryLink id=da22-alt-pp-3 name='Calibanite Plasma Pistol' type=selectionEntry hidden=false
+        selectionEntryGroup id=breacher-sgt-unit-wargear name='Sergeant Wargear' type= hidden=false
+          entryLinks
+            entryLink id=breacher-sgt-charge name='Breaching Charge' type=selectionEntry hidden=false
+              constraints
+            entryLink id=breacher-sgt-melta name='Melta Bombs' type=selectionEntry hidden=false
+              constraints
+        selectionEntryGroup id=breacher-sgt-armoury name='Additional Sergeant Armoury (max 50 pts)' type= hidden=false
+          constraints
+            constraint id=breacher-sgt-armoury-pts-max name='' type=max hidden=
+          selectionEntryGroups
+            selectionEntryGroup id=breacher-sgt-armoury-weapons name='Additional Armoury Weapon (replaces one carried weapon)' type= hidden=false
+              constraints
+              selectionEntryGroups
+            selectionEntryGroup id=breacher-sgt-armoury-wargear name='Wargear' type= hidden=false
+              entryLinks
+  selectionEntryGroups
+    selectionEntryGroup id=breacher-squad-wargear name='Squad-wide Wargear' type= hidden=false
+      entryLinks
+        entryLink id=breacher-squad-melta name='Melta Bombs (+5 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=breacher-squad-melta-max name='' type=max hidden=
+        entryLink id=breacher-squad-krak name='Krak Grenades (+2 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=breacher-squad-krak-max name='' type=max hidden=
+    selectionEntryGroup id=breacher-specialists name='Specialist Weapons (1 per 5 models)' type= hidden=false
+      constraints
+        constraint id=breacher-specialists-max name='' type=max hidden=
+      entryLinks
+        entryLink id=breacher-sp-vc name='Volkite Charger (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=breacher-sp-vc-max name='' type=max hidden=
+        entryLink id=breacher-sp-vcal name='Volkite Caliver (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=breacher-sp-vcal-max name='' type=max hidden=
+        entryLink id=breacher-sp-rotor name='Rotor Cannon (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=breacher-sp-rotor-max name='' type=max hidden=
+        entryLink id=breacher-sp-flamer name='Flamer (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=breacher-sp-flamer-max name='' type=max hidden=
+        entryLink id=breacher-sp-melta name='Meltagun (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=breacher-sp-melta-max name='' type=max hidden=
+        entryLink id=breacher-sp-plasma name='Plasma Gun (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=breacher-sp-plasma-max name='' type=max hidden=
+        entryLink id=breacher-sp-lascutter name='Lascutter (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=breacher-sp-lascutter-max name='' type=max hidden=
+        entryLink id=breacher-sp-grav name='Graviton Gun (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=breacher-sp-grav-max name='' type=max hidden=
+        entryLink id=da22-alt-pg-1 name='Calibanite Plasma Gun' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pg-1-2 name='' type=max hidden=
+        entryLink id=da22-alt-pr-1 name='Plasma Repeater' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pr-1-2 name='' type=max hidden=
+        entryLink id=da22-alt-pb-1 name='Plasma Burner' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pb-1-2 name='' type=max hidden=
+    selectionEntryGroup id=breacher-equipment name='Squad Equipment' type= hidden=false
+      entryLinks
+        entryLink id=breacher-vexilla name='Legion Vexilla' type=selectionEntry hidden=false
+          constraints
+            constraint id=breacher-vexilla-max name='' type=max hidden=
+        entryLink id=breacher-nuncio name='Nuncio Vox' type=selectionEntry hidden=false
+          constraints
+            constraint id=breacher-nuncio-max name='' type=max hidden=
+    selectionEntryGroup id=da-wing-breacher-unit name='Hexagrammaton Wing' type= hidden=false
+      constraints
+        constraint id=da-wing-breacher-unit-min name='' type=min hidden=
+        constraint id=da-wing-breacher-unit-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=da-wing-breacher-unit-0 name='Stormwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-breacher-unit-0-max name='' type=max hidden=
+        selectionEntry id=da-wing-breacher-unit-1 name='Deathwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-breacher-unit-1-max name='' type=max hidden=
+        selectionEntry id=da-wing-breacher-unit-2 name='Dreadwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-breacher-unit-2-max name='' type=max hidden=
+        selectionEntry id=da-wing-breacher-unit-3 name='Ironwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-breacher-unit-3-max name='' type=max hidden=
+        selectionEntry id=da-wing-breacher-unit-4 name='Firewing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-breacher-unit-4-max name='' type=max hidden=
+        selectionEntry id=da-wing-breacher-unit-5 name='Ravenwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-breacher-unit-5-max name='' type=max hidden=
+
+### recon-unit
+selectionEntry id=recon-unit name='Legion Reconnaissance Squad' type=unit hidden=false
+  categoryLinks
+    categoryLink id=recon-cat name='Troops' type= hidden=false
+  entryLinks
+    entryLink id=recon-standard-armour name='Recon Armour' type=selectionEntry hidden=false
+      constraints
+        constraint id=recon-standard-armour-min name='' type=min hidden=
+        constraint id=recon-standard-armour-max name='' type=max hidden=
+    entryLink id=recon-standard-bolter name='Bolter' type=selectionEntry hidden=false
+      constraints
+        constraint id=recon-standard-bolter-min name='' type=min hidden=
+        constraint id=recon-standard-bolter-max name='' type=max hidden=
+    entryLink id=recon-standard-bp name='Bolt Pistol' type=selectionEntry hidden=false
+      constraints
+        constraint id=recon-standard-bp-min name='' type=min hidden=
+        constraint id=recon-standard-bp-max name='' type=max hidden=
+  selectionEntries
+    selectionEntry id=recon-marine name='Legion Recon Marine' type=model hidden=false
+      constraints
+        constraint id=recon-marine-min name='' type=min hidden=
+        constraint id=recon-marine-max name='' type=max hidden=
+    selectionEntry id=recon-sergeant name='Legion Recon Sergeant' type=model hidden=false
+      constraints
+        constraint id=recon-sgt-min name='' type=min hidden=
+        constraint id=recon-sgt-max name='' type=max hidden=
+      selectionEntryGroups
+        selectionEntryGroup id=recon-sgt-weapons name='Sergeant Weapon Options' type= hidden=false
+          constraints
+            constraint id=recon-sgt-weapons-max name='' type=max hidden=
+          selectionEntries
+            selectionEntry id=recon-sgt-pair-claws name='Pair of Lightning Claws (Armoury; replaces both weapons)' type=upgrade hidden=false
+              constraints
+              entryLinks
+          selectionEntryGroups
+            selectionEntryGroup id=recon-sgt-bolter name='Replace Bolter' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=recon-sgt-pistol name='Replace Bolt Pistol' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=recon-sgt-armoury-weapon name='Additional Armoury Weapon (replaces one existing weapon)' type= hidden=false
+              constraints
+              entryLinks
+        selectionEntryGroup id=recon-sgt-wargear name='Sergeant Wargear' type= hidden=false
+          entryLinks
+            entryLink id=recon-sgt-melta-bombs name='Melta Bombs' type=selectionEntry hidden=false
+              constraints
+        selectionEntryGroup id=recon-sgt-armoury name='Additional Sergeant Armoury (max 50 pts)' type= hidden=false
+          constraints
+            constraint id=recon-sgt-armoury-pts-max name='' type=max hidden=
+          selectionEntryGroups
+            selectionEntryGroup id=recon-sgt-armoury-wargear name='Wargear' type= hidden=false
+              entryLinks
+          entryLinks
+            entryLink id=rev24-recon-unit-sgt-refractor name='Refractor Field' type=selectionEntry hidden=false
+              constraints
+  selectionEntryGroups
+    selectionEntryGroup id=recon-marine-weapons name='Recon Marine Bolter Replacements' type= hidden=false
+      constraints
+        constraint id=recon-marine-weapons-max name='' type=max hidden=
+      entryLinks
+        entryLink id=recon-marine-shotgun name='Astartes Shotgun (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=recon-marine-shotgun-max name='' type=max hidden=
+        entryLink id=recon-marine-chainsword name='Chainsword (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=recon-marine-chainsword-max name='' type=max hidden=
+        entryLink id=recon-marine-combat-blade name='Combat Blade (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=recon-marine-combat-blade-max name='' type=max hidden=
+        entryLink id=recon-marine-sniper name='Sniper Rifle (replaces Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=recon-marine-sniper-max name='' type=max hidden=
+    selectionEntryGroup id=recon-squad-equipment name='Squad Equipment' type= hidden=false
+      entryLinks
+        entryLink id=recon-nuncio name='Nuncio Vox' type=selectionEntry hidden=false
+          constraints
+            constraint id=recon-nuncio-max name='' type=max hidden=
+        entryLink id=recon-squad-cameleoline name='Cameleoline (+5 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=recon-squad-cameleoline-max name='' type=max hidden=
+        entryLink id=recon-squad-krak name='Krak Grenades (+2 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=recon-squad-krak-max name='' type=max hidden=
+        entryLink id=recon-squad-melta-bombs name='Melta Bombs (+5 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=recon-squad-melta-bombs-max name='' type=max hidden=
+    selectionEntryGroup id=recon-transport name='Dedicated Transport' type= hidden=false
+      constraints
+        constraint id=recon-transport-max name='' type=max hidden=
+      entryLinks
+        entryLink id=recon-rhino name='Rhino' type=selectionEntry hidden=false
+          constraints
+            constraint id=recon-rhino-max name='' type=max hidden=
+    selectionEntryGroup id=da-wing-recon-unit name='Hexagrammaton Wing' type= hidden=false
+      constraints
+        constraint id=da-wing-recon-unit-min name='' type=min hidden=
+        constraint id=da-wing-recon-unit-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=da-wing-recon-unit-0 name='Stormwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-recon-unit-0-max name='' type=max hidden=
+        selectionEntry id=da-wing-recon-unit-1 name='Deathwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-recon-unit-1-max name='' type=max hidden=
+        selectionEntry id=da-wing-recon-unit-2 name='Dreadwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-recon-unit-2-max name='' type=max hidden=
+        selectionEntry id=da-wing-recon-unit-3 name='Ironwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-recon-unit-3-max name='' type=max hidden=
+        selectionEntry id=da-wing-recon-unit-4 name='Firewing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-recon-unit-4-max name='' type=max hidden=
+        selectionEntry id=da-wing-recon-unit-5 name='Ravenwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-recon-unit-5-max name='' type=max hidden=
+
+### destroyer-unit
+selectionEntry id=destroyer-unit name='Legion Destroyer Squad' type=unit hidden=false
+  categoryLinks
+    categoryLink id=destroyer-unit-cat name='Elites' type= hidden=false
+  selectionEntries
+    selectionEntry id=destroyer-included name='Legion Destroyers (included)' type=model hidden=false
+      constraints
+        constraint id=destroyer-included-min name='' type=min hidden=
+        constraint id=destroyer-included-max name='' type=max hidden=
+    selectionEntry id=destroyer-sergeant name='Legion Destroyer Sergeant' type=model hidden=false
+      constraints
+        constraint id=destroyer-sergeant-min name='' type=min hidden=
+        constraint id=destroyer-sergeant-max name='' type=max hidden=
+    selectionEntry id=destroyer-additional name='Additional Legion Destroyer' type=model hidden=false
+      constraints
+        constraint id=destroyer-additional-max name='' type=max hidden=
+  selectionEntryGroups
+    selectionEntryGroup id=destroyer-squad-wargear name='Squad-wide Wargear' type= hidden=false
+      entryLinks
+        entryLink id=destroyer-squad-melta name='Melta Bombs (+5 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=destroyer-squad-melta-max name='' type=max hidden=
+        entryLink id=destroyer-squad-krak name='Krak Grenades (+2 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=destroyer-squad-krak-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=destroyer-jump-packs name='Jump Packs (+15 pts/model)' type=upgrade hidden=false
+          constraints
+            constraint id=destroyer-jump-packs-max name='' type=max hidden=
+    selectionEntryGroup id=destroyer-weapons name='Destroyer Weapons (1 per 5 models)' type= hidden=false
+      constraints
+        constraint id=destroyer-weapons-max name='' type=max hidden=
+      entryLinks
+        entryLink id=destroyer-w-vs name='Volkite Serpenta (replaces one Bolt Pistol)' type=selectionEntry hidden=false
+          constraints
+            constraint id=destroyer-w-vs-max name='' type=max hidden=
+        entryLink id=destroyer-w-hf name='Hand Flamer (replaces one Bolt Pistol)' type=selectionEntry hidden=false
+          constraints
+            constraint id=destroyer-w-hf-max name='' type=max hidden=
+        entryLink id=destroyer-w-pp name='Plasma Pistol (replaces one Bolt Pistol)' type=selectionEntry hidden=false
+          constraints
+            constraint id=destroyer-w-pp-max name='' type=max hidden=
+        entryLink id=destroyer-w-rad name='Missile Launcher with Suspensor Web and Rad Missiles (replaces one Bolt Pistol)' type=selectionEntry hidden=false
+          constraints
+            constraint id=destroyer-w-rad-max name='' type=max hidden=
+        entryLink id=da22-alt-pp-6 name='Calibanite Plasma Pistol' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pp-6-2 name='' type=max hidden=
+    selectionEntryGroup id=destroyer-sgt name='Legion Destroyer Sergeant' type= hidden=false
+      selectionEntryGroups
+        selectionEntryGroup id=destroyer-sgt-melee name='Chainsword Replacement' type= hidden=false
+          constraints
+            constraint id=destroyer-sgt-melee-max name='' type=max hidden=
+          entryLinks
+            entryLink id=destroyer-sgt-rw name='Rending Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-pw name='Power Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-pf name='Power Fist' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-lc name='Lightning Claw' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-th name='Thunder Hammer' type=selectionEntry hidden=false
+              constraints
+        selectionEntryGroup id=destroyer-sgt-armoury name='Additional permitted Sergeant Armoury (max 50 pts)' type= hidden=false
+          constraints
+            constraint id=destroyer-sgt-armoury-pts-max name='' type=max hidden=
+          entryLinks
+            entryLink id=destroyer-sgt-vs name='Volkite Serpenta' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-hf name='Hand Flamer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-pp name='Plasma Pistol' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-pair name='Pair of Lightning Claws' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-cb name='Combi-Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-cf name='Combi-Flamer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-cg name='Combi-Grenade Launcher' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-cm name='Combi-Meltagun' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-cp name='Combi-Plasma Gun' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-cv name='Combi-Volkite Charger' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-sb name='Storm Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-cshield name='Combat Shield' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-auspex name='Auspex' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-bionics name='Bionics' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-purity name='Purity Seals' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-homer name='Teleport Homer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=destroyer-sgt-melta name='Melta Bombs' type=selectionEntry hidden=false
+              constraints
+            entryLink id=da22-alt-pp-7 name='Calibanite Plasma Pistol' type=selectionEntry hidden=false
+              constraints
+            entryLink id=rev24-destroyer-unit-sgt-refractor name='Refractor Field' type=selectionEntry hidden=false
+              constraints
+      entryLinks
+        entryLink id=destroyer-sgt-phosphex name='Phosphex Bomb' type=selectionEntry hidden=false
+          constraints
+            constraint id=destroyer-sgt-phosphex-max name='' type=max hidden=
+    selectionEntryGroup id=destroyer-transport name='Dedicated Transport' type= hidden=false
+      constraints
+        constraint id=destroyer-transport-max name='' type=max hidden=
+      entryLinks
+        entryLink id=destroyer-tr-rhino name='Rhino' type=selectionEntry hidden=false
+          constraints
+            constraint id=destroyer-tr-rhino-max name='' type=max hidden=
+        entryLink id=destroyer-tr-pod name='Drop Pod' type=selectionEntry hidden=false
+          constraints
+            constraint id=destroyer-tr-pod-max name='' type=max hidden=
+        entryLink id=destroyer-tr-dc name='Dreadclaw Drop Pod' type=selectionEntry hidden=false
+          constraints
+            constraint id=destroyer-tr-dc-max name='' type=max hidden=
+    selectionEntryGroup id=da-wing-destroyer-unit name='Hexagrammaton Wing' type= hidden=false
+      constraints
+        constraint id=da-wing-destroyer-unit-min name='' type=min hidden=
+        constraint id=da-wing-destroyer-unit-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=da-wing-destroyer-unit-0 name='Stormwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-destroyer-unit-0-max name='' type=max hidden=
+        selectionEntry id=da-wing-destroyer-unit-1 name='Deathwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-destroyer-unit-1-max name='' type=max hidden=
+        selectionEntry id=da-wing-destroyer-unit-2 name='Dreadwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-destroyer-unit-2-max name='' type=max hidden=
+        selectionEntry id=da-wing-destroyer-unit-3 name='Ironwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-destroyer-unit-3-max name='' type=max hidden=
+        selectionEntry id=da-wing-destroyer-unit-4 name='Firewing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-destroyer-unit-4-max name='' type=max hidden=
+        selectionEntry id=da-wing-destroyer-unit-5 name='Ravenwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-destroyer-unit-5-max name='' type=max hidden=
+
+### dreadnought-unit
+selectionEntry id=dreadnought-unit name='Legion Dreadnought' type=unit hidden=false
+  categoryLinks
+    categoryLink id=dreadnought-unit-cat name='Elites' type= hidden=false
+  selectionEntryGroups
+    selectionEntryGroup id=dreadnought-primary name='Primary Arm' type= hidden=false
+      constraints
+        constraint id=dreadnought-primary-min name='' type=min hidden=
+        constraint id=dreadnought-primary-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=dreadnought-p-tlhb name='Twin-linked Heavy Bolter' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-p-tlhb-max name='' type=max hidden=
+        selectionEntry id=dreadnought-p-mm name='Multi-Melta' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-p-mm-max name='' type=max hidden=
+        selectionEntry id=dreadnought-p-tlac name='Twin-linked Autocannon' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-p-tlac-max name='' type=max hidden=
+        selectionEntry id=dreadnought-p-tlml name='Twin-linked Missile Launcher' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-p-tlml-max name='' type=max hidden=
+        selectionEntry id=dreadnought-p-pc name='Plasma Cannon' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-p-pc-max name='' type=max hidden=
+        selectionEntry id=dreadnought-p-vc name='Volkite Culverin' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-p-vc-max name='' type=max hidden=
+        selectionEntry id=dreadnought-p-ac name='Assault Cannon' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-p-ac-max name='' type=max hidden=
+        selectionEntry id=dreadnought-p-flame name='Flamestorm Cannon' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-p-flame-max name='' type=max hidden=
+        selectionEntry id=dreadnought-p-tllc name='Twin-linked Lascannon' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-p-tllc-max name='' type=max hidden=
+        selectionEntry id=dreadnought-p-dccw name='Dreadnought Close Combat Weapon with built-in Twin-linked Bolter' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-p-dccw-max name='' type=max hidden=
+    selectionEntryGroup id=dreadnought-secondary name='Secondary Arm' type= hidden=false
+      constraints
+        constraint id=dreadnought-secondary-min name='' type=min hidden=
+        constraint id=dreadnought-secondary-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=dreadnought-s-dccw name='Dreadnought Close Combat Weapon with built-in Twin-linked Bolter' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-s-dccw-max name='' type=max hidden=
+        selectionEntry id=dreadnought-s-tlhb name='Twin-linked Heavy Bolter' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-s-tlhb-max name='' type=max hidden=
+        selectionEntry id=dreadnought-s-mm name='Multi-Melta' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-s-mm-max name='' type=max hidden=
+        selectionEntry id=dreadnought-s-tlac name='Twin-linked Autocannon' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-s-tlac-max name='' type=max hidden=
+        selectionEntry id=dreadnought-s-tlml name='Twin-linked Missile Launcher' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-s-tlml-max name='' type=max hidden=
+        selectionEntry id=dreadnought-s-pc name='Plasma Cannon' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-s-pc-max name='' type=max hidden=
+        selectionEntry id=dreadnought-s-vc name='Volkite Culverin' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-s-vc-max name='' type=max hidden=
+        selectionEntry id=dreadnought-s-ac name='Assault Cannon' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-s-ac-max name='' type=max hidden=
+        selectionEntry id=dreadnought-s-tllc name='Twin-linked Lascannon' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-s-tllc-max name='' type=max hidden=
+        selectionEntry id=dreadnought-s-chainfist name='Chainfist with built-in Twin-linked Bolter' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-s-chainfist-max name='' type=max hidden=
+    selectionEntryGroup id=dreadnought-primary-built name='Primary Arm Built-in Weapon Replacement' type= hidden=true
+      constraints
+        constraint id=dreadnought-primary-built-max name='' type=max hidden=
+      entryLinks
+        entryLink id=dreadnought-primary-hf name='Heavy Flamer (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=dreadnought-primary-hf-max name='' type=max hidden=
+        entryLink id=dreadnought-primary-melta name='Meltagun (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=dreadnought-primary-melta-max name='' type=max hidden=
+        entryLink id=dreadnought-primary-grav name='Graviton Gun (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=dreadnought-primary-grav-max name='' type=max hidden=
+        entryLink id=dreadnought-primary-pb name='Plasma Blaster (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=dreadnought-primary-pb-max name='' type=max hidden=
+    selectionEntryGroup id=dreadnought-secondary-built name='Secondary Arm Built-in Weapon Replacement' type= hidden=true
+      constraints
+        constraint id=dreadnought-secondary-built-max name='' type=max hidden=
+      entryLinks
+        entryLink id=dreadnought-secondary-hf name='Heavy Flamer (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=dreadnought-secondary-hf-max name='' type=max hidden=
+        entryLink id=dreadnought-secondary-melta name='Meltagun (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=dreadnought-secondary-melta-max name='' type=max hidden=
+        entryLink id=dreadnought-secondary-grav name='Graviton Gun (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=dreadnought-secondary-grav-max name='' type=max hidden=
+        entryLink id=dreadnought-secondary-pb name='Plasma Blaster (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=dreadnought-secondary-pb-max name='' type=max hidden=
+    selectionEntryGroup id=dreadnought-vehicle name='Vehicle Upgrades' type= hidden=false
+      selectionEntries
+        selectionEntry id=dreadnought-extra name='Extra Armour' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-extra-max name='' type=max hidden=
+        selectionEntry id=dreadnought-hk name='Hunter-Killer Missile' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-hk-max name='' type=max hidden=
+        selectionEntry id=dreadnought-frag-launchers name='Frag Assault Launchers' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-frag-launchers-max name='' type=max hidden=
+        selectionEntry id=dreadnought-sarcophagus name='Armoured Sarcophagus' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-sarcophagus-max name='' type=max hidden=
+        selectionEntry id=dreadnought-veteran-pilot name='Veteran Pilot' type=upgrade hidden=false
+          constraints
+            constraint id=dreadnought-veteran-pilot-max name='' type=max hidden=
+      entryLinks
+        entryLink id=dreadnought-havoc name='Havoc Launcher' type=selectionEntry hidden=false
+          constraints
+            constraint id=dreadnought-havoc-max name='' type=max hidden=
+    selectionEntryGroup id=dreadnought-transport name='Dedicated Transport' type= hidden=false
+      constraints
+        constraint id=dreadnought-transport-max name='' type=max hidden=
+      entryLinks
+        entryLink id=dreadnought-dreadpod name='Legion Dreadnought Drop Pod' type=selectionEntry hidden=false
+          constraints
+            constraint id=dreadnought-dreadpod-max name='' type=max hidden=
+    selectionEntryGroup id=da-wing-dreadnought-unit name='Hexagrammaton Wing' type= hidden=false
+      constraints
+        constraint id=da-wing-dreadnought-unit-min name='' type=min hidden=
+        constraint id=da-wing-dreadnought-unit-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=da-wing-dreadnought-unit-0 name='Stormwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-dreadnought-unit-0-max name='' type=max hidden=
+        selectionEntry id=da-wing-dreadnought-unit-1 name='Deathwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-dreadnought-unit-1-max name='' type=max hidden=
+        selectionEntry id=da-wing-dreadnought-unit-2 name='Dreadwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-dreadnought-unit-2-max name='' type=max hidden=
+        selectionEntry id=da-wing-dreadnought-unit-3 name='Ironwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-dreadnought-unit-3-max name='' type=max hidden=
+        selectionEntry id=da-wing-dreadnought-unit-4 name='Firewing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-dreadnought-unit-4-max name='' type=max hidden=
+        selectionEntry id=da-wing-dreadnought-unit-5 name='Ravenwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-dreadnought-unit-5-max name='' type=max hidden=
+
+### contemptor-unit
+selectionEntry id=contemptor-unit name='Legion Contemptor Dreadnought' type=unit hidden=false
+  categoryLinks
+    categoryLink id=contemptor-unit-cat name='Elites' type= hidden=false
+  selectionEntryGroups
+    selectionEntryGroup id=contemptor-primary name='Primary Arm' type= hidden=false
+      constraints
+        constraint id=contemptor-primary-min name='' type=min hidden=
+        constraint id=contemptor-primary-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=contemptor-p-tlhb name='Twin-linked Heavy Bolter' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-p-tlhb-max name='' type=max hidden=
+        selectionEntry id=contemptor-p-mm name='Multi-Melta' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-p-mm-max name='' type=max hidden=
+        selectionEntry id=contemptor-p-tlac name='Twin-linked Autocannon' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-p-tlac-max name='' type=max hidden=
+        selectionEntry id=contemptor-p-pc name='Plasma Cannon' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-p-pc-max name='' type=max hidden=
+        selectionEntry id=contemptor-p-tlvc name='Twin-linked Volkite Culverin' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-p-tlvc-max name='' type=max hidden=
+        selectionEntry id=contemptor-p-kheres name='Kheres Assault Cannon' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-p-kheres-max name='' type=max hidden=
+        selectionEntry id=contemptor-p-tllc name='Twin-linked Lascannon' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-p-tllc-max name='' type=max hidden=
+        selectionEntry id=contemptor-p-hcb name='Heavy Conversion Beamer' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-p-hcb-max name='' type=max hidden=
+        selectionEntry id=contemptor-p-dccw name='Dreadnought Close Combat Weapon with built-in Twin-linked Bolter' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-p-dccw-max name='' type=max hidden=
+    selectionEntryGroup id=contemptor-secondary name='Secondary Arm' type= hidden=false
+      constraints
+        constraint id=contemptor-secondary-min name='' type=min hidden=
+        constraint id=contemptor-secondary-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=contemptor-s-dccw name='Dreadnought Close Combat Weapon with built-in Twin-linked Bolter' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-s-dccw-max name='' type=max hidden=
+        selectionEntry id=contemptor-s-tlhb name='Twin-linked Heavy Bolter' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-s-tlhb-max name='' type=max hidden=
+        selectionEntry id=contemptor-s-mm name='Multi-Melta' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-s-mm-max name='' type=max hidden=
+        selectionEntry id=contemptor-s-tlac name='Twin-linked Autocannon' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-s-tlac-max name='' type=max hidden=
+        selectionEntry id=contemptor-s-pc name='Plasma Cannon' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-s-pc-max name='' type=max hidden=
+        selectionEntry id=contemptor-s-tlvc name='Twin-linked Volkite Culverin' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-s-tlvc-max name='' type=max hidden=
+        selectionEntry id=contemptor-s-kheres name='Kheres Assault Cannon' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-s-kheres-max name='' type=max hidden=
+        selectionEntry id=contemptor-s-tllc name='Twin-linked Lascannon' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-s-tllc-max name='' type=max hidden=
+        selectionEntry id=contemptor-s-chainfist name='Chainfist with built-in Twin-linked Bolter' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-s-chainfist-max name='' type=max hidden=
+    selectionEntryGroup id=contemptor-primary-built name='Primary Arm Built-in Weapon Replacement' type= hidden=true
+      constraints
+        constraint id=contemptor-primary-built-max name='' type=max hidden=
+      entryLinks
+        entryLink id=contemptor-primary-hf name='Heavy Flamer (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=contemptor-primary-hf-max name='' type=max hidden=
+        entryLink id=contemptor-primary-melta name='Meltagun (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=contemptor-primary-melta-max name='' type=max hidden=
+        entryLink id=contemptor-primary-grav name='Graviton Gun (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=contemptor-primary-grav-max name='' type=max hidden=
+        entryLink id=contemptor-primary-pb name='Plasma Blaster (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=contemptor-primary-pb-max name='' type=max hidden=
+    selectionEntryGroup id=contemptor-secondary-built name='Secondary Arm Built-in Weapon Replacement' type= hidden=true
+      constraints
+        constraint id=contemptor-secondary-built-max name='' type=max hidden=
+      entryLinks
+        entryLink id=contemptor-secondary-hf name='Heavy Flamer (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=contemptor-secondary-hf-max name='' type=max hidden=
+        entryLink id=contemptor-secondary-melta name='Meltagun (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=contemptor-secondary-melta-max name='' type=max hidden=
+        entryLink id=contemptor-secondary-grav name='Graviton Gun (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=contemptor-secondary-grav-max name='' type=max hidden=
+        entryLink id=contemptor-secondary-pb name='Plasma Blaster (replaces built-in Twin-linked Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=contemptor-secondary-pb-max name='' type=max hidden=
+    selectionEntryGroup id=contemptor-vehicle name='Vehicle Upgrades' type= hidden=false
+      selectionEntries
+        selectionEntry id=contemptor-extra name='Extra Armour' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-extra-max name='' type=max hidden=
+        selectionEntry id=contemptor-hk name='Hunter-Killer Missile' type=upgrade hidden=false
+          constraints
+            constraint id=contemptor-hk-max name='' type=max hidden=
+      entryLinks
+        entryLink id=contemptor-havoc name='Havoc Launcher' type=selectionEntry hidden=false
+          constraints
+            constraint id=contemptor-havoc-max name='' type=max hidden=
+    selectionEntryGroup id=contemptor-transport name='Dedicated Transport' type= hidden=false
+      constraints
+        constraint id=contemptor-transport-max name='' type=max hidden=
+      entryLinks
+        entryLink id=contemptor-dreadpod name='Legion Dreadnought Drop Pod' type=selectionEntry hidden=false
+          constraints
+            constraint id=contemptor-dreadpod-max name='' type=max hidden=
+    selectionEntryGroup id=da-wing-contemptor-unit name='Hexagrammaton Wing' type= hidden=false
+      constraints
+        constraint id=da-wing-contemptor-unit-min name='' type=min hidden=
+        constraint id=da-wing-contemptor-unit-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=da-wing-contemptor-unit-0 name='Stormwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-contemptor-unit-0-max name='' type=max hidden=
+        selectionEntry id=da-wing-contemptor-unit-1 name='Deathwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-contemptor-unit-1-max name='' type=max hidden=
+        selectionEntry id=da-wing-contemptor-unit-2 name='Dreadwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-contemptor-unit-2-max name='' type=max hidden=
+        selectionEntry id=da-wing-contemptor-unit-3 name='Ironwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-contemptor-unit-3-max name='' type=max hidden=
+        selectionEntry id=da-wing-contemptor-unit-4 name='Firewing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-contemptor-unit-4-max name='' type=max hidden=
+        selectionEntry id=da-wing-contemptor-unit-5 name='Ravenwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-contemptor-unit-5-max name='' type=max hidden=
+
+### fa-sky-hunter
+selectionEntry id=fa-sky-hunter name='Legion Sky Hunter Jetbike Squadron' type=unit hidden=false
+  categoryLinks
+    categoryLink id=fa-sky-hunter-cat name='Fast Attack' type= hidden=false
+  selectionEntries
+    selectionEntry id=fa-sky-included name='Legion Sky Hunters (included)' type=model hidden=false
+      constraints
+        constraint id=fa-sky-included-min name='' type=min hidden=
+        constraint id=fa-sky-included-max name='' type=max hidden=
+    selectionEntry id=fa-sky-sgt name='Sky Hunter Sergeant' type=model hidden=false
+      constraints
+        constraint id=fa-sky-sgt-min name='' type=min hidden=
+        constraint id=fa-sky-sgt-max name='' type=max hidden=
+    selectionEntry id=fa-sky-add name='Additional Legion Sky Hunter' type=model hidden=false
+      constraints
+        constraint id=fa-sky-add-max name='' type=max hidden=
+  selectionEntryGroups
+    selectionEntryGroup id=fa-sky-squad name='Squad-wide Equipment' type= hidden=false
+      entryLinks
+        entryLink id=fa-sky-krak name='Krak Grenades (+2 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=fa-sky-krak-max name='' type=max hidden=
+        entryLink id=fa-sky-melta name='Melta Bombs (+5 pts/model)' type=selectionEntry hidden=false
+          constraints
+            constraint id=fa-sky-melta-max name='' type=max hidden=
+    selectionEntryGroup id=fa-sky-weapons name='Jetbike Weapons — one per three models' type= hidden=false
+      constraints
+        constraint id=fa-sky-weapons-max name='' type=max hidden=
+      entryLinks
+        entryLink id=fa-sky-mm name='Multi-Melta (replaces Heavy Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=fa-sky-mm-max name='' type=max hidden=
+        entryLink id=fa-sky-vc name='Volkite Culverin (replaces Heavy Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=fa-sky-vc-max name='' type=max hidden=
+        entryLink id=fa-sky-pc name='Plasma Cannon (replaces Heavy Bolter)' type=selectionEntry hidden=false
+          constraints
+            constraint id=fa-sky-pc-max name='' type=max hidden=
+        entryLink id=da22-alt-pc-1 name='Calibanite Plasma Cannon' type=selectionEntry hidden=false
+          constraints
+            constraint id=da22-alt-pc-1-2 name='' type=max hidden=
+    selectionEntryGroup id=fa-sky-sergeant name='Sky Hunter Sergeant' type= hidden=false
+      selectionEntryGroups
+        selectionEntryGroup id=fa-sky-sgtw-pistol name='Sergeant Bolt Pistol Replacement' type= hidden=false
+          constraints
+            constraint id=fa-sky-sgtw-pistol-max name='' type=max hidden=
+          entryLinks
+            entryLink id=fa-sky-sgtw-vs name='Volkite Serpenta' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgtw-hf name='Hand Flamer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgtw-pp name='Plasma Pistol' type=selectionEntry hidden=false
+              constraints
+            entryLink id=da22-alt-pp-13 name='Calibanite Plasma Pistol' type=selectionEntry hidden=false
+              constraints
+        selectionEntryGroup id=fa-sky-sgtw-melee name='Sergeant Melee Weapon' type= hidden=false
+          constraints
+            constraint id=fa-sky-sgtw-melee-max name='' type=max hidden=
+          entryLinks
+            entryLink id=fa-sky-sgtw-rw name='Rending Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgtw-pw name='Power Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgtw-lc name='Lightning Claw' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgtw-pf name='Power Fist' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgtw-th name='Thunder Hammer' type=selectionEntry hidden=false
+              constraints
+        selectionEntryGroup id=fa-sky-sgtw-pairg name='Alternative: replace Bolt Pistol and Chainsword' type= hidden=false
+          constraints
+            constraint id=fa-sky-sgtw-pairg-max name='' type=max hidden=
+          entryLinks
+            entryLink id=fa-sky-sgtw-pair name='Pair of Lightning Claws' type=selectionEntry hidden=false
+              constraints
+        selectionEntryGroup id=fa-sky-sgt-armoury name='Additional Sergeant Armoury (max 50 pts)' type= hidden=false
+          constraints
+            constraint id=fa-sky-sgt-armoury-pts-max name='' type=max hidden=
+          entryLinks
+            entryLink id=fa-sky-sgt-arm-combi-bolter name='Combi-Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgt-arm-combi-flamer name='Combi-Flamer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgt-arm-combi-grenade name='Combi-Grenade Launcher' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgt-arm-combi-melta name='Combi-Meltagun' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgt-arm-combi-plasma name='Combi-Plasma Gun' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgt-arm-combi-volkite name='Combi-Volkite Charger' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgt-arm-storm-bolter name='Storm Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgt-arm-combat-shield name='Combat Shield' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgt-arm-auspex name='Auspex' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgt-arm-bionics name='Bionics' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgt-arm-purity name='Purity Seals' type=selectionEntry hidden=false
+              constraints
+            entryLink id=fa-sky-sgt-arm-homer name='Teleport Homer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=rev24-fa-sky-hunter-sgt-refractor name='Refractor Field' type=selectionEntry hidden=false
+              constraints
+      entryLinks
+        entryLink id=fa-sky-sgt-melta name='Melta Bombs' type=selectionEntry hidden=false
+          constraints
+            constraint id=fa-sky-sgt-melta-max name='' type=max hidden=
+    selectionEntryGroup id=da-wing-fa-sky-hunter name='Hexagrammaton Wing' type= hidden=false
+      constraints
+        constraint id=da-wing-fa-sky-hunter-min name='' type=min hidden=
+        constraint id=da-wing-fa-sky-hunter-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=da-wing-fa-sky-hunter-0 name='Stormwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-fa-sky-hunter-0-max name='' type=max hidden=
+        selectionEntry id=da-wing-fa-sky-hunter-1 name='Deathwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-fa-sky-hunter-1-max name='' type=max hidden=
+        selectionEntry id=da-wing-fa-sky-hunter-2 name='Dreadwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-fa-sky-hunter-2-max name='' type=max hidden=
+        selectionEntry id=da-wing-fa-sky-hunter-3 name='Ironwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-fa-sky-hunter-3-max name='' type=max hidden=
+        selectionEntry id=da-wing-fa-sky-hunter-4 name='Firewing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-fa-sky-hunter-4-max name='' type=max hidden=
+        selectionEntry id=da-wing-fa-sky-hunter-5 name='Ravenwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-fa-sky-hunter-5-max name='' type=max hidden=
+
+### hs-predator
+selectionEntry id=hs-predator name='Legion Predator Strike Squadron' type=unit hidden=false
+  categoryLinks
+    categoryLink id=hs-predator-cat name='Heavy Support' type= hidden=false
+  selectionEntries
+    selectionEntry id=hs-predator-model name='Legion Predator Tank' type=model hidden=false
+      constraints
+        constraint id=hs-predator-model-min name='' type=min hidden=
+        constraint id=hs-predator-model-max name='' type=max hidden=
+      selectionEntryGroups
+        selectionEntryGroup id=hs-pred-turret name='Turret Weapon Replacement' type= hidden=false
+          constraints
+            constraint id=hs-pred-turret-max name='' type=max hidden=
+          entryLinks
+            entryLink id=hs-pred-tur-0 name='Twin-linked Lascannon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-tur-1 name='Flamestorm Cannon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-tur-2 name='Heavy Conversion Beamer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-tur-3 name='Magna-Melta' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-tur-4 name='Executioner Plasma Destroyer' type=selectionEntry hidden=false
+              constraints
+        selectionEntryGroup id=hs-pred-sponson name='Sponson Pair' type= hidden=false
+          constraints
+            constraint id=hs-pred-sponson-max name='' type=max hidden=
+          entryLinks
+            entryLink id=hs-pred-sp-0 name='Heavy Bolter Sponsons' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-sp-1 name='Heavy Flamer Sponsons' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-sp-2 name='Lascannon Sponsons' type=selectionEntry hidden=false
+              constraints
+        selectionEntryGroup id=hs-pred-pintle name='Pintle-mounted Weapon' type= hidden=false
+          constraints
+            constraint id=hs-pred-pintle-max name='' type=max hidden=
+          entryLinks
+            entryLink id=hs-pred-p0 name='Twin-linked Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-p1 name='Combi-Flamer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-p2 name='Combi-Grenade Launcher' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-p3 name='Combi-Meltagun' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-p4 name='Combi-Plasma Gun' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-p5 name='Combi-Volkite Charger' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-p6 name='Heavy Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-p7 name='Heavy Flamer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-p8 name='Multi-Melta' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hs-pred-p9 name='Havoc Launcher' type=selectionEntry hidden=false
+              constraints
+      selectionEntries
+        selectionEntry id=hs-pred-up-hunter-killer-missile name='Hunter-Killer Missile' type=upgrade hidden=false
+          constraints
+            constraint id=hs-pred-up-hunter-killer-missile-max name='' type=max hidden=
+        selectionEntry id=hs-pred-up-dozer-blade name='Dozer Blade' type=upgrade hidden=false
+          constraints
+            constraint id=hs-pred-up-dozer-blade-max name='' type=max hidden=
+        selectionEntry id=hs-pred-up-extra-armour name='Extra Armour' type=upgrade hidden=false
+          constraints
+            constraint id=hs-pred-up-extra-armour-max name='' type=max hidden=
+        selectionEntry id=hs-pred-up-auxiliary-drive name='Auxiliary Drive' type=upgrade hidden=false
+          constraints
+            constraint id=hs-pred-up-auxiliary-drive-max name='' type=max hidden=
+        selectionEntry id=hs-pred-up-armoured-ceramite name='Armoured Ceramite' type=upgrade hidden=false
+          constraints
+            constraint id=hs-pred-up-armoured-ceramite-max name='' type=max hidden=
+        selectionEntry id=hs-pred-up-power-of-the-machine-spirit name='Power of the Machine Spirit' type=upgrade hidden=false
+          constraints
+            constraint id=hs-pred-up-power-of-the-machine-spirit-max name='' type=max hidden=
+  selectionEntryGroups
+    selectionEntryGroup id=da-wing-hs-predator name='Hexagrammaton Wing' type= hidden=false
+      constraints
+        constraint id=da-wing-hs-predator-min name='' type=min hidden=
+        constraint id=da-wing-hs-predator-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=da-wing-hs-predator-0 name='Stormwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hs-predator-0-max name='' type=max hidden=
+        selectionEntry id=da-wing-hs-predator-1 name='Deathwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hs-predator-1-max name='' type=max hidden=
+        selectionEntry id=da-wing-hs-predator-2 name='Dreadwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hs-predator-2-max name='' type=max hidden=
+        selectionEntry id=da-wing-hs-predator-3 name='Ironwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hs-predator-3-max name='' type=max hidden=
+        selectionEntry id=da-wing-hs-predator-4 name='Firewing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hs-predator-4-max name='' type=max hidden=
+        selectionEntry id=da-wing-hs-predator-5 name='Ravenwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hs-predator-5-max name='' type=max hidden=
+
+### hq-praetor
+selectionEntry id=hq-praetor name='Legion Praetor' type=unit hidden=false
+  constraints
+    constraint id=hq-praetor-max name='' type=max hidden=
+  categoryLinks
+    categoryLink id=hq-praetor-foc-cat name='HQ' type= hidden=false
+  entryLinks
+    entryLink id=hq-praetor-bp name='Bolt Pistol' type=selectionEntry hidden=false
+      constraints
+        constraint id=hq-praetor-bp-min name='' type=min hidden=
+        constraint id=hq-praetor-bp-max name='' type=max hidden=
+    entryLink id=hq-praetor-cs name='Chainsword' type=selectionEntry hidden=false
+      constraints
+        constraint id=hq-praetor-cs-min name='' type=min hidden=
+        constraint id=hq-praetor-cs-max name='' type=max hidden=
+  selectionEntryGroups
+    selectionEntryGroup id=hq-praetor-armour name='Armour Replacement (counts toward 100 pt Armoury limit)' type= hidden=false
+      constraints
+        constraint id=hq-praetor-armour-max name='' type=max hidden=
+      entryLinks
+        entryLink id=hq-praetor-art name='Artificer Armour' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-art-max name='' type=max hidden=
+        entryLink id=hq-praetor-term name='Terminator Armour' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-term-max name='' type=max hidden=
+        entryLink id=hq-praetor-tart name='Tartaros Terminator Armour' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-tart-max name='' type=max hidden=
+        entryLink id=hq-praetor-cat name='Cataphractii Terminator Armour' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-cat-max name='' type=max hidden=
+    selectionEntryGroup id=hq-praetor-mob name='Mobility (counts toward 100 pt Armoury limit)' type= hidden=false
+      constraints
+        constraint id=hq-praetor-mob-max name='' type=max hidden=
+      entryLinks
+        entryLink id=hq-praetor-jump name='Jump Pack' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-jump-max name='' type=max hidden=
+        entryLink id=hq-praetor-bike name='Space Marine Bike' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-bike-max name='' type=max hidden=
+    selectionEntryGroup id=hq-praetor-weapons name='Weapon Replacements (max 100 Armoury pts; max 2 weapons)' type= hidden=false
+      constraints
+        constraint id=hq-praetor-weapons-max name='' type=max hidden=
+        constraint id=hq-praetor-weapons-pts-max name='' type=max hidden=
+      selectionEntryGroups
+        selectionEntryGroup id=hq-praetor-single name='Single-handed Weapons' type= hidden=false
+          constraints
+            constraint id=hq-praetor-single-max name='' type=max hidden=
+          entryLinks
+            entryLink id=hq-praetor-sw-0 name='Chainaxe' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-sw-1 name='Chainfist' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-sw-2 name='Close Combat Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-sw-4 name='Hand Flamer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-sw-5 name='Lightning Claw' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-sw-6 name='Pair of Lightning Claws' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-sw-7 name='Plasma Pistol' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-sw-8 name='Power Fist' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-sw-9 name='Power Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-sw-10 name='Relic Blade' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-sw-11 name='Rending Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-sw-12 name='Thunder Hammer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-sw-13 name='Volkite Serpenta' type=selectionEntry hidden=false
+              constraints
+            entryLink id=da22-hq-praetor-warblade name='Calibanite Warblade' type=selectionEntry hidden=false
+              constraints
+            entryLink id=da22-alt-pp-15 name='Calibanite Plasma Pistol' type=selectionEntry hidden=false
+              constraints
+        selectionEntryGroup id=hq-praetor-two name='Two-handed Weapons' type= hidden=false
+          constraints
+            constraint id=hq-praetor-two-max name='' type=max hidden=
+          entryLinks
+            entryLink id=hq-praetor-tw-0 name='Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-tw-1 name='Combi-Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-tw-2 name='Combi-Flamer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-tw-3 name='Combi-Grenade Launcher' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-tw-4 name='Combi-Meltagun' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-tw-5 name='Combi-Plasma Gun' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-tw-6 name='Combi-Volkite Charger' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-tw-7 name='Foeblaster Boltgun' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-tw-8 name='Storm Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-tw-9 name='Volkite Charger' type=selectionEntry hidden=false
+              constraints
+            entryLink id=da22-hq-praetor-greatsword name='Terranic Greatsword' type=selectionEntry hidden=false
+              constraints
+    selectionEntryGroup id=hq-praetor-wargear name='Additional Wargear (max 100 Armoury pts combined)' type= hidden=false
+      constraints
+        constraint id=hq-praetor-wargear-pts-max name='' type=max hidden=
+      entryLinks
+        entryLink id=hq-praetor-wg-0 name='Combat Shield' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-0-max name='' type=max hidden=
+        entryLink id=hq-praetor-wg-1 name='Boarding Shield' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-1-max name='' type=max hidden=
+        entryLink id=hq-praetor-wg-3 name='Auspex' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-3-max name='' type=max hidden=
+        entryLink id=hq-praetor-wg-4 name='Bionics' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-4-max name='' type=max hidden=
+        entryLink id=hq-praetor-wg-5 name='Digital Weapons' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-5-max name='' type=max hidden=
+        entryLink id=hq-praetor-wg-6 name='Master-crafted Weapon' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-6-max name='' type=max hidden=
+        entryLink id=hq-praetor-wg-7 name='Nuncio Vox' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-7-max name='' type=max hidden=
+        entryLink id=hq-praetor-wg-8 name='Psychic Hood' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-8-max name='' type=max hidden=
+        entryLink id=hq-praetor-wg-9 name='Purity Seals' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-9-max name='' type=max hidden=
+        entryLink id=hq-praetor-wg-10 name='Signum' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-10-max name='' type=max hidden=
+        entryLink id=hq-praetor-wg-11 name='Teleport Homer' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-11-max name='' type=max hidden=
+        entryLink id=hq-praetor-wg-12 name='Terminator Honours' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-12-max name='' type=max hidden=
+        entryLink id=hq-praetor-wg-13 name='Melta Bombs' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-praetor-wg-13-max name='' type=max hidden=
+    selectionEntryGroup id=hq-praetor-retinue name='Retinue (does not occupy a separate FOC slot)' type= hidden=false
+      constraints
+        constraint id=hq-praetor-retinue-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=hq-praetor-ret-honour name='Legion Honour Guard Squad' type=unit hidden=false
+          constraints
+            constraint id=hq-praetor-ret-honour-max name='' type=max hidden=
+          selectionEntries
+            selectionEntry id=hq-praetor-ret-honour-champ name='Legion Champion' type=model hidden=false
+              constraints
+            selectionEntry id=hq-praetor-ret-honour-base name='Legion Honour Guard' type=model hidden=false
+              constraints
+            selectionEntry id=hq-praetor-ret-honour-add name='Additional Legion Honour Guard' type=model hidden=false
+              constraints
+            selectionEntry id=hq-praetor-ret-honour-standard name='Legion Standard Bearer' type=upgrade hidden=false
+              constraints
+              entryLinks
+          entryLinks
+            entryLink id=hq-praetor-ret-honour-bp name='Bolt Pistol' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-ret-honour-pw name='Power Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-ret-honour-krak name='Krak Grenades (+2 pts/model)' type=selectionEntry hidden=false
+              constraints
+          selectionEntryGroups
+            selectionEntryGroup id=hq-praetor-ret-honour-melee name='Power Weapon Replacements (per model)' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-praetor-ret-honour-ranged name='Bolt Pistol Replacements (per model)' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-praetor-ret-honour-champ-arm name='Legion Champion — additional Armoury (max 50 pts)' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-praetor-ret-honour-transport name='Dedicated Transport' type= hidden=false
+              constraints
+              entryLinks
+              selectionEntryGroups
+        selectionEntry id=hq-praetor-ret-termcommand name='Legion Terminator Command Squad' type=unit hidden=false
+          constraints
+            constraint id=hq-praetor-ret-termcommand-max name='' type=max hidden=
+          selectionEntries
+            selectionEntry id=hq-praetor-ret-tc-vets name='Terminator Veterans' type=model hidden=false
+              constraints
+            selectionEntry id=hq-praetor-ret-tc-apoth name='Terminator Apothecary' type=upgrade hidden=false
+              constraints
+              entryLinks
+            selectionEntry id=hq-praetor-ret-tc-standard name='Terminator Standard Bearer' type=upgrade hidden=false
+              constraints
+              selectionEntryGroups
+            selectionEntry id=hq-praetor-ret-tc-champ name='Terminator Champion' type=upgrade hidden=false
+              constraints
+          selectionEntryGroups
+            selectionEntryGroup id=hq-praetor-ret-tc-armour name='Terminator Armour Pattern' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-praetor-ret-tc-ranged name='Combi-Bolter Replacements (per model)' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-praetor-ret-tc-melee name='Power Weapon Replacements (per model)' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-praetor-ret-tc-pair name='Replace both Combi-Bolter and Power Weapon' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-praetor-ret-tc-heavy name='Heavy Weapon (one model only)' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-praetor-ret-tc-transport name='Dedicated Transport' type= hidden=false
+              constraints
+              entryLinks
+              selectionEntryGroups
+          entryLinks
+            entryLink id=hq-praetor-ret-tc-cb name='Combi-Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-ret-tc-pw name='Power Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-praetor-ret-tc-gh name='Grenade Harness' type=selectionEntry hidden=false
+              constraints
+    selectionEntryGroup id=da-wing-hq-praetor name='Hexagrammaton Wing' type= hidden=false
+      constraints
+        constraint id=da-wing-hq-praetor-min name='' type=min hidden=
+        constraint id=da-wing-hq-praetor-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=da-wing-hq-praetor-0 name='Stormwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hq-praetor-0-max name='' type=max hidden=
+        selectionEntry id=da-wing-hq-praetor-1 name='Deathwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hq-praetor-1-max name='' type=max hidden=
+        selectionEntry id=da-wing-hq-praetor-2 name='Dreadwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hq-praetor-2-max name='' type=max hidden=
+        selectionEntry id=da-wing-hq-praetor-3 name='Ironwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hq-praetor-3-max name='' type=max hidden=
+        selectionEntry id=da-wing-hq-praetor-4 name='Firewing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hq-praetor-4-max name='' type=max hidden=
+        selectionEntry id=da-wing-hq-praetor-5 name='Ravenwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hq-praetor-5-max name='' type=max hidden=
+
+### hq-centurion
+selectionEntry id=hq-centurion name='Legion Centurion' type=unit hidden=false
+  constraints
+    constraint id=hq-centurion-max name='' type=max hidden=
+  categoryLinks
+    categoryLink id=hq-centurion-foc-cat name='HQ' type= hidden=false
+  entryLinks
+    entryLink id=hq-centurion-bp name='Bolt Pistol' type=selectionEntry hidden=false
+      constraints
+        constraint id=hq-centurion-bp-min name='' type=min hidden=
+        constraint id=hq-centurion-bp-max name='' type=max hidden=
+    entryLink id=hq-centurion-cs name='Chainsword' type=selectionEntry hidden=false
+      constraints
+        constraint id=hq-centurion-cs-min name='' type=min hidden=
+        constraint id=hq-centurion-cs-max name='' type=max hidden=
+  selectionEntryGroups
+    selectionEntryGroup id=hq-centurion-consuls name='Legion Consul Upgrade' type= hidden=false
+      constraints
+        constraint id=hq-centurion-consuls-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=hq-consul-chaplain name='Legion Chaplain Consul' type=upgrade hidden=false
+          constraints
+            constraint id=hq-consul-chaplain-max name='' type=max hidden=
+          entryLinks
+            entryLink id=r29-chap-crozius name='Crozius Arcanum' type=selectionEntry hidden=false
+              constraints
+            entryLink id=r29-chap-rosarius name='Rosarius' type=selectionEntry hidden=false
+              constraints
+        selectionEntry id=hq-consul-librarian name='Legion Librarian Consul' type=upgrade hidden=false
+          constraints
+            constraint id=hq-consul-librarian-max name='' type=max hidden=
+          selectionEntries
+            selectionEntry id=hq-consul-librarian-epistolary name='Epistolary — Mastery Level 2' type=upgrade hidden=false
+              constraints
+          selectionEntryGroups
+            selectionEntryGroup id=r29-lib-discipline-group name='Psychic Discipline(s)' type= hidden=false
+              constraints
+              selectionEntries
+            selectionEntryGroup id=r29-lib-power-group name='Psychic Powers' type= hidden=false
+              constraints
+              selectionEntries
+          entryLinks
+            entryLink id=r29-lib-force name='Force Weapon' type=selectionEntry hidden=false
+              constraints
+        selectionEntry id=hq-consul-moritat name='Legion Moritat Consul' type=upgrade hidden=false
+          constraints
+            constraint id=hq-consul-moritat-max name='' type=max hidden=
+          selectionEntryGroups
+            selectionEntryGroup id=r29-mor-pair-group name='Pistol Pair' type= hidden=false
+              constraints
+              selectionEntries
+        selectionEntry id=hq-consul-delegatus name='Legion Delegatus Consul' type=upgrade hidden=false
+          constraints
+            constraint id=hq-consul-delegatus-max name='' type=max hidden=
+        selectionEntry id=hq-consul-esoterist name='Legion Esoterist Consul' type=upgrade hidden=false
+          constraints
+            constraint id=hq-consul-esoterist-max name='' type=max hidden=
+          selectionEntryGroups
+            selectionEntryGroup id=r29-eso-discipline-group name='Psychic Discipline(s)' type= hidden=false
+              constraints
+              selectionEntries
+            selectionEntryGroup id=r29-eso-power-group name='Psychic Powers' type= hidden=false
+              constraints
+              selectionEntries
+          entryLinks
+            entryLink id=r29-eso-force name='Force Weapon' type=selectionEntry hidden=false
+              constraints
+        selectionEntry id=hq-consul-forge name='Legion Forge Lord Consul' type=upgrade hidden=false
+          constraints
+            constraint id=hq-consul-forge-max name='' type=max hidden=
+          selectionEntries
+            selectionEntry id=hq-consul-forge-cortex name='Cortex Controller' type=upgrade hidden=false
+              constraints
+          entryLinks
+            entryLink id=r29-forge-artificer name='Artificer Armour' type=selectionEntry hidden=false
+              constraints
+            entryLink id=r29-forge-servo name='Servo-Arm' type=selectionEntry hidden=false
+              constraints
+        selectionEntry id=hq-consul-herald name='Legion Herald Consul' type=upgrade hidden=false
+          constraints
+            constraint id=hq-consul-herald-max name='' type=max hidden=
+          selectionEntryGroups
+            selectionEntryGroup id=hq-consul-herald-banner name='Banner of Allegiance' type= hidden=false
+              constraints
+              selectionEntries
+        selectionEntry id=hq-consul-signals name='Legion Master of Signals Consul' type=upgrade hidden=false
+          constraints
+            constraint id=hq-consul-signals-max name='' type=max hidden=
+          selectionEntries
+            selectionEntry id=hq-consul-signals-matrix name='Targeting Matrix' type=upgrade hidden=false
+              constraints
+          selectionEntryGroups
+            selectionEntryGroup id=hq-consul-signals-orbital name='Orbital Bombardment (choose at most one)' type= hidden=false
+              constraints
+              selectionEntries
+            selectionEntryGroup id=hq-consul-signals-dt name='Dedicated Transport' type= hidden=false
+              constraints
+              selectionEntries
+          entryLinks
+            entryLink id=r29-signals-nuncio name='Nuncio Vox' type=selectionEntry hidden=false
+              constraints
+            entryLink id=r29-signals-cognis name='Cognis Signum' type=selectionEntry hidden=false
+              constraints
+        selectionEntry id=hq-consul-medicae name='Legion Primus Medicae Consul' type=upgrade hidden=false
+          constraints
+            constraint id=hq-consul-medicae-max name='' type=max hidden=
+          entryLinks
+            entryLink id=hq-consul-medicae-n name='Narthecium' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-consul-medicae-r name='Reductor' type=selectionEntry hidden=false
+              constraints
+        selectionEntry id=hq-consul-null name='Legion Primus Nullificator Consul' type=upgrade hidden=false
+          constraints
+            constraint id=hq-consul-null-max name='' type=max hidden=
+          selectionEntryGroups
+            selectionEntryGroup id=r29-null-discipline-group name='Psychic Discipline(s)' type= hidden=false
+              constraints
+              selectionEntries
+            selectionEntryGroup id=r29-null-power-group name='Psychic Powers' type= hidden=false
+              constraints
+              selectionEntries
+          entryLinks
+            entryLink id=hq-consul-null-cat name='Mandatory Cataphractii Terminator Armour' type=selectionEntry hidden=false
+              constraints
+            entryLink id=r29-null-maul name='Aether-shock Maul' type=selectionEntry hidden=false
+              constraints
+        selectionEntry id=hq-consul-vigilator name='Legion Vigilator Consul' type=upgrade hidden=false
+          constraints
+            constraint id=hq-consul-vigilator-max name='' type=max hidden=
+          selectionEntries
+            selectionEntry id=hq-consul-vigilator-scoutarmour name='Scout Armour (replaces Power Armour)' type=upgrade hidden=false
+              constraints
+          entryLinks
+            entryLink id=r29-vig-bolter name='Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=r29-vig-camo name='Cameleoline' type=selectionEntry hidden=false
+              constraints
+            entryLink id=r29-vig-ammo name='Special Issue Ammunition' type=selectionEntry hidden=false
+              constraints
+        selectionEntry id=hq-consul-praevian name='Legion Praevian Consul' type=upgrade hidden=false
+          constraints
+            constraint id=hq-consul-praevian-max name='' type=max hidden=
+          selectionEntryGroups
+            selectionEntryGroup id=r30-prae-automata-group name='Praevian Battle-Automata Maniple' type= hidden=false
+              constraints
+              selectionEntries
+          entryLinks
+            entryLink id=r29-prae-controller name='Cortex Controller' type=selectionEntry hidden=false
+              constraints
+            entryLink id=r29-prae-designator name='Cortex Designator' type=selectionEntry hidden=false
+              constraints
+    selectionEntryGroup id=hq-centurion-armour name='Armour Replacement (counts toward 100 pt Armoury limit)' type= hidden=false
+      constraints
+        constraint id=hq-centurion-armour-max name='' type=max hidden=
+      entryLinks
+        entryLink id=hq-centurion-art name='Artificer Armour' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-art-max name='' type=max hidden=
+        entryLink id=hq-centurion-term name='Terminator Armour' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-term-max name='' type=max hidden=
+        entryLink id=hq-centurion-tart name='Tartaros Terminator Armour' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-tart-max name='' type=max hidden=
+        entryLink id=hq-centurion-cat name='Cataphractii Terminator Armour' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-cat-max name='' type=max hidden=
+    selectionEntryGroup id=hq-centurion-mob name='Mobility (counts toward 100 pt Armoury limit)' type= hidden=false
+      constraints
+        constraint id=hq-centurion-mob-max name='' type=max hidden=
+      entryLinks
+        entryLink id=hq-centurion-jump name='Jump Pack' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-jump-max name='' type=max hidden=
+        entryLink id=hq-centurion-bike name='Space Marine Bike' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-bike-max name='' type=max hidden=
+    selectionEntryGroup id=hq-centurion-weapons name='Weapon Replacements (max 100 Armoury pts; max 2 weapons)' type= hidden=false
+      constraints
+        constraint id=hq-centurion-weapons-max name='' type=max hidden=
+        constraint id=hq-centurion-weapons-pts-max name='' type=max hidden=
+      selectionEntryGroups
+        selectionEntryGroup id=hq-centurion-single name='Single-handed Weapons' type= hidden=false
+          constraints
+            constraint id=hq-centurion-single-max name='' type=max hidden=
+          entryLinks
+            entryLink id=hq-centurion-sw-0 name='Chainaxe' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-sw-1 name='Chainfist' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-sw-2 name='Close Combat Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-sw-4 name='Hand Flamer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-sw-5 name='Lightning Claw' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-sw-6 name='Pair of Lightning Claws' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-sw-7 name='Plasma Pistol' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-sw-8 name='Power Fist' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-sw-9 name='Power Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-sw-10 name='Relic Blade' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-sw-11 name='Rending Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-sw-12 name='Thunder Hammer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-sw-13 name='Volkite Serpenta' type=selectionEntry hidden=false
+              constraints
+            entryLink id=da22-hq-centurion-warblade name='Calibanite Warblade' type=selectionEntry hidden=false
+              constraints
+            entryLink id=da22-alt-pp-17 name='Calibanite Plasma Pistol' type=selectionEntry hidden=false
+              constraints
+        selectionEntryGroup id=hq-centurion-two name='Two-handed Weapons' type= hidden=false
+          constraints
+            constraint id=hq-centurion-two-max name='' type=max hidden=
+          entryLinks
+            entryLink id=hq-centurion-tw-0 name='Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-tw-1 name='Combi-Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-tw-2 name='Combi-Flamer' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-tw-3 name='Combi-Grenade Launcher' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-tw-4 name='Combi-Meltagun' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-tw-5 name='Combi-Plasma Gun' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-tw-6 name='Combi-Volkite Charger' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-tw-7 name='Foeblaster Boltgun' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-tw-8 name='Storm Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-tw-9 name='Volkite Charger' type=selectionEntry hidden=false
+              constraints
+            entryLink id=da22-hq-centurion-greatsword name='Terranic Greatsword' type=selectionEntry hidden=false
+              constraints
+    selectionEntryGroup id=hq-centurion-wargear name='Additional Wargear (max 100 Armoury pts combined)' type= hidden=false
+      constraints
+        constraint id=hq-centurion-wargear-pts-max name='' type=max hidden=
+      entryLinks
+        entryLink id=hq-centurion-wg-0 name='Combat Shield' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-0-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-1 name='Boarding Shield' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-1-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-2 name='Refractor Field' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-2-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-3 name='Auspex' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-3-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-4 name='Bionics' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-4-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-5 name='Digital Weapons' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-5-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-6 name='Master-crafted Weapon' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-6-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-7 name='Nuncio Vox' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-7-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-8 name='Psychic Hood' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-8-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-9 name='Purity Seals' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-9-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-10 name='Signum' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-10-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-11 name='Teleport Homer' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-11-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-12 name='Terminator Honours' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-12-max name='' type=max hidden=
+        entryLink id=hq-centurion-wg-13 name='Melta Bombs' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-wg-13-max name='' type=max hidden=
+        entryLink id=hq-centurion-iron-halo name='Iron Halo' type=selectionEntry hidden=false
+          constraints
+            constraint id=hq-centurion-iron-halo-max name='' type=max hidden=
+    selectionEntryGroup id=hq-centurion-retinue name='Command Retinue (does not occupy a separate FOC slot)' type= hidden=false
+      constraints
+        constraint id=hq-centurion-retinue-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=hq-centurion-ret-command name='Legion Command Squad' type=unit hidden=false
+          constraints
+            constraint id=hq-centurion-ret-command-max name='' type=max hidden=
+          selectionEntries
+            selectionEntry id=hq-centurion-ret-command-vets name='Legion Veterans' type=model hidden=false
+              constraints
+            selectionEntry id=hq-centurion-ret-command-apoth name='Legion Apothecary' type=upgrade hidden=false
+              constraints
+              entryLinks
+            selectionEntry id=hq-centurion-ret-command-standard name='Legion Standard Bearer' type=upgrade hidden=false
+              constraints
+              selectionEntryGroups
+            selectionEntry id=hq-centurion-ret-command-champ name='Legion Champion' type=upgrade hidden=false
+              constraints
+              entryLinks
+          entryLinks
+            entryLink id=hq-centurion-ret-command-bp name='Bolt Pistol' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-ret-command-cs name='Chainsword' type=selectionEntry hidden=false
+              constraints
+          selectionEntryGroups
+            selectionEntryGroup id=hq-centurion-ret-command-weapons name='Weapon Replacements (each model may replace Bolt Pistol and/or Chainsword)' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-centurion-ret-command-eq name='Per-model Equipment' type= hidden=false
+              entryLinks
+            selectionEntryGroup id=hq-centurion-ret-command-mob name='Squad Mobility (only if the selecting HQ has the same mobility)' type= hidden=false
+              constraints
+              selectionEntries
+            selectionEntryGroup id=hq-centurion-ret-command-transport name='Dedicated Transport' type= hidden=false
+              constraints
+              entryLinks
+              selectionEntryGroups
+        selectionEntry id=hq-centurion-ret-termcommand name='Legion Terminator Command Squad' type=unit hidden=false
+          constraints
+            constraint id=hq-centurion-ret-termcommand-max name='' type=max hidden=
+          selectionEntries
+            selectionEntry id=hq-centurion-ret-tc-vets name='Terminator Veterans' type=model hidden=false
+              constraints
+            selectionEntry id=hq-centurion-ret-tc-apoth name='Terminator Apothecary' type=upgrade hidden=false
+              constraints
+              entryLinks
+            selectionEntry id=hq-centurion-ret-tc-standard name='Terminator Standard Bearer' type=upgrade hidden=false
+              constraints
+              selectionEntryGroups
+            selectionEntry id=hq-centurion-ret-tc-champ name='Terminator Champion' type=upgrade hidden=false
+              constraints
+          selectionEntryGroups
+            selectionEntryGroup id=hq-centurion-ret-tc-armour name='Terminator Armour Pattern' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-centurion-ret-tc-ranged name='Combi-Bolter Replacements (per model)' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-centurion-ret-tc-melee name='Power Weapon Replacements (per model)' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-centurion-ret-tc-pair name='Replace both Combi-Bolter and Power Weapon' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-centurion-ret-tc-heavy name='Heavy Weapon (one model only)' type= hidden=false
+              constraints
+              entryLinks
+            selectionEntryGroup id=hq-centurion-ret-tc-transport name='Dedicated Transport' type= hidden=false
+              constraints
+              entryLinks
+              selectionEntryGroups
+          entryLinks
+            entryLink id=hq-centurion-ret-tc-cb name='Combi-Bolter' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-ret-tc-pw name='Power Weapon' type=selectionEntry hidden=false
+              constraints
+            entryLink id=hq-centurion-ret-tc-gh name='Grenade Harness' type=selectionEntry hidden=false
+              constraints
+    selectionEntryGroup id=da-wing-hq-centurion name='Hexagrammaton Wing' type= hidden=false
+      constraints
+        constraint id=da-wing-hq-centurion-min name='' type=min hidden=
+        constraint id=da-wing-hq-centurion-max name='' type=max hidden=
+      selectionEntries
+        selectionEntry id=da-wing-hq-centurion-0 name='Stormwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hq-centurion-0-max name='' type=max hidden=
+        selectionEntry id=da-wing-hq-centurion-1 name='Deathwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hq-centurion-1-max name='' type=max hidden=
+        selectionEntry id=da-wing-hq-centurion-2 name='Dreadwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hq-centurion-2-max name='' type=max hidden=
+        selectionEntry id=da-wing-hq-centurion-3 name='Ironwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hq-centurion-3-max name='' type=max hidden=
+        selectionEntry id=da-wing-hq-centurion-4 name='Firewing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hq-centurion-4-max name='' type=max hidden=
+        selectionEntry id=da-wing-hq-centurion-5 name='Ravenwing' type=upgrade hidden=false
+          constraints
+            constraint id=da-wing-hq-centurion-5-max name='' type=max hidden=
+
+### relevant global selection entries
+gear-flamer | Flamer | upgrade
+gear-hand-flamer | Hand Flamer | upgrade
+gear-combi-flamer | Combi-Flamer | upgrade
+gear-combi-grenade | Combi-Grenade Launcher | upgrade
+gear-heavy-flamer | Heavy Flamer | upgrade
+transport-drop-pod | Legion Drop Pod | model
+transport-dreadclaw | Anvillus Pattern Dreadclaw Drop Pod | model
+gear-boarding-shield | Boarding Shield | upgrade
+gear-sniper-rifle | Sniper Rifle | upgrade
+gear-heavy-flamer-susp | Heavy Flamer with Suspensor Web | upgrade
+transport-dreadnought-pod | Legion Dreadnought Drop Pod | model
+fa-gear-tl-flamer | Twin-linked Flamer | upgrade
+hsgear-tl-heavy-flamer | Twin-linked Heavy Flamer | upgrade
+gear-hq-terminator | Terminator Armour | upgrade
+gear-hq-tartaros | Tartaros Terminator Armour | upgrade
+gear-hq-cataphractii | Cataphractii Terminator Armour | upgrade
+gear-hq-boarding | Boarding Shield | upgrade
+gear-hq-jump | Jump Pack | upgrade
+gear-hq-bike | Space Marine Bike | upgrade
+veteran-jump-packs | Jump Packs (+15 pts/model) | upgrade
+terminator-armour-normal | Terminator Armour | upgrade
+terminator-armour-tartaros | Tartaros Terminator Armour | upgrade
+terminator-armour-cataphractii | Cataphractii Terminator Armour | upgrade
+destroyer-jump-packs | Jump Packs (+15 pts/model) | upgrade
+techmarine-I-bike | Space Marine Bike | upgrade
+techmarine-II-bike | Space Marine Bike | upgrade
+techmarine-III-bike | Space Marine Bike | upgrade
+fa-sky-hunter | Legion Sky Hunter Jetbike Squadron | unit
+hs-lr-phobos | Land Raider Phobos | model
+hs-lr-proteus | Land Raider Proteus | model
+hs-spartan | Legion Spartan Assault Tank | unit
+hs-lev-vcal | Twin-linked Volkite Caliver (replaces one Heavy Flamer) | upgrade
+hq-praetor-ret-honour-land-land-raider-phobos | Land Raider Phobos | model
+hq-praetor-ret-honour-land-land-raider-proteus | Land Raider Proteus | model
+hq-praetor-ret-tc-land-land-raider-phobos | Land Raider Phobos | model
+hq-praetor-ret-tc-land-land-raider-proteus | Land Raider Proteus | model
+r29-mor-hand | Two Hand Flamers | upgrade
+hq-consul-signals-dam-p-3 | Heavy Flamer | upgrade
+r30-prae-castellax-flamer | Flamer | upgrade
+hq-centurion-ret-command-jump | Jump Packs (+15 pts/model) | upgrade
+hq-centurion-ret-command-bike | Space Marine Bikes (+20 pts/model) | upgrade
+hq-centurion-ret-command-jet | Jetbikes (+35 pts/model) | upgrade
+hq-centurion-ret-command-land-land-raider-phobos | Land Raider Phobos | model
+hq-centurion-ret-command-land-land-raider-proteus | Land Raider Proteus | model
+hq-centurion-ret-tc-land-land-raider-phobos | Land Raider Phobos | model
+hq-centurion-ret-tc-land-land-raider-proteus | Land Raider Proteus | model
+hq-dam-p-3 | Heavy Flamer | upgrade
+da22-dwc-jump | Jump Packs — entire squad | upgrade
+da22-dwtc-tart | Tartaros Terminator Armour | upgrade
+da22-dwtc-cat | Cataphractii Terminator Armour | upgrade
+da22-enig-gl | Grenade Launcher with Frag, Krak and Stasis Grenades (one model) | upgrade
+r32-low-cerberus-pintle-heavy-flamer | Heavy Flamer | upgrade
+r32-low-typhon-pintle-heavy-flamer | Heavy Flamer | upgrade
+r32-low-falchion-pintle-heavy-flamer | Heavy Flamer | upgrade
+r32-low-stormblade-flamer | Replace a sponson Twin-linked Heavy Bolter with Twin-linked Heavy Flamer | upgrade
+r32-low-stormblade-pintle-heavy-flamer | Heavy Flamer | upgrade
+r32-low-fellblade-flamer | Replace Twin-linked Heavy Bolter with Twin-linked Heavy Flamer | upgrade
+r32-low-fellblade-pintle-heavy-flamer | Heavy Flamer | upgrade
+r32-low-glaive-flamer | Replace Twin-linked Heavy Bolter with Twin-linked Heavy Flamer | upgrade
