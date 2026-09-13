@@ -27,6 +27,7 @@ jobs:
               bad = [(i, repr(ch)) for i, ch in enumerate(compact) if ch not in allowed]
               if bad:
                   raise RuntimeError(f'{f}: invalid base64 character(s): {bad[:10]}')
+              compact += '=' * (-len(compact) % 4)
               try:
                   decoded = base64.b64decode(compact, validate=True)
               except Exception as exc:
