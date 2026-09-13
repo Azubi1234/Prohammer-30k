@@ -43,14 +43,14 @@ jobs:
               path.write_text(xml, encoding='utf-8', newline='\n')
 
           rewrite(GST, GST_NS, 'gameSystem', revision=12)
-          rewrite(CAT, CAT_NS, 'catalogue', revision=27, game_system_revision=12)
+          rewrite(CAT, CAT_NS, 'catalogue', revision=28, game_system_revision=12)
 
           # Cross-file compatibility checks.
           gr = ET.parse(GST).getroot()
           cr = ET.parse(CAT).getroot()
           assert gr.get('id') == cr.get('gameSystemId')
           assert gr.get('revision') == cr.get('gameSystemRevision') == '12'
-          assert cr.get('revision') == '27'
+          assert cr.get('revision') == '28'
 
           # Literal first-line/root checks guard against ElementTree reintroducing ns0 prefixes.
           g = GST.read_text(encoding='utf-8')
@@ -59,7 +59,7 @@ jobs:
           assert '\n<catalogue ' in c[:300]
           assert '<ns0:' not in g[:1000]
           assert '<ns0:' not in c[:1000]
-          print('Canonical New Recruit XML ready: GST rev 12 / CAT rev 27')
+          print('Canonical New Recruit XML ready: GST rev 12 / CAT rev 28')
           PY
           cat > .gitattributes <<'EOF'
           * text=auto
