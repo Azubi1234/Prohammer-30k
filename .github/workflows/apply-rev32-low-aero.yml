@@ -24,6 +24,9 @@ jobs:
           for f in files:
               raw = f.read_text(encoding='utf-8')
               compact = ''.join(raw.split())
+              # One character was dropped while staging part01; restore the exact base64 sequence.
+              if f.name == 'part01.b64':
+                  compact = compact.replace('SGVhdkgTWlzc2lsZSI', 'SGVhdnkgTWlzc2lsZSI', 1)
               bad = [(i, repr(ch)) for i, ch in enumerate(compact) if ch not in allowed]
               if bad:
                   raise RuntimeError(f'{f}: invalid base64 character(s): {bad[:10]}')
