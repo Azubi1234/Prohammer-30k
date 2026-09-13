@@ -1,0 +1,61 @@
+name: Inspect R37 Rite targets
+on:
+  push:
+    paths: ['.github/workflows/inspect-r37-targets.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect targeted XML structure
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          NS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{NS}}}{t}'
+          root=ET.parse('Legiones Astartes.cat').getroot()
+          pm={c:p for p in root.iter() for c in p}
+          ids=['hq-praetor','hq-centurion','gear-hq-bike','gear-hq-boarding','veteran-unit','veteran-jump-packs','veteran-transport','destroyer-unit','dreadnought-unit','contemptor-unit','tactical-unit','assault-unit','breacher-unit','recon-unit','terminator-unit','fa-sky-hunter']
+          out=[f"CAT rev={root.get('revision')} GST={root.get('gameSystemRevision')}"]
+          def path(e):
+              p=[]
+              while e is not None:
+                  if e.get('id') or e.get('name'): p.append(f"{e.tag.split('}')[-1]}:{e.get('id')}:{e.get('name')}")
+                  e=pm.get(e)
+              return ' > '.join(reversed(p[-5:]))
+          for wanted in ids:
+              e=next((x for x in root.iter() if x.get('id')==wanted),None)
+              out.append('\n### '+wanted+' '+('FOUND' if e is not None else 'MISSING'))
+              if e is None: continue
+              out.append('PATH '+path(e))
+              for x in e.iter():
+                  tag=x.tag.split('}')[-1]
+                  if tag in {'selectionEntry','selectionEntryGroup','entryLink','cost','constraint','categoryLink','modifier','condition','rule'}:
+                      if tag in {'selectionEntry','selectionEntryGroup','entryLink'} or x is e or x.get('typeId')=='pts' or tag in {'constraint','categoryLink'}:
+                          out.append('  '+tag+' '+str({k:x.get(k) for k in ('id','name','type','targetId','value','field','scope','typeId','hidden') if x.get(k) is not None}))
+          # list transport-ish groups and links under shared roots
+          out.append('\n### TRANSPORT MATCHES')
+          for x in root.iter():
+              n=(x.get('name') or '').lower()
+              if any(k in n for k in ['dedicated transport','transport']) and x.tag.split('}')[-1] in {'selectionEntryGroup','entryLink','selectionEntry'}:
+                  out.append(path(x)+' '+str({k:x.get(k) for k in ('id','name','targetId','hidden') if x.get(k) is not None}))
+          # shared entries for common transports
+          out.append('\n### VEHICLE TARGETS')
+          for x in root.iter():
+              n=(x.get('name') or '').lower()
+              if x.tag.split('}')[-1]=='selectionEntry' and any(k in n for k in ['drop pod','dreadclaw','land raider']) and ('squad' not in n):
+                  out.append(path(x)+' '+str({k:x.get(k) for k in ('id','name','hidden') if x.get(k) is not None}))
+          Path('inspection-r37-targets.txt').write_text('\n'.join(out),encoding='utf-8')
+          PY
+      - name: Commit inspection
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add inspection-r37-targets.txt
+          git commit -m 'Inspect Revision 36 Rite bonus targets' || exit 0
+          git push
