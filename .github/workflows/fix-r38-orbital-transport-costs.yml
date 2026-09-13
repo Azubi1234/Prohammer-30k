@@ -1,0 +1,51 @@
+name: Fix Revision 38 Orbital transport costs
+on:
+  push:
+    paths: ['.github/workflows/fix-r38-orbital-transport-costs.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prevent linked transport costs being charged twice
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          CAT=Path('Legiones Astartes.cat')
+          NS='http://www.battlescribe.net/schema/catalogueSchema'; ET.register_namespace('',NS); C=lambda t:f'{{{NS}}}{t}'
+          tree=ET.parse(CAT); root=tree.getroot(); assert root.get('revision')=='37'; assert root.get('gameSystemRevision')=='13'
+          def byid(i): return next((e for e in root.iter() if e.get('id')==i),None)
+          fixed=[]
+          for e in root.iter(C('entryLink')):
+              if not (e.get('id') or '').startswith('r37-orbital-'): continue
+              target=byid(e.get('targetId')); assert target is not None, e.get('targetId')
+              target_cost=sum(float(c.get('value','0')) for c in target.findall('./'+C('costs')+'/'+C('cost')) if c.get('typeId')=='pts')
+              costs=e.find(C('costs'))
+              if target_cost>0 and costs is not None:
+                  for c in list(costs):
+                      if c.get('typeId')=='pts': costs.remove(c); fixed.append(e.get('id'))
+          # The shared Drop Pod and Dreadclaw entries must supply their normal base cost.
+          for tid in ('transport-drop-pod','transport-dreadclaw'):
+              t=byid(tid); assert t is not None
+              assert any(float(c.get('value','0'))>0 for c in t.findall('./'+C('costs')+'/'+C('cost')) if c.get('typeId')=='pts'), tid
+          root.set('revision','38')
+          body=ET.tostring(root,encoding='unicode',short_empty_elements=True)
+          CAT.write_text('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'+body+'\n',encoding='utf-8',newline='\n')
+          rr=ET.parse(CAT).getroot(); assert rr.get('revision')=='38'; assert '<ns0:' not in CAT.read_text(encoding='utf-8')[:5000]
+          print('Revision 38 transport cost fix:',len(fixed),'linked cost overlays removed')
+          PY
+          git diff --check
+      - name: Commit Revision 38
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat'
+          git commit -m 'Revision 38: prevent Rite transport costs from double counting'
+          git push
