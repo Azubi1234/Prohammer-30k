@@ -41,13 +41,13 @@ jobs:
               path.write_text(xml, encoding='utf-8', newline='\n')
 
           rewrite(GST, GST_NS, 'gameSystem', revision=13)
-          rewrite(CAT, CAT_NS, 'catalogue', revision=36, game_system_revision=13)
+          rewrite(CAT, CAT_NS, 'catalogue', revision=39, game_system_revision=13)
 
           gr = ET.parse(GST).getroot()
           cr = ET.parse(CAT).getroot()
           assert gr.get('id') == cr.get('gameSystemId')
           assert gr.get('revision') == cr.get('gameSystemRevision') == '13'
-          assert cr.get('revision') == '36'
+          assert cr.get('revision') == '39'
 
           g = GST.read_text(encoding='utf-8')
           c = CAT.read_text(encoding='utf-8')
@@ -55,7 +55,7 @@ jobs:
           assert '\n<catalogue ' in c[:300]
           assert '<ns0:' not in g[:1000]
           assert '<ns0:' not in c[:1000]
-          print('Canonical New Recruit XML ready: GST rev 13 / CAT rev 36')
+          print('Canonical New Recruit XML ready: GST rev 13 / CAT rev 39')
           PY
           cat > .gitattributes <<'EOF'
           * text=auto
@@ -72,6 +72,6 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No changes to commit'
           else
-            git commit -m 'Publish Catalogue Revision 36 for New Recruit'
+            git commit -m 'Publish Catalogue Revision 39 for New Recruit'
             git push
           fi
