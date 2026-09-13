@@ -1,0 +1,71 @@
+name: Inspect R40 Dark Angels
+on:
+  push:
+    paths:
+      - '.github/workflows/inspect-r40-dark-angels.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect Dark Angels entries, Rites and targets
+        shell: bash
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          CAT=Path('Legiones Astartes.cat')
+          ns={'b':'http://www.battlescribe.net/schema/catalogueSchema'}
+          root=ET.parse(CAT).getroot()
+          print('CAT rev',root.get('revision'),'GST',root.get('gameSystemRevision'))
+          parent={c:p for p in root.iter() for c in p}
+          def cats(e):
+              return [(x.get('name'),x.get('targetId')) for x in e.findall('./b:categoryLinks/b:categoryLink',ns)]
+          def path(e):
+              parts=[]
+              x=e
+              while x is not None and x is not root:
+                  n=x.get('name')
+                  if n: parts.append(f"{x.tag.split('}')[-1]}:{x.get('id')}:{n}")
+                  x=parent.get(x)
+              return ' > '.join(reversed(parts))
+          print('\n### DA TOP-LEVEL ENTRIES')
+          for e in root.findall('.//b:selectionEntry',ns):
+              i=e.get('id',''); n=e.get('name','')
+              if i.startswith('da22-') and parent.get(e) is not None and parent[e].tag.endswith('selectionEntries'):
+                  # only entries whose nearest selectionEntry ancestor is absent
+                  a=parent.get(parent.get(e))
+                  has_se_ancestor=False
+                  x=parent.get(e)
+                  while x is not None and x is not root:
+                      if x.tag.endswith('selectionEntry'):
+                          has_se_ancestor=True; break
+                      x=parent.get(x)
+                  if not has_se_ancestor:
+                      print(i,'|',n,'| cats=',cats(e),'| hidden=',e.get('hidden'))
+          print('\n### ALL DA UNIQUE UNIT / CHARACTER CATEGORY LINKS')
+          keys=['Deathwing Companion','Deathwing Terminator Companion','Inner Circle Knights Cenobium','Dreadwing Interemptor','Firewing Enigmatus','Corswain','Marduk Sedras','Farith Redloss','Holguin','Lion El']
+          for e in root.findall('.//b:selectionEntry',ns):
+              n=e.get('name','')
+              if any(k.lower() in n.lower() for k in keys):
+                  print(e.get('id'),'|',n,'| cats=',cats(e),'|',path(e))
+          print('\n### DARK ANGELS RITES')
+          for e in root.findall('.//b:selectionEntry',ns):
+              n=e.get('name','')
+              if n in ['The Storm of War','The Unbroken Vow','The Eskaton Imperative','The Steel Fist',"The Seeker's Arrow","The Serpent's Bane"] or 'Storm of War' in n or 'Unbroken Vow' in n or 'Eskaton' in n or 'Steel Fist' in n or "Seeker's Arrow" in n or "Serpent's Bane" in n:
+                  print(e.get('id'),'|',n,'|',path(e))
+                  for r in e.findall('./b:rules/b:rule',ns): print(' RULE',r.get('name'),':',(r.findtext('b:description',default='',namespaces=ns) or '')[:400].replace('\n',' '))
+          print('\n### GENERIC TARGET IDS')
+          targets=['Legion Tactical Squad','Legion Assault Squad','Legion Veteran Squad','Legion Terminator Squad','Legion Destroyer Squad','Legion Predator Strike Squadron','Legion Predator Squadron','Legion Bike Squadron','Legion Sky Hunter Jetbike Squadron','Legion Seeker Squad','Legion Praetor','Legion Centurion']
+          for e in root.findall('.//b:selectionEntry',ns):
+              if e.get('name') in targets:
+                  print(e.get('id'),'|',e.get('name'),'| cats=',cats(e),'|',path(e))
+          print('\n### DA WARGEAR LINKS')
+          for x in root.findall('.//b:entryLink',ns):
+              n=x.get('name',''); i=x.get('id','')
+              if i.startswith('da22-') or any(k in n for k in ['Calibanite','Terranic','Plasma Repeater','Plasma Burner','Stasis Shell','Molecular Acid','Teleportation Transponder']):
+                  print(i,'|',n,'| target=',x.get('targetId'),'|',path(x))
+          PY
