@@ -15,15 +15,26 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          : > /tmp/rev32_low_aero.py
-          for f in \
-            .github/rev32/part00.b64 \
-            .github/rev32/part01.b64 \
-            .github/rev32/part02.b64 \
-            .github/rev32/part03.b64
-          do
-            base64 -d "$f" >> /tmp/rev32_low_aero.py
-          done
+          python - <<'PY'
+          from pathlib import Path
+          import base64, string
+          files = [Path(f'.github/rev32/part0{i}.b64') for i in range(4)]
+          pieces = []
+          allowed = set(string.ascii_letters + string.digits + '+/=')
+          for f in files:
+              raw = f.read_text(encoding='utf-8')
+              compact = ''.join(raw.split())
+              bad = [(i, repr(ch)) for i, ch in enumerate(compact) if ch not in allowed]
+              if bad:
+                  raise RuntimeError(f'{f}: invalid base64 character(s): {bad[:10]}')
+              try:
+                  decoded = base64.b64decode(compact, validate=True)
+              except Exception as exc:
+                  raise RuntimeError(f'{f}: base64 decode failed: {exc}') from exc
+              print(f'{f}: decoded {len(decoded)} bytes')
+              pieces.append(decoded)
+          Path('/tmp/rev32_low_aero.py').write_bytes(b''.join(pieces))
+          PY
           python -m py_compile /tmp/rev32_low_aero.py
       - name: Apply Revision 32
         shell: bash
