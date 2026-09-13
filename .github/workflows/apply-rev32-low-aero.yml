@@ -15,11 +15,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat .github/rev32/part00.b64 \
-              .github/rev32/part01.b64 \
-              .github/rev32/part02.b64 \
-              .github/rev32/part03.b64 \
-            | base64 -d > /tmp/rev32_low_aero.py
+          : > /tmp/rev32_low_aero.py
+          for f in \
+            .github/rev32/part00.b64 \
+            .github/rev32/part01.b64 \
+            .github/rev32/part02.b64 \
+            .github/rev32/part03.b64
+          do
+            base64 -d "$f" >> /tmp/rev32_low_aero.py
+          done
           python -m py_compile /tmp/rev32_low_aero.py
       - name: Apply Revision 32
         shell: bash
