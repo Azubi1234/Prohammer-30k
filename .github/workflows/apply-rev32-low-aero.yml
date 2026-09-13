@@ -37,6 +37,7 @@ jobs:
           source = b''.join(pieces).decode('utf-8')
           # Repair staged source typos introduced during chunk transfer.
           source = re.sub(r'AERO_ARMOURY\s*\n\s*"([^"]+)"\]\)', r'AERO_ARMOURY["\1"])', source)
+          source = source.replace('Primaris-Lightning Striike Fighter', 'Primaris-Lightning Strike Fighter')
           # The current GST did not yet have the intended LoW cap; apply that in the post-pass below.
           a = '# Keep the standard one-Lord-of-War cap if the GST already provides it.'
           b = '# Remove earlier experimental/materialised copies of these same units.'
@@ -44,14 +45,18 @@ jobs:
               start = source.index(a)
               end = source.index(b)
               source = source[:start] + '# Lords of War FOC cap is applied to the GST in the publishing post-pass.\n' + source[end:]
-          # Validate the five generated Aeronautica records by their stable r32 IDs. The staged
-          # AERO_NAMES validation was affected by an earlier chunk-transfer typo even though all
-          # five unit creation blocks are present; exact display names are checked in the post-pass.
+          # Validate the five generated Aeronautica records by their stable r32 IDs.
           old = 'assert len([e for e in top.findall(C("selectionEntry")) if e.get("name") in AERO_NAMES]) == 5'
           new = 'aero_generated = [e for e in top.findall(C("selectionEntry")) if (e.get("id") or "").startswith("r32-aero-")]; print("AERO GENERATED:", [(e.get("id"), e.get("name")) for e in aero_generated]); assert len(aero_generated) == 5, len(aero_generated)'
           if old not in source:
               raise RuntimeError('Could not locate staged Aeronautica count assertion')
           source = source.replace(old, new, 1)
+          # The staged builder registered the GST namespace last; restore the catalogue default
+          # namespace immediately before its own final serialization so it stays New Recruit-safe.
+          old_write = 'body = ET.tostring(root, encoding="unicode", short_empty_elements=True)'
+          if old_write not in source:
+              raise RuntimeError('Could not locate staged catalogue serialization')
+          source = source.replace(old_write, 'ET.register_namespace("", CNS)\nbody = ET.tostring(root, encoding="unicode", short_empty_elements=True)', 1)
           Path('/tmp/rev32_low_aero.py').write_text(source, encoding='utf-8')
           PY
           python -m py_compile /tmp/rev32_low_aero.py
