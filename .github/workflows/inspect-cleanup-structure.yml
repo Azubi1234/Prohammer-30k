@@ -1,0 +1,55 @@
+name: Inspect cleanup structure
+on:
+  push:
+    paths:
+      - '.github/workflows/inspect-cleanup-structure.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect target catalogue entries
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          P=Path('Legiones Astartes.cat')
+          NS='http://www.battlescribe.net/schema/catalogueSchema'
+          q=lambda t:f'{{{NS}}}{t}'
+          root=ET.parse(P).getroot()
+          targets=['Legion Praetor','Legion Centurion','Legion Veteran Squad','Legion Terminator Squad','Legion Destroyer Squad','Legion Assault Squad','Legion Seeker Squad','Legion Dreadnought','Legion Contemptor Dreadnought','Legion Predator Strike Squadron','Legion Vindicator Siege Tank Squadron']
+          def dump_entry(e, indent=''):
+              print(f"{indent}{e.tag.split('}')[-1]} name={e.get('name')!r} id={e.get('id')!r} type={e.get('type')!r} target={e.get('targetId')!r} default={e.get('defaultAmount')!r}")
+              for c in e:
+                  tag=c.tag.split('}')[-1]
+                  if tag in ('selectionEntryGroups','selectionEntries','entryLinks','constraints','conditions','modifiers'):
+                      print(f'{indent}  <{tag}>')
+                      for x in c:
+                          xt=x.tag.split('}')[-1]
+                          if xt in ('selectionEntryGroup','selectionEntry','entryLink','constraint','condition','modifier'):
+                              print(f"{indent}    {xt} name={x.get('name')!r} id={x.get('id')!r} type={x.get('type')!r} target={x.get('targetId')!r} field={x.get('field')!r} scope={x.get('scope')!r} value={x.get('value')!r} childId={x.get('childId')!r}")
+                              for cc in x:
+                                  cct=cc.tag.split('}')[-1]
+                                  if cct in ('constraints','conditions','modifiers','entryLinks','selectionEntries'):
+                                      vals=[]
+                                      for y in cc:
+                                          vals.append((y.tag.split('}')[-1], y.get('name'), y.get('id'), y.get('type'), y.get('targetId'), y.get('field'), y.get('scope'), y.get('value'), y.get('childId')))
+                                      if vals: print(f'{indent}      {cct}: {vals}')
+          all_entries=root.findall('.//'+q('selectionEntry'))
+          for name in targets:
+              matches=[e for e in all_entries if e.get('name')==name]
+              print('\n'+'='*20,name,'matches',len(matches),'='*20)
+              for e in matches:
+                  dump_entry(e)
+                  # Print all nested groups and links by path-ish indentation
+                  def walk(node, depth=1):
+                      for ch in node:
+                          tag=ch.tag.split('}')[-1]
+                          if tag in ('selectionEntryGroup','selectionEntry','entryLink','condition','constraint','modifier','rule'):
+                              print('  '*depth+f"{tag}: name={ch.get('name')!r} id={ch.get('id')!r} type={ch.get('type')!r} target={ch.get('targetId')!r} field={ch.get('field')!r} scope={ch.get('scope')!r} value={ch.get('value')!r} childId={ch.get('childId')!r}")
+                          walk(ch, depth+1)
+                  walk(e)
+          PY
