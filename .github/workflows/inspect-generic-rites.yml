@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inspect catalogue structure
+      - name: Inspect Rite selector and category machinery
         run: |
           python - <<'PY'
           import xml.etree.ElementTree as ET
@@ -23,46 +23,29 @@ jobs:
           def path(e):
               out=[]
               while e is not None and e is not r:
-                  n=e.get('name') or e.get('id') or lname(e)
-                  out.append(f'{lname(e)}:{n}')
+                  out.append(f"{lname(e)}:{e.get('name') or e.get('id') or ''}")
                   e=pm.get(e)
               return ' > '.join(reversed(out))
-          def dump(e):
-              print('\nPATH',path(e))
-              print('ATTR',e.attrib)
-              for tag in ['constraints','conditions','conditionGroups','modifiers','categoryLinks','entryLinks','selectionEntries','selectionEntryGroups']:
+          def byid(i):
+              return next((e for e in r.iter() if e.get('id')==i),None)
+          print('CAT',r.get('revision'),'GST',r.get('gameSystemRevision'))
+          for i in ['config-army','config-rites','da22-rite-primarchs-chosen','da22-rite-storm']:
+              e=byid(i)
+              print('\n###',i,path(e) if e is not None else 'MISSING')
+              if e is not None: print(ET.tostring(e,encoding='unicode')[:25000])
+          print('\n### CATEGORY LINKS WITH MODIFIERS')
+          found=0
+          for e in r.iter(C('categoryLink')):
+              if e.find(C('modifiers')) is not None:
+                  print(path(e))
+                  print(ET.tostring(e,encoding='unicode')[:8000])
+                  found+=1
+          print('TOTAL',found)
+          print('\n### UNIT ROOT MODIFIERS / CONDITIONS')
+          for i in ['veteran-unit','terminator-unit','destroyer-unit','dreadnought-unit','contemptor-unit','fa-sky-hunter','hs-predator','assault-unit','breacher-unit','recon-unit','tactical-unit']:
+              e=byid(i); print('\n',i)
+              if e is None: continue
+              for tag in ['constraints','modifiers','categoryLinks']:
                   q=e.find(C(tag))
-                  if q is not None:
-                      print(tag, ET.tostring(q,encoding='unicode')[:5000])
-          print('CAT REV',r.get('revision'),'GST',r.get('gameSystemRevision'))
-          print('\nMATCHED CONFIG/LEGION/ALLEGIANCE/SUPPLEMENTARY ELEMENTS')
-          keys=['army configuration','configuration','allegiance','legion choice','supplementary','rite of war']
-          for e in r.iter():
-              n=(e.get('name') or '').lower()
-              if n and any(k in n for k in keys):
-                  print(path(e), e.attrib)
-          print('\nSELECTION ENTRY GROUPS WITH CONSTRAINTS/MODIFIERS')
-          count=0
-          for e in r.iter(C('selectionEntryGroup')):
-              if e.find(C('modifiers')) is not None or e.find(C('constraints')) is not None:
-                  print(path(e), e.attrib)
-                  if e.find(C('constraints')) is not None: print(' constraints',ET.tostring(e.find(C('constraints')),encoding='unicode'))
-                  if e.find(C('modifiers')) is not None: print(' modifiers',ET.tostring(e.find(C('modifiers')),encoding='unicode')[:2500])
-                  count+=1
-                  if count>=30: break
-          print('\nTARGET UNIT DETAILS')
-          names=['Legion Veteran Squad','Legion Terminator Squad','Legion Tactical Squad','Legion Assault Squad','Legion Breacher Siege Squad','Legion Reconnaissance Squad','Legion Destroyer Squad','Legion Dreadnought','Legion Contemptor Dreadnought','Legion Sky Hunter Jetbike Squadron','Legion Predator Strike Squadron','Techmarine Covenant','Legion Techmarine','Legion Heavy Support Squad']
-          for n in names:
-              for e in r.iter(C('selectionEntry')):
-                  if e.get('name')==n:
-                      dump(e)
-          print('\nEXAMPLES OF CONDITIONAL HIDE/SET MODIFIERS')
-          shown=0
-          for e in r.iter():
-              mods=e.find(C('modifiers'))
-              if mods is None: continue
-              txt=ET.tostring(mods,encoding='unicode')
-              if ('type="set"' in txt or 'type="increment"' in txt or 'type="decrement"' in txt) and ('hidden' in txt or 'category' in txt or 'selections' in txt):
-                  print(path(e),txt[:4000]); shown+=1
-                  if shown>=25: break
+                  if q is not None: print(tag,ET.tostring(q,encoding='unicode')[:12000])
           PY
