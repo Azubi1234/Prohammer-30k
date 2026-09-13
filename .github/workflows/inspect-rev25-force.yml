@@ -1,0 +1,34 @@
+name: Inspect rev25 force structure
+on:
+  push:
+    paths: ['.github/workflows/inspect-rev25-force.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: bash
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          for fn in ['Prohammer 30k.gst','Legiones Astartes.cat']:
+            r=ET.parse(fn).getroot(); ns=r.tag.split('}')[0]+'}'; q=lambda t:ns+t
+            print('\nFILE',fn)
+            fe=r.find(q('forceEntries'))
+            if fe is not None:
+              for f in fe:
+                print('FORCE',f.attrib)
+                for x in f.iter():
+                  if x is f: continue
+                  tag=x.tag.split('}')[-1]
+                  if tag in ('categoryLink','constraint','modifier','condition'):
+                    print(' ',tag,x.attrib)
+            ce=r.find(q('categoryEntries'))
+            if ce is not None:
+              for c in ce:
+                print('CATEGORY',c.attrib)
+                for x in c:
+                  print(' ',x.tag.split('}')[-1],x.attrib)
+          PY
