@@ -1,0 +1,260 @@
+name: Apply revision 24 final generic sync
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/apply-rev24-final-generic-sync.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply final generic army-list changes
+        shell: python
+        run: |
+          import xml.etree.ElementTree as ET
+          from collections import Counter
+
+          CAT='Legiones Astartes.cat'
+          NS='http://www.battlescribe.net/schema/catalogueSchema'
+          ET.register_namespace('',NS)
+          q=lambda t:f'{{{NS}}}{t}'
+
+          tree=ET.parse(CAT)
+          root=tree.getroot()
+
+          def byid(i):
+              return next((e for e in root.iter() if e.get('id')==i),None)
+
+          def ensure(parent,tag):
+              e=parent.find(q(tag))
+              if e is None:
+                  e=ET.SubElement(parent,q(tag))
+              return e
+
+          def remove_element(el):
+              if el is None:
+                  return False
+              pm={c:p for p in root.iter() for c in p}
+              p=pm.get(el)
+              if p is not None:
+                  p.remove(el)
+                  return True
+              return False
+
+          def set_rule_text(entry, rule_id, rule_name, text):
+              rules=ensure(entry,'rules')
+              r=next((x for x in rules.findall(q('rule')) if x.get('id')==rule_id or x.get('name')==rule_name),None)
+              if r is None:
+                  r=ET.SubElement(rules,q('rule'),{'name':rule_name,'id':rule_id,'hidden':'false'})
+              r.set('name',rule_name)
+              d=r.find(q('description'))
+              if d is None:
+                  d=ET.SubElement(r,q('description'))
+              d.text=text
+              return r
+
+          # -----------------------------------------------------------------
+          # FINAL SOURCE: centralized Refractor Field rule and Armoury access
+          # -----------------------------------------------------------------
+          rf=byid('gear-hq-refractor')
+          assert rf is not None, 'shared Refractor Field entry missing'
+          set_rule_text(
+              rf,
+              'gear-hq-refractor-rule',
+              'Refractor Field',
+              'Grants a 5+ Invulnerable Save. A Sergeant may only purchase a Refractor Field if his squad is purchased at its maximum starting strength. A model that already has a 5+ or better Invulnerable Save may not purchase a Refractor Field.'
+          )
+
+          # Praetors already have an Iron Halo and are not permitted to buy a Refractor Field.
+          remove_element(byid('hq-praetor-wg-2'))
+
+          # Terminator-armoured Sergeants are not permitted to buy a Refractor Field.
+          remove_element(byid('terminator-sgt-refractor'))
+
+          # Centurion access remains legal, but not when another 5+ or better invulnerable save is already present.
+          cent=byid('hq-centurion')
+          cent_rf=byid('hq-centurion-wg-2')
+          assert cent is not None and cent_rf is not None, 'Centurion/Refractor entry missing'
+          mods=ensure(cent_rf,'modifiers')
+          # clear only previous rev24 gates if rerun
+          for m in list(mods.findall(q('modifier'))):
+              if (m.get('id') or '').startswith('rev24-cent-rf-'):
+                  mods.remove(m)
+
+          block_names={'Terminator Armour','Tartaros Terminator Armour','Cataphractii Terminator Armour','Iron Halo','Boarding Shield'}
+          blockers=[]
+          for e in cent.iter():
+              if e is cent_rf:
+                  continue
+              if (e.get('name') or '') in block_names and e.get('id'):
+                  blockers.append(e.get('id'))
+          # Chaplain receives a Rosarius (4++) as part of the Consul upgrade.
+          if byid('hq-consul-chaplain') is not None:
+              blockers.append('hq-consul-chaplain')
+          for n,cid in enumerate(dict.fromkeys(blockers),1):
+              m=ET.SubElement(mods,q('modifier'),{'id':f'rev24-cent-rf-{n}','type':'set','value':'true','field':'hidden'})
+              cs=ET.SubElement(m,q('conditions'))
+              ET.SubElement(cs,q('condition'),{'type':'atLeast','value':'1','field':'selections','scope':'root-entry','childId':cid,'shared':'true','includeChildSelections':'true','includeChildForces':'false'})
+
+          # Remove any old unit-level prose copies of the Refractor restriction; it now lives in the item itself.
+          old_phrases=[
+              'Refractor Field: A Sergeant may only select a Refractor Field if',
+              'A Sergeant may only select a Refractor Field if'
+          ]
+          for r in root.iter(q('rule')):
+              d=r.find(q('description'))
+              if d is None or not d.text:
+                  continue
+              txt=d.text
+              if any(p in txt for p in old_phrases):
+                  # Keep unrelated text, but remove the old repeated sentence if present.
+                  parts=[s.strip() for s in txt.replace('\n',' ').split('.') if s.strip()]
+                  parts=[s for s in parts if 'Sergeant may only select a Refractor Field' not in s]
+                  d.text='. '.join(parts)+('.' if parts else '')
+
+          # Power-armoured Sergeants may buy the field only at maximum squad size.
+          # Breachers are deliberately omitted: Boarding Shields already grant a 5++.
+          pa_sergeant_units=[
+              'Legion Veteran Squad',
+              'Legion Tactical Squad',
+              'Legion Assault Squad',
+              'Legion Destroyer Squad',
+              'Legion Reconnaissance Squad',
+              'Legion Seeker Squad',
+              'Legion Bike Squadron',
+              'Legion Sky Hunter Jetbike Squadron',
+              'Legion Heavy Support Squad',
+          ]
+
+          def find_unit(name):
+              nl=name.lower()
+              exact=[]; fuzzy=[]
+              for e in root.iter(q('selectionEntry')):
+                  if e.get('type')!='unit':
+                      continue
+                  en=(e.get('name') or '').strip().lower()
+                  if en==nl: exact.append(e)
+                  elif nl in en: fuzzy.append(e)
+              return (exact or fuzzy or [None])[0]
+
+          def find_armoury_group(unit):
+              groups=[g for g in unit.iter(q('selectionEntryGroup')) if 'sergeant armoury' in (g.get('name') or '').lower()]
+              if groups:
+                  return groups[0]
+              groups=[g for g in unit.iter(q('selectionEntryGroup')) if 'armoury' in (g.get('name') or '').lower() and 'sergeant' in (g.get('name') or '').lower()]
+              return groups[0] if groups else None
+
+          def variable_model_and_max(unit):
+              candidates=[]
+              for e in unit.iter(q('selectionEntry')):
+                  if e.get('type')!='model' or 'sergeant' in (e.get('name') or '').lower():
+                      continue
+                  maxv=None
+                  for c in e.iter(q('constraint')):
+                      if c.get('type')=='max' and c.get('field')=='selections':
+                          try: maxv=float(c.get('value'))
+                          except: pass
+                  if maxv and maxv>1:
+                      candidates.append((maxv,e))
+              if not candidates:
+                  return None,None
+              candidates.sort(key=lambda x:x[0], reverse=True)
+              return candidates[0][1], candidates[0][0]
+
+          touched=[]
+          for uname in pa_sergeant_units:
+              unit=find_unit(uname)
+              assert unit is not None, f'unit not found: {uname}'
+              armoury=find_armoury_group(unit)
+              assert armoury is not None, f'Sergeant Armoury not found: {uname}'
+              model,maxv=variable_model_and_max(unit)
+              assert model is not None, f'variable squad model not found: {uname}'
+
+              # Re-use an existing Refractor option if this Armoury already has one.
+              opt=next((e for e in armoury.iter() if (e.get('name') or '')=='Refractor Field' and e.tag in [q('entryLink'),q('selectionEntry')]),None)
+              if opt is None:
+                  links=ensure(armoury,'entryLinks')
+                  uid=(unit.get('id') or uname.lower().replace(' ','-'))
+                  oid=f'rev24-{uid}-sgt-refractor'
+                  opt=ET.SubElement(links,q('entryLink'),{'import':'true','name':'Refractor Field','hidden':'false','id':oid,'type':'selectionEntry','targetId':'gear-hq-refractor'})
+                  cons=ET.SubElement(opt,q('constraints'))
+                  ET.SubElement(cons,q('constraint'),{'id':oid+'-max','field':'selections','scope':'parent','value':'1','percentValue':'false','shared':'true','includeChildSelections':'false','includeChildForces':'false','type':'max'})
+                  costs=ET.SubElement(opt,q('costs'))
+                  ET.SubElement(costs,q('cost'),{'name':'Points','typeId':'pts','value':'15'})
+
+              # Ensure the option is hidden until the non-Sergeant model count reaches its maximum.
+              omods=ensure(opt,'modifiers')
+              for m in list(omods.findall(q('modifier'))):
+                  if (m.get('id') or '').startswith('rev24-rf-max-'):
+                      omods.remove(m)
+              mid='rev24-rf-max-'+(unit.get('id') or str(len(touched)))
+              m=ET.SubElement(omods,q('modifier'),{'id':mid,'type':'set','value':'true','field':'hidden'})
+              cs=ET.SubElement(m,q('conditions'))
+              ET.SubElement(cs,q('condition'),{'type':'lessThan','value':str(int(maxv) if maxv.is_integer() else maxv),'field':'selections','scope':'root-entry','childId':model.get('id'),'shared':'true','includeChildSelections':'false','includeChildForces':'false'})
+              touched.append((uname,model.get('id'),maxv,opt.get('id')))
+
+          # -------------------------------------------------------------
+          # Final generic Rite wording corrections from the revised source
+          # -------------------------------------------------------------
+          recon_rule=byid('rite-recon-rule')
+          assert recon_rule is not None
+          recon_desc=recon_rule.find(q('description'))
+          if recon_desc is None: recon_desc=ET.SubElement(recon_rule,q('description'))
+          recon_desc.text=('Effects — compulsory Troops must be Legion Reconnaissance Squads. Units with Infiltrate may use it even if the mission normally forbids it. '
+                           'Any model in a Legion Veteran Squad may replace its bolter, or both its bolt pistol and close-combat weapon, with a Sniper Rifle for +5. '
+                           'A unit deployed using Infiltrate or a pre-game Scout move improves its Cover Save by +1 during the first game turn, max 3+. '
+                           'Limitations — no model may be equipped with Terminator Armour or Cataphractii Terminator Armour; all Heavy Support choices begin in Reserve.')
+
+          sky_rule=byid('rite-skyhunter-rule')
+          assert sky_rule is not None
+          sky_desc=sky_rule.find(q('description'))
+          if sky_desc is None: sky_desc=ET.SubElement(sky_rule,q('description'))
+          sky_desc.text=('Effects — Legion Sky Hunter Jetbike Squadrons may be selected as Troops choices. The army’s compulsory Troops choices must be Legion Sky Hunter Jetbike Squadrons; these units do not also occupy a Fast Attack choice. '
+                         'An Independent Character equipped with a Space Marine Bike may upgrade it to a Jetbike for an additional +5 points and follows the normal Jetbike rules. '
+                         'Once per battle, each Legion Sky Hunter Jetbike Squadron may move completely off a table edge into Ongoing Reserves and return during the controlling player’s following turn using the normal Outflank rules. '
+                         'Limitations — at least one Independent Character must be mounted on a Jetbike; the army may not include Castraferrum or Contemptor Dreadnoughts; no more than one Heavy Support choice.')
+
+          # Metadata
+          root.set('revision','24')
+          comment=root.find(q('comment'))
+          if comment is None: comment=ET.SubElement(root,q('comment'))
+          comment.text='Revision 24: Synced the final generic Army List changes: centralized Refractor Field access/restrictions and corrected Legion Recon Company and Sky Hunter Phalanx wording.'
+          readme=root.find(q('readme'))
+          if readme is None: readme=ET.SubElement(root,q('readme'))
+          base=readme.text or ''
+          note=' Revision 24 syncs the final generic Army List Refractor Field restrictions and corrected Recon Company/Sky Hunter Phalanx rules.'
+          if note.strip() not in base:
+              readme.text=base+note
+
+          ET.indent(tree,space='  ')
+          tree.write(CAT,encoding='UTF-8',xml_declaration=True)
+
+          # Validation
+          check=ET.parse(CAT).getroot()
+          ids=[e.get('id') for e in check.iter() if e.get('id')]
+          dup=[k for k,v in Counter(ids).items() if v>1]
+          assert not dup,dup[:20]
+          assert check.get('revision')=='24'
+          assert byid('hq-praetor-wg-2') is None
+          assert byid('terminator-sgt-refractor') is None
+          assert 'maximum starting strength' in (byid('gear-hq-refractor-rule').find(q('description')).text or '')
+          assert 'Legion Reconnaissance Squads' in (byid('rite-recon-rule').find(q('description')).text or '')
+          assert 'Legion Sky Hunter Jetbike Squadrons' in (byid('rite-skyhunter-rule').find(q('description')).text or '')
+          print('Revision 24 validated. PA Sergeant Refractor gates:')
+          for row in touched: print(row)
+
+      - name: Commit revision 24
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'Legiones Astartes.cat'
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Sync final generic army-list corrections [skip ci]'
+          git push
