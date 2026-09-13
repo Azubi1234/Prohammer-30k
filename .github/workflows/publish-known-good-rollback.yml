@@ -1,0 +1,43 @@
+name: Publish known-good rollback
+on:
+  push:
+    paths:
+      - '.github/workflows/publish-known-good-rollback.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump restored known-good data above failed Revision 25
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re, xml.etree.ElementTree as ET
+          cat=Path('Legiones Astartes.cat')
+          gst=Path('Prohammer 30k.gst')
+          c=cat.read_text(encoding='utf-8')
+          g=gst.read_text(encoding='utf-8')
+          c=re.sub(r'(<catalogue\b[^>]*\brevision=")\d+("[^>]*>)', r'\g<1>26\2', c, count=1)
+          c=re.sub(r'(<catalogue\b[^>]*\bgameSystemRevision=")\d+("[^>]*>)', r'\g<1>11\2', c, count=1)
+          g=re.sub(r'(<(?:ns\d+:)?gameSystem\b[^>]*\brevision=")\d+("[^>]*>)', r'\g<1>11\2', g, count=1)
+          cat.write_text(c,encoding='utf-8')
+          gst.write_text(g,encoding='utf-8')
+          cr=ET.parse(cat).getroot(); gr=ET.parse(gst).getroot()
+          assert cr.get('revision')=='26'
+          assert cr.get('gameSystemRevision')=='11'
+          assert gr.get('revision')=='11'
+          print('Known-good rollback bumped to CAT 26 / GST 11')
+          PY
+          git diff --check
+      - name: Commit restored working data
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst'
+          git commit -m 'Restore known-good catalogue as Revision 26' || exit 0
+          git push
