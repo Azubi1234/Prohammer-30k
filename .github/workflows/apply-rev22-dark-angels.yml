@@ -16,7 +16,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build Dark Angels revision 22
-        run: python .github/build/rev22_dark_angels.py
+        shell: python
+        run: |
+          from pathlib import Path
+          src=Path('.github/build/rev22_dark_angels.py').read_text()
+          old="        y=deepcopy(x); y.set('id',f'da22-alt-{suffix}-{n}'); y.set('targetId',new_target); y.set('name',new_name); y.set('hidden','false')"
+          new="""        y=deepcopy(x)
+                  idmap={}
+                  for j,node in enumerate(y.iter()):
+                      oldid=node.get('id')
+                      if oldid:
+                          newid=f'da22-alt-{suffix}-{n}-{j}'
+                          idmap[oldid]=newid
+                          node.set('id',newid)
+                  for node in y.iter():
+                      if node.get('field') in idmap: node.set('field',idmap[node.get('field')])
+                      if node.get('childId') in idmap: node.set('childId',idmap[node.get('childId')])
+                  y.set('id',f'da22-alt-{suffix}-{n}'); y.set('targetId',new_target); y.set('name',new_name); y.set('hidden','false')"""
+          # Dedent the replacement's continuation lines back to the function's indentation.
+          new='\n'.join(line[8:] if i else line for i,line in enumerate(new.splitlines()))
+          if old not in src:
+              raise RuntimeError('plasma cloning target not found')
+          src=src.replace(old,new,1)
+          exec(compile(src,'.github/build/rev22_dark_angels.py','exec'))
       - name: Validate catalogue
         shell: python
         run: |
@@ -32,7 +54,6 @@ jobs:
           assert not d,d[:20]
           for eid in ['legion-i','da22-deathwing-companions','da22-deathwing-term-comp','da22-cenobium','da22-interemptors','da22-enigmatus','da22-corswain','da22-sedras','da22-redloss','da22-holguin','da22-lion','da22-rite-storm','da22-rite-vow','da22-rite-eskaton','da22-rite-steel','da22-rite-arrow','da22-rite-serpent']:
               assert any(e.get('id')==eid for e in r.iter()),eid
-          # Every pre-existing root unit receives a conditional Hexagrammaton selector.
           roots=r.find(q('selectionEntries'))
           generic=[e for e in roots.findall(q('selectionEntry')) if e.get('type')=='unit' and not e.get('id','').startswith('da22-')]
           for e in generic:
