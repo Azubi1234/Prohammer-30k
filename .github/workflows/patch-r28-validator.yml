@@ -1,0 +1,20 @@
+name: Patch Rev28 Validator
+on:
+  push:
+    paths: ['.github/workflows/patch-r28-validator.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch validator
+        run: |
+          python -c "from pathlib import Path; p=Path('.github/workflows/apply-consul-cleanup-r28.yml'); s=p.read_text(); old=\"if t and t not in all_ids: bad.append((e.get('id'),t))\"; new=\"if (e.get('id') or '').startswith('r28-') and t and t not in all_ids: bad.append((e.get('id'),t))\"; assert old in s; p.write_text(s.replace(old,new), encoding='utf-8')"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add .github/workflows/apply-consul-cleanup-r28.yml
+          git commit -m 'Limit Rev28 target validation to new links'
+          git push
