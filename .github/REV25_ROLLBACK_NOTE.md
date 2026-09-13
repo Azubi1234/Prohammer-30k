@@ -1,0 +1,1 @@
+Revision 25 was rolled back from the live New Recruit catalogue after New Recruit failed to load the generated army book. The staged/generated Revision 25 work is preserved in repository history and should be debugged on a branch before republishing. Live CAT/GST are temporarily restored to the last known-good Revision 24/7 pair.
