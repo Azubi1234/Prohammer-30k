@@ -34,8 +34,6 @@ jobs:
                   root.set('revision', str(revision))
               if game_system_revision is not None:
                   root.set('gameSystemRevision', str(game_system_revision))
-              # New Recruit working community repos use an unprefixed root element
-              # with the BattleScribe schema as the default namespace.
               body = ET.tostring(root, encoding='unicode', short_empty_elements=True)
               assert body.startswith(f'<{root_name} '), body[:120]
               assert f'xmlns="{ns}"' in body[:500], body[:500]
@@ -43,23 +41,21 @@ jobs:
               path.write_text(xml, encoding='utf-8', newline='\n')
 
           rewrite(GST, GST_NS, 'gameSystem', revision=12)
-          rewrite(CAT, CAT_NS, 'catalogue', revision=29, game_system_revision=12)
+          rewrite(CAT, CAT_NS, 'catalogue', revision=31, game_system_revision=12)
 
-          # Cross-file compatibility checks.
           gr = ET.parse(GST).getroot()
           cr = ET.parse(CAT).getroot()
           assert gr.get('id') == cr.get('gameSystemId')
           assert gr.get('revision') == cr.get('gameSystemRevision') == '12'
-          assert cr.get('revision') == '29'
+          assert cr.get('revision') == '31'
 
-          # Literal first-line/root checks guard against ElementTree reintroducing ns0 prefixes.
           g = GST.read_text(encoding='utf-8')
           c = CAT.read_text(encoding='utf-8')
           assert '\n<gameSystem ' in g[:300]
           assert '\n<catalogue ' in c[:300]
           assert '<ns0:' not in g[:1000]
           assert '<ns0:' not in c[:1000]
-          print('Canonical New Recruit XML ready: GST rev 12 / CAT rev 29')
+          print('Canonical New Recruit XML ready: GST rev 12 / CAT rev 31')
           PY
           cat > .gitattributes <<'EOF'
           * text=auto
@@ -76,6 +72,6 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No changes to commit'
           else
-            git commit -m 'Reformat game data for canonical New Recruit import'
+            git commit -m 'Publish Catalogue Revision 31 for New Recruit'
             git push
           fi
