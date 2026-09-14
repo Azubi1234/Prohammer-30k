@@ -42,8 +42,10 @@ jobs:
           required=['r47-ws-horsetail-talisman','r47-ih-splinter-bolts','r47-ih-bionics-model','r47-ih-bionics-veteran-sergeant','r47-ih-castrmen-orth','r47-ts-prosperine-aether-disc','r47-wb-favour-aura','r47-wb-favour-mutation','r47-wb-favour-strength','r47-wb-favour-wings','r47-wb-favour-visage']
           for i in required:assert any(e.get('id')==i for e in cr.iter()),i
           # Existing completed Legion/Rite landmarks must survive this pass.
-          for i in ['da22-lion','r40-da-storm-tactical','r43-ws-bike-troops','r44-ih-mechadendrites','r45-ts-brotherhood','r46-wb-diabolist','r46-al-rewards']:
+          for i in ['da22-lion','r40-da-storm-tactical','r43-ws-bike-troops','r44-ih-mechadendrites','r45-ts-brotherhood','r46-wb-diabolist','r46-al-operative-aux']:
               assert any(e.get('id')==i for e in cr.iter()),i
+          # Rewards of Treachery must still have at least one generated choice.
+          assert any(e.get('id','').startswith('r46-al-reward-') for e in cr.iter()),'Alpha Legion Rewards of Treachery choices missing'
           top=cr.find(q('selectionEntries'))
           badexp=[e.get('name') for e in top.findall(q('selectionEntry')) if 'experimental wargear' in (e.get('name') or '').lower() or 'experimental units' in (e.get('name') or '').lower()]
           assert not badexp,badexp
