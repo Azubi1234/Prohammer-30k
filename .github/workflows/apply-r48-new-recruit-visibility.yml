@@ -1,0 +1,50 @@
+name: Apply Revision 48 New Recruit legion visibility repair
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-r48-new-recruit-visibility.yml'
+      - '.github/build/rev48_new_recruit_visibility.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  patch-validate-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Normalize generated Legion visibility for New Recruit
+        run: |
+          set -euo pipefail
+          python .github/build/rev48_new_recruit_visibility.py
+          git diff --check
+      - name: Validate White Scars and Thousand Sons visibility
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          C='http://www.battlescribe.net/schema/catalogueSchema'; Q=lambda t:f'{{{C}}}{t}'
+          r=ET.parse('Legiones Astartes.cat').getroot()
+          assert r.get('revision')=='48'
+          def by(i):return next((e for e in r.iter() if e.get('id')==i),None)
+          for i in ['r43-ws-power-glaive','r43-ws-warlance','r43-ws-cyber-hawk','r47-ws-horsetail-talisman','r45-ts-force-weapon','r45-ts-arcane-litanies','r45-ts-asphyx-ic','r45-ts-brotherhood','r47-ts-prosperine-aether-disc']:
+              assert by(i) is not None,i
+          # Prove that linked generated entries now use the DA-compatible pattern: base visible, hide if Legion missing.
+          counts={'legion-v':0,'legion-xv':0}
+          for e in r.iter():
+              if e.get('hidden')!='false':continue
+              for m in e.findall('./'+Q('modifiers')+'/'+Q('modifier')):
+                  if m.get('field')!='hidden' or m.get('value')!='true':continue
+                  for c in m.iter(Q('condition')):
+                      if c.get('childId') in counts and c.get('type')=='lessThan':counts[c.get('childId')]+=1
+          assert counts['legion-v']>0,counts
+          assert counts['legion-xv']>0,counts
+          print('VISIBILITY VALIDATION OK',counts)
+          PY
+      - name: Publish Revision 48
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' 'inspection-r48-new-recruit-visibility.txt'
+          git commit -m 'Revision 48: fix Legion options visibility in New Recruit' || exit 0
+          git pull --rebase origin main
+          git push
