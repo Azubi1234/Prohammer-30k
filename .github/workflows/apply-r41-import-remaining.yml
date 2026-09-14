@@ -1,0 +1,76 @@
+name: Apply Revision 41 remaining Legion source import
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-r41-import-remaining.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import-validate-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch authoritative final sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p sources
+          curl --retry 3 --retry-delay 2 -L -sS 'https://docs.google.com/document/d/1Rem0x-V74HRqpCBlqDGD5x4sTUQ0lEw-WB9xvqOUkIA/export?format=md' -o 'sources/Legiones Astartes Army List.md'
+          curl --retry 3 --retry-delay 2 -L -sS 'https://docs.google.com/document/d/15yOQ5xqfa7QAJ15GlHqN7F4HvO_jk6K1w5fQ2xkGngk/export?format=md' -o 'sources/Forces of the Legions.md'
+          curl --retry 3 --retry-delay 2 -L -sS 'https://docs.google.com/document/d/1ZDtRchn_AtKUGT922-EyoyXfZDajVwAdl-QeyhZG-S4/export?format=md' -o 'sources/Lords of War.md'
+          curl --retry 3 --retry-delay 2 -L -sS 'https://docs.google.com/document/d/1wkGCuVmsIeBmhRyZR0X9ftQUSqG3RDwlSY774Zt749Y/export?format=md' -o 'sources/Areonautica Imperialis.md'
+          test -s 'sources/Forces of the Legions.md'
+      - name: Import remaining Legion packages
+        shell: bash
+        run: |
+          set -euo pipefail
+          python .github/build/rev41_import_remaining.py
+          git diff --check
+      - name: Validate generated catalogue
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from collections import Counter
+          CAT='Legiones Astartes.cat'; GST='Prohammer 30k.gst'
+          cr=ET.parse(CAT).getroot(); gr=ET.parse(GST).getroot()
+          assert cr.get('revision')=='41', cr.get('revision')
+          assert cr.get('gameSystemRevision')==gr.get('revision'), (cr.get('gameSystemRevision'),gr.get('revision'))
+          for root,label in [(cr,'CAT'),(gr,'GST')]:
+              ids=[e.get('id') for e in root.iter() if e.get('id')]
+              dup=[x for x,n in Counter(ids).items() if n>1]
+              assert not dup,(label,dup[:30])
+          ids={e.get('id') for e in cr.iter() if e.get('id')}|{e.get('id') for e in gr.iter() if e.get('id')}
+          broken=[]
+          for e in cr.iter():
+              t=e.get('targetId')
+              if e.get('id','').startswith(('r41-','r25-')) and t and t not in ids:
+                  broken.append((e.get('id'),t))
+          assert not broken,broken[:30]
+          top=cr.find('{http://www.battlescribe.net/schema/catalogueSchema}selectionEntries')
+          units=[e for e in list(top) if e.get('id','').startswith('r41-unit-')]
+          rites=[e for e in cr.iter() if e.get('id','').startswith('r25-rite-') and e.tag.endswith('selectionEntry')]
+          consuls=[e for e in cr.iter() if e.get('id','').startswith('r25-consul-') and e.tag.endswith('selectionEntry')]
+          assert len(units)>=180,len(units)
+          assert len(rites)>=30,len(rites)
+          assert len(consuls)>=5,len(consuls)
+          # Dark Angels reference package must remain untouched.
+          for ident in ['da22-lion','da22-corswain','da22-rite-storm','r40-da-storm-tactical','r40-da-forward-deployment']:
+              assert any(e.get('id')==ident for e in cr.iter()),ident
+          # Excluded experimental material must not appear in generated names.
+          for e in cr.iter():
+              if e.get('id','').startswith(('r41-','r25-')):
+                  n=e.get('name','').lower()
+                  assert 'experimental wargear' not in n and 'experimental units' not in n,n
+          print('VALIDATION OK',len(units),'units',len(rites),'rites',len(consuls),'consul upgrades')
+          PY
+      - name: Publish source-import foundation
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat'
+          git commit -m 'Revision 41: restore remaining Legion packages from final source' || exit 0
+          git push
