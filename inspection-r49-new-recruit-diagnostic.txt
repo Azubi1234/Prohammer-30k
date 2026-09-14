@@ -1,0 +1,144 @@
+CAT revision=48 GSTrev=19
+
+TARGET da22-corswain
+name=Corswain, Seneschal of the First Legion type=unit hidden=false
+PATH selectionEntry:da22-corswain:Corswain, Seneschal of the First Legion <- catalogue:cat-30a0-30b0-30c0-0001:Legiones Astartes
+ MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden">
+          <ns0:conditions>
+            <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-i" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:conditions>
+        </ns0:modifier>
+      
+
+TARGET da22-interemptors
+name=Dreadwing Interemptor Squad type=unit hidden=false
+PATH selectionEntry:da22-interemptors:Dreadwing Interemptor Squad <- catalogue:cat-30a0-30b0-30c0-0001:Legiones Astartes
+ MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden">
+          <ns0:conditions>
+            <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-i" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:conditions>
+        </ns0:modifier>
+      
+
+TARGET r41-unit-v-0-golden-keshig
+MISSING
+
+TARGET r41-unit-v-1-ebon-keshig
+name=EBON KESHIG type=unit hidden=false
+PATH selectionEntry:r41-unit-v-1-ebon-keshig:EBON KESHIG <- catalogue:cat-30a0-30b0-30c0-0001:Legiones Astartes
+ MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-v" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+
+TARGET r41-unit-xv-0-sekhmet-terminator-cabal
+name=SEKHMET TERMINATOR CABAL type=unit hidden=false
+PATH selectionEntry:r41-unit-xv-0-sekhmet-terminator-cabal:SEKHMET TERMINATOR CABAL <- catalogue:cat-30a0-30b0-30c0-0001:Legiones Astartes
+ MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+
+TARGET r41-unit-xv-1-khenetai-occult-blade-cabal
+name=KHENETAI OCCULT BLADE CABAL type=unit hidden=false
+PATH selectionEntry:r41-unit-xv-1-khenetai-occult-blade-cabal:KHENETAI OCCULT BLADE CABAL <- catalogue:cat-30a0-30b0-30c0-0001:Legiones Astartes
+ MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+
+TARGET r43-hq-praetor-ws-glaive
+name=Power Glaive type=selectionEntry hidden=false
+PATH entryLink:r43-hq-praetor-ws-glaive:Power Glaive <- selectionEntry:hq-praetor:Legion Praetor <- catalogue:cat-30a0-30b0-30c0-0001:Legiones Astartes
+ MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-174" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-v" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+
+TARGET r45-hq-praetor-r45-ts-force-weapon
+name=Prosperine Force Weapon upgrade type=selectionEntry hidden=false
+PATH entryLink:r45-hq-praetor-r45-ts-force-weapon:Prosperine Force Weapon upgrade <- selectionEntry:hq-praetor:Legion Praetor <- catalogue:cat-30a0-30b0-30c0-0001:Legiones Astartes
+ MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-202" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+
+TARGET r43-ws-bike-troops
+name=Legion Bike Squadron type=unit hidden=false
+PATH selectionEntry:r43-ws-bike-troops:Legion Bike Squadron <- catalogue:cat-30a0-30b0-30c0-0001:Legiones Astartes
+ MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-356" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-v" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+
+TARGET r45-cult-hq-praetor
+name=Prosperine Cult type=None hidden=false
+PATH selectionEntryGroup:r45-cult-hq-praetor:Prosperine Cult <- selectionEntry:hq-praetor:Legion Praetor <- catalogue:cat-30a0-30b0-30c0-0001:Legiones Astartes
+ MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-233" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+
+TOP LEVEL R41 V/XV
+r41-unit-v-0-golden-keshig-squadron | GOLDEN KESHIG SQUADRON | hidden=false | mods=1
+r41-unit-v-1-ebon-keshig | EBON KESHIG | hidden=false | mods=1
+r41-unit-v-2-dark-sons-of-death | DARK SONS OF DEATH | hidden=false | mods=1
+r41-unit-v-3-falcons-claws | FALCON’S CLAWS | hidden=false | mods=1
+r41-unit-v-4-qin-xa-master-of-the-keshig | QIN XA, MASTER OF THE KESHIG | hidden=false | mods=1
+r41-unit-v-5-targutai-yesugei | TARGUTAI YESUGEI | hidden=false | mods=1
+r41-unit-v-6-shiban-khan | SHIBAN KHAN | hidden=false | mods=1
+r41-unit-v-7-hibou-khan | HIBOU KHAN | hidden=false | mods=1
+r41-unit-v-8-hasik-noyan-khan | HASIK NOYAN-KHAN | hidden=false | mods=2
+r41-unit-v-9-v-jaghatai-khan-the-warhawk | V — JAGHATAI KHAN, THE WARHAWK | hidden=false | mods=1
+r41-unit-xv-0-sekhmet-terminator-cabal | SEKHMET TERMINATOR CABAL | hidden=false | mods=1
+r41-unit-xv-1-khenetai-occult-blade-cabal | KHENETAI OCCULT BLADE CABAL | hidden=false | mods=1
+r41-unit-xv-2-ammitara-occult-intercession-cabal | AMMITARA OCCULT INTERCESSION CABAL | hidden=false | mods=1
+r41-unit-xv-3-castellax-achea-maniple | CASTELLAX-ACHEA MANIPLE | hidden=false | mods=1
+r41-unit-xv-4-contemptor-osiron-dreadnought | CONTEMPTOR-OSIRON DREADNOUGHT | hidden=false | mods=1
+r41-unit-xv-5-numerologist-cabal | NUMEROLOGIST CABAL | hidden=false | mods=1
+r41-unit-xv-6-ahzek-ahriman | AHZEK AHRIMAN | hidden=false | mods=1
+r41-unit-xv-7-phosis-t-kar | PHOSIS T'KAR | hidden=false | mods=1
+r41-unit-xv-8-magistus-amon-the-hidden | MAGISTUS AMON, THE HIDDEN | hidden=false | mods=1
+r41-unit-xv-9-hathor-maat | HATHOR MAAT | hidden=false | mods=1
+r41-unit-xv-10-sanakht | SANAKHT | hidden=false | mods=1
+r41-unit-xv-11-xv-magnus-the-red-the-crimson-king | XV — MAGNUS THE RED, THE CRIMSON KING | hidden=false | mods=1
+r41-unit-xv-12-magnus-shard-of-the-crimson-king | MAGNUS, SHARD OF THE CRIMSON KING | hidden=false | mods=1
+
+HQ-PRAETOR
+r43-hq-praetor-ws-glaive | Power Glaive | hidden=false target=r43-ws-power-glaive
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-174" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-v" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r43-hq-praetor-ws-lance | Chogorian Warlance | hidden=false target=r43-ws-warlance
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-175" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-v" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r43-praetor-ws-hawk | Cyber-hawk | hidden=false target=r43-ws-cyber-hawk
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-176" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-v" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r45-hq-praetor-r45-ts-force-weapon | Prosperine Force Weapon upgrade | hidden=false target=r45-ts-force-weapon
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-202" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r45-hq-praetor-r45-ts-arcane-litanies | Arcane Litanies | hidden=false target=r45-ts-arcane-litanies
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-203" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r45-hq-praetor-r45-ts-asphyx-ic | Asphyx Shells | hidden=false target=r45-ts-asphyx-ic
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-204" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r45-hq-praetor-r45-ts-trans-ic | Teleportation Transponders | hidden=false target=r45-ts-trans-ic
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-205" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r47-hq-praetor-ws-horsetail | Horsetail Talisman | hidden=false target=r47-ws-horsetail-talisman
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-226" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-v" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r47-hq-praetor-ts-disc | Prosperine Æther-Disc | hidden=false target=r47-ts-prosperine-aether-disc
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-praetor-ts-disc-block-0"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-praetor-term" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-praetor-ts-disc-block-1"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-praetor-tart" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-praetor-ts-disc-block-2"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-praetor-cat" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-praetor-ts-disc-block-3"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="r37-praetor-jetbike" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-praetor-ts-disc-block-4"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-praetor-jump" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-praetor-ts-disc-block-5"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-praetor-bike" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-praetor-ts-disc-block-6"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-praetor-ret-tc-arm-n" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-praetor-ts-disc-block-7"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-praetor-ret-tc-arm-t" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-praetor-ts-disc-block-8"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-praetor-ret-tc-arm-c" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-227" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+
+HQ-CENTURION
+r43-hq-centurion-ws-glaive | Power Glaive | hidden=false target=r43-ws-power-glaive
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-240" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-v" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r43-hq-centurion-ws-lance | Chogorian Warlance | hidden=false target=r43-ws-warlance
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-241" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-v" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r45-hq-centurion-r45-ts-force-weapon | Prosperine Force Weapon upgrade | hidden=false target=r45-ts-force-weapon
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-266" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r45-hq-centurion-r45-ts-arcane-litanies | Arcane Litanies | hidden=false target=r45-ts-arcane-litanies
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-267" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r45-hq-centurion-r45-ts-asphyx-ic | Asphyx Shells | hidden=false target=r45-ts-asphyx-ic
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-268" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r45-hq-centurion-r45-ts-trans-ic | Teleportation Transponders | hidden=false target=r45-ts-trans-ic
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-269" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r47-hq-centurion-ws-horsetail | Horsetail Talisman | hidden=false target=r47-ws-horsetail-talisman
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-292" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-v" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
+r47-hq-centurion-ts-disc | Prosperine Æther-Disc | hidden=false target=r47-ts-prosperine-aether-disc
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-0"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-consul-null-cat" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-1"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-term" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-2"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-tart" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-3"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-cat" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-4"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="r37-centurion-jetbike" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-5"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-jump" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-6"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-bike" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-7"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-ret-command-jump" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-8"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-ret-command-bike" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-9"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-ret-command-jet" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-10"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-ret-tc-arm-n" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-11"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-ret-tc-arm-t" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r47-hq-centurion-ts-disc-block-12"><ns0:conditionGroups><ns0:conditionGroup type="and"><ns0:conditions><ns0:condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-ret-tc-arm-c" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:conditionGroup></ns0:conditionGroups></ns0:modifier>
+  <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-293" type="set" value="true" field="hidden"><ns0:conditions><ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xv" shared="true" includeChildSelections="true" includeChildForces="false" /></ns0:conditions></ns0:modifier>
