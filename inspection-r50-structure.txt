@@ -1,0 +1,313 @@
+
+### da22-interemptors
+selectionEntry name=Dreadwing Interemptor Squad type=unit hidden=false
+CAT {'id': 'da22-interemptors-cat', 'targetId': 'cat-elites', 'name': 'Elites', 'hidden': 'false', 'primary': 'true'}
+GROUP da22-int-extra-g Squad Size hidden=false
+GROUP da22-int-heavy Special Weapon Replacement — one per five models hidden=false
+  GLINK {'import': 'true', 'name': 'Plasma Incinerator with Suspensor Web', 'hidden': 'false', 'id': 'da22-int-inc', 'type': 'selectionEntry', 'targetId': 'da22-plasma-incinerator'}
+GROUP da22-int-eq Squad Equipment hidden=false
+  GLINK {'import': 'true', 'name': 'Legion Vexilla', 'hidden': 'false', 'id': 'da22-int-vex', 'type': 'selectionEntry', 'targetId': 'gear-vexilla'}
+  GLINK {'import': 'true', 'name': 'Nuncio-Vox', 'hidden': 'false', 'id': 'da22-int-nuncio', 'type': 'selectionEntry', 'targetId': 'gear-nuncio'}
+GROUP da22-int-phosphex Interemptor Praefectus hidden=false
+  GLINK {'import': 'true', 'name': 'Phosphex Bomb', 'hidden': 'false', 'id': 'da22-int-ph', 'type': 'selectionEntry', 'targetId': 'gear-phosphex-bomb'}
+GROUP da22-int-transport Dedicated Transport — squad of 10 or fewer hidden=false
+  GLINK {'import': 'true', 'name': 'Rhino', 'hidden': 'false', 'id': 'da22-int-tr-rh', 'type': 'selectionEntry', 'targetId': 'transport-rhino'}
+  GLINK {'import': 'true', 'name': 'Drop Pod', 'hidden': 'false', 'id': 'da22-int-tr-dp', 'type': 'selectionEntry', 'targetId': 'transport-drop-pod'}
+  GLINK {'import': 'true', 'name': 'Dreadclaw Drop Pod', 'hidden': 'false', 'id': 'da22-int-tr-dc', 'type': 'selectionEntry', 'targetId': 'transport-dreadclaw'}
+  GLINK {'import': 'true', 'name': 'Land Raider', 'hidden': 'false', 'id': 'da22-int-tr-lr', 'type': 'selectionEntry', 'targetId': 'hs-land-raider'}
+
+### r41-unit-v-0-golden-keshig-squadron
+selectionEntry name=GOLDEN KESHIG SQUADRON type=unit hidden=false
+CAT {'id': 'r41-unit-v-0-golden-keshig-squadron-cat', 'name': 'Fast Attack', 'hidden': 'false', 'targetId': 'cat-fast'}
+GROUP r41-unit-v-0-golden-keshig-squadron-options Options hidden=false
+
+### r41-unit-v-1-ebon-keshig
+selectionEntry name=EBON KESHIG type=unit hidden=false
+CAT {'id': 'r41-unit-v-1-ebon-keshig-cat', 'name': 'Elites', 'hidden': 'false', 'targetId': 'cat-elites'}
+
+### r41-unit-xv-0-sekhmet-terminator-cabal
+selectionEntry name=SEKHMET TERMINATOR CABAL type=unit hidden=false
+CAT {'id': 'r41-unit-xv-0-sekhmet-terminator-cabal-cat', 'name': 'Elites', 'hidden': 'false', 'targetId': 'cat-elites'}
+GROUP r41-unit-xv-0-sekhmet-terminator-cabal-options Options hidden=false
+GROUP r45-cult-r41-unit-xv-0-sekhmet-terminator-cabal Prosperine Cult hidden=false
+
+### r41-unit-xv-3-castellax-achea-maniple
+selectionEntry name=CASTELLAX-ACHEA MANIPLE type=unit hidden=false
+CAT {'id': 'r41-unit-xv-3-castellax-achea-maniple-cat', 'name': 'Elites', 'hidden': 'false', 'targetId': 'cat-elites'}
+GROUP r41-unit-xv-3-castellax-achea-maniple-options Options hidden=false
+
+### hq-praetor
+selectionEntry name=Legion Praetor type=unit hidden=false
+CAT {'targetId': 'cat-hq', 'id': 'hq-praetor-foc-cat', 'primary': 'true', 'name': 'HQ', 'hidden': 'false'}
+GROUP hq-praetor-armour Armour Replacement (counts toward 100 pt Armoury limit) hidden=false
+GROUP hq-praetor-mob Mobility (counts toward 100 pt Armoury limit) hidden=false
+GROUP hq-praetor-weapons Weapon Replacements (max 100 Armoury pts; max 2 weapons) hidden=false
+GROUP hq-praetor-wargear Additional Wargear (max 100 Armoury pts combined) hidden=false
+  GLINK {'id': 'r40-da-hq-praetor-transponders', 'name': 'Teleportation Transponders', 'type': 'selectionEntry', 'targetId': 'da22-transponders', 'hidden': 'true', 'import': 'true'}
+GROUP hq-praetor-retinue Retinue (does not occupy a separate FOC slot) hidden=false
+GROUP da-wing-hq-praetor Hexagrammaton Wing hidden=false
+GROUP r45-cult-hq-praetor Prosperine Cult hidden=false
+ROOTLINK {'id': 'r43-hq-praetor-ec-spear', 'name': 'Phoenix Spear', 'type': 'selectionEntry', 'targetId': 'r43-ec-phoenix-spear', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-praetor-ec-lasers', 'name': 'Digital Lasers', 'type': 'selectionEntry', 'targetId': 'r43-ec-digital-lasers', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-praetor-ec-shrieker', 'name': 'Sonic Shrieker', 'type': 'selectionEntry', 'targetId': 'r43-ec-sonic-shrieker', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-praetor-iw-servo', 'name': 'Servo-Arm', 'type': 'selectionEntry', 'targetId': 'r43-iw-servo-arm', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-praetor-iw-bionics', 'name': 'Bionics', 'type': 'selectionEntry', 'targetId': 'r43-iw-bionics', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-praetor-ws-glaive', 'name': 'Power Glaive', 'type': 'selectionEntry', 'targetId': 'r43-ws-power-glaive', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-praetor-ws-lance', 'name': 'Chogorian Warlance', 'type': 'selectionEntry', 'targetId': 'r43-ws-warlance', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-praetor-ws-hawk', 'name': 'Cyber-hawk', 'type': 'selectionEntry', 'targetId': 'r43-ws-cyber-hawk', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-praetor-r43-sw-frost-weapon', 'name': 'Frost Weapon', 'type': 'selectionEntry', 'targetId': 'r43-sw-frost-weapon', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-praetor-r43-sw-great-frost-blade', 'name': 'Great Frost Blade', 'type': 'selectionEntry', 'targetId': 'r43-sw-great-frost-blade', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-praetor-r43-sw-wolf-pelt', 'name': 'Wolf Pelt', 'type': 'selectionEntry', 'targetId': 'r43-sw-wolf-pelt', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-praetor-r43-sw-wolf-tooth-necklace', 'name': 'Wolf Tooth Necklace', 'type': 'selectionEntry', 'targetId': 'r43-sw-wolf-tooth-necklace', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-praetor-r43-sw-wolf-tail-talisman', 'name': 'Wolf Tail Talisman', 'type': 'selectionEntry', 'targetId': 'r43-sw-wolf-tail-talisman', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-praetor-r43-sw-runic-armour', 'name': 'Runic Armour', 'type': 'selectionEntry', 'targetId': 'r43-sw-runic-armour', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-praetor-we-chain', 'name': 'Chainaxe', 'type': 'selectionEntry', 'targetId': 'r45-we-chainaxe', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-praetor-we-caedere', 'name': 'Caedere Weapon', 'type': 'selectionEntry', 'targetId': 'r45-we-caedere', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-praetor-um-axe', 'name': 'Legatine Axe', 'type': 'selectionEntry', 'targetId': 'r45-um-legatine-axe', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-praetor-um-mantle', 'name': 'Mantle of Ultramar', 'type': 'selectionEntry', 'targetId': 'r45-um-mantle', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-praetor-dg-man', 'name': 'Manreaper', 'type': 'selectionEntry', 'targetId': 'r45-dg-manreaper', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-praetor-r45-ts-force-weapon', 'name': 'Prosperine Force Weapon upgrade', 'type': 'selectionEntry', 'targetId': 'r45-ts-force-weapon', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-praetor-r45-ts-arcane-litanies', 'name': 'Arcane Litanies', 'type': 'selectionEntry', 'targetId': 'r45-ts-arcane-litanies', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-praetor-r45-ts-asphyx-ic', 'name': 'Asphyx Shells', 'type': 'selectionEntry', 'targetId': 'r45-ts-asphyx-ic', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-praetor-r45-ts-trans-ic', 'name': 'Teleportation Transponders', 'type': 'selectionEntry', 'targetId': 'r45-ts-trans-ic', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r46-hq-praetor-r46-al-power-dagger', 'name': 'Power Dagger', 'type': 'selectionEntry', 'targetId': 'r46-al-power-dagger', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-praetor-ws-horsetail', 'name': 'Horsetail Talisman', 'type': 'selectionEntry', 'targetId': 'r47-ws-horsetail-talisman', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-praetor-ts-disc', 'name': 'Prosperine Æther-Disc', 'type': 'selectionEntry', 'targetId': 'r47-ts-prosperine-aether-disc', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-praetor-wb-favour-aura', 'name': 'Favour of the Pantheon — Daemonic Aura', 'type': 'selectionEntry', 'targetId': 'r47-wb-favour-aura', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-praetor-wb-favour-mutation', 'name': 'Favour of the Pantheon — Daemonic Mutation', 'type': 'selectionEntry', 'targetId': 'r47-wb-favour-mutation', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-praetor-wb-favour-strength', 'name': 'Favour of the Pantheon — Daemonic Strength', 'type': 'selectionEntry', 'targetId': 'r47-wb-favour-strength', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-praetor-wb-favour-wings', 'name': 'Favour of the Pantheon — Daemonic Wings', 'type': 'selectionEntry', 'targetId': 'r47-wb-favour-wings', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-praetor-wb-favour-visage', 'name': 'Favour of the Pantheon — Daemonic Visage', 'type': 'selectionEntry', 'targetId': 'r47-wb-favour-visage', 'hidden': 'false', 'import': 'true'}
+
+### hq-centurion
+selectionEntry name=Legion Centurion type=unit hidden=false
+CAT {'targetId': 'cat-hq', 'id': 'hq-centurion-foc-cat', 'primary': 'true', 'name': 'HQ', 'hidden': 'false'}
+GROUP hq-centurion-consuls Legion Consul Upgrade hidden=false
+GROUP hq-centurion-armour Armour Replacement (counts toward 100 pt Armoury limit) hidden=false
+GROUP hq-centurion-mob Mobility (counts toward 100 pt Armoury limit) hidden=false
+GROUP hq-centurion-weapons Weapon Replacements (max 100 Armoury pts; max 2 weapons) hidden=false
+GROUP hq-centurion-wargear Additional Wargear (max 100 Armoury pts combined) hidden=false
+  GLINK {'id': 'r40-da-hq-centurion-transponders', 'name': 'Teleportation Transponders', 'type': 'selectionEntry', 'targetId': 'da22-transponders', 'hidden': 'true', 'import': 'true'}
+GROUP hq-centurion-retinue Command Retinue (does not occupy a separate FOC slot) hidden=false
+GROUP da-wing-hq-centurion Hexagrammaton Wing hidden=false
+GROUP r45-cult-hq-centurion Prosperine Cult hidden=false
+ROOTLINK {'id': 'r43-hq-centurion-ec-spear', 'name': 'Phoenix Spear', 'type': 'selectionEntry', 'targetId': 'r43-ec-phoenix-spear', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-centurion-ec-lasers', 'name': 'Digital Lasers', 'type': 'selectionEntry', 'targetId': 'r43-ec-digital-lasers', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-centurion-ec-shrieker', 'name': 'Sonic Shrieker', 'type': 'selectionEntry', 'targetId': 'r43-ec-sonic-shrieker', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-centurion-iw-servo', 'name': 'Servo-Arm', 'type': 'selectionEntry', 'targetId': 'r43-iw-servo-arm', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-centurion-iw-bionics', 'name': 'Bionics', 'type': 'selectionEntry', 'targetId': 'r43-iw-bionics', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-centurion-ws-glaive', 'name': 'Power Glaive', 'type': 'selectionEntry', 'targetId': 'r43-ws-power-glaive', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-centurion-ws-lance', 'name': 'Chogorian Warlance', 'type': 'selectionEntry', 'targetId': 'r43-ws-warlance', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-centurion-r43-sw-frost-weapon', 'name': 'Frost Weapon', 'type': 'selectionEntry', 'targetId': 'r43-sw-frost-weapon', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-centurion-r43-sw-great-frost-blade', 'name': 'Great Frost Blade', 'type': 'selectionEntry', 'targetId': 'r43-sw-great-frost-blade', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-centurion-r43-sw-wolf-pelt', 'name': 'Wolf Pelt', 'type': 'selectionEntry', 'targetId': 'r43-sw-wolf-pelt', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-centurion-r43-sw-wolf-tooth-necklace', 'name': 'Wolf Tooth Necklace', 'type': 'selectionEntry', 'targetId': 'r43-sw-wolf-tooth-necklace', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-centurion-r43-sw-wolf-tail-talisman', 'name': 'Wolf Tail Talisman', 'type': 'selectionEntry', 'targetId': 'r43-sw-wolf-tail-talisman', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r43-hq-centurion-r43-sw-runic-armour', 'name': 'Runic Armour', 'type': 'selectionEntry', 'targetId': 'r43-sw-runic-armour', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-centurion-we-chain', 'name': 'Chainaxe', 'type': 'selectionEntry', 'targetId': 'r45-we-chainaxe', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-centurion-we-caedere', 'name': 'Caedere Weapon', 'type': 'selectionEntry', 'targetId': 'r45-we-caedere', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-centurion-um-axe', 'name': 'Legatine Axe', 'type': 'selectionEntry', 'targetId': 'r45-um-legatine-axe', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-centurion-dg-man', 'name': 'Manreaper', 'type': 'selectionEntry', 'targetId': 'r45-dg-manreaper', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-centurion-r45-ts-force-weapon', 'name': 'Prosperine Force Weapon upgrade', 'type': 'selectionEntry', 'targetId': 'r45-ts-force-weapon', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-centurion-r45-ts-arcane-litanies', 'name': 'Arcane Litanies', 'type': 'selectionEntry', 'targetId': 'r45-ts-arcane-litanies', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-centurion-r45-ts-asphyx-ic', 'name': 'Asphyx Shells', 'type': 'selectionEntry', 'targetId': 'r45-ts-asphyx-ic', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r45-hq-centurion-r45-ts-trans-ic', 'name': 'Teleportation Transponders', 'type': 'selectionEntry', 'targetId': 'r45-ts-trans-ic', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r46-hq-centurion-r46-al-power-dagger', 'name': 'Power Dagger', 'type': 'selectionEntry', 'targetId': 'r46-al-power-dagger', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-centurion-ws-horsetail', 'name': 'Horsetail Talisman', 'type': 'selectionEntry', 'targetId': 'r47-ws-horsetail-talisman', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-centurion-ts-disc', 'name': 'Prosperine Æther-Disc', 'type': 'selectionEntry', 'targetId': 'r47-ts-prosperine-aether-disc', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-centurion-wb-favour-aura', 'name': 'Favour of the Pantheon — Daemonic Aura', 'type': 'selectionEntry', 'targetId': 'r47-wb-favour-aura', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-centurion-wb-favour-mutation', 'name': 'Favour of the Pantheon — Daemonic Mutation', 'type': 'selectionEntry', 'targetId': 'r47-wb-favour-mutation', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-centurion-wb-favour-strength', 'name': 'Favour of the Pantheon — Daemonic Strength', 'type': 'selectionEntry', 'targetId': 'r47-wb-favour-strength', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-centurion-wb-favour-wings', 'name': 'Favour of the Pantheon — Daemonic Wings', 'type': 'selectionEntry', 'targetId': 'r47-wb-favour-wings', 'hidden': 'false', 'import': 'true'}
+ROOTLINK {'id': 'r47-hq-centurion-wb-favour-visage', 'name': 'Favour of the Pantheon — Daemonic Visage', 'type': 'selectionEntry', 'targetId': 'r47-wb-favour-visage', 'hidden': 'false', 'import': 'true'}
+
+### R41 CATEGORY SUMMARY
+r41-unit-iii-0-palatine-blade-squad | PALATINE BLADE SQUAD | Elites:cat-elites primary=None
+r41-unit-iii-1-phoenix-terminator-squad | PHOENIX TERMINATOR SQUAD | Elites:cat-elites primary=None
+r41-unit-iii-2-kakophoni-squad | KAKOPHONI SQUAD | Heavy Support:cat-heavy primary=None
+r41-unit-iii-3-sun-killer-squad | SUN KILLER SQUAD | Heavy Support:cat-heavy primary=None
+r41-unit-iii-4-lord-commander-eidolon | LORD COMMANDER EIDOLON | HQ:cat-hq primary=None
+r41-unit-iii-5-saul-tarvitz | SAUL TARVITZ | HQ:cat-hq primary=None
+r41-unit-iii-6-captain-lucius | CAPTAIN LUCIUS | HQ:cat-hq primary=None
+r41-unit-iii-7-fabius-bile | FABIUS BILE | HQ:cat-hq primary=None
+r41-unit-iii-8-rylanor-the-unyielding | RYLANOR THE UNYIELDING | HQ:cat-hq primary=None
+r41-unit-iii-9-fulgrim-the-phoenician | FULGRIM, THE PHOENICIAN | Lords of War:cat-low primary=None
+r41-unit-iii-10-fulgrim-transfigured | FULGRIM TRANSFIGURED | Lords of War:cat-low primary=None
+r41-unit-iv-0-tyrant-siege-terminator-squad | TYRANT SIEGE TERMINATOR SQUAD | Heavy Support:cat-heavy primary=None
+r41-unit-iv-1-iron-havoc-squad | IRON HAVOC SQUAD | Heavy Support:cat-heavy primary=None
+r41-unit-iv-2-dominator-cohort | DOMINATOR COHORT | Elites:cat-elites primary=None
+r41-unit-iv-3-iron-circle-domitar-ferrum-maniple | IRON CIRCLE DOMITAR-FERRUM MANIPLE | Elites:cat-elites primary=None
+r41-unit-iv-4-narik-dreygur | NÂRIK DREYGUR | HQ:cat-hq primary=None
+r41-unit-iv-5-erasmus-golg | ERASMUS GOLG | HQ:cat-hq primary=None
+r41-unit-iv-6-kyr-vhalen | KYR VHALEN | HQ:cat-hq primary=None
+r41-unit-iv-7-forrix-first-captain-of-the-iron-warriors | FORRIX, FIRST CAPTAIN OF THE IRON WARRIORS | HQ:cat-hq primary=None
+r41-unit-iv-8-kroeger-the-bloody-handed | KROEGER, THE BLOODY-HANDED | HQ:cat-hq primary=None
+r41-unit-iv-9-iv-perturabo-the-lord-of-iron | IV — PERTURABO, THE LORD OF IRON | Lords of War:cat-low primary=None
+r41-unit-v-0-golden-keshig-squadron | GOLDEN KESHIG SQUADRON | Fast Attack:cat-fast primary=None
+r41-unit-v-1-ebon-keshig | EBON KESHIG | Elites:cat-elites primary=None
+r41-unit-v-2-dark-sons-of-death | DARK SONS OF DEATH | Elites:cat-elites primary=None
+r41-unit-v-3-falcons-claws | FALCON’S CLAWS | Fast Attack:cat-fast primary=None
+r41-unit-v-4-qin-xa-master-of-the-keshig | QIN XA, MASTER OF THE KESHIG | HQ:cat-hq primary=None
+r41-unit-v-5-targutai-yesugei | TARGUTAI YESUGEI | HQ:cat-hq primary=None
+r41-unit-v-6-shiban-khan | SHIBAN KHAN | HQ:cat-hq primary=None
+r41-unit-v-7-hibou-khan | HIBOU KHAN | HQ:cat-hq primary=None
+r41-unit-v-8-hasik-noyan-khan | HASIK NOYAN-KHAN | HQ:cat-hq primary=None
+r41-unit-v-9-v-jaghatai-khan-the-warhawk | V — JAGHATAI KHAN, THE WARHAWK | Lords of War:cat-low primary=None
+r41-unit-vi-0-grey-slayer-pack | GREY SLAYER PACK | Troops:cat-troops primary=None
+r41-unit-vi-1-grey-stalker-pack | GREY STALKER PACK | Troops:cat-troops primary=None
+r41-unit-vi-2-wolf-scout-squad | WOLF SCOUT SQUAD | Elites:cat-elites primary=None
+r41-unit-vi-3-deathsworn-pack | DEATHSWORN PACK | Elites:cat-elites primary=None
+r41-unit-vi-4-jorlund-hunter-pack | JORLUND HUNTER PACK | Troops:cat-troops primary=None
+r41-unit-vi-5-varagyr-wolf-guard-terminators | VARAGYR WOLF GUARD TERMINATORS | Elites:cat-elites primary=None
+r41-unit-vi-6-fenrisian-wolf-pack | FENRISIAN WOLF PACK | Fast Attack:cat-fast primary=None
+r41-unit-vi-7-hvarl-red-blade | HVARL RED-BLADE | HQ:cat-hq primary=None
+r41-unit-vi-8-geigor-fell-hand | GEIGOR FELL-HAND | HQ:cat-hq primary=None
+r41-unit-vi-9-bjorn-the-fell-handed | BJÖRN THE FELL-HANDED | HQ:cat-hq primary=None
+r41-unit-vi-10-ohthere-wyrdmake | OHTHERE WYRDMAKE | HQ:cat-hq primary=None
+r41-unit-vi-11-vi-leman-russ-the-wolf-king | VI — LEMAN RUSS, THE WOLF KING | Lords of War:cat-low primary=None
+r41-unit-vii-0-templar-brethren-squad | TEMPLAR BRETHREN SQUAD | Elites:cat-elites primary=None
+r41-unit-vii-1-phalanx-warder-squad | PHALANX WARDER SQUAD | Elites:cat-elites primary=None
+r41-unit-vii-2-huscarl-terminator-retinue | HUSCARL TERMINATOR RETINUE | Retinue:cat-retinue primary=None
+r41-unit-vii-3-tarantula-sentry-gun-battery | TARANTULA SENTRY GUN BATTERY | Fast Attack:cat-fast primary=None
+r41-unit-vii-4-sigismund-first-captain | SIGISMUND, FIRST CAPTAIN | HQ:cat-hq primary=None
+r41-unit-vii-5-fafnir-rann | FAFNIR RANN | HQ:cat-hq primary=None
+r41-unit-vii-6-alexis-polux | ALEXIS POLUX | HQ:cat-hq primary=None
+r41-unit-vii-7-camba-diaz | CAMBA DIAZ | HQ:cat-hq primary=None
+r41-unit-vii-8-evander-garrius | EVANDER GARRIUS | HQ:cat-hq primary=None
+r41-unit-vii-9-vii-rogal-dorn-the-praetorian-of-terra | VII — ROGAL DORN, THE PRAETORIAN OF TERRA | Lords of War:cat-low primary=None
+r41-unit-viii-0-terror-squad | TERROR SQUAD | Elites:cat-elites primary=None
+r41-unit-viii-1-night-raptor-squad | NIGHT RAPTOR SQUAD | Fast Attack:cat-fast primary=None
+r41-unit-viii-2-contekar-terminator-elite | CONTEKAR TERMINATOR ELITE | Elites:cat-elites primary=None
+r41-unit-viii-3-atramentar-flay-clade | ATRAMENTAR FLAY-CLADE | Elites:cat-elites primary=None
+r41-unit-viii-4-jago-sevatarion | JAGO SEVATARION | HQ:cat-hq primary=None
+r41-unit-viii-5-kheron-ophion | KHERON OPHION | HQ:cat-hq primary=None
+r41-unit-viii-6-malcharion-the-war-sage | MALCHARION, THE WAR-SAGE | HQ:cat-hq primary=None
+r41-unit-viii-7-shang | SHANG | HQ:cat-hq primary=None
+r41-unit-viii-8-flaymaster-mawdrym-llansahai | FLAYMASTER MAWDRYM LLANSAHAI | HQ:cat-hq primary=None
+r41-unit-viii-9-viii-konrad-curze-the-night-haunter | VIII — KONRAD CURZE, THE NIGHT HAUNTER | Lords of War:cat-low primary=None
+r41-unit-ix-0-dawnbreaker-cohort | DAWNBREAKER COHORT | Elites:cat-elites primary=None
+r41-unit-ix-1-crimson-paladin-squad | CRIMSON PALADIN SQUAD | Elites:cat-elites primary=None
+r41-unit-ix-2-angel-s-tears-squad | ANGEL'S TEARS SQUAD | Elites:cat-elites primary=None
+r41-unit-ix-3-ofanim-court | OFANIM COURT | Elites:cat-elites primary=None
+r41-unit-ix-4-grav-chariot-squadron | GRAV CHARIOT SQUADRON | Fast Attack:cat-fast primary=None
+r41-unit-ix-5-sanguinary-guard | SANGUINARY GUARD | Retinue:cat-retinue primary=None
+r41-unit-ix-6-raldoron-the-blooded | RALDORON, THE BLOODED | HQ:cat-hq primary=None
+r41-unit-ix-7-dominion-zephon | DOMINION ZEPHON | HQ:cat-hq primary=None
+r41-unit-ix-8-aster-crohne | ASTER CROHNE | HQ:cat-hq primary=None
+r41-unit-ix-9-azkaellon | AZKAELLON | Elites:cat-elites primary=None
+r41-unit-ix-10-nassir-amit-the-flesh-tearer | NASSIR AMIT, THE FLESH TEARER | HQ:cat-hq primary=None
+r41-unit-ix-11-ix-sanguinius-the-great-angel | IX — SANGUINIUS, THE GREAT ANGEL | Lords of War:cat-low primary=None
+r41-unit-x-0-medusan-immortal-squad | MEDUSAN IMMORTAL SQUAD | Troops:cat-troops primary=None
+r41-unit-x-1-gorgon-terminator-squad | GORGON TERMINATOR SQUAD | Elites:cat-elites primary=None
+r41-unit-x-2-morlock-terminator-squad | MORLOCK TERMINATOR SQUAD | Elites:cat-elites primary=None
+r41-unit-x-3-venerable-forge-lord | VENERABLE FORGE LORD | Elites:cat-elites primary=None
+r41-unit-x-4-shadrak-meduson | SHADRAK MEDUSON | HQ:cat-hq primary=None
+r41-unit-x-5-autek-mor | AUTEK MOR | HQ:cat-hq primary=None
+r41-unit-x-6-gabriel-santar | GABRIEL SANTAR | HQ:cat-hq primary=None
+r41-unit-x-7-x-ferrus-manus-the-gorgon | X — FERRUS MANUS, THE GORGON | Lords of War:cat-low primary=None
+r41-unit-xii-0-rampager-squad | RAMPAGER SQUAD | Elites:cat-elites primary=None
+r41-unit-xii-1-red-butcher-squad | RED BUTCHER SQUAD | Elites:cat-elites primary=None
+r41-unit-xii-2-red-hand-destroyer-mortalis-squad | RED HAND DESTROYER MORTALIS SQUAD | Elites:cat-elites primary=None
+r41-unit-xii-3-world-eaters-inductii-squad | WORLD EATERS INDUCTII SQUAD | Troops:cat-troops primary=None
+r41-unit-xii-4-devourer-terminator-squad | DEVOURER TERMINATOR SQUAD | Elites:cat-elites primary=None
+r41-unit-xii-5-triarii-breacher-squad | TRIARII BREACHER SQUAD | Elites:cat-elites primary=None
+r41-unit-xii-6-kharn-the-bloody | KHÂRN THE BLOODY | HQ:cat-hq primary=None
+r41-unit-xii-7-shabran-darr | SHABRAN DARR | HQ:cat-hq primary=None
+r41-unit-xii-8-gahlan-surlak | GAhLAN SURLAK | HQ:cat-hq primary=None
+r41-unit-xii-9-kargos-the-bloodspitter | KARGOS, THE BLOODSPITTER | HQ:cat-hq primary=None
+r41-unit-xii-10-captain-ehrlen | CAPTAIN EHRLEN | HQ:cat-hq primary=None
+r41-unit-xii-11-delvarus | DELVARUS | HQ:cat-hq primary=None
+r41-unit-xii-12-xii-angron-the-red-angel | XII — ANGRON, THE RED ANGEL | Lords of War:cat-low primary=None
+r41-unit-xii-13-angron-the-red-angel | ANGRON, THE RED ANGEL | Lords of War:cat-low primary=None
+r41-unit-xiii-0-invictarus-suzerain-squad | INVICTARUS SUZERAIN SQUAD | Elites:cat-elites primary=None
+r41-unit-xiii-1-fulmentarus-terminator-squad | FULMENTARUS TERMINATOR SQUAD | Elites:cat-elites primary=None
+r41-unit-xiii-2-locutarus-storm-squad | LOCUTARUS STORM SQUAD | Fast Attack:cat-fast primary=None
+r41-unit-xiii-3-nemesis-destroyer-squad | NEMESIS DESTROYER SQUAD | Elites:cat-elites primary=None
+r41-unit-xiii-4-marius-gage-first-master | MARIUS GAGE, FIRST MASTER | HQ:cat-hq primary=None
+r41-unit-xiii-5-remus-ventanus | REMUS VENTANUS | HQ:cat-hq primary=None
+r41-unit-xiii-6-aeonid-thiel | AEONID THIEL | Elites:cat-elites primary=None
+r41-unit-xiii-7-honoured-telemechrus | HONOURED TELEMECHRUS | Elites:cat-elites primary=None
+r41-unit-xiii-8-titus-prayto | TITUS PRAYTO | HQ:cat-hq primary=None
+r41-unit-xiii-9-xiii-roboute-guilliman-the-avenging-son | XIII — ROBOUTE GUILLIMAN, THE AVENGING SON | Lords of War:cat-low primary=None
+r41-unit-xiv-0-deathshroud-terminators | DEATHSHROUD TERMINATORS | Elites:cat-elites primary=None
+r41-unit-xiv-1-grave-warden-terminator-squad | GRAVE WARDEN TERMINATOR SQUAD | Heavy Support:cat-heavy primary=None
+r41-unit-xiv-2-mortus-poisoner-squad | MORTUS POISONER SQUAD | Elites:cat-elites primary=None
+r41-unit-xiv-3-calas-typhon-first-captain | CALAS TYPHON, FIRST CAPTAIN | HQ:cat-hq primary=None
+r41-unit-xiv-4-crysos-morturg | CRYSOS MORTURG | HQ:cat-hq primary=None
+r41-unit-xiv-5-durak-rask | DURAK RASK | HQ:cat-hq primary=None
+r41-unit-xiv-6-ignatius-grulgor | IGNATIUS GRULGOR | HQ:cat-hq primary=None
+r41-unit-xiv-7-nathaniel-garro | NATHANIEL GARRO | HQ:cat-hq primary=None
+r41-unit-xiv-8-xiv-mortarion-the-reaper | XIV — MORTARION, THE REAPER | Lords of War:cat-low primary=None
+r41-unit-xiv-9-mortarion-prince-of-decay | MORTARION, PRINCE OF DECAY | Lords of War:cat-low primary=None
+r41-unit-xv-0-sekhmet-terminator-cabal | SEKHMET TERMINATOR CABAL | Elites:cat-elites primary=None
+r41-unit-xv-1-khenetai-occult-blade-cabal | KHENETAI OCCULT BLADE CABAL | Elites:cat-elites primary=None
+r41-unit-xv-2-ammitara-occult-intercession-cabal | AMMITARA OCCULT INTERCESSION CABAL | Fast Attack:cat-fast primary=None
+r41-unit-xv-3-castellax-achea-maniple | CASTELLAX-ACHEA MANIPLE | Elites:cat-elites primary=None
+r41-unit-xv-4-contemptor-osiron-dreadnought | CONTEMPTOR-OSIRON DREADNOUGHT | Elites:cat-elites primary=None
+r41-unit-xv-5-numerologist-cabal | NUMEROLOGIST CABAL | Elites:cat-elites primary=None
+r41-unit-xv-6-ahzek-ahriman | AHZEK AHRIMAN | HQ:cat-hq primary=None
+r41-unit-xv-7-phosis-t-kar | PHOSIS T'KAR | HQ:cat-hq primary=None
+r41-unit-xv-8-magistus-amon-the-hidden | MAGISTUS AMON, THE HIDDEN | HQ:cat-hq primary=None
+r41-unit-xv-9-hathor-maat | HATHOR MAAT | HQ:cat-hq primary=None
+r41-unit-xv-10-sanakht | SANAKHT | HQ:cat-hq primary=None
+r41-unit-xv-11-xv-magnus-the-red-the-crimson-king | XV — MAGNUS THE RED, THE CRIMSON KING | Lords of War:cat-low primary=None
+r41-unit-xv-12-magnus-shard-of-the-crimson-king | MAGNUS, SHARD OF THE CRIMSON KING | Lords of War:cat-low primary=None
+r41-unit-xvi-0-justaerin-terminator-squad | JUSTAERIN TERMINATOR SQUAD | Elites:cat-elites primary=None
+r41-unit-xvi-1-reaver-attack-squad | REAVER ATTACK SQUAD | Fast Attack:cat-fast primary=None
+r41-unit-xvi-2-chieftain-squad | CHIEFTAIN SQUAD | Elites:cat-elites primary=None
+r41-unit-xvi-3-luperci-pack | LUPERCI PACK | Elites:cat-elites primary=None
+r41-unit-xvi-4-ezekyle-abaddon-first-captain | EZEKYLE ABADDON, FIRST CAPTAIN | HQ:cat-hq primary=None
+r41-unit-xvi-5-horus-aximand-little-horus | HORUS AXIMAND, “LITTLE HORUS” | HQ:cat-hq primary=None
+r41-unit-xvi-6-garviel-loken | GARVIEL LOKEN | HQ:cat-hq primary=None
+r41-unit-xvi-7-maloghurst-the-twisted | MALOGHURST THE TWISTED | HQ:cat-hq primary=None
+r41-unit-xvi-8-tybalt-marr-the-either | TYBALT MARR, “THE EITHER” | HQ:cat-hq primary=None
+r41-unit-xvi-9-vheren-ashurhaddon | VHEREN ASHURHADDON | HQ:cat-hq primary=None
+r41-unit-xvi-10-falkus-kibre | FALKUS KIBRE | Elites:cat-elites primary=None
+r41-unit-xvi-11-tarik-torgaddon | TARIK TORGADDON | HQ:cat-hq primary=None
+r41-unit-xvi-12-xvi-horus-lupercal-the-warmaster | XVI — HORUS LUPERCAL, THE WARMASTER | Lords of War:cat-low primary=None
+r41-unit-xvi-13-xvi-horus-ascended-the-warmaster | XVI — HORUS ASCENDED, THE WARMASTER | Lords of War:cat-low primary=None
+r41-unit-xvii-0-covenant-zealot-mob | COVENANT ZEALOT MOB | Troops:cat-troops primary=None
+r41-unit-xvii-1-gal-vorbak-dark-brethren | GAL VORBAK DARK BRETHREN | Elites:cat-elites primary=None
+r41-unit-xvii-2-ashen-circle | ASHEN CIRCLE | Fast Attack:cat-fast primary=None
+r41-unit-xvii-3-mhara-gal-tainted-dreadnought | MHARA GAL TAINTED DREADNOUGHT | Elites:cat-elites primary=None
+r41-unit-xvii-4-procurator-squad | PROCURATOR SQUAD | Elites:cat-elites primary=None
+r41-unit-xvii-5-possessed-marine-squad | POSSESSED MARINE SQUAD | Elites:cat-elites primary=None
+r41-unit-xvii-6-argel-tal | ARGEL TAL | HQ:cat-hq primary=None
+r41-unit-xvii-7-high-chaplain-erebus | HIGH CHAPLAIN EREBUS | HQ:cat-hq primary=None
+r41-unit-xvii-8-kor-phaeron-the-black-cardinal | KOR PHAERON, THE BLACK CARDINAL | HQ:cat-hq primary=None
+r41-unit-xvii-9-zardu-layak | ZARDU LAYAK | HQ:cat-hq primary=None
+r41-unit-xvii-10-anakatis-kul-blade-slaves | ANAKATIS KUL BLADE-SLAVES | Elites:cat-elites primary=None
+r41-unit-xvii-11-hol-beloth | HOL BELOTH | HQ:cat-hq primary=None
+r41-unit-xvii-12-xvii-lorgar-aurelian-the-urizen | XVII — LORGAR AURELIAN, THE URIZEN | Lords of War:cat-low primary=None
+r41-unit-xviii-0-firedrake-terminator-squad | FIREDRAKE TERMINATOR SQUAD | Elites:cat-elites primary=None
+r41-unit-xviii-1-pyroclast-squad | PYROCLAST SQUAD | Elites:cat-elites primary=None
+r41-unit-xviii-2-salamanders-infernus-destroyer-squad | SALAMANDERS INFERNUS DESTROYER SQUAD | Elites:cat-elites primary=None
+r41-unit-xviii-3-adherent-squad | ADHERENT SQUAD | Troops:cat-troops primary=None
+r41-unit-xviii-4-sanctifier-squad | SANCTIFIER SQUAD | Elites:cat-elites primary=None
+r41-unit-xviii-5-artellus-numeon | ARTELLUS NUMEON | HQ:cat-hq primary=None
+r41-unit-xviii-6-lord-chaplain-nomus-rhy-tan | LORD CHAPLAIN NOMUS RHY'TAN | HQ:cat-hq primary=None
+r41-unit-xviii-7-xiaphas-jurr-prophet-of-fire | XIAPHAS JURR, PROPHET OF FIRE | HQ:cat-hq primary=None
+r41-unit-xviii-8-cassian-dracos | CASSIAN DRACOS | Elites:cat-elites primary=None
+r41-unit-xviii-9-forgefather-t-kell | FORGEFATHER T'KELL | HQ:cat-hq primary=None
+r41-unit-xviii-10-xviii-vulkan-the-forgefather | XVIII — VULKAN, THE FORGEFATHER | Lords of War:cat-low primary=None
+r41-unit-xix-0-mor-deythan-squad | MOR DEYTHAN SQUAD | Elites:cat-elites primary=None
+r41-unit-xix-1-dark-fury-assault-squad | DARK FURY ASSAULT SQUAD | Fast Attack:cat-fast primary=None
+r41-unit-xix-2-deliverer-terminator-squad | DELIVERER TERMINATOR SQUAD | Elites:cat-elites primary=None
+r41-unit-xix-3-raptor-squad | RAPTOR SQUAD | Elites:cat-elites primary=None
+r41-unit-xix-4-kaedes-nex | KAEDES NEX | HQ:cat-hq primary=None
+r41-unit-xix-5-alvarex-maun | ALVAREX MAUN | HQ:cat-hq primary=None
+r41-unit-xix-6-agapito-nev | AGAPITO NEV | HQ:cat-hq primary=None
+r41-unit-xix-7-branne-nev | BRANNE NEV | HQ:cat-hq primary=None
+r41-unit-xix-8-nykona-sharrowkyn | NYKONA SHARROWKYN | HQ:cat-hq primary=None
+r41-unit-xix-9-xix-corvus-corax-the-raven-lord | XIX — CORVUS CORAX, THE RAVEN-LORD | Lords of War:cat-low primary=None
+r41-unit-xx-0-legion-operatives | LEGION OPERATIVES | Troops:cat-troops primary=None
+r41-unit-xx-1-headhunter-kill-team | HEADHUNTER KILL TEAM | Elites:cat-elites primary=None
+r41-unit-xx-2-lernaean-terminator-squad | LERNAEAN TERMINATOR SQUAD | Elites:cat-elites primary=None
+r41-unit-xx-3-effrit-disruption-cadre | EFFRIT DISRUPTION CADRE | Elites:cat-elites primary=None
+r41-unit-xx-4-armillus-dynat | ARMILLUS DYNAT | HQ:cat-hq primary=None
+r41-unit-xx-5-exodus | EXODUS | HQ:cat-hq primary=None
+r41-unit-xx-6-autilon-skorr | AUTILON SKORR | HQ:cat-hq primary=None
+r41-unit-xx-7-ingo-pech | INGO PECH | HQ:cat-hq primary=None
+r41-unit-xx-8-mathias-herzog | MATHIAS HERZOG | HQ:cat-hq primary=None
+r41-unit-xx-9-sheed-ranko | SHEED RANKO | HQ:cat-hq primary=None
+r41-unit-xx-10-xx-alpharius-the-hydra | XX — ALPHARIUS, THE HYDRA | Lords of War:cat-low primary=None
