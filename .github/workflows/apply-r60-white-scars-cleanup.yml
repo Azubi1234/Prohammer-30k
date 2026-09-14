@@ -1,0 +1,41 @@
+name: Apply Revision 60 White Scars cleanup
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev60_white_scars_cleanup.py'
+      - '.github/workflows/apply-r60-white-scars-cleanup.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply White Scars cleanup
+        run: python .github/build/rev60_white_scars_cleanup.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify revision and inspection
+        run: |
+          grep -q 'dataRevision="60"' index.xml
+          grep -q 'dataRevision="28"' index.xml
+          test -f inspection-r60-white-scars-cleanup.txt
+          cat inspection-r60-white-scars-cleanup.txt
+      - name: Commit generated data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r60-white-scars-cleanup.txt inspection-r56-all-unit-sizes.txt
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+          else
+            git commit -m 'Revision 60: clean up White Scars'
+            git push
+          fi
