@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - '.github/build/rev56_normalize_all_unit_sizes.py'
+      - '.github/workflows/apply-r56-catalogue-unit-sizes.yml'
   workflow_dispatch:
 permissions:
   contents: write
