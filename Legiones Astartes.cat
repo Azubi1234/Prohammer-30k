@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="58" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="26" type="catalogue">
-  <comment>Revision 58: Iron Warriors squad-size repair. Tyrants, Iron Havocs, Dominators and Iron Circle now display actual starting unit size rather than Additional-model counters.</comment>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="59" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="27" type="catalogue">
+  <comment>Revision 59: force New Recruit refresh of corrected Iron Warriors total-model squad counters.</comment>
   <readme>Core Legiones Astartes catalogue for Prohammer 30k. Revision 32 includes the generic Legion army list and Consuls, Dark Angels package, Legiones Astartes Lords of War, and Legiones Astartes Aeronautica Imperialis aircraft. Experimental Wargear and Units remains excluded.</readme>
   <sharedSelectionEntries>
     <selectionEntry type="upgrade" import="true" name="Bolter" hidden="false" id="gear-bolter">

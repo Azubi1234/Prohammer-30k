@@ -1,0 +1,5 @@
+TYRANT SIEGE TERMINATOR SQUAD: Tyrant Siege Terminators 5-10, default 5.
+IRON HAVOC SQUAD: Iron Havocs 5-10, default 5.
+DOMINATOR COHORT: Dominator Cohort Models 5-10, default 5.
+IRON CIRCLE DOMITAR-FERRUM MANIPLE: Domitar-Ferrum Battle-Automata 1-6, default 1.
+CAT59 / GST27; canonical namespaces; no legacy Additional-model quantity counters.
