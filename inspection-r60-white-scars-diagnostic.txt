@@ -1,0 +1,38 @@
+UNIT r41-unit-v-0-golden-keshig-squadron :: GOLDEN KESHIG SQUADRON :: type=unit hidden=false
+  SOURCE_ENTRY
+  MODEL r41-unit-v-0-golden-keshig-squadron-additional :: Squad Models :: default=3 :: cons=[('max', '5'), ('min', '3')]
+
+UNIT r41-unit-v-1-ebon-keshig :: EBON KESHIG :: type=unit hidden=false
+  SOURCE_ENTRY
+  MODEL r41-unit-v-1-ebon-keshig-additional :: Squad Models :: default=5 :: cons=[('max', '10'), ('min', '5')]
+
+UNIT r41-unit-v-2-dark-sons-of-death :: DARK SONS OF DEATH :: type=unit hidden=false
+  SOURCE_ENTRY
+  MODEL r41-unit-v-2-dark-sons-of-death-additional :: Squad Models :: default=5 :: cons=[('max', '10'), ('min', '5')]
+
+UNIT r41-unit-v-3-falcons-claws :: FALCON’S CLAWS :: type=unit hidden=false
+  SOURCE_ENTRY
+  MODEL r41-unit-v-3-falcons-claws-additional :: Squad Models :: default=5 :: cons=[('max', '10'), ('min', '5')]
+
+UNIT r41-unit-v-4-qin-xa-master-of-the-keshig :: QIN XA, MASTER OF THE KESHIG :: type=unit hidden=false
+  SOURCE_ENTRY
+
+UNIT r41-unit-v-5-targutai-yesugei :: TARGUTAI YESUGEI :: type=unit hidden=false
+  SOURCE_ENTRY
+
+UNIT r41-unit-v-6-shiban-khan :: SHIBAN KHAN :: type=unit hidden=false
+  SOURCE_ENTRY
+
+UNIT r41-unit-v-7-hibou-khan :: HIBOU KHAN :: type=unit hidden=false
+  SOURCE_ENTRY
+
+UNIT r41-unit-v-8-hasik-noyan-khan :: HASIK NOYAN-KHAN :: type=unit hidden=false
+  SOURCE_ENTRY
+
+UNIT r41-unit-v-9-v-jaghatai-khan-the-warhawk :: V — JAGHATAI KHAN, THE WARHAWK :: type=unit hidden=false
+  SOURCE_ENTRY
+
+UNIT r43-ws-sagyar-ebon-troops :: EBON KESHIG :: type=unit hidden=false
+  SOURCE_ENTRY
+  MODEL r43-ws-sagyar-ebon-troops-r41-unit-v-1-ebon-keshig-additional :: Squad Models :: default=5 :: cons=[('max', '10'), ('min', '5')]
+
