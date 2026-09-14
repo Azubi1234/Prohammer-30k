@@ -1,0 +1,47 @@
+name: Inspect Revision 41 parsed Legion source
+on:
+  push:
+    paths:
+      - '.github/workflows/inspect-r41-parsed-source.yml'
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p sources
+          curl -L -sS 'https://docs.google.com/document/d/15yOQ5xqfa7QAJ15GlHqN7F4HvO_jk6K1w5fQ2xkGngk/export?format=md' -o 'sources/Forces of the Legions.md'
+          # Parser also expects these files to exist.
+          curl -L -sS 'https://docs.google.com/document/d/1ZDtRchn_AtKUGT922-EyoyXfZDajVwAdl-QeyhZG-S4/export?format=md' -o 'sources/Lords of War.md'
+          curl -L -sS 'https://docs.google.com/document/d/1wkGCuVmsIeBmhRyZR0X9ftQUSqG3RDwlSY774Zt749Y/export?format=md' -o 'sources/Areonautica Imperialis.md'
+          python - <<'PY'
+          import importlib.util
+          from pathlib import Path
+          spec=importlib.util.spec_from_file_location('r25','.github/build/rev25_apply.py')
+          m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+          out=[]
+          for L in m.LEGIONS:
+              if L['roman']=='I': continue
+              out += [f"===== {L['roman']} — {L['name']} =====", 'ENTRIES:']
+              for i,e in enumerate(L.get('entries',[])):
+                  out.append(f"  [{i}] {e.get('title')} || FOC={e.get('foc')} || allegiance={e.get('allegiance')} || cost={e.get('cost')} || base={e.get('base_count')}")
+              out.append('RITES:')
+              for i,r in enumerate(L.get('rites',[])):
+                  out.append(f"--- RITE {i}: {r.get('title')} || allegiance={r.get('allegiance')} ---")
+                  for line in (r.get('text') or '').splitlines(): out.append('  '+line)
+              out.append('CONSULS:')
+              for c in L.get('consuls',[]): out.append(f"  {c.get('title')} || cost={c.get('cost')} || {c.get('text')}")
+              out.append('')
+          Path('inspection-r41-parsed-source.txt').write_text('\n'.join(out),encoding='utf-8')
+          PY
+      - shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add inspection-r41-parsed-source.txt
+          git commit -m 'Inspect parsed remaining Legion source for completion pass' || exit 0
+          git push
