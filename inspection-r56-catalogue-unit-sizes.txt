@@ -1,0 +1,36 @@
+Legion Veteran Squad: Legion Veterans 4-9 plus existing fixed squad leader; 20 pts/model; minimum cost preserved; 9 dependent references migrated.
+Legion Terminator Squad: Legion Terminators 4-9 plus existing fixed squad leader; 30 pts/model; minimum cost preserved; 6 dependent references migrated.
+Legion Destroyer Squad: Legion Destroyers 4-9 plus existing fixed squad leader; 20 pts/model; minimum cost preserved; 6 dependent references migrated.
+Legion Seeker Squad: Legion Seekers 4-9 plus existing fixed squad leader; 20 pts/model; minimum cost preserved; 8 dependent references migrated.
+Legion Bike Squadron: Legion Bikers 2-9 plus existing fixed squad leader; 30 pts/model; minimum cost preserved; 6 dependent references migrated.
+Legion Sky Hunter Jetbike Squadron: Legion Sky Hunters 2-9 plus existing fixed squad leader; 35 pts/model; minimum cost preserved; 5 dependent references migrated.
+Legion Veteran Squad: Legion Veterans 4-9 plus existing fixed squad leader; 20 pts/model; minimum cost preserved; 8 dependent references migrated.
+Legion Terminator Squad: Legion Terminators 4-9 plus existing fixed squad leader; 30 pts/model; minimum cost preserved; 6 dependent references migrated.
+Legion Destroyer Squad: Legion Destroyers 4-9 plus existing fixed squad leader; 20 pts/model; minimum cost preserved; 6 dependent references migrated.
+Legion Sky Hunter Jetbike Squadron: Legion Sky Hunters 2-9 plus existing fixed squad leader; 35 pts/model; minimum cost preserved; 5 dependent references migrated.
+Legion Sky Hunter Jetbike Squadron: Legion Sky Hunters 2-9 plus existing fixed squad leader; 35 pts/model; minimum cost preserved; 5 dependent references migrated.
+Legion Veteran Squad: Legion Veterans 4-9 plus existing fixed squad leader; 20 pts/model; minimum cost preserved; 9 dependent references migrated.
+Legion Bike Squadron: Legion Bikers 2-9 plus existing fixed squad leader; 30 pts/model; minimum cost preserved; 6 dependent references migrated.
+Legion Bike Squadron: Legion Bikers 2-9 plus existing fixed squad leader; 30 pts/model; minimum cost preserved; 6 dependent references migrated.
+Legion Honour Guard Squad: Legion Honour Guard 2-9 plus existing fixed squad leader; 40 pts/model; minimum cost preserved; 1 dependent references migrated.
+Legion Honour Guard Squad: Legion Honour Guard 2-9 plus existing fixed squad leader; 40 pts/model; minimum cost preserved; 1 dependent references migrated.
+Legion Honour Guard Squad: Legion Honour Guard 2-9 plus existing fixed squad leader; 40 pts/model; minimum cost preserved; 1 dependent references migrated.
+Legion Heavy Support Squad: Squad Models now shows total 5-10; 15 pts/model; minimum cost preserved; 2 dependent thresholds shifted.
+Legion Heavy Support Squad: Squad Models now shows total 5-10; 15 pts/model; minimum cost preserved; 2 dependent thresholds shifted.
+Legion Heavy Support Squad — Sonic Weaponry: Squad Models now shows total 5-10; 15 pts/model; minimum cost preserved; 2 dependent thresholds shifted.
+Dreadwing Interemptor Squad: Interemptors now shows total 5-15; 25 pts/model; minimum cost preserved; 2 dependent thresholds shifted.
+Deathwing Terminator Companion Detachment: Terminator Companions now shows total 5-10; 40 pts/model; minimum cost preserved; 0 dependent thresholds shifted.
+Inner Circle Knights Cenobium: Knight Cenobites now shows total 5-10; 45 pts/model; minimum cost preserved; 0 dependent thresholds shifted.
+Castellax Class Battle-Automata Maniple: Castellax Battle-Automata now shows total 1-5; 105 pts/model; minimum cost preserved; 0 dependent thresholds shifted.
+Vorax Class Battle-Automata Maniple: Vorax Battle-Automata now shows total 1-6; 65 pts/model; minimum cost preserved; 0 dependent thresholds shifted.
+0–1 Legion Artillery Tank Squadron: Legion Whirlwinds 1-3; removed separate Additional counter; 0 dependent references migrated.
+0–1 Legion Artillery Tank Squadron: Legion Basilisks 1-3; removed separate Additional counter; 0 dependent references migrated.
+0–1 Legion Artillery Tank Squadron: Legion Medusas 1-3; removed separate Additional counter; 0 dependent references migrated.
+0–1 Legion Artillery Tank Squadron: Legion Whirlwinds 1-3; removed separate Additional counter; 0 dependent references migrated.
+0–1 Legion Artillery Tank Squadron: Legion Basilisks 1-3; removed separate Additional counter; 0 dependent references migrated.
+0–1 Legion Artillery Tank Squadron: Legion Medusas 1-3; removed separate Additional counter; 0 dependent references migrated.
+Legion Land Raider Battle Squadron: now opens with 1 Phobos by default; mixed pattern group remains 1-3 total, Achilles max 1.
+
+Validated 352 top-level catalogue units.
+No legacy Additional-model quantity counters remain.
+Source-backed core/DA/Praevian caps asserted. CAT56/GST26; canonical namespaces; no duplicate IDs; no broken references.
