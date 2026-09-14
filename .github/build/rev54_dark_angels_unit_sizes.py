@@ -23,9 +23,6 @@ def ensure_cost(e,value):
     else: c.set('value',str(value))
     return c
 
-# Merge the old "included + additional" Dark Angels model counters into a single
-# expandable model counter, matching the post-Rev53 squad-size presentation.
-# The Sergeant remains a separate fixed model where the unit already used that structure.
 MAPPINGS=[
  ('r40-da-vow-veteran','r40-da-vow-veteran-veteran-included','r40-da-vow-veteran-veteran-additional','Legion Veterans'),
  ('r40-da-vow-terminator','r40-da-vow-terminator-terminator-included','r40-da-vow-terminator-terminator-additional','Legion Terminators'),
@@ -44,14 +41,21 @@ for uid,incid,addid,newname in MAPPINGS:
     extra=int(float(amx.get('value'))); per=float(ap.get('value')); old=float(up.get('value'))
     inc.set('name',newname); inc.set('defaultAmount',str(base)); imx.set('value',str(base+extra))
     ensure_cost(inc,per)
-    # Offset the newly costed included models so the existing minimum squad price is unchanged.
     up.set('value',str(old-base*per))
+
+    # Any modifiers/conditions that used the old Additional model as their quantity source
+    # must now watch the merged expandable model entry instead.
+    redirected=0
+    for x in cr.iter():
+        if x.get('childId')==addid:
+            x.set('childId',incid); redirected+=1
+        if x.get('targetId')==addid:
+            x.set('targetId',incid); redirected+=1
+
     parent=next((p for p in cr.iter() if add in list(p)),None); assert parent is not None
     parent.remove(add)
-    report.append(f'{u.get("name")}: {newname} now {base}-{base+extra} plus fixed Sergeant; +{per:g} pts per model above the minimum. Minimum unit price preserved at {old:g} pts.')
+    report.append(f'{u.get("name")}: {newname} now {base}-{base+extra} plus fixed Sergeant; +{per:g} pts/model above minimum; preserved {redirected} quantity-dependent rules. Minimum price {old:g} pts unchanged.')
 
-# Existing Dark Angels Tactical/Assault Rite clones already use expandable base model counters
-# (9-19 Marines + 1 Sergeant), and Predator squadrons already use a 1-3 tank counter, so leave them untouched.
 cr.set('revision','54'); cr.set('gameSystemRevision','24'); gr.set('revision','24')
 comment=cr.find(C('comment'))
 if comment is not None: comment.text='Revision 54: Dark Angels squad-size counters normalized to show included models directly; separate Additional model counters removed.'
@@ -75,5 +79,5 @@ for root,own,other,label in [(cr,cat_ids,gst_ids,'CAT'),(gr,gst_ids,cat_ids,'GST
 assert all(by_id(addid) is None for _,_,addid,_ in MAPPINGS)
 assert '<ns0:' not in CAT.read_text(encoding='utf-8') and '<ns0:' not in GST.read_text(encoding='utf-8')
 assert cr.get('revision')=='54' and cr.get('gameSystemRevision')=='24' and gr.get('revision')=='24'
-Path('inspection-r54-da-unit-sizes.txt').write_text('\n'.join(report)+'\nValidation: CAT54/GST24; canonical namespaces; no broken references; all six Dark Angels Additional model counters removed.\n',encoding='utf-8')
+Path('inspection-r54-da-unit-sizes.txt').write_text('\n'.join(report)+'\nValidation: CAT54/GST24; canonical namespaces; no broken references; Dark Angels additional-model counters merged into visible base model counters.\n',encoding='utf-8')
 print('\n'.join(report)); print('Revision 54 validation passed.')
