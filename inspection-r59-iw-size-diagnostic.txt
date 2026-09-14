@@ -1,0 +1,28 @@
+UNIT r41-unit-iv-0-tyrant-siege-terminator-squad :: TYRANT SIEGE TERMINATOR SQUAD :: pts=['0']
+  ENTRY id=r41-unit-iv-0-tyrant-siege-terminator-squad-additional name=Tyrant Siege Terminators type=model default=5 cons=[('max', '10', 'parent'), ('min', '5', 'parent')] pts=['65']
+    PARENT ('selectionEntry', 'r41-unit-iv-0-tyrant-siege-terminator-squad', 'TYRANT SIEGE TERMINATOR SQUAD', 'unit', None, [], ['0'])
+
+UNIT r41-unit-iv-1-iron-havoc-squad :: IRON HAVOC SQUAD :: pts=['15']
+  ENTRY id=r41-unit-iv-1-iron-havoc-squad-additional name=Iron Havocs type=model default=5 cons=[('max', '10', 'parent'), ('min', '5', 'parent')] pts=['25']
+    PARENT ('selectionEntry', 'r41-unit-iv-1-iron-havoc-squad', 'IRON HAVOC SQUAD', 'unit', None, [], ['15'])
+  GROUP id=r57-iw-havoc-squad name=Squad Equipment cons=[]
+
+UNIT r41-unit-iv-2-dominator-cohort :: DOMINATOR COHORT :: pts=['0']
+  ENTRY id=r41-unit-iv-2-dominator-cohort-additional name=Dominator Cohort Models type=model default=5 cons=[('max', '10', 'parent'), ('min', '5', 'parent')] pts=['50']
+    PARENT ('selectionEntry', 'r41-unit-iv-2-dominator-cohort', 'DOMINATOR COHORT', 'unit', None, [], ['0'])
+
+UNIT r41-unit-iv-3-iron-circle-domitar-ferrum-maniple :: IRON CIRCLE DOMITAR-FERRUM MANIPLE :: pts=['0']
+  ENTRY id=r41-unit-iv-3-iron-circle-domitar-ferrum-maniple-additional name=Domitar-Ferrum Battle-Automata type=model default=1 cons=[('max', '6', 'parent'), ('min', '1', 'parent')] pts=['205']
+    PARENT ('selectionEntry', 'r41-unit-iv-3-iron-circle-domitar-ferrum-maniple', 'IRON CIRCLE DOMITAR-FERRUM MANIPLE', 'unit', None, [], ['0'])
+
+REFERENCE UNIT hs-heavy-support-squad :: Legion Heavy Support Squad :: pts=['0']
+  MODEL id=hs-hss-additional name=Squad Models default=5 cons=[('max', '10', 'parent'), ('min', '5', 'parent')] pts=['15']
+  MODEL id=r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-phobos name=Land Raider Phobos default=None cons=[('max', '1', 'parent')] pts=['250']
+  MODEL id=r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-proteus name=Land Raider Proteus default=None cons=[('max', '1', 'parent')] pts=['200']
+  MODEL id=r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-achilles name=Land Raider Achilles default=None cons=[('max', '1', 'parent')] pts=['275']
+  MODEL id=r40-da-steel-transport-hs-heavy-support-squad-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos name=Land Raider Phobos (10 models or fewer) default=None cons=[('max', '1', 'parent')] pts=['250']
+  MODEL id=r40-da-steel-transport-hs-heavy-support-squad-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus name=Land Raider Proteus (10 models or fewer) default=None cons=[('max', '1', 'parent')] pts=['200']
+
+REFERENCE UNIT r41-unit-iii-0-palatine-blade-squad :: PALATINE BLADE SQUAD :: pts=['0.0']
+  MODEL id=r41-unit-iii-0-palatine-blade-squad-additional name=Squad Models default=5 cons=[('max', '10', 'parent'), ('min', '5', 'parent')] pts=['30']
+
