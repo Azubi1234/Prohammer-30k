@@ -1,0 +1,59 @@
+REVISION 48 — NEW RECRUIT LEGION VISIBILITY REPAIR
+Converted hidden→unhide Legion gates: 401
+
+White Scars repaired gated entries: 9
+Thousand Sons repaired gated entries: 42
+
+WHITE SCARS
+  r43-hq-praetor-ws-glaive :: Power Glaive
+  r43-hq-praetor-ws-lance :: Chogorian Warlance
+  r43-praetor-ws-hawk :: Cyber-hawk
+  r47-hq-praetor-ws-horsetail :: Horsetail Talisman
+  r43-hq-centurion-ws-glaive :: Power Glaive
+  r43-hq-centurion-ws-lance :: Chogorian Warlance
+  r47-hq-centurion-ws-horsetail :: Horsetail Talisman
+  r43-ws-bike-troops :: Legion Bike Squadron
+  r43-ws-sagyar-ebon-troops :: EBON KESHIG
+THOUSAND SONS
+  r45-cult-tactical-unit :: Prosperine Cult
+  r45-tactical-ts-brother :: Brotherhood of Psykers (20-model Tactical Squad)
+  r45-cult-assault-unit :: Prosperine Cult
+  r45-cult-breacher-unit :: Prosperine Cult
+  r45-cult-recon-unit :: Prosperine Cult
+  r45-cult-veteran-unit :: Prosperine Cult
+  r45-veteran-unit-ts-asphyx :: Asphyx Shells
+  r45-veteran-unit-ts-brother :: Brotherhood of Psykers (Mastery Level 1)
+  r45-veteran-unit-ts-brother-fellow :: Brotherhood of Psykers (Fellowships price)
+  r45-cult-terminator-unit :: Prosperine Cult
+  r45-terminator-unit-ts-asphyx :: Asphyx Shells
+  r45-terminator-unit-ts-brother :: Brotherhood of Psykers (Mastery Level 1)
+  r45-terminator-unit-ts-brother-fellow :: Brotherhood of Psykers (Fellowships price)
+  r45-terminator-ts-trans :: Teleportation Transponders
+  r45-cult-fa-seeker :: Prosperine Cult
+  r45-cult-hs-heavy-support-squad :: Prosperine Cult
+  r45-hss-ts-aether :: Æther-fire Cannon upgrade
+  r45-hq-praetor-r45-ts-force-weapon :: Prosperine Force Weapon upgrade
+  r45-hq-praetor-r45-ts-arcane-litanies :: Arcane Litanies
+  r45-hq-praetor-r45-ts-asphyx-ic :: Asphyx Shells
+  r45-hq-praetor-r45-ts-trans-ic :: Teleportation Transponders
+  r47-hq-praetor-ts-disc :: Prosperine Æther-Disc
+  r45-cult-hq-praetor :: Prosperine Cult
+  r45-hq-centurion-r45-ts-force-weapon :: Prosperine Force Weapon upgrade
+  r45-hq-centurion-r45-ts-arcane-litanies :: Arcane Litanies
+  r45-hq-centurion-r45-ts-asphyx-ic :: Asphyx Shells
+  r45-hq-centurion-r45-ts-trans-ic :: Teleportation Transponders
+  r47-hq-centurion-ts-disc :: Prosperine Æther-Disc
+  r45-cult-hq-centurion :: Prosperine Cult
+  r45-cult-r41-unit-xv-0-sekhmet-terminator-cabal :: Prosperine Cult
+  r45-cult-r41-unit-xv-1-khenetai-occult-blade-cabal :: Prosperine Cult
+  r45-cult-r41-unit-xv-2-ammitara-occult-intercession-cabal :: Prosperine Cult
+  r45-cult-r41-unit-xv-5-numerologist-cabal :: Prosperine Cult
+  r45-cult-r41-unit-xv-6-ahzek-ahriman :: Prosperine Cult
+  r45-cult-r41-unit-xv-7-phosis-t-kar :: Prosperine Cult
+  r45-cult-r41-unit-xv-8-magistus-amon-the-hidden :: Prosperine Cult
+  r45-cult-r41-unit-xv-9-hathor-maat :: Prosperine Cult
+  r45-cult-r41-unit-xv-10-sanakht :: Prosperine Cult
+  r46-al-reward-41-r45-cult-r41-unit-xv-0-sekhmet-terminator-cabal :: Prosperine Cult
+  r46-al-reward-42-r45-cult-r41-unit-xv-1-khenetai-occult-blade-cabal :: Prosperine Cult
+  r46-al-reward-43-r45-cult-r41-unit-xv-2-ammitara-occult-intercession-cabal :: Prosperine Cult
+  r46-al-reward-45-r45-cult-r41-unit-xv-5-numerologist-cabal :: Prosperine Cult
