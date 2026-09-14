@@ -56,6 +56,8 @@ jobs:
           assert len(units)>=180,len(units)
           assert len(rites)>=30,len(rites)
           assert len(consuls)>=5,len(consuls)
+          assert any(e.get('id')=='cat-retinue' for e in gr.iter())
+          assert any(e.get('id')=='fl-retinue' for e in gr.iter())
           # Dark Angels reference package must remain untouched.
           for ident in ['da22-lion','da22-corswain','da22-rite-storm','r40-da-storm-tactical','r40-da-forward-deployment']:
               assert any(e.get('id')==ident for e in cr.iter()),ident
@@ -64,13 +66,13 @@ jobs:
               if e.get('id','').startswith(('r41-','r25-')):
                   n=e.get('name','').lower()
                   assert 'experimental wargear' not in n and 'experimental units' not in n,n
-          print('VALIDATION OK',len(units),'units',len(rites),'rites',len(consuls),'consul upgrades')
+          print('VALIDATION OK',len(units),'units',len(rites),'rites',len(consuls),'consul upgrades','GST',gr.get('revision'))
           PY
       - name: Publish source-import foundation
         shell: bash
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add 'Legiones Astartes.cat'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst'
           git commit -m 'Revision 41: restore remaining Legion packages from final source' || exit 0
           git push
