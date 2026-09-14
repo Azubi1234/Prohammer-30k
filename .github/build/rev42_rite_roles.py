@@ -31,6 +31,19 @@ def rewrite_ids(node,prefix):
     for x in node.iter():
         for a in ('targetId','childId'):
             if x.get(a) in old_to_new: x.set(a,old_to_new[x.get(a)])
+def prune_invalid_target_links(node):
+    # A few old generic units still contain obsolete entryLinks left over from
+    # earlier armoury versions. They are harmless in the originals but cloning
+    # them would multiply unresolved targets. Keep every live target and every
+    # internal cloned target; remove only genuinely unresolved targetId nodes.
+    valid={e.get('id') for e in root.iter() if e.get('id')} | {e.get('id') for e in node.iter() if e.get('id')}
+    removed=[]
+    for p in list(node.iter()):
+        for x in list(p):
+            target=x.get('targetId')
+            if target and target not in valid:
+                removed.append((x.get('id'),target)); p.remove(x)
+    return removed
 def set_category(e,catid,name):
     links=child(e,'categoryLinks')
     for x in list(links): links.remove(x)
@@ -38,8 +51,10 @@ def set_category(e,catid,name):
 def add_rule(e,rid,name,text):
     rules=child(e,'rules'); r=ET.SubElement(rules,Q('rule'),{'id':rid,'name':name,'hidden':'false'}); ET.SubElement(r,Q('description')).text=text
 def clone_to_troops(base,rite_id,prefix,rule_text):
-    c=copy.deepcopy(base); rewrite_ids(c,prefix); c.set('hidden','true'); set_category(c,'cat-troops','Troops'); add_hide_unless(c,rite_id,prefix)
-    add_rule(c,prefix+'-rite-note','Rite of War Interaction',rule_text); top.append(c); return c
+    c=copy.deepcopy(base); rewrite_ids(c,prefix); pruned=prune_invalid_target_links(c); c.set('hidden','true'); set_category(c,'cat-troops','Troops'); add_hide_unless(c,rite_id,prefix)
+    add_rule(c,prefix+'-rite-note','Rite of War Interaction',rule_text)
+    if pruned: add_rule(c,prefix+'-clone-cleanup','Builder compatibility',f'Removed {len(pruned)} obsolete armoury link(s) inherited from the generic source entry while creating this Rite-specific battlefield-role copy.')
+    top.append(c); return c
 
 core_alias={'tactical':'tactical-unit','breacher siege':'breacher-unit','breacher':'breacher-unit','veteran':'veteran-unit','terminator':'terminator-unit','assault':'assault-unit','bike':'fa-bike','sky hunter jetbike':'fa-sky-hunter','sky hunter':'fa-sky-hunter','attack bike':'fa-attack-bike','reconnaissance':'recon-unit','recon':'recon-unit','seeker':'fa-seeker','destroyer':'destroyer-unit','heavy support':'hs-heavy-support-squad','predator strike':'hs-predator','predator':'hs-predator','artillery tank':'hs-artillery','dreadnought':'dreadnought-unit','contemptor':'contemptor-unit'}
 def source_unit(L,phrase):
@@ -82,7 +97,7 @@ for L in m.LEGIONS:
         if L['roman']=='XV' and 'GUARD OF THE CRIMSON KING' in rite['title'].upper():
             magnus=source_unit(L,'Magnus the Red')
             if magnus is not None:
-                c=copy.deepcopy(magnus); prefix='r42-role-xv-crimson-magnus-hq'; rewrite_ids(c,prefix); c.set('hidden','true'); set_category(c,'cat-hq','HQ'); add_hide_unless(c,rid,prefix); add_rule(c,prefix+'-note','The Bidding of the Crimson King','Magnus the Red may fulfil a compulsory HQ selection when using this Rite and does not occupy a Lord of War selection.'); top.append(c); made+=1; report.append('XV | Guard of the Crimson King | Magnus the Red -> HQ')
+                c=copy.deepcopy(magnus); prefix='r42-role-xv-crimson-magnus-hq'; rewrite_ids(c,prefix); prune_invalid_target_links(c); c.set('hidden','true'); set_category(c,'cat-hq','HQ'); add_hide_unless(c,rid,prefix); add_rule(c,prefix+'-note','The Bidding of the Crimson King','Magnus the Red may fulfil a compulsory HQ selection when using this Rite and does not occupy a Lord of War selection.'); top.append(c); made+=1; report.append('XV | Guard of the Crimson King | Magnus the Red -> HQ')
 root.set('revision','42')
 comment=root.find(Q('comment'))
 if comment is not None: comment.text='Revision 42: Remaining Legion source packages plus functional Rite-of-War battlefield-role transformations, retaining the completed Dark Angels implementation and excluding Experimental Wargear and Units.'
