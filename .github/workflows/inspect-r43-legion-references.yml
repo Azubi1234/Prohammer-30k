@@ -30,8 +30,10 @@ jobs:
           PY
       - shell: bash
         run: |
+          set -euo pipefail
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add inspection-r43-legion-references.txt
           git commit -m 'Inspect remaining Legion rules and armouries for Revision 43' || exit 0
+          git pull --rebase origin main
           git push
