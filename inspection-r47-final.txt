@@ -1,0 +1,25 @@
+CAT revision=47
+GST revision=19
+BROKEN TARGET/CHILD REFS=0
+
+OK   Horsetail Talisman
+OK   Splinter Bolts
+OK   Bionics — unit model
+OK   Castrmen Orth — Tank Commander Upgrade
+OK   Prosperine Æther-Disc
+OK   Daemonic Aura
+OK   Daemonic Mutation
+OK   Daemonic Strength
+OK   Daemonic Wings
+OK   Daemonic Visage
+
+Legacy generated packages preserved:
+da22-: 387
+r40-: 2771
+r41-: 3283
+r42-: 1303
+r43-: 307
+r44-: 202
+r45-: 718
+r46-: 2458
+r47-: 166
