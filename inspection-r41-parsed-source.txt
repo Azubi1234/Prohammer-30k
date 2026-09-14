@@ -1,0 +1,1102 @@
+===== III — EMPEROR'S CHILDREN =====
+ENTRIES:
+  [0] PALATINE BLADE SQUAD || FOC=Elites || allegiance=None || cost=150 || base=5
+  [1] PHOENIX TERMINATOR SQUAD || FOC=Elites || allegiance=None || cost=235 || base=5
+  [2] KAKOPHONI SQUAD || FOC=Heavy Support || allegiance=Traitor || cost=150 || base=6
+  [3] SUN KILLER SQUAD || FOC=Heavy Support || allegiance=None || cost=250 || base=5
+  [4] LORD COMMANDER EIDOLON || FOC=HQ || allegiance=None || cost=225 || base=1
+  [5] SAUL TARVITZ || FOC=HQ || allegiance=None || cost=115 || base=5
+  [6] CAPTAIN LUCIUS || FOC=HQ || allegiance=None || cost=130 || base=1
+  [7] FABIUS BILE || FOC=HQ || allegiance=None || cost=125 || base=4
+  [8] RYLANOR THE UNYIELDING || FOC=HQ || allegiance=None || cost=225 || base=2
+  [9] FULGRIM, THE PHOENICIAN || FOC=Lords of War || allegiance=None || cost=530 || base=1
+  [10] FULGRIM TRANSFIGURED || FOC=Lords of War || allegiance=None || cost=600 || base=1
+RITES:
+--- RITE 0: THE MARU SKARA || allegiance=None ---
+  The Maru Skara is one of the most celebrated battle doctrines of the Emperor's Children: a carefully orchestrated feint in which the visible strength of the Legion fixes the enemy in place while a concealed blade manoeuvres to deliver the killing stroke.
+  EFFECTS
+  THE OPEN BLADE
+  All units deployed normally at the beginning of the battle form the Open Blade.
+  The army's Warlord must form part of the Open Blade and must begin the battle on the battlefield.
+  THE HIDDEN BLADE
+  Before deployment, nominate up to three Emperor's Children units selected from the following:
+  • Legion Assault Squads
+  • Legion Veteran Squads
+  • Legion Terminator Squads
+  • Palatine Blade Squads
+  • Phoenix Terminator Squads
+  • Legion Bike Squadrons
+  • Legion Sky Hunter Jetbike Squadrons
+  An Independent Character may accompany a nominated unit normally.
+  Dedicated Transports purchased for a nominated unit form part of the Hidden Blade with that unit.
+  All units forming the Hidden Blade must begin the battle in Reserve.
+  PERFECTLY TIMED STRIKE
+  After deployment zones have been determined but before either army deploys, secretly record:
+  • either game turn 2 or game turn 3;
+  • either the left or right side table edge.
+  Do not reveal this choice to the opposing player.
+  At the beginning of the chosen Emperor's Children turn, reveal the recorded choice.
+  Every surviving unit of the Hidden Blade becomes available automatically without making a Reserve roll.
+  These units enter play from the chosen side table edge.
+  They may act normally during the turn in which they arrive.
+  THE KILLING STROKE
+  During the player turn in which the Hidden Blade arrives, all Emperor's Children units may re-roll failed Advance rolls and failed Charge distance rolls. The second result must be accepted.
+  LIMITATIONS
+  The army's Warlord must begin the battle as part of the Open Blade.
+  The Hidden Blade may contain no more than three units, excluding attached Independent Characters and Dedicated Transports.
+  The army may include no more than two Heavy Support choices.
+  Immobile units may not be selected.
+--- RITE 1: 3RD COMPANY ELITE || allegiance=Traitor ---
+  TRAITOR ONLY
+  As the III Legion descended into corruption, entire formations embraced the experimental sonic augmentations first developed amongst the Kakophoni. The most infamous of these formations was the 3rd Company, whose warriors willingly submitted themselves to increasingly extreme surgical and sonic modification.
+  EFFECTS
+  CHOSEN OF VAIROSEAN
+  Kakophoni Squads may be selected as Troops choices. Kakophoni Squads selected as Troops may fulfil compulsory Troops selections.
+  All Kakophoni Squads in the Detachment gain the Relentless special rule.
+  SONIC ASSAULT
+  Any Emperor's Children Infantry unit composed entirely of models wearing Power Armour or Artificer Armour may purchase Sonic Shriekers for +2 points per model. Every eligible model in the unit must purchase the upgrade.
+  A unit equipped in this manner follows the normal Sonic Shrieker rules.
+  ARMOURY OF EXCESS
+  The normal restriction allowing only one Legion Heavy Support Squad to select Sonic Weaponry is removed.
+  Up to two Legion Heavy Support Squads may select Sonic Weaponry when using this Rite of War.
+  PERFECT CACOPHONY
+  A unit in which every surviving model is equipped with either a Sonic Weapon or Sonic Shrieker gains the Fear special rule.
+  LIMITATIONS
+  This Rite of War may only be selected by a Traitor Emperor's Children Detachment.
+  The army must include at least one Kakophoni Squad.
+  The army's Warlord must either:
+  • be equipped with a Sonic Shrieker; or
+  • be a named Character whose rules specifically associate him with the Kakophoni or 3rd Company.
+  The army may include no more than one Fortification.
+CONSULS:
+
+===== IV — IRON WARRIORS =====
+ENTRIES:
+  [0] TYRANT SIEGE TERMINATOR SQUAD || FOC=Heavy Support || allegiance=None || cost=325 || base=5
+  [1] IRON HAVOC SQUAD || FOC=Heavy Support || allegiance=None || cost=140 || base=5
+  [2] DOMINATOR COHORT || FOC=Elites || allegiance=None || cost=250 || base=5
+  [3] IRON CIRCLE DOMITAR-FERRUM MANIPLE || FOC=Elites || allegiance=None || cost=205 || base=1
+  [4] NÂRIK DREYGUR || FOC=HQ || allegiance=None || cost=140 || base=1
+  [5] ERASMUS GOLG || FOC=HQ || allegiance=None || cost=175 || base=1
+  [6] KYR VHALEN || FOC=HQ || allegiance=None || cost=195 || base=2
+  [7] FORRIX, FIRST CAPTAIN OF THE IRON WARRIORS || FOC=HQ || allegiance=None || cost=190 || base=1
+  [8] KROEGER, THE BLOODY-HANDED || FOC=HQ || allegiance=None || cost=140 || base=1
+  [9] IV — PERTURABO, THE LORD OF IRON || FOC=Lords of War || allegiance=None || cost=500 || base=1
+RITES:
+--- RITE 0: THE HAMMER OF OLYMPIA || allegiance=None ---
+  The Hammer of Olympia represents the characteristic method of war favoured by Perturabo's Grand Battalions: massed infantry advancing beneath disciplined fire while armoured formations grind inexorably forward alongside them.
+  EFFECTS
+  THE IRON LINE
+  The army's compulsory Troops choices must be selected from:
+  • Legion Tactical Squads
+  • Legion Breacher Siege Squads
+  Compulsory Troops choices gain Shrapnel Bolts at no additional points cost.
+  HAIL OF FIRE
+  Iron Warriors Tactical Squads and Breacher Siege Squads equipped with Shrapnel Bolts may declare a charge after firing Rapid Fire weapons during the Shooting phase. A unit which does so does not receive the normal +1 Attack bonus for charging during that Assault phase.
+  A unit which used Fury of the Legion during the same player turn may not benefit from this rule.
+  FURY OF OLYMPIA
+  Models equipped with Shrapnel Bolts may re-roll To Hit rolls of 1 when firing those weapons at an enemy unit within 12".
+  This benefit does not apply when firing Snap Shots.
+  ARMOURED RESOLVE
+  The following Iron Warriors vehicles ignore Crew Shaken and Crew Stunned results:
+  • Legion Predator Strike Squadrons
+  • Legion Vindicator Siege Tank Squadrons
+  • Land Raiders
+  • Legion Spartan Assault Tanks
+  Other results on the Vehicle Damage table apply normally.
+  LIMITATIONS
+  The army's Warlord must possess the Master of the Legion special rule.
+  The army's compulsory Troops choices must be Legion Tactical Squads or Legion Breacher Siege Squads.
+  No Iron Warriors unit may deploy using Deep Strike.
+  Units which are required to enter play by Deep Strike may not be selected.
+--- RITE 1: THE IRONFIRE || allegiance=None ---
+  The Ironfire is a siege doctrine in which artillery fire is advanced across the battlefield immediately ahead of the Legion's assault formations.
+  Iron Warriors infantry advance through explosions, collapsing structures and clouds of debris, trusting their gunners to place each successive salvo only metres ahead of their position.
+  EFFECTS
+  ARTILLERY COLUMN
+  One Legion Artillery Tank Squadron may be selected as a non-compulsory Troops choice.
+  An Artillery Tank Squadron selected in this manner:
+  • does not occupy a Heavy Support choice;
+  • may not fulfil a compulsory Troops selection;
+  • does not count as a Scoring Unit unless it would normally do so for another reason.
+  The normal 0–1 restriction on Legion Artillery Tank Squadrons still applies.
+  ROLLING BOMBARDMENT
+  When an Iron Warriors Barrage weapon fires at a point within 12" of a friendly Iron Warriors unit, reduce its scatter distance.
+  If the attack would normally scatter 2D6", it scatters only D6" instead.
+  After resolving the Barrage attack, place an Ironfire Marker at the final centre point of the Blast marker.
+  WALKING THE FIRE
+  When another Iron Warriors Barrage weapon fires, it does not scatter if the initial target point is:
+  • within 18" of an Ironfire Marker; AND
+  • within 6" of a friendly Iron Warriors unit.
+  After resolving the attack, place a new Ironfire Marker at the centre of the Blast marker as normal.
+  If an Iron Warriors Shooting phase ends without a new Ironfire Marker being placed, remove all Ironfire Markers from the battlefield.
+  RIDE THE IRONFIRE
+  Iron Warriors Infantry units with at least one model within 6" of an Ironfire Marker gain the Fearless special rule.
+  This benefit lasts only while at least one model in the unit remains within 6" of an Ironfire Marker.
+  LIMITATIONS
+  The army's Warlord must possess the Master of the Legion special rule.
+  The army must contain at least one unit equipped with a Barrage weapon.
+  If the mission designates one player as the Attacker and the other as the Defender, the Iron Warriors must be the Attacker.
+  The army may not include a Fortification.
+CONSULS:
+
+===== V — WHITE SCARS =====
+ENTRIES:
+  [0] GOLDEN KESHIG SQUADRON || FOC=Fast Attack || allegiance=None || cost=180 || base=3
+  [1] EBON KESHIG || FOC=Elites || allegiance=None || cost=225 || base=5
+  [2] DARK SONS OF DEATH || FOC=Elites || allegiance=None || cost=200 || base=5
+  [3] FALCON’S CLAWS || FOC=Fast Attack || allegiance=None || cost=120 || base=5
+  [4] QIN XA, MASTER OF THE KESHIG || FOC=HQ || allegiance=None || cost=180 || base=1
+  [5] TARGUTAI YESUGEI || FOC=HQ || allegiance=None || cost=195 || base=1
+  [6] SHIBAN KHAN || FOC=HQ || allegiance=None || cost=155 || base=21
+  [7] HIBOU KHAN || FOC=HQ || allegiance=None || cost=155 || base=3
+  [8] HASIK NOYAN-KHAN || FOC=HQ || allegiance=Traitor || cost=175 || base=21
+  [9] V — JAGHATAI KHAN, THE WARHAWK || FOC=Lords of War || allegiance=None || cost=490 || base=1
+RITES:
+--- RITE 0: CHOGORIAN BROTHERHOOD || allegiance=None ---
+  The Chogorian Brotherhood is the archetypal war formation of the V Legion: a rapidly moving host of mounted warriors supported by mobile infantry and reconnaissance elements, striking from unexpected directions before disappearing beyond retaliation.
+  EFFECTS
+  RIDE LIKE THE WIND
+  Legion Sky Hunter Jetbike Squadrons may be selected as Troops choices.
+  Legion Bike Squadrons and Legion Sky Hunter Jetbike Squadrons may fulfil compulsory Troops selections.
+  LIGHTNING ENCIRCLEMENT
+  The following White Scars units gain the Outflank special rule:
+  • Legion Bike Squadrons
+  • Legion Sky Hunter Jetbike Squadrons
+  • Legion Attack Bike Squadrons
+  • Legion Land Speeder Squadrons
+  • Javelin Attack Speeder Squadrons
+  In addition, White Scars Infantry units gain Outflank provided that the unit contains no model wearing Terminator Armour or carrying a Heavy weapon. A Dedicated Transport purchased for a unit deploying by Outflank may enter play with that unit.
+  MASTER OF THE HUNT
+  The White Scars player may re-roll Reserve rolls for units in this Detachment. The player may choose to re-roll either a successful or failed Reserve roll. The second result must be accepted.
+  STRIKE AND VANISH
+  A White Scars Bike or Jetbike unit which successfully uses Hit & Run may roll one additional D6 for its Hit & Run movement and discard the lowest result.
+  LIMITATIONS
+  The army's Warlord must be mounted on either:
+  • a Space Marine Bike; or
+  • a Jetbike.
+  The army's compulsory Troops choices must be Legion Bike Squadrons or Legion Sky Hunter Jetbike Squadrons.
+  The army may include no more than one Heavy Support choice. If every Bike and Jetbike unit in the Detachment has been completely destroyed by the end of the battle, the enemy receives an additional 150 Victory Points. This penalty only applies in missions using Victory Points.
+--- RITE 1: THE SAGYAR MAZAN || allegiance=Loyalist ---
+  LOYALIST ONLY
+  The Sagyar Mazan are warriors condemned by dishonour, disobedience or catastrophic failure. Rather than face execution at the hands of their brothers, these penitents are permitted to seek absolution through death in battle.
+  They do not fight for survival. They fight so that their deaths may have meaning.
+  EFFECTS
+  DEATH SEEKERS
+  Whenever a non-vehicle White Scars unit from this Detachment is completely destroyed and would award Victory Points to the enemy, roll a D6.
+  1–3: Resolve Victory Points normally.
+  4–5: The destroyed unit awards no Victory Points.
+  6: The destroyed unit awards no Victory Points and the White Scars player instead gains 50 Victory Points.
+  This roll is made separately for each destroyed unit.
+  THE SERPENT'S EYE
+  During the first round of any close combat, non-vehicle White Scars units from this Detachment gain the Fearless special rule. This applies whether the unit charged or was charged.
+  NOT YET DEAD
+  Non-vehicle White Scars units gain Feel No Pain (6+). If a unit already possesses Feel No Pain, improve its Feel No Pain roll by one step, to a maximum of 4+.
+  EBON KESHIG
+  Ebon Keshig units may be selected as Troops choices. They may fulfil compulsory Troops selections. This rule has no effect until the Ebon Keshig army list entry is used.
+  LIMITATIONS
+  SEEK DEATH, DO NOT HIDE FROM IT
+  No unit in the Detachment may voluntarily begin the battle in Reserve. Units which are required by their own rules to begin in Reserve may not be selected.
+  NO PATH OF RETREAT
+  Units in this Detachment may not voluntarily withdraw from close combat. If they win a close combat and the enemy retreats, they must Pursue whenever they are able to do so.
+  THE PENITENT HOST
+  This Rite may only be used by a Loyalist White Scars Detachment. The Detachment may not include Jaghatai Khan.The army may not include a Fortification. The army may never contain more Vehicle units than non-vehicle Infantry units.
+CONSULS:
+  STORMSEER CONSUL || cost=35 || A White Scars Legion Centurion may be upgraded to a Stormseer Consul for +35 points. A White Scars army may not select the normal Legion Librarian Consul upgrade. It uses the Stormseer Consul instead.
+Wargear:
+• Replace the Centurion's Chainsword with a Force Weapon
+Special Rules:
+• Psyker (Mastery Level 1\)
+• Adamantium Will
+• Legion Support Officer
+PSYCHIC POWERS
+A Stormseer knows the Unseen Bolt psychic power.
+Unseen Bolt | 36" | 6 | 4 | Assault 1, Blast, Pinning
+UNSEEN BOLT
+Unseen Bolt is a psychic shooting power. It is used during the Stormseer's Shooting phase instead of firing another weapon.
+Take a Psychic test using the normal ProHammer psychic rules. If successful, resolve the attack using the profile above. Unseen Bolt may not be invoked during Return Fire, Overwatch or Stand & Shoot.
+Epistolary
+A Stormseer may be upgraded to Mastery Level 2 for a further +25 points.
+If upgraded to Mastery Level 2, he may select one additional psychic power from the normal Legion Librarian Psychic Powers list.
+OPTIONS
+• A Stormseer may purchase:
+• Psychic Hood .................................. +25 points
+All other equipment is selected normally from the Space Marine Armoury.
+
+===== VI — SPACE WOLVES =====
+ENTRIES:
+  [0] GREY SLAYER PACK || FOC=Troops || allegiance=None || cost=105 || base=5
+  [1] GREY STALKER PACK || FOC=Troops || allegiance=None || cost=100 || base=5
+  [2] WOLF SCOUT SQUAD || FOC=Elites || allegiance=None || cost=85 || base=5
+  [3] DEATHSWORN PACK || FOC=Elites || allegiance=None || cost=175 || base=5
+  [4] JORLUND HUNTER PACK || FOC=Troops || allegiance=None || cost=100 || base=5
+  [5] VARAGYR WOLF GUARD TERMINATORS || FOC=Elites || allegiance=None || cost=250 || base=5
+  [6] FENRISIAN WOLF PACK || FOC=Fast Attack || allegiance=None || cost=60 || base=5
+  [7] HVARL RED-BLADE || FOC=HQ || allegiance=None || cost=195 || base=1
+  [8] GEIGOR FELL-HAND || FOC=HQ || allegiance=None || cost=145 || base=1
+  [9] BJÖRN THE FELL-HANDED || FOC=HQ || allegiance=None || cost=190 || base=1
+  [10] OHTHERE WYRDMAKE || FOC=HQ || allegiance=None || cost=150 || base=1
+  [11] VI — LEMAN RUSS, THE WOLF KING || FOC=Lords of War || allegiance=Loyalist || cost=510 || base=1
+RITES:
+--- RITE 0: THE PALE HUNTERS || allegiance=None ---
+  The Pale Hunters represent the Rout at its most patient. The prey is encircled, exhausted and driven from safety before the Wolves close from every direction for the kill.
+  EFFECTS
+  THE GREAT HUNT
+  Add +1 to Reserve rolls made for Space Wolves units in this Detachment.
+  HUNTERS WITHOUT PEER
+  All non-vehicle Space Wolves units gain the Hit & Run special rule provided that the unit contains no model wearing any form of Terminator Armour. Unlike normal Hit & Run, a unit which gains the rule through The Pale Hunters moves 2D6" after successfully disengaging rather than the normal 3D6".
+  THE KILLING BLOW
+  During an Assault phase in which a Space Wolves unit successfully charged, models in that unit gain one additional Attack.
+  This is in addition to the normal +1 Attack for charging. This bonus does not apply to a unit making a Disordered Charge or to a unit which would otherwise receive no charging bonus.
+  PACK HUNTERS
+  When two or more friendly Space Wolves units are engaged with the same enemy unit, each participating Space Wolves unit adds +1 to its combat-resolution score. This bonus is not cumulative regardless of how many Space Wolves units are involved.
+  LIMITATIONS
+  The army may include no more than one Heavy Support choice.
+  The army may not include:
+  • Legion Artillery Tank Squadrons;
+  • Rapier Weapons Batteries;
+  • Drop Pods;
+  • Dreadnought Drop Pods;
+  • Dreadclaw Drop Pods.
+  A model wearing any form of Terminator Armour does not gain Hit & Run from this Rite.
+--- RITE 1: THE BLOODIED CLAWS || allegiance=None ---
+  There are battles in which manoeuvre and patience serve no purpose. When Russ orders the enemy line broken, the Rout commits itself to a single overwhelming assault intended to tear the heart from the foe in one act of controlled savagery.
+  EFFECTS
+  BREAK THE LINE
+  Space Wolves units add +1 to their combat-resolution score while at least half of the models in the unit are within the enemy deployment zone.
+  This bonus is not cumulative with itself.
+  HOWL OF THE DEATH WOLF
+  Once per battle, at the beginning of a Space Wolves turn, the Warlord may unleash the Howl of the Death Wolf.
+  Until the end of that player turn:
+  • Space Wolves units may re-roll their Advance roll;
+  • the normal charge distance of Space Wolves units is increased from 6" to 7".
+  A re-rolled Advance result must be accepted.
+  UNSTOPPABLE VIOLENCE
+  During an Assault phase in which a Space Wolves unit charges an enemy unit that is already engaged by another friendly Space Wolves unit, that charging unit gains the Furious Charge special rule for that Assault phase.
+  BLOODIED CLAWS
+  Grey Slayer Squads and Legion Assault Squads must declare a charge during the Assault phase if there is an enemy unit within their legal charge distance. If more than one enemy unit is within range, the Space Wolves player may choose which enemy unit is charged.
+  LIMITATIONS
+  NO PREY LEFT UNHUNTED
+  Grey Slayer Squads may fulfil compulsory Troops selections when using this Rite.
+  At least one compulsory Troops choice must be a Grey Slayer Squad.
+  NO PATH OF RETREAT
+  Units in this Detachment may not voluntarily withdraw from close combat.
+  If a Space Wolves unit wins a close combat and an enemy unit retreats, the Space Wolves must Pursue whenever they are able to do so.
+  THE BREAKING OF THE LINE
+  The Detachment may not include:
+  • Artillery units;
+  • units with the Slow and Purposeful special rule;
+  • Immobile units;
+  • Fortifications.
+  The Detachment may not include an Allied Detachment belonging to another Space Marine Legion.
+CONSULS:
+  WOLF PRIEST CONSUL || cost=35 || A Legion Centurion with the Legiones Astartes (Space Wolves) special rule may be upgraded to a Wolf Priest for +35 points. A Space Wolves army may not select a Legion Chaplain Consul.
+Wargear:
+• Replace the Wolf Priest's Chainsword with a Fang of Morkai.
+• Rosarius.
+Special Rules:
+• Rites of Battle
+• Oath of the Slayer
+FANG OF MORKAI
+The Fang of Morkai counts as a Power Weapon.
+RITES OF BATTLE
+The Wolf Priest and any Space Wolves unit he has joined may re-roll failed Morale checks.
+OATH OF THE SLAYER
+Before deployment, nominate one enemy unit. The Wolf Priest and any Space Wolves unit he has joined may re-roll failed To Hit rolls in close combat against the nominated enemy unit. The oath lasts for the duration of the battle.
+  RUNE PRIEST CONSUL || cost=25 || A Legion Centurion with the Legiones Astartes (Space Wolves) special rule may be upgraded to a Rune Priest for +25 points. A Space Wolves army may not select a Legion Librarian Consul.
+Wargear:
+• Replace the Rune Priest's Chainsword with a Runic Force Weapon.
+• Wolf Tail Talisman.
+Special Rules:
+• Psyker (Mastery Level 1\)
+• Legion Support Officer
+Psychic Powers:
+• Mystic Winds of Fenris
+OPTIONS
+• The Rune Priest may be upgraded to a Master of Runes
+for +25 points.
+A Master of Runes has Psychic Mastery Level 2 and may select one additional psychic power from the disciplines normally available to a Legion Librarian.
+• The Rune Priest may purchase a Psychic Hood from the
+Space Marine Armoury as normal.
+RUNIC FORCE WEAPON
+A Runic Force Weapon counts as a Force Weapon.
+MYSTIC WINDS OF FENRIS
+Blessing — Friendly Space Wolves unit within 6". If the Psychic Test is passed, nominate the Rune Priest or one friendly Space Wolves unit with at least one model within 6". Until the beginning of the next Space Wolves turn, the nominated unit receives a 5+ Cover Save. If the unit already has a Cover Save, improve that save by 1, to a maximum of 4+.
+
+===== VII — IMPERIAL FISTS =====
+ENTRIES:
+  [0] TEMPLAR BRETHREN SQUAD || FOC=Elites || allegiance=None || cost=135 || base=5
+  [1] PHALANX WARDER SQUAD || FOC=Elites || allegiance=None || cost=150 || base=5
+  [2] HUSCARL TERMINATOR RETINUE || FOC=Retinue || allegiance=None || cost=250 || base=5
+  [3] TARANTULA SENTRY GUN BATTERY || FOC=Fast Attack || allegiance=None || cost=20 || base=3
+  [4] SIGISMUND, FIRST CAPTAIN || FOC=HQ || allegiance=None || cost=220 || base=1
+  [5] FAFNIR RANN || FOC=HQ || allegiance=None || cost=175 || base=1
+  [6] ALEXIS POLUX || FOC=HQ || allegiance=None || cost=170 || base=1
+  [7] CAMBA DIAZ || FOC=HQ || allegiance=None || cost=160 || base=1
+  [8] EVANDER GARRIUS || FOC=HQ || allegiance=None || cost=200 || base=1
+  [9] VII — ROGAL DORN, THE PRAETORIAN OF TERRA || FOC=Lords of War || allegiance=None || cost=490 || base=1
+RITES:
+--- RITE 0: THE STONE GAUNTLET || allegiance=None ---
+  The Stone Gauntlet is the embodiment of the VII Legion's doctrine of unyielding defence.
+  Warriors advance shoulder to shoulder behind interlocking shields, absorbing the fury of the enemy before crushing resistance beneath a methodical counter-assault.
+  EFFECTS
+  WARDERS OF THE PHALANX
+  Phalanx Warder Squads may be selected as Troops choices.
+  They may fulfil compulsory Troops selections.
+  Legion Breacher Siege Squads may also fulfil compulsory Troops selections normally.
+  SHIELD WALL
+  An Imperial Fists Infantry unit in which every model is equipped with either a Boarding Shield or Vigil Pattern Storm Shield may form a Shield Wall. The Shield Wall is active provided that:
+  • the unit did not Advance during its preceding Movement phase;
+  • the unit is not Falling Back;
+  • the unit did not charge during the current player turn.
+  While the Shield Wall is active, models in the unit may re-roll failed Invulnerable Saves granted by Boarding Shields or Vigil Pattern Storm Shields. A re-rolled save may never be re-rolled again.
+  UNYIELDING LINE
+  While its Shield Wall is active, the unit gains the Stubborn special rule and may re-roll failed Pinning tests.
+  THE HAMMER BEHIND THE SHIELD
+  Models equipped with Boarding Shields gain the Hammer of Wrath special rule.
+  This uses the normal ProHammer definition of Hammer of Wrath.
+  A model does not receive an additional attack; instead, one of its normally allowed attacks may be resolved at Initiative 10 during a turn in which it charges.
+  LIMITATIONS
+  The army's compulsory Troops choices must be selected from:
+  • Legion Breacher Siege Squads
+  • Phalanx Warder Squads
+  The Detachment must include at least one Independent Character equipped with either a Boarding Shield or Vigil Pattern Storm Shield.
+  No unit in the Detachment may voluntarily deploy using Deep Strike.
+  The army may include no more than one Fast Attack choice.
+--- RITE 1: HAMMERFALL STRIKE FORCE || allegiance=None ---
+  Originally devised for forces deployed from the Phalanx, the Hammerfall Strike Force concentrates elite ship-borne formations for sudden teleport assaults into the heart of the enemy position.
+  EFFECTS
+  LANDING FORCE
+  Phalanx Warder Squads may be selected as Troops choices.
+  They may fulfil compulsory Troops selections.
+  TELEPORT ARRAY
+  Any Imperial Fists Infantry unit may purchase Teleportation Transponders for +15 points per unit.
+  An Imperial Fists Independent Character may purchase Teleportation Transponders for +10 points.
+  This overrides the normal restriction limiting Teleportation Transponders to models wearing Terminator Armour.
+  A unit equipped with Teleportation Transponders may deploy using Deep Strike even if the mission would not normally permit Deep Strike.
+  An Independent Character intending to Deep Strike as part of another unit must purchase Teleportation Transponders separately.
+  BLINDING LUMINESCENCE
+  An Imperial Fists unit arriving by Deep Strike using Teleportation Transponders gains the Shrouded special rule from the moment it is placed on the battlefield until the beginning of its next player turn.
+  After the unit has been placed, every enemy unit with at least one model:
+  • within 12" of the arriving unit; and
+  • with line of sight to at least one model in the arriving unit
+  must immediately take an Initiative test. If the test is failed, that enemy unit suffers the effects of the Blind special rule:
+  • Weapon Skill 1
+  • Ballistic Skill 1
+  until the end of its next player turn.
+  Each enemy unit only makes one such test per arriving Imperial Fists unit.
+  LIMITATIONS
+  The army's Warlord must be equipped with Teleportation Transponders.
+  Every Vehicle in the Detachment must begin the battle in Reserve.
+  The Detachment may not include a Fortification.
+--- RITE 2: TEMPLAR ASSAULT || allegiance=None ---
+  The Templar brethren represent the martial traditions of the VII Legion at their most aggressive.
+  Where other Imperial Fists formations hold the line or break fortifications through methodical siegecraft, a Templar assault is a direct application of overwhelming force intended to destroy the enemy in close combat.
+  EFFECTS
+  TEMPLAR HOST
+  Templar Brethren Squads may be selected as Troops choices.
+  They may fulfil compulsory Troops selections.
+  CRUSADING ASSAULT
+  During an Assault phase in which a Templar Brethren Squad charged after disembarking from a vehicle with the Assault Vehicle special rule during the same player turn, the squad gains the Furious Charge special rule. In addition, its normal charge distance is increased from 6" to 7" for that Assault phase.
+  SWORDS OF THE LEGION
+  During the first round of a close combat in which a Templar Brethren Squad charged, models in that squad may re-roll To Hit rolls of 1 with:
+  • Rending Weapons
+  • Power Weapons
+  • Relic Blades
+  • other weapons specifically stated to count as swords
+  ASSAULT TRANSPORTS
+  A Templar Brethren Squad may select one of the following as a Dedicated Transport at its normal points cost:
+  • Land Raider Phobos
+  • Land Raider Proteus
+  A Templar Brethren Squad of a size which cannot be carried by either vehicle may instead select a Legion Spartan Assault Tank at its normal points cost.
+  All normal Transport Capacity restrictions apply.
+  LIMITATIONS
+  The army's compulsory Troops choices must be Templar Brethren Squads.
+  The army may include no more than one Fast Attack choice.
+  The army may not include a Fortification.
+  The army's Warlord must be equipped with a Power Weapon, Rending Weapon, Relic Blade or another sword-like close-combat weapon which ignores Armour Saves.
+CONSULS:
+
+===== VIII — NIGHT LORDS =====
+ENTRIES:
+  [0] TERROR SQUAD || FOC=Elites || allegiance=None || cost=150 || base=5
+  [1] NIGHT RAPTOR SQUAD || FOC=Fast Attack || allegiance=None || cost=140 || base=5
+  [2] CONTEKAR TERMINATOR ELITE || FOC=Elites || allegiance=None || cost=250 || base=5
+  [3] ATRAMENTAR FLAY-CLADE || FOC=Elites || allegiance=None || cost=250 || base=5
+  [4] JAGO SEVATARION || FOC=HQ || allegiance=None || cost=200 || base=1
+  [5] KHERON OPHION || FOC=HQ || allegiance=Traitor || cost=180 || base=1
+  [6] MALCHARION, THE WAR-SAGE || FOC=HQ || allegiance=None || cost=155 || base=1
+  [7] SHANG || FOC=HQ || allegiance=None || cost=165 || base=1
+  [8] FLAYMASTER MAWDRYM LLANSAHAI || FOC=HQ || allegiance=Traitor || cost=125 || base=1
+  [9] VIII — KONRAD CURZE, THE NIGHT HAUNTER || FOC=Lords of War || allegiance=None || cost=500 || base=1
+RITES:
+--- RITE 0: TERROR ASSAULT || allegiance=None ---
+  The Terror Assault is the favoured method of war of the VIII Legion: a sudden offensive conducted beneath artificial darkness, with enemy communications disrupted and rapid assault formations descending upon isolated positions before a coherent defence can be organised.
+  EFFECTS
+  COVER OF DARKNESS
+  The first Battle Round is fought using the Night Fighting rules. At the beginning of the second Battle Round, roll a D6. On a 3+, Night Fighting remains in effect for the second Battle Round. If Night Fighting remained in effect during the second Battle Round,
+  roll again at the beginning of the third Battle Round. On a 6, Night Fighting remains in effect for the third Battle Round.
+  Night Fighting automatically ends at the beginning of the fourth Battle Round. Night Lords units benefit from their normal Night Vision special rule
+  during these turns.
+  TERROR FORMATIONS
+  Night Raptor Squads may be selected as Troops choices. Terror Squads may also be selected as Troops choices once their unit entry is included in the Night Lords army list. Both units may fulfil compulsory Troops selections. At least one of the Detachment's compulsory Troops selections must be a Night Raptor Squad or Terror Squad.
+  TERROR ATTACK
+  Whenever the opposing player makes Reserve rolls, after all of those rolls have been made, the Night Lords player may force one successful Reserve roll to be re-rolled. The second result must be accepted. A die may never be re-rolled more than once.
+  RAPID STRIKE FORCE
+  The Detachment modifies the Standard Force Organisation Chart as follows:
+  Fast Attack: 0–4
+  Heavy Support: 0–1
+  All other Force Organisation limits remain unchanged.
+  LIMITATIONS
+  The Detachment must include at least one Night Raptor Squad or Terror Squad.
+  The Detachment may include no more than one Heavy Support choice.
+  The Detachment may not include a Fortification.
+--- RITE 1: HORROR CULT || allegiance=None ---
+  Some formations of the VIII Legion abandoned even the pretence of disciplined terror warfare, becoming predatory cults of murder whose commanders measured victory in screams and mutilated corpses. The Night Raptors were amongst the most infamous of these formations, descending upon isolated prey in great packs and competing for the most spectacular kill.
+  EFFECTS
+  RAPTOR CULT
+  Night Raptor Squads may be selected as Troops choices. Night Raptor Squads may fulfil compulsory Troops selections. At least one of the Detachment's compulsory Troops selections must be a Night Raptor Squad.
+  BEYOND JUDGEMENT
+  Any Night Lords Infantry or Jump Infantry squad may purchase Trophies of Judgement for +25 points per unit.
+  If purchased in this manner, every model in the unit is treated as being equipped with Trophies of Judgement. Measure the 8" Leadership penalty from any model in the squad. In addition, a unit equipped with Trophies of Judgement in this manner
+  gains the Fear special rule. The Leadership penalties caused by multiple sources of Trophies of Judgement remain non-cumulative.
+  VOX-SCREAM BROADCAST
+  Once per battle, at the beginning of any Night Lords player turn, the Night Lords player may declare a Vox-Scream Broadcast. Until the beginning of the next Night Lords player turn, all enemy units suffer -1 Leadership. This modifier may be combined with the penalty caused by Trophies of
+  Judgement.
+  THE SCENT OF BLOOD
+  A non-Vehicle Night Lords unit using this Rite must declare a charge during its Assault phase if:
+  • it is normally eligible to charge; and
+  • at least one enemy unit is within its current charge distance; and
+  • that enemy unit is a legal charge target under the normal ProHammer rules.
+  If several eligible enemy units are present, the Night Lords player may choose which one is charged. A unit is never required to declare an illegal charge.
+  LIMITATIONS
+  This Rite of War may only be used by a Traitor Night Lords Detachment.
+  The Detachment may not include a Fortification.
+  A Night Lords unit using this Rite may not voluntarily withdraw from
+  close combat.
+CONSULS:
+
+===== IX — BLOOD ANGELS =====
+ENTRIES:
+  [0] DAWNBREAKER COHORT || FOC=Elites || allegiance=None || cost=210 || base=5
+  [1] CRIMSON PALADIN SQUAD || FOC=Elites || allegiance=None || cost=160 || base=3
+  [2] ANGEL'S TEARS SQUAD || FOC=Elites || allegiance=None || cost=210 || base=5
+  [3] OFANIM COURT || FOC=Elites || allegiance=None || cost=150 || base=3
+  [4] GRAV CHARIOT SQUADRON || FOC=Fast Attack || allegiance=None || cost=65 || base=3
+  [5] SANGUINARY GUARD || FOC=Retinue || allegiance=None || cost=175 || base=3
+  [6] RALDORON, THE BLOODED || FOC=HQ || allegiance=None || cost=195 || base=1
+  [7] DOMINION ZEPHON || FOC=HQ || allegiance=None || cost=175 || base=1
+  [8] ASTER CROHNE || FOC=HQ || allegiance=None || cost=180 || base=1
+  [9] AZKAELLON || FOC=Elites || allegiance=None || cost=35 || base=1
+  [10] NASSIR AMIT, THE FLESH TEARER || FOC=HQ || allegiance=None || cost=180 || base=1
+  [11] IX — SANGUINIUS, THE GREAT ANGEL || FOC=Lords of War || allegiance=Loyalist || cost=510 || base=1
+RITES:
+--- RITE 0: THE DAY OF REVELATION || allegiance=None ---
+  The Day of Revelation is the archetypal assault doctrine of the IX Legion, entire formations descending from the heavens in a single precisely timed attack before the enemy can organise an effective defence.
+  EFFECTS
+  HOST OF ANGELS
+  Legion Veteran Squads equipped with Jump Packs may be selected as Troops choices. They may fulfil compulsory Troops selections. Legion Assault Squads remain Troops choices normally.
+  THE DAY IS REVEALED
+  Blood Angels units composed entirely of Jump Infantry may deploy using Deep Strike even if the mission would not normally permit it. All Jump Infantry units placed in Reserve using this Rite must enter play using Deep Strike.
+  ON WINGS OF FIRE
+  At the beginning of the second Blood Angels player turn, all Blood Angels Jump Infantry units currently held in Reserve become available automatically. No Reserve rolls are made for these units and they must enter play during that turn using Deep Strike.
+  ANGELIC SHOCK ASSAULT
+  A Blood Angels Jump Infantry unit which charges during the same turn that it arrived using Deep Strike receives the normal +1 Attack bonus for charging and the normal benefits of any Assault Grenades it carries. This specifically overrides the normal ProHammer restrictions on charging after Deep Strike. All other Deep Strike rules apply normally.
+  LIMITATIONS
+  The army's Warlord must be equipped with a Jump Pack.
+  At least half of the non-Vehicle units in the Detachment, rounding up, must be composed entirely of models equipped with Jump Packs.
+  Every Jump Infantry unit must begin the battle in Reserve and enter play using Deep Strike.
+  The Detachment may include no more than one Heavy Support choice.
+  The Detachment may not include a Fortification.
+--- RITE 1: THE DAY OF SORROWS || allegiance=None ---
+  The Day of Sorrows represents those battles in which the IX Legion has suffered catastrophic casualties yet refuses to yield, its surviving warriors becoming increasingly consumed by grief and fury as their brothers fall around them.
+  EFFECTS
+  THE BITTER END
+  When a non-Vehicle Blood Angels unit is reduced to half or fewer of the number of models with which it began the battle, it gains Stubborn and Feel No Pain (6+). These rules remain in effect for the remainder of the battle. If the unit already possesses Feel No Pain, improve its existing Feel No Pain roll by one step instead, to a maximum of 4+.
+  SORROW BECOMES FURY
+  A Blood Angels unit affected by The Bitter End gains +1 to its combat-resolution score whenever it wins a close combat. This bonus is not cumulative.
+  NO DEATH UNREMEMBERED
+  Whenever a Blood Angels unit affected by The Bitter End is completely destroyed, every friendly non-Vehicle Blood Angels unit with at least one model within 6" may re-roll its next failed Morale or Pinning test before the end of the following Blood Angels player turn.
+  HOLD UNTIL THE LAST
+  Legion Tactical Squads and Legion Breacher Siege Squads may re-roll failed Pinning tests while they have at least one model within 6" of an Objective.
+  LIMITATIONS
+  The army's compulsory Troops choices must be selected from Legion Tactical Squads, Legion Assault Squads or Legion Breacher Siege Squads.
+  Units affected by The Bitter End may not voluntarily withdraw from close combat.
+  If such a unit wins a close combat and the enemy retreats, it must Pursue whenever normally permitted.
+  The Detachment may not include a Fortification.
+CONSULS:
+  SANGUINARY HIGH PRIEST CONSUL || cost=45 || A Blood Angels Legion Centurion may be upgraded to a Sanguinary High Priest for +45 points.
+Wargear:
+• Narthecium
+• Reductor
+Special Rules:
+• Legion Support Officer
+• Sanguinius' Chosen
+APOTHECARION
+A Sanguinary High Priest counts as an Apothecary for all rules and wargear restrictions.
+SANGUINIUS' CHOSEN
+The Sanguinary High Priest and any Blood Angels unit he has joined have the Furious Charge special rule.
+OPTIONS
+A Sanguinary High Priest retains the normal weapon and wargear options available to a Legion Centurion.
+He may therefore take a Jump Pack for the normal points cost.
+
+===== X — IRON HANDS =====
+ENTRIES:
+  [0] MEDUSAN IMMORTAL SQUAD || FOC=Troops || allegiance=None || cost=150 || base=5
+  [1] GORGON TERMINATOR SQUAD || FOC=Elites || allegiance=None || cost=250 || base=5
+  [2] MORLOCK TERMINATOR SQUAD || FOC=Elites || allegiance=None || cost=275 || base=5
+  [3] VENERABLE FORGE LORD || FOC=Elites || allegiance=None || cost=155 || base=1
+  [4] SHADRAK MEDUSON || FOC=HQ || allegiance=None || cost=165 || base=1
+  [5] AUTEK MOR || FOC=HQ || allegiance=None || cost=205 || base=1
+  [6] GABRIEL SANTAR || FOC=HQ || allegiance=None || cost=220 || base=1
+  [7] X — FERRUS MANUS, THE GORGON || FOC=Lords of War || allegiance=None || cost=505 || base=1
+RITES:
+--- RITE 0: THE HEAD OF THE GORGON || allegiance=None ---
+  The Head of the Gorgon is one of the characteristic battle doctrines of the X Legion. The enemy is fixed against an implacable battle line while armoured reserves manoeuvre around its flanks, closing the jaws of the trap in a storm of mechanised firepower.
+  EFFECTS
+  GROUND OF CHOICE
+  All Iron Hands Infantry units gain the Stubborn special rule while at least half of the unit's surviving models are within the Iron Hands deployment zone.
+  RELICS OF WAR
+  All Iron Hands Vehicles in the Detachment receive Blessed Autosimulacra at no additional points cost.
+  SCIONS OF IRON
+  Any Iron Hands Infantry unit of ten models or fewer which may normally select a Rhino as a Dedicated Transport may instead select a Land Raider Phobos or Land Raider Proteus as a Dedicated Transport at its normal points cost.
+  All normal Transport Capacity restrictions apply.
+  ARMOURED ENCIRCLEMENT
+  Iron Hands Vehicles with the Tank unit type gain the Outflank special rule if placed in Reserve.
+  A Dedicated Transport carrying a unit may Outflank together with its passengers. The Transport and embarked unit are treated as a single Reserve entry for this purpose.
+  LIMITATIONS
+  The Detachment may include no more than one Fast Attack choice.
+  The Detachment may include no more than one Consul, excluding Forge Lords.
+  The Detachment may not include an Allied Detachment drawn from another Space Marine Legion.
+--- RITE 1: COMPANY OF BITTER IRON || allegiance=Loyalist ---
+  After the massacre at Isstvan V, many Iron Hands renounced their former Clan and Company markings and gathered into formations of Medusan Immortals, seeking vengeance against the Traitors and redemption through death in battle.
+  EFFECTS
+  COMPANY OF IMMORTALS
+  Medusan Immortal Squads may be selected as Troops choices and may fulfil compulsory Troops selections.
+  At least one compulsory Troops choice in the Detachment must be a Medusan Immortal Squad.
+  IMMORTAL HATRED
+  All units in the Detachment with the Legiones Astartes (Iron Hands) special rule gain Hatred against Traitor forces.
+  For the purposes of this rule, a Traitor force is any army or unit specifically designated as Traitor by the mission, campaign or army list being used.
+  BITTER DUTY
+  A Medusan Immortal Squad gains the Fearless special rule while the majority of its surviving models are within the enemy deployment zone.
+  NO DEATH WITHOUT PURPOSE
+  Whenever a Medusan Immortal Squad is completely destroyed while the majority of its models were within the enemy deployment zone immediately before its destruction, every friendly Iron Hands unit within 6" may immediately re-roll any failed Morale or Pinning test it is required to make as a result of that destruction.
+  LIMITATIONS
+  This Rite of War may only be selected by a Loyalist Iron Hands Detachment.
+  The army may not include an Allied Detachment.
+  The army may not include Ferrus Manus.
+CONSULS:
+  IRON FATHER || cost=25 || Any Iron Hands Forge Lord Consul may be further upgraded to an Iron Father for +25 points.
+Wargear:
+• Iron Halo
+• Bionics
+Special Rules:
+• Rites of Battle
+The Iron Father retains all rules, wargear and options of a normalForge Lord Consul.
+RITES OF BATTLE
+The Iron Father and any Iron Hands unit he has joined may re-roll failed Morale tests. The second result must be accepted.
+
+===== XII — WORLD EATERS =====
+ENTRIES:
+  [0] RAMPAGER SQUAD || FOC=Elites || allegiance=None || cost=110 || base=5
+  [1] RED BUTCHER SQUAD || FOC=Elites || allegiance=None || cost=300 || base=5
+  [2] RED HAND DESTROYER MORTALIS SQUAD || FOC=Elites || allegiance=None || cost=160 || base=5
+  [3] WORLD EATERS INDUCTII SQUAD || FOC=Troops || allegiance=None || cost=130 || base=10
+  [4] DEVOURER TERMINATOR SQUAD || FOC=Elites || allegiance=None || cost=225 || base=5
+  [5] TRIARII BREACHER SQUAD || FOC=Elites || allegiance=None || cost=155 || base=5
+  [6] KHÂRN THE BLOODY || FOC=HQ || allegiance=None || cost=180 || base=1
+  [7] SHABRAN DARR || FOC=HQ || allegiance=Loyalist || cost=150 || base=1
+  [8] GAhLAN SURLAK || FOC=HQ || allegiance=None || cost=125 || base=1
+  [9] KARGOS, THE BLOODSPITTER || FOC=HQ || allegiance=None || cost=120 || base=1
+  [10] CAPTAIN EHRLEN || FOC=HQ || allegiance=Loyalist || cost=95 || base=1
+  [11] DELVARUS || FOC=HQ || allegiance=None || cost=120 || base=1
+  [12] XII — ANGRON, THE RED ANGEL || FOC=Lords of War || allegiance=None || cost=515 || base=1
+  [13] ANGRON, THE RED ANGEL || FOC=Lords of War || allegiance=None || cost=650 || base=1
+RITES:
+--- RITE 0: BERSERKER ASSAULT || allegiance=None ---
+  A Berserker Assault commits the XII Legion to a single overwhelming attack, massed assault formations racing ahead of their support elements to close with the enemy before disciplined resistance can be organised.
+  EFFECTS
+  THE RED HAND
+  Rampager Squads may be selected as Troops choices and may fulfil compulsory Troops selections.
+  Legion Assault Squads may fulfil compulsory Troops selections normally.
+  HEADLONG ASSAULT
+  World Eaters Infantry and Jump Infantry units gain the Fleet special rule.
+  A unit with Fleet may charge after making an Advance move, following the normal ProHammer rules.
+  WEAPONS OF THE PITS
+  World Eaters models in Legion Assault Squads and Rampager Squads may purchase Chainaxes for +2 points per model instead of the normal +4 points.
+  BLOOD FORWARD
+  A non-Vehicle World Eaters unit must declare a charge during its Assault phase if it is normally eligible to charge and at least one enemy unit is within its current charge distance.
+  If more than one legal target is available, the World Eaters player may choose which unit is charged.
+  LIMITATIONS
+  The army's compulsory Troops choices must be Legion Assault Squads or Rampager Squads.
+  At least one compulsory Troops choice must be a Rampager Squad.
+  The army's Warlord must be equipped with a Chainaxe, Caedere Weapon, Rending Weapon, Power Weapon or another close-combat weapon.
+  The Detachment may include no more than one Heavy Support choice.
+  The Detachment may not include a Fortification.
+--- RITE 1: THE CRIMSON PATH || allegiance=None ---
+  From the earliest years of the Great Crusade, the XII Legion was willing to accept casualties that other Legions would consider catastrophic. As the World Eaters descended further into madness, entire formations became capable of enduring horrific wounds for the few moments necessary to reach the enemy and drag them into death.
+  EFFECTS
+  FORLORN HOPE
+  World Eaters Infantry models gain Feel No Pain (5+) while they are within the enemy deployment zone.
+  If a model already possesses Feel No Pain, improve its Feel No Pain roll by one step while it remains within the enemy deployment zone, to a maximum of 3+.
+  UNTO DEATH
+  World Eaters Independent Characters gain the It Will Not Die special rule while they are within the enemy deployment zone.
+  If a Character already possesses It Will Not Die, it instead regains a lost Wound on a roll of 4+ while within the enemy deployment zone.
+  THE PATH MUST END IN BLOOD
+  At the end of the battle, if the World Eaters have no surviving non-Vehicle unit at least partially within the enemy deployment zone, the opposing player gains an additional 150 Victory Points.
+  In addition, if the opposing army has completely destroyed more World Eaters units than the World Eaters have completely destroyed enemy units, the opposing player gains an additional 150 Victory Points.
+  These penalties only apply in missions using Victory Points.
+  LIMITATIONS
+  The Detachment may not include units with the Slow and Purposeful special rule.
+  The Detachment may not include Immobile units.
+  The Detachment may not include a Fortification.
+  The Detachment may not include an Allied Detachment drawn from another Space Marine Legion.
+CONSULS:
+
+===== XIII — ULTRAMARINES =====
+ENTRIES:
+  [0] INVICTARUS SUZERAIN SQUAD || FOC=Elites || allegiance=None || cost=225 || base=5
+  [1] FULMENTARUS TERMINATOR SQUAD || FOC=Elites || allegiance=None || cost=325 || base=5
+  [2] LOCUTARUS STORM SQUAD || FOC=Fast Attack || allegiance=None || cost=175 || base=5
+  [3] NEMESIS DESTROYER SQUAD || FOC=Elites || allegiance=None || cost=150 || base=5
+  [4] MARIUS GAGE, FIRST MASTER || FOC=HQ || allegiance=None || cost=190 || base=1
+  [5] REMUS VENTANUS || FOC=HQ || allegiance=None || cost=145 || base=1
+  [6] AEONID THIEL || FOC=Elites || allegiance=None || cost=80 || base=1
+  [7] HONOURED TELEMECHRUS || FOC=Elites || allegiance=Loyalist || cost=215 || base=1
+  [8] TITUS PRAYTO || FOC=HQ || allegiance=None || cost=170 || base=1
+  [9] XIII — ROBOUTE GUILLIMAN, THE AVENGING SON || FOC=Lords of War || allegiance=Loyalist || cost=500 || base=1
+RITES:
+--- RITE 0: THE LOGOS LECTORA || allegiance=None ---
+  The Logos Lectora is the battlefield application of the immense body of tactical theory compiled by the XIII Legion. Through disciplined command, precise communication and carefully coordinated formations, an Ultramarines force may alter its method of war as the tactical situation demands.
+  EFFECTS
+  TACTICAL COMMAND
+  At the beginning of each Ultramarines player turn, choose one of the following three commands: Full March, Hold Fast or Retribution Strike.
+  The chosen command applies until the beginning of the next Ultramarines player turn. Only one command may be active at a time.
+  FULL MARCH
+  All Ultramarines non-Vehicle units may re-roll the D6 used to determine the additional distance of an Advance Move. The second result must be accepted.
+  HOLD FAST
+  Ultramarines non-Vehicle units which remain stationary during their Movement phase may re-roll To Hit rolls of 1 when resolving First Fire or Overwatch Fire.
+  In addition, any Snap Fire attacks made by such a unit hit on a 5+ instead of the normal 6+. Ultramarines Dreadnoughts may also benefit from this command if they remained stationary.
+  RETRIBUTION STRIKE
+  All Ultramarines non-Vehicle units gain the Counter-Attack special rule.
+  An Ultramarines Dreadnought which was not already engaged and is successfully charged instead gains +1 Attack during that Assault phase.
+  LIMITATIONS
+  The Detachment must take one additional compulsory HQ choice. This additional choice must be a Legion Master of Signals Consul or a Damocles Command Rhino.
+  The Detachment must take one additional compulsory Troops choice.
+  The Detachment may not include more Vehicles with the Tank or Flyer type than it includes Infantry units.
+  Units in the Detachment may not deploy using Infiltrate or enter play using Deep Strike. Normal Reserves may still be used.
+  Units which are required to enter play using Deep Strike, such as Legion Drop Pods, may not be selected.
+--- RITE 1: VIGIL OPERTII MISSION || allegiance=None ---
+  The Vigil Opertii are one of the less celebrated instruments of Ultramar's rule, employing veteran Legionaries and carefully selected mortal auxiliaries in counter-insurgency, reconnaissance and internal security operations throughout the Five Hundred Worlds.
+  EFFECTS
+  VIGIL AUXILIA
+  All Infantry units in the army's allied Imperialis Militia Detachment gain the Infiltrate special rule.
+  SACRED DUTY
+  All Infantry units in the allied Imperialis Militia Detachment gain Implacable Advance and count as Scoring Units regardless of their normal battlefield role.
+  OVERSEERS
+  Ultramarines Legion Reconnaissance Squads lose the Support Squad special rule and may therefore be selected to fulfil compulsory Troops choices.
+  LIMITATIONS
+  This Rite of War may only be used by a Loyalist Ultramarines Detachment.
+  The army must include an Allied Detachment drawn from the Imperialis Militia & Cults Army List.
+  The Allied Detachment must possess both the Gene-crafted and Warrior Elite Provenances of War.
+  The Allied Detachment may not include Inducted Levy Squads.
+  The Ultramarines Detachment must include a Legion Vigilator Consul.
+CONSULS:
+
+===== XIV — DEATH GUARD =====
+ENTRIES:
+  [0] DEATHSHROUD TERMINATORS || FOC=Elites || allegiance=None || cost=110 || base=2
+  [1] GRAVE WARDEN TERMINATOR SQUAD || FOC=Heavy Support || allegiance=None || cost=250 || base=11
+  [2] MORTUS POISONER SQUAD || FOC=Elites || allegiance=None || cost=150 || base=5
+  [3] CALAS TYPHON, FIRST CAPTAIN || FOC=HQ || allegiance=None || cost=195 || base=1
+  [4] CRYSOS MORTURG || FOC=HQ || allegiance=Loyalist || cost=175 || base=1
+  [5] DURAK RASK || FOC=HQ || allegiance=Traitor || cost=165 || base=1
+  [6] IGNATIUS GRULGOR || FOC=HQ || allegiance=Traitor || cost=165 || base=1
+  [7] NATHANIEL GARRO || FOC=HQ || allegiance=Loyalist || cost=165 || base=1
+  [8] XIV — MORTARION, THE REAPER || FOC=Lords of War || allegiance=None || cost=500 || base=1
+  [9] MORTARION, PRINCE OF DECAY || FOC=Lords of War || allegiance=None || cost=650 || base=1
+RITES:
+--- RITE 0: THE REAPING || allegiance=None ---
+  The Reaping is one of the characteristic attack formations of the XIV Legion. Heavy infantry and fire-support units advance in a relentless column, purging shattered cities and fortified battlefields through weight of fire and remorseless attrition.
+  EFFECTS
+  SUPERIOR FIREPOWER
+  Legion Veteran Squads and Legion Heavy Support Squads may be selected as non-compulsory Troops choices.
+  They may not fulfil compulsory Troops selections unless another rule specifically permits them to do so.
+  IMPLACABLE
+  All Death Guard Infantry units gain the Move Through Cover special rule.
+  This includes models wearing any form of Terminator Armour.
+  DARK ARSENAL
+  Any Death Guard Character or Independent Character may purchase Rad Grenades for +10 points.
+  Rad Grenades follow the normal rules presented in the Legiones Astartes Army List.
+  LIMITATIONS
+  Units in the Detachment may not make Advance Moves.
+  Vehicles in the Detachment may not move Flat Out.
+  Units in the Detachment may not deploy using Deep Strike. Units which are required to deploy using Deep Strike may not be selected.
+  The normal Death Guard restriction on Fast Attack choices from Footslogging Killers continues to apply.
+--- RITE 1: CREEPING DEATH || allegiance=Traitor ---
+  As the Horus Heresy progressed, the Death Guard unleashed ever greater quantities of forbidden chemical and biological weapons. Entire regions were reduced to poisoned wastelands through which the warriors of the XIV Legion advanced seemingly untouched.
+  EFFECTS
+  MIST-CLAD
+  Death Guard Infantry models in open ground receive a 5+ Cover Save against shooting attacks provided there is no enemy model within 12".
+  This does not improve an existing Cover Save.
+  BIO-PHAGE BOMBARDMENT
+  After both armies have deployed, including Scouts and Infiltrators, roll a D6 for every piece of terrain representing a wood or jungle.
+  On a 4+, that terrain is reduced to a fetid chemical mire for the remainder of the battle.
+  Any Cover Save provided by that terrain is worsened by 1. For example, a 4+ Cover Save becomes 5+, while a 6+ Cover Save is lost.
+  The terrain also counts as Dangerous Terrain to all models except models with the Legiones Astartes (Death Guard) special rule.
+  TOXIN WEAPONS
+  Frag Missiles fired by Death Guard models are resolved at Strength 5 instead of Strength 4.
+  In addition, Death Guard Frag Grenades used against Vehicles have Strength 5 + D6 Armour Penetration instead of the normal Strength 4 + D6.
+  All other rules for Frag Grenades and Frag Missiles remain unchanged.
+  LIMITATIONS
+  This Rite of War may only be selected by a Traitor Death Guard Detachment.
+  The Detachment must include at least one Legion Heavy Support Squad whose Sergeant has been upgraded to a Siege Breaker.
+  In missions which designate one player as the Attacker and the other as the Defender, the Death Guard must be the Attacker.
+  The Detachment may not include a Fortification or an Allied Detachment.
+CONSULS:
+
+===== XV — THOUSAND SONS =====
+ENTRIES:
+  [0] SEKHMET TERMINATOR CABAL || FOC=Elites || allegiance=None || cost=300 || base=5
+  [1] KHENETAI OCCULT BLADE CABAL || FOC=Elites || allegiance=None || cost=190 || base=5
+  [2] AMMITARA OCCULT INTERCESSION CABAL || FOC=Fast Attack || allegiance=None || cost=135 || base=5
+  [3] CASTELLAX-ACHEA MANIPLE || FOC=Elites || allegiance=None || cost=130 || base=1
+  [4] CONTEMPTOR-OSIRON DREADNOUGHT || FOC=Elites || allegiance=None || cost=225 || base=1
+  [5] NUMEROLOGIST CABAL || FOC=Elites || allegiance=None || cost=130 || base=5
+  [6] AHZEK AHRIMAN || FOC=HQ || allegiance=None || cost=210 || base=1
+  [7] PHOSIS T'KAR || FOC=HQ || allegiance=None || cost=205 || base=1
+  [8] MAGISTUS AMON, THE HIDDEN || FOC=HQ || allegiance=None || cost=185 || base=1
+  [9] HATHOR MAAT || FOC=HQ || allegiance=None || cost=190 || base=1
+  [10] SANAKHT || FOC=HQ || allegiance=None || cost=195 || base=1
+  [11] XV — MAGNUS THE RED, THE CRIMSON KING || FOC=Lords of War || allegiance=None || cost=550 || base=1
+  [12] MAGNUS, SHARD OF THE CRIMSON KING || FOC=Lords of War || allegiance=None || cost=675 || base=1
+RITES:
+--- RITE 0: THE AXIS OF DISSOLUTION || allegiance=None ---
+  The Axis of Dissolution is a carefully prepared tactical configuration in which the enemy is drawn against positions selected in advance by the Legion's seers, held in place by disciplined resistance and destroyed as the pattern of battle unfolds.
+  EFFECTS
+  THE ALEMBIC OF ADAMANT
+  Thousand Sons units automatically pass Morale and Pinning tests while they have at least one model within 6" of an Objective.
+  If the mission does not use Objective markers, after deployment zones have been determined the Thousand Sons player may nominate one terrain feature outside the enemy deployment zone. The centre of that terrain feature counts as an Objective for the purposes of this rule only.
+  THE CAUSTIC OF GRACE
+  Thousand Sons Infantry units may enter Overwatch even if they moved during their preceding Movement phase, provided they did not Advance.
+  All other ProHammer requirements for entering Overwatch apply normally.
+  THE TRANSITION OF VITRIOL
+  Thousand Sons models may re-roll failed To Hit and To Wound rolls when attacking an enemy unit which is Falling Back.
+  Against Vehicles affected by a mission-specific retreat or withdrawal rule, re-roll failed Armour Penetration rolls instead of failed To Wound rolls.
+  LIMITATIONS
+  Every Troops choice in the Detachment must be taken at its maximum permitted unit size.
+  The Detachment may not contain more Vehicles with the Tank or Flyer type than it contains Infantry units.
+  The Detachment may not include a Fortification.
+--- RITE 1: THE GUARD OF THE CRIMSON KING || allegiance=None ---
+  When the most powerful formations of the XV Legion were committed to battle, the Sekhmet and the Legion's greatest sorcerers could be concentrated into a single overwhelming psychic spearhead.
+  EFFECTS
+  ASTRAL WARFARE
+  The first two psychic powers successfully invoked by Thousand Sons Psykers during each player turn are ignored when determining the penalties caused by Disturbance in the Warp.
+  All other ProHammer psychic rules apply normally.
+  WREATHED IN LIGHTNING, THEY REND THE VEIL
+  All Thousand Sons units composed entirely of models wearing Terminator Armour gain Teleportation Transponders at no additional points cost.
+  Thousand Sons Independent Characters may purchase Teleportation Transponders for +10 points regardless of the armour they wear.
+  Whenever a unit or Character using these Transponders arrives by Deep Strike, it gains the Fear special rule and may re-roll Invulnerable Save rolls of 1 until the beginning of the next Thousand Sons player turn.
+  INITIATES OF THE SCARAB
+  Sekhmet Terminator Cabals may be selected as Troops choices and must fulfil the Detachment's compulsory Troops selections.
+  THE BIDDING OF THE CRIMSON KING
+  Magnus the Red may fulfil a compulsory HQ selection when using this Rite and does not occupy a Lord of War selection.
+  LIMITATIONS
+  The army's Warlord must be Magnus the Red, Ahzek Ahriman or a Thousand Sons Praetor.
+  A Thousand Sons Praetor selected as the Warlord may be upgraded from Mastery Level 2 to Mastery Level 3 for +25 points.
+  The Detachment may not contain more Vehicle units than units with the Legiones Astartes (Thousand Sons) special rule.
+  The Detachment may not include an Allied Detachment or Fortification.
+--- RITE 2: THE FELLOWSHIPS OF PROSPERO || allegiance=None ---
+  The Thousand Sons were organised into great Fellowships whose warriors trained and fought beneath circles of powerful psykers. In some formations entire battle companies acted as extensions of their sorcerous commanders, combining Legion discipline with the collective psychic gifts of Prospero.
+  EFFECTS
+  CIRCLES OF INITIATES
+  A Legion Tactical Squad containing 20 models may purchase Brotherhood of Psykers (Mastery Level 1\) for +25 points per squad.
+  A Tactical Squad upgraded in this manner selects one psychic power from the normal Psychic Disciplines available to Thousand Sons Psykers and gains the Cult Mastery benefit of its chosen Prosperine Cult.
+  The unit follows all normal ProHammer rules for Brotherhood of Psykers.
+  FELLOWSHIP VETERANS
+  Legion Veteran Squads and Legion Terminator Squads purchase Brotherhood of Psykers for +15 points per squad instead of the normal +25 points.
+  MAGISTER TEMPLI
+  At the beginning of each Thousand Sons player turn, the Warlord may nominate one friendly Psychic Brotherhood within 12".
+  Until the beginning of the next Thousand Sons player turn, that Brotherhood may use the Warlord's Leadership when taking Psychic Tests.
+  This specifically overrides the normal rule preventing a Psychic Brotherhood from using the Leadership of an attached Independent Character.
+  ORDER OF THE CULTS
+  Every Psychic Brotherhood in the Detachment must belong to the same Prosperine Cult as at least one Thousand Sons Independent Character in the army.
+  LIMITATIONS
+  The army's Warlord must be a Thousand Sons Psyker.
+  The Detachment must include at least two Psychic Brotherhoods.
+  A Legion Tactical Squad may only purchase Brotherhood of Psykers if it contains 20 models.
+  The Detachment may include no more than one Fast Attack choice.
+  The Detachment may not include an Allied Detachment.
+CONSULS:
+
+===== XVI — SONS OF HORUS =====
+ENTRIES:
+  [0] JUSTAERIN TERMINATOR SQUAD || FOC=Elites || allegiance=None || cost=285 || base=5
+  [1] REAVER ATTACK SQUAD || FOC=Fast Attack || allegiance=None || cost=110 || base=5
+  [2] CHIEFTAIN SQUAD || FOC=Elites || allegiance=None || cost=200 || base=5
+  [3] LUPERCI PACK || FOC=Elites || allegiance=Traitor || cost=150 || base=5
+  [4] EZEKYLE ABADDON, FIRST CAPTAIN || FOC=HQ || allegiance=None || cost=210 || base=1
+  [5] HORUS AXIMAND, “LITTLE HORUS” || FOC=HQ || allegiance=Traitor || cost=175 || base=1
+  [6] GARVIEL LOKEN || FOC=HQ || allegiance=Loyalist || cost=115 || base=1
+  [7] MALOGHURST THE TWISTED || FOC=HQ || allegiance=None || cost=65 || base=1
+  [8] TYBALT MARR, “THE EITHER” || FOC=HQ || allegiance=Traitor || cost=155 || base=1
+  [9] VHEREN ASHURHADDON || FOC=HQ || allegiance=Traitor || cost=185 || base=1
+  [10] FALKUS KIBRE || FOC=Elites || allegiance=None || cost=28 || base=1
+  [11] TARIK TORGADDON || FOC=HQ || allegiance=None || cost=105 || base=1
+  [12] XVI — HORUS LUPERCAL, THE WARMASTER || FOC=Lords of War || allegiance=None || cost=525 || base=1
+  [13] XVI — HORUS ASCENDED, THE WARMASTER || FOC=Lords of War || allegiance=None || cost=725 || base=1
+RITES:
+--- RITE 0: THE LONG MARCH || allegiance=Traitor ---
+  After Isstvan V, the Sons of Horus formed the spearhead of the Warmaster's advance upon Terra, an all-conquering host that drove relentlessly through the Imperium and swept aside world after world in its path.
+  EFFECTS
+  RELENTLESS MARCH
+  At the beginning of each Sons of Horus player turn, determine the position of the majority of the surviving models in each Sons of Horus Infantry unit. The unit gains the appropriate special rule until the beginning of the next Sons of Horus player turn:
+  • Within the Sons of Horus deployment zone — Relentless.
+  • Outside either player's deployment zone — Fleet.
+  • Within the enemy deployment zone — Crusader.
+  If a unit is equally divided between two areas, the controlling player chooses which applicable rule it gains.
+  THE WARMASTER'S PORTION
+  During the first Sons of Horus player turn, all units in the Detachment may re-roll To Hit rolls of 1.
+  In addition, Legion Terminator Squads may be selected as non-compulsory Troops choices.
+  They may not fulfil compulsory Troops selections.
+  LIMITATIONS
+  This Rite of War may only be selected by a Traitor Sons of Horus Detachment.
+  The Detachment may not include models with the Slow and Purposeful special rule unless they begin the battle embarked aboard a Transport or enter play using Deep Strike.
+  The Detachment may not include a Fortification or an Allied Detachment.
+--- RITE 1: THE BLACK REAVING || allegiance=None ---
+  The Black Reaving embodies the Cthonian heritage of the XVI Legion. Rather than engaging the enemy in a single ordered battle line, Reaver companies and supporting formations encircle their prey, isolate individual formations and fall upon them from several directions like the gangs of ancient Cthonia.
+  EFFECTS
+  REAVER ONSLAUGHT
+  Reaver Attack Squads may be selected as Troops choices and may fulfil compulsory Troops selections.
+  At least one of the Detachment's compulsory Troops choices must be a Reaver Attack Squad.
+  CTHONIAN ENCIRCLEMENT
+  After both armies have been selected, nominate up to two Sons of Horus Infantry units. These units gain the Outflank special rule.
+  Any Dedicated Transport purchased for one of these units also gains Outflank and enters play together with its passengers.
+  An Independent Character which begins the battle attached to one of these nominated units may Outflank with it.
+  When one of the two nominated units enters play, the Sons of Horus player may choose the side table edge from which that unit enters instead of rolling to determine the edge. The other nominated unit follows the normal ProHammer Outflank rules.
+  LODGE CEREMONY
+  Once per battle, at the beginning of a Sons of Horus player turn, the Warlord may declare a Lodge Ceremony.
+  Until the end of that player turn, all non-Vehicle Sons of Horus units gain the Fleet special rule.
+  CUT THEM APART
+  During the first round of a close combat, a Sons of Horus unit which charged an enemy unit that was already engaged with another friendly Sons of Horus unit may re-roll To Hit rolls of 1.
+  This benefit applies only during the player turn in which the unit charged.
+  LIMITATIONS
+  The Detachment must include a Legion Centurion upgraded to a Master of Signals Consul.
+  At least one compulsory Troops choice must be a Reaver Attack Squad.
+  The Detachment must include at least as many Fast Attack choices as Heavy Support choices.
+  The Detachment may not include a Fortification or an Allied Detachment.
+CONSULS:
+
+===== XVII — WORD BEARERS =====
+ENTRIES:
+  [0] COVENANT ZEALOT MOB || FOC=Troops || allegiance=None || cost=80 || base=11
+  [1] GAL VORBAK DARK BRETHREN || FOC=Elites || allegiance=Traitor || cost=200 || base=5
+  [2] ASHEN CIRCLE || FOC=Fast Attack || allegiance=None || cost=175 || base=5
+  [3] MHARA GAL TAINTED DREADNOUGHT || FOC=Elites || allegiance=Traitor || cost=305 || base=1
+  [4] PROCURATOR SQUAD || FOC=Elites || allegiance=Traitor || cost=130 || base=5
+  [5] POSSESSED MARINE SQUAD || FOC=Elites || allegiance=Traitor || cost=130 || base=5
+  [6] ARGEL TAL || FOC=HQ || allegiance=Traitor || cost=195 || base=1
+  [7] HIGH CHAPLAIN EREBUS || FOC=HQ || allegiance=Traitor || cost=195 || base=1
+  [8] KOR PHAERON, THE BLACK CARDINAL || FOC=HQ || allegiance=Traitor || cost=165 || base=1
+  [9] ZARDU LAYAK || FOC=HQ || allegiance=Traitor || cost=175 || base=1
+  [10] ANAKATIS KUL BLADE-SLAVES || FOC=Elites || allegiance=None || cost=100 || base=2
+  [11] HOL BELOTH || FOC=HQ || allegiance=Traitor || cost=175 || base=1
+  [12] XVII — LORGAR AURELIAN, THE URIZEN || FOC=Lords of War || allegiance=Traitor || cost=460 || base=1
+RITES:
+--- RITE 0: THE DARK BRETHREN || allegiance=Traitor ---
+  Before the corruption of the XVII Legion became manifest, the Word Bearers were renowned for their cohesion and self-sacrifice. After their fall, these same qualities were turned towards darker purposes, entire warbands offering blood and souls to the powers beyond reality in exchange for their favour.
+  EFFECTS
+  ARCH-TRAITORS
+  All Word Bearers Independent Characters in the Detachment gain Preferred Enemy against models belonging to the Loyalist faction.
+  SIGNS AND PORTENTS
+  After deployment but before the first turn begins, select one Word Bearers Troops unit and roll a D6.
+  On a 1–3, all enemy units gain Preferred Enemy against the selected unit for the duration of the battle.
+  On a 4–6, the selected Word Bearers unit gains Preferred Enemy against all enemy units for the duration of the battle.
+  FROM BEYOND
+  A Word Bearers Detachment using this Rite may include an Allied Detachment selected from Codex: Chaos Daemons. This Allied Detachment is treated as Sworn Brothers with the Word Bearers.
+  This does not prevent the Word Bearers from using their normal Daemonic Covenant rules.
+  HELL FOLLOWS WITH THEM
+  Whenever an enemy Psyker suffers a Wound from Perils of the Warp, that Wound becomes a Massive Wound and inflicts D3 Wounds instead of 1.
+  LIMITATIONS
+  This Rite may only be selected by a Traitor Word Bearers Detachment.
+  The Detachment must include at least one Diabolist.
+  The Detachment may include no more than one Heavy Support choice.
+  The army may not include a Fortification or an Allied Detachment drawn from another Space Marine Legion.
+  Any Allied Detachment other than Chaos Daemons is treated as Desperate Allies.
+--- RITE 1: LAST OF THE SERRATED SUN || allegiance=Traitor ---
+  The Serrated Sun were the first of Lorgar's sons to willingly walk the Path of the Primordial Truth. Their survivors retained the Chapter's mastery of orbital assault warfare, descending upon their enemies alongside the monstrous Gal Vorbak in sudden and overwhelming attacks.
+  EFFECTS
+  COMPANY OF MONSTERS
+  Gal Vorbak Dark Brethren may be selected as Troops choices and may fulfil compulsory Troops selections.
+  Every Gal Vorbak unit in the Detachment must purchase either a Legion Drop Pod or Dreadclaw Drop Pod as a Dedicated Transport.
+  DROP ELITE
+  Any Word Bearers Infantry unit which may normally purchase a Rhino as a Dedicated Transport may instead purchase a Legion Drop Pod at its normal points cost.
+  BURNING SUN
+  Whenever a Legion Drop Pod or Dreadclaw Drop Pod belonging to this Detachment arrives using Deep Strike, every enemy unit with at least one model within 12" of the vehicle's final position must immediately take a Pinning test.
+  A unit need only take one Pinning test for each arriving Drop Pod, regardless of how many of its models are within 12".
+  LIMITATIONS
+  This Rite may only be selected by a Traitor Word Bearers Detachment.
+  All Infantry units in the Detachment must begin the battle in Reserve and enter play using a Deep Striking Drop Pod, Teleportation Transponders or embarked aboard a Transport with the Flyer type.
+  The army may not include Immobile units.
+  The army may not include a Fortification or an Allied Detachment.
+CONSULS:
+
+===== XVIII — SALAMANDERS =====
+ENTRIES:
+  [0] FIREDRAKE TERMINATOR SQUAD || FOC=Elites || allegiance=None || cost=285 || base=5
+  [1] PYROCLAST SQUAD || FOC=Elites || allegiance=None || cost=190 || base=5
+  [2] SALAMANDERS INFERNUS DESTROYER SQUAD || FOC=Elites || allegiance=None || cost=150 || base=5
+  [3] ADHERENT SQUAD || FOC=Troops || allegiance=None || cost=120 || base=5
+  [4] SANCTIFIER SQUAD || FOC=Elites || allegiance=None || cost=150 || base=5
+  [5] ARTELLUS NUMEON || FOC=HQ || allegiance=None || cost=190 || base=1
+  [6] LORD CHAPLAIN NOMUS RHY'TAN || FOC=HQ || allegiance=None || cost=205 || base=1
+  [7] XIAPHAS JURR, PROPHET OF FIRE || FOC=HQ || allegiance=None || cost=150 || base=1
+  [8] CASSIAN DRACOS || FOC=Elites || allegiance=None || cost=225 || base=1
+  [9] FORGEFATHER T'KELL || FOC=HQ || allegiance=None || cost=155 || base=1
+  [10] XVIII — VULKAN, THE FORGEFATHER || FOC=Lords of War || allegiance=Loyalist || cost=520 || base=1
+RITES:
+--- RITE 0: THE COVENANT OF FIRE || allegiance=None ---
+  The Covenant of Fire represents the characteristic method of war taught by Vulkan: an inexorable advance through the enemy's strongest resistance, protected by master-crafted armour and supported by overwhelming flame and melta weaponry.
+  EFFECTS
+  DISCIPLES OF THE FLAME
+  Pyroclast Squads and Salamanders Infernus Destroyer Squads may be selected as non-compulsory Troops choices.
+  They may not fulfil compulsory Troops selections.
+  WALK THROUGH FIRE
+  Salamanders Infantry units gain the Move Through Cover special rule.
+  VENERATION OF WRATH
+  When a Salamanders model makes an Armour Penetration roll with a Melta weapon, one individual Armour Penetration die which rolls a natural 1 may be re-rolled. The second result must be accepted.
+  This also applies to Melta Bombs.
+  OBSIDIAN FORGED
+  Each time a Salamanders Vehicle or Dreadnought suffers a Glancing or Penetrating Hit from an attack made with a Flame,
+  Melta, Plasma or Volkite weapon, roll a D6. On a 5+, the hit is ignored. Make this roll before rolling on the Vehicle Damage table.
+  This protection also applies against Glancing or Penetrating Hits caused by Melta Bombs.
+  LIMITATIONS
+  Units in the Detachment may not deploy using Deep Strike. Units which must deploy using Deep Strike may not be selected.
+  The combined number of Fast Attack and Heavy Support choices may not exceed the number of Troops choices in the Detachment.
+  The Detachment may not include a Fortification.
+--- RITE 1: THE AWAKENING FIRE || allegiance=None ---
+  After Vulkan was lost upon Isstvan V, some among the XVIII Legion turned ever deeper towards the mysteries of the Promethean Cult. Their grief became a terrible certainty, and the sons of Nocturne began to appear to their enemies as creatures born from the flames themselves.
+  EFFECTS
+  DEVILS FROM THE DARK
+  Salamanders Infantry units gain the Fear special rule.
+  UNTO THE FIRES
+  Never Give Up functions normally.
+  During the additional complete game turn generated by Never Give Up, all Salamanders Infantry units gain the Fearless special rule.
+  FURY OF THE SALAMANDER
+  Salamanders Librarians in the Detachment may select Fury of the Salamander as a Pyromancy psychic power.
+  Psychic Power | Range | Strength | AP | Type
+  Fury of the Salamander | 18" | 5 | 1 | Witchfire — Beam, Assault 1, Elemental Horror
+  ELEMENTAL HORROR
+  If an enemy unit suffers one or more unsaved Wounds from Fury of the Salamander, it must immediately take a Morale test regardless of how many casualties were caused.
+  The unit suffers a Leadership penalty to this test equal to the number of unsaved Wounds caused by Fury of the Salamander.
+  LIMITATIONS
+  The Detachment must include a Legion Chaplain Consul.
+  The Detachment may include no more than one unit of each of the following types: Jump Infantry, Jetbike, Skimmer and Flyer.
+  The Detachment may not include Vulkan.
+  The Detachment may not include a Fortification or an Allied Detachment.
+CONSULS:
+
+===== XIX — RAVEN GUARD =====
+ENTRIES:
+  [0] MOR DEYTHAN SQUAD || FOC=Elites || allegiance=None || cost=120 || base=5
+  [1] DARK FURY ASSAULT SQUAD || FOC=Fast Attack || allegiance=None || cost=170 || base=5
+  [2] DELIVERER TERMINATOR SQUAD || FOC=Elites || allegiance=None || cost=215 || base=5
+  [3] RAPTOR SQUAD || FOC=Elites || allegiance=Loyalist || cost=160 || base=5
+  [4] KAEDES NEX || FOC=HQ || allegiance=None || cost=135 || base=1
+  [5] ALVAREX MAUN || FOC=HQ || allegiance=None || cost=140 || base=1
+  [6] AGAPITO NEV || FOC=HQ || allegiance=None || cost=140 || base=1
+  [7] BRANNE NEV || FOC=HQ || allegiance=None || cost=155 || base=1
+  [8] NYKONA SHARROWKYN || FOC=HQ || allegiance=None || cost=125 || base=1
+  [9] XIX — CORVUS CORAX, THE RAVEN-LORD || FOC=Lords of War || allegiance=Loyalist || cost=500 || base=1
+RITES:
+--- RITE 0: DECAPITATION STRIKE || allegiance=None ---
+  The Raven Guard do not seek victory through attrition when a single precisely delivered blow will suffice. Commanders, communications centres and strategic assets are identified, isolated and destroyed before the enemy can bring its full strength to bear.
+  EFFECTS
+  FOR WHOM THE BELL TOLLS
+  All Raven Guard units gain Preferred Enemy (Independent Characters).
+  For the purposes of this rule, an enemy unit containing one or more Independent Characters counts as a Preferred Enemy until all Independent Characters in that unit have either been slain or left the unit.
+  PREDATORY STRIKE
+  If the mission requires a roll to determine deployment order, choice of deployment zone or which player takes the first turn, the Raven Guard player may re-roll that roll. The entire result must be re-rolled and the second result must be accepted.
+  This ability may only be used once per battle.
+  FURY FROM ABOVE
+  Raven Guard Legion Heavy Support Squads must select either a Legion Drop Pod or Anvillus Dreadclaw Drop Pod as a Dedicated Transport at its normal points cost. All normal Transport Capacity and deployment restrictions apply.
+  LIMITATIONS
+  The Detachment may include no more than one Heavy Support choice.
+  The Detachment may include no more than one Centurion upgraded to a Consul.
+  The Detachment may not include a Fortification.
+  The Detachment may not include an Allied Detachment drawn from another Space Marine Legion.
+--- RITE 1: LIBERATION FORCE || allegiance=Loyalist ---
+  After the massacre at Isstvan V, Corax and the surviving Raven Guard turned their strength towards worlds oppressed by the Warmaster. These forces combined the Legion’s mastery of asymmetric warfare with local armies inspired by the example of the XIX Legion.
+  EFFECTS
+  FREEDOM FIGHTERS
+  Once per battle, at the beginning of any Game Turn, the Raven Guard player may declare Freedom Fighters.
+  Until the end of that Game Turn, every model in the Raven Guard Detachment and any allied Imperialis Militia Detachment gains the Zealot special rule.
+  SLAYERS OF TYRANTS
+  If the mission awards Victory Points for slaying the enemy Warlord, replace the normal Victory Point award with D3 times its normal value.
+  For example, if the mission normally awards 50 Victory Points for slaying the enemy Warlord, this Rite awards D3 × 50 Victory Points instead.
+  LEAD BY EXAMPLE
+  Models belonging to an allied Imperialis Militia Detachment gain the Fearless special rule while they have at least one model within 6" of a friendly model with Legiones Astartes (Raven Guard).
+  LIBERATORS
+  An Allied Detachment drawn from the Imperialis Militia may be included without preventing the use of this Rite of War.
+  All other normal rules governing Allied Detachments continue to apply.
+  LIMITATIONS
+  This Rite of War may only be selected by a Loyalist Raven Guard Detachment.
+  The Detachment may not include units with the Immobile or Slow and Purposeful special rules.
+  The Detachment may not include a Fortification.
+CONSULS:
+
+===== XX — ALPHA LEGION =====
+ENTRIES:
+  [0] LEGION OPERATIVES || FOC=Troops || allegiance=None || cost=60 || base=10
+  [1] HEADHUNTER KILL TEAM || FOC=Elites || allegiance=None || cost=160 || base=5
+  [2] LERNAEAN TERMINATOR SQUAD || FOC=Elites || allegiance=None || cost=240 || base=5
+  [3] EFFRIT DISRUPTION CADRE || FOC=Elites || allegiance=None || cost=145 || base=5
+  [4] ARMILLUS DYNAT || FOC=HQ || allegiance=None || cost=185 || base=1
+  [5] EXODUS || FOC=HQ || allegiance=None || cost=110 || base=1
+  [6] AUTILON SKORR || FOC=HQ || allegiance=None || cost=135 || base=1
+  [7] INGO PECH || FOC=HQ || allegiance=None || cost=175 || base=1
+  [8] MATHIAS HERZOG || FOC=HQ || allegiance=None || cost=170 || base=1
+  [9] SHEED RANKO || FOC=HQ || allegiance=None || cost=110 || base=1
+  [10] XX — ALPHARIUS, THE HYDRA || FOC=Lords of War || allegiance=None || cost=490 || base=1
+RITES:
+--- RITE 0: THE COILS OF THE HYDRA || allegiance=None ---
+  The Alpha Legion rarely wages war according to a single plan. False deployments, corrupted communications, infiltrated enemy formations and concealed reserves form overlapping layers of deception until the foe can no longer distinguish the true attack from the feint.
+  EFFECTS
+  SUBTERFUGE
+  Before determining which player takes the first turn, the Alpha Legion player must choose one of the following benefits: add +1 to their roll to determine who takes the first turn, or re-roll a failed attempt to Seize the Initiative.
+  The choice must be made before any relevant dice are rolled.
+  SIGNAL CORRUPTION
+  Enemy Reserve rolls suffer a -1 modifier.
+  This modifier applies to normal Reserve rolls but does not affect units which enter play automatically on a specified turn.
+  THE REWARDS OF TREACHERY
+  The Detachment may include one Legion-specific unit normally available only to another Space Marine Legion.
+  The selected unit may not be a Primarch, named Character, Independent Character or a unit specifically marked as Unique.
+  The unit is selected as an Elites choice and is paid for normally. It retains its normal profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific version of Legiones Astartes with Legiones Astartes (Alpha Legion).
+  The unit therefore benefits from the Alpha Legion's rules, including Mutable Tactics, but does not benefit from the core Legion rules of its original Legion.
+  LIMITATIONS
+  The Detachment must take one additional compulsory Troops choice, for a total of three compulsory Troops choices.
+  Every Infantry unit in the Detachment must possess Infiltrate or Deep Strike, or must have access to and purchase a Dedicated Transport.
+  If an Infantry unit relies upon Mutable Tactics to satisfy this requirement, Infiltrate must be selected as the army's Mutable Tactic for that battle.
+  The Detachment may include no more than one Centurion upgraded to a Consul, although Vigilator Consuls do not count towards this restriction.
+  The Detachment may not include a Fortification or an Allied Detachment drawn from another Space Marine Legion.
+--- RITE 1: HEADHUNTER LEVIATHAL || allegiance=None ---
+  The elite Headhunter cadres of the XX Legion were employed to remove commanders, communications officers and other strategically vital individuals before the enemy understood that a battle had even begun.
+  EFFECTS
+  HEADHUNTER ELITE
+  Headhunter Kill Teams may be selected as Troops choices and must be used to fulfil the Detachment's compulsory Troops selections.
+  Additional Headhunter Kill Teams may also be selected as Troops choices.
+  SUDDEN STRIKE
+  The Alpha Legion player may re-roll the dice used to determine which player takes the first turn.
+  The entire result must be re-rolled and the second result must be accepted.
+  FALSE FLAGS
+  During the first Game Turn, an enemy unit which declares a shooting attack against an Alpha Legion unit must first pass a Leadership test unless that enemy unit has already been fired upon by an Alpha Legion unit during the current player turn.
+  If the test is passed, the shooting attack is resolved normally. If the test is failed, the unit may not make that shooting attack.
+  False Flags does not affect Overwatch, Return Fire or Stand & Shoot attacks.
+  LEAVE NO HEAD UPON THE SERPENT
+  The Alpha Legion must destroy the enemy Warlord before the end of the battle.
+  If the enemy Warlord survives, the opposing player gains an additional D3 × 50 Victory Points.
+  This rule has no effect in missions which do not use Victory Points.
+  LIMITATIONS
+  Every Alpha Legion Vehicle must begin the battle in Reserve unless a mission specifically prohibits it from doing so.
+  The Detachment may not include an Allied Detachment.
+CONSULS:
