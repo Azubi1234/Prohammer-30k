@@ -1,0 +1,7 @@
+Legion Veteran Squad: Legion Veterans now 4-9 plus fixed Sergeant; +20 pts/model above minimum; preserved 9 quantity-dependent rules. Minimum price 125 pts unchanged.
+Legion Terminator Squad: Legion Terminators now 4-9 plus fixed Sergeant; +30 pts/model above minimum; preserved 6 quantity-dependent rules. Minimum price 175 pts unchanged.
+Legion Destroyer Squad: Legion Destroyers now 4-9 plus fixed Sergeant; +20 pts/model above minimum; preserved 6 quantity-dependent rules. Minimum price 150 pts unchanged.
+Legion Bike Squadron: Legion Bikers now 2-9 plus fixed Sergeant; +30 pts/model above minimum; preserved 6 quantity-dependent rules. Minimum price 90 pts unchanged.
+Legion Sky Hunter Jetbike Squadron: Legion Sky Hunters now 2-9 plus fixed Sergeant; +35 pts/model above minimum; preserved 5 quantity-dependent rules. Minimum price 150 pts unchanged.
+Legion Seeker Squad: Legion Seekers now 4-9 plus fixed Sergeant; +20 pts/model above minimum; preserved 8 quantity-dependent rules. Minimum price 155 pts unchanged.
+Validation: CAT54/GST24; canonical namespaces; no broken references; Dark Angels additional-model counters merged into visible base model counters.
