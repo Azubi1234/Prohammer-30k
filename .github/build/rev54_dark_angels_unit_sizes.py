@@ -46,7 +46,6 @@ for uid,incid,addid,newname in MAPPINGS:
     ensure_cost(inc,per)
     # Offset the newly costed included models so the existing minimum squad price is unchanged.
     up.set('value',str(old-base*per))
-    # Remove the separate Additional ... model entry from its direct parent.
     parent=next((p for p in cr.iter() if add in list(p)),None); assert parent is not None
     parent.remove(add)
     report.append(f'{u.get("name")}: {newname} now {base}-{base+extra} plus fixed Sergeant; +{per:g} pts per model above the minimum. Minimum unit price preserved at {old:g} pts.')
@@ -63,7 +62,6 @@ idx=re.sub(r'(dataType="gamesystem"[^>]*dataRevision=")\d+("/>)',r'\g<1>24\2',id
 idx=re.sub(r'(dataType="catalogue"[^>]*dataRevision=")\d+("/>)',r'\g<1>54\2',idx)
 INDEX.write_text(idx,encoding='utf-8')
 
-# Hard validation.
 cat_ids={e.get('id') for e in cr.iter() if e.get('id')}; gst_ids={e.get('id') for e in gr.iter() if e.get('id')}
 assert len(cat_ids)==len([e for e in cr.iter() if e.get('id')]),'duplicate CAT IDs'
 assert len(gst_ids)==len([e for e in gr.iter() if e.get('id')]),'duplicate GST IDs'
