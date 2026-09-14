@@ -1,0 +1,3 @@
+Deathwing Companion Detachment: Deathwing Companions now starts at 5, max 10, +35 pts/model; shifted 0 quantity conditions; minimum unit price preserved.
+Dreadwing Interemptor Squad: Interemptors now starts at 5, max 15, +25 pts/model; shifted 2 quantity conditions; minimum unit price preserved.
+Validation: CAT55/GST25, canonical namespaces, no broken references.

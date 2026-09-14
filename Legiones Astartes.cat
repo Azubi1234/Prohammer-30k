@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="54" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="24" type="catalogue">
-  <comment>Revision 54: Dark Angels squad-size counters normalized to show included models directly; separate Additional model counters removed.</comment>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="55" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="25" type="catalogue">
+  <comment>Revision 55: Dark Angels Deathwing Companions and Dreadwing Interemptors now show actual starting squad sizes rather than Additional model counters.</comment>
   <readme>Core Legiones Astartes catalogue for Prohammer 30k. Revision 32 includes the generic Legion army list and Consuls, Dark Angels package, Legiones Astartes Lords of War, and Legiones Astartes Aeronautica Imperialis aircraft. Experimental Wargear and Units remains excluded.</readme>
   <sharedSelectionEntries>
     <selectionEntry type="upgrade" import="true" name="Bolter" hidden="false" id="gear-bolter">
@@ -28705,7 +28705,7 @@ The Detachment may not include an Allied Detachment.</description></rule></rules
     <selectionEntries><selectionEntry id="r50-data-marker" name="Data Revision 50 loaded — Legion packages refreshed" type="upgrade" hidden="false" import="true"><constraints><constraint id="r50-data-marker-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries></selectionEntry>
     <selectionEntry type="unit" import="true" name="Deathwing Companion Detachment" hidden="false" id="da22-deathwing-companions">
       <costs>
-        <cost name="Points" typeId="pts" value="175" />
+        <cost name="Points" typeId="pts" value="0.0" />
       </costs>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -28762,16 +28762,16 @@ The Detachment may not include an Allied Detachment.</description></rule></rules
       <selectionEntryGroups>
         <selectionEntryGroup name="Squad Size" hidden="false" id="da22-dwc-extra-g" collective="false" import="true">
           <constraints>
-            <constraint id="da22-dwc-extra-g-max" field="selections" scope="parent" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
-          </constraints>
+            <constraint id="da22-dwc-extra-g-max" field="selections" scope="parent" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
+          <constraint id="da22-dwc-extra-g-min-total" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" /></constraints>
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Additional Deathwing Companion" hidden="false" id="da22-dwc-extra">
+            <selectionEntry type="model" import="true" name="Deathwing Companions" hidden="false" id="da22-dwc-extra" defaultAmount="5">
               <costs>
                 <cost name="Points" typeId="pts" value="35" />
               </costs>
               <constraints>
-                <constraint id="da22-dwc-extra-max" field="selections" scope="parent" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
-              </constraints>
+                <constraint id="da22-dwc-extra-max" field="selections" scope="parent" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
+              <constraint id="da22-dwc-extra-min-total" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" /></constraints>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
@@ -29426,7 +29426,7 @@ The Detachment may not include an Allied Detachment.</description></rule></rules
     <categoryLinks><categoryLink id="da22-cenobium-cat" targetId="cat-elites" name="Elites" hidden="false" primary="true" /></categoryLinks><entryLinks><entryLink id="r40-da-cenobium-transponders" name="Teleportation Transponders" type="selectionEntry" targetId="da22-transponders" hidden="true" import="true"><constraints><constraint id="r40-da-cenobium-transponders-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" /></constraints><costs><cost name="Points" typeId="pts" value="15" /></costs><modifiers><modifier type="set" value="false" field="hidden"><conditionGroups><conditionGroup type="and"><conditions><condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-i" shared="true" includeChildSelections="true" /></conditions></conditionGroup></conditionGroups></modifier></modifiers></entryLink></entryLinks></selectionEntry>
     <selectionEntry type="unit" import="true" name="Dreadwing Interemptor Squad" hidden="false" id="da22-interemptors">
       <costs>
-        <cost name="Points" typeId="pts" value="160" />
+        <cost name="Points" typeId="pts" value="35.0" />
       </costs>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -29474,16 +29474,16 @@ The Detachment may not include an Allied Detachment.</description></rule></rules
       <selectionEntryGroups>
         <selectionEntryGroup name="Squad Size" hidden="false" id="da22-int-extra-g" collective="false" import="true">
           <constraints>
-            <constraint id="da22-int-extra-g-max" field="selections" scope="parent" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
-          </constraints>
+            <constraint id="da22-int-extra-g-max" field="selections" scope="parent" value="15" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
+          <constraint id="da22-int-extra-g-min-total" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" /></constraints>
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Additional Interemptor" hidden="false" id="da22-int-extra">
+            <selectionEntry type="model" import="true" name="Interemptors" hidden="false" id="da22-int-extra" defaultAmount="5">
               <costs>
                 <cost name="Points" typeId="pts" value="25" />
               </costs>
               <constraints>
-                <constraint id="da22-int-extra-max" field="selections" scope="parent" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
-              </constraints>
+                <constraint id="da22-int-extra-max" field="selections" scope="parent" value="15" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
+              <constraint id="da22-int-extra-min-total" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" /></constraints>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
@@ -29494,12 +29494,12 @@ The Detachment may not include an Allied Detachment.</description></rule></rules
           <modifiers>
             <modifier type="set" value="2" field="da22-int-heavy-max">
               <conditions>
-                <condition type="atLeast" value="5" field="selections" scope="parent" childId="da22-int-extra" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="atLeast" value="10" field="selections" scope="parent" childId="da22-int-extra" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
             <modifier type="set" value="3" field="da22-int-heavy-max">
               <conditions>
-                <condition type="atLeast" value="10" field="selections" scope="parent" childId="da22-int-extra" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="atLeast" value="15" field="selections" scope="parent" childId="da22-int-extra" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
           </modifiers>
