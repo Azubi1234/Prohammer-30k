@@ -1,0 +1,13 @@
+name: Diagnose Revision 53 unit sizes
+on:
+  push:
+    paths:
+      - '.github/build/rev53_inspect_remaining.py'
+  workflow_dispatch:
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect remaining Additional model entries
+        run: python .github/build/rev53_inspect_remaining.py
