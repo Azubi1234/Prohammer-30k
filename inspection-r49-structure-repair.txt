@@ -1,0 +1,6 @@
+REVISION 49 — NEW RECRUIT STRUCTURE REPAIR
+R41 Legion units given primary FOC category: 189
+Generated Legion upgrade links moved into visible option groups: 291
+
+WHITE SCARS / THOUSAND SONS spot checks: PASS
+Broken refs: 0
