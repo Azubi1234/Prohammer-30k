@@ -1,0 +1,28 @@
+name: Apply Revision 55 Dark Angels unique squad sizes
+on:
+  push:
+    paths:
+      - '.github/build/rev55_da_unique_squad_sizes.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply Revision 55
+        run: python .github/build/rev55_da_unique_squad_sizes.py
+      - name: Validate canonical BattleScribe namespaces
+        run: |
+          grep -q '<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema"' 'Legiones Astartes.cat'
+          grep -q '<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema"' 'Prohammer 30k.gst'
+          ! grep -q '<ns0:' 'Legiones Astartes.cat'
+          ! grep -q '<ns0:' 'Prohammer 30k.gst'
+      - name: Publish Revision 55
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r55-da-unique-squad-sizes.txt
+          git diff --cached --quiet || git commit -m "Revision 55: normalize DA unique squad sizes"
+          git push
