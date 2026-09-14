@@ -1,0 +1,26 @@
+name: Diagnose Revision 59 Iron Warriors sizes
+
+on:
+  push:
+    paths:
+      - '.github/build/r59_diag_iw_sizes.py'
+      - '.github/workflows/diagnose-r59-iw-sizes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run diagnostic
+        run: python .github/build/r59_diag_iw_sizes.py
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add inspection-r59-iw-size-diagnostic.txt
+          git diff --cached --quiet || git commit -m "Diagnose Revision 59 Iron Warriors sizes"
+          git push
