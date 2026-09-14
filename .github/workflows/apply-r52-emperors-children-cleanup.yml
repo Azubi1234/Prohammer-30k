@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/build/rev52_emperors_children_cleanup.py'
+      - '.github/build/rev52_emperors_children_runner.py'
 permissions:
   contents: write
 jobs:
@@ -12,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Apply Emperor's Children cleanup
-        run: python .github/build/rev52_emperors_children_cleanup.py
+        run: python .github/build/rev52_emperors_children_runner.py
       - name: Validate canonical BattleScribe namespaces
         run: |
           grep -q '<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema"' 'Legiones Astartes.cat'
