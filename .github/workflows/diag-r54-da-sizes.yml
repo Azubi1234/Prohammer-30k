@@ -1,0 +1,13 @@
+name: Diagnose Revision 54 Dark Angels squad sizes
+on:
+  push:
+    paths:
+      - '.github/build/r54_diag_da_sizes.py'
+  workflow_dispatch:
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect Dark Angels Additional model entries
+        run: python .github/build/r54_diag_da_sizes.py
