@@ -1,0 +1,53 @@
+name: Apply Revision 44 Legions VII-X builder completion
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-r44-legions-vii-x.yml'
+      - '.github/build/rev44_legions_vii_x.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-validate-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply Legions VII-X interactions
+        run: |
+          set -euo pipefail
+          python .github/build/rev44_legions_vii_x.py
+          git diff --check
+      - name: Validate
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from collections import Counter
+          cr=ET.parse('Legiones Astartes.cat').getroot(); gr=ET.parse('Prohammer 30k.gst').getroot()
+          assert cr.get('revision')=='44',cr.get('revision'); assert cr.get('gameSystemRevision')==gr.get('revision')
+          for root,label in [(cr,'CAT'),(gr,'GST')]:
+              ids=[e.get('id') for e in root.iter() if e.get('id')]; dup=[x for x,n in Counter(ids).items() if n>1]; assert not dup,(label,dup[:20])
+          ids={e.get('id') for e in cr.iter() if e.get('id')}|{e.get('id') for e in gr.iter() if e.get('id')}
+          bad=[]
+          for e in cr.iter():
+              if e.get('id','').startswith('r44-'):
+                  for a in ('targetId','childId'):
+                      v=e.get(a)
+                      if v and v not in ids:bad.append((e.get('id'),a,v))
+          assert not bad,bad[:30]
+          required=['r44-if-solarite-gauntlet','r44-if-vigil-storm-shield','r44-nl-chainglaive','r44-nl-kraken-bolts','r44-ba-blade-perdition','r44-ba-furioso-jump-pack','r44-ih-mechadendrites','r44-ih-autosimulacra']
+          for i in required:assert any(e.get('id')==i for e in cr.iter()),i
+          greq=['r44-if-stone-fast-max','r44-if-templar-fast-max','r44-nl-fast-max','r44-nl-heavy-max','r44-ba-revelation-heavy-max','r44-ih-gorgon-fast-max']
+          for i in greq:assert any(e.get('id')==i for e in gr.iter()),i
+          for i in ['da22-lion','da22-rite-storm','r40-da-storm-tactical','r43-ws-bike-troops']:
+              assert any(e.get('id')==i for e in cr.iter()),i
+          print('VALIDATION OK REV44 GST',gr.get('revision'))
+          PY
+      - name: Publish Revision 44
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst'
+          git commit -m 'Revision 44: finish New Recruit interactions for Legions VII-X' || exit 0
+          git pull --rebase origin main
+          git push
