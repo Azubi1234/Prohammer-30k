@@ -1,0 +1,15 @@
+name: Audit Revision 56 all unit sizes
+on:
+  push:
+    paths:
+      - '.github/build/r56_audit_all_unit_sizes.py'
+  workflow_dispatch:
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit all catalogue unit sizes
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Upload report to log
+        run: cat inspection-r56-all-unit-sizes.txt
