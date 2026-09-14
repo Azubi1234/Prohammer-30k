@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="14" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
+<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="15" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
   <comment>Horus Heresy army lists adapted for use with ProHammer Classic.</comment>
   <readme>Core system skeleton for Prohammer 30k. Contains points, core profile types, battlefield roles, mandatory Army Configuration and the standard Force Organisation Chart.</readme>
   <costTypes>
@@ -73,7 +73,7 @@
             <constraint id="fl-hq-min" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="min" />
             <constraint id="fl-hq-max" field="selections" scope="parent" value="2" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
           </constraints>
-        </categoryLink>
+        <modifiers><modifier id="r43-sw-hq-max" type="set" value="4" field="fl-hq-max"><conditions><condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-vi" shared="true" includeChildSelections="true" includeChildForces="false" /></conditions></modifier></modifiers></categoryLink>
         <categoryLink id="fl-troops" name="Troops" hidden="false" targetId="cat-troops">
           <constraints>
             <constraint id="fl-troops-min" field="selections" scope="parent" value="2" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="min" />
@@ -89,12 +89,12 @@
           <constraints>
             <constraint id="fl-fast-max" field="selections" scope="parent" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
           </constraints>
-        </categoryLink>
+        <modifiers><modifier id="r43-iw-fast-max" type="set" value="1" field="fl-fast-max"><conditions><condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-iv" shared="true" includeChildSelections="true" includeChildForces="false" /></conditions></modifier></modifiers></categoryLink>
         <categoryLink id="fl-heavy" name="Heavy Support" hidden="false" targetId="cat-heavy">
           <constraints>
             <constraint id="fl-heavy-max" field="selections" scope="parent" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
           </constraints>
-        </categoryLink>
+        <modifiers><modifier id="r43-ec-maru-heavy-max" type="set" value="2" field="fl-heavy-max"><conditions><condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-iii-0-the-maru-skara" shared="true" includeChildSelections="true" includeChildForces="false" /></conditions></modifier><modifier id="r43-iw-heavy-max" type="set" value="4" field="fl-heavy-max"><conditions><condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-iv" shared="true" includeChildSelections="true" includeChildForces="false" /></conditions></modifier><modifier id="r43-ws-chogorian-heavy-max" type="set" value="1" field="fl-heavy-max"><conditions><condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-v-0-chogorian-brotherhood" shared="true" includeChildSelections="true" includeChildForces="false" /></conditions></modifier><modifier id="r43-sw-pale-heavy-max" type="set" value="1" field="fl-heavy-max"><conditions><condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vi-0-the-pale-hunters" shared="true" includeChildSelections="true" includeChildForces="false" /></conditions></modifier></modifiers></categoryLink>
         <categoryLink id="fl-transport" name="Dedicated Transport" hidden="false" targetId="cat-transport" />
         <categoryLink id="fl-low" name="Lords of War" hidden="false" targetId="cat-low"><constraints><constraint id="fl-low-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" /></constraints></categoryLink>
         <categoryLink id="fl-retinue" name="Retinue" hidden="false" targetId="cat-retinue" /></categoryLinks>
