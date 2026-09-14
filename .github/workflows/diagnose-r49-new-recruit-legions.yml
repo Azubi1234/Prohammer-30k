@@ -1,0 +1,67 @@
+name: Diagnose Revision 49 New Recruit Legion visibility
+on:
+  push:
+    paths:
+      - '.github/workflows/diagnose-r49-new-recruit-legions.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect White Scars and Thousand Sons entries against Dark Angels
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          C='http://www.battlescribe.net/schema/catalogueSchema'; Q=lambda t:f'{{{C}}}{t}'
+          root=ET.parse('Legiones Astartes.cat').getroot()
+          parent={c:p for p in root.iter() for c in p}
+          ids={e.get('id'):e for e in root.iter() if e.get('id')}
+          targets=['da22-corswain','da22-interemptors','r41-unit-v-0-golden-keshig','r41-unit-v-1-ebon-keshig','r41-unit-xv-0-sekhmet-terminator-cabal','r41-unit-xv-1-khenetai-occult-blade-cabal','r43-hq-praetor-ws-glaive','r45-hq-praetor-r45-ts-force-weapon','r43-ws-bike-troops','r45-cult-hq-praetor']
+          def path(e):
+              a=[]; x=e
+              while x is not None:
+                  if x.get('id') or x.get('name'):a.append(f'{x.tag.split("}")[-1]}:{x.get("id")}:{x.get("name")}')
+                  x=parent.get(x)
+              return ' <- '.join(a[:8])
+          out=[f'CAT revision={root.get("revision")} GSTrev={root.get("gameSystemRevision")}']
+          for tid in targets:
+              e=ids.get(tid); out += ['', 'TARGET '+tid]
+              if e is None:
+                  out.append('MISSING'); continue
+              out.append(f'name={e.get("name")} type={e.get("type")} hidden={e.get("hidden")}')
+              out.append('PATH '+path(e))
+              mods=e.find(Q('modifiers'))
+              if mods is None: out.append('NO MODIFIERS')
+              else:
+                  for m in mods.findall(Q('modifier')):
+                      out.append(' MOD '+ET.tostring(m,encoding='unicode'))
+          # Inspect all top-level unique White Scars / Thousand Sons imported units by name/id and hidden state.
+          top=root.find(Q('selectionEntries'))
+          out += ['','TOP LEVEL R41 V/XV']
+          for e in list(top):
+              i=e.get('id','')
+              if i.startswith('r41-unit-v-') or i.startswith('r41-unit-xv-'):
+                  out.append(f'{i} | {e.get("name")} | hidden={e.get("hidden")} | mods={len(e.findall("./"+Q("modifiers")+"/"+Q("modifier")))}')
+          # Inspect praetor direct links for WS/TS and their current hide modifiers.
+          for uid in ['hq-praetor','hq-centurion']:
+              u=ids[uid]; out += ['',uid.upper()]
+              for l in u.findall('.//'+Q('entryLink')):
+                  i=l.get('id','')
+                  if any(x in i for x in ['ws-','r45-ts','ts-disc']):
+                      out.append(f'{i} | {l.get("name")} | hidden={l.get("hidden")} target={l.get("targetId")}')
+                      for m in l.findall('./'+Q('modifiers')+'/'+Q('modifier')):out.append('  '+ET.tostring(m,encoding='unicode'))
+          Path('inspection-r49-new-recruit-diagnostic.txt').write_text('\n'.join(out),encoding='utf-8')
+          print('\n'.join(out))
+          PY
+      - name: Commit diagnostic report
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add inspection-r49-new-recruit-diagnostic.txt
+          git commit -m 'Add Revision 49 New Recruit legion visibility diagnostic' || exit 0
+          git pull --rebase origin main
+          git push
