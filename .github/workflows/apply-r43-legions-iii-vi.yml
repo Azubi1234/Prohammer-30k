@@ -4,6 +4,7 @@ on:
     paths:
       - '.github/workflows/apply-r43-legions-iii-vi.yml'
       - '.github/build/rev43_legions_iii_vi.py'
+      - '.github/build/rev43_prune_role_clone_links.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -17,6 +18,7 @@ jobs:
         run: |
           set -euo pipefail
           python .github/build/rev43_legions_iii_vi.py
+          python .github/build/rev43_prune_role_clone_links.py
           git diff --check
       - name: Validate New Recruit catalogue and game system
         shell: bash
@@ -41,12 +43,10 @@ jobs:
                       v=e.get(a)
                       if v and v not in ids:broken.append((e.get('id'),a,v))
           assert not broken,broken[:30]
-          # Representative functional features from each completed package.
           required=['r43-ec-phoenix-spear','r43-ec-sonic-package','r43-iw-shrapnel-bolts','r43-ws-bike-troops','r43-ws-sagyar-ebon-troops','r43-sw-frost-weapon','r43-sw-runic-armour']
           for ident in required:assert any(e.get('id')==ident for e in cr.iter()),ident
           for ident in ['r43-iw-fast-max','r43-iw-heavy-max','r43-ws-chogorian-heavy-max','r43-sw-hq-max','r43-sw-pale-heavy-max','r43-ec-maru-heavy-max']:
               assert any(e.get('id')==ident for e in gr.iter()),ident
-          # Dark Angels reference implementation remains intact.
           for ident in ['da22-lion','da22-corswain','da22-rite-storm','r40-da-storm-tactical','r40-da-forward-deployment']:
               assert any(e.get('id')==ident for e in cr.iter()),ident
           print('VALIDATION OK — Revision',cr.get('revision'),'GST',gr.get('revision'))
