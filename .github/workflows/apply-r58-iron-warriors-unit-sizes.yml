@@ -1,0 +1,54 @@
+name: Apply Revision 58 Iron Warriors Unit Sizes
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev58_iron_warriors_unit_sizes.py'
+      - '.github/workflows/apply-r58-iron-warriors-unit-sizes.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply Revision 58
+        run: python .github/build/rev58_iron_warriors_unit_sizes.py
+      - name: Permanent catalogue unit-size guard
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Check revisions and namespace
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          C='http://www.battlescribe.net/schema/catalogueSchema'
+          G='http://www.battlescribe.net/schema/gameSystemSchema'
+          c=ET.parse('Legiones Astartes.cat').getroot(); g=ET.parse('Prohammer 30k.gst').getroot()
+          assert c.get('revision')=='58'
+          assert g.get('revision')=='26'
+          assert c.get('gameSystemRevision')=='26'
+          txt=Path('Legiones Astartes.cat').read_text(encoding='utf-8')
+          assert '<ns0:' not in txt
+          assert '<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema"' in txt
+          idx=Path('index.xml').read_text(encoding='utf-8')
+          assert 'dataType="catalogue"' in idx and 'dataRevision="58"' in idx
+          PY
+      - name: Commit generated catalogue
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' index.xml inspection-r58-iron-warriors-unit-sizes.txt inspection-r56-all-unit-sizes.txt
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+          else
+            git commit -m 'Revision 58: fix Iron Warriors squad sizes'
+            git push
+          fi
