@@ -19,3 +19,4 @@ for uid in IDS:
  for g in u.iter(C('selectionEntryGroup')):
   nm=g.get('name','')
   if 'squad' in nm.lower() or 'size' in nm.lower(): print(' GR',g.get('id'),repr(nm),'con',cons(g))
+# trigger
