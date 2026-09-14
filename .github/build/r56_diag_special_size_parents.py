@@ -18,3 +18,4 @@ for iid in IDS:
  if p is not None:
   for c in list(p):
    if c.tag in (C('selectionEntry'),C('selectionEntryGroup')): show(c,4)
+# trigger
