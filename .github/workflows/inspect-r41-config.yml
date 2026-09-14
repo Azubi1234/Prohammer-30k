@@ -1,0 +1,37 @@
+name: Inspect Revision 41 configuration IDs
+on:
+  push:
+    paths:
+      - '.github/workflows/inspect-r41-config.yml'
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: bash
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          NS='http://www.battlescribe.net/schema/catalogueSchema'; Q=lambda x:f'{{{NS}}}{x}'
+          root=ET.parse('Legiones Astartes.cat').getroot()
+          cfg=next(e for e in root.findall('.//'+Q('selectionEntry')) if e.get('id')=='config-army')
+          out=[]
+          for e in cfg.iter():
+              if e.tag in (Q('selectionEntry'),Q('selectionEntryGroup'),Q('entryLink')):
+                  out.append(f"{e.tag.split('}')[-1]} id={e.get('id')} name={e.get('name')} target={e.get('targetId')} hidden={e.get('hidden')}")
+                  for c in e.findall('./'+Q('constraints')+'/'+Q('constraint')):
+                      out.append('  CON '+str(c.attrib))
+                  for m in e.findall('./'+Q('modifiers')+'/'+Q('modifier')):
+                      out.append('  MOD '+ET.tostring(m,encoding='unicode'))
+          Path('inspection-r41-config.txt').write_text('\n'.join(out),encoding='utf-8')
+          PY
+      - shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add inspection-r41-config.txt
+          git commit -m 'Inspect Revision 41 configuration IDs' || exit 0
+          git push
