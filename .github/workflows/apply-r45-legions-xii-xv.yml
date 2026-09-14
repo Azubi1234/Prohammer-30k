@@ -1,0 +1,55 @@
+name: Apply Revision 45 Legions XII-XV builder completion
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-r45-legions-xii-xv.yml'
+      - '.github/build/rev45_legions_xii_xv.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-validate-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply Legions XII-XV interactions
+        run: |
+          set -euo pipefail
+          python .github/build/rev45_legions_xii_xv.py
+          git diff --check
+      - name: Validate
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from collections import Counter
+          cr=ET.parse('Legiones Astartes.cat').getroot(); gr=ET.parse('Prohammer 30k.gst').getroot()
+          assert cr.get('revision')=='45',cr.get('revision'); assert cr.get('gameSystemRevision')==gr.get('revision')
+          for root,label in [(cr,'CAT'),(gr,'GST')]:
+              ids=[e.get('id') for e in root.iter() if e.get('id')]; dup=[x for x,n in Counter(ids).items() if n>1]; assert not dup,(label,dup[:30])
+          ids={e.get('id') for e in cr.iter() if e.get('id')}|{e.get('id') for e in gr.iter() if e.get('id')}
+          bad=[]
+          for e in cr.iter():
+              if e.get('id','').startswith('r45-'):
+                  for a in ('targetId','childId'):
+                      v=e.get(a)
+                      if v and v not in ids:bad.append((e.get('id'),a,v))
+          assert not bad,bad[:30]
+          req=['r45-we-chainaxe','r45-we-caedere','r45-um-legatine-axe','r45-um-mantle','r45-dg-manreaper','r45-dg-alchem-flamer','r45-ts-force-weapon','r45-ts-arcane-litanies','r45-ts-brotherhood']
+          for i in req:assert any(e.get('id')==i for e in cr.iter()),i
+          for i in ['r45-we-berserker-heavy-max','r45-um-hq-max','r45-um-logos-hq-min','r45-um-logos-troops-min','r45-dg-mobile-max']:
+              assert any(e.get('id')==i for e in gr.iter()),i
+          cults=[e for e in cr.iter() if e.get('id','').startswith('r45-cult-') and e.tag.endswith('selectionEntryGroup')]
+          assert len(cults)>=10,len(cults)
+          for i in ['da22-lion','r40-da-storm-tactical','r43-ws-bike-troops','r44-nl-chainglaive']:
+              assert any(e.get('id')==i for e in cr.iter()),i
+          print('VALIDATION OK REV45 GST',gr.get('revision'),'cult groups',len(cults))
+          PY
+      - name: Publish Revision 45
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst'
+          git commit -m 'Revision 45: finish New Recruit interactions for Legions XII-XV' || exit 0
+          git pull --rebase origin main
+          git push
