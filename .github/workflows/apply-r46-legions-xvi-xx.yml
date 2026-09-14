@@ -1,0 +1,59 @@
+name: Apply Revision 46 Legions XVI-XX builder completion
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-r46-legions-xvi-xx.yml'
+      - '.github/build/rev46_legions_xvi_xx.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-validate-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply Legions XVI-XX interactions
+        run: |
+          set -euo pipefail
+          python .github/build/rev46_legions_xvi_xx.py
+          git diff --check
+      - name: Validate
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from collections import Counter
+          cr=ET.parse('Legiones Astartes.cat').getroot(); gr=ET.parse('Prohammer 30k.gst').getroot()
+          assert cr.get('revision')=='46',cr.get('revision')
+          assert cr.get('gameSystemRevision')==gr.get('revision'),(cr.get('gameSystemRevision'),gr.get('revision'))
+          for root,label in [(cr,'CAT'),(gr,'GST')]:
+              ids=[e.get('id') for e in root.iter() if e.get('id')]
+              dup=[x for x,n in Counter(ids).items() if n>1]
+              assert not dup,(label,dup[:40])
+          ids={e.get('id') for e in cr.iter() if e.get('id')}|{e.get('id') for e in gr.iter() if e.get('id')}
+          bad=[]
+          for e in cr.iter():
+              if e.get('id','').startswith('r46-'):
+                  for a in ('targetId','childId'):
+                      v=e.get(a)
+                      if v and v not in ids:bad.append((e.get('id'),a,v))
+          assert not bad,bad[:40]
+          required=['r46-soh-culling-blade','r46-soh-banestrike-model','r46-wb-accursed-crozius','r46-wb-diabolist','r46-wb-dark-channelling','r46-sal-mantle','r46-sal-inferno-pistol','r46-rg-hand-cannon','r46-rg-shroud-unit','r46-al-power-dagger','r46-al-mutable-tactics','r46-al-operative-aux']
+          for i in required:assert any(e.get('id')==i for e in cr.iter()),i
+          for i in ['r46-wb-dark-brethren-heavy-max','r46-rg-decap-heavy-max','r46-al-coils-troops-min','r46-al-reward-max']:
+              assert any(e.get('id')==i for e in gr.iter()),i
+          rewards=[e for e in cr.iter() if e.tag.endswith('selectionEntry') and e.get('id','').startswith('r46-al-reward-') and e.get('type')=='unit']
+          assert len(rewards)>=20,len(rewards)
+          for i in ['da22-lion','r40-da-storm-tactical','r43-ws-bike-troops','r44-nl-chainglaive','r45-ts-brotherhood']:
+              assert any(e.get('id')==i for e in cr.iter()),i
+          print('VALIDATION OK REV46 GST',gr.get('revision'),'Rewards',len(rewards))
+          PY
+      - name: Publish Revision 46
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst'
+          git commit -m 'Revision 46: finish New Recruit interactions for Legions XVI-XX' || exit 0
+          git pull --rebase origin main
+          git push
