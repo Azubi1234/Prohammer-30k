@@ -1,0 +1,6 @@
+Rites: Hammer=r25-rite-iv-0-the-hammer-of-olympia Ironfire=r25-rite-iv-1-the-ironfire
+Located final-source Iron Warriors entries: tyrant=r41-unit-iv-0-tyrant-siege-terminator-squad, havoc=r41-unit-iv-1-iron-havoc-squad, dominator=r41-unit-iv-2-dominator-cohort, circle=r41-unit-iv-3-iron-circle-domitar-ferrum-maniple, narik=r41-unit-iv-4-narik-dreygur, golg=r41-unit-iv-5-erasmus-golg, vhalen=r41-unit-iv-6-kyr-vhalen, forrix=r41-unit-iv-7-forrix-first-captain-of-the-iron-warriors, kroeger=r41-unit-iv-8-kroeger-the-bloody-handed, pert=r41-unit-iv-9-iv-perturabo-the-lord-of-iron
+Removed 10 Iron Warriors Source Entry dumps
+Ironfire Artillery Column Troops clone created.
+Validation: canonical CAT namespace; duplicate IDs 0; broken catalogue entryLinks 0; CAT57; GST/game-system revision preserved.
+Iron Warriors cleanup complete: Source Entry dumps removed, all final unique units/characters structured, armoury cleaned, Hammer/Ironfire mechanics added, retinues added, Golg Terminator Attack and Ironfire Artillery Column functional.
