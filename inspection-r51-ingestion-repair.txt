@@ -1,0 +1,8 @@
+REVISION 51 — NEW RECRUIT INGESTION REPAIR
+Catalogue namespace: canonical default namespace
+Game system namespace: canonical default namespace
+CAT revision: 51
+GST revision: 21
+CAT gameSystemRevision: 21
+index.xml: created
+Reason: previous generated catalogue was serialized with ns0: prefixes after dual default namespace registration.
