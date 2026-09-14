@@ -30,7 +30,6 @@ def invert(cond):
     return None
 
 def conds_from_modifier(m):
-    # Return a flat AND list only. That is the exact shape used by our generated Legion gates.
     direct=m.find(C('conditions'))
     if direct is not None:
         return list(direct.findall(C('condition')))
@@ -59,6 +58,9 @@ def add_hide_unless(el,cond,seq):
 
 fixed=[]; seq=0
 for el in list(cr.iter()):
+    eid=el.get('id','')
+    # Dark Angels are already proven working in New Recruit. Leave them byte-for-byte semantically alone.
+    if eid.startswith('da22-') or eid.startswith('r40-da-'):continue
     if el.get('hidden')!='true':continue
     mods=el.find(C('modifiers'))
     if mods is None:continue
@@ -68,11 +70,10 @@ for el in list(cr.iter()):
         conds=conds_from_modifier(m)
         if not conds:continue
         if not any(c.get('childId') in LEGIONS for c in conds):continue
-        # Generated Legion gates only use predicates that can be inverted individually.
         if not all(invert(c) is not None for c in conds):continue
         candidates.append((m,conds))
     if not candidates:continue
-    # Base-visible + hide-if-gate-fails is the pattern already proven by the Dark Angels package in New Recruit.
+    # New Recruit-safe form: base-visible, then hide while any required selector is absent.
     el.set('hidden','false')
     converted=[]
     for m,conds in candidates:
@@ -83,13 +84,8 @@ for el in list(cr.iter()):
             converted.append((c.get('childId'),c.get('scope'),c.get('type'),c.get('value')))
     fixed.append((el.get('id'),el.get('name'),converted))
 
-# Do not touch Dark Angels' already-working visibility implementation.
-assert not any((i or '').startswith(('da22-','r40-da-')) for i,_,_ in fixed)
-
-# Bump catalogue revision so New Recruit/source caches see this as a new data revision.
 cr.set('revision','48')
 
-# Structural validation.
 ids=[]
 for root,label in [(cr,'CAT'),(gr,'GST')]:
     xs=[e.get('id') for e in root.iter() if e.get('id')]
@@ -104,7 +100,6 @@ for e in cr.iter():
 assert not broken,broken[:50]
 assert cr.get('gameSystemRevision')==gr.get('revision')
 
-# Regression proof focused on the two Legions the user actually checked.
 by_legion=defaultdict(list)
 for eid,name,conds in fixed:
     for child,scope,typ,val in conds:
@@ -114,7 +109,6 @@ for eid,name,conds in fixed:
 for leg in ('legion-v','legion-xv'):
     assert by_legion[leg],f'No New Recruit visibility gates repaired for {leg}'
 
-# These exact options must exist and now be base-visible with hide-unless-Legion conditions.
 def find(i):return next((e for e in cr.iter() if e.get('id')==i),None)
 required={
  'legion-v':['r43-ws-power-glaive','r43-ws-warlance','r43-ws-cyber-hawk','r47-ws-horsetail-talisman'],
