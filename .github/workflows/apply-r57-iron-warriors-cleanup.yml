@@ -1,0 +1,50 @@
+name: Apply Revision 57 Iron Warriors Cleanup
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/apply-r57-iron-warriors-cleanup.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply Iron Warriors cleanup
+        run: python .github/build/rev57_iron_warriors_cleanup.py
+
+      - name: Validate XML parses
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          ET.parse('Legiones Astartes.cat')
+          ET.parse('Prohammer 30k.gst')
+          cat=Path('Legiones Astartes.cat').read_text(encoding='utf-8')
+          idx=Path('index.xml').read_text(encoding='utf-8')
+          assert '<ns0:' not in cat
+          assert 'revision="57"' in cat[:1000]
+          assert 'dataType="catalogue"' in idx and 'dataRevision="57"' in idx
+          print(Path('inspection-r57-iron-warriors-cleanup.txt').read_text())
+          PY
+
+      - name: Commit Revision 57
+        run: |
+          if git diff --quiet; then
+            echo 'No changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' index.xml inspection-r57-iron-warriors-cleanup.txt
+          git commit -m 'Revision 57: clean up Iron Warriors'
+          git push
