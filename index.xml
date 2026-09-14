@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <dataIndex battleScribeVersion="2.03" name="Prohammer 30k" xmlns="http://www.battlescribe.net/schema/dataIndexSchema">
   <dataIndexEntries>
-    <dataIndexEntry filePath="Prohammer 30k.gst" dataType="gamesystem" dataId="sys-a1d2-5ede-e74f-7479" dataName="Prohammer 30k" dataBattleScribeVersion="2.03" dataRevision="22"/>
-    <dataIndexEntry filePath="Legiones Astartes.cat" dataType="catalogue" dataId="cat-30a0-30b0-30c0-0001" dataName="Legiones Astartes" dataBattleScribeVersion="2.03" dataRevision="52"/>
+    <dataIndexEntry filePath="Prohammer 30k.gst" dataType="gamesystem" dataId="sys-a1d2-5ede-e74f-7479" dataName="Prohammer 30k" dataBattleScribeVersion="2.03" dataRevision="23"/>
+    <dataIndexEntry filePath="Legiones Astartes.cat" dataType="catalogue" dataId="cat-30a0-30b0-30c0-0001" dataName="Legiones Astartes" dataBattleScribeVersion="2.03" dataRevision="53"/>
   </dataIndexEntries>
 </dataIndex>
