@@ -1,0 +1,12 @@
+name: Diagnose Revision 56 genuine unit sizes
+on:
+  push:
+    paths:
+      - '.github/build/r56_diag_genuine_sizes.py'
+  workflow_dispatch:
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python .github/build/r56_diag_genuine_sizes.py
