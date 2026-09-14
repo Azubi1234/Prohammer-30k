@@ -1,0 +1,116 @@
+selectionEntry id=config-army name=Army Configuration target=None hidden=false
+  CON {'id': 'config-army-min', 'type': 'min', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false', 'automatic': 'true'}
+  CON {'id': 'config-army-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntryGroup id=config-legion name=Legion target=None hidden=false
+  CON {'id': 'config-legion-min', 'type': 'min', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'true'}
+  CON {'id': 'config-legion-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'true'}
+selectionEntry id=legion-i name=I Legion — Dark Angels target=None hidden=false
+  CON {'id': 'legion-i-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-iii name=III Legion — Emperor's Children target=None hidden=false
+  CON {'id': 'legion-iii-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-iv name=IV Legion — Iron Warriors target=None hidden=false
+  CON {'id': 'legion-iv-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-v name=V Legion — White Scars target=None hidden=false
+  CON {'id': 'legion-v-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-vi name=VI Legion — Space Wolves target=None hidden=false
+  CON {'id': 'legion-vi-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-vii name=VII Legion — Imperial Fists target=None hidden=false
+  CON {'id': 'legion-vii-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-viii name=VIII Legion — Night Lords target=None hidden=false
+  CON {'id': 'legion-viii-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-ix name=IX Legion — Blood Angels target=None hidden=false
+  CON {'id': 'legion-ix-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-x name=X Legion — Iron Hands target=None hidden=false
+  CON {'id': 'legion-x-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-xii name=XII Legion — World Eaters target=None hidden=false
+  CON {'id': 'legion-xii-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-xiii name=XIII Legion — Ultramarines target=None hidden=false
+  CON {'id': 'legion-xiii-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-xiv name=XIV Legion — Death Guard target=None hidden=false
+  CON {'id': 'legion-xiv-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-xv name=XV Legion — Thousand Sons target=None hidden=false
+  CON {'id': 'legion-xv-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-xvi name=XVI Legion — Sons of Horus target=None hidden=false
+  CON {'id': 'legion-xvi-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-xvii name=XVII Legion — Word Bearers target=None hidden=false
+  CON {'id': 'legion-xvii-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-xviii name=XVIII Legion — Salamanders target=None hidden=false
+  CON {'id': 'legion-xviii-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-xix name=XIX Legion — Raven Guard target=None hidden=false
+  CON {'id': 'legion-xix-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=legion-xx name=XX Legion — Alpha Legion target=None hidden=false
+  CON {'id': 'legion-xx-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntryGroup id=config-allegiance name=Allegiance target=None hidden=false
+  CON {'id': 'config-allegiance-min', 'type': 'min', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'true'}
+  CON {'id': 'config-allegiance-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'true'}
+selectionEntry id=allegiance-loyalist name=Loyalist target=None hidden=false
+  CON {'id': 'allegiance-loyalist-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=allegiance-traitor name=Traitor target=None hidden=false
+  CON {'id': 'allegiance-traitor-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntryGroup id=config-rites name=Rite of War (optional) target=None hidden=false
+  CON {'id': 'config-rites-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'true'}
+selectionEntry id=rite-pride name=Pride of the Legion target=None hidden=false
+  CON {'id': 'rite-pride-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=rite-orbital name=Orbital Assault target=None hidden=false
+  CON {'id': 'rite-orbital-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=rite-spearhead name=Armoured Spearhead target=None hidden=false
+  CON {'id': 'rite-spearhead-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=rite-breakthrough name=Armoured Breakthrough target=None hidden=false
+  CON {'id': 'rite-breakthrough-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=rite-assault name=Legion Assault Company target=None hidden=false
+  CON {'id': 'rite-assault-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=rite-breacher name=Legion Breacher Company target=None hidden=false
+  CON {'id': 'rite-breacher-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=rite-recon name=Legion Recon Company target=None hidden=false
+  CON {'id': 'rite-recon-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=rite-destroyer name=Legion Destroyer Company target=None hidden=false
+  CON {'id': 'rite-destroyer-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=rite-ancients name=Fury of the Ancients target=None hidden=false
+  CON {'id': 'rite-ancients-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=rite-skyhunter name=Sky Hunter Phalanx target=None hidden=false
+  CON {'id': 'rite-skyhunter-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=rite-tactical name=Legion Tactical Company target=None hidden=false
+  CON {'id': 'rite-tactical-max', 'type': 'max', 'value': '1', 'field': 'selections', 'scope': 'parent', 'shared': 'true', 'includeChildSelections': 'false'}
+selectionEntry id=da22-rite-primarchs-chosen name=Rite of War — Primarch's Chosen target=None hidden=false
+selectionEntry id=da22-rite-storm name=Dark Angels Rite of War — The Storm of War target=None hidden=false
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-i" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              
+selectionEntry id=da22-rite-vow name=Dark Angels Rite of War — The Unbroken Vow target=None hidden=false
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-i" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              
+selectionEntry id=da22-rite-eskaton name=Dark Angels Rite of War — The Eskaton Imperative target=None hidden=false
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-i" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              
+selectionEntry id=da22-rite-steel name=Dark Angels Rite of War — The Steel Fist target=None hidden=false
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-i" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              
+selectionEntry id=da22-rite-arrow name=Dark Angels Rite of War — The Seeker's Arrow target=None hidden=false
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-i" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              
+selectionEntry id=da22-rite-serpent name=Dark Angels Rite of War — The Serpent's Bane target=None hidden=false
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-i" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              
