@@ -3,7 +3,7 @@ CNS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{CNS}}}
 cr=ET.parse('Legiones Astartes.cat').getroot(); top=cr.find(C('selectionEntries'))
 for u in list(top):
     uid=u.get('id','')
-    if not uid.startswith('r40-da'): continue
+    if not (uid.startswith('r40-da') or uid.startswith('da22-')): continue
     models=[]
     for s in u.iter(C('selectionEntry')):
         if s is u or s.get('type')!='model': continue
