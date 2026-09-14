@@ -341,16 +341,63 @@ UNIT r41-unit-iv-9-iv-perturabo-the-lord-of-iron :: IV — PERTURABO, THE LORD O
   MODEL ('r57-iw-pert-retinue-dominator-cohort-r41-unit-iv-2-dominator-cohort-additional', 'Dominator Cohort Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
 
 UNIT r41-unit-v-0-golden-keshig-squadron :: GOLDEN KESHIG SQUADRON
-  MODEL ('r41-unit-v-0-golden-keshig-squadron-additional', 'Squad Models', '3', [('max', '5', 'parent'), ('min', '3', 'parent')], ['55'])
+  MODEL ('r60-ws-gold-models', 'Golden Keshig Squadron Models', '3', [('min', '3', 'parent'), ('max', '5', 'parent')], ['55'])
 
 UNIT r41-unit-v-1-ebon-keshig :: EBON KESHIG
-  MODEL ('r41-unit-v-1-ebon-keshig-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+  MODEL ('r60-ws-ebon-models', 'Ebon Keshig', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['45'])
 
 UNIT r41-unit-v-2-dark-sons-of-death :: DARK SONS OF DEATH
-  MODEL ('r41-unit-v-2-dark-sons-of-death-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['35'])
+  MODEL ('r60-ws-dark-models', 'Dark Sons of Death', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['35'])
 
 UNIT r41-unit-v-3-falcons-claws :: FALCON’S CLAWS
-  MODEL ('r41-unit-v-3-falcons-claws-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+  MODEL ('r60-ws-falcon-models', "Falcon's Claws", '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['22'])
+
+UNIT r41-unit-v-4-qin-xa-master-of-the-keshig :: QIN XA, MASTER OF THE KESHIG
+  MODEL ('r60-ws-qin-retinue-ebon-keshig-r60-ws-ebon-models', 'Ebon Keshig', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['45'])
+  MODEL ('r60-ws-qin-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r60-ws-qin-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r60-ws-qin-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r60-ws-qin-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-v-6-shiban-khan :: SHIBAN KHAN
+  MODEL ('r60-ws-shiban-retinue-legion-command-squad-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r60-ws-shiban-retinue-legion-command-squad-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r60-ws-shiban-retinue-legion-command-squad-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r60-ws-shiban-retinue-legion-command-squad-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-v-7-hibou-khan :: HIBOU KHAN
+  MODEL ('r60-ws-hibou-retinue-legion-command-squad-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r60-ws-hibou-retinue-legion-command-squad-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r60-ws-hibou-retinue-legion-command-squad-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r60-ws-hibou-retinue-legion-command-squad-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r60-ws-hibou-retinue-legion-veteran-squad-veteran-included', 'Legion Veterans', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20'])
+  MODEL ('r60-ws-hibou-retinue-legion-veteran-squad-veteran-sergeant', 'Legion Veteran Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r60-ws-hibou-retinue-legion-veteran-squad-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r60-ws-hibou-retinue-legion-veteran-squad-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r60-ws-hibou-retinue-legion-veteran-squad-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r60-ws-hibou-retinue-legion-veteran-squad-r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r60-ws-hibou-retinue-legion-veteran-squad-r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r41-unit-v-8-hasik-noyan-khan :: HASIK NOYAN-KHAN
+  MODEL ('r60-ws-hasik-retinue-legion-command-squad-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r60-ws-hasik-retinue-legion-command-squad-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r60-ws-hasik-retinue-legion-command-squad-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r60-ws-hasik-retinue-legion-command-squad-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r60-ws-hasik-retinue-legion-veteran-squad-veteran-included', 'Legion Veterans', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20'])
+  MODEL ('r60-ws-hasik-retinue-legion-veteran-squad-veteran-sergeant', 'Legion Veteran Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r60-ws-hasik-retinue-legion-veteran-squad-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r60-ws-hasik-retinue-legion-veteran-squad-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r60-ws-hasik-retinue-legion-veteran-squad-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r60-ws-hasik-retinue-legion-veteran-squad-r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r60-ws-hasik-retinue-legion-veteran-squad-r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r41-unit-v-9-v-jaghatai-khan-the-warhawk :: V — JAGHATAI KHAN, THE WARHAWK
+  MODEL ('r60-ws-jagh-retinue-legion-honour-guard-squad-hq-praetor-ret-honour-champ', 'Legion Champion', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r60-ws-jagh-retinue-legion-honour-guard-squad-hq-praetor-ret-honour-base', 'Legion Honour Guard', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['40'])
+  MODEL ('r60-ws-jagh-retinue-legion-honour-guard-squad-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r60-ws-jagh-retinue-legion-honour-guard-squad-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r60-ws-jagh-retinue-legion-honour-guard-squad-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r60-ws-jagh-retinue-golden-keshig-squadron-r60-ws-gold-models', 'Golden Keshig Squadron Models', '3', [('min', '3', 'parent'), ('max', '5', 'parent')], ['55'])
 
 UNIT r41-unit-vi-1-grey-stalker-pack :: GREY STALKER PACK
   MODEL ('r41-unit-vi-1-grey-stalker-pack-additional', 'Squad Models', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['17'])
@@ -591,13 +638,6 @@ UNIT r42-role-xviii-0-salamanders-infernus-destroyer-squads-r41-unit-xviii-2-sal
 UNIT r42-role-xx-1-effects-headhunter-elite-headhunter-kill-teams-r41-unit-xx-1-headhunter-kill-team :: HEADHUNTER KILL TEAM
   MODEL ('r42-role-xx-1-effects-headhunter-elite-headhunter-kill-teams-r41-unit-xx-1-headhunter-kill-team-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['32'])
 
-UNIT r43-ws-bike-troops :: Legion Bike Squadron
-  MODEL ('r43-ws-bike-troops-fa-bike-included', 'Legion Bikers', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['30'])
-  MODEL ('r43-ws-bike-troops-fa-bike-sgt', 'Legion Biker Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
-
-UNIT r43-ws-sagyar-ebon-troops :: EBON KESHIG
-  MODEL ('r43-ws-sagyar-ebon-troops-r41-unit-v-1-ebon-keshig-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
-
 UNIT r45-dg-bike :: Legion Bike Squadron
   MODEL ('r45-dg-bike-fa-bike-included', 'Legion Bikers', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['30'])
   MODEL ('r45-dg-bike-fa-bike-sgt', 'Legion Biker Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
@@ -824,5 +864,12 @@ UNIT r57-iw-ironfire-artillery :: Legion Artillery Tank Squadron — Artillery C
   MODEL ('r57-iw-ironfire-artillery-hs-art-whirlwind', 'Legion Whirlwinds', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['75'])
   MODEL ('r57-iw-ironfire-artillery-hs-art-basilisk', 'Legion Basilisks', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['140'])
   MODEL ('r57-iw-ironfire-artillery-hs-art-medusa', 'Legion Medusas', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['155'])
+
+UNIT r60-ws-bike-troops :: Legion Bike Squadron
+  MODEL ('r60-ws-bike-troops-fa-bike-included', 'Legion Bikers', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['30'])
+  MODEL ('r60-ws-bike-troops-fa-bike-sgt', 'Legion Biker Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+
+UNIT r60-ws-sagyar-ebon-troops :: EBON KESHIG
+  MODEL ('r60-ws-sagyar-ebon-troops-r60-ws-ebon-models', 'Ebon Keshig', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['45'])
 
 === FLAGS ===

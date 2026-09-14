@@ -1,0 +1,5 @@
+Rites: Chogorian=r25-rite-v-0-chogorian-brotherhood Sagyar=r25-rite-v-1-the-sagyar-mazan
+Located White Scars final entries: gold=r41-unit-v-0-golden-keshig-squadron, ebon=r41-unit-v-1-ebon-keshig, dark=r41-unit-v-2-dark-sons-of-death, falcon=r41-unit-v-3-falcons-claws, qin=r41-unit-v-4-qin-xa-master-of-the-keshig, yes=r41-unit-v-5-targutai-yesugei, shiban=r41-unit-v-6-shiban-khan, hibou=r41-unit-v-7-hibou-khan, hasik=r41-unit-v-8-hasik-noyan-khan, jagh=r41-unit-v-9-v-jaghatai-khan-the-warhawk
+Removed 10 White Scars Source Entry dumps
+Validation: CAT60/GST28; canonical namespaces; duplicate IDs 0; broken references 0; no legacy Additional-model quantity counters.
+White Scars cleanup complete: final-source rules, armoury, Stormseer, Rites, unique units/characters/Primarch structured; unit sizes use actual total models from the start.
