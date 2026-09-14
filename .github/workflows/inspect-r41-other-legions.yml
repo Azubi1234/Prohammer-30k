@@ -1,0 +1,82 @@
+name: Inspect remaining Legion packages for Revision 41
+on:
+  push:
+    paths:
+      - '.github/workflows/inspect-r41-other-legions.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect all non-Dark Angels Legion packages
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L -sS 'https://docs.google.com/document/d/15yOQ5xqfa7QAJ15GlHqN7F4HvO_jk6K1w5fQ2xkGngk/export?format=md' -o /tmp/legions.md
+          python - <<'PY'
+          from pathlib import Path
+          import re, xml.etree.ElementTree as ET
+          CAT=Path('Legiones Astartes.cat')
+          NS='http://www.battlescribe.net/schema/catalogueSchema'
+          Q=lambda t:f'{{{NS}}}{t}'
+          root=ET.parse(CAT).getroot()
+          source=Path('/tmp/legions.md').read_text(encoding='utf-8',errors='replace')
+          roman=['III','IV','V','VI','VII','VIII','IX','X','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX','XX']
+          names=['EMPEROR\'S CHILDREN','IRON WARRIORS','WHITE SCARS','SPACE WOLVES','IMPERIAL FISTS','NIGHT LORDS','BLOOD ANGELS','IRON HANDS','WORLD EATERS','ULTRAMARINES','DEATH GUARD','THOUSAND SONS','SONS OF HORUS','WORD BEARERS','SALAMANDERS','RAVEN GUARD','ALPHA LEGION']
+          legion_ids={'III':'legion-iii','IV':'legion-iv','V':'legion-v','VI':'legion-vi','VII':'legion-vii','VIII':'legion-viii','IX':'legion-ix','X':'legion-x','XII':'legion-xii','XIII':'legion-xiii','XIV':'legion-xiv','XV':'legion-xv','XVI':'legion-xvi','XVII':'legion-xvii','XVIII':'legion-xviii','XIX':'legion-xix','XX':'legion-xx'}
+          top=root.find(Q('selectionEntries'))
+          all_e=[e for e in root.iter() if e.tag in (Q('selectionEntry'),Q('selectionEntryGroup'))]
+          parent={c:p for p in root.iter() for c in p}
+          def cats(e): return [(x.get('name'),x.get('targetId')) for x in e.findall('./'+Q('categoryLinks')+'/'+Q('categoryLink'))]
+          def refs(e,needle):
+              out=[]
+              for x in e.iter():
+                  for a in ('childId','targetId','field'):
+                      if needle in (x.get(a) or ''): out.append((x.tag.split('}')[-1],x.get('id'),a,x.get(a),x.get('type'),x.get('scope'),x.get('value')))
+              return out
+          def source_section(r):
+              pat=rf'^###\s+{re.escape(r)}\s+—\s+(.+?)$'
+              m=re.search(pat,source,re.M|re.I)
+              if not m: return ''
+              st=m.start(); n=re.search(r'^###\s+[IVXLCDM]+\s+—\s+',source[m.end():],re.M)
+              return source[st:m.end()+(n.start() if n else len(source)-m.end())]
+          lines=[f'CAT revision={root.get("revision")} GST={root.get("gameSystemRevision")}', '']
+          for r,nm in zip(roman,names):
+              lid=legion_ids[r]
+              sec=source_section(r)
+              rites=re.findall(r'\*\*(?:[A-Z ]+ )?RITE OF WAR:\*\*\s*\n\*\*(.+?)\*\*',sec,re.I)
+              if not rites:
+                  rites=re.findall(r'RITE OF WAR:\s*\n?\*\*(.+?)\*\*',sec,re.I)
+              lines += [f'===== {r} — {nm} =====', f'SOURCE RITES ({len(rites)}): '+(' | '.join(x.strip() for x in rites) if rites else 'NONE PARSED')]
+              gated=[]
+              for e in all_e:
+                  rr=refs(e,lid)
+                  if rr:
+                      gated.append((e.get('id'),e.get('name'),e.get('type'),cats(e),rr[:4]))
+              # keep concise but enough to identify package state
+              lines.append(f'CAT ENTRIES REFERENCING {lid}: {len(gated)}')
+              for row in gated[:120]: lines.append(repr(row))
+              # top-level unique/source-looking entries with legion number/name in descriptions/rules
+              key=nm.split()[0].lower().replace("'",'')
+              uniq=[]
+              for e in list(top or []):
+                  txt=(' '.join((x.text or '') for x in e.findall('.//'+Q('description')))).lower()
+                  if lid in ET.tostring(e,encoding='unicode') or key in txt:
+                      uniq.append((e.get('id'),e.get('name'),e.get('type'),cats(e)))
+              lines.append('TOP-LEVEL PACKAGE CANDIDATES:')
+              for row in uniq[:100]: lines.append(repr(row))
+              lines.append('')
+          Path('inspection-r41-other-legions.txt').write_text('\n'.join(lines),encoding='utf-8')
+          PY
+          wc -l inspection-r41-other-legions.txt
+      - name: Commit inspection report
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add inspection-r41-other-legions.txt
+          git commit -m 'Inspect remaining Legion packages for Revision 41' || exit 0
+          git push
