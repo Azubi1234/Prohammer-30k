@@ -1,0 +1,69 @@
+name: Apply Revision 42 Rite battlefield-role transforms
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-r42-rite-roles.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-validate-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch authoritative final sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p sources
+          curl --retry 3 --retry-delay 2 -L -sS 'https://docs.google.com/document/d/15yOQ5xqfa7QAJ15GlHqN7F4HvO_jk6K1w5fQ2xkGngk/export?format=md' -o 'sources/Forces of the Legions.md'
+          curl --retry 3 --retry-delay 2 -L -sS 'https://docs.google.com/document/d/1ZDtRchn_AtKUGT922-EyoyXfZDajVwAdl-QeyhZG-S4/export?format=md' -o 'sources/Lords of War.md'
+          curl --retry 3 --retry-delay 2 -L -sS 'https://docs.google.com/document/d/1wkGCuVmsIeBmhRyZR0X9ftQUSqG3RDwlSY774Zt749Y/export?format=md' -o 'sources/Areonautica Imperialis.md'
+          test -s 'sources/Forces of the Legions.md'
+      - name: Materialise Rite role changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python .github/build/rev42_rite_roles.py
+          git diff --check
+          cat inspection-r42-rite-roles.txt
+      - name: Validate catalogue
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from collections import Counter
+          from pathlib import Path
+          CAT='Legiones Astartes.cat'; GST='Prohammer 30k.gst'
+          cr=ET.parse(CAT).getroot(); gr=ET.parse(GST).getroot()
+          assert cr.get('revision')=='42',cr.get('revision')
+          assert cr.get('gameSystemRevision')==gr.get('revision'),(cr.get('gameSystemRevision'),gr.get('revision'))
+          for root,label in [(cr,'CAT'),(gr,'GST')]:
+              ids=[e.get('id') for e in root.iter() if e.get('id')]
+              dup=[x for x,n in Counter(ids).items() if n>1]
+              assert not dup,(label,dup[:20])
+          ids={e.get('id') for e in cr.iter() if e.get('id')}|{e.get('id') for e in gr.iter() if e.get('id')}
+          broken=[]
+          for e in cr.iter():
+              if e.get('id','').startswith('r42-'):
+                  for a in ('targetId','childId'):
+                      v=e.get(a)
+                      if v and v not in ids: broken.append((e.get('id'),a,v))
+          assert not broken,broken[:30]
+          roles=[e for e in cr.iter() if e.tag.endswith('selectionEntry') and e.get('id','').startswith('r42-role-') and e.get('type')=='unit']
+          assert len(roles)>=12,len(roles)
+          report=Path('inspection-r42-rite-roles.txt').read_text(encoding='utf-8')
+          # Dark Angels reference implementation must remain intact.
+          for ident in ['da22-lion','da22-corswain','da22-rite-storm','r40-da-storm-tactical','r40-da-forward-deployment']:
+              assert any(e.get('id')==ident for e in cr.iter()),ident
+          print('VALIDATION OK role clones=',len(roles))
+          PY
+      - name: Publish Revision 42
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' inspection-r42-rite-roles.txt
+          git commit -m 'Revision 42: make remaining Legion Rite role changes functional' || exit 0
+          git push
