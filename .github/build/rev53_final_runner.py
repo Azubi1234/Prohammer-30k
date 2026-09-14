@@ -1,10 +1,10 @@
 from pathlib import Path
 import subprocess,sys,xml.etree.ElementTree as ET
 
+# Final Rev53 runner: handles the two nested/clone squad counters left after the global pass.
 CAT=Path('Legiones Astartes.cat'); GST=Path('Prohammer 30k.gst')
 CNS='http://www.battlescribe.net/schema/catalogueSchema'; GNS='http://www.battlescribe.net/schema/gameSystemSchema'
 C=lambda t:f'{{{CNS}}}{t}'; G=lambda t:f'{{{GNS}}}{t}'
-# The main migration writes the fully converted files before its final assertion; run it first.
 subprocess.run([sys.executable,'.github/build/rev53_unit_sizes_and_sonic_hss.py'])
 ct=ET.parse(CAT); cr=ct.getroot(); gt=ET.parse(GST); gr=gt.getroot()
 
