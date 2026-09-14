@@ -1,5 +1,6 @@
 from pathlib import Path
 import subprocess,sys,xml.etree.ElementTree as ET
+# Trigger diagnostic after the Rev53 workflow was added.
 CNS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{CNS}}}{t}'
 subprocess.run([sys.executable,'.github/build/rev53_unit_sizes_and_sonic_hss.py'])
 cr=ET.parse('Legiones Astartes.cat').getroot()
