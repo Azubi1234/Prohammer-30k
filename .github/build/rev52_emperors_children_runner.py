@@ -5,9 +5,10 @@ CAT=Path('Legiones Astartes.cat'); GST=Path('Prohammer 30k.gst')
 CNS='http://www.battlescribe.net/schema/catalogueSchema'; GNS='http://www.battlescribe.net/schema/gameSystemSchema'
 C=lambda t:f'{{{CNS}}}{t}'; G=lambda t:f'{{{GNS}}}{t}'
 
-# The main cleanup intentionally performs its full mutation before its final hard-reference audit.
-# Run it, then repair the two inherited HSS modifiers that referenced heavy-weapon choices removed
-# by the new Sonic Weaponry HSS entry, and perform the final audit here.
+# Run the main mutation. It writes the complete CAT/GST/index before its final audit.
+# The generic HSS clone intentionally removes normal Heavy Weapon groups; prune inherited
+# modifiers whose conditions still point at those removed internal choices, then perform
+# a cross-file CAT/GST reference audit here.
 p=subprocess.run([sys.executable,'.github/build/rev52_emperors_children_cleanup.py'])
 if not CAT.exists() or not GST.exists():
     raise SystemExit(p.returncode or 1)
@@ -15,18 +16,6 @@ if not CAT.exists() or not GST.exists():
 ct=ET.parse(CAT); cr=ct.getroot(); gt=ET.parse(GST); gr=gt.getroot()
 ids={e.get('id') for e in cr.iter() if e.get('id')}
 removed=[]
-for parent in list(cr.iter()):
-    for child in list(parent):
-        if child.tag!=C('modifier'): continue
-        bad=[]
-        for cond in child.iter(C('condition')):
-            ref=cond.get('childId')
-            if ref and ref.startswith('r52-ec-sonic-hss-') and ref not in ids:
-                bad.append(ref)
-        if bad:
-            parent.remove(child); removed.extend(bad)
-
-# Also catch nested modifiers under modifier containers.
 changed=True
 while changed:
     changed=False; ids={e.get('id') for e in cr.iter() if e.get('id')}
@@ -57,7 +46,7 @@ def validate(root,other=None):
             if v and v not in ids and v not in otherids:
                 broken.append((e.get('id'),a,v))
     return broken
-cb=validate(cr,gr); gb=validate(gr)
+cb=validate(cr,gr); gb=validate(gr,cr)
 assert not cb, f'broken CAT refs: {cb[:20]}'
 assert not gb, f'broken GST refs: {gb[:20]}'
 
