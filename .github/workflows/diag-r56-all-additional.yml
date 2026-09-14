@@ -1,0 +1,12 @@
+name: Diagnose all additional entries
+on:
+  push:
+    paths:
+      - '.github/build/r56_diag_all_additional_entries.py'
+  workflow_dispatch:
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python .github/build/r56_diag_all_additional_entries.py
