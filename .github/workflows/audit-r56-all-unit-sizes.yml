@@ -1,8 +1,10 @@
-name: Audit Revision 56 all unit sizes
+name: Audit catalogue unit sizes
 on:
   push:
     paths:
+      - 'Legiones Astartes.cat'
       - '.github/build/r56_audit_all_unit_sizes.py'
+      - '.github/workflows/audit-r56-all-unit-sizes.yml'
   workflow_dispatch:
 jobs:
   audit:
