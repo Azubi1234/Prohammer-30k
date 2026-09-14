@@ -1,0 +1,82 @@
+name: Apply Revision 47 final New Recruit completion
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-r47-final-completion.yml'
+      - '.github/build/rev47_final_completion.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-validate-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply final source-backed completion and reference repair
+        run: |
+          set -euo pipefail
+          python .github/build/rev47_final_completion.py
+          git diff --check
+      - name: Validate full catalogue
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from collections import Counter
+          C='http://www.battlescribe.net/schema/catalogueSchema'
+          q=lambda t:f'{{{C}}}{t}'
+          cr=ET.parse('Legiones Astartes.cat').getroot(); gr=ET.parse('Prohammer 30k.gst').getroot()
+          assert cr.get('revision')=='47',cr.get('revision')
+          assert gr.get('revision')=='19',gr.get('revision')
+          assert cr.get('gameSystemRevision')==gr.get('revision')
+          ids=[]
+          for root,label in [(cr,'CAT'),(gr,'GST')]:
+              xs=[e.get('id') for e in root.iter() if e.get('id')]
+              dup=[x for x,n in Counter(xs).items() if n>1]
+              assert not dup,(label,dup[:30]); ids.extend(xs)
+          ids=set(ids); broken=[]
+          for e in cr.iter():
+              for a in ('targetId','childId'):
+                  v=e.get(a)
+                  if v and v not in ids:broken.append((e.get('id'),e.get('name'),a,v))
+          assert not broken,broken[:100]
+          required=['r47-ws-horsetail-talisman','r47-ih-splinter-bolts','r47-ih-bionics-model','r47-ih-bionics-veteran-sergeant','r47-ih-castrmen-orth','r47-ts-prosperine-aether-disc','r47-wb-favour-aura','r47-wb-favour-mutation','r47-wb-favour-strength','r47-wb-favour-wings','r47-wb-favour-visage']
+          for i in required:assert any(e.get('id')==i for e in cr.iter()),i
+          # Existing completed Legion/Rite landmarks must survive this pass.
+          for i in ['da22-lion','r40-da-storm-tactical','r43-ws-bike-troops','r44-ih-mechadendrites','r45-ts-brotherhood','r46-wb-diabolist','r46-al-rewards']:
+              assert any(e.get('id')==i for e in cr.iter()),i
+          top=cr.find(q('selectionEntries'))
+          badexp=[e.get('name') for e in top.findall(q('selectionEntry')) if 'experimental wargear' in (e.get('name') or '').lower() or 'experimental units' in (e.get('name') or '').lower()]
+          assert not badexp,badexp
+          print('VALIDATION OK: CAT 47 / GST 19 / zero broken references / zero duplicate IDs')
+          PY
+      - name: Write final inspection report
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          cr=ET.parse('Legiones Astartes.cat').getroot(); gr=ET.parse('Prohammer 30k.gst').getroot()
+          ids={e.get('id') for e in cr.iter() if e.get('id')}|{e.get('id') for e in gr.iter() if e.get('id')}
+          broken=[]
+          for e in cr.iter():
+              for a in ('targetId','childId'):
+                  v=e.get(a)
+                  if v and v not in ids:broken.append((e.get('id'),a,v))
+          checks=['Horsetail Talisman','Splinter Bolts','Bionics — unit model','Castrmen Orth — Tank Commander Upgrade','Prosperine Æther-Disc','Daemonic Aura','Daemonic Mutation','Daemonic Strength','Daemonic Wings','Daemonic Visage']
+          names={e.get('name') for e in cr.iter() if e.get('name')}
+          out=[f'CAT revision={cr.get("revision")}',f'GST revision={gr.get("revision")}',f'BROKEN TARGET/CHILD REFS={len(broken)}','']
+          out += [('OK   ' if x in names else 'MISS ')+x for x in checks]
+          out += ['','Legacy generated packages preserved:']
+          for p in ['da22-','r40-','r41-','r42-','r43-','r44-','r45-','r46-','r47-']:
+              out.append(f'{p}: {sum(1 for e in cr.iter() if e.get("id","").startswith(p))}')
+          Path('inspection-r47-final.txt').write_text('\n'.join(out),encoding='utf-8')
+          print('\n'.join(out))
+          PY
+      - name: Publish Revision 47
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' 'inspection-r47-final.txt'
+          git commit -m 'Revision 47: finish New Recruit implementation and repair catalogue references' || exit 0
+          git pull --rebase origin main
+          git push
