@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 CNS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{CNS}}}{t}'
 cr=ET.parse('Legiones Astartes.cat').getroot(); parent={c:p for p in cr.iter() for c in p}
-IDS=['r30-prae-castellax-extra','r30-prae-vorax-extra','hs-hss-additional','hs-art-whirlwind-additional','hs-lr-phobos','da22-dwtc-extra','da22-cen-extra','hq-praetor-ret-honour-add']
+IDS=['hs-art-whirlwind','hs-art-basilisk','hs-art-medusa','hs-lr-phobos','hs-hss-additional','da22-dwtc-extra','da22-cen-extra','r30-prae-castellax-extra','r30-prae-vorax-extra']
 def cons(e):
  cs=e.find(C('constraints')); return [] if cs is None else [(x.get('type'),x.get('value'),x.get('field'),x.get('scope')) for x in cs.findall(C('constraint'))]
 def cost(e):
@@ -18,4 +18,3 @@ for iid in IDS:
  if p is not None:
   for c in list(p):
    if c.tag in (C('selectionEntry'),C('selectionEntryGroup')): show(c,4)
-# trigger
