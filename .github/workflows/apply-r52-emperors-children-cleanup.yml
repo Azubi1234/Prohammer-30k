@@ -1,0 +1,28 @@
+name: Apply Revision 52 Emperor's Children cleanup
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev52_emperors_children_cleanup.py'
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply Emperor's Children cleanup
+        run: python .github/build/rev52_emperors_children_cleanup.py
+      - name: Validate canonical BattleScribe namespaces
+        run: |
+          grep -q '<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema"' 'Legiones Astartes.cat'
+          grep -q '<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema"' 'Prohammer 30k.gst'
+          ! grep -q '<ns0:' 'Legiones Astartes.cat'
+          ! grep -q '<ns0:' 'Prohammer 30k.gst'
+      - name: Publish Revision 52
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r52-ec-cleanup.txt
+          git diff --cached --quiet || git commit -m "Revision 52: clean Emperor's Children New Recruit implementation"
+          git push
