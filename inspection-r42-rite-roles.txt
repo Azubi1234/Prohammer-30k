@@ -1,0 +1,20 @@
+III | 3RD COMPANY ELITE | Troops: EFFECTS CHOSEN OF VAIROSEAN Kakophoni Squads <- KAKOPHONI SQUAD (r41-unit-iii-2-kakophoni-squad)
+IV | THE IRONFIRE | Troops: Legion Artillery Tank Squadron <- 0–1 Legion Artillery Tank Squadron (hs-artillery)
+V | CHOGORIAN BROTHERHOOD | Troops: EFFECTS RIDE LIKE THE WIND Legion Sky Hunter Jetbike Squadrons <- Legion Sky Hunter Jetbike Squadron (fa-sky-hunter)
+VII | THE STONE GAUNTLET | Troops: EFFECTS WARDERS OF THE PHALANX Phalanx Warder Squads <- PHALANX WARDER SQUAD (r41-unit-vii-1-phalanx-warder-squad)
+VII | HAMMERFALL STRIKE FORCE | Troops: EFFECTS LANDING FORCE Phalanx Warder Squads <- PHALANX WARDER SQUAD (r41-unit-vii-1-phalanx-warder-squad)
+VII | TEMPLAR ASSAULT | Troops: EFFECTS TEMPLAR HOST Templar Brethren Squads <- TEMPLAR BRETHREN SQUAD (r41-unit-vii-0-templar-brethren-squad)
+VIII | TERROR ASSAULT | Troops: TERROR FORMATIONS Night Raptor Squads <- NIGHT RAPTOR SQUAD (r41-unit-viii-1-night-raptor-squad)
+VIII | HORROR CULT | Troops: EFFECTS RAPTOR CULT Night Raptor Squads <- NIGHT RAPTOR SQUAD (r41-unit-viii-1-night-raptor-squad)
+X | COMPANY OF BITTER IRON | Troops: EFFECTS COMPANY OF IMMORTALS Medusan Immortal Squads <- MEDUSAN IMMORTAL SQUAD (r41-unit-x-0-medusan-immortal-squad)
+XII | BERSERKER ASSAULT | Troops: EFFECTS THE RED HAND Rampager Squads <- RAMPAGER SQUAD (r41-unit-xii-0-rampager-squad)
+XIV | THE REAPING | Troops: EFFECTS SUPERIOR FIREPOWER Legion Veteran Squads <- Legion Veteran Squad (veteran-unit)
+XIV | THE REAPING | Troops: Legion Heavy Support Squads <- Legion Heavy Support Squad (hs-heavy-support-squad)
+XV | THE GUARD OF THE CRIMSON KING | Troops: INITIATES OF THE SCARAB Sekhmet Terminator Cabals <- SEKHMET TERMINATOR CABAL (r41-unit-xv-0-sekhmet-terminator-cabal)
+XV | Guard of the Crimson King | Magnus the Red -> HQ
+XVI | THE BLACK REAVING | Troops: EFFECTS REAVER ONSLAUGHT Reaver Attack Squads <- REAVER ATTACK SQUAD (r41-unit-xvi-1-reaver-attack-squad)
+XVIII | THE COVENANT OF FIRE | Troops: EFFECTS DISCIPLES OF THE FLAME Pyroclast Squads <- PYROCLAST SQUAD (r41-unit-xviii-1-pyroclast-squad)
+XVIII | THE COVENANT OF FIRE | Troops: Salamanders Infernus Destroyer Squads <- SALAMANDERS INFERNUS DESTROYER SQUAD (r41-unit-xviii-2-salamanders-infernus-destroyer-squad)
+XX | HEADHUNTER LEVIATHAL | Troops: EFFECTS HEADHUNTER ELITE Headhunter Kill Teams <- HEADHUNTER KILL TEAM (r41-unit-xx-1-headhunter-kill-team)
+
+MISSING:
