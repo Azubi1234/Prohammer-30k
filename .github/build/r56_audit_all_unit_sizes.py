@@ -69,7 +69,6 @@ for u in units:
         if hint: report.append(f'  SOURCE_HINT {hint}')
         report.append('')
 
-    # Hard UI-standard flags: any additional/extra model quantity entry, or a squad-size group whose selectable counter begins at 0/None.
     for sid,nm,typ,default,con,cost in suspicious:
         maxv=next((v for t,v,s in con if t=='max'),None)
         if maxv and float(maxv)>0:
@@ -89,3 +88,4 @@ Path('inspection-r56-all-unit-sizes.txt').write_text('\n'.join(report)+'\n',enco
 print(f'AUDITED {sum(1 for u in units if u.get("type")=="unit")} top-level units')
 print(f'FLAGS {len(flags)}')
 for f in flags: print(f)
+# trigger audit workflow
