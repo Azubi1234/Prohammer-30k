@@ -5,7 +5,7 @@ import re
 CAT=Path('Legiones Astartes.cat')
 CNS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{CNS}}}{t}'
 cr=ET.parse(CAT).getroot(); top=cr.find(C('selectionEntries'))
-
+parent={c:p for p in cr.iter() for c in p}
 report=[]; flags=[]
 
 def constraints(e):
@@ -17,67 +17,55 @@ def constraints(e):
 
 def pts(e):
     cs=e.find(C('costs')); out=[]
-    if cs is not None:
-        out=[c.get('value') for c in cs.findall(C('cost')) if c.get('typeId')=='pts']
+    if cs is not None: out=[c.get('value') for c in cs.findall(C('cost')) if c.get('typeId')=='pts']
     return out
 
-def source_entry_text(u):
-    for r in u.iter(C('rule')):
-        if (r.get('name') or '').strip().lower()=='source entry':
-            d=r.find(C('description'))
-            return (d.text or '') if d is not None else ''
-    return ''
+def conval(e,typ):
+    return next((v for t,v,s in constraints(e) if t==typ),None)
 
-def source_size_hint(txt):
-    if not txt: return ''
-    pats=[
-        r'Squad\s*:\s*[^\n]{0,220}', r'Squad\s+consists[^\n]{0,220}', r'Unit Composition\s*:[^\n]{0,220}',
-        r'between\s+\w+\s+and\s+\w+[^\n]{0,100}', r'between\s+\d+\s+and\s+\d+[^\n]{0,100}',
-        r'consists of\s+\d+[^\n]{0,160}'
-    ]
-    hits=[]
-    for p in pats:
-        m=re.search(p,txt,re.I)
-        if m: hits.append(' '.join(m.group(0).split()))
-    return ' | '.join(dict.fromkeys(hits))
+def ancestor_group(e):
+    x=parent.get(e)
+    while x is not None:
+        if x.tag==C('selectionEntryGroup'): return x
+        if x.tag==C('selectionEntry') and x.get('type')=='unit': return None
+        x=parent.get(x)
+    return None
 
 units=list(top) if top is not None else []
 for u in units:
     if u.get('type')!='unit': continue
     uid=u.get('id',''); name=u.get('name','')
-    models=[]; suspicious=[]; groups=[]
+    models=[]; add_entries=[]
     for e in u.iter(C('selectionEntry')):
         if e is u: continue
         nm=(e.get('name') or '')
-        if e.get('type')=='model':
-            models.append((e.get('id'),nm,e.get('defaultAmount'),constraints(e),pts(e)))
-        if re.search(r'\b(additional|extra)\b',nm,re.I):
-            suspicious.append((e.get('id'),nm,e.get('type'),e.get('defaultAmount'),constraints(e),pts(e)))
-    for g in u.iter(C('selectionEntryGroup')):
-        nm=g.get('name') or ''
-        if re.search(r'squad size|additional|extra',nm,re.I): groups.append((g.get('id'),nm,constraints(g)))
-
-    hint=source_size_hint(source_entry_text(u))
-    if models or suspicious or groups:
+        if e.get('type')=='model': models.append((e.get('id'),nm,e.get('defaultAmount'),constraints(e),pts(e)))
+        if nm.startswith('Additional ') and not nm.startswith(('Additional Armoury','Additional Wargear','Additional Weapon')):
+            add_entries.append((e.get('id'),nm,e.get('type'),e.get('defaultAmount'),constraints(e),pts(e)))
+    if models or add_entries:
         report.append(f'UNIT {uid} :: {name}')
-        if models:
-            for x in models: report.append(f'  MODEL {x}')
-        if suspicious:
-            for x in suspicious: report.append(f'  SUSPECT {x}')
-        if groups:
-            for x in groups: report.append(f'  GROUP {x}')
-        if hint: report.append(f'  SOURCE_HINT {hint}')
+        for x in models: report.append(f'  MODEL {x}')
+        for x in add_entries: report.append(f'  ADDITIONAL {x}')
         report.append('')
 
-    for sid,nm,typ,default,con,cost in suspicious:
-        maxv=next((v for t,v,s in con if t=='max'),None)
-        if maxv and float(maxv)>0:
-            flags.append((uid,name,sid,nm,typ,default,con,cost,'additional/extra quantity entry remains'))
+    for x in add_entries:
+        maxv=next((v for t,v,s in x[4] if t=='max'),None)
+        if maxv and float(maxv)>1: flags.append((uid,name,*x,'legacy Additional quantity remains'))
+
+    # An expandable model counter used as the unit's quantity must have a real start count.
+    # Optional alternate models inside a constrained choice group are allowed to default to zero.
     for mid,mn,default,con,cost in models:
-        minv=next((v for t,v,s in con if t=='min'),None)
-        maxv=next((v for t,v,s in con if t=='max'),None)
-        if maxv and float(maxv)>1 and (default in (None,'0') and (minv in (None,'0'))):
-            flags.append((uid,name,mid,mn,'model',default,con,cost,'expandable model counter starts at zero'))
+        maxv=next((v for t,v,s in con if t=='max'),None); minv=next((v for t,v,s in con if t=='min'),None)
+        if not maxv or float(maxv)<=1: continue
+        if default not in (None,'0') or (minv not in (None,'0')): continue
+        e=next(z for z in u.iter(C('selectionEntry')) if z.get('id')==mid)
+        g=ancestor_group(e)
+        group_has_min=g is not None and conval(g,'min') not in (None,'0')
+        sibling_default=False
+        if g is not None:
+            sibling_default=any((s.get('defaultAmount') not in (None,'0')) for s in g.iter(C('selectionEntry')) if s is not e)
+        if not (group_has_min and sibling_default):
+            flags.append((uid,name,mid,mn,'expandable model counter starts at zero without an alternate default'))
 
 report.insert(0,f'Top-level unit entries audited: {sum(1 for u in units if u.get("type")=="unit")}')
 report.insert(1,f'UI-standard flags: {len(flags)}')
@@ -88,4 +76,4 @@ Path('inspection-r56-all-unit-sizes.txt').write_text('\n'.join(report)+'\n',enco
 print(f'AUDITED {sum(1 for u in units if u.get("type")=="unit")} top-level units')
 print(f'FLAGS {len(flags)}')
 for f in flags: print(f)
-# trigger audit workflow
+if flags: raise SystemExit(1)
