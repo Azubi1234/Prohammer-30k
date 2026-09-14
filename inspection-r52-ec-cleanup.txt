@@ -1,0 +1,2 @@
+Runner repair: pruned 2 obsolete inherited Sonic-HSS heavy-weapon references.
+Final validation: CAT52/GST22, canonical namespaces, duplicate IDs 0, broken references 0.
