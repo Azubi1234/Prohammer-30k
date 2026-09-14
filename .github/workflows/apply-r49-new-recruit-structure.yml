@@ -1,0 +1,28 @@
+name: Apply Revision 49 New Recruit structure repair
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-r49-new-recruit-structure.yml'
+      - '.github/build/rev49_new_recruit_structure.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  patch-validate-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply New Recruit structure repair
+        run: |
+          set -euo pipefail
+          python .github/build/rev49_new_recruit_structure.py
+          git diff --check
+      - name: Publish Revision 49
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Legiones Astartes.cat' 'inspection-r49-structure-repair.txt'
+          git commit -m 'Revision 49: make Legion units and armoury visible in New Recruit' || exit 0
+          git pull --rebase origin main
+          git push
