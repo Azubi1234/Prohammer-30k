@@ -1,0 +1,2065 @@
+CAT revision=46 GST=18 gameSystemRevision=18
+BROKEN TARGET/CHILD REFS=131
+  ('veteran-melee-chainaxe', 'Chainaxe (replaces Chainsword)', 'targetId', 'gear-chainaxe')
+  ('veteran-sgt-pair', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  ('terminator-pair-claws', 'Pair of Lightning Claws (replaces both weapons)', 'targetId', 'gear-pair-lightning-claws')
+  ('destroyer-sgt-pair', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  ('fa-seeker-sgt-arm-pair-lightning-claws', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  ('fa-bike-sgtw-pair', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  ('fa-sky-sgtw-pair', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  ('r35-pride-veteran-veteran-melee-chainaxe', 'Chainaxe (replaces Chainsword)', 'targetId', 'gear-chainaxe')
+  ('r35-pride-veteran-veteran-sgt-pair', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  ('r35-pride-terminator-terminator-pair-claws', 'Pair of Lightning Claws (replaces both weapons)', 'targetId', 'gear-pair-lightning-claws')
+  ('r35-destroyer-troops-destroyer-sgt-pair', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  ('r35-sky-troops-fa-sky-sgtw-pair', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-forge')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-null')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-herald')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-signals')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-praevian')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-herald')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-signals')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-praevian')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-herald')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-signals')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-praevian')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-forge')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-null')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-forge')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-herald')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-praevian')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-null')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-herald')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-signals')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-praevian')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-null')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-herald')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-centurion-ret-tc-arm-n')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-centurion-ret-tc-arm-t')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-centurion-ret-tc-arm-c')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-chaplain')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-tactical-hq-consul-librarian')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-forge')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-null')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-herald')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-signals')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-praevian')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-herald')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-signals')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-praevian')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-herald')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-signals')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-praevian')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-forge')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-null')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-forge')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-herald')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-praevian')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-null')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-herald')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-signals')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-praevian')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-null')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-herald')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-moritat')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-vigilator')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-centurion-ret-tc-arm-n')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-centurion-ret-tc-arm-t')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-centurion-ret-tc-arm-c')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-chaplain')
+  (None, None, 'childId', 'r40-da-storm-centurion-group-r40-da-storm-assault-hq-consul-librarian')
+  ('r40-da-vow-veteran-veteran-melee-chainaxe', 'Chainaxe (replaces Chainsword)', 'targetId', 'gear-chainaxe')
+  ('r40-da-vow-veteran-veteran-sgt-pair', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  ('r40-da-vow-terminator-terminator-pair-claws', 'Pair of Lightning Claws (replaces both weapons)', 'targetId', 'gear-pair-lightning-claws')
+  ('r40-da-eskaton-destroyer-destroyer-sgt-pair', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  ('r40-da-arrow-bike-fa-bike-sgtw-pair', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  ('r40-da-arrow-sky-fa-sky-sgtw-pair', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  ('r40-da-serpent-seeker-fa-seeker-sgt-arm-pair-lightning-claws', 'Pair of Lightning Claws', 'targetId', 'gear-pair-lightning-claws')
+  (None, None, 'childId', 'r42-role-v-0-effects-ride-like-the-wind-legion-sky-hunter-jetbike-squadrons-fa-sky-sgtw-pair')
+  (None, None, 'childId', 'r42-role-v-0-effects-ride-like-the-wind-legion-sky-hunter-jetbike-squadrons-fa-sky-sgtw-pair')
+  (None, None, 'childId', 'r42-role-v-0-effects-ride-like-the-wind-legion-sky-hunter-jetbike-squadrons-fa-sky-sgtw-pair')
+  (None, None, 'childId', 'r42-role-v-0-effects-ride-like-the-wind-legion-sky-hunter-jetbike-squadrons-fa-sky-sgtw-pair')
+  (None, None, 'childId', 'r43-ws-bike-troops-fa-bike-sgtw-pair')
+  (None, None, 'childId', 'r43-ws-bike-troops-fa-bike-sgtw-pair')
+  (None, None, 'childId', 'r43-ws-bike-troops-fa-bike-sgtw-pair')
+  (None, None, 'childId', 'r43-ws-bike-troops-fa-bike-sgtw-pair')
+  (None, None, 'childId', 'r45-dg-bike-fa-bike-sgtw-pair')
+  (None, None, 'childId', 'r45-dg-bike-fa-bike-sgtw-pair')
+  (None, None, 'childId', 'r45-dg-bike-fa-bike-sgtw-pair')
+  (None, None, 'childId', 'r45-dg-bike-fa-bike-sgtw-pair')
+
+=== SOURCE ARMOURY COVERAGE ===
+[III]
+  OK  PHOENIX SPEAR -> phoenix spear
+  OK  PALATINE BLADE SQUAD -> palatine blade squad
+  OK  PHOENIX TERMINATOR SQUAD -> phoenix terminator squad
+  OK  KAKOPHONI SQUAD -> kakophoni squad
+  OK  SUN KILLER SQUAD -> sun killer squad
+  OK  LORD COMMANDER EIDOLON -> lord commander eidolon
+  OK  SAUL TARVITZ -> saul tarvitz
+  OK  CAPTAIN LUCIUS -> captain lucius
+  OK  FABIUS BILE -> fabius bile
+  OK  RYLANOR THE UNYIELDING -> rylanor the unyielding
+  OK  FULGRIM TRANSFIGURED -> fulgrim transfigured
+  OK  SHRAPNEL BOLTS -> shrapnel bolts
+  OK  TYRANT SIEGE TERMINATOR SQUAD -> tyrant siege terminator squad
+  OK  IRON HAVOC SQUAD -> iron havoc squad
+  OK  DOMINATOR COHORT -> dominator cohort
+  OK  IRON CIRCLE DOMITAR-FERRUM MANIPLE -> iron circle domitar ferrum maniple
+  OK  ERASMUS GOLG -> erasmus golg
+  OK  KYR VHALEN -> kyr vhalen
+  OK  POWER GLAIVE -> power glaive
+  OK  CHOGORIAN WARLANCE -> chogorian warlance
+  OK  GOLDEN KESHIG SQUADRON -> golden keshig squadron
+  OK  EBON KESHIG -> ebon keshig
+  OK  DARK SONS OF DEATH -> dark sons of death
+  OK  FALCON’S CLAWS -> falcons claws
+  OK  TARGUTAI YESUGEI -> targutai yesugei
+  OK  SHIBAN KHAN -> shiban khan
+  OK  HIBOU KHAN -> hibou khan
+  OK  HASIK NOYAN-KHAN -> hasik noyan khan
+  OK  GREAT FROST BLADE -> great frost blade
+  OK  WOLF PELT -> wolf pelt
+  OK  WOLF TOOTH NECKLACE -> wolf tooth necklace
+  OK  WOLF TAIL TALISMAN -> wolf tail talisman
+  OK  RUNIC ARMOUR -> runic armour
+  OK  GREY SLAYER PACK -> grey slayer pack
+  OK  GREY STALKER PACK -> grey stalker pack
+  OK  WOLF SCOUT SQUAD -> wolf scout squad
+  OK  DEATHSWORN PACK -> deathsworn pack
+  OK  JORLUND HUNTER PACK -> jorlund hunter pack
+  OK  VARAGYR WOLF GUARD TERMINATORS -> varagyr wolf guard terminators
+  OK  FENRISIAN WOLF PACK -> fenrisian wolf pack
+  OK  HVARL RED-BLADE -> hvarl red blade
+  OK  GEIGOR FELL-HAND -> geigor fell hand
+  OK  OHTHERE WYRDMAKE -> ohthere wyrdmake
+  OK  SOLARITE POWER GAUNTLET -> solarite power gauntlet
+  OK  TEMPLAR BRETHREN SQUAD -> templar brethren squad
+  OK  PHALANX WARDER SQUAD -> phalanx warder squad
+  OK  HUSCARL TERMINATOR RETINUE -> huscarl terminator retinue
+  OK  TARANTULA SENTRY GUN BATTERY -> tarantula sentry gun battery
+  OK  FAFNIR RANN -> fafnir rann
+  OK  ALEXIS POLUX -> alexis polux
+  OK  CAMBA DIAZ -> camba diaz
+  OK  EVANDER GARRIUS -> evander garrius
+  OK  NOSTRAMAN CHAINGLAIVE -> nostraman chainglaive
+  OK  TROPHIES OF JUDGEMENT -> trophies of judgement
+  OK  KRAKEN LIGHT BOLTS -> kraken light bolts
+  OK  TERROR SQUAD -> terror squad
+  OK  NIGHT RAPTOR SQUAD -> night raptor squad
+  OK  CONTEKAR TERMINATOR ELITE -> contekar terminator elite
+  OK  ATRAMENTAR FLAY-CLADE -> atramentar flay clade
+  OK  JAGO SEVATARION -> jago sevatarion
+  OK  KHERON OPHION -> kheron ophion
+  OK  SHANG -> shang
+  OK  FLAYMASTER MAWDRYM LLANSAHAI -> flaymaster mawdrym llansahai
+  OK  DEATH MASK -> death mask
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  BLADE OF PERDITION -> blade of perdition
+  OK  OVER-CHARGED ENGINES -> over charged engines
+  OK  FURIOSO-PATTERN JUMP PACK -> furioso pattern jump pack
+  OK  DAWNBREAKER COHORT -> dawnbreaker cohort
+  OK  CRIMSON PALADIN SQUAD -> crimson paladin squad
+  OK  ANGEL'S TEARS SQUAD -> angel s tears squad
+  OK  OFANIM COURT -> ofanim court
+  OK  GRAV CHARIOT SQUADRON -> grav chariot squadron
+  OK  SANGUINARY GUARD -> sanguinary guard
+  OK  DOMINION ZEPHON -> dominion zephon
+  OK  ASTER CROHNE -> aster crohne
+  OK  SERVO-ARM -> servo arm
+  OK  MECHADENDRITES -> mechadendrites
+  MISS SPLINTER BOLTS
+  OK  ALBIAN POWER GLADIUS -> albian power gladius
+  OK  BLESSED AUTOSIMULACRA -> blessed autosimulacra
+  OK  MEDUSAN IMMORTAL SQUAD -> medusan immortal squad
+  OK  GORGON TERMINATOR SQUAD -> gorgon terminator squad
+  OK  MORLOCK TERMINATOR SQUAD -> morlock terminator squad
+  OK  VENERABLE FORGE LORD -> venerable forge lord
+  OK  SHADRAK MEDUSON -> shadrak meduson
+  OK  AUTEK MOR -> autek mor
+  MISS CASTRMEN ORTH
+  OK  GABRIEL SANTAR -> gabriel santar
+  OK  CHAINAXE -> chainaxe
+  OK  RAMPAGER SQUAD -> rampager squad
+  OK  RED BUTCHER SQUAD -> red butcher squad
+  OK  RED HAND DESTROYER MORTALIS SQUAD -> red hand destroyer mortalis squad
+  OK  WORLD EATERS INDUCTII SQUAD -> world eaters inductii squad
+  OK  DEVOURER TERMINATOR SQUAD -> devourer terminator squad
+  OK  TRIARII BREACHER SQUAD -> triarii breacher squad
+  OK  SHABRAN DARR -> shabran darr
+  OK  CAPTAIN EHRLEN -> captain ehrlen
+  OK  LEGATINE AXE -> legatine axe
+  OK  MANTLE OF ULTRAMAR -> mantle of ultramar
+  OK  INVICTARUS SUZERAIN SQUAD -> invictarus suzerain squad
+  OK  FULMENTARUS TERMINATOR SQUAD -> fulmentarus terminator squad
+  OK  LOCUTARUS STORM SQUAD -> locutarus storm squad
+  OK  NEMESIS DESTROYER SQUAD -> nemesis destroyer squad
+  OK  REMUS VENTANUS -> remus ventanus
+  OK  HONOURED TELEMECHRUS -> honoured telemechrus
+  OK  TITUS PRAYTO -> titus prayto
+  OK  MANREAPER -> manreaper
+  OK  DEATHSHROUD TERMINATORS -> deathshroud terminators
+  OK  GRAVE WARDEN TERMINATOR SQUAD -> grave warden terminator squad
+  OK  MORTUS POISONER SQUAD -> mortus poisoner squad
+  OK  CRYSOS MORTURG -> crysos morturg
+  OK  DURAK RASK -> durak rask
+  OK  IGNATIUS GRULGOR -> ignatius grulgor
+  OK  NATHANIEL GARRO -> nathaniel garro
+  OK  ARCANE LITANIES -> arcane litanies
+  OK  ÆTHER-FIRE CANNON -> ther fire cannon upgrade
+  MISS PROSPERINE ÆTHER-DISC
+  OK  SEKHMET TERMINATOR CABAL -> sekhmet terminator cabal
+  OK  KHENETAI OCCULT BLADE CABAL -> khenetai occult blade cabal
+  OK  AMMITARA OCCULT INTERCESSION CABAL -> ammitara occult intercession cabal
+  OK  CASTELLAX-ACHEA MANIPLE -> castellax achea maniple
+  OK  CONTEMPTOR-OSIRON DREADNOUGHT -> contemptor osiron dreadnought
+  OK  NUMEROLOGIST CABAL -> numerologist cabal
+  OK  AHZEK AHRIMAN -> ahzek ahriman
+  OK  PHOSIS T'KAR -> phosis t kar
+  OK  HATHOR MAAT -> hathor maat
+  OK  SANAKHT -> sanakht
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  DIGITAL LASERS -> digital lasers
+  OK  SONIC SHRIEKER -> sonic shrieker
+  OK  SONIC WEAPONRY -> sonic weaponry package
+  OK  BIONICS -> bionics
+  MISS HORSETAIL TALISMAN
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+  MISS DANGEROUS WEAPONRY
+  MISS PSYCHIC BROTHERHOODS
+[IV]
+  OK  SHRAPNEL BOLTS -> shrapnel bolts
+  OK  TYRANT SIEGE TERMINATOR SQUAD -> tyrant siege terminator squad
+  OK  IRON HAVOC SQUAD -> iron havoc squad
+  OK  DOMINATOR COHORT -> dominator cohort
+  OK  IRON CIRCLE DOMITAR-FERRUM MANIPLE -> iron circle domitar ferrum maniple
+  OK  ERASMUS GOLG -> erasmus golg
+  OK  KYR VHALEN -> kyr vhalen
+  OK  POWER GLAIVE -> power glaive
+  OK  CHOGORIAN WARLANCE -> chogorian warlance
+  OK  GOLDEN KESHIG SQUADRON -> golden keshig squadron
+  OK  EBON KESHIG -> ebon keshig
+  OK  DARK SONS OF DEATH -> dark sons of death
+  OK  FALCON’S CLAWS -> falcons claws
+  OK  TARGUTAI YESUGEI -> targutai yesugei
+  OK  SHIBAN KHAN -> shiban khan
+  OK  HIBOU KHAN -> hibou khan
+  OK  HASIK NOYAN-KHAN -> hasik noyan khan
+  OK  GREAT FROST BLADE -> great frost blade
+  OK  WOLF PELT -> wolf pelt
+  OK  WOLF TOOTH NECKLACE -> wolf tooth necklace
+  OK  WOLF TAIL TALISMAN -> wolf tail talisman
+  OK  RUNIC ARMOUR -> runic armour
+  OK  GREY SLAYER PACK -> grey slayer pack
+  OK  GREY STALKER PACK -> grey stalker pack
+  OK  WOLF SCOUT SQUAD -> wolf scout squad
+  OK  DEATHSWORN PACK -> deathsworn pack
+  OK  JORLUND HUNTER PACK -> jorlund hunter pack
+  OK  VARAGYR WOLF GUARD TERMINATORS -> varagyr wolf guard terminators
+  OK  FENRISIAN WOLF PACK -> fenrisian wolf pack
+  OK  HVARL RED-BLADE -> hvarl red blade
+  OK  GEIGOR FELL-HAND -> geigor fell hand
+  OK  OHTHERE WYRDMAKE -> ohthere wyrdmake
+  OK  SOLARITE POWER GAUNTLET -> solarite power gauntlet
+  OK  TEMPLAR BRETHREN SQUAD -> templar brethren squad
+  OK  PHALANX WARDER SQUAD -> phalanx warder squad
+  OK  HUSCARL TERMINATOR RETINUE -> huscarl terminator retinue
+  OK  TARANTULA SENTRY GUN BATTERY -> tarantula sentry gun battery
+  OK  FAFNIR RANN -> fafnir rann
+  OK  ALEXIS POLUX -> alexis polux
+  OK  CAMBA DIAZ -> camba diaz
+  OK  EVANDER GARRIUS -> evander garrius
+  OK  NOSTRAMAN CHAINGLAIVE -> nostraman chainglaive
+  OK  TROPHIES OF JUDGEMENT -> trophies of judgement
+  OK  KRAKEN LIGHT BOLTS -> kraken light bolts
+  OK  TERROR SQUAD -> terror squad
+  OK  NIGHT RAPTOR SQUAD -> night raptor squad
+  OK  CONTEKAR TERMINATOR ELITE -> contekar terminator elite
+  OK  ATRAMENTAR FLAY-CLADE -> atramentar flay clade
+  OK  JAGO SEVATARION -> jago sevatarion
+  OK  KHERON OPHION -> kheron ophion
+  OK  SHANG -> shang
+  OK  FLAYMASTER MAWDRYM LLANSAHAI -> flaymaster mawdrym llansahai
+  OK  DEATH MASK -> death mask
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  BLADE OF PERDITION -> blade of perdition
+  OK  OVER-CHARGED ENGINES -> over charged engines
+  OK  FURIOSO-PATTERN JUMP PACK -> furioso pattern jump pack
+  OK  DAWNBREAKER COHORT -> dawnbreaker cohort
+  OK  CRIMSON PALADIN SQUAD -> crimson paladin squad
+  OK  ANGEL'S TEARS SQUAD -> angel s tears squad
+  OK  OFANIM COURT -> ofanim court
+  OK  GRAV CHARIOT SQUADRON -> grav chariot squadron
+  OK  SANGUINARY GUARD -> sanguinary guard
+  OK  DOMINION ZEPHON -> dominion zephon
+  OK  ASTER CROHNE -> aster crohne
+  OK  SERVO-ARM -> servo arm
+  OK  MECHADENDRITES -> mechadendrites
+  MISS SPLINTER BOLTS
+  OK  ALBIAN POWER GLADIUS -> albian power gladius
+  OK  BLESSED AUTOSIMULACRA -> blessed autosimulacra
+  OK  MEDUSAN IMMORTAL SQUAD -> medusan immortal squad
+  OK  GORGON TERMINATOR SQUAD -> gorgon terminator squad
+  OK  MORLOCK TERMINATOR SQUAD -> morlock terminator squad
+  OK  VENERABLE FORGE LORD -> venerable forge lord
+  OK  SHADRAK MEDUSON -> shadrak meduson
+  OK  AUTEK MOR -> autek mor
+  MISS CASTRMEN ORTH
+  OK  GABRIEL SANTAR -> gabriel santar
+  OK  CHAINAXE -> chainaxe
+  OK  RAMPAGER SQUAD -> rampager squad
+  OK  RED BUTCHER SQUAD -> red butcher squad
+  OK  RED HAND DESTROYER MORTALIS SQUAD -> red hand destroyer mortalis squad
+  OK  WORLD EATERS INDUCTII SQUAD -> world eaters inductii squad
+  OK  DEVOURER TERMINATOR SQUAD -> devourer terminator squad
+  OK  TRIARII BREACHER SQUAD -> triarii breacher squad
+  OK  SHABRAN DARR -> shabran darr
+  OK  CAPTAIN EHRLEN -> captain ehrlen
+  OK  LEGATINE AXE -> legatine axe
+  OK  MANTLE OF ULTRAMAR -> mantle of ultramar
+  OK  INVICTARUS SUZERAIN SQUAD -> invictarus suzerain squad
+  OK  FULMENTARUS TERMINATOR SQUAD -> fulmentarus terminator squad
+  OK  LOCUTARUS STORM SQUAD -> locutarus storm squad
+  OK  NEMESIS DESTROYER SQUAD -> nemesis destroyer squad
+  OK  REMUS VENTANUS -> remus ventanus
+  OK  HONOURED TELEMECHRUS -> honoured telemechrus
+  OK  TITUS PRAYTO -> titus prayto
+  OK  MANREAPER -> manreaper
+  OK  DEATHSHROUD TERMINATORS -> deathshroud terminators
+  OK  GRAVE WARDEN TERMINATOR SQUAD -> grave warden terminator squad
+  OK  MORTUS POISONER SQUAD -> mortus poisoner squad
+  OK  CRYSOS MORTURG -> crysos morturg
+  OK  DURAK RASK -> durak rask
+  OK  IGNATIUS GRULGOR -> ignatius grulgor
+  OK  NATHANIEL GARRO -> nathaniel garro
+  OK  ARCANE LITANIES -> arcane litanies
+  OK  ÆTHER-FIRE CANNON -> ther fire cannon upgrade
+  MISS PROSPERINE ÆTHER-DISC
+  OK  SEKHMET TERMINATOR CABAL -> sekhmet terminator cabal
+  OK  KHENETAI OCCULT BLADE CABAL -> khenetai occult blade cabal
+  OK  AMMITARA OCCULT INTERCESSION CABAL -> ammitara occult intercession cabal
+  OK  CASTELLAX-ACHEA MANIPLE -> castellax achea maniple
+  OK  CONTEMPTOR-OSIRON DREADNOUGHT -> contemptor osiron dreadnought
+  OK  NUMEROLOGIST CABAL -> numerologist cabal
+  OK  AHZEK AHRIMAN -> ahzek ahriman
+  OK  PHOSIS T'KAR -> phosis t kar
+  OK  HATHOR MAAT -> hathor maat
+  OK  SANAKHT -> sanakht
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  BIONICS -> bionics
+  MISS HORSETAIL TALISMAN
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+  MISS DANGEROUS WEAPONRY
+  MISS PSYCHIC BROTHERHOODS
+[V]
+  OK  POWER GLAIVE -> power glaive
+  OK  CHOGORIAN WARLANCE -> chogorian warlance
+  OK  GOLDEN KESHIG SQUADRON -> golden keshig squadron
+  OK  EBON KESHIG -> ebon keshig
+  OK  DARK SONS OF DEATH -> dark sons of death
+  OK  FALCON’S CLAWS -> falcons claws
+  OK  TARGUTAI YESUGEI -> targutai yesugei
+  OK  SHIBAN KHAN -> shiban khan
+  OK  HIBOU KHAN -> hibou khan
+  OK  HASIK NOYAN-KHAN -> hasik noyan khan
+  OK  GREAT FROST BLADE -> great frost blade
+  OK  WOLF PELT -> wolf pelt
+  OK  WOLF TOOTH NECKLACE -> wolf tooth necklace
+  OK  WOLF TAIL TALISMAN -> wolf tail talisman
+  OK  RUNIC ARMOUR -> runic armour
+  OK  GREY SLAYER PACK -> grey slayer pack
+  OK  GREY STALKER PACK -> grey stalker pack
+  OK  WOLF SCOUT SQUAD -> wolf scout squad
+  OK  DEATHSWORN PACK -> deathsworn pack
+  OK  JORLUND HUNTER PACK -> jorlund hunter pack
+  OK  VARAGYR WOLF GUARD TERMINATORS -> varagyr wolf guard terminators
+  OK  FENRISIAN WOLF PACK -> fenrisian wolf pack
+  OK  HVARL RED-BLADE -> hvarl red blade
+  OK  GEIGOR FELL-HAND -> geigor fell hand
+  OK  OHTHERE WYRDMAKE -> ohthere wyrdmake
+  OK  SOLARITE POWER GAUNTLET -> solarite power gauntlet
+  OK  TEMPLAR BRETHREN SQUAD -> templar brethren squad
+  OK  PHALANX WARDER SQUAD -> phalanx warder squad
+  OK  HUSCARL TERMINATOR RETINUE -> huscarl terminator retinue
+  OK  TARANTULA SENTRY GUN BATTERY -> tarantula sentry gun battery
+  OK  FAFNIR RANN -> fafnir rann
+  OK  ALEXIS POLUX -> alexis polux
+  OK  CAMBA DIAZ -> camba diaz
+  OK  EVANDER GARRIUS -> evander garrius
+  OK  NOSTRAMAN CHAINGLAIVE -> nostraman chainglaive
+  OK  TROPHIES OF JUDGEMENT -> trophies of judgement
+  OK  KRAKEN LIGHT BOLTS -> kraken light bolts
+  OK  TERROR SQUAD -> terror squad
+  OK  NIGHT RAPTOR SQUAD -> night raptor squad
+  OK  CONTEKAR TERMINATOR ELITE -> contekar terminator elite
+  OK  ATRAMENTAR FLAY-CLADE -> atramentar flay clade
+  OK  JAGO SEVATARION -> jago sevatarion
+  OK  KHERON OPHION -> kheron ophion
+  OK  SHANG -> shang
+  OK  FLAYMASTER MAWDRYM LLANSAHAI -> flaymaster mawdrym llansahai
+  OK  DEATH MASK -> death mask
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  BLADE OF PERDITION -> blade of perdition
+  OK  OVER-CHARGED ENGINES -> over charged engines
+  OK  FURIOSO-PATTERN JUMP PACK -> furioso pattern jump pack
+  OK  DAWNBREAKER COHORT -> dawnbreaker cohort
+  OK  CRIMSON PALADIN SQUAD -> crimson paladin squad
+  OK  ANGEL'S TEARS SQUAD -> angel s tears squad
+  OK  OFANIM COURT -> ofanim court
+  OK  GRAV CHARIOT SQUADRON -> grav chariot squadron
+  OK  SANGUINARY GUARD -> sanguinary guard
+  OK  DOMINION ZEPHON -> dominion zephon
+  OK  ASTER CROHNE -> aster crohne
+  OK  SERVO-ARM -> servo arm
+  OK  MECHADENDRITES -> mechadendrites
+  MISS SPLINTER BOLTS
+  OK  ALBIAN POWER GLADIUS -> albian power gladius
+  OK  BLESSED AUTOSIMULACRA -> blessed autosimulacra
+  OK  MEDUSAN IMMORTAL SQUAD -> medusan immortal squad
+  OK  GORGON TERMINATOR SQUAD -> gorgon terminator squad
+  OK  MORLOCK TERMINATOR SQUAD -> morlock terminator squad
+  OK  VENERABLE FORGE LORD -> venerable forge lord
+  OK  SHADRAK MEDUSON -> shadrak meduson
+  OK  AUTEK MOR -> autek mor
+  MISS CASTRMEN ORTH
+  OK  GABRIEL SANTAR -> gabriel santar
+  OK  CHAINAXE -> chainaxe
+  OK  RAMPAGER SQUAD -> rampager squad
+  OK  RED BUTCHER SQUAD -> red butcher squad
+  OK  RED HAND DESTROYER MORTALIS SQUAD -> red hand destroyer mortalis squad
+  OK  WORLD EATERS INDUCTII SQUAD -> world eaters inductii squad
+  OK  DEVOURER TERMINATOR SQUAD -> devourer terminator squad
+  OK  TRIARII BREACHER SQUAD -> triarii breacher squad
+  OK  SHABRAN DARR -> shabran darr
+  OK  CAPTAIN EHRLEN -> captain ehrlen
+  OK  LEGATINE AXE -> legatine axe
+  OK  MANTLE OF ULTRAMAR -> mantle of ultramar
+  OK  INVICTARUS SUZERAIN SQUAD -> invictarus suzerain squad
+  OK  FULMENTARUS TERMINATOR SQUAD -> fulmentarus terminator squad
+  OK  LOCUTARUS STORM SQUAD -> locutarus storm squad
+  OK  NEMESIS DESTROYER SQUAD -> nemesis destroyer squad
+  OK  REMUS VENTANUS -> remus ventanus
+  OK  HONOURED TELEMECHRUS -> honoured telemechrus
+  OK  TITUS PRAYTO -> titus prayto
+  OK  MANREAPER -> manreaper
+  OK  DEATHSHROUD TERMINATORS -> deathshroud terminators
+  OK  GRAVE WARDEN TERMINATOR SQUAD -> grave warden terminator squad
+  OK  MORTUS POISONER SQUAD -> mortus poisoner squad
+  OK  CRYSOS MORTURG -> crysos morturg
+  OK  DURAK RASK -> durak rask
+  OK  IGNATIUS GRULGOR -> ignatius grulgor
+  OK  NATHANIEL GARRO -> nathaniel garro
+  OK  ARCANE LITANIES -> arcane litanies
+  OK  ÆTHER-FIRE CANNON -> ther fire cannon upgrade
+  MISS PROSPERINE ÆTHER-DISC
+  OK  SEKHMET TERMINATOR CABAL -> sekhmet terminator cabal
+  OK  KHENETAI OCCULT BLADE CABAL -> khenetai occult blade cabal
+  OK  AMMITARA OCCULT INTERCESSION CABAL -> ammitara occult intercession cabal
+  OK  CASTELLAX-ACHEA MANIPLE -> castellax achea maniple
+  OK  CONTEMPTOR-OSIRON DREADNOUGHT -> contemptor osiron dreadnought
+  OK  NUMEROLOGIST CABAL -> numerologist cabal
+  OK  AHZEK AHRIMAN -> ahzek ahriman
+  OK  PHOSIS T'KAR -> phosis t kar
+  OK  HATHOR MAAT -> hathor maat
+  OK  SANAKHT -> sanakht
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  MISS HORSETAIL TALISMAN
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+  MISS DANGEROUS WEAPONRY
+  MISS PSYCHIC BROTHERHOODS
+[VI]
+  OK  GREAT FROST BLADE -> great frost blade
+  OK  WOLF PELT -> wolf pelt
+  OK  WOLF TOOTH NECKLACE -> wolf tooth necklace
+  OK  WOLF TAIL TALISMAN -> wolf tail talisman
+  OK  RUNIC ARMOUR -> runic armour
+  OK  GREY SLAYER PACK -> grey slayer pack
+  OK  GREY STALKER PACK -> grey stalker pack
+  OK  WOLF SCOUT SQUAD -> wolf scout squad
+  OK  DEATHSWORN PACK -> deathsworn pack
+  OK  JORLUND HUNTER PACK -> jorlund hunter pack
+  OK  VARAGYR WOLF GUARD TERMINATORS -> varagyr wolf guard terminators
+  OK  FENRISIAN WOLF PACK -> fenrisian wolf pack
+  OK  HVARL RED-BLADE -> hvarl red blade
+  OK  GEIGOR FELL-HAND -> geigor fell hand
+  OK  OHTHERE WYRDMAKE -> ohthere wyrdmake
+  OK  SOLARITE POWER GAUNTLET -> solarite power gauntlet
+  OK  TEMPLAR BRETHREN SQUAD -> templar brethren squad
+  OK  PHALANX WARDER SQUAD -> phalanx warder squad
+  OK  HUSCARL TERMINATOR RETINUE -> huscarl terminator retinue
+  OK  TARANTULA SENTRY GUN BATTERY -> tarantula sentry gun battery
+  OK  FAFNIR RANN -> fafnir rann
+  OK  ALEXIS POLUX -> alexis polux
+  OK  CAMBA DIAZ -> camba diaz
+  OK  EVANDER GARRIUS -> evander garrius
+  OK  NOSTRAMAN CHAINGLAIVE -> nostraman chainglaive
+  OK  TROPHIES OF JUDGEMENT -> trophies of judgement
+  OK  KRAKEN LIGHT BOLTS -> kraken light bolts
+  OK  TERROR SQUAD -> terror squad
+  OK  NIGHT RAPTOR SQUAD -> night raptor squad
+  OK  CONTEKAR TERMINATOR ELITE -> contekar terminator elite
+  OK  ATRAMENTAR FLAY-CLADE -> atramentar flay clade
+  OK  JAGO SEVATARION -> jago sevatarion
+  OK  KHERON OPHION -> kheron ophion
+  OK  SHANG -> shang
+  OK  FLAYMASTER MAWDRYM LLANSAHAI -> flaymaster mawdrym llansahai
+  OK  DEATH MASK -> death mask
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  BLADE OF PERDITION -> blade of perdition
+  OK  OVER-CHARGED ENGINES -> over charged engines
+  OK  FURIOSO-PATTERN JUMP PACK -> furioso pattern jump pack
+  OK  DAWNBREAKER COHORT -> dawnbreaker cohort
+  OK  CRIMSON PALADIN SQUAD -> crimson paladin squad
+  OK  ANGEL'S TEARS SQUAD -> angel s tears squad
+  OK  OFANIM COURT -> ofanim court
+  OK  GRAV CHARIOT SQUADRON -> grav chariot squadron
+  OK  SANGUINARY GUARD -> sanguinary guard
+  OK  DOMINION ZEPHON -> dominion zephon
+  OK  ASTER CROHNE -> aster crohne
+  OK  SERVO-ARM -> servo arm
+  OK  MECHADENDRITES -> mechadendrites
+  MISS SPLINTER BOLTS
+  OK  ALBIAN POWER GLADIUS -> albian power gladius
+  OK  BLESSED AUTOSIMULACRA -> blessed autosimulacra
+  OK  MEDUSAN IMMORTAL SQUAD -> medusan immortal squad
+  OK  GORGON TERMINATOR SQUAD -> gorgon terminator squad
+  OK  MORLOCK TERMINATOR SQUAD -> morlock terminator squad
+  OK  VENERABLE FORGE LORD -> venerable forge lord
+  OK  SHADRAK MEDUSON -> shadrak meduson
+  OK  AUTEK MOR -> autek mor
+  MISS CASTRMEN ORTH
+  OK  GABRIEL SANTAR -> gabriel santar
+  OK  CHAINAXE -> chainaxe
+  OK  RAMPAGER SQUAD -> rampager squad
+  OK  RED BUTCHER SQUAD -> red butcher squad
+  OK  RED HAND DESTROYER MORTALIS SQUAD -> red hand destroyer mortalis squad
+  OK  WORLD EATERS INDUCTII SQUAD -> world eaters inductii squad
+  OK  DEVOURER TERMINATOR SQUAD -> devourer terminator squad
+  OK  TRIARII BREACHER SQUAD -> triarii breacher squad
+  OK  SHABRAN DARR -> shabran darr
+  OK  CAPTAIN EHRLEN -> captain ehrlen
+  OK  LEGATINE AXE -> legatine axe
+  OK  MANTLE OF ULTRAMAR -> mantle of ultramar
+  OK  INVICTARUS SUZERAIN SQUAD -> invictarus suzerain squad
+  OK  FULMENTARUS TERMINATOR SQUAD -> fulmentarus terminator squad
+  OK  LOCUTARUS STORM SQUAD -> locutarus storm squad
+  OK  NEMESIS DESTROYER SQUAD -> nemesis destroyer squad
+  OK  REMUS VENTANUS -> remus ventanus
+  OK  HONOURED TELEMECHRUS -> honoured telemechrus
+  OK  TITUS PRAYTO -> titus prayto
+  OK  MANREAPER -> manreaper
+  OK  DEATHSHROUD TERMINATORS -> deathshroud terminators
+  OK  GRAVE WARDEN TERMINATOR SQUAD -> grave warden terminator squad
+  OK  MORTUS POISONER SQUAD -> mortus poisoner squad
+  OK  CRYSOS MORTURG -> crysos morturg
+  OK  DURAK RASK -> durak rask
+  OK  IGNATIUS GRULGOR -> ignatius grulgor
+  OK  NATHANIEL GARRO -> nathaniel garro
+  OK  ARCANE LITANIES -> arcane litanies
+  OK  ÆTHER-FIRE CANNON -> ther fire cannon upgrade
+  MISS PROSPERINE ÆTHER-DISC
+  OK  SEKHMET TERMINATOR CABAL -> sekhmet terminator cabal
+  OK  KHENETAI OCCULT BLADE CABAL -> khenetai occult blade cabal
+  OK  AMMITARA OCCULT INTERCESSION CABAL -> ammitara occult intercession cabal
+  OK  CASTELLAX-ACHEA MANIPLE -> castellax achea maniple
+  OK  CONTEMPTOR-OSIRON DREADNOUGHT -> contemptor osiron dreadnought
+  OK  NUMEROLOGIST CABAL -> numerologist cabal
+  OK  AHZEK AHRIMAN -> ahzek ahriman
+  OK  PHOSIS T'KAR -> phosis t kar
+  OK  HATHOR MAAT -> hathor maat
+  OK  SANAKHT -> sanakht
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+  MISS DANGEROUS WEAPONRY
+  MISS PSYCHIC BROTHERHOODS
+[VII]
+  OK  SOLARITE POWER GAUNTLET -> solarite power gauntlet
+  OK  TEMPLAR BRETHREN SQUAD -> templar brethren squad
+  OK  PHALANX WARDER SQUAD -> phalanx warder squad
+  OK  HUSCARL TERMINATOR RETINUE -> huscarl terminator retinue
+  OK  TARANTULA SENTRY GUN BATTERY -> tarantula sentry gun battery
+  OK  FAFNIR RANN -> fafnir rann
+  OK  ALEXIS POLUX -> alexis polux
+  OK  CAMBA DIAZ -> camba diaz
+  OK  EVANDER GARRIUS -> evander garrius
+  OK  NOSTRAMAN CHAINGLAIVE -> nostraman chainglaive
+  OK  TROPHIES OF JUDGEMENT -> trophies of judgement
+  OK  KRAKEN LIGHT BOLTS -> kraken light bolts
+  OK  TERROR SQUAD -> terror squad
+  OK  NIGHT RAPTOR SQUAD -> night raptor squad
+  OK  CONTEKAR TERMINATOR ELITE -> contekar terminator elite
+  OK  ATRAMENTAR FLAY-CLADE -> atramentar flay clade
+  OK  JAGO SEVATARION -> jago sevatarion
+  OK  KHERON OPHION -> kheron ophion
+  OK  SHANG -> shang
+  OK  FLAYMASTER MAWDRYM LLANSAHAI -> flaymaster mawdrym llansahai
+  OK  DEATH MASK -> death mask
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  BLADE OF PERDITION -> blade of perdition
+  OK  OVER-CHARGED ENGINES -> over charged engines
+  OK  FURIOSO-PATTERN JUMP PACK -> furioso pattern jump pack
+  OK  DAWNBREAKER COHORT -> dawnbreaker cohort
+  OK  CRIMSON PALADIN SQUAD -> crimson paladin squad
+  OK  ANGEL'S TEARS SQUAD -> angel s tears squad
+  OK  OFANIM COURT -> ofanim court
+  OK  GRAV CHARIOT SQUADRON -> grav chariot squadron
+  OK  SANGUINARY GUARD -> sanguinary guard
+  OK  DOMINION ZEPHON -> dominion zephon
+  OK  ASTER CROHNE -> aster crohne
+  OK  SERVO-ARM -> servo arm
+  OK  MECHADENDRITES -> mechadendrites
+  MISS SPLINTER BOLTS
+  OK  ALBIAN POWER GLADIUS -> albian power gladius
+  OK  BLESSED AUTOSIMULACRA -> blessed autosimulacra
+  OK  MEDUSAN IMMORTAL SQUAD -> medusan immortal squad
+  OK  GORGON TERMINATOR SQUAD -> gorgon terminator squad
+  OK  MORLOCK TERMINATOR SQUAD -> morlock terminator squad
+  OK  VENERABLE FORGE LORD -> venerable forge lord
+  OK  SHADRAK MEDUSON -> shadrak meduson
+  OK  AUTEK MOR -> autek mor
+  MISS CASTRMEN ORTH
+  OK  GABRIEL SANTAR -> gabriel santar
+  OK  CHAINAXE -> chainaxe
+  OK  RAMPAGER SQUAD -> rampager squad
+  OK  RED BUTCHER SQUAD -> red butcher squad
+  OK  RED HAND DESTROYER MORTALIS SQUAD -> red hand destroyer mortalis squad
+  OK  WORLD EATERS INDUCTII SQUAD -> world eaters inductii squad
+  OK  DEVOURER TERMINATOR SQUAD -> devourer terminator squad
+  OK  TRIARII BREACHER SQUAD -> triarii breacher squad
+  OK  SHABRAN DARR -> shabran darr
+  OK  CAPTAIN EHRLEN -> captain ehrlen
+  OK  LEGATINE AXE -> legatine axe
+  OK  MANTLE OF ULTRAMAR -> mantle of ultramar
+  OK  INVICTARUS SUZERAIN SQUAD -> invictarus suzerain squad
+  OK  FULMENTARUS TERMINATOR SQUAD -> fulmentarus terminator squad
+  OK  LOCUTARUS STORM SQUAD -> locutarus storm squad
+  OK  NEMESIS DESTROYER SQUAD -> nemesis destroyer squad
+  OK  REMUS VENTANUS -> remus ventanus
+  OK  HONOURED TELEMECHRUS -> honoured telemechrus
+  OK  TITUS PRAYTO -> titus prayto
+  OK  MANREAPER -> manreaper
+  OK  DEATHSHROUD TERMINATORS -> deathshroud terminators
+  OK  GRAVE WARDEN TERMINATOR SQUAD -> grave warden terminator squad
+  OK  MORTUS POISONER SQUAD -> mortus poisoner squad
+  OK  CRYSOS MORTURG -> crysos morturg
+  OK  DURAK RASK -> durak rask
+  OK  IGNATIUS GRULGOR -> ignatius grulgor
+  OK  NATHANIEL GARRO -> nathaniel garro
+  OK  ARCANE LITANIES -> arcane litanies
+  OK  ÆTHER-FIRE CANNON -> ther fire cannon upgrade
+  MISS PROSPERINE ÆTHER-DISC
+  OK  SEKHMET TERMINATOR CABAL -> sekhmet terminator cabal
+  OK  KHENETAI OCCULT BLADE CABAL -> khenetai occult blade cabal
+  OK  AMMITARA OCCULT INTERCESSION CABAL -> ammitara occult intercession cabal
+  OK  CASTELLAX-ACHEA MANIPLE -> castellax achea maniple
+  OK  CONTEMPTOR-OSIRON DREADNOUGHT -> contemptor osiron dreadnought
+  OK  NUMEROLOGIST CABAL -> numerologist cabal
+  OK  AHZEK AHRIMAN -> ahzek ahriman
+  OK  PHOSIS T'KAR -> phosis t kar
+  OK  HATHOR MAAT -> hathor maat
+  OK  SANAKHT -> sanakht
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+  MISS DANGEROUS WEAPONRY
+  MISS PSYCHIC BROTHERHOODS
+[VIII]
+  OK  NOSTRAMAN CHAINGLAIVE -> nostraman chainglaive
+  OK  TROPHIES OF JUDGEMENT -> trophies of judgement
+  OK  KRAKEN LIGHT BOLTS -> kraken light bolts
+  OK  TERROR SQUAD -> terror squad
+  OK  NIGHT RAPTOR SQUAD -> night raptor squad
+  OK  CONTEKAR TERMINATOR ELITE -> contekar terminator elite
+  OK  ATRAMENTAR FLAY-CLADE -> atramentar flay clade
+  OK  JAGO SEVATARION -> jago sevatarion
+  OK  KHERON OPHION -> kheron ophion
+  OK  SHANG -> shang
+  OK  FLAYMASTER MAWDRYM LLANSAHAI -> flaymaster mawdrym llansahai
+  OK  DEATH MASK -> death mask
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  BLADE OF PERDITION -> blade of perdition
+  OK  OVER-CHARGED ENGINES -> over charged engines
+  OK  FURIOSO-PATTERN JUMP PACK -> furioso pattern jump pack
+  OK  DAWNBREAKER COHORT -> dawnbreaker cohort
+  OK  CRIMSON PALADIN SQUAD -> crimson paladin squad
+  OK  ANGEL'S TEARS SQUAD -> angel s tears squad
+  OK  OFANIM COURT -> ofanim court
+  OK  GRAV CHARIOT SQUADRON -> grav chariot squadron
+  OK  SANGUINARY GUARD -> sanguinary guard
+  OK  DOMINION ZEPHON -> dominion zephon
+  OK  ASTER CROHNE -> aster crohne
+  OK  SERVO-ARM -> servo arm
+  OK  MECHADENDRITES -> mechadendrites
+  MISS SPLINTER BOLTS
+  OK  ALBIAN POWER GLADIUS -> albian power gladius
+  OK  BLESSED AUTOSIMULACRA -> blessed autosimulacra
+  OK  MEDUSAN IMMORTAL SQUAD -> medusan immortal squad
+  OK  GORGON TERMINATOR SQUAD -> gorgon terminator squad
+  OK  MORLOCK TERMINATOR SQUAD -> morlock terminator squad
+  OK  VENERABLE FORGE LORD -> venerable forge lord
+  OK  SHADRAK MEDUSON -> shadrak meduson
+  OK  AUTEK MOR -> autek mor
+  MISS CASTRMEN ORTH
+  OK  GABRIEL SANTAR -> gabriel santar
+  OK  CHAINAXE -> chainaxe
+  OK  RAMPAGER SQUAD -> rampager squad
+  OK  RED BUTCHER SQUAD -> red butcher squad
+  OK  RED HAND DESTROYER MORTALIS SQUAD -> red hand destroyer mortalis squad
+  OK  WORLD EATERS INDUCTII SQUAD -> world eaters inductii squad
+  OK  DEVOURER TERMINATOR SQUAD -> devourer terminator squad
+  OK  TRIARII BREACHER SQUAD -> triarii breacher squad
+  OK  SHABRAN DARR -> shabran darr
+  OK  CAPTAIN EHRLEN -> captain ehrlen
+  OK  LEGATINE AXE -> legatine axe
+  OK  MANTLE OF ULTRAMAR -> mantle of ultramar
+  OK  INVICTARUS SUZERAIN SQUAD -> invictarus suzerain squad
+  OK  FULMENTARUS TERMINATOR SQUAD -> fulmentarus terminator squad
+  OK  LOCUTARUS STORM SQUAD -> locutarus storm squad
+  OK  NEMESIS DESTROYER SQUAD -> nemesis destroyer squad
+  OK  REMUS VENTANUS -> remus ventanus
+  OK  HONOURED TELEMECHRUS -> honoured telemechrus
+  OK  TITUS PRAYTO -> titus prayto
+  OK  MANREAPER -> manreaper
+  OK  DEATHSHROUD TERMINATORS -> deathshroud terminators
+  OK  GRAVE WARDEN TERMINATOR SQUAD -> grave warden terminator squad
+  OK  MORTUS POISONER SQUAD -> mortus poisoner squad
+  OK  CRYSOS MORTURG -> crysos morturg
+  OK  DURAK RASK -> durak rask
+  OK  IGNATIUS GRULGOR -> ignatius grulgor
+  OK  NATHANIEL GARRO -> nathaniel garro
+  OK  ARCANE LITANIES -> arcane litanies
+  OK  ÆTHER-FIRE CANNON -> ther fire cannon upgrade
+  MISS PROSPERINE ÆTHER-DISC
+  OK  SEKHMET TERMINATOR CABAL -> sekhmet terminator cabal
+  OK  KHENETAI OCCULT BLADE CABAL -> khenetai occult blade cabal
+  OK  AMMITARA OCCULT INTERCESSION CABAL -> ammitara occult intercession cabal
+  OK  CASTELLAX-ACHEA MANIPLE -> castellax achea maniple
+  OK  CONTEMPTOR-OSIRON DREADNOUGHT -> contemptor osiron dreadnought
+  OK  NUMEROLOGIST CABAL -> numerologist cabal
+  OK  AHZEK AHRIMAN -> ahzek ahriman
+  OK  PHOSIS T'KAR -> phosis t kar
+  OK  HATHOR MAAT -> hathor maat
+  OK  SANAKHT -> sanakht
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+  MISS DANGEROUS WEAPONRY
+  MISS PSYCHIC BROTHERHOODS
+[IX]
+  OK  DEATH MASK -> death mask
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  BLADE OF PERDITION -> blade of perdition
+  OK  OVER-CHARGED ENGINES -> over charged engines
+  OK  FURIOSO-PATTERN JUMP PACK -> furioso pattern jump pack
+  OK  DAWNBREAKER COHORT -> dawnbreaker cohort
+  OK  CRIMSON PALADIN SQUAD -> crimson paladin squad
+  OK  ANGEL'S TEARS SQUAD -> angel s tears squad
+  OK  OFANIM COURT -> ofanim court
+  OK  GRAV CHARIOT SQUADRON -> grav chariot squadron
+  OK  SANGUINARY GUARD -> sanguinary guard
+  OK  DOMINION ZEPHON -> dominion zephon
+  OK  ASTER CROHNE -> aster crohne
+  OK  SERVO-ARM -> servo arm
+  OK  MECHADENDRITES -> mechadendrites
+  MISS SPLINTER BOLTS
+  OK  ALBIAN POWER GLADIUS -> albian power gladius
+  OK  BLESSED AUTOSIMULACRA -> blessed autosimulacra
+  OK  MEDUSAN IMMORTAL SQUAD -> medusan immortal squad
+  OK  GORGON TERMINATOR SQUAD -> gorgon terminator squad
+  OK  MORLOCK TERMINATOR SQUAD -> morlock terminator squad
+  OK  VENERABLE FORGE LORD -> venerable forge lord
+  OK  SHADRAK MEDUSON -> shadrak meduson
+  OK  AUTEK MOR -> autek mor
+  MISS CASTRMEN ORTH
+  OK  GABRIEL SANTAR -> gabriel santar
+  OK  CHAINAXE -> chainaxe
+  OK  RAMPAGER SQUAD -> rampager squad
+  OK  RED BUTCHER SQUAD -> red butcher squad
+  OK  RED HAND DESTROYER MORTALIS SQUAD -> red hand destroyer mortalis squad
+  OK  WORLD EATERS INDUCTII SQUAD -> world eaters inductii squad
+  OK  DEVOURER TERMINATOR SQUAD -> devourer terminator squad
+  OK  TRIARII BREACHER SQUAD -> triarii breacher squad
+  OK  SHABRAN DARR -> shabran darr
+  OK  CAPTAIN EHRLEN -> captain ehrlen
+  OK  LEGATINE AXE -> legatine axe
+  OK  MANTLE OF ULTRAMAR -> mantle of ultramar
+  OK  INVICTARUS SUZERAIN SQUAD -> invictarus suzerain squad
+  OK  FULMENTARUS TERMINATOR SQUAD -> fulmentarus terminator squad
+  OK  LOCUTARUS STORM SQUAD -> locutarus storm squad
+  OK  NEMESIS DESTROYER SQUAD -> nemesis destroyer squad
+  OK  REMUS VENTANUS -> remus ventanus
+  OK  HONOURED TELEMECHRUS -> honoured telemechrus
+  OK  TITUS PRAYTO -> titus prayto
+  OK  MANREAPER -> manreaper
+  OK  DEATHSHROUD TERMINATORS -> deathshroud terminators
+  OK  GRAVE WARDEN TERMINATOR SQUAD -> grave warden terminator squad
+  OK  MORTUS POISONER SQUAD -> mortus poisoner squad
+  OK  CRYSOS MORTURG -> crysos morturg
+  OK  DURAK RASK -> durak rask
+  OK  IGNATIUS GRULGOR -> ignatius grulgor
+  OK  NATHANIEL GARRO -> nathaniel garro
+  OK  ARCANE LITANIES -> arcane litanies
+  OK  ÆTHER-FIRE CANNON -> ther fire cannon upgrade
+  MISS PROSPERINE ÆTHER-DISC
+  OK  SEKHMET TERMINATOR CABAL -> sekhmet terminator cabal
+  OK  KHENETAI OCCULT BLADE CABAL -> khenetai occult blade cabal
+  OK  AMMITARA OCCULT INTERCESSION CABAL -> ammitara occult intercession cabal
+  OK  CASTELLAX-ACHEA MANIPLE -> castellax achea maniple
+  OK  CONTEMPTOR-OSIRON DREADNOUGHT -> contemptor osiron dreadnought
+  OK  NUMEROLOGIST CABAL -> numerologist cabal
+  OK  AHZEK AHRIMAN -> ahzek ahriman
+  OK  PHOSIS T'KAR -> phosis t kar
+  OK  HATHOR MAAT -> hathor maat
+  OK  SANAKHT -> sanakht
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+  MISS DANGEROUS WEAPONRY
+  MISS PSYCHIC BROTHERHOODS
+[X]
+  OK  SERVO-ARM -> servo arm
+  OK  MECHADENDRITES -> mechadendrites
+  MISS SPLINTER BOLTS
+  OK  ALBIAN POWER GLADIUS -> albian power gladius
+  OK  BLESSED AUTOSIMULACRA -> blessed autosimulacra
+  OK  MEDUSAN IMMORTAL SQUAD -> medusan immortal squad
+  OK  GORGON TERMINATOR SQUAD -> gorgon terminator squad
+  OK  MORLOCK TERMINATOR SQUAD -> morlock terminator squad
+  OK  VENERABLE FORGE LORD -> venerable forge lord
+  OK  SHADRAK MEDUSON -> shadrak meduson
+  OK  AUTEK MOR -> autek mor
+  MISS CASTRMEN ORTH
+  OK  GABRIEL SANTAR -> gabriel santar
+  OK  CHAINAXE -> chainaxe
+  OK  RAMPAGER SQUAD -> rampager squad
+  OK  RED BUTCHER SQUAD -> red butcher squad
+  OK  RED HAND DESTROYER MORTALIS SQUAD -> red hand destroyer mortalis squad
+  OK  WORLD EATERS INDUCTII SQUAD -> world eaters inductii squad
+  OK  DEVOURER TERMINATOR SQUAD -> devourer terminator squad
+  OK  TRIARII BREACHER SQUAD -> triarii breacher squad
+  OK  SHABRAN DARR -> shabran darr
+  OK  CAPTAIN EHRLEN -> captain ehrlen
+  OK  LEGATINE AXE -> legatine axe
+  OK  MANTLE OF ULTRAMAR -> mantle of ultramar
+  OK  INVICTARUS SUZERAIN SQUAD -> invictarus suzerain squad
+  OK  FULMENTARUS TERMINATOR SQUAD -> fulmentarus terminator squad
+  OK  LOCUTARUS STORM SQUAD -> locutarus storm squad
+  OK  NEMESIS DESTROYER SQUAD -> nemesis destroyer squad
+  OK  REMUS VENTANUS -> remus ventanus
+  OK  HONOURED TELEMECHRUS -> honoured telemechrus
+  OK  TITUS PRAYTO -> titus prayto
+  OK  MANREAPER -> manreaper
+  OK  DEATHSHROUD TERMINATORS -> deathshroud terminators
+  OK  GRAVE WARDEN TERMINATOR SQUAD -> grave warden terminator squad
+  OK  MORTUS POISONER SQUAD -> mortus poisoner squad
+  OK  CRYSOS MORTURG -> crysos morturg
+  OK  DURAK RASK -> durak rask
+  OK  IGNATIUS GRULGOR -> ignatius grulgor
+  OK  NATHANIEL GARRO -> nathaniel garro
+  OK  ARCANE LITANIES -> arcane litanies
+  OK  ÆTHER-FIRE CANNON -> ther fire cannon upgrade
+  MISS PROSPERINE ÆTHER-DISC
+  OK  SEKHMET TERMINATOR CABAL -> sekhmet terminator cabal
+  OK  KHENETAI OCCULT BLADE CABAL -> khenetai occult blade cabal
+  OK  AMMITARA OCCULT INTERCESSION CABAL -> ammitara occult intercession cabal
+  OK  CASTELLAX-ACHEA MANIPLE -> castellax achea maniple
+  OK  CONTEMPTOR-OSIRON DREADNOUGHT -> contemptor osiron dreadnought
+  OK  NUMEROLOGIST CABAL -> numerologist cabal
+  OK  AHZEK AHRIMAN -> ahzek ahriman
+  OK  PHOSIS T'KAR -> phosis t kar
+  OK  HATHOR MAAT -> hathor maat
+  OK  SANAKHT -> sanakht
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+  MISS DANGEROUS WEAPONRY
+  MISS PSYCHIC BROTHERHOODS
+[XII]
+  OK  CHAINAXE -> chainaxe
+  OK  RAMPAGER SQUAD -> rampager squad
+  OK  RED BUTCHER SQUAD -> red butcher squad
+  OK  RED HAND DESTROYER MORTALIS SQUAD -> red hand destroyer mortalis squad
+  OK  WORLD EATERS INDUCTII SQUAD -> world eaters inductii squad
+  OK  DEVOURER TERMINATOR SQUAD -> devourer terminator squad
+  OK  TRIARII BREACHER SQUAD -> triarii breacher squad
+  OK  SHABRAN DARR -> shabran darr
+  OK  CAPTAIN EHRLEN -> captain ehrlen
+  OK  LEGATINE AXE -> legatine axe
+  OK  MANTLE OF ULTRAMAR -> mantle of ultramar
+  OK  INVICTARUS SUZERAIN SQUAD -> invictarus suzerain squad
+  OK  FULMENTARUS TERMINATOR SQUAD -> fulmentarus terminator squad
+  OK  LOCUTARUS STORM SQUAD -> locutarus storm squad
+  OK  NEMESIS DESTROYER SQUAD -> nemesis destroyer squad
+  OK  REMUS VENTANUS -> remus ventanus
+  OK  HONOURED TELEMECHRUS -> honoured telemechrus
+  OK  TITUS PRAYTO -> titus prayto
+  OK  MANREAPER -> manreaper
+  OK  DEATHSHROUD TERMINATORS -> deathshroud terminators
+  OK  GRAVE WARDEN TERMINATOR SQUAD -> grave warden terminator squad
+  OK  MORTUS POISONER SQUAD -> mortus poisoner squad
+  OK  CRYSOS MORTURG -> crysos morturg
+  OK  DURAK RASK -> durak rask
+  OK  IGNATIUS GRULGOR -> ignatius grulgor
+  OK  NATHANIEL GARRO -> nathaniel garro
+  OK  ARCANE LITANIES -> arcane litanies
+  OK  ÆTHER-FIRE CANNON -> ther fire cannon upgrade
+  MISS PROSPERINE ÆTHER-DISC
+  OK  SEKHMET TERMINATOR CABAL -> sekhmet terminator cabal
+  OK  KHENETAI OCCULT BLADE CABAL -> khenetai occult blade cabal
+  OK  AMMITARA OCCULT INTERCESSION CABAL -> ammitara occult intercession cabal
+  OK  CASTELLAX-ACHEA MANIPLE -> castellax achea maniple
+  OK  CONTEMPTOR-OSIRON DREADNOUGHT -> contemptor osiron dreadnought
+  OK  NUMEROLOGIST CABAL -> numerologist cabal
+  OK  AHZEK AHRIMAN -> ahzek ahriman
+  OK  PHOSIS T'KAR -> phosis t kar
+  OK  HATHOR MAAT -> hathor maat
+  OK  SANAKHT -> sanakht
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+  MISS PSYCHIC BROTHERHOODS
+[XIII]
+  OK  LEGATINE AXE -> legatine axe
+  OK  MANTLE OF ULTRAMAR -> mantle of ultramar
+  OK  INVICTARUS SUZERAIN SQUAD -> invictarus suzerain squad
+  OK  FULMENTARUS TERMINATOR SQUAD -> fulmentarus terminator squad
+  OK  LOCUTARUS STORM SQUAD -> locutarus storm squad
+  OK  NEMESIS DESTROYER SQUAD -> nemesis destroyer squad
+  OK  REMUS VENTANUS -> remus ventanus
+  OK  HONOURED TELEMECHRUS -> honoured telemechrus
+  OK  TITUS PRAYTO -> titus prayto
+  OK  MANREAPER -> manreaper
+  OK  DEATHSHROUD TERMINATORS -> deathshroud terminators
+  OK  GRAVE WARDEN TERMINATOR SQUAD -> grave warden terminator squad
+  OK  MORTUS POISONER SQUAD -> mortus poisoner squad
+  OK  CRYSOS MORTURG -> crysos morturg
+  OK  DURAK RASK -> durak rask
+  OK  IGNATIUS GRULGOR -> ignatius grulgor
+  OK  NATHANIEL GARRO -> nathaniel garro
+  OK  ARCANE LITANIES -> arcane litanies
+  OK  ÆTHER-FIRE CANNON -> ther fire cannon upgrade
+  MISS PROSPERINE ÆTHER-DISC
+  OK  SEKHMET TERMINATOR CABAL -> sekhmet terminator cabal
+  OK  KHENETAI OCCULT BLADE CABAL -> khenetai occult blade cabal
+  OK  AMMITARA OCCULT INTERCESSION CABAL -> ammitara occult intercession cabal
+  OK  CASTELLAX-ACHEA MANIPLE -> castellax achea maniple
+  OK  CONTEMPTOR-OSIRON DREADNOUGHT -> contemptor osiron dreadnought
+  OK  NUMEROLOGIST CABAL -> numerologist cabal
+  OK  AHZEK AHRIMAN -> ahzek ahriman
+  OK  PHOSIS T'KAR -> phosis t kar
+  OK  HATHOR MAAT -> hathor maat
+  OK  SANAKHT -> sanakht
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  CHAINAXE -> chainaxe
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+  MISS PSYCHIC BROTHERHOODS
+[XIV]
+  OK  MANREAPER -> manreaper
+  OK  DEATHSHROUD TERMINATORS -> deathshroud terminators
+  OK  GRAVE WARDEN TERMINATOR SQUAD -> grave warden terminator squad
+  OK  MORTUS POISONER SQUAD -> mortus poisoner squad
+  OK  CRYSOS MORTURG -> crysos morturg
+  OK  DURAK RASK -> durak rask
+  OK  IGNATIUS GRULGOR -> ignatius grulgor
+  OK  NATHANIEL GARRO -> nathaniel garro
+  OK  ARCANE LITANIES -> arcane litanies
+  OK  ÆTHER-FIRE CANNON -> ther fire cannon upgrade
+  MISS PROSPERINE ÆTHER-DISC
+  OK  SEKHMET TERMINATOR CABAL -> sekhmet terminator cabal
+  OK  KHENETAI OCCULT BLADE CABAL -> khenetai occult blade cabal
+  OK  AMMITARA OCCULT INTERCESSION CABAL -> ammitara occult intercession cabal
+  OK  CASTELLAX-ACHEA MANIPLE -> castellax achea maniple
+  OK  CONTEMPTOR-OSIRON DREADNOUGHT -> contemptor osiron dreadnought
+  OK  NUMEROLOGIST CABAL -> numerologist cabal
+  OK  AHZEK AHRIMAN -> ahzek ahriman
+  OK  PHOSIS T'KAR -> phosis t kar
+  OK  HATHOR MAAT -> hathor maat
+  OK  SANAKHT -> sanakht
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  CHAINAXE -> chainaxe
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+  MISS PSYCHIC BROTHERHOODS
+[XV]
+  OK  ARCANE LITANIES -> arcane litanies
+  OK  ÆTHER-FIRE CANNON -> ther fire cannon upgrade
+  MISS PROSPERINE ÆTHER-DISC
+  OK  SEKHMET TERMINATOR CABAL -> sekhmet terminator cabal
+  OK  KHENETAI OCCULT BLADE CABAL -> khenetai occult blade cabal
+  OK  AMMITARA OCCULT INTERCESSION CABAL -> ammitara occult intercession cabal
+  OK  CASTELLAX-ACHEA MANIPLE -> castellax achea maniple
+  OK  CONTEMPTOR-OSIRON DREADNOUGHT -> contemptor osiron dreadnought
+  OK  NUMEROLOGIST CABAL -> numerologist cabal
+  OK  AHZEK AHRIMAN -> ahzek ahriman
+  OK  PHOSIS T'KAR -> phosis t kar
+  OK  HATHOR MAAT -> hathor maat
+  OK  SANAKHT -> sanakht
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  CHAINAXE -> chainaxe
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+  MISS PSYCHIC BROTHERHOODS
+[XVI]
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  CTHONIAN CULLING BLADE -> cthonian culling blade
+  OK  CHAINAXE -> chainaxe
+  OK  JUSTAERIN TERMINATOR SQUAD -> justaerin terminator squad
+  OK  REAVER ATTACK SQUAD -> reaver attack squad
+  OK  CHIEFTAIN SQUAD -> chieftain squad
+  OK  LUPERCI PACK -> luperci pack
+  OK  GARVIEL LOKEN -> garviel loken
+  OK  MALOGHURST THE TWISTED -> maloghurst the twisted
+  OK  VHEREN ASHURHADDON -> vheren ashurhaddon
+  OK  TARIK TORGADDON -> tarik torgaddon
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+[XVII]
+  OK  ACCURSED CROZIUS -> accursed crozius
+  OK  BURNING LORE -> burning lore
+  OK  HEX-BOLTS -> hex bolts
+  OK  ICON OF CHAOS UNDIVIDED -> icon of chaos undivided
+  OK  DARK CHANNELLING -> dark channelling
+  OK  COVENANT ZEALOT MOB -> covenant zealot mob
+  OK  GAL VORBAK DARK BRETHREN -> gal vorbak dark brethren
+  OK  ASHEN CIRCLE -> ashen circle
+  OK  MHARA GAL TAINTED DREADNOUGHT -> mhara gal tainted dreadnought
+  OK  PROCURATOR SQUAD -> procurator squad
+  OK  POSSESSED MARINE SQUAD -> possessed marine squad
+  OK  ARGEL TAL -> argel tal
+  OK  HIGH CHAPLAIN EREBUS -> high chaplain erebus
+  OK  ZARDU LAYAK -> zardu layak
+  OK  HOL BELOTH -> hol beloth
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  MISS FAVOUR OF THE PANTHEON
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+[XVIII]
+  OK  SALAMANDERS MANTLE -> salamanders mantle
+  OK  INFERNO PISTOL -> inferno pistol
+  OK  FIREDRAKE TERMINATOR SQUAD -> firedrake terminator squad
+  OK  PYROCLAST SQUAD -> pyroclast squad
+  OK  SALAMANDERS INFERNUS DESTROYER SQUAD -> salamanders infernus destroyer squad
+  OK  ADHERENT SQUAD -> adherent squad
+  OK  SANCTIFIER SQUAD -> sanctifier squad
+  OK  ARTELLUS NUMEON -> artellus numeon
+  OK  LORD CHAPLAIN NOMUS RHY'TAN -> lord chaplain nomus rhy tan
+  OK  CASSIAN DRACOS -> cassian dracos
+  OK  FORGEFATHER T'KELL -> forgefather t kell
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+  OK  ARTIFICER WEAPONS -> artificer armour
+  OK  ARTIFICER ARMOUR -> artificer armour
+  MISS FIRE-BASED WARFARE
+  MISS REINFORCED CERAMITE
+  MISS PROSCRIBED MUNITIONS
+[XIX]
+  OK  RAVEN’S TALONS -> ravens talons veteran model
+  OK  FULCRUM HAND CANNON -> fulcrum hand cannon
+  OK  INFRAVISOR -> infravisor
+  OK  SHROUD BOMBS -> shroud bombs
+  OK  MOR DEYTHAN SQUAD -> mor deythan squad
+  OK  DARK FURY ASSAULT SQUAD -> dark fury assault squad
+  OK  DELIVERER TERMINATOR SQUAD -> deliverer terminator squad
+  OK  RAPTOR SQUAD -> night raptor squad
+  OK  KAEDES NEX -> kaedes nex
+  OK  ALVAREX MAUN -> alvarex maun
+  OK  AGAPITO NEV -> agapito nev
+  OK  BRANNE NEV -> branne nev
+  OK  NYKONA SHARROWKYN -> nykona sharrowkyn
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+  OK  CAMELEOLINE -> cameleoline
+[XX]
+  OK  BANESTRIKE AMMUNITION -> banestrike ammunition
+  OK  POWER DAGGER -> power dagger
+  OK  VENOM SPHERES -> venom spheres
+  OK  LEGION OPERATIVES -> legion operatives
+  OK  HEADHUNTER KILL TEAM -> headhunter kill team
+  OK  LERNAEAN TERMINATOR SQUAD -> lernaean terminator squad
+  OK  EFFRIT DISRUPTION CADRE -> effrit disruption cadre
+  OK  ARMILLUS DYNAT -> armillus dynat
+  OK  EXODUS -> exodus
+  OK  AUTILON SKORR -> autilon skorr
+  OK  INGO PECH -> ingo pech
+  OK  MATHIAS HERZOG -> mathias herzog
+  OK  SHEED RANKO -> sheed ranko
+  OK  TELEPORTATION TRANSPONDERS -> teleportation transponders
+
+=== GENERATED PACKAGE COUNTS ===
+r40-da-: 2783
+r41-unit-: 3283
+r42-role-: 1303
+r43-: 307
+r44-: 202
+r45-: 718
+r46-: 2458
