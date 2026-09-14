@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<ns0:catalogue xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="49" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="19" type="catalogue">
+<ns0:catalogue xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="50" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="20" type="catalogue">
   <ns0:comment>Revision 46: New Recruit completion pass for Legions XVI-XX, including Legion armouries, Word Bearers Diabolist/Dark Channelling, Salamanders forge options, Raven Guard stealth wargear, Alpha Legion Mutable Tactics and functional Rewards of Treachery.</ns0:comment>
   <ns0:readme>Core Legiones Astartes catalogue for Prohammer 30k. Revision 32 includes the generic Legion army list and Consuls, Dark Angels package, Legiones Astartes Lords of War, and Legiones Astartes Aeronautica Imperialis aircraft. Experimental Wargear and Units remains excluded.</ns0:readme>
   <ns0:sharedSelectionEntries>
@@ -28702,7 +28702,7 @@ Every Alpha Legion Vehicle must begin the battle in Reserve unless a mission spe
 The Detachment may not include an Allied Detachment.</ns0:description></ns0:rule></ns0:rules></ns0:selectionEntry></ns0:selectionEntries>
         </ns0:selectionEntryGroup>
       </ns0:selectionEntryGroups>
-    </ns0:selectionEntry>
+    <ns0:selectionEntries><ns0:selectionEntry id="r50-data-marker" name="Data Revision 50 loaded — Legion packages refreshed" type="upgrade" hidden="false" import="true"><ns0:constraints><ns0:constraint id="r50-data-marker-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" /></ns0:constraints></ns0:selectionEntry></ns0:selectionEntries></ns0:selectionEntry>
     <ns0:selectionEntry type="unit" import="true" name="Deathwing Companion Detachment" hidden="false" id="da22-deathwing-companions">
       <ns0:costs>
         <ns0:cost name="Points" typeId="pts" value="175" />

@@ -1,0 +1,7 @@
+REVISION 50 — FULL NEW RECRUIT SOURCE REFRESH
+CAT revision=50
+GST revision=20
+CAT gameSystemRevision=20
+Visible marker: Data Revision 50 loaded — Legion packages refreshed
+White Scars / Thousand Sons required entries: PRESENT
+Broken refs: 0
