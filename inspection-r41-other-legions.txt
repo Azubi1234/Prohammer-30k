@@ -1,0 +1,365 @@
+CAT revision=40 GST=13
+
+===== III — EMPEROR'S CHILDREN =====
+SOURCE RITES (0): NONE PARSED
+CAT ENTRIES REFERENCING legion-iii: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+
+===== IV — IRON WARRIORS =====
+SOURCE RITES (2): THE HAMMER OF OLYMPIA | THE IRONFIRE
+CAT ENTRIES REFERENCING legion-iv: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('tactical-unit', 'Legion Tactical Squad', 'unit', [('Troops', 'cat-troops')])
+('assault-unit', 'Legion Assault Squad', 'unit', [('Troops', 'cat-troops')])
+('breacher-unit', 'Legion Breacher Siege Squad', 'unit', [('Troops', 'cat-troops')])
+('recon-unit', 'Legion Reconnaissance Squad', 'unit', [('Troops', 'cat-troops')])
+('veteran-unit', 'Legion Veteran Squad', 'unit', [('Elites', 'cat-elites')])
+('terminator-unit', 'Legion Terminator Squad', 'unit', [('Elites', 'cat-elites')])
+('destroyer-unit', 'Legion Destroyer Squad', 'unit', [('Elites', 'cat-elites')])
+('techmarine-covenant', 'Techmarine Covenant', 'unit', [('Elites', 'cat-elites')])
+('dreadnought-unit', 'Legion Dreadnought', 'unit', [('Elites', 'cat-elites')])
+('contemptor-unit', 'Legion Contemptor Dreadnought', 'unit', [('Elites', 'cat-elites')])
+('rapier-unit', 'Legion Rapier Weapons Battery', 'unit', [('Elites', 'cat-elites')])
+('fa-seeker', 'Legion Seeker Squad', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-bike', 'Legion Bike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-sky-hunter', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-attack-bike', 'Legion Attack Bike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-land-speeder', 'Legion Land Speeder Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-javelin', 'Legion Javelin Attack Speeder Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('hs-heavy-support-squad', 'Legion Heavy Support Squad', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-predator', 'Legion Predator Strike Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-vindicator', 'Legion Vindicator Siege Tank Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-land-raider', 'Legion Land Raider Battle Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-artillery', '0–1 Legion Artillery Tank Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-scorpius', 'Legion Whirlwind Scorpius', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-spartan', 'Legion Spartan Assault Tank', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-sicaran', 'Legion Sicaran Battle Tank', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-deredeo', 'Deredeo Pattern Dreadnought', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-venator', 'Sicaran Venator Tank Destroyer', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-achilles-alpha', 'Achilles-Alpha Pattern Land Raider', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-leviathan', 'Leviathan Siege Dreadnought', 'unit', [('Heavy Support', 'cat-heavy')])
+('hq-praetor', 'Legion Praetor', 'unit', [('HQ', 'cat-hq')])
+('hq-centurion', 'Legion Centurion', 'unit', [('HQ', 'cat-hq')])
+('hq-damocles', 'Damocles Command Rhino', 'unit', [('HQ', 'cat-hq')])
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+('da22-corswain', 'Corswain, Seneschal of the First Legion', 'unit', [('HQ', 'cat-hq')])
+('da22-redloss', 'Farith Redloss', 'unit', [('HQ', 'cat-hq')])
+('r35-pride-veteran-veteran-unit', 'Legion Veteran Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-pride-terminator-terminator-unit', 'Legion Terminator Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-breakthrough-predator-hs-predator', 'Legion Predator Strike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r35-destroyer-troops-destroyer-unit', 'Legion Destroyer Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-fury-dread-dreadnought-unit', 'Legion Dreadnought', 'unit', [('Troops', 'cat-troops')])
+('r35-fury-contemptor-contemptor-unit', 'Legion Contemptor Dreadnought', 'unit', [('Troops', 'cat-troops')])
+('r35-sky-troops-fa-sky-hunter', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r40-da-vow-terminator', 'Legion Terminator Squad', 'unit', [('Troops', 'cat-troops')])
+('r40-da-steel-predator', 'Legion Predator Strike Squadron', 'unit', [('Troops', 'cat-troops')])
+
+===== V — WHITE SCARS =====
+SOURCE RITES (2): CHOGORIAN BROTHERHOOD | THE SAGYAR MAZAN
+CAT ENTRIES REFERENCING legion-v: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+
+===== VI — SPACE WOLVES =====
+SOURCE RITES (2): THE PALE HUNTERS | THE BLOODIED CLAWS
+CAT ENTRIES REFERENCING legion-vi: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('tactical-unit', 'Legion Tactical Squad', 'unit', [('Troops', 'cat-troops')])
+('assault-unit', 'Legion Assault Squad', 'unit', [('Troops', 'cat-troops')])
+('breacher-unit', 'Legion Breacher Siege Squad', 'unit', [('Troops', 'cat-troops')])
+('recon-unit', 'Legion Reconnaissance Squad', 'unit', [('Troops', 'cat-troops')])
+('veteran-unit', 'Legion Veteran Squad', 'unit', [('Elites', 'cat-elites')])
+('techmarine-covenant', 'Techmarine Covenant', 'unit', [('Elites', 'cat-elites')])
+('rapier-unit', 'Legion Rapier Weapons Battery', 'unit', [('Elites', 'cat-elites')])
+('fa-seeker', 'Legion Seeker Squad', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-bike', 'Legion Bike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-sky-hunter', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('hs-heavy-support-squad', 'Legion Heavy Support Squad', 'unit', [('Heavy Support', 'cat-heavy')])
+('hq-praetor', 'Legion Praetor', 'unit', [('HQ', 'cat-hq')])
+('hq-centurion', 'Legion Centurion', 'unit', [('HQ', 'cat-hq')])
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+('r35-pride-veteran-veteran-unit', 'Legion Veteran Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-sky-troops-fa-sky-hunter', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r40-da-storm-tactical', 'Legion Tactical Squad (Storm of War compulsory)', 'unit', [('Troops', 'cat-troops')])
+('r40-da-storm-assault', 'Legion Assault Squad (Storm of War compulsory)', 'unit', [('Troops', 'cat-troops')])
+('r40-da-vow-veteran', 'Legion Veteran Squad', 'unit', [('Troops', 'cat-troops')])
+('r40-da-arrow-bike', 'Legion Bike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r40-da-arrow-sky', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r40-da-serpent-seeker', 'Legion Seeker Squad', 'unit', [('Troops', 'cat-troops')])
+('r40-da-serpent-assault', 'Legion Assault Squad (Serpent’s Bane compulsory)', 'unit', [('Troops', 'cat-troops')])
+
+===== VII — IMPERIAL FISTS =====
+SOURCE RITES (3): THE STONE GAUNTLET | HAMMERFALL STRIKE FORCE | TEMPLAR ASSAULT
+CAT ENTRIES REFERENCING legion-vii: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+
+===== VIII — NIGHT LORDS =====
+SOURCE RITES (2): TERROR ASSAULT | HORROR CULT
+CAT ENTRIES REFERENCING legion-viii: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('fa-javelin', 'Legion Javelin Attack Speeder Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+('da22-cenobium', 'Inner Circle Knights Cenobium', 'unit', [('Elites', 'cat-elites')])
+('da22-enigmatus', 'Firewing Enigmatus Cabal', 'unit', [('Elites', 'cat-elites')])
+('da22-sedras', 'Marduk Sedras, Lord of the Twenty-Third Order', 'unit', [('HQ', 'cat-hq')])
+('r32-low-transporter', 'Legion Thunderhawk Transporter', 'unit', [('Lords of War', 'cat-low')])
+('r32-low-thunderhawk', 'Legion Thunderhawk Gunship', 'unit', [('Lords of War', 'cat-low')])
+('r32-aero-lightning', 'Primaris-Lightning Strike Fighter', 'unit', [('Fast Attack', 'cat-fast')])
+
+===== IX — BLOOD ANGELS =====
+SOURCE RITES (2): THE DAY OF REVELATION | THE DAY OF SORROWS
+CAT ENTRIES REFERENCING legion-ix: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+
+===== X — IRON HANDS =====
+SOURCE RITES (2): THE HEAD OF THE GORGON | COMPANY OF BITTER IRON
+CAT ENTRIES REFERENCING legion-x: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('tactical-unit', 'Legion Tactical Squad', 'unit', [('Troops', 'cat-troops')])
+('assault-unit', 'Legion Assault Squad', 'unit', [('Troops', 'cat-troops')])
+('breacher-unit', 'Legion Breacher Siege Squad', 'unit', [('Troops', 'cat-troops')])
+('recon-unit', 'Legion Reconnaissance Squad', 'unit', [('Troops', 'cat-troops')])
+('veteran-unit', 'Legion Veteran Squad', 'unit', [('Elites', 'cat-elites')])
+('terminator-unit', 'Legion Terminator Squad', 'unit', [('Elites', 'cat-elites')])
+('destroyer-unit', 'Legion Destroyer Squad', 'unit', [('Elites', 'cat-elites')])
+('techmarine-covenant', 'Techmarine Covenant', 'unit', [('Elites', 'cat-elites')])
+('dreadnought-unit', 'Legion Dreadnought', 'unit', [('Elites', 'cat-elites')])
+('contemptor-unit', 'Legion Contemptor Dreadnought', 'unit', [('Elites', 'cat-elites')])
+('rapier-unit', 'Legion Rapier Weapons Battery', 'unit', [('Elites', 'cat-elites')])
+('fa-seeker', 'Legion Seeker Squad', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-bike', 'Legion Bike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-sky-hunter', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-attack-bike', 'Legion Attack Bike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-land-speeder', 'Legion Land Speeder Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-javelin', 'Legion Javelin Attack Speeder Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('hs-heavy-support-squad', 'Legion Heavy Support Squad', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-predator', 'Legion Predator Strike Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-vindicator', 'Legion Vindicator Siege Tank Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-land-raider', 'Legion Land Raider Battle Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-artillery', '0–1 Legion Artillery Tank Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-scorpius', 'Legion Whirlwind Scorpius', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-spartan', 'Legion Spartan Assault Tank', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-sicaran', 'Legion Sicaran Battle Tank', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-deredeo', 'Deredeo Pattern Dreadnought', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-venator', 'Sicaran Venator Tank Destroyer', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-achilles-alpha', 'Achilles-Alpha Pattern Land Raider', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-leviathan', 'Leviathan Siege Dreadnought', 'unit', [('Heavy Support', 'cat-heavy')])
+('hq-praetor', 'Legion Praetor', 'unit', [('HQ', 'cat-hq')])
+('hq-centurion', 'Legion Centurion', 'unit', [('HQ', 'cat-hq')])
+('hq-damocles', 'Damocles Command Rhino', 'unit', [('HQ', 'cat-hq')])
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+('da22-corswain', 'Corswain, Seneschal of the First Legion', 'unit', [('HQ', 'cat-hq')])
+('da22-redloss', 'Farith Redloss', 'unit', [('HQ', 'cat-hq')])
+('r35-pride-veteran-veteran-unit', 'Legion Veteran Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-pride-terminator-terminator-unit', 'Legion Terminator Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-breakthrough-predator-hs-predator', 'Legion Predator Strike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r35-destroyer-troops-destroyer-unit', 'Legion Destroyer Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-fury-dread-dreadnought-unit', 'Legion Dreadnought', 'unit', [('Troops', 'cat-troops')])
+('r35-fury-contemptor-contemptor-unit', 'Legion Contemptor Dreadnought', 'unit', [('Troops', 'cat-troops')])
+('r35-sky-troops-fa-sky-hunter', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r40-da-vow-terminator', 'Legion Terminator Squad', 'unit', [('Troops', 'cat-troops')])
+('r40-da-steel-predator', 'Legion Predator Strike Squadron', 'unit', [('Troops', 'cat-troops')])
+
+===== XII — WORLD EATERS =====
+SOURCE RITES (2): BERSERKER ASSAULT | THE CRIMSON PATH
+CAT ENTRIES REFERENCING legion-xii: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+('da22-sedras', 'Marduk Sedras, Lord of the Twenty-Third Order', 'unit', [('HQ', 'cat-hq')])
+
+===== XIII — ULTRAMARINES =====
+SOURCE RITES (2): THE LOGOS LECTORA | VIGIL OPERTII MISSION
+CAT ENTRIES REFERENCING legion-xiii: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+
+===== XIV — DEATH GUARD =====
+SOURCE RITES (2): THE REAPING | CREEPING DEATH
+CAT ENTRIES REFERENCING legion-xiv: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('tactical-unit', 'Legion Tactical Squad', 'unit', [('Troops', 'cat-troops')])
+('assault-unit', 'Legion Assault Squad', 'unit', [('Troops', 'cat-troops')])
+('breacher-unit', 'Legion Breacher Siege Squad', 'unit', [('Troops', 'cat-troops')])
+('recon-unit', 'Legion Reconnaissance Squad', 'unit', [('Troops', 'cat-troops')])
+('veteran-unit', 'Legion Veteran Squad', 'unit', [('Elites', 'cat-elites')])
+('terminator-unit', 'Legion Terminator Squad', 'unit', [('Elites', 'cat-elites')])
+('destroyer-unit', 'Legion Destroyer Squad', 'unit', [('Elites', 'cat-elites')])
+('techmarine-covenant', 'Techmarine Covenant', 'unit', [('Elites', 'cat-elites')])
+('dreadnought-unit', 'Legion Dreadnought', 'unit', [('Elites', 'cat-elites')])
+('contemptor-unit', 'Legion Contemptor Dreadnought', 'unit', [('Elites', 'cat-elites')])
+('rapier-unit', 'Legion Rapier Weapons Battery', 'unit', [('Elites', 'cat-elites')])
+('fa-seeker', 'Legion Seeker Squad', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-bike', 'Legion Bike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-sky-hunter', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-attack-bike', 'Legion Attack Bike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-land-speeder', 'Legion Land Speeder Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-javelin', 'Legion Javelin Attack Speeder Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('hs-heavy-support-squad', 'Legion Heavy Support Squad', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-predator', 'Legion Predator Strike Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-vindicator', 'Legion Vindicator Siege Tank Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-land-raider', 'Legion Land Raider Battle Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-artillery', '0–1 Legion Artillery Tank Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-scorpius', 'Legion Whirlwind Scorpius', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-spartan', 'Legion Spartan Assault Tank', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-sicaran', 'Legion Sicaran Battle Tank', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-deredeo', 'Deredeo Pattern Dreadnought', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-venator', 'Sicaran Venator Tank Destroyer', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-achilles-alpha', 'Achilles-Alpha Pattern Land Raider', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-leviathan', 'Leviathan Siege Dreadnought', 'unit', [('Heavy Support', 'cat-heavy')])
+('hq-praetor', 'Legion Praetor', 'unit', [('HQ', 'cat-hq')])
+('hq-centurion', 'Legion Centurion', 'unit', [('HQ', 'cat-hq')])
+('hq-damocles', 'Damocles Command Rhino', 'unit', [('HQ', 'cat-hq')])
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+('da22-deathwing-companions', 'Deathwing Companion Detachment', 'unit', [('Elites', 'cat-elites')])
+('da22-deathwing-term-comp', 'Deathwing Terminator Companion Detachment', 'unit', [('Elites', 'cat-elites')])
+('da22-corswain', 'Corswain, Seneschal of the First Legion', 'unit', [('HQ', 'cat-hq')])
+('da22-sedras', 'Marduk Sedras, Lord of the Twenty-Third Order', 'unit', [('HQ', 'cat-hq')])
+('da22-holguin', 'Holguin', 'unit', [('HQ', 'cat-hq')])
+('da22-lion', "Lion El'Jonson, The First", 'unit', [('Lords of War', 'cat-low')])
+('r35-pride-veteran-veteran-unit', 'Legion Veteran Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-pride-terminator-terminator-unit', 'Legion Terminator Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-breakthrough-predator-hs-predator', 'Legion Predator Strike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r35-destroyer-troops-destroyer-unit', 'Legion Destroyer Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-fury-dread-dreadnought-unit', 'Legion Dreadnought', 'unit', [('Troops', 'cat-troops')])
+('r35-fury-contemptor-contemptor-unit', 'Legion Contemptor Dreadnought', 'unit', [('Troops', 'cat-troops')])
+('r35-sky-troops-fa-sky-hunter', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r40-da-vow-veteran', 'Legion Veteran Squad', 'unit', [('Troops', 'cat-troops')])
+('r40-da-vow-terminator', 'Legion Terminator Squad', 'unit', [('Troops', 'cat-troops')])
+('r40-da-eskaton-destroyer', 'Legion Destroyer Squad', 'unit', [('Troops', 'cat-troops')])
+
+===== XV — THOUSAND SONS =====
+SOURCE RITES (3): THE AXIS OF DISSOLUTION | THE GUARD OF THE CRIMSON KING | THE FELLOWSHIPS OF PROSPERO
+CAT ENTRIES REFERENCING legion-xv: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+
+===== XVI — SONS OF HORUS =====
+SOURCE RITES (2): THE LONG MARCH | THE BLACK REAVING
+CAT ENTRIES REFERENCING legion-xvi: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+('r32-low-falchion', 'Legion Falchion Super-heavy Tank Destroyer', 'unit', [('Lords of War', 'cat-low')])
+('r32-low-fellblade', 'Legion Fellblade Super-heavy Tank', 'unit', [('Lords of War', 'cat-low')])
+('r32-low-glaive', 'Legion Glaive Super-heavy Special Weapons Tank', 'unit', [('Lords of War', 'cat-low')])
+
+===== XVII — WORD BEARERS =====
+SOURCE RITES (2): THE DARK BRETHREN | LAST OF THE SERRATED SUN
+CAT ENTRIES REFERENCING legion-xvii: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('tactical-unit', 'Legion Tactical Squad', 'unit', [('Troops', 'cat-troops')])
+('assault-unit', 'Legion Assault Squad', 'unit', [('Troops', 'cat-troops')])
+('breacher-unit', 'Legion Breacher Siege Squad', 'unit', [('Troops', 'cat-troops')])
+('recon-unit', 'Legion Reconnaissance Squad', 'unit', [('Troops', 'cat-troops')])
+('veteran-unit', 'Legion Veteran Squad', 'unit', [('Elites', 'cat-elites')])
+('terminator-unit', 'Legion Terminator Squad', 'unit', [('Elites', 'cat-elites')])
+('destroyer-unit', 'Legion Destroyer Squad', 'unit', [('Elites', 'cat-elites')])
+('techmarine-covenant', 'Techmarine Covenant', 'unit', [('Elites', 'cat-elites')])
+('dreadnought-unit', 'Legion Dreadnought', 'unit', [('Elites', 'cat-elites')])
+('contemptor-unit', 'Legion Contemptor Dreadnought', 'unit', [('Elites', 'cat-elites')])
+('rapier-unit', 'Legion Rapier Weapons Battery', 'unit', [('Elites', 'cat-elites')])
+('fa-seeker', 'Legion Seeker Squad', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-bike', 'Legion Bike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-sky-hunter', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-attack-bike', 'Legion Attack Bike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-land-speeder', 'Legion Land Speeder Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-javelin', 'Legion Javelin Attack Speeder Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('hs-heavy-support-squad', 'Legion Heavy Support Squad', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-predator', 'Legion Predator Strike Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-vindicator', 'Legion Vindicator Siege Tank Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-land-raider', 'Legion Land Raider Battle Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-artillery', '0–1 Legion Artillery Tank Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-scorpius', 'Legion Whirlwind Scorpius', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-spartan', 'Legion Spartan Assault Tank', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-sicaran', 'Legion Sicaran Battle Tank', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-deredeo', 'Deredeo Pattern Dreadnought', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-venator', 'Sicaran Venator Tank Destroyer', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-achilles-alpha', 'Achilles-Alpha Pattern Land Raider', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-leviathan', 'Leviathan Siege Dreadnought', 'unit', [('Heavy Support', 'cat-heavy')])
+('hq-praetor', 'Legion Praetor', 'unit', [('HQ', 'cat-hq')])
+('hq-centurion', 'Legion Centurion', 'unit', [('HQ', 'cat-hq')])
+('hq-damocles', 'Damocles Command Rhino', 'unit', [('HQ', 'cat-hq')])
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+('da22-cenobium', 'Inner Circle Knights Cenobium', 'unit', [('Elites', 'cat-elites')])
+('da22-interemptors', 'Dreadwing Interemptor Squad', 'unit', [('Elites', 'cat-elites')])
+('da22-redloss', 'Farith Redloss', 'unit', [('HQ', 'cat-hq')])
+('da22-holguin', 'Holguin', 'unit', [('HQ', 'cat-hq')])
+('da22-lion', "Lion El'Jonson, The First", 'unit', [('Lords of War', 'cat-low')])
+('r35-pride-veteran-veteran-unit', 'Legion Veteran Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-pride-terminator-terminator-unit', 'Legion Terminator Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-breakthrough-predator-hs-predator', 'Legion Predator Strike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r35-destroyer-troops-destroyer-unit', 'Legion Destroyer Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-fury-dread-dreadnought-unit', 'Legion Dreadnought', 'unit', [('Troops', 'cat-troops')])
+('r35-fury-contemptor-contemptor-unit', 'Legion Contemptor Dreadnought', 'unit', [('Troops', 'cat-troops')])
+('r35-sky-troops-fa-sky-hunter', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r40-da-storm-tactical', 'Legion Tactical Squad (Storm of War compulsory)', 'unit', [('Troops', 'cat-troops')])
+('r40-da-storm-assault', 'Legion Assault Squad (Storm of War compulsory)', 'unit', [('Troops', 'cat-troops')])
+('r40-da-vow-veteran', 'Legion Veteran Squad', 'unit', [('Troops', 'cat-troops')])
+('r40-da-vow-terminator', 'Legion Terminator Squad', 'unit', [('Troops', 'cat-troops')])
+('r40-da-eskaton-destroyer', 'Legion Destroyer Squad', 'unit', [('Troops', 'cat-troops')])
+('r40-da-eskaton-interemptor', 'Dreadwing Interemptor Squad', 'unit', [('Troops', 'cat-troops')])
+('r40-da-arrow-bike', 'Legion Bike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r40-da-arrow-sky', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r40-da-serpent-assault', 'Legion Assault Squad (Serpent’s Bane compulsory)', 'unit', [('Troops', 'cat-troops')])
+
+===== XVIII — SALAMANDERS =====
+SOURCE RITES (2): THE COVENANT OF FIRE | THE AWAKENING FIRE
+CAT ENTRIES REFERENCING legion-xviii: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+
+===== XIX — RAVEN GUARD =====
+SOURCE RITES (2): DECAPITATION STRIKE | LIBERATION FORCE
+CAT ENTRIES REFERENCING legion-xix: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('tactical-unit', 'Legion Tactical Squad', 'unit', [('Troops', 'cat-troops')])
+('assault-unit', 'Legion Assault Squad', 'unit', [('Troops', 'cat-troops')])
+('breacher-unit', 'Legion Breacher Siege Squad', 'unit', [('Troops', 'cat-troops')])
+('recon-unit', 'Legion Reconnaissance Squad', 'unit', [('Troops', 'cat-troops')])
+('veteran-unit', 'Legion Veteran Squad', 'unit', [('Elites', 'cat-elites')])
+('terminator-unit', 'Legion Terminator Squad', 'unit', [('Elites', 'cat-elites')])
+('destroyer-unit', 'Legion Destroyer Squad', 'unit', [('Elites', 'cat-elites')])
+('techmarine-covenant', 'Techmarine Covenant', 'unit', [('Elites', 'cat-elites')])
+('dreadnought-unit', 'Legion Dreadnought', 'unit', [('Elites', 'cat-elites')])
+('contemptor-unit', 'Legion Contemptor Dreadnought', 'unit', [('Elites', 'cat-elites')])
+('rapier-unit', 'Legion Rapier Weapons Battery', 'unit', [('Elites', 'cat-elites')])
+('fa-seeker', 'Legion Seeker Squad', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-bike', 'Legion Bike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-sky-hunter', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-attack-bike', 'Legion Attack Bike Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-land-speeder', 'Legion Land Speeder Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('fa-javelin', 'Legion Javelin Attack Speeder Squadron', 'unit', [('Fast Attack', 'cat-fast')])
+('hs-heavy-support-squad', 'Legion Heavy Support Squad', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-predator', 'Legion Predator Strike Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-vindicator', 'Legion Vindicator Siege Tank Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-land-raider', 'Legion Land Raider Battle Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-artillery', '0–1 Legion Artillery Tank Squadron', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-scorpius', 'Legion Whirlwind Scorpius', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-spartan', 'Legion Spartan Assault Tank', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-sicaran', 'Legion Sicaran Battle Tank', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-deredeo', 'Deredeo Pattern Dreadnought', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-venator', 'Sicaran Venator Tank Destroyer', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-achilles-alpha', 'Achilles-Alpha Pattern Land Raider', 'unit', [('Heavy Support', 'cat-heavy')])
+('hs-leviathan', 'Leviathan Siege Dreadnought', 'unit', [('Heavy Support', 'cat-heavy')])
+('hq-praetor', 'Legion Praetor', 'unit', [('HQ', 'cat-hq')])
+('hq-centurion', 'Legion Centurion', 'unit', [('HQ', 'cat-hq')])
+('hq-damocles', 'Damocles Command Rhino', 'unit', [('HQ', 'cat-hq')])
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
+('r35-pride-veteran-veteran-unit', 'Legion Veteran Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-pride-terminator-terminator-unit', 'Legion Terminator Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-breakthrough-predator-hs-predator', 'Legion Predator Strike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r35-destroyer-troops-destroyer-unit', 'Legion Destroyer Squad', 'unit', [('Troops', 'cat-troops')])
+('r35-fury-dread-dreadnought-unit', 'Legion Dreadnought', 'unit', [('Troops', 'cat-troops')])
+('r35-fury-contemptor-contemptor-unit', 'Legion Contemptor Dreadnought', 'unit', [('Troops', 'cat-troops')])
+('r35-sky-troops-fa-sky-hunter', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r40-da-arrow-bike', 'Legion Bike Squadron', 'unit', [('Troops', 'cat-troops')])
+('r40-da-arrow-sky', 'Legion Sky Hunter Jetbike Squadron', 'unit', [('Troops', 'cat-troops')])
+
+===== XX — ALPHA LEGION =====
+SOURCE RITES (2): THE COILS OF THE HYDRA | HEADHUNTER LEVIATHAL
+CAT ENTRIES REFERENCING legion-xx: 0
+TOP-LEVEL PACKAGE CANDIDATES:
+('hs-achilles-alpha', 'Achilles-Alpha Pattern Land Raider', 'unit', [('Heavy Support', 'cat-heavy')])
+('config-army', 'Army Configuration', 'upgrade', [('Configuration', 'cat-config')])
