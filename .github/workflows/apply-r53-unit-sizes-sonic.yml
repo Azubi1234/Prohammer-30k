@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/build/rev53_unit_sizes_and_sonic_hss.py'
+      - '.github/build/rev53_final_runner.py'
 permissions:
   contents: write
 jobs:
@@ -12,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Apply Revision 53
-        run: python .github/build/rev53_unit_sizes_and_sonic_hss.py
+        run: python .github/build/rev53_final_runner.py
       - name: Validate canonical BattleScribe namespaces
         run: |
           grep -q '<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema"' 'Legiones Astartes.cat'
