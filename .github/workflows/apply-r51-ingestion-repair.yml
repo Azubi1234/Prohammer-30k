@@ -1,0 +1,38 @@
+name: Apply Revision 51 New Recruit ingestion repair
+on:
+  push:
+    paths:
+      - '.github/build/rev51_normalize_xml_namespace.py'
+      - '.github/workflows/apply-r51-ingestion-repair.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Normalize BattleScribe XML namespaces and add index
+        run: python .github/build/rev51_normalize_xml_namespace.py
+      - name: Validate canonical roots
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          c=Path('Legiones Astartes.cat').read_text(encoding='utf-8')
+          g=Path('Prohammer 30k.gst').read_text(encoding='utf-8')
+          assert '<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema"' in c[:1000]
+          assert '<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema"' in g[:1000]
+          assert 'revision="51"' in c[:1000]
+          assert 'gameSystemRevision="21"' in c[:1000]
+          assert 'revision="21"' in g[:1000]
+          assert '<ns0:' not in c and '</ns0:' not in c
+          assert Path('index.xml').exists()
+          print('Revision 51 canonical XML validation passed')
+          PY
+      - name: Publish Revision 51
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r51-ingestion-repair.txt
+          git commit -m 'Revision 51: repair New Recruit XML ingestion' || exit 0
+          git push
