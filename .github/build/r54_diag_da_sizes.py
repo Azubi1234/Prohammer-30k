@@ -2,6 +2,7 @@ import xml.etree.ElementTree as ET
 CNS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{CNS}}}{t}'
 cr=ET.parse('Legiones Astartes.cat').getroot()
 parent={c:p for p in cr.iter() for c in p}
+found=0
 for s in cr.iter(C('selectionEntry')):
     if (s.get('name') or '').strip().lower()!='additional model': continue
     x=parent.get(s); unit=None
@@ -11,6 +12,7 @@ for s in cr.iter(C('selectionEntry')):
     if unit is None: continue
     uid=unit.get('id','')
     if not (uid.startswith('r40-da') or 'dark angel' in (unit.get('name') or '').lower()): continue
+    found+=1
     print('\nUNIT',uid,unit.get('name'),'unit default',unit.get('defaultAmount'))
     costs=unit.find(C('costs'))
     if costs is not None: print(' unit costs',[(c.get('typeId'),c.get('value')) for c in costs.findall(C('cost'))])
@@ -24,3 +26,4 @@ for s in cr.iter(C('selectionEntry')):
         for r in rules.findall(C('rule')):
             d=r.find(C('description')); txt=(d.text or '') if d is not None else ''
             if 'composition' in txt.lower() or 'additional' in txt.lower(): print(' rule',r.get('name'),txt[:1000].replace('\n',' | '))
+print('\nFOUND',found,'Dark Angels Additional model entries')
