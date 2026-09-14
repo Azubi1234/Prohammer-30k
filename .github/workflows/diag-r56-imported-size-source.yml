@@ -1,0 +1,12 @@
+name: Compare imported unit sizes to source entries
+on:
+  push:
+    paths:
+      - '.github/build/r56_compare_imported_sizes_to_source.py'
+  workflow_dispatch:
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python .github/build/r56_compare_imported_sizes_to_source.py
