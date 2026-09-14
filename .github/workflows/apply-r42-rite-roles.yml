@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - '.github/workflows/apply-r42-rite-roles.yml'
+      - '.github/build/rev42_rite_roles.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -53,8 +54,7 @@ jobs:
           assert not broken,broken[:30]
           roles=[e for e in cr.iter() if e.tag.endswith('selectionEntry') and e.get('id','').startswith('r42-role-') and e.get('type')=='unit']
           assert len(roles)>=12,len(roles)
-          report=Path('inspection-r42-rite-roles.txt').read_text(encoding='utf-8')
-          # Dark Angels reference implementation must remain intact.
+          Path('inspection-r42-rite-roles.txt').read_text(encoding='utf-8')
           for ident in ['da22-lion','da22-corswain','da22-rite-storm','r40-da-storm-tactical','r40-da-forward-deployment']:
               assert any(e.get('id')==ident for e in cr.iter()),ident
           print('VALIDATION OK role clones=',len(roles))
