@@ -1,0 +1,55 @@
+name: Diagnose Revision 50 New Recruit structure
+on:
+  push:
+    paths:
+      - '.github/workflows/diagnose-r50-structure.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare Legion unit categories and Praetor option placement
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+          C='http://www.battlescribe.net/schema/catalogueSchema';Q=lambda t:f'{{{C}}}{t}'
+          r=ET.parse('Legiones Astartes.cat').getroot(); ids={e.get('id'):e for e in r.iter() if e.get('id')}
+          out=[]
+          def dump(i):
+            e=ids.get(i); out.append('\n### '+i)
+            if e is None:out.append('MISSING');return
+            out.append(f'{e.tag.split("}")[-1]} name={e.get("name")} type={e.get("type")} hidden={e.get("hidden")}')
+            cats=e.find(Q('categoryLinks'))
+            if cats is None:out.append('NO CATEGORY LINKS')
+            else:
+              for c in cats:out.append('CAT '+str(c.attrib))
+            for g in e.findall('./'+Q('selectionEntryGroups')+'/'+Q('selectionEntryGroup')):
+              out.append(f'GROUP {g.get("id")} {g.get("name")} hidden={g.get("hidden")}')
+              for l in g.findall('./'+Q('entryLinks')+'/'+Q('entryLink')):
+                if any(x in (l.get('id') or '') for x in ['da','ws','ts','r43','r45','r47']):out.append('  GLINK '+str(l.attrib))
+            for l in e.findall('./'+Q('entryLinks')+'/'+Q('entryLink')):
+              if any(x in (l.get('id') or '') for x in ['da','ws','ts','r43','r45','r47']):out.append('ROOTLINK '+str(l.attrib))
+          for x in ['da22-interemptors','r41-unit-v-0-golden-keshig-squadron','r41-unit-v-1-ebon-keshig','r41-unit-xv-0-sekhmet-terminator-cabal','r41-unit-xv-3-castellax-achea-maniple','hq-praetor','hq-centurion']:
+            dump(x)
+          # top categories summary for every non-DA Legion imported unit
+          top=r.find(Q('selectionEntries')); out.append('\n### R41 CATEGORY SUMMARY')
+          for e in list(top):
+            i=e.get('id','')
+            if i.startswith('r41-unit-'):
+              cs=e.findall('./'+Q('categoryLinks')+'/'+Q('categoryLink'))
+              out.append(f'{i} | {e.get("name")} | '+','.join(f'{c.get("name")}:{c.get("targetId")} primary={c.get("primary")}' for c in cs))
+          Path('inspection-r50-structure.txt').write_text('\n'.join(out),encoding='utf-8')
+          print('\n'.join(out[:250]))
+          PY
+      - name: Commit report
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add inspection-r50-structure.txt
+          git commit -m 'Add Revision 50 New Recruit structure diagnostic' || exit 0
+          git pull --rebase origin main
+          git push
