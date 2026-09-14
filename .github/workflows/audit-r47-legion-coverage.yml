@@ -1,0 +1,91 @@
+name: Audit Revision 47 Legion coverage
+on:
+  push:
+    paths:
+      - '.github/workflows/audit-r47-legion-coverage.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch final source
+        run: |
+          set -euo pipefail
+          mkdir -p sources
+          curl --retry 3 --retry-delay 2 -L -sS 'https://docs.google.com/document/d/15yOQ5xqfa7QAJ15GlHqN7F4HvO_jk6K1w5fQ2xkGngk/export?format=md' -o 'sources/Forces of the Legions.md'
+      - name: Audit catalogue and source interaction coverage
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          import re, unicodedata
+          from pathlib import Path
+          CAT='Legiones Astartes.cat'; GST='Prohammer 30k.gst'
+          cr=ET.parse(CAT).getroot(); gr=ET.parse(GST).getroot()
+          source=Path('sources/Forces of the Legions.md').read_text(encoding='utf-8',errors='replace')
+          ids={e.get('id') for e in cr.iter() if e.get('id')}|{e.get('id') for e in gr.iter() if e.get('id')}
+          names=[e.get('name','') for e in cr.iter() if e.get('name')]
+          def norm(s):
+              s=unicodedata.normalize('NFKD',s or '').encode('ascii','ignore').decode('ascii').lower()
+              s=s.replace('’',"'")
+              return re.sub(r'[^a-z0-9]+',' ',s).strip()
+          nn=[norm(n) for n in names]
+          broken=[]
+          for e in cr.iter():
+              for a in ('targetId','childId'):
+                  v=e.get(a)
+                  if v and v not in ids: broken.append((e.get('id'),e.get('name'),a,v))
+          romans=['III','IV','V','VI','VII','VIII','IX','X','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX','XX']
+          out=[f'CAT revision={cr.get("revision")} GST={gr.get("revision")} gameSystemRevision={cr.get("gameSystemRevision")}',f'BROKEN TARGET/CHILD REFS={len(broken)}']
+          for b in broken[:200]:out.append('  '+repr(b))
+          out+=['','=== SOURCE ARMOURY COVERAGE ===']
+          # Extract each Legion section, then lines that look like purchasable named armoury entries.
+          for i,r in enumerate(romans):
+              m=re.search(rf'^=====\s*{re.escape(r)}\s*[—-].*$',source,re.M|re.I)
+              if not m:
+                  # Source markdown sometimes uses heading form instead of ====.
+                  m=re.search(rf'^#+\s*{re.escape(r)}\s*[—-].*$',source,re.M|re.I)
+              if not m: continue
+              start=m.start(); end=len(source)
+              for rr in romans[i+1:]:
+                  n=re.search(rf'^=====\s*{re.escape(rr)}\s*[—-].*$',source[m.end():],re.M|re.I)
+                  if n: end=m.end()+n.start(); break
+              sec=source[start:end]
+              out.append(f'[{r}]')
+              candidates=[]
+              for line in sec.splitlines():
+                  s=line.strip().strip('*').strip()
+                  # Upper-case armoury/consul names followed by explicit price language.
+                  mm=re.match(r'^([A-ZÆ’\'\- ][A-Z0-9Æ’\'\- ]{2,70}?)(?:\s+—\s+|\s+-\s+)(?:\+?\d+|FREE|SAME COST)',s)
+                  if mm:
+                      name=mm.group(1).strip()
+                      if any(k in name for k in ['RITE OF WAR','POINTS/MODEL','WEAPON','RANGE','LIMITATIONS']):continue
+                      candidates.append(name)
+              # Also capture named special headings known to carry a later price sentence.
+              for special in ['DIGITAL LASERS','SONIC SHRIEKER','SONIC WEAPONRY','SERVO-ARM','BIONICS','HORSETAIL TALISMAN','TELEPORTATION TRANSPONDERS','CAMELEOLINE','DARK CHANNELLING','FAVOUR OF THE PANTHEON','ARTIFICER WEAPONS','ARTIFICER ARMOUR','FIRE-BASED WARFARE','REINFORCED CERAMITE','PROSCRIBED MUNITIONS','DANGEROUS WEAPONRY','PSYCHIC BROTHERHOODS']:
+                  if special in sec and special not in candidates:candidates.append(special)
+              seen=[]
+              for name in candidates:
+                  if name in seen:continue
+                  seen.append(name); q=norm(name)
+                  # tolerant matching: all significant words appear in one catalogue name.
+                  words=[w for w in q.split() if len(w)>2 and w not in {'weapon','weapons','unit','model','upgrade','pattern'}]
+                  matches=[n for n,raw in zip(nn,names) if all(w in n for w in words)] if words else []
+                  out.append(('  OK  ' if matches else '  MISS ')+name+((' -> '+matches[0]) if matches else ''))
+          out+=['','=== GENERATED PACKAGE COUNTS ===']
+          prefixes=['r40-da-','r41-unit-','r42-role-','r43-','r44-','r45-','r46-']
+          for p in prefixes:out.append(f'{p}: {sum(1 for e in cr.iter() if e.get("id","").startswith(p))}')
+          Path('inspection-r47-coverage.txt').write_text('\n'.join(out),encoding='utf-8')
+          print('\n'.join(out[:80]))
+          PY
+      - name: Publish audit report
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add inspection-r47-coverage.txt
+          git commit -m 'Audit Revision 47 Legion interaction coverage' || exit 0
+          git pull --rebase origin main
+          git push
