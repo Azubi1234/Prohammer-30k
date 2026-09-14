@@ -1,0 +1,828 @@
+Top-level unit entries audited: 356
+UI-standard flags: 0
+
+UNIT tactical-unit :: Legion Tactical Squad
+  MODEL ('tac-marine', 'Legion Tactical Marine', '9', [('min', '9', 'parent'), ('max', '19', 'parent')], ['15'])
+  MODEL ('tac-sergeant', 'Legion Tactical Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['15'])
+  MODEL ('r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r40-da-steel-transport-tactical-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-steel-transport-tactical-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT assault-unit :: Legion Assault Squad
+  MODEL ('assault-marine', 'Legion Assault Marine', '9', [('min', '9', 'parent'), ('max', '19', 'parent')], ['18'])
+  MODEL ('assault-sergeant', 'Legion Assault Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['18'])
+
+UNIT breacher-unit :: Legion Breacher Siege Squad
+  MODEL ('breacher-marine', 'Legion Breacher Marine', '9', [('min', '9', 'parent'), ('max', '19', 'parent')], ['15'])
+  MODEL ('breacher-sergeant', 'Legion Breacher Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['15'])
+  MODEL ('r40-da-steel-transport-breacher-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-steel-transport-breacher-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT recon-unit :: Legion Reconnaissance Squad
+  MODEL ('recon-marine', 'Legion Recon Marine', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['14'])
+  MODEL ('recon-sergeant', 'Legion Recon Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['14'])
+  MODEL ('r37-spear-recon-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-recon-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-recon-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r40-da-steel-transport-recon-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-steel-transport-recon-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT veteran-unit :: Legion Veteran Squad
+  MODEL ('veteran-included', 'Legion Veterans', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20'])
+  MODEL ('veteran-sergeant', 'Legion Veteran Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT terminator-unit :: Legion Terminator Squad
+  MODEL ('terminator-included', 'Legion Terminators', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['30'])
+  MODEL ('terminator-sergeant', 'Legion Terminator Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r40-da-steel-transport-terminator-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-steel-transport-terminator-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT destroyer-unit :: Legion Destroyer Squad
+  MODEL ('destroyer-included', 'Legion Destroyers', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20'])
+  MODEL ('destroyer-sergeant', 'Legion Destroyer Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r40-da-steel-transport-destroyer-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-steel-transport-destroyer-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT techmarine-covenant :: Techmarine Covenant
+  MODEL ('techmarine-I', 'Legion Techmarine I', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['50'])
+  MODEL ('r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-techmarine-I-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('techmarine-I-servo-1', 'Servo-automata 1', None, [('max', '1', 'parent')], ['12'])
+  MODEL ('techmarine-I-servo-2', 'Servo-automata 2', None, [('max', '1', 'parent')], ['12'])
+  MODEL ('techmarine-I-servo-3', 'Servo-automata 3', None, [('max', '1', 'parent')], ['12'])
+  MODEL ('techmarine-I-servo-4', 'Servo-automata 4', None, [('max', '1', 'parent')], ['12'])
+  MODEL ('techmarine-II', 'Legion Techmarine II', None, [('max', '1', 'parent')], ['50'])
+  MODEL ('r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-techmarine-II-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('techmarine-II-servo-1', 'Servo-automata 1', None, [('max', '1', 'parent')], ['12'])
+  MODEL ('techmarine-II-servo-2', 'Servo-automata 2', None, [('max', '1', 'parent')], ['12'])
+  MODEL ('techmarine-II-servo-3', 'Servo-automata 3', None, [('max', '1', 'parent')], ['12'])
+  MODEL ('techmarine-II-servo-4', 'Servo-automata 4', None, [('max', '1', 'parent')], ['12'])
+  MODEL ('techmarine-III', 'Legion Techmarine III', None, [('max', '1', 'parent')], ['50'])
+  MODEL ('r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-techmarine-III-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('techmarine-III-servo-1', 'Servo-automata 1', None, [('max', '1', 'parent')], ['12'])
+  MODEL ('techmarine-III-servo-2', 'Servo-automata 2', None, [('max', '1', 'parent')], ['12'])
+  MODEL ('techmarine-III-servo-3', 'Servo-automata 3', None, [('max', '1', 'parent')], ['12'])
+  MODEL ('techmarine-III-servo-4', 'Servo-automata 4', None, [('max', '1', 'parent')], ['12'])
+
+UNIT rapier-unit :: Legion Rapier Weapons Battery
+  MODEL ('rapier-carrier', 'Rapier Carrier', '1', [('min', '1', 'parent'), ('max', '3', 'parent')], ['50'])
+
+UNIT fa-seeker :: Legion Seeker Squad
+  MODEL ('fa-seeker-included', 'Legion Seekers', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20'])
+  MODEL ('fa-seeker-sgt', 'Legion Seeker Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r40-da-steel-transport-fa-seeker-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-steel-transport-fa-seeker-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT fa-bike :: Legion Bike Squadron
+  MODEL ('fa-bike-included', 'Legion Bikers', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['30'])
+  MODEL ('fa-bike-sgt', 'Legion Biker Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+
+UNIT fa-sky-hunter :: Legion Sky Hunter Jetbike Squadron
+  MODEL ('fa-sky-included', 'Legion Sky Hunters', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['35'])
+  MODEL ('fa-sky-sgt', 'Sky Hunter Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+
+UNIT fa-attack-bike :: Legion Attack Bike Squadron
+  MODEL ('fa-attack-bike-model', 'Legion Attack Bike', '1', [('min', '1', 'parent'), ('max', '3', 'parent')], ['40'])
+
+UNIT fa-land-speeder :: Legion Land Speeder Squadron
+  MODEL ('fa-land-speeder-model', 'Legion Land Speeder', '1', [('min', '1', 'parent'), ('max', '3', 'parent')], ['50'])
+
+UNIT fa-javelin :: Legion Javelin Attack Speeder Squadron
+  MODEL ('fa-javelin-model', 'Javelin Attack Speeder', '1', [('min', '1', 'parent'), ('max', '3', 'parent')], ['75'])
+
+UNIT hs-heavy-support-squad :: Legion Heavy Support Squad
+  MODEL ('hs-hss-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['15'])
+  MODEL ('r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r40-da-steel-transport-hs-heavy-support-squad-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-steel-transport-hs-heavy-support-squad-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT hs-predator :: Legion Predator Strike Squadron
+  MODEL ('hs-predator-model', 'Legion Predator Tank', '1', [('min', '1', 'parent'), ('max', '3', 'parent')], ['100'])
+
+UNIT hs-vindicator :: Legion Vindicator Siege Tank Squadron
+  MODEL ('hs-vindicator-model', 'Legion Vindicator', '1', [('min', '1', 'parent'), ('max', '3', 'parent')], ['120'])
+
+UNIT hs-land-raider :: Legion Land Raider Battle Squadron
+  MODEL ('hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '3', 'parent')], ['250'])
+  MODEL ('hs-lr-proteus', 'Land Raider Proteus', None, [('max', '3', 'parent')], ['200'])
+  MODEL ('hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT hs-artillery :: 0–1 Legion Artillery Tank Squadron
+  MODEL ('hs-art-whirlwind', 'Legion Whirlwinds', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['75'])
+  MODEL ('hs-art-basilisk', 'Legion Basilisks', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['140'])
+  MODEL ('hs-art-medusa', 'Legion Medusas', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['155'])
+
+UNIT hq-praetor :: Legion Praetor
+  MODEL ('hq-praetor-ret-honour-champ', 'Legion Champion', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('hq-praetor-ret-honour-base', 'Legion Honour Guard', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['40'])
+  MODEL ('hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT hq-centurion :: Legion Centurion
+  MODEL ('r30-prae-castellax-extra', 'Castellax Battle-Automata', '1', [('max', '5', 'parent'), ('min', '1', 'parent')], ['105'])
+  MODEL ('r30-prae-vorax-extra', 'Vorax Battle-Automata', '1', [('max', '6', 'parent'), ('min', '1', 'parent')], ['65'])
+  MODEL ('hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('hq-centurion-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('hq-centurion-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('hq-centurion-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('hq-centurion-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT da22-deathwing-companions :: Deathwing Companion Detachment
+  MODEL ('da22-dwc-extra', 'Deathwing Companions', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['35'])
+  MODEL ('r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-da22-dwc-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT da22-deathwing-term-comp :: Deathwing Terminator Companion Detachment
+  MODEL ('da22-dwtc-extra', 'Terminator Companions', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['40'])
+
+UNIT da22-cenobium :: Inner Circle Knights Cenobium
+  MODEL ('da22-cen-extra', 'Knight Cenobites', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT da22-interemptors :: Dreadwing Interemptor Squad
+  MODEL ('da22-int-extra', 'Interemptors', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['25'])
+  MODEL ('r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r35-pride-veteran-veteran-unit :: Legion Veteran Squad
+  MODEL ('r35-pride-veteran-veteran-included', 'Legion Veterans', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20'])
+  MODEL ('r35-pride-veteran-veteran-sergeant', 'Legion Veteran Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-r35-pride-veteran-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r40-da-steel-transport-r35-pride-veteran-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-steel-transport-r35-pride-veteran-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r35-pride-terminator-terminator-unit :: Legion Terminator Squad
+  MODEL ('r35-pride-terminator-terminator-included', 'Legion Terminators', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['30'])
+  MODEL ('r35-pride-terminator-terminator-sergeant', 'Legion Terminator Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r40-da-steel-transport-r35-pride-terminator-terminator-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-steel-transport-r35-pride-terminator-terminator-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r35-breakthrough-predator-hs-predator :: Legion Predator Strike Squadron
+  MODEL ('r35-breakthrough-predator-hs-predator-model', 'Legion Predator Tank', '1', [('min', '1', 'parent'), ('max', '3', 'parent')], ['100'])
+
+UNIT r35-destroyer-troops-destroyer-unit :: Legion Destroyer Squad
+  MODEL ('r35-destroyer-troops-destroyer-included', 'Legion Destroyers', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20'])
+  MODEL ('r35-destroyer-troops-destroyer-sergeant', 'Legion Destroyer Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r37-spear-r35-destroyer-troops-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r40-da-steel-transport-r35-destroyer-troops-destroyer-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-steel-transport-r35-destroyer-troops-destroyer-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r35-sky-troops-fa-sky-hunter :: Legion Sky Hunter Jetbike Squadron
+  MODEL ('r35-sky-troops-fa-sky-included', 'Legion Sky Hunters', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['35'])
+  MODEL ('r35-sky-troops-fa-sky-sgt', 'Sky Hunter Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+
+UNIT r40-da-storm-tactical :: Legion Tactical Squad (Storm of War compulsory)
+  MODEL ('r40-da-storm-tactical-tac-marine', 'Legion Tactical Marine', '9', [('min', '9', 'parent'), ('max', '19', 'parent')], ['15'])
+  MODEL ('r40-da-storm-tactical-tac-sergeant', 'Legion Tactical Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['15'])
+
+UNIT r40-da-storm-assault :: Legion Assault Squad (Storm of War compulsory)
+  MODEL ('r40-da-storm-assault-assault-marine', 'Legion Assault Marine', '9', [('min', '9', 'parent'), ('max', '19', 'parent')], ['18'])
+  MODEL ('r40-da-storm-assault-assault-sergeant', 'Legion Assault Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['18'])
+
+UNIT r40-da-vow-veteran :: Legion Veteran Squad
+  MODEL ('r40-da-vow-veteran-veteran-included', 'Legion Veterans', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20.0'])
+  MODEL ('r40-da-vow-veteran-veteran-sergeant', 'Legion Veteran Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r40-da-vow-veteran-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-vow-veteran-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r40-da-vow-veteran-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r40-da-vow-terminator :: Legion Terminator Squad
+  MODEL ('r40-da-vow-terminator-terminator-included', 'Legion Terminators', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['30.0'])
+  MODEL ('r40-da-vow-terminator-terminator-sergeant', 'Legion Terminator Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+
+UNIT r40-da-eskaton-destroyer :: Legion Destroyer Squad
+  MODEL ('r40-da-eskaton-destroyer-destroyer-included', 'Legion Destroyers', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20.0'])
+  MODEL ('r40-da-eskaton-destroyer-destroyer-sergeant', 'Legion Destroyer Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r40-da-eskaton-destroyer-r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-eskaton-destroyer-r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r40-da-eskaton-destroyer-r37-spear-destroyer-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r40-da-eskaton-interemptor :: Dreadwing Interemptor Squad
+  MODEL ('r40-da-eskaton-interemptor-da22-int-extra', 'Interemptors', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['25'])
+  MODEL ('r40-da-eskaton-interemptor-r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-eskaton-interemptor-r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r40-da-eskaton-interemptor-r37-spear-da22-int-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r40-da-steel-predator :: Legion Predator Strike Squadron
+  MODEL ('r40-da-steel-predator-hs-predator-model', 'Legion Predator Tank', '1', [('min', '1', 'parent'), ('max', '3', 'parent')], ['100'])
+
+UNIT r40-da-arrow-bike :: Legion Bike Squadron
+  MODEL ('r40-da-arrow-bike-fa-bike-included', 'Legion Bikers', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['30.0'])
+  MODEL ('r40-da-arrow-bike-fa-bike-sgt', 'Legion Biker Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+
+UNIT r40-da-arrow-sky :: Legion Sky Hunter Jetbike Squadron
+  MODEL ('r40-da-arrow-sky-fa-sky-included', 'Legion Sky Hunters', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['35.0'])
+  MODEL ('r40-da-arrow-sky-fa-sky-sgt', 'Sky Hunter Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+
+UNIT r40-da-serpent-seeker :: Legion Seeker Squad
+  MODEL ('r40-da-serpent-seeker-fa-seeker-included', 'Legion Seekers', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20.0'])
+  MODEL ('r40-da-serpent-seeker-fa-seeker-sgt', 'Legion Seeker Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r40-da-serpent-seeker-r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r40-da-serpent-seeker-r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r40-da-serpent-seeker-r37-spear-fa-seeker-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r40-da-serpent-assault :: Legion Assault Squad (Serpent’s Bane compulsory)
+  MODEL ('r40-da-serpent-assault-assault-marine', 'Legion Assault Marine', '9', [('min', '9', 'parent'), ('max', '19', 'parent')], ['18'])
+  MODEL ('r40-da-serpent-assault-assault-sergeant', 'Legion Assault Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['18'])
+
+UNIT r41-unit-iii-0-palatine-blade-squad :: PALATINE BLADE SQUAD
+  MODEL ('r41-unit-iii-0-palatine-blade-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+
+UNIT r41-unit-iii-1-phoenix-terminator-squad :: PHOENIX TERMINATOR SQUAD
+  MODEL ('r41-unit-iii-1-phoenix-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r41-unit-iii-2-kakophoni-squad :: KAKOPHONI SQUAD
+  MODEL ('r41-unit-iii-2-kakophoni-squad-additional', 'Squad Models', '6', [('max', '12', 'parent'), ('min', '6', 'parent')], ['25'])
+
+UNIT r41-unit-iii-3-sun-killer-squad :: SUN KILLER SQUAD
+  MODEL ('r41-unit-iii-3-sun-killer-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-iii-4-lord-commander-eidolon :: LORD COMMANDER EIDOLON
+  MODEL ('r52-ec-eid-honour-hq-praetor-ret-honour-champ', 'Legion Champion', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r52-ec-eid-honour-hq-praetor-ret-honour-base', 'Legion Honour Guard', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['40'])
+  MODEL ('r52-ec-eid-honour-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r52-ec-eid-honour-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r52-ec-eid-honour-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-iii-6-captain-lucius :: CAPTAIN LUCIUS
+  MODEL ('r52-ec-luc-command-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r52-ec-luc-command-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r52-ec-luc-command-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r52-ec-luc-command-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-iii-9-fulgrim-the-phoenician :: FULGRIM, THE PHOENICIAN
+  MODEL ('r52-ec-ful-honour-hq-praetor-ret-honour-champ', 'Legion Champion', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r52-ec-ful-honour-hq-praetor-ret-honour-base', 'Legion Honour Guard', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['40'])
+  MODEL ('r52-ec-ful-honour-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r52-ec-ful-honour-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r52-ec-ful-honour-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r52-ec-ful-termcommand-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r52-ec-ful-termcommand-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r52-ec-ful-termcommand-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r52-ec-ful-termcommand-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r52-ec-ful-phoenix-retinue-r41-unit-iii-1-phoenix-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r41-unit-iv-0-tyrant-siege-terminator-squad :: TYRANT SIEGE TERMINATOR SQUAD
+  MODEL ('r41-unit-iv-0-tyrant-siege-terminator-squad-additional', 'Tyrant Siege Terminators', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['65'])
+
+UNIT r41-unit-iv-1-iron-havoc-squad :: IRON HAVOC SQUAD
+  MODEL ('r41-unit-iv-1-iron-havoc-squad-additional', 'Iron Havocs', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r41-unit-iv-2-dominator-cohort :: DOMINATOR COHORT
+  MODEL ('r41-unit-iv-2-dominator-cohort-additional', 'Dominator Cohort Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-iv-3-iron-circle-domitar-ferrum-maniple :: IRON CIRCLE DOMITAR-FERRUM MANIPLE
+  MODEL ('r41-unit-iv-3-iron-circle-domitar-ferrum-maniple-additional', 'Domitar-Ferrum Battle-Automata', '1', [('max', '6', 'parent'), ('min', '1', 'parent')], ['205'])
+
+UNIT r41-unit-iv-5-erasmus-golg :: ERASMUS GOLG
+  MODEL ('r57-iw-golg-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r57-iw-golg-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r57-iw-golg-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r57-iw-golg-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r57-iw-golg-retinue-tyrant-siege-terminator-squad-r41-unit-iv-0-tyrant-siege-terminator-squad-additional', 'Tyrant Siege Terminators', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['65'])
+  MODEL ('r57-iw-golg-retinue-dominator-cohort-r41-unit-iv-2-dominator-cohort-additional', 'Dominator Cohort Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-iv-7-forrix-first-captain-of-the-iron-warriors :: FORRIX, FIRST CAPTAIN OF THE IRON WARRIORS
+  MODEL ('r57-iw-forrix-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r57-iw-forrix-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r57-iw-forrix-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r57-iw-forrix-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r57-iw-forrix-retinue-tyrant-siege-terminator-squad-r41-unit-iv-0-tyrant-siege-terminator-squad-additional', 'Tyrant Siege Terminators', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['65'])
+
+UNIT r41-unit-iv-8-kroeger-the-bloody-handed :: KROEGER, THE BLOODY-HANDED
+  MODEL ('r57-iw-kroeger-retinue-legion-command-squad-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r57-iw-kroeger-retinue-legion-command-squad-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r57-iw-kroeger-retinue-legion-command-squad-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r57-iw-kroeger-retinue-legion-command-squad-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-iv-9-iv-perturabo-the-lord-of-iron :: IV — PERTURABO, THE LORD OF IRON
+  MODEL ('r57-iw-pert-retinue-legion-honour-guard-squad-hq-praetor-ret-honour-champ', 'Legion Champion', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r57-iw-pert-retinue-legion-honour-guard-squad-hq-praetor-ret-honour-base', 'Legion Honour Guard', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['40'])
+  MODEL ('r57-iw-pert-retinue-legion-honour-guard-squad-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r57-iw-pert-retinue-legion-honour-guard-squad-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r57-iw-pert-retinue-legion-honour-guard-squad-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r57-iw-pert-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r57-iw-pert-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r57-iw-pert-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r57-iw-pert-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r57-iw-pert-retinue-dominator-cohort-r41-unit-iv-2-dominator-cohort-additional', 'Dominator Cohort Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-v-0-golden-keshig-squadron :: GOLDEN KESHIG SQUADRON
+  MODEL ('r41-unit-v-0-golden-keshig-squadron-additional', 'Squad Models', '3', [('max', '5', 'parent'), ('min', '3', 'parent')], ['55'])
+
+UNIT r41-unit-v-1-ebon-keshig :: EBON KESHIG
+  MODEL ('r41-unit-v-1-ebon-keshig-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r41-unit-v-2-dark-sons-of-death :: DARK SONS OF DEATH
+  MODEL ('r41-unit-v-2-dark-sons-of-death-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['35'])
+
+UNIT r41-unit-v-3-falcons-claws :: FALCON’S CLAWS
+  MODEL ('r41-unit-v-3-falcons-claws-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+
+UNIT r41-unit-vi-1-grey-stalker-pack :: GREY STALKER PACK
+  MODEL ('r41-unit-vi-1-grey-stalker-pack-additional', 'Squad Models', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['17'])
+
+UNIT r41-unit-vi-2-wolf-scout-squad :: WOLF SCOUT SQUAD
+  MODEL ('r41-unit-vi-2-wolf-scout-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['14'])
+
+UNIT r41-unit-vi-3-deathsworn-pack :: DEATHSWORN PACK
+  MODEL ('r41-unit-vi-3-deathsworn-pack-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+
+UNIT r41-unit-vi-4-jorlund-hunter-pack :: JORLUND HUNTER PACK
+  MODEL ('r41-unit-vi-4-jorlund-hunter-pack-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['18'])
+
+UNIT r41-unit-vi-5-varagyr-wolf-guard-terminators :: VARAGYR WOLF GUARD TERMINATORS
+  MODEL ('r41-unit-vi-5-varagyr-wolf-guard-terminators-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r41-unit-vi-6-fenrisian-wolf-pack :: FENRISIAN WOLF PACK
+  MODEL ('r41-unit-vi-6-fenrisian-wolf-pack-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['12'])
+
+UNIT r41-unit-vii-0-templar-brethren-squad :: TEMPLAR BRETHREN SQUAD
+  MODEL ('r41-unit-vii-0-templar-brethren-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+
+UNIT r41-unit-vii-1-phalanx-warder-squad :: PHALANX WARDER SQUAD
+  MODEL ('r41-unit-vii-1-phalanx-warder-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['28'])
+
+UNIT r41-unit-vii-2-huscarl-terminator-retinue :: HUSCARL TERMINATOR RETINUE
+  MODEL ('r41-unit-vii-2-huscarl-terminator-retinue-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-viii-0-terror-squad :: TERROR SQUAD
+  MODEL ('r41-unit-viii-0-terror-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r41-unit-viii-1-night-raptor-squad :: NIGHT RAPTOR SQUAD
+  MODEL ('r41-unit-viii-1-night-raptor-squad-additional', 'Squad Models', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['28'])
+
+UNIT r41-unit-viii-2-contekar-terminator-elite :: CONTEKAR TERMINATOR ELITE
+  MODEL ('r41-unit-viii-2-contekar-terminator-elite-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-viii-3-atramentar-flay-clade :: ATRAMENTAR FLAY-CLADE
+  MODEL ('r41-unit-viii-3-atramentar-flay-clade-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-ix-0-dawnbreaker-cohort :: DAWNBREAKER COHORT
+  MODEL ('r41-unit-ix-0-dawnbreaker-cohort-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['35'])
+
+UNIT r41-unit-ix-1-crimson-paladin-squad :: CRIMSON PALADIN SQUAD
+  MODEL ('r41-unit-ix-1-crimson-paladin-squad-additional', 'Squad Models', '3', [('max', '5', 'parent'), ('min', '3', 'parent')], ['45'])
+
+UNIT r41-unit-ix-2-angel-s-tears-squad :: ANGEL'S TEARS SQUAD
+  MODEL ('r41-unit-ix-2-angel-s-tears-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+
+UNIT r41-unit-ix-3-ofanim-court :: OFANIM COURT
+  MODEL ('r41-unit-ix-3-ofanim-court-additional', 'Squad Models', '3', [('max', '5', 'parent'), ('min', '3', 'parent')], ['50'])
+
+UNIT r41-unit-ix-5-sanguinary-guard :: SANGUINARY GUARD
+  MODEL ('r41-unit-ix-5-sanguinary-guard-additional', 'Squad Models', '3', [('max', '6', 'parent'), ('min', '3', 'parent')], ['55'])
+
+UNIT r41-unit-x-1-gorgon-terminator-squad :: GORGON TERMINATOR SQUAD
+  MODEL ('r41-unit-x-1-gorgon-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r41-unit-x-2-morlock-terminator-squad :: MORLOCK TERMINATOR SQUAD
+  MODEL ('r41-unit-x-2-morlock-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-xii-0-rampager-squad :: RAMPAGER SQUAD
+  MODEL ('r41-unit-xii-0-rampager-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+
+UNIT r41-unit-xii-1-red-butcher-squad :: RED BUTCHER SQUAD
+  MODEL ('r41-unit-xii-1-red-butcher-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['60'])
+
+UNIT r41-unit-xii-2-red-hand-destroyer-mortalis-squad :: RED HAND DESTROYER MORTALIS SQUAD
+  MODEL ('r41-unit-xii-2-red-hand-destroyer-mortalis-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+
+UNIT r41-unit-xii-3-world-eaters-inductii-squad :: WORLD EATERS INDUCTII SQUAD
+  MODEL ('r41-unit-xii-3-world-eaters-inductii-squad-additional', 'Squad Models', '10', [('max', '20', 'parent'), ('min', '10', 'parent')], ['13'])
+
+UNIT r41-unit-xii-4-devourer-terminator-squad :: DEVOURER TERMINATOR SQUAD
+  MODEL ('r41-unit-xii-4-devourer-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r41-unit-xii-5-triarii-breacher-squad :: TRIARII BREACHER SQUAD
+  MODEL ('r41-unit-xii-5-triarii-breacher-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+
+UNIT r41-unit-xiii-0-invictarus-suzerain-squad :: INVICTARUS SUZERAIN SQUAD
+  MODEL ('r41-unit-xiii-0-invictarus-suzerain-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r41-unit-xiii-1-fulmentarus-terminator-squad :: FULMENTARUS TERMINATOR SQUAD
+  MODEL ('r41-unit-xiii-1-fulmentarus-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['65'])
+
+UNIT r41-unit-xiii-2-locutarus-storm-squad :: LOCUTARUS STORM SQUAD
+  MODEL ('r41-unit-xiii-2-locutarus-storm-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['35'])
+
+UNIT r41-unit-xiii-3-nemesis-destroyer-squad :: NEMESIS DESTROYER SQUAD
+  MODEL ('r41-unit-xiii-3-nemesis-destroyer-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r41-unit-xiv-0-deathshroud-terminators :: DEATHSHROUD TERMINATORS
+  MODEL ('r41-unit-xiv-0-deathshroud-terminators-additional', 'Squad Models', '2', [('max', '7', 'parent'), ('min', '2', 'parent')], ['55'])
+
+UNIT r41-unit-xiv-1-grave-warden-terminator-squad :: GRAVE WARDEN TERMINATOR SQUAD
+  MODEL ('r41-unit-xiv-1-grave-warden-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-xiv-2-mortus-poisoner-squad :: MORTUS POISONER SQUAD
+  MODEL ('r41-unit-xiv-2-mortus-poisoner-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['20'])
+
+UNIT r41-unit-xv-0-sekhmet-terminator-cabal :: SEKHMET TERMINATOR CABAL
+  MODEL ('r41-unit-xv-0-sekhmet-terminator-cabal-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['60'])
+
+UNIT r41-unit-xv-1-khenetai-occult-blade-cabal :: KHENETAI OCCULT BLADE CABAL
+  MODEL ('r41-unit-xv-1-khenetai-occult-blade-cabal-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['38'])
+
+UNIT r41-unit-xv-2-ammitara-occult-intercession-cabal :: AMMITARA OCCULT INTERCESSION CABAL
+  MODEL ('r41-unit-xv-2-ammitara-occult-intercession-cabal-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['20'])
+
+UNIT r41-unit-xv-3-castellax-achea-maniple :: CASTELLAX-ACHEA MANIPLE
+  MODEL ('r41-unit-xv-3-castellax-achea-maniple-additional', 'Squad Models', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['130'])
+
+UNIT r41-unit-xv-5-numerologist-cabal :: NUMEROLOGIST CABAL
+  MODEL ('r41-unit-xv-5-numerologist-cabal-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['15'])
+
+UNIT r41-unit-xvi-0-justaerin-terminator-squad :: JUSTAERIN TERMINATOR SQUAD
+  MODEL ('r41-unit-xvi-0-justaerin-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['57'])
+
+UNIT r41-unit-xvi-1-reaver-attack-squad :: REAVER ATTACK SQUAD
+  MODEL ('r41-unit-xvi-1-reaver-attack-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+
+UNIT r41-unit-xvi-2-chieftain-squad :: CHIEFTAIN SQUAD
+  MODEL ('r41-unit-xvi-2-chieftain-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['40'])
+
+UNIT r41-unit-xvi-3-luperci-pack :: LUPERCI PACK
+  MODEL ('r41-unit-xvi-3-luperci-pack-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r41-unit-xvii-1-gal-vorbak-dark-brethren :: GAL VORBAK DARK BRETHREN
+  MODEL ('r41-unit-xvii-1-gal-vorbak-dark-brethren-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+
+UNIT r41-unit-xvii-2-ashen-circle :: ASHEN CIRCLE
+  MODEL ('r41-unit-xvii-2-ashen-circle-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r41-unit-xvii-4-procurator-squad :: PROCURATOR SQUAD
+  MODEL ('r41-unit-xvii-4-procurator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['20'])
+
+UNIT r41-unit-xvii-5-possessed-marine-squad :: POSSESSED MARINE SQUAD
+  MODEL ('r41-unit-xvii-5-possessed-marine-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['26'])
+
+UNIT r41-unit-xviii-0-firedrake-terminator-squad :: FIREDRAKE TERMINATOR SQUAD
+  MODEL ('r41-unit-xviii-0-firedrake-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r41-unit-xviii-1-pyroclast-squad :: PYROCLAST SQUAD
+  MODEL ('r41-unit-xviii-1-pyroclast-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+
+UNIT r41-unit-xviii-2-salamanders-infernus-destroyer-squad :: SALAMANDERS INFERNUS DESTROYER SQUAD
+  MODEL ('r41-unit-xviii-2-salamanders-infernus-destroyer-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r41-unit-xviii-3-adherent-squad :: ADHERENT SQUAD
+  MODEL ('r41-unit-xviii-3-adherent-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+
+UNIT r41-unit-xviii-4-sanctifier-squad :: SANCTIFIER SQUAD
+  MODEL ('r41-unit-xviii-4-sanctifier-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r41-unit-xix-0-mor-deythan-squad :: MOR DEYTHAN SQUAD
+  MODEL ('r41-unit-xix-0-mor-deythan-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['24'])
+
+UNIT r41-unit-xix-1-dark-fury-assault-squad :: DARK FURY ASSAULT SQUAD
+  MODEL ('r41-unit-xix-1-dark-fury-assault-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['34'])
+
+UNIT r41-unit-xix-2-deliverer-terminator-squad :: DELIVERER TERMINATOR SQUAD
+  MODEL ('r41-unit-xix-2-deliverer-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['43'])
+
+UNIT r41-unit-xix-3-raptor-squad :: RAPTOR SQUAD
+  MODEL ('r41-unit-xix-3-raptor-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['32'])
+
+UNIT r41-unit-xx-0-legion-operatives :: LEGION OPERATIVES
+  MODEL ('r41-unit-xx-0-legion-operatives-additional', 'Squad Models', '10', [('max', '20', 'parent'), ('min', '10', 'parent')], ['6'])
+
+UNIT r41-unit-xx-1-headhunter-kill-team :: HEADHUNTER KILL TEAM
+  MODEL ('r41-unit-xx-1-headhunter-kill-team-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['32'])
+
+UNIT r41-unit-xx-2-lernaean-terminator-squad :: LERNAEAN TERMINATOR SQUAD
+  MODEL ('r41-unit-xx-2-lernaean-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['48'])
+
+UNIT r41-unit-xx-3-effrit-disruption-cadre :: EFFRIT DISRUPTION CADRE
+  MODEL ('r41-unit-xx-3-effrit-disruption-cadre-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r42-role-iii-1-effects-chosen-of-vairosean-kakophoni-squads-r41-unit-iii-2-kakophoni-squad :: KAKOPHONI SQUAD
+  MODEL ('r42-role-iii-1-effects-chosen-of-vairosean-kakophoni-squads-r41-unit-iii-2-kakophoni-squad-additional', 'Squad Models', '6', [('max', '12', 'parent'), ('min', '6', 'parent')], ['25'])
+
+UNIT r42-role-iv-1-legion-artillery-tank-squadron-hs-artillery :: 0–1 Legion Artillery Tank Squadron
+  MODEL ('r42-role-iv-1-legion-artillery-tank-squadron-hs-art-whirlwind', 'Legion Whirlwinds', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['75'])
+  MODEL ('r42-role-iv-1-legion-artillery-tank-squadron-hs-art-basilisk', 'Legion Basilisks', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['140'])
+  MODEL ('r42-role-iv-1-legion-artillery-tank-squadron-hs-art-medusa', 'Legion Medusas', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['155'])
+
+UNIT r42-role-v-0-effects-ride-like-the-wind-legion-sky-hunter-jetbike-squadrons-fa-sky-hunter :: Legion Sky Hunter Jetbike Squadron
+  MODEL ('r42-role-v-0-effects-ride-like-the-wind-legion-sky-hunter-jetbike-squadrons-fa-sky-included', 'Legion Sky Hunters', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['35'])
+  MODEL ('r42-role-v-0-effects-ride-like-the-wind-legion-sky-hunter-jetbike-squadrons-fa-sky-sgt', 'Sky Hunter Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+
+UNIT r42-role-vii-0-effects-warders-of-the-phalanx-phalanx-warder-squads-r41-unit-vii-1-phalanx-warder-squad :: PHALANX WARDER SQUAD
+  MODEL ('r42-role-vii-0-effects-warders-of-the-phalanx-phalanx-warder-squads-r41-unit-vii-1-phalanx-warder-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['28'])
+
+UNIT r42-role-vii-1-effects-landing-force-phalanx-warder-squads-r41-unit-vii-1-phalanx-warder-squad :: PHALANX WARDER SQUAD
+  MODEL ('r42-role-vii-1-effects-landing-force-phalanx-warder-squads-r41-unit-vii-1-phalanx-warder-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['28'])
+
+UNIT r42-role-vii-2-effects-templar-host-templar-brethren-squads-r41-unit-vii-0-templar-brethren-squad :: TEMPLAR BRETHREN SQUAD
+  MODEL ('r42-role-vii-2-effects-templar-host-templar-brethren-squads-r41-unit-vii-0-templar-brethren-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+
+UNIT r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad :: NIGHT RAPTOR SQUAD
+  MODEL ('r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-additional', 'Squad Models', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['28'])
+
+UNIT r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad :: NIGHT RAPTOR SQUAD
+  MODEL ('r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-additional', 'Squad Models', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['28'])
+
+UNIT r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad :: RAMPAGER SQUAD
+  MODEL ('r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+
+UNIT r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-veteran-unit :: Legion Veteran Squad
+  MODEL ('r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-veteran-included', 'Legion Veterans', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20'])
+  MODEL ('r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-veteran-sergeant', 'Legion Veteran Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-5', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r42-role-xiv-0-legion-heavy-support-squads-hs-heavy-support-squad :: Legion Heavy Support Squad
+  MODEL ('r42-role-xiv-0-legion-heavy-support-squads-hs-hss-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['15'])
+  MODEL ('r42-role-xiv-0-legion-heavy-support-squads-r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r42-role-xiv-0-legion-heavy-support-squads-r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r42-role-xiv-0-legion-heavy-support-squads-r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r42-role-xiv-0-legion-heavy-support-squads-r40-da-steel-transport-hs-heavy-support-squad-r37-spear-tac-transport-src-hq-praetor-ret-h', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r42-role-xiv-0-legion-heavy-support-squads-r40-da-steel-transport-hs-heavy-support-squad-r37-spear-tac-transport-src-hq-praetor-ret-h-5', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r42-role-xv-1-initiates-of-the-scarab-sekhmet-terminator-cabals-r41-unit-xv-0-sekhmet-terminator-cabal :: SEKHMET TERMINATOR CABAL
+  MODEL ('r42-role-xv-1-initiates-of-the-scarab-sekhmet-terminator-cabals-r41-unit-xv-0-sekhmet-terminator-cabal-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['60'])
+
+UNIT r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad :: REAVER ATTACK SQUAD
+  MODEL ('r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+
+UNIT r42-role-xviii-0-effects-disciples-of-the-flame-pyroclast-squads-r41-unit-xviii-1-pyroclast-squad :: PYROCLAST SQUAD
+  MODEL ('r42-role-xviii-0-effects-disciples-of-the-flame-pyroclast-squads-r41-unit-xviii-1-pyroclast-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+
+UNIT r42-role-xviii-0-salamanders-infernus-destroyer-squads-r41-unit-xviii-2-salamanders-infernus-destroyer-squad :: SALAMANDERS INFERNUS DESTROYER SQUAD
+  MODEL ('r42-role-xviii-0-salamanders-infernus-destroyer-squads-r41-unit-xviii-2-salamanders-infernus-destroyer-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r42-role-xx-1-effects-headhunter-elite-headhunter-kill-teams-r41-unit-xx-1-headhunter-kill-team :: HEADHUNTER KILL TEAM
+  MODEL ('r42-role-xx-1-effects-headhunter-elite-headhunter-kill-teams-r41-unit-xx-1-headhunter-kill-team-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['32'])
+
+UNIT r43-ws-bike-troops :: Legion Bike Squadron
+  MODEL ('r43-ws-bike-troops-fa-bike-included', 'Legion Bikers', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['30'])
+  MODEL ('r43-ws-bike-troops-fa-bike-sgt', 'Legion Biker Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+
+UNIT r43-ws-sagyar-ebon-troops :: EBON KESHIG
+  MODEL ('r43-ws-sagyar-ebon-troops-r41-unit-v-1-ebon-keshig-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r45-dg-bike :: Legion Bike Squadron
+  MODEL ('r45-dg-bike-fa-bike-included', 'Legion Bikers', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['30'])
+  MODEL ('r45-dg-bike-fa-bike-sgt', 'Legion Biker Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+
+UNIT r45-dg-attack-bike :: Legion Attack Bike Squadron
+  MODEL ('r45-dg-attack-bike-fa-attack-bike-model', 'Legion Attack Bike', '1', [('min', '1', 'parent'), ('max', '3', 'parent')], ['40'])
+
+UNIT r45-dg-land-speeder :: Legion Land Speeder Squadron
+  MODEL ('r45-dg-land-speeder-fa-land-speeder-model', 'Legion Land Speeder', '1', [('min', '1', 'parent'), ('max', '3', 'parent')], ['50'])
+
+UNIT r46-al-operative-aux :: Legion Operatives (slotless 0–2)
+  MODEL ('r46-al-operative-aux-r41-unit-xx-0-legion-operatives-additional', 'Squad Models', '10', [('max', '20', 'parent'), ('min', '10', 'parent')], ['6'])
+
+UNIT r46-al-reward-0 :: PALATINE BLADE SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-0-r41-unit-iii-0-palatine-blade-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+
+UNIT r46-al-reward-1 :: PHOENIX TERMINATOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-1-r41-unit-iii-1-phoenix-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r46-al-reward-2 :: KAKOPHONI SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-2-r41-unit-iii-2-kakophoni-squad-additional', 'Squad Models', '6', [('max', '12', 'parent'), ('min', '6', 'parent')], ['25'])
+
+UNIT r46-al-reward-3 :: SUN KILLER SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-3-r41-unit-iii-3-sun-killer-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r46-al-reward-4 :: TYRANT SIEGE TERMINATOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-4-r41-unit-iv-0-tyrant-siege-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['65'])
+
+UNIT r46-al-reward-5 :: IRON HAVOC SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-5-r41-unit-iv-1-iron-havoc-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r46-al-reward-6 :: DOMINATOR COHORT — Rewards of Treachery
+  MODEL ('r46-al-reward-6-r41-unit-iv-2-dominator-cohort-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r46-al-reward-7 :: IRON CIRCLE DOMITAR-FERRUM MANIPLE — Rewards of Treachery
+  MODEL ('r46-al-reward-7-r41-unit-iv-3-iron-circle-domitar-ferrum-maniple-additional', 'Squad Models', '1', [('max', '6', 'parent'), ('min', '1', 'parent')], ['205'])
+
+UNIT r46-al-reward-8 :: GOLDEN KESHIG SQUADRON — Rewards of Treachery
+  MODEL ('r46-al-reward-8-r41-unit-v-0-golden-keshig-squadron-additional', 'Squad Models', '3', [('max', '5', 'parent'), ('min', '3', 'parent')], ['55'])
+
+UNIT r46-al-reward-10 :: GREY STALKER PACK — Rewards of Treachery
+  MODEL ('r46-al-reward-10-r41-unit-vi-1-grey-stalker-pack-additional', 'Squad Models', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['17'])
+
+UNIT r46-al-reward-11 :: WOLF SCOUT SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-11-r41-unit-vi-2-wolf-scout-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['14'])
+
+UNIT r46-al-reward-12 :: DEATHSWORN PACK — Rewards of Treachery
+  MODEL ('r46-al-reward-12-r41-unit-vi-3-deathsworn-pack-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+
+UNIT r46-al-reward-13 :: JORLUND HUNTER PACK — Rewards of Treachery
+  MODEL ('r46-al-reward-13-r41-unit-vi-4-jorlund-hunter-pack-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['18'])
+
+UNIT r46-al-reward-14 :: VARAGYR WOLF GUARD TERMINATORS — Rewards of Treachery
+  MODEL ('r46-al-reward-14-r41-unit-vi-5-varagyr-wolf-guard-terminators-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r46-al-reward-15 :: FENRISIAN WOLF PACK — Rewards of Treachery
+  MODEL ('r46-al-reward-15-r41-unit-vi-6-fenrisian-wolf-pack-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['12'])
+
+UNIT r46-al-reward-16 :: TEMPLAR BRETHREN SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-16-r41-unit-vii-0-templar-brethren-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+
+UNIT r46-al-reward-17 :: PHALANX WARDER SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-17-r41-unit-vii-1-phalanx-warder-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['28'])
+
+UNIT r46-al-reward-18 :: TERROR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-18-r41-unit-viii-0-terror-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r46-al-reward-19 :: NIGHT RAPTOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-additional', 'Squad Models', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['28'])
+
+UNIT r46-al-reward-20 :: CONTEKAR TERMINATOR ELITE — Rewards of Treachery
+  MODEL ('r46-al-reward-20-r41-unit-viii-2-contekar-terminator-elite-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r46-al-reward-21 :: DAWNBREAKER COHORT — Rewards of Treachery
+  MODEL ('r46-al-reward-21-r41-unit-ix-0-dawnbreaker-cohort-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['35'])
+
+UNIT r46-al-reward-22 :: CRIMSON PALADIN SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-additional', 'Squad Models', '3', [('max', '5', 'parent'), ('min', '3', 'parent')], ['45'])
+
+UNIT r46-al-reward-23 :: ANGEL'S TEARS SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+
+UNIT r46-al-reward-26 :: GORGON TERMINATOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-26-r41-unit-x-1-gorgon-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r46-al-reward-27 :: MORLOCK TERMINATOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-27-r41-unit-x-2-morlock-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r46-al-reward-28 :: RAMPAGER SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-28-r41-unit-xii-0-rampager-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+
+UNIT r46-al-reward-29 :: RED BUTCHER SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['60'])
+
+UNIT r46-al-reward-30 :: RED HAND DESTROYER MORTALIS SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+
+UNIT r46-al-reward-31 :: WORLD EATERS INDUCTII SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-additional', 'Squad Models', '10', [('max', '20', 'parent'), ('min', '10', 'parent')], ['13'])
+
+UNIT r46-al-reward-32 :: DEVOURER TERMINATOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-32-r41-unit-xii-4-devourer-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r46-al-reward-33 :: TRIARII BREACHER SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+
+UNIT r46-al-reward-34 :: INVICTARUS SUZERAIN SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-34-r41-unit-xiii-0-invictarus-suzerain-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r46-al-reward-35 :: FULMENTARUS TERMINATOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-35-r41-unit-xiii-1-fulmentarus-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['65'])
+
+UNIT r46-al-reward-36 :: LOCUTARUS STORM SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-36-r41-unit-xiii-2-locutarus-storm-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['35'])
+
+UNIT r46-al-reward-37 :: NEMESIS DESTROYER SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-37-r41-unit-xiii-3-nemesis-destroyer-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r46-al-reward-38 :: DEATHSHROUD TERMINATORS — Rewards of Treachery
+  MODEL ('r46-al-reward-38-r41-unit-xiv-0-deathshroud-terminators-additional', 'Squad Models', '2', [('max', '7', 'parent'), ('min', '2', 'parent')], ['55'])
+
+UNIT r46-al-reward-39 :: GRAVE WARDEN TERMINATOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-39-r41-unit-xiv-1-grave-warden-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r46-al-reward-40 :: MORTUS POISONER SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-40-r41-unit-xiv-2-mortus-poisoner-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['20'])
+
+UNIT r46-al-reward-41 :: SEKHMET TERMINATOR CABAL — Rewards of Treachery
+  MODEL ('r46-al-reward-41-r41-unit-xv-0-sekhmet-terminator-cabal-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['60'])
+
+UNIT r46-al-reward-42 :: KHENETAI OCCULT BLADE CABAL — Rewards of Treachery
+  MODEL ('r46-al-reward-42-r41-unit-xv-1-khenetai-occult-blade-cabal-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['38'])
+
+UNIT r46-al-reward-43 :: AMMITARA OCCULT INTERCESSION CABAL — Rewards of Treachery
+  MODEL ('r46-al-reward-43-r41-unit-xv-2-ammitara-occult-intercession-cabal-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['20'])
+
+UNIT r46-al-reward-44 :: CASTELLAX-ACHEA MANIPLE — Rewards of Treachery
+  MODEL ('r46-al-reward-44-r41-unit-xv-3-castellax-achea-maniple-additional', 'Squad Models', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['130'])
+
+UNIT r46-al-reward-45 :: NUMEROLOGIST CABAL — Rewards of Treachery
+  MODEL ('r46-al-reward-45-r41-unit-xv-5-numerologist-cabal-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['15'])
+
+UNIT r46-al-reward-46 :: JUSTAERIN TERMINATOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-46-r41-unit-xvi-0-justaerin-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['57'])
+
+UNIT r46-al-reward-47 :: REAVER ATTACK SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-47-r41-unit-xvi-1-reaver-attack-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+
+UNIT r46-al-reward-48 :: CHIEFTAIN SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-48-r41-unit-xvi-2-chieftain-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['40'])
+
+UNIT r46-al-reward-49 :: LUPERCI PACK — Rewards of Treachery
+  MODEL ('r46-al-reward-49-r41-unit-xvi-3-luperci-pack-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r46-al-reward-50 :: GAL VORBAK DARK BRETHREN — Rewards of Treachery
+  MODEL ('r46-al-reward-50-r41-unit-xvii-1-gal-vorbak-dark-brethren-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+
+UNIT r46-al-reward-51 :: PROCURATOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-51-r41-unit-xvii-4-procurator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['20'])
+
+UNIT r46-al-reward-52 :: POSSESSED MARINE SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-52-r41-unit-xvii-5-possessed-marine-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['26'])
+
+UNIT r46-al-reward-53 :: FIREDRAKE TERMINATOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-53-r41-unit-xviii-0-firedrake-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+
+UNIT r46-al-reward-54 :: PYROCLAST SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-54-r41-unit-xviii-1-pyroclast-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+
+UNIT r46-al-reward-55 :: SALAMANDERS INFERNUS DESTROYER SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-55-r41-unit-xviii-2-salamanders-infernus-destroyer-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r46-al-reward-56 :: ADHERENT SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-56-r41-unit-xviii-3-adherent-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+
+UNIT r46-al-reward-57 :: SANCTIFIER SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-57-r41-unit-xviii-4-sanctifier-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+
+UNIT r46-al-reward-58 :: MOR DEYTHAN SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-58-r41-unit-xix-0-mor-deythan-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['24'])
+
+UNIT r46-al-reward-59 :: DARK FURY ASSAULT SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-59-r41-unit-xix-1-dark-fury-assault-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['34'])
+
+UNIT r46-al-reward-60 :: DELIVERER TERMINATOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-60-r41-unit-xix-2-deliverer-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['43'])
+
+UNIT r46-al-reward-61 :: RAPTOR SQUAD — Rewards of Treachery
+  MODEL ('r46-al-reward-61-r41-unit-xix-3-raptor-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['32'])
+
+UNIT r52-ec-sonic-hss :: Legion Heavy Support Squad — Sonic Weaponry
+  MODEL ('r52-ec-sonic-hss-hs-hss-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['15'])
+  MODEL ('r52-ec-sonic-hss-r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r52-ec-sonic-hss-r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r52-ec-sonic-hss-r37-spear-hs-hss-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r52-ec-sonic-hss-r40-da-steel-transport-hs-heavy-support-squad-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r52-ec-sonic-hss-r40-da-steel-transport-hs-heavy-support-squad-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r52-ec-third-kakophoni-troops :: Kakophoni Squad — 3rd Company Troops
+  MODEL ('r52-ec-third-kako-r41-unit-iii-2-kakophoni-squad-additional', 'Squad Models', '6', [('max', '12', 'parent'), ('min', '6', 'parent')], ['25'])
+
+UNIT r57-iw-golg-term-troops :: Legion Terminator Squad — Terminator Attack
+  MODEL ('r57-iw-golg-term-troops-terminator-included', 'Legion Terminators', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['30'])
+  MODEL ('r57-iw-golg-term-troops-terminator-sergeant', 'Legion Terminator Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r57-iw-golg-term-troops-r40-da-steel-transport-terminator-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r57-iw-golg-term-troops-r40-da-steel-transport-terminator-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r57-iw-hammer-tactical :: Legion Tactical Squad — Hammer Compulsory
+  MODEL ('r57-iw-hammer-tactical-tac-marine', 'Legion Tactical Marine', '9', [('min', '9', 'parent'), ('max', '19', 'parent')], ['15'])
+  MODEL ('r57-iw-hammer-tactical-tac-sergeant', 'Legion Tactical Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['15'])
+  MODEL ('r57-iw-hammer-tactical-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r57-iw-hammer-tactical-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r57-iw-hammer-tactical-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r57-iw-hammer-tactical-r40-da-steel-transport-tactical-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r57-iw-hammer-tactical-r40-da-steel-transport-tactical-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r57-iw-hammer-breacher :: Legion Breacher Siege Squad — Hammer Compulsory
+  MODEL ('r57-iw-hammer-breacher-breacher-marine', 'Legion Breacher Marine', '9', [('min', '9', 'parent'), ('max', '19', 'parent')], ['15'])
+  MODEL ('r57-iw-hammer-breacher-breacher-sergeant', 'Legion Breacher Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['15'])
+  MODEL ('r57-iw-hammer-breacher-r40-da-steel-transport-breacher-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r57-iw-hammer-breacher-r40-da-steel-transport-breacher-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r57-iw-ironfire-artillery :: Legion Artillery Tank Squadron — Artillery Column
+  MODEL ('r57-iw-ironfire-artillery-hs-art-whirlwind', 'Legion Whirlwinds', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['75'])
+  MODEL ('r57-iw-ironfire-artillery-hs-art-basilisk', 'Legion Basilisks', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['140'])
+  MODEL ('r57-iw-ironfire-artillery-hs-art-medusa', 'Legion Medusas', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['155'])
+
+=== FLAGS ===

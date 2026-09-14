@@ -1,0 +1,9 @@
+TYRANT SIEGE TERMINATOR SQUAD: Additional Tyrant Siege Terminator -> Tyrant Siege Terminators 5-10; 65 pts/model; parent minimum preserved; shifted 20 model-count conditions.
+IRON HAVOC SQUAD: Additional Iron Havoc -> Iron Havocs 5-10; 25 pts/model; parent minimum preserved; shifted 10 model-count conditions.
+DOMINATOR COHORT: Additional Dominator -> Dominator Cohort Models 5-10; 50 pts/model; parent minimum preserved; shifted 31 model-count conditions.
+IRON CIRCLE DOMITAR-FERRUM MANIPLE: Additional Domitar-Ferrum -> Domitar-Ferrum Battle-Automata 1-6; 205 pts/model; parent minimum preserved; shifted 0 model-count conditions.
+Tyrant Siege Terminator Squad: Additional Tyrant Siege Terminator -> Tyrant Siege Terminators 5-10; 65 pts/model; parent minimum preserved; shifted 20 model-count conditions.
+Dominator Cohort: Additional Dominator -> Dominator Cohort Models 5-10; 50 pts/model; parent minimum preserved; shifted 31 model-count conditions.
+Tyrant Siege Terminator Squad: Additional Tyrant Siege Terminator -> Tyrant Siege Terminators 5-10; 65 pts/model; parent minimum preserved; shifted 20 model-count conditions.
+Dominator Cohort: Additional Dominator -> Dominator Cohort Models 5-10; 50 pts/model; parent minimum preserved; shifted 31 model-count conditions.
+Converted 8 Iron Warriors Additional-model counters; zero legacy quantity counters remain catalogue-wide.
