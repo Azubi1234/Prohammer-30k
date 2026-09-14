@@ -26,3 +26,4 @@ for u in list(top):
   for pat in [r'Unit Composition\s*:?.{0,300}',r'Squad\s*:?.{0,250}',r'squad consists.{0,220}',r'consists of.{0,220}',r'up to \w+ additional.{0,120}',r'up to \d+ additional.{0,120}']:
    m=re.search(pat,txt,re.I|re.S)
    if m: print('HINT', ' '.join(m.group(0).split())[:500])
+# trigger
