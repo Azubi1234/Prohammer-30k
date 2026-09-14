@@ -43,7 +43,6 @@ for u in list(top):
             lines.append(f"  GROUP id={g.get('id')} name={g.get('name')} cons={cons(g)}")
     lines.append('')
 
-# Compare known working core HSS and EC/IW entries.
 for key in ('hs-heavy-support-squad','r41-unit-iii-0-palatine-blade-squad'):
     u=next((x for x in cr.iter(C('selectionEntry')) if x.get('id')==key),None)
     if u is None: continue
@@ -55,3 +54,4 @@ for key in ('hs-heavy-support-squad','r41-unit-iii-0-palatine-blade-squad'):
 
 Path('inspection-r59-iw-size-diagnostic.txt').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 print('\n'.join(lines))
+# trigger diagnostic workflow after it exists
