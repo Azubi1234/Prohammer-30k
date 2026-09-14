@@ -22,7 +22,6 @@ idx=re.sub(r'(dataType="gamesystem"[^>]*dataRevision=")\d+("/>)',r'\g<1>27\2',id
 idx=re.sub(r'(dataType="catalogue"[^>]*dataRevision=")\d+("/>)',r'\g<1>59\2',idx)
 INDEX.write_text(idx,encoding='utf-8')
 
-# Verify the four IW units are in total-model format, not Additional-model format.
 expected={
  'r41-unit-iv-0-tyrant-siege-terminator-squad':('Tyrant Siege Terminators',5,10),
  'r41-unit-iv-1-iron-havoc-squad':('Iron Havocs',5,10),
@@ -48,7 +47,6 @@ for uid,(label,mn,mx) in expected.items():
     assert not (m.get('name') or '').startswith('Additional ')
     report.append(f'{u.get("name")}: {label} {mn}-{mx}, default {mn}.')
 
-# No visible quantity counter anywhere may be named Additional X.
 for e in cr.iter(C('selectionEntry')):
     nm=(e.get('name') or '').strip()
     if nm.startswith('Additional ') and not nm.startswith(('Additional Armoury','Additional Wargear','Additional Weapon')):
@@ -63,3 +61,4 @@ assert '<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema"'
 report.append('CAT59 / GST27; canonical namespaces; no legacy Additional-model quantity counters.')
 Path('inspection-r59-force-refresh.txt').write_text('\n'.join(report)+'\n',encoding='utf-8')
 print('\n'.join(report))
+# trigger workflow now that the workflow file exists
