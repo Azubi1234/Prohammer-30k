@@ -39,3 +39,5 @@ jobs:
             git commit -m 'Revision 63: implement full Space Wolves army'
             git push
           fi
+
+# Retry trigger after syntax validation.
