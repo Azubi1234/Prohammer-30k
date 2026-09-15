@@ -348,6 +348,9 @@ UNIT r41-unit-v-1-ebon-keshig :: EBON KESHIG
 
 UNIT r41-unit-v-2-dark-sons-of-death :: DARK SONS OF DEATH
   MODEL ('r60-ws-dark-models', 'Dark Sons of Death', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['35'])
+  MODEL ('r61-ws-dark-lr-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r61-ws-dark-lr-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r61-ws-dark-lr-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
 
 UNIT r41-unit-v-3-falcons-claws :: FALCON’S CLAWS
   MODEL ('r60-ws-falcon-models', "Falcon's Claws", '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['22'])

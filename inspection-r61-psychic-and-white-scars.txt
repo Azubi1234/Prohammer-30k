@@ -1,0 +1,4 @@
+Removed previous r61 nodes: CAT=0, GST=0
+Librarian psychic powers attached; Epistolary entry=hq-consul-librarian-epistolary
+Validation: CAT61/GST29; 35-power general discipline pool attached to Librarian ML1, Librarian Epistolary and Stormseer Epistolary; Unseen Bolt is a real ranged profile.
+Dark Sons transport validation: exact Rhino, Drop Pod and Dreadclaw targets plus Land Raider Phobos/Proteus/Achilles; transport is hidden and capped at zero when Jump Packs are selected.
