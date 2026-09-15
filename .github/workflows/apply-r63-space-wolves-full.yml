@@ -1,0 +1,41 @@
+name: Apply Revision 63 Space Wolves full army
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev63_space_wolves_full.py'
+      - '.github/workflows/apply-r63-space-wolves-full.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply full Space Wolves implementation
+        run: python .github/build/rev63_space_wolves_full.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify revision and inspection
+        run: |
+          grep -q 'dataRevision="63"' index.xml
+          grep -q 'dataRevision="31"' index.xml
+          test -f inspection-r63-space-wolves-full.txt
+          cat inspection-r63-space-wolves-full.txt
+      - name: Commit generated data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r63-space-wolves-full.txt inspection-r56-all-unit-sizes.txt
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+          else
+            git commit -m 'Revision 63: implement full Space Wolves army'
+            git push
+          fi
