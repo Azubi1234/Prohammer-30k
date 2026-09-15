@@ -1,0 +1,6 @@
+REVISION 62 — SPACE WOLVES BASE
+Source verification: Hunters of Fenris, No Matter the Odds, Blood Feud and Legion Organisation match Forces of the Legions.
+Consul restriction: generic Chaplain and Librarian are hidden when VI Legion — Space Wolves is selected.
+HQ organisation: min and max now equal ceil(roster points limit / 750), enforcing exactly 1/2/3/4 HQ at 750/1500/2250/3000 points and continuing the written one-per-partial-750 rule above that.
+Unlimited roster fallback: min 1, max 4 for manual use.
+Validation PASS: CAT62 / GST30, no duplicate IDs, no broken references.
