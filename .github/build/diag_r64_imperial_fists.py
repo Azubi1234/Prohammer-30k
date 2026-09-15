@@ -20,8 +20,24 @@ for e in cr.iter():
         print(e.tag.split('}')[-1],e.get('id'),repr(e.get('name')),'target=',e.get('targetId'))
 print('\nCORE TARGETS')
 for ident in ['hq-praetor','hq-centurion','hq-centurion-consuls','tactical-unit','assault-unit','breacher-unit','recon-unit','veteran-unit','terminator-unit','fa-seeker','hs-heavy-support-squad','hs-land-raider','hs-spartan','transport-rhino','transport-drop-pod','transport-dreadclaw','fl-fast','fl-troops','fl-elites','fl-hq','fl-heavy']:
-    obj=next((e for e in cr.iter() if e.get('id')==ident),None) or next((e for e in gr.iter() if e.get('id')==ident),None)
+    obj=next((e for e in cr.iter() if e.get('id')==ident),None)
+    if obj is None: obj=next((e for e in gr.iter() if e.get('id')==ident),None)
     print(ident,'=>',obj.tag.split('}')[-1] if obj is not None else None,repr(obj.get('name')) if obj is not None else None)
+print('\nCOMMAND / TERMINATOR / FORTIFICATION TARGETS')
+for e in cr.iter(C('selectionEntry')):
+    n=(e.get('name') or '').lower(); i=(e.get('id') or '').lower()
+    if ('command squad' in n or 'honour guard' in n or 'terminator armour' in n or 'fortification' in n or 'bunker' in n or 'defence line' in n):
+        print(e.get('id'),repr(e.get('name')),'type=',e.get('type'))
+print('\nPRAETOR/CENTURION GROUPS')
+for uid in ['hq-praetor','hq-centurion']:
+    u=next((e for e in cr.iter(C('selectionEntry')) if e.get('id')==uid),None)
+    print('UNIT',uid)
+    if u is not None:
+        for g in u.iter(C('selectionEntryGroup')):
+            print(' group',g.get('id'),repr(g.get('name')))
+        for e in u.iter(C('selectionEntry')):
+            if e is not u and ('armour' in (e.get('name') or '').lower() or 'shield' in (e.get('name') or '').lower()):
+                print(' option',e.get('id'),repr(e.get('name')))
 print('\nALLEGIANCE')
 for e in cr.iter():
     if 'allegiance' in (e.get('id') or '').lower() or 'allegiance' in (e.get('name') or '').lower():
