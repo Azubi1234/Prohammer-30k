@@ -1,0 +1,16 @@
+name: Diagnose Revision 63 Space Wolves full army
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/diag_r63_space_wolves_full.py'
+      - '.github/workflows/diag-r63-space-wolves-full.yml'
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: python .github/build/diag_r63_space_wolves_full.py
