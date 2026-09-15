@@ -18,6 +18,38 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      - name: Apply transport-audit patch if still needed
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('.github/build/rev63_space_wolves_full.py')
+          s=p.read_text(encoding='utf-8')
+          old="""def transport_names(unit):
+              out=[]
+              for g in unit.iter(C('selectionEntryGroup')):
+                  if g.get('name')=='Dedicated Transport':
+                      for l in g.iter(C('entryLink')): out.append(l.get('name'))
+                      for e in g.findall('./'+C('selectionEntries')+'/'+C('selectionEntry')): out.append(e.get('name'))
+              return out
+          """
+          new="""def transport_names(unit):
+              out=[]
+              for g in unit.iter(C('selectionEntryGroup')):
+                  if g.get('name')=='Dedicated Transport':
+                      links=g.find(C('entryLinks'))
+                      if links is not None:
+                          for l in links.findall(C('entryLink')): out.append(l.get('name'))
+                      entries=g.find(C('selectionEntries'))
+                      if entries is not None:
+                          for e in entries.findall(C('selectionEntry')): out.append(e.get('name'))
+              return out
+          """
+          if old in s:
+              p.write_text(s.replace(old,new),encoding='utf-8')
+              print('Patched transport audit.')
+          else:
+              print('Transport audit already patched.')
+          PY
       - name: Apply full Space Wolves implementation
         run: python .github/build/rev63_space_wolves_full.py
       - name: Run permanent unit-size audit
@@ -32,12 +64,10 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r63-space-wolves-full.txt inspection-r56-all-unit-sizes.txt
+          git add '.github/build/rev63_space_wolves_full.py' 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r63-space-wolves-full.txt inspection-r56-all-unit-sizes.txt
           if git diff --cached --quiet; then
             echo 'No generated changes to commit.'
           else
             git commit -m 'Revision 63: implement full Space Wolves army'
             git push
           fi
-
-# Retry trigger after syntax validation.
