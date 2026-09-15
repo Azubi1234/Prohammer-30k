@@ -1,0 +1,41 @@
+name: Apply Revision 62 Space Wolves base
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev62_space_wolves_base.py'
+      - '.github/workflows/apply-r62-space-wolves-base.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply Space Wolves base rules
+        run: python .github/build/rev62_space_wolves_base.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify revision and inspection
+        run: |
+          grep -q 'dataRevision="62"' index.xml
+          grep -q 'dataRevision="29"' index.xml
+          test -f inspection-r62-space-wolves-base.txt
+          cat inspection-r62-space-wolves-base.txt
+      - name: Commit generated data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' index.xml inspection-r62-space-wolves-base.txt inspection-r56-all-unit-sizes.txt
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+          else
+            git commit -m 'Revision 62: implement Space Wolves base rules'
+            git push
+          fi
