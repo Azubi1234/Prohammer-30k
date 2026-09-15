@@ -1,35 +1,36 @@
-# trigger diagnostic
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
-CAT=Path('Legiones Astartes.cat'); GST=Path('Prohammer 30k.gst')
-CNS='http://www.battlescribe.net/schema/catalogueSchema'; GNS='http://www.battlescribe.net/schema/gameSystemSchema'
-C=lambda t:f'{{{CNS}}}{t}'; G=lambda t:f'{{{GNS}}}{t}'
-cr=ET.parse(CAT).getroot(); gr=ET.parse(GST).getroot()
-print('CAT REV',cr.get('revision'),'GST REV',gr.get('revision'))
-print('\nLEGION CANDIDATES')
-for e in cr.iter(C('selectionEntry')):
-    n=(e.get('name') or '').lower(); i=e.get('id','')
-    if 'space wolves' in n or i.startswith('legion-'):
-        print('ENTRY',i,'::',e.get('name'),'type=',e.get('type'),'hidden=',e.get('hidden'))
-print('\nCONSUL CANDIDATES')
-for e in cr.iter(C('selectionEntry')):
-    n=(e.get('name') or '').lower()
-    if 'chaplain' in n or 'librarian' in n or 'consul' in n:
-        print('ENTRY',e.get('id'),'::',e.get('name'),'type=',e.get('type'),'hidden=',e.get('hidden'))
-print('\nFORCE ENTRIES')
-for f in gr.iter(G('forceEntry')):
-    print('FORCE',f.get('id'),'::',f.get('name'))
-    cs=f.find(G('constraints'))
-    if cs is not None:
-        for c in cs.findall(G('constraint')):
-            print('  CON',c.attrib)
-    ms=f.find(G('modifiers'))
-    if ms is not None:
-        for m in ms.findall(G('modifier')):
-            print('  MOD',m.attrib)
-            print('   ',ET.tostring(m,encoding='unicode')[:2500])
-print('\nPTS COST TYPES')
-for e in list(cr.iter())+list(gr.iter()):
-    if e.tag.endswith('costType') or e.tag.endswith('cost'):
-        if e.get('name')=='Points' or e.get('typeId')=='pts' or e.get('id')=='pts': print(e.tag,e.attrib)
+CAT=Path('Legiones Astartes.cat')
+CNS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{CNS}}}{t}'
+cr=ET.parse(CAT).getroot()
+
+def by_id(i): return next((e for e in cr.iter() if e.get('id')==i),None)
+def parent_of(node):
+    for p in cr.iter():
+        if node in list(p): return p
+    return None
+
+def dump_node(i):
+    x=by_id(i)
+    print('\nNODE',i,'FOUND',x is not None)
+    if x is None:return
+    print(' TAG',x.tag.split('}')[-1],'NAME',x.get('name'),'TYPE',x.get('type'),'HIDDEN',x.get('hidden'))
+    p=parent_of(x)
+    print(' PARENT',p.tag.split('}')[-1] if p is not None else None,p.get('id') if p is not None else None,p.get('name') if p is not None else None)
+    if p is not None:
+        for ch in list(p):
+            print('   SIB',ch.tag.split('}')[-1],ch.get('id'),ch.get('name'),ch.get('type'),ch.get('hidden'))
+    print(' XML',ET.tostring(x,encoding='unicode')[:8000])
+
+for i in ['legion-v','legion-ws','legion-da','hq-consul-chaplain','hq-consul-librarian','cat-hq']:
+    dump_node(i)
+
+print('\nSPACE WOLVES NAMED OBJECTS')
+for e in cr.iter():
+    if 'space wolves' in (e.get('name') or '').lower() or 'space wolf' in (e.get('name') or '').lower():
+        print(e.tag.split('}')[-1],e.get('id'),e.get('name'),e.get('type'),e.get('hidden'))
+
+print('\nCATEGORY ENTRIES')
+for e in cr.iter(C('categoryEntry')):
+    print(e.get('id'),e.get('name'),ET.tostring(e,encoding='unicode')[:3000])
