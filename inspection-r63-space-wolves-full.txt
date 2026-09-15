@@ -1,0 +1,31 @@
+Revision 63 — Space Wolves full-army implementation
+Catalogue revision: 63
+Game-system revision: 31
+Character armoury groups augmented with Space Wolves wargear: 65
+
+Unique units and exact size ranges:
+- Grey Slayer Pack: 5–20
+- Grey Stalker Pack: 5–15
+- Wolf Scout Squad: 5–10
+- Deathsworn Pack: 5–10
+- Jorlund Hunter Pack: 5–10
+- Varagyr Wolf Guard Terminator Pack: 5–10
+- Fenrisian Wolf Pack: 5–10
+
+Dedicated Transport audit:
+- Grey Slayer Pack: Dreadclaw Drop Pod, Legion Drop Pod, Legion Land Raider, Legion Rhino Armoured Carrier
+- Grey Stalker Pack: Dreadclaw Drop Pod, Legion Drop Pod, Legion Rhino Armoured Carrier
+- Wolf Scout Squad: Legion Rhino Armoured Carrier
+- Deathsworn Pack: Dreadclaw Drop Pod, Legion Land Raider, Legion Rhino Armoured Carrier
+- Jorlund Hunter Pack: Dreadclaw Drop Pod, Legion Drop Pod, Legion Rhino Armoured Carrier
+- Varagyr Wolf Guard Terminator Pack: Dreadclaw Drop Pod, Legion Land Raider, Legion Spartan Assault Tank
+
+Consuls: Wolf Priest and Rune Priest are inside the normal Centurion Consul group.
+Rune Priest Master of Runes reuses the normal Librarian additional-power picker.
+Ohthere Living Lightning is represented as a ranged Psychic/Witchfire profile.
+Hvarl is hidden below a 1,500-point roster limit.
+Leman Russ is hidden unless Loyalist allegiance is selected.
+Pale Hunters: Heavy Support max remains enforced by the existing game-system rule; prohibited artillery and Drop Pod targets are hidden.
+Bloodied Claws: Grey Slayer minimum is enforced through a hidden category; structured Artillery and Immobile Drop Pod targets are hidden.
+Bloodied Claws restrictions involving Slow and Purposeful, Fortifications, and Allied Legion detachments remain stated by the Rite itself where the current catalogue has no safe universal tag to enforce them.
+Permanent unit-size audit is run by the workflow after this script.

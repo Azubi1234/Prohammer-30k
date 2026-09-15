@@ -593,8 +593,12 @@ def transport_names(unit):
     out=[]
     for g in unit.iter(C('selectionEntryGroup')):
         if g.get('name')=='Dedicated Transport':
-            for l in g.iter(C('entryLink')): out.append(l.get('name'))
-            for e in g.findall('./'+C('selectionEntries')+'/'+C('selectionEntry')): out.append(e.get('name'))
+            links=g.find(C('entryLinks'))
+            if links is not None:
+                for l in links.findall(C('entryLink')): out.append(l.get('name'))
+            entries=g.find(C('selectionEntries'))
+            if entries is not None:
+                for e in entries.findall(C('selectionEntry')): out.append(e.get('name'))
     return out
 transport_expect={
  'slayer':{'Legion Rhino Armoured Carrier','Legion Drop Pod','Dreadclaw Drop Pod','Legion Land Raider'},

@@ -402,23 +402,62 @@ UNIT r41-unit-v-9-v-jaghatai-khan-the-warhawk :: V — JAGHATAI KHAN, THE WARHAW
   MODEL ('r60-ws-jagh-retinue-legion-honour-guard-squad-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
   MODEL ('r60-ws-jagh-retinue-golden-keshig-squadron-r60-ws-gold-models', 'Golden Keshig Squadron Models', '3', [('min', '3', 'parent'), ('max', '5', 'parent')], ['55'])
 
-UNIT r41-unit-vi-1-grey-stalker-pack :: GREY STALKER PACK
-  MODEL ('r41-unit-vi-1-grey-stalker-pack-additional', 'Squad Models', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['17'])
+UNIT r41-unit-vi-0-grey-slayer-pack :: Grey Slayer Pack
+  MODEL ('r63-sw-slayer-models', 'Pack Models', '5', [('max', '20', 'parent'), ('min', '5', 'parent')], ['18'])
+  MODEL ('r63-sw-slayer-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r63-sw-slayer-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r63-sw-slayer-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
 
-UNIT r41-unit-vi-2-wolf-scout-squad :: WOLF SCOUT SQUAD
-  MODEL ('r41-unit-vi-2-wolf-scout-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['14'])
+UNIT r41-unit-vi-1-grey-stalker-pack :: Grey Stalker Pack
+  MODEL ('r63-sw-stalker-models', 'Pack Models', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['17'])
 
-UNIT r41-unit-vi-3-deathsworn-pack :: DEATHSWORN PACK
-  MODEL ('r41-unit-vi-3-deathsworn-pack-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+UNIT r41-unit-vi-2-wolf-scout-squad :: Wolf Scout Squad
+  MODEL ('r63-sw-scout-models', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['14'])
 
-UNIT r41-unit-vi-4-jorlund-hunter-pack :: JORLUND HUNTER PACK
-  MODEL ('r41-unit-vi-4-jorlund-hunter-pack-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['18'])
+UNIT r41-unit-vi-3-deathsworn-pack :: Deathsworn Pack
+  MODEL ('r63-sw-deathsworn-models', 'Deathsworn', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+  MODEL ('r63-sw-deathsworn-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r63-sw-deathsworn-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r63-sw-deathsworn-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
 
-UNIT r41-unit-vi-5-varagyr-wolf-guard-terminators :: VARAGYR WOLF GUARD TERMINATORS
-  MODEL ('r41-unit-vi-5-varagyr-wolf-guard-terminators-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+UNIT r41-unit-vi-4-jorlund-hunter-pack :: Jorlund Hunter Pack
+  MODEL ('r63-sw-jorlund-models', 'Pack Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['18'])
 
-UNIT r41-unit-vi-6-fenrisian-wolf-pack :: FENRISIAN WOLF PACK
-  MODEL ('r41-unit-vi-6-fenrisian-wolf-pack-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['12'])
+UNIT r41-unit-vi-5-varagyr-wolf-guard-terminators :: Varagyr Wolf Guard Terminator Pack
+  MODEL ('r63-sw-varagyr-models', 'Varagyr', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+  MODEL ('r63-sw-varagyr-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r63-sw-varagyr-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r63-sw-varagyr-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-vi-6-fenrisian-wolf-pack :: Fenrisian Wolf Pack
+  MODEL ('r63-sw-wolves-models', 'Fenrisian Wolves', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['12'])
+
+UNIT r41-unit-vi-7-hvarl-red-blade :: Hvarl Red-Blade
+  MODEL ('r63-sw-hvarl-term-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r63-sw-hvarl-term-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r63-sw-hvarl-term-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r63-sw-hvarl-term-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r63-sw-hvarl-varagyr-r63-sw-varagyr-models', 'Varagyr', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+  MODEL ('r63-sw-hvarl-varagyr-r63-sw-varagyr-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r63-sw-hvarl-varagyr-r63-sw-varagyr-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r63-sw-hvarl-varagyr-r63-sw-varagyr-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-vi-10-ohthere-wyrdmake :: Ohthere Wyrdmake
+  MODEL ('r63-sw-ohthere-command-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r63-sw-ohthere-command-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r63-sw-ohthere-command-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r63-sw-ohthere-command-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-vi-11-vi-leman-russ-the-wolf-king :: Leman Russ — The Wolf King
+  MODEL ('r63-sw-russ-honour-hq-praetor-ret-honour-champ', 'Legion Champion', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r63-sw-russ-honour-hq-praetor-ret-honour-base', 'Legion Honour Guard', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['40'])
+  MODEL ('r63-sw-russ-honour-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r63-sw-russ-honour-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r63-sw-russ-honour-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r63-sw-russ-term-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r63-sw-russ-term-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r63-sw-russ-term-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r63-sw-russ-term-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
 
 UNIT r41-unit-vii-0-templar-brethren-squad :: TEMPLAR BRETHREN SQUAD
   MODEL ('r41-unit-vii-0-templar-brethren-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
