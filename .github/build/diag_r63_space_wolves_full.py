@@ -1,41 +1,27 @@
 from pathlib import Path
 import xml.etree.ElementTree as ET
-
-CAT=Path('Legiones Astartes.cat'); GST=Path('Prohammer 30k.gst')
-CNS='http://www.battlescribe.net/schema/catalogueSchema'; GNS='http://www.battlescribe.net/schema/gameSystemSchema'
-C=lambda t:f'{{{CNS}}}{t}'; G=lambda t:f'{{{GNS}}}{t}'
-cr=ET.parse(CAT).getroot(); gr=ET.parse(GST).getroot(); top=cr.find(C('selectionEntries'))
+CAT=Path('Legiones Astartes.cat')
+CNS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{CNS}}}{t}'
+cr=ET.parse(CAT).getroot()
 
 def by_id(i): return next((e for e in cr.iter() if e.get('id')==i),None)
-def top_matches(q):
-    q=q.lower(); return [e for e in list(top) if q in (e.get('name') or '').lower()]
-def groups(e): return [(g.get('id'),g.get('name')) for g in e.iter(C('selectionEntryGroup'))]
+def parent_of(target):
+    for p in cr.iter():
+        for c in list(p):
+            if c is target:return p
+    return None
 
-def show(q):
-    print('\nQUERY',q)
-    for e in top_matches(q):
-        print(' TOP',e.get('id'),repr(e.get('name')),'type',e.get('type'),'hidden',e.get('hidden'))
-        print('  GROUPS',groups(e)[:25])
-        print('  CATS',[(x.get('targetId'),x.get('name')) for x in e.iter(C('categoryLink'))][:10])
-        print('  RULES',[(x.get('id'),x.get('name')) for x in e.findall('.//'+C('rule'))][:20])
-        print('  PROFILES',[(x.get('id'),x.get('name'),x.get('typeId')) for x in e.findall('.//'+C('profile'))][:20])
+def all_names(q):
+    q=q.lower()
+    for e in cr.iter(C('selectionEntry')):
+        if q in (e.get('name') or '').lower():
+            p=parent_of(e); print('MATCH',e.get('id'),repr(e.get('name')),'type',e.get('type'),'parent',p.tag.split('}')[-1] if p is not None else None,p.get('id') if p is not None else None,p.get('name') if p is not None else None)
 
-for q in ['grey slayer','grey stalker','wolf scout','deathsworn','jorlund','varagyr','fenrisian wolf','hvarl','geigor','bj','ohthere','leman russ','legion command squad','terminator command squad','honour guard','rhino','drop pod','dreadclaw','land raider','spartan','rapier','artillery']:
-    show(q)
+def dump(i,limit=12000):
+    e=by_id(i); print('\nDUMP',i,'FOUND',e is not None)
+    if e is not None: print(ET.tostring(e,encoding='unicode')[:limit])
 
-for i in ['hq-praetor','hq-centurion','hq-consul-librarian','hq-consul-chaplain','r25-rite-vi-0-the-pale-hunters','r25-rite-vi-1-the-bloodied-claws']:
-    e=by_id(i); print('\nID',i,'FOUND',bool(e))
-    if e is not None:
-        print(' NAME',e.get('name'),'GROUPS',groups(e)[:50])
-        print(' RULES',[(x.get('id'),x.get('name')) for x in e.findall('.//'+C('rule'))][:40])
-
-# print likely sergeant armoury groups and librarian ML2 subtree markers
-for e in cr.iter(C('selectionEntryGroup')):
-    n=(e.get('name') or '').lower(); i=e.get('id','')
-    if 'armoury' in n or i=='r61-librarian-power2':
-        print('GROUP',i,repr(e.get('name')),'PARENT?', 'entries',len(e.findall('.//'+C('selectionEntry'))),'links',len(e.findall('.//'+C('entryLink'))))
-
-# game-system FOC
-for x in gr.iter(G('categoryLink')):
-    if x.get('id') in ['fl-hq','fl-troops','fl-elites','fl-fast','fl-heavy','fl-transport','fl-low']:
-        print('FOC',x.get('id'),x.get('name'),ET.tostring(x,encoding='unicode')[:2500])
+for q in ['Rhino','Drop Pod','Dreadclaw','Dreadnought Drop Pod','Legion Command Squad','Terminator Command Squad','Honour Guard Squad','Psychic Hood','Power Weapon','Frost']:
+    print('\n###',q); all_names(q)
+for i in ['hq-praetor-retinue','hq-centurion-retinue','sgt-armoury','terminator-sgt-armoury','hq-centurion-consuls','r61-librarian-power2','r41-unit-vi-0-grey-slayer-pack','r41-unit-vi-5-varagyr-wolf-guard-terminators']:
+    dump(i)
