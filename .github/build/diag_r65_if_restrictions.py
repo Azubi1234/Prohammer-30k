@@ -21,16 +21,22 @@ force=next((e for e in gr.iter() if e.get('id')=='force-standard'),None)
 if force is not None:
     for l in force.findall('./'+G('categoryLinks')+'/'+G('categoryLink')):
         print(l.get('id'),repr(l.get('name')),'target=',l.get('targetId'))
-print('\nGENERIC HQ WEAPON/SHIELD OPTIONS')
+print('\nQUALIFYING WEAPON MATCHES')
+for e in cr.iter():
+    if e.tag not in (C('selectionEntry'),C('entryLink')): continue
+    n=(e.get('name') or '').lower()
+    if n in ('power weapon','relic blade','rending weapon') or 'power weapon' in n or 'relic blade' in n or 'rending weapon' in n:
+        print(e.tag.split('}')[-1],e.get('id'),repr(e.get('name')),'target=',e.get('targetId'))
+print('\nGENERIC HQ DIRECT LINKS')
 for uid in ('hq-praetor','hq-centurion'):
     u=next((e for e in cr.iter(C('selectionEntry')) if e.get('id')==uid),None)
     print('UNIT',uid)
     if u is not None:
-        for e in u.iter(C('selectionEntry')):
+        for e in u.iter(C('entryLink')):
             n=(e.get('name') or '').lower()
-            if any(k in n for k in ('boarding shield','power weapon','relic blade','rending','paragon','charna','storm shield')):
-                print(' ',e.get('id'),repr(e.get('name')))
+            if any(k in n for k in ('boarding shield','power weapon','relic blade','rending weapon','storm shield')):
+                print(' ',e.get('id'),repr(e.get('name')),'target=',e.get('targetId'))
 print('\nIMPERIAL FISTS NAMED CHARACTERS')
 for e in cr.iter(C('selectionEntry')):
-    if (e.get('id') or '').startswith('r41-unit-vii-') and any(k in (e.get('name') or '').upper() for k in ('SIGISMUND','FAFNIR','POLUX','DIAZ','GARRIUS')):
+    if (e.get('id') or '').startswith('r41-unit-vii-') and any(k in (e.get('name') or '').upper() for k in ('SIGISMUND','FAFNIR','POLUX','DIAZ','GARRIUS','ROGAL DORN')):
         print(e.get('id'),repr(e.get('name')))
