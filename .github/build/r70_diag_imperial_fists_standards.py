@@ -2,96 +2,97 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 
 CAT=Path('Legiones Astartes.cat')
-OUT=Path('inspection-r70-if-standards-diagnostic.txt')
+OUT=Path('inspection-r70-if-standards-diagnostic-compact.txt')
 NS='http://www.battlescribe.net/schema/catalogueSchema'
 C=lambda t:f'{{{NS}}}{t}'
 root=ET.parse(CAT).getroot()
-lines=[]
-add=lines.append
+PM={c:p for p in root.iter() for c in p}
+L=[]
+def add(s=''): L.append(s)
+def by_id(i): return next((e for e in root.iter() if e.get('id')==i),None)
+def owner_entry(e):
+    p=e
+    while p is not None and p.tag!=C('selectionEntry'): p=PM.get(p)
+    return p
 
-def by_id(i):
-    return next((e for e in root.iter() if e.get('id')==i),None)
+def cost(e):
+    return ','.join((c.get('value') or '') for c in e.findall('./'+C('costs')+'/'+C('cost')))
+def cons(e):
+    out=[]
+    for c in e.findall('./'+C('constraints')+'/'+C('constraint')):
+        out.append(f"{c.get('type')}={c.get('value')} field={c.get('field')} scope={c.get('scope')}")
+    return '; '.join(out)
+def children(g):
+    for x in g.findall('./'+C('selectionEntries')+'/'+C('selectionEntry')):
+        add(f"    ENTRY {x.get('id')} | {x.get('name')} | cost={cost(x)} | {cons(x)}")
+    for x in g.findall('./'+C('entryLinks')+'/'+C('entryLink')):
+        add(f"    LINK {x.get('id')} | {x.get('name')} -> {x.get('targetId')} | {cons(x)}")
 
-def parent_map():
-    return {c:p for p in root.iter() for c in p}
-PM=parent_map()
+def groups_of(entry, needles=None):
+    if entry is None: return
+    add(f"ENTRY {entry.get('id')} | {entry.get('name')}")
+    for g in entry.iter(C('selectionEntryGroup')):
+        n=g.get('name') or ''
+        if needles is None or any(q.lower() in n.lower() for q in needles):
+            add(f"  GROUP {g.get('id')} | {n} | {cons(g)}")
+            children(g)
 
-def nearest_entry(e):
-    cur=e
-    while cur is not None:
-        if cur.tag in (C('selectionEntry'),C('selectionEntryGroup'),C('entryLink')) and cur.get('name'):
-            return cur
-        cur=PM.get(cur)
-    return None
+add(f"CAT revision {root.get('revision')} GST ref {root.get('gameSystemRevision')}")
+add('\n=== PRAETOR/CENTURION ARMOURY + WEAPONS ===')
+for i in ('hq-praetor','hq-centurion'):
+    groups_of(by_id(i),['armour','weapon','wargear'])
 
-def dump(node,depth=0,maxdepth=4):
-    if node is None:
-        add('  <missing>'); return
-    ind='  '*depth
-    attrs=[]
-    for k in ('id','name','type','targetId','hidden','defaultAmount'):
-        if node.get(k) is not None: attrs.append(f'{k}={node.get(k)}')
-    if node.tag in (C('constraint'),C('modifier'),C('condition')):
-        for k in ('type','value','field','scope','childId'):
-            if node.get(k) is not None and f'{k}={node.get(k)}' not in attrs: attrs.append(f'{k}={node.get(k)}')
-    add(ind+node.tag.split('}')[-1]+' '+ ' | '.join(attrs))
-    if depth>=maxdepth:return
-    for ch in list(node):
-        if ch.tag in (C('selectionEntries'),C('selectionEntryGroups'),C('entryLinks'),C('constraints'),C('modifiers'),C('conditions'),C('conditionGroups'),C('costs'),C('categoryLinks')):
-            add(ind+'  '+ch.tag.split('}')[-1]+':')
-            for x in list(ch): dump(x,depth+2,maxdepth)
+add('\n=== GENERIC SERGEANT / RETINUE ARMOURY CANDIDATES ===')
+for i in ('tactical-unit','breacher-unit','veteran-unit','terminator-unit','hq-centurion-ret-command','hq-praetor-ret-termcommand','hq-praetor-ret-honour'):
+    groups_of(by_id(i),['armour','weapon','sergeant','character','wargear'])
 
-add(f'Catalogue revision={root.get("revision")} GST revision={root.get("gameSystemRevision")}')
-add('')
-for ident in ['hq-praetor','hq-centurion','tactical-unit','assault-unit','breacher-unit','recon-unit','veteran-unit','terminator-unit','fa-seeker','hs-heavy-support-squad','hs-land-raider','hq-centurion-ret-command','hq-praetor-ret-termcommand','hq-praetor-ret-honour']:
-    add('='*90); add(f'ID {ident}')
-    dump(by_id(ident),0,5)
-
-add('\n'+'='*90+'\nARMOURY GROUP INDEX')
+add('\n=== ALL ARMOURY GROUP OWNERS RELEVANT TO GENERIC MARINES ===')
+seen=set()
 for g in root.iter(C('selectionEntryGroup')):
     n=(g.get('name') or '')
-    if 'armour' in n.lower() or 'weapon' in n.lower():
-        owner=PM.get(g)
-        while owner is not None and owner.tag!=C('selectionEntry'):
-            owner=PM.get(owner)
-        if owner is not None:
-            add(f'OWNER {owner.get("id")} :: {owner.get("name")} | GROUP {g.get("id")} :: {n}')
-            # immediate selectable children/links only
-            se=g.find(C('selectionEntries'))
-            if se is not None:
-                for x in list(se): add(f'  ENTRY {x.get("id")} :: {x.get("name")} cost='+','.join(c.get('value','') for c in x.findall('./'+C('costs')+'/'+C('cost'))))
-            el=g.find(C('entryLinks'))
-            if el is not None:
-                for x in list(el): add(f'  LINK {x.get("id")} :: {x.get("name")} -> {x.get("targetId")}')
+    if 'armoury' not in n.lower(): continue
+    o=owner_entry(g)
+    if o is None: continue
+    on=o.get('name') or ''
+    if any(k in on.lower() for k in ('praetor','centurion','sergeant','terminator','command squad','honour guard','veteran','tactical','breacher')):
+        key=(o.get('id'),g.get('id'))
+        if key in seen: continue
+        seen.add(key)
+        add(f"OWNER {o.get('id')} | {on} :: GROUP {g.get('id')} | {n} | {cons(g)}")
+        children(g)
 
-add('\n'+'='*90+'\nLAND RAIDER PATTERN GROUPS')
-for g in root.iter(C('selectionEntryGroup')):
-    if 'land raider pattern' in (g.get('name') or '').lower():
-        owner=PM.get(g)
-        while owner is not None and owner.tag!=C('selectionEntry'):
-            owner=PM.get(owner)
-        add(f'OWNER {owner.get("id") if owner is not None else None} :: {owner.get("name") if owner is not None else None}')
-        dump(g,0,5)
+add('\n=== LAND RAIDER PATTERN STRUCTURE ===')
+lr=by_id('hs-land-raider')
+groups_of(lr,['land raider pattern','pattern','transport'])
+if lr is not None:
+    for e in lr.iter(C('selectionEntry')):
+        if any(k in (e.get('name') or '').lower() for k in ('phobos','proteus','achilles','crusader')):
+            add(f"  LR ENTRY {e.get('id')} | {e.get('name')} | cost={cost(e)} | {cons(e)}")
+            for r in e.iter(C('rule')):
+                d=r.find(C('description'))
+                txt=(d.text or '') if d is not None else ''
+                if 'transport' in (r.get('name') or '').lower() or 'capacity' in txt.lower(): add(f"    RULE {r.get('name')}: {txt[:500]}")
 
-add('\n'+'='*90+'\nTOP-LEVEL UNIT INDEX')
-top=root.find(C('selectionEntries'))
-if top is not None:
-    for u in top.findall(C('selectionEntry')):
-        cats=[]
-        cl=u.find(C('categoryLinks'))
-        if cl is not None:
-            for c in cl.findall(C('categoryLink')):
-                if c.get('primary')=='true': cats.append(c.get('name') or c.get('targetId'))
-        if cats:
-            add(f'{u.get("id")} | {u.get("name")} | {",".join(cats)}')
+add('\n=== HAMMERFALL GENERIC INFANTRY CANDIDATES ===')
+for ident in ('tactical-unit','assault-unit','breacher-unit','recon-unit','veteran-unit','terminator-unit','destroyer-unit','techmarine-covenant','rapier-unit','fa-seeker','hs-heavy-support-squad','hq-centurion-ret-command','hq-praetor-ret-termcommand','hq-praetor-ret-honour'):
+    e=by_id(ident)
+    if e is None: add(f"{ident} | MISSING"); continue
+    # collect rules/profiles text hints for unit type
+    hints=[]
+    for r in e.iter(C('rule')):
+        nm=r.get('name') or ''
+        d=r.find(C('description')); tx=(d.text or '') if d is not None else ''
+        if 'unit type' in nm.lower() or 'infantry' in tx.lower() or 'artillery' in tx.lower(): hints.append((nm+': '+tx)[:220])
+    add(f"{ident} | {e.get('name')} | hints={' || '.join(hints[:3])}")
 
-add('\n'+'='*90+'\nGENERIC UNIT CANDIDATES FOR HAMMERFALL')
-keywords=('command','honour','destroyer','apothe','techmarine','terminator','tactical','assault','breacher','recon','veteran','seeker','heavy support','rapier')
-if top is not None:
-    for u in top.findall(C('selectionEntry')):
-        n=(u.get('name') or '').lower()
-        if any(k in n for k in keywords):
-            add(f'{u.get("id")} | {u.get("name")}')
+add('\n=== IMPERIAL FISTS KNOWN GAP STRUCTURES ===')
+for ident in ('r41-unit-vii-0-templar-brethren-squad','r41-unit-vii-1-phalanx-warder-squad','r41-unit-vii-2-huscarl-terminator-retinue','r41-unit-vii-3-tarantula-sentry-gun-battery','r64-if-templar-troops'):
+    e=by_id(ident)
+    if e is None: add(f'{ident} MISSING'); continue
+    add(f"{ident} | {e.get('name')}")
+    for g in e.findall('.//'+C('selectionEntryGroup')):
+        if any(k in (g.get('name') or '').lower() for k in ('armoury','replacement','weapon','transport')):
+            add(f"  GROUP {g.get('id')} | {g.get('name')} | {cons(g)}"); children(g)
 
-OUT.write_text('\n'.join(lines),encoding='utf-8')
-print('\n'.join(lines[-120:]))
+OUT.write_text('\n'.join(L),encoding='utf-8')
+print('\n'.join(L))
