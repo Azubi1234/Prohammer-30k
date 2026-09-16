@@ -1,0 +1,525 @@
+
+=== UNIT r41-unit-ix-0-dawnbreaker-cohort | DAWNBREAKER COHORT | type=unit hidden=false cost=35.0 cats=[('Elites', 'cat-elites', 'true')] ===
+PROFILE r41-unit-ix-0-dawnbreaker-cohort-profile-0 | Dawnbreaker | Model
+PROFILE r41-unit-ix-0-dawnbreaker-cohort-profile-1 | Dawnbreaker Champion | Model
+RULE r41-unit-ix-0-dawnbreaker-cohort-source | Source Entry :: Dawnbreaker | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 2+
+Dawnbreaker Champion | 5 | 4 | 4 | 4 | 1 | 4 | 3 | 10 | 2+
+Force Organisation:
+FALLING-STAR SPEAR A Falling-star Spear is a Two-Handed Power Weapon. Attacks made with it are resolved at +1 Strength. EQUINOX BLADES Equinox Blades count as a pair of Power Weapons. Grenade Discharger Weapon Range S AP Type Frag Grenade 12" 3 6 Assault 1, Blast Krak Grenade 12" 6 4 Assault 1
+• Elites
+Unit Composition:
+• 4 Dawnbreakers
+• 1 Dawnbreaker Champion
+Unit Type:
+• Jump Infantry
+• The Dawnbreaker Champion is a Character
+Wargear:
+• Artificer Armour
+• Jump Pack
+• Falling-star Spear
+• Grenade Discharger
+• Frag grenades
+Special Rules:
+• Legiones Astartes (Blood
+GROUP r41-unit-ix-0-dawnbreaker-cohort-options | Options | 
+  ENTRY r41-unit-ix-0-dawnbreaker-cohort-opt-0-pair-of-equinox-blades | Pair of Equinox Blades | type=upgrade cost=0 | r41-unit-ix-0-dawnbreaker-cohort-opt-0-pair-of-equinox-blades-max:max=10 field=selections scope=parent
+  ENTRY r41-unit-ix-0-dawnbreaker-cohort-opt-1-krak-grenades | Krak grenades (base unit; +2 pts/model) | type=upgrade cost=10 | r41-unit-ix-0-dawnbreaker-cohort-opt-1-krak-grenades-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-0-dawnbreaker-cohort-opt-2-melta-bombs | Melta bombs (base unit; +5 pts/model) | type=upgrade cost=25 | r41-unit-ix-0-dawnbreaker-cohort-opt-2-melta-bombs-max:max=1 field=selections scope=parent
+SUSPECT RULE r41-unit-ix-0-dawnbreaker-cohort-source | Source Entry :: Dawnbreaker | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 2+
+Dawnbreaker Champion | 5 | 4 | 4 | 4 | 1 | 4 | 3 | 10 | 2+
+Force Organisation:
+FALLING-STAR SPEAR A Falling-star Spear is a Two-Handed Power Weapon. Attacks made with it are resolved at +1 Strength. EQUINOX BLADES Equinox Blades count as a pair of Power Weapons. Grenade Discharger Weapon Range S AP Type Frag Grenade 12" 3 6 Assault 1, Blast Krak Grenade 12" 6 4 Assault 1
+• Elites
+Unit Composition:
+• 4 Dawnbreakers
+• 1 Dawnbreaker Champion
+Unit Typ
+
+=== UNIT r41-unit-ix-1-crimson-paladin-squad | CRIMSON PALADIN SQUAD | type=unit hidden=false cost=25.0 cats=[('Elites', 'cat-elites', 'true')] ===
+PROFILE r41-unit-ix-1-crimson-paladin-squad-profile-0 | Crimson Paladin | Model
+PROFILE r41-unit-ix-1-crimson-paladin-squad-profile-1 | Crimson Exemplar | Model
+RULE r41-unit-ix-1-crimson-paladin-squad-source | Source Entry :: Crimson Paladin | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 10 | 2+/4+
+Crimson Exemplar | 5 | 4 | 4 | 4 | 2 | 4 | 3 | 10 | 2+/4+
+Force Organisation:
+CORIOLIS SHIELD A model equipped with a Coriolis Shield has a 3+ Invulnerable Save against close-combat attacks. Against all other attacks, use the model's normal saves. THE BLOOD IS FOREVER At the beginning of each Assault phase, if the number of enemy models engaged in the same combat is greater than the number of models in this unit, the Crimson Paladins gain Feel No Pain (5+) until the end of that Assault phase. If the enemy outnumbers the unit by at least two models to one, they instead gain Feel No Pain (4+).
+• Elites
+Unit Composition:
+• 2 Crimson Palad
+GROUP r41-unit-ix-1-crimson-paladin-squad-options | Options | 
+  ENTRY r41-unit-ix-1-crimson-paladin-squad-opt-0-power-fist | Power fist | type=upgrade cost=10 | r41-unit-ix-1-crimson-paladin-squad-opt-0-power-fist-max:max=5 field=selections scope=parent
+  ENTRY r41-unit-ix-1-crimson-paladin-squad-opt-1-thunder-hammer | Thunder hammer | type=upgrade cost=15 | r41-unit-ix-1-crimson-paladin-squad-opt-1-thunder-hammer-max:max=5 field=selections scope=parent
+  ENTRY r41-unit-ix-1-crimson-paladin-squad-opt-2-heavy-flamer | Heavy Flamer | type=upgrade cost=10 | r41-unit-ix-1-crimson-paladin-squad-opt-2-heavy-flamer-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-1-crimson-paladin-squad-opt-3-assault-cannon | Assault Cannon | type=upgrade cost=15 | r41-unit-ix-1-crimson-paladin-squad-opt-3-assault-cannon-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-1-crimson-paladin-squad-opt-4-plasma-blaster | Plasma Blaster | type=upgrade cost=15 | r41-unit-ix-1-crimson-paladin-squad-opt-4-plasma-blaster-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-1-crimson-paladin-squad-opt-5-grenade-harness | Grenade Harness | type=upgrade cost=10 | r41-unit-ix-1-crimson-paladin-squad-opt-5-grenade-harness-max:max=1 field=selections scope=parent
+SUSPECT RULE r41-unit-ix-1-crimson-paladin-squad-source | Source Entry :: Crimson Paladin | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 10 | 2+/4+
+Crimson Exemplar | 5 | 4 | 4 | 4 | 2 | 4 | 3 | 10 | 2+/4+
+Force Organisation:
+CORIOLIS SHIELD A model equipped with a Coriolis Shield has a 3+ Invulnerable Save against close-combat attacks. Against all other attacks, use the model's normal saves. THE BLOOD IS FOREVER At the beginning of each Assault phase, if the number of enemy models engaged in the same combat is greater than the number of models in this unit, the Crimson Paladins gain 
+
+=== UNIT r41-unit-ix-2-angel-s-tears-squad | ANGEL'S TEARS SQUAD | type=unit hidden=false cost=60.0 cats=[('Elites', 'cat-elites', 'true')] ===
+PROFILE r41-unit-ix-2-angel-s-tears-squad-profile-0 | Erelim | Model
+PROFILE r41-unit-ix-2-angel-s-tears-squad-profile-1 | Arch-Erelim | Model
+RULE r41-unit-ix-2-angel-s-tears-squad-source | Source Entry :: Erelim | 4 | 4 | 4 | 4 | 1 | 4 | 1 | 9 | 3+
+Arch-Erelim | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Force Organisation:
+DUAL PISTOLS A model with this rule may fire both of its Pistol weapons duringthe Shooting phase. Both pistols must fire at the same target. DESTROYER CADRE An Angel's Tears Squad may normally only be joined by a Moritat. Dominion Zephon is an exception to this rule. Weapon Range S AP Type Angel's Tears Grenade Launcher 24" 4 4 Assault 3, Fleshbane, Rad-phage
+• Elites
+Unit Composition:
+• 4 Erelim
+• 1 Arch-Erelim
+Unit Type:
+• Jump Infantry
+• The Arch-Erelim is a Character
+Wargear:
+• Power Armour
+• Jump Pack
+• Two Volkite Serpentas
+• Chainsword
+• Frag grenades
+• Rad grenades
+Special
+GROUP r41-unit-ix-2-angel-s-tears-squad-options | Options | 
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-0-rotor-cannon | Rotor Cannon | type=upgrade cost=5 | r41-unit-ix-2-angel-s-tears-squad-opt-0-rotor-cannon-max:max=2 field=selections scope=parent
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-1-heavy-flamer | Heavy Flamer | type=upgrade cost=10 | r41-unit-ix-2-angel-s-tears-squad-opt-1-heavy-flamer-max:max=2 field=selections scope=parent
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-2-angel-s-tears-grenade-launcher | Angel's Tears Grenade Launcher | type=upgrade cost=15 | r41-unit-ix-2-angel-s-tears-squad-opt-2-angel-s-tears-grenade-launcher-max:max=2 field=selections scope=parent
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-3-assault-cannon-with-suspensor-web | Assault Cannon with Suspensor Web | type=upgrade cost=25 | r41-unit-ix-2-angel-s-tears-squad-opt-3-assault-cannon-with-suspensor-web-max:max=2 field=selections scope=parent
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-4-krak-grenades | Krak grenades (base unit; +2 pts/model) | type=upgrade cost=10 | r41-unit-ix-2-angel-s-tears-squad-opt-4-krak-grenades-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-5-melta-bombs | Melta bombs (base unit; +5 pts/model) | type=upgrade cost=25 | r41-unit-ix-2-angel-s-tears-squad-opt-5-melta-bombs-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-6-rending-weapon | Rending Weapon | type=upgrade cost=5 | r41-unit-ix-2-angel-s-tears-squad-opt-6-rending-weapon-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-7-power-weapon | Power weapon | type=upgrade cost=10 | r41-unit-ix-2-angel-s-tears-squad-opt-7-power-weapon-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-8-power-fist | Power fist | type=upgrade cost=15 | r41-unit-ix-2-angel-s-tears-squad-opt-8-power-fist-max:max=1 field=selections scope=parent
+SUSPECT RULE r41-unit-ix-2-angel-s-tears-squad-source | Source Entry :: Erelim | 4 | 4 | 4 | 4 | 1 | 4 | 1 | 9 | 3+
+Arch-Erelim | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Force Organisation:
+DUAL PISTOLS A model with this rule may fire both of its Pistol weapons duringthe Shooting phase. Both pistols must fire at the same target. DESTROYER CADRE An Angel's Tears Squad may normally only be joined by a Moritat. Dominion Zephon is an exception to this rule. Weapon Range S AP Type Angel's Tears Grenade Launcher 24" 4 4 Assault 3, Fleshbane, Rad-phage
+• Elites
+Unit Composition
+
+=== UNIT r41-unit-ix-3-ofanim-court | OFANIM COURT | type=unit hidden=false cost=0.0 cats=[('Elites', 'cat-elites', 'true')] ===
+PROFILE r41-unit-ix-3-ofanim-court-profile-0 | Ofanim | Model
+PROFILE r41-unit-ix-3-ofanim-court-profile-1 | Ofanim Prefector | Model
+RULE r41-unit-ix-3-ofanim-court-source | Source Entry :: Ofanim | 5 | 4 | 4 | 4 | 2 | 4 | 3 | 9 | 2+
+Ofanim Prefector | 5 | 4 | 4 | 4 | 2 | 4 | 4 | 10 | 2+
+Force Organisation:
+BLADE OF JUDGEMENT A Blade of Judgement is a Two-Handed Power Weapon. Attacks made with it are resolved at +2 Strength. In addition, a natural To Wound roll of 6 inflicts a Massive Wound (D3) instead of a normal Wound.
+• Elites
+Unit Composition:
+• 2 Ofanim
+• 1 Ofanim Prefector
+Unit Type:
+• Infantry
+• The Ofanim Prefector is a Character
+Wargear:
+• Artificer Armour
+• Blade of Judgement
+• Bolt pistol
+• Combat Shield
+• Frag grenades
+Special Rules:
+• Legiones Astartes (Blood Angels)
+• Preferred Enemy (Characters)
+OPTIONS
+• The squad may include up to two additional Ofanim for +50
+GROUP r41-unit-ix-3-ofanim-court-options | Options | 
+  ENTRY r41-unit-ix-3-ofanim-court-opt-0-krak-grenades | Krak grenades (base unit; +2 pts/model) | type=upgrade cost=6 | r41-unit-ix-3-ofanim-court-opt-0-krak-grenades-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-3-ofanim-court-opt-1-melta-bombs | Melta bombs (base unit; +5 pts/model) | type=upgrade cost=15 | r41-unit-ix-3-ofanim-court-opt-1-melta-bombs-max:max=1 field=selections scope=parent
+SUSPECT RULE r41-unit-ix-3-ofanim-court-source | Source Entry :: Ofanim | 5 | 4 | 4 | 4 | 2 | 4 | 3 | 9 | 2+
+Ofanim Prefector | 5 | 4 | 4 | 4 | 2 | 4 | 4 | 10 | 2+
+Force Organisation:
+BLADE OF JUDGEMENT A Blade of Judgement is a Two-Handed Power Weapon. Attacks made with it are resolved at +2 Strength. In addition, a natural To Wound roll of 6 inflicts a Massive Wound (D3) instead of a normal Wound.
+• Elites
+Unit Composition:
+• 2 Ofanim
+• 1 Ofanim Prefector
+Unit Type:
+• Infantry
+• The Ofanim Prefector is a Character
+Wargear:
+• Artificer Armour
+• Blade of Judg
+
+=== UNIT r41-unit-ix-4-grav-chariot-squadron | GRAV CHARIOT SQUADRON | type=unit hidden=false cost=65 cats=[('Fast Attack', 'cat-fast', 'true')] ===
+PROFILE r41-unit-ix-4-grav-chariot-squadron-profile-0 | Grav Chariot | Model
+RULE r41-unit-ix-4-grav-chariot-squadron-source | Source Entry :: Grav Chariot | 4 | 4 | 4 | 5 | 1 | 4 | 2 | 8 | 2+
+Force Organisation:
+GRAV ENGINES Grav Chariots follow all normal ProHammer rules for Jetbikes. A Grav Chariot may fire both its Twin-linked Bolters and its mounted Heavy Bolter, Multi-Melta or Assault Cannon during the same Shooting phase. The mounted weapon may be fired after the Grav Chariot moves.
+• Fast Attack
+Unit Composition:
+• 1–3 Grav Chariots
+Unit Type:
+• Jetbike
+Wargear:
+• Twin-linked Bolters
+• Heavy Bolter
+• Bolt pistol
+Special Rules:
+• Legiones Astartes (Blood Angels)
+• Grav Engines
+OPTIONS
+• Any Grav Chariot may replace its Heavy Bolter with:
+• Multi-Melta ......................................... +15 points
+• Assault Cannon ....
+GROUP r41-unit-ix-4-grav-chariot-squadron-options | Options | 
+  ENTRY r41-unit-ix-4-grav-chariot-squadron-opt-0-multi-melta | Multi-Melta | type=upgrade cost=15 | r41-unit-ix-4-grav-chariot-squadron-opt-0-multi-melta-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-4-grav-chariot-squadron-opt-1-assault-cannon | Assault Cannon | type=upgrade cost=20 | r41-unit-ix-4-grav-chariot-squadron-opt-1-assault-cannon-max:max=1 field=selections scope=parent
+SUSPECT RULE r41-unit-ix-4-grav-chariot-squadron-source | Source Entry :: Grav Chariot | 4 | 4 | 4 | 5 | 1 | 4 | 2 | 8 | 2+
+Force Organisation:
+GRAV ENGINES Grav Chariots follow all normal ProHammer rules for Jetbikes. A Grav Chariot may fire both its Twin-linked Bolters and its mounted Heavy Bolter, Multi-Melta or Assault Cannon during the same Shooting phase. The mounted weapon may be fired after the Grav Chariot moves.
+• Fast Attack
+Unit Composition:
+• 1–3 Grav Chariots
+Unit Type:
+• Jetbike
+Wargear:
+• Twin-linked Bolters
+• Heavy Bolter
+• Bolt pistol
+Special Rules:
+
+
+=== UNIT r41-unit-ix-5-sanguinary-guard | SANGUINARY GUARD | type=unit hidden=false cost=10.0 cats=[('Retinue', 'cat-retinue', 'true')] ===
+PROFILE r41-unit-ix-5-sanguinary-guard-profile-0 | Sanguinary Guard | Model
+RULE r41-unit-ix-5-sanguinary-guard-source | Source Entry :: Sanguinary Guard | 5 | 5 | 4 | 4 | 2 | 4 | 3 | 10 | 2+/5+
+Force Organisation:
+SANGUINE-PATTERN JUMP PACK A Sanguine-pattern Jump Pack follows all normal ProHammer rules for Jump Packs. In addition, it grants its wearer a 5+ Invulnerable Save. ANGELUS BOLTGUN An Angelus Boltgun is a 12” Storm Bolter. PERDITION WEAPON A Perdition Weapon counts as a Power Weapon. A natural To Wound roll of 6 made with a Perdition Weapon inflicts a Massive Wound (D3) instead of a normal Wound. SERVANTS OF THE GREAT ANGEL A Sanguinary Guard Squad may only be selected as the retinue of one of the following: • A Blood Angels Praetor • Raldoron • Sanguinius The Sanguinary Guard does not occupy a separate Force Organ
+GROUP r41-unit-ix-5-sanguinary-guard-options | Options | 
+  ENTRY r41-unit-ix-5-sanguinary-guard-opt-0-inferno-pistol | Inferno Pistol | type=upgrade cost=10 | r41-unit-ix-5-sanguinary-guard-opt-0-inferno-pistol-max:max=6 field=selections scope=parent
+  ENTRY r41-unit-ix-5-sanguinary-guard-opt-1-krak-grenades | Krak grenades (base unit; +2 pts/model) | type=upgrade cost=6 | r41-unit-ix-5-sanguinary-guard-opt-1-krak-grenades-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-5-sanguinary-guard-opt-2-melta-bombs | Melta bombs (base unit; +5 pts/model) | type=upgrade cost=15 | r41-unit-ix-5-sanguinary-guard-opt-2-melta-bombs-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-5-sanguinary-guard-opt-3-azkaellon | Azkaellon | type=upgrade cost=35 | r41-unit-ix-5-sanguinary-guard-opt-3-azkaellon-max:max=1 field=selections scope=parent
+SUSPECT RULE r41-unit-ix-5-sanguinary-guard-source | Source Entry :: Sanguinary Guard | 5 | 5 | 4 | 4 | 2 | 4 | 3 | 10 | 2+/5+
+Force Organisation:
+SANGUINE-PATTERN JUMP PACK A Sanguine-pattern Jump Pack follows all normal ProHammer rules for Jump Packs. In addition, it grants its wearer a 5+ Invulnerable Save. ANGELUS BOLTGUN An Angelus Boltgun is a 12” Storm Bolter. PERDITION WEAPON A Perdition Weapon counts as a Power Weapon. A natural To Wound roll of 6 made with a Perdition Weapon inflicts a Massive Wound (D3) instead of a normal Wound. SERVANTS OF THE GREAT 
+
+=== UNIT r41-unit-ix-6-raldoron-the-blooded | RALDORON, THE BLOODED | type=unit hidden=false cost=195 cats=[('HQ', 'cat-hq', 'true')] ===
+PROFILE r41-unit-ix-6-raldoron-the-blooded-profile-0 | Raldoron | Model
+RULE r41-unit-ix-6-raldoron-the-blooded-source | Source Entry :: Raldoron | 7 | 5 | 4 | 4 | 3 | 4 | 4 | 10 | 2+/4+
+ENCARMINE WARBLADE The Encarmine Warblade is a Power Weapon. Attacks made with it are resolved at +1 Strength. FIRST CAPTAIN OF THE BLOOD ANGELS Raldoron and any Blood Angels unit he has joined may re-roll failed Morale tests. In addition, friendly Blood Angels units with a model within 6" of Raldoron may use his Leadership when taking Morale or Pinning tests. THE BLOODED At the beginning of each Assault phase, nominate one enemyIndependent Character or squad leader in base contact withRaldoron. Until the end of that Assault phase, Raldoron may re-roll failed To Hit rolls made against that model. COMMAND RETINUE Raldoron may select a Legion C
+GROUP r41-unit-ix-6-raldoron-the-blooded-options | Options | 
+  ENTRY r41-unit-ix-6-raldoron-the-blooded-opt-0-krak-grenades | Krak grenades | type=upgrade cost=2 | r41-unit-ix-6-raldoron-the-blooded-opt-0-krak-grenades-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-6-raldoron-the-blooded-opt-1-melta-bombs | Melta bombs | type=upgrade cost=5 | r41-unit-ix-6-raldoron-the-blooded-opt-1-melta-bombs-max:max=1 field=selections scope=parent
+SUSPECT RULE r41-unit-ix-6-raldoron-the-blooded-source | Source Entry :: Raldoron | 7 | 5 | 4 | 4 | 3 | 4 | 4 | 10 | 2+/4+
+ENCARMINE WARBLADE The Encarmine Warblade is a Power Weapon. Attacks made with it are resolved at +1 Strength. FIRST CAPTAIN OF THE BLOOD ANGELS Raldoron and any Blood Angels unit he has joined may re-roll failed Morale tests. In addition, friendly Blood Angels units with a model within 6" of Raldoron may use his Leadership when taking Morale or Pinning tests. THE BLOODED At the beginning of each Assault phase, nominate one enemyIndependent Chara
+
+=== UNIT r41-unit-ix-7-dominion-zephon | DOMINION ZEPHON | type=unit hidden=false cost=175 cats=[('HQ', 'cat-hq', 'true')] ===
+PROFILE r41-unit-ix-7-dominion-zephon-profile-0 | Dominion Zephon | Model
+RULE r41-unit-ix-7-dominion-zephon-source | Source Entry :: Dominion Zephon | 6 | 5 | 4 | 4 | 3 | 5 | 3 | 10 | 2+/5+
+Force Organisation:
+SPIRITUM SANGUIS Spiritum Sanguis is a Two-Handed, Master-crafted Power Weapon. Attacks made with it are resolved at +1 Strength. If Zephon begins an Assault phase in base contact with two or more enemy models, he receives +1 Attack for that Assault phase. LAMENT AND GRIEF Lament and Greif both are Volkite Serpentas DUAL PISTOLS Zephon may fire both Lament and Grief during the Shooting phase. Both weapons must fire at the same target. EXARCH OF THE HIGH HOST Zephon may join an Angel's Tears Squad or Legion Destroyer Squad despite the normal restrictions of Destroyer Cadre. He may select one Angel's Tears Squad as hi
+GROUP r41-unit-ix-7-dominion-zephon-options | Options | 
+  ENTRY r41-unit-ix-7-dominion-zephon-opt-0-krak-grenades | Krak grenades | type=upgrade cost=2 | r41-unit-ix-7-dominion-zephon-opt-0-krak-grenades-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-7-dominion-zephon-opt-1-melta-bombs | Melta bombs | type=upgrade cost=5 | r41-unit-ix-7-dominion-zephon-opt-1-melta-bombs-max:max=1 field=selections scope=parent
+SUSPECT RULE r41-unit-ix-7-dominion-zephon-source | Source Entry :: Dominion Zephon | 6 | 5 | 4 | 4 | 3 | 5 | 3 | 10 | 2+/5+
+Force Organisation:
+SPIRITUM SANGUIS Spiritum Sanguis is a Two-Handed, Master-crafted Power Weapon. Attacks made with it are resolved at +1 Strength. If Zephon begins an Assault phase in base contact with two or more enemy models, he receives +1 Attack for that Assault phase. LAMENT AND GRIEF Lament and Greif both are Volkite Serpentas DUAL PISTOLS Zephon may fire both Lament and Grief during the Shooting phase. Both weapons must fire at t
+
+=== UNIT r41-unit-ix-8-aster-crohne | ASTER CROHNE | type=unit hidden=false cost=180 cats=[('HQ', 'cat-hq', 'true')] ===
+PROFILE r41-unit-ix-8-aster-crohne-profile-0 | Aster Crohne | Model
+RULE r41-unit-ix-8-aster-crohne-source | Source Entry :: Aster Crohne | 6 | 5 | 4 | 4 | 3 | 5 | 3 | 10 | 2+/5+
+Force Organisation:
+SAIPHAN SHARD-AXE The Saiphan Shard-Axe is a Master-crafted Power Weapon. Attacks made with it are resolved at +1 Strength. COMMAND RETINUE Aster Crohne may select one Legion Command Squad as his retinue.
+• HQ
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Artificer Armour
+• Refractor Field
+• Saiphan Shard-Axe
+• Hand Flamer
+• Frag grenades
+Special Rules:
+• Legiones Astartes (Blood Angels)
+• Independent Character
+• Feel No Pain (4+)
+OPTIONS
+• Aster Crohne may take:
+• Krak grenades ........................................ +2 points
+• Melta bombs .......................................... +5 points
+GROUP r41-unit-ix-8-aster-crohne-options | Options | 
+  ENTRY r41-unit-ix-8-aster-crohne-opt-0-krak-grenades | Krak grenades | type=upgrade cost=2 | r41-unit-ix-8-aster-crohne-opt-0-krak-grenades-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-8-aster-crohne-opt-1-melta-bombs | Melta bombs | type=upgrade cost=5 | r41-unit-ix-8-aster-crohne-opt-1-melta-bombs-max:max=1 field=selections scope=parent
+SUSPECT RULE r41-unit-ix-8-aster-crohne-source | Source Entry :: Aster Crohne | 6 | 5 | 4 | 4 | 3 | 5 | 3 | 10 | 2+/5+
+Force Organisation:
+SAIPHAN SHARD-AXE The Saiphan Shard-Axe is a Master-crafted Power Weapon. Attacks made with it are resolved at +1 Strength. COMMAND RETINUE Aster Crohne may select one Legion Command Squad as his retinue.
+• HQ
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Artificer Armour
+• Refractor Field
+• Saiphan Shard-Axe
+• Hand Flamer
+• Frag grenades
+Special Rules:
+• Legiones Astartes (Blood Angels)
+• Independent Character
+• Feel No Pa
+
+=== UNIT r41-unit-ix-9-azkaellon | AZKAELLON | type=unit hidden=false cost=35 cats=[('Elites', 'cat-elites', 'true')] ===
+PROFILE r41-unit-ix-9-azkaellon-profile-0 | Azkaellon | Model
+RULE r41-unit-ix-9-azkaellon-source | Source Entry :: Azkaellon | 6 | 5 | 4 | 4 | 2 | 4 | 3 | 10 | 2+/5+
+GLAIVE ENCARMINE The Glaive Encarmine is a Two-Handed, Master-crafted Power Weapon. Attacks made with it are resolved at Strength 6. MASTER OF THE SERAPHIM A Sanguinary Guard Squad containing Azkaellon may deploy using Deep Strike even if the mission does not normally permit Deep Strike. If the squad has been selected as a character's retinue, that character must also be capable of deploying by Deep Strike or the unit must deploy normally.
+One Sanguinary Guard may be upgraded to Azkaellon for +35 points.
+Azkaellon replaces one Sanguinary Guard and remains part of the unit for the entire battle. Azkaellon is a Character but is not an Independ
+SUSPECT RULE r41-unit-ix-9-azkaellon-source | Source Entry :: Azkaellon | 6 | 5 | 4 | 4 | 2 | 4 | 3 | 10 | 2+/5+
+GLAIVE ENCARMINE The Glaive Encarmine is a Two-Handed, Master-crafted Power Weapon. Attacks made with it are resolved at Strength 6. MASTER OF THE SERAPHIM A Sanguinary Guard Squad containing Azkaellon may deploy using Deep Strike even if the mission does not normally permit Deep Strike. If the squad has been selected as a character's retinue, that character must also be capable of deploying by Deep Strike or the unit must deploy normally.
+One S
+
+=== UNIT r41-unit-ix-10-nassir-amit-the-flesh-tearer | NASSIR AMIT, THE FLESH TEARER | type=unit hidden=false cost=180 cats=[('HQ', 'cat-hq', 'true')] ===
+PROFILE r41-unit-ix-10-nassir-amit-the-flesh-tearer-profile-0 | Nassir Amit | Model
+RULE r41-unit-ix-10-nassir-amit-the-flesh-tearer-source | Source Entry :: Nassir Amit | 6 | 5 | 4 | 4 | 3 | 5 | 3 | 10 | 2+/4+
+Force Organisation:
+COMMAND RETINUE Nassir Amit may select one Legion Command Squad as his retinue.
+• HQ
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Artificer Armour
+• Iron Halo
+• Power weapon
+• Rending Weapon
+• Frag grenades
+Special Rules:
+• Legiones Astartes (Blood Angels)
+• Independent Character
+• Master of the Legion
+• Furious Charge
+OPTIONS
+• Nassir Amit may take:
+• Krak grenades ........................................ +2 points
+• Melta bombs .......................................... +5 points
+GROUP r41-unit-ix-10-nassir-amit-the-flesh-tearer-options | Options | 
+  ENTRY r41-unit-ix-10-nassir-amit-the-flesh-tearer-opt-0-krak-grenades | Krak grenades | type=upgrade cost=2 | r41-unit-ix-10-nassir-amit-the-flesh-tearer-opt-0-krak-grenades-max:max=1 field=selections scope=parent
+  ENTRY r41-unit-ix-10-nassir-amit-the-flesh-tearer-opt-1-melta-bombs | Melta bombs | type=upgrade cost=5 | r41-unit-ix-10-nassir-amit-the-flesh-tearer-opt-1-melta-bombs-max:max=1 field=selections scope=parent
+SUSPECT RULE r41-unit-ix-10-nassir-amit-the-flesh-tearer-source | Source Entry :: Nassir Amit | 6 | 5 | 4 | 4 | 3 | 5 | 3 | 10 | 2+/4+
+Force Organisation:
+COMMAND RETINUE Nassir Amit may select one Legion Command Squad as his retinue.
+• HQ
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Artificer Armour
+• Iron Halo
+• Power weapon
+• Rending Weapon
+• Frag grenades
+Special Rules:
+• Legiones Astartes (Blood Angels)
+• Independent Character
+• Master of the Legion
+• Furious Charge
+OPTIONS
+• Nassir Amit may take:
+• Krak grenades ........................................ +2 points
+• Melta
+
+=== UNIT r41-unit-ix-11-ix-sanguinius-the-great-angel | IX — SANGUINIUS, THE GREAT ANGEL | type=unit hidden=false cost=510 cats=[('Lords of War', 'cat-low', 'true')] ===
+PROFILE r41-unit-ix-11-ix-sanguinius-the-great-angel-profile-0 | Sanguinius | Model
+RULE r41-unit-ix-11-ix-sanguinius-the-great-angel-source | Source Entry :: Primarch of the Blood Angels, the Great Angel, Lord of the IX Legion
+Sanguinius was among the most beloved of the Emperor’s sons, a figure of terrible beauty whose nobility stood in stark contrast to the savage legacy carried within the blood of his Legion. Born beneath the irradiated skies of Baal and marked from his earliest days by the great wings that bore him aloft, Sanguinius possessed a presence capable of inspiring warriors and mortals alike to acts of extraordinary courage.
+In war, the Great Angel was the embodiment of the IX Legion’s doctrine of sudden and overwhelming assault. Descending from the heavens at the head of his sons, Sanguinius struck with such speed and violence that 
+SUSPECT RULE r41-unit-ix-11-ix-sanguinius-the-great-angel-source | Source Entry :: Primarch of the Blood Angels, the Great Angel, Lord of the IX Legion
+Sanguinius was among the most beloved of the Emperor’s sons, a figure of terrible beauty whose nobility stood in stark contrast to the savage legacy carried within the blood of his Legion. Born beneath the irradiated skies of Baal and marked from his earliest days by the great wings that bore him aloft, Sanguinius possessed a presence capable of inspiring warriors and mortals alike to acts of extraordinary courage.
+In war, the 
+
+=== UNIT r46-al-reward-21 | DAWNBREAKER COHORT — Rewards of Treachery | type=unit hidden=false cost=35.0 cats=[('Elites', 'cat-elites', 'true'), ('Rewards of Treachery Limit', 'cat-alpha-reward', None)] ===
+PROFILE r46-al-reward-21-r41-unit-ix-0-dawnbreaker-cohort-profile-0 | Dawnbreaker | Model
+PROFILE r46-al-reward-21-r41-unit-ix-0-dawnbreaker-cohort-profile-1 | Dawnbreaker Champion | Model
+RULE r46-al-reward-21-r41-unit-ix-0-dawnbreaker-cohort-source | Source Entry :: Dawnbreaker | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 2+
+Dawnbreaker Champion | 5 | 4 | 4 | 4 | 1 | 4 | 3 | 10 | 2+
+Force Organisation:
+FALLING-STAR SPEAR A Falling-star Spear is a Two-Handed Power Weapon. Attacks made with it are resolved at +1 Strength. EQUINOX BLADES Equinox Blades count as a pair of Power Weapons. Grenade Discharger Weapon Range S AP Type Frag Grenade 12" 3 6 Assault 1, Blast Krak Grenade 12" 6 4 Assault 1
+• Elites
+Unit Composition:
+• 4 Dawnbreakers
+• 1 Dawnbreaker Champion
+Unit Type:
+• Jump Infantry
+• The Dawnbreaker Champion is a Character
+Wargear:
+• Artificer Armour
+• Jump Pack
+• Falling-star Spear
+• Grenade Discharger
+• Frag grenades
+Special Rules:
+• Legiones Astartes (Blood
+RULE r46-al-reward-21-rule | The Rewards of Treachery :: One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.
+GROUP r46-al-reward-21-r41-unit-ix-0-dawnbreaker-cohort-options | Options | 
+  ENTRY r46-al-reward-21-r41-unit-ix-0-dawnbreaker-cohort-opt-0-pair-of-equinox-blades | Pair of Equinox Blades | type=upgrade cost=0 | r46-al-reward-21-r41-unit-ix-0-dawnbreaker-cohort-opt-0-pair-of-equinox-blades-max:max=10 field=selections scope=parent
+  ENTRY r46-al-reward-21-r41-unit-ix-0-dawnbreaker-cohort-opt-1-krak-grenades | Krak grenades (base unit; +2 pts/model) | type=upgrade cost=10 | r46-al-reward-21-r41-unit-ix-0-dawnbreaker-cohort-opt-1-krak-grenades-max:max=1 field=selections scope=parent
+  ENTRY r46-al-reward-21-r41-unit-ix-0-dawnbreaker-cohort-opt-2-melta-bombs | Melta bombs (base unit; +5 pts/model) | type=upgrade cost=25 | r46-al-reward-21-r41-unit-ix-0-dawnbreaker-cohort-opt-2-melta-bombs-max:max=1 field=selections scope=parent
+SUSPECT RULE r46-al-reward-21-r41-unit-ix-0-dawnbreaker-cohort-source | Source Entry :: Dawnbreaker | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 2+
+Dawnbreaker Champion | 5 | 4 | 4 | 4 | 1 | 4 | 3 | 10 | 2+
+Force Organisation:
+FALLING-STAR SPEAR A Falling-star Spear is a Two-Handed Power Weapon. Attacks made with it are resolved at +1 Strength. EQUINOX BLADES Equinox Blades count as a pair of Power Weapons. Grenade Discharger Weapon Range S AP Type Frag Grenade 12" 3 6 Assault 1, Blast Krak Grenade 12" 6 4 Assault 1
+• Elites
+Unit Composition:
+• 4 Dawnbreakers
+• 1 Dawnbreaker Champion
+Unit Typ
+
+=== UNIT r46-al-reward-22 | CRIMSON PALADIN SQUAD — Rewards of Treachery | type=unit hidden=false cost=25.0 cats=[('Elites', 'cat-elites', 'true'), ('Rewards of Treachery Limit', 'cat-alpha-reward', None)] ===
+PROFILE r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-profile-0 | Crimson Paladin | Model
+PROFILE r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-profile-1 | Crimson Exemplar | Model
+RULE r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-source | Source Entry :: Crimson Paladin | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 10 | 2+/4+
+Crimson Exemplar | 5 | 4 | 4 | 4 | 2 | 4 | 3 | 10 | 2+/4+
+Force Organisation:
+CORIOLIS SHIELD A model equipped with a Coriolis Shield has a 3+ Invulnerable Save against close-combat attacks. Against all other attacks, use the model's normal saves. THE BLOOD IS FOREVER At the beginning of each Assault phase, if the number of enemy models engaged in the same combat is greater than the number of models in this unit, the Crimson Paladins gain Feel No Pain (5+) until the end of that Assault phase. If the enemy outnumbers the unit by at least two models to one, they instead gain Feel No Pain (4+).
+• Elites
+Unit Composition:
+• 2 Crimson Palad
+RULE r46-al-reward-22-rule | The Rewards of Treachery :: One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.
+GROUP r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-options | Options | 
+  ENTRY r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-opt-0-power-fist | Power fist | type=upgrade cost=10 | r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-opt-0-power-fist-max:max=5 field=selections scope=parent
+  ENTRY r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-opt-1-thunder-hammer | Thunder hammer | type=upgrade cost=15 | r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-opt-1-thunder-hammer-max:max=5 field=selections scope=parent
+  ENTRY r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-opt-2-heavy-flamer | Heavy Flamer | type=upgrade cost=10 | r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-opt-2-heavy-flamer-max:max=1 field=selections scope=parent
+  ENTRY r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-opt-3-assault-cannon | Assault Cannon | type=upgrade cost=15 | r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-opt-3-assault-cannon-max:max=1 field=selections scope=parent
+  ENTRY r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-opt-4-plasma-blaster | Plasma Blaster | type=upgrade cost=15 | r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-opt-4-plasma-blaster-max:max=1 field=selections scope=parent
+  ENTRY r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-opt-5-grenade-harness | Grenade Harness | type=upgrade cost=10 | r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-opt-5-grenade-harness-max:max=1 field=selections scope=parent
+SUSPECT RULE r46-al-reward-22-r41-unit-ix-1-crimson-paladin-squad-source | Source Entry :: Crimson Paladin | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 10 | 2+/4+
+Crimson Exemplar | 5 | 4 | 4 | 4 | 2 | 4 | 3 | 10 | 2+/4+
+Force Organisation:
+CORIOLIS SHIELD A model equipped with a Coriolis Shield has a 3+ Invulnerable Save against close-combat attacks. Against all other attacks, use the model's normal saves. THE BLOOD IS FOREVER At the beginning of each Assault phase, if the number of enemy models engaged in the same combat is greater than the number of models in this unit, the Crimson Paladins gain 
+
+=== UNIT r46-al-reward-23 | ANGEL'S TEARS SQUAD — Rewards of Treachery | type=unit hidden=false cost=60.0 cats=[('Elites', 'cat-elites', 'true'), ('Rewards of Treachery Limit', 'cat-alpha-reward', None)] ===
+PROFILE r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-profile-0 | Erelim | Model
+PROFILE r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-profile-1 | Arch-Erelim | Model
+RULE r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-source | Source Entry :: Erelim | 4 | 4 | 4 | 4 | 1 | 4 | 1 | 9 | 3+
+Arch-Erelim | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Force Organisation:
+DUAL PISTOLS A model with this rule may fire both of its Pistol weapons duringthe Shooting phase. Both pistols must fire at the same target. DESTROYER CADRE An Angel's Tears Squad may normally only be joined by a Moritat. Dominion Zephon is an exception to this rule. Weapon Range S AP Type Angel's Tears Grenade Launcher 24" 4 4 Assault 3, Fleshbane, Rad-phage
+• Elites
+Unit Composition:
+• 4 Erelim
+• 1 Arch-Erelim
+Unit Type:
+• Jump Infantry
+• The Arch-Erelim is a Character
+Wargear:
+• Power Armour
+• Jump Pack
+• Two Volkite Serpentas
+• Chainsword
+• Frag grenades
+• Rad grenades
+Special
+RULE r46-al-reward-23-rule | The Rewards of Treachery :: One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.
+GROUP r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-options | Options | 
+  ENTRY r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-0-rotor-cannon | Rotor Cannon | type=upgrade cost=5 | r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-0-rotor-cannon-max:max=2 field=selections scope=parent
+  ENTRY r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-1-heavy-flamer | Heavy Flamer | type=upgrade cost=10 | r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-1-heavy-flamer-max:max=2 field=selections scope=parent
+  ENTRY r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-2-angel-s-tears-grenade-launcher | Angel's Tears Grenade Launcher | type=upgrade cost=15 | r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-2-angel-s-tears-grenade-launcher-max:max=2 field=selections scope=parent
+  ENTRY r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-3-assault-cannon-with-suspensor-web | Assault Cannon with Suspensor Web | type=upgrade cost=25 | r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-3-assault-cannon-with-suspensor-web-max:max=2 field=selections scope=parent
+  ENTRY r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-4-krak-grenades | Krak grenades (base unit; +2 pts/model) | type=upgrade cost=10 | r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-4-krak-grenades-max:max=1 field=selections scope=parent
+  ENTRY r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-5-melta-bombs | Melta bombs (base unit; +5 pts/model) | type=upgrade cost=25 | r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-5-melta-bombs-max:max=1 field=selections scope=parent
+  ENTRY r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-6-rending-weapon | Rending Weapon | type=upgrade cost=5 | r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-6-rending-weapon-max:max=1 field=selections scope=parent
+  ENTRY r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-7-power-weapon | Power weapon | type=upgrade cost=10 | r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-7-power-weapon-max:max=1 field=selections scope=parent
+  ENTRY r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-8-power-fist | Power fist | type=upgrade cost=15 | r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-opt-8-power-fist-max:max=1 field=selections scope=parent
+SUSPECT RULE r46-al-reward-23-r41-unit-ix-2-angel-s-tears-squad-source | Source Entry :: Erelim | 4 | 4 | 4 | 4 | 1 | 4 | 1 | 9 | 3+
+Arch-Erelim | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Force Organisation:
+DUAL PISTOLS A model with this rule may fire both of its Pistol weapons duringthe Shooting phase. Both pistols must fire at the same target. DESTROYER CADRE An Angel's Tears Squad may normally only be joined by a Moritat. Dominion Zephon is an exception to this rule. Weapon Range S AP Type Angel's Tears Grenade Launcher 24" 4 4 Assault 3, Fleshbane, Rad-phage
+• Elites
+Unit Composition
+
+=== UNIT r46-al-reward-24 | GRAV CHARIOT SQUADRON — Rewards of Treachery | type=unit hidden=false cost=65 cats=[('Elites', 'cat-elites', 'true'), ('Rewards of Treachery Limit', 'cat-alpha-reward', None)] ===
+PROFILE r46-al-reward-24-r41-unit-ix-4-grav-chariot-squadron-profile-0 | Grav Chariot | Model
+RULE r46-al-reward-24-r41-unit-ix-4-grav-chariot-squadron-source | Source Entry :: Grav Chariot | 4 | 4 | 4 | 5 | 1 | 4 | 2 | 8 | 2+
+Force Organisation:
+GRAV ENGINES Grav Chariots follow all normal ProHammer rules for Jetbikes. A Grav Chariot may fire both its Twin-linked Bolters and its mounted Heavy Bolter, Multi-Melta or Assault Cannon during the same Shooting phase. The mounted weapon may be fired after the Grav Chariot moves.
+• Fast Attack
+Unit Composition:
+• 1–3 Grav Chariots
+Unit Type:
+• Jetbike
+Wargear:
+• Twin-linked Bolters
+• Heavy Bolter
+• Bolt pistol
+Special Rules:
+• Legiones Astartes (Blood Angels)
+• Grav Engines
+OPTIONS
+• Any Grav Chariot may replace its Heavy Bolter with:
+• Multi-Melta ......................................... +15 points
+• Assault Cannon ....
+RULE r46-al-reward-24-rule | The Rewards of Treachery :: One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.
+GROUP r46-al-reward-24-r41-unit-ix-4-grav-chariot-squadron-options | Options | 
+  ENTRY r46-al-reward-24-r41-unit-ix-4-grav-chariot-squadron-opt-0-multi-melta | Multi-Melta | type=upgrade cost=15 | r46-al-reward-24-r41-unit-ix-4-grav-chariot-squadron-opt-0-multi-melta-max:max=1 field=selections scope=parent
+  ENTRY r46-al-reward-24-r41-unit-ix-4-grav-chariot-squadron-opt-1-assault-cannon | Assault Cannon | type=upgrade cost=20 | r46-al-reward-24-r41-unit-ix-4-grav-chariot-squadron-opt-1-assault-cannon-max:max=1 field=selections scope=parent
+SUSPECT RULE r46-al-reward-24-r41-unit-ix-4-grav-chariot-squadron-source | Source Entry :: Grav Chariot | 4 | 4 | 4 | 5 | 1 | 4 | 2 | 8 | 2+
+Force Organisation:
+GRAV ENGINES Grav Chariots follow all normal ProHammer rules for Jetbikes. A Grav Chariot may fire both its Twin-linked Bolters and its mounted Heavy Bolter, Multi-Melta or Assault Cannon during the same Shooting phase. The mounted weapon may be fired after the Grav Chariot moves.
+• Fast Attack
+Unit Composition:
+• 1–3 Grav Chariots
+Unit Type:
+• Jetbike
+Wargear:
+• Twin-linked Bolters
+• Heavy Bolter
+• Bolt pistol
+Special Rules:
+
+
+=== BLOOD ANGELS SHARED / LINKED OBJECTS ===
+selectionEntry r44-ba-death-mask | Death Mask target=None hidden=false cost=10 owner= | r44-ba-death-mask-max:max=1 field=selections scope=parent
+selectionEntry r44-ba-inferno-pistol | Inferno Pistol target=None hidden=false cost=15 owner= | r44-ba-inferno-pistol-max:max=1 field=selections scope=parent
+selectionEntry r44-ba-blade-perdition | Blade of Perdition target=None hidden=false cost=25 owner= | r44-ba-blade-perdition-max:max=1 field=selections scope=parent
+selectionEntry r44-ba-overcharged-engines | Over-charged Engines target=None hidden=false cost=15 owner= | r44-ba-overcharged-engines-max:max=1 field=selections scope=parent
+selectionEntry r44-ba-furioso-jump-pack | Furioso-pattern Jump Pack target=None hidden=false cost=55 owner= | r44-ba-furioso-jump-pack-max:max=1 field=selections scope=parent; r44-ba-furioso-jump-pack-roster:max=1 field=selections scope=roster
+selectionEntry r46-sal-inferno-pistol | Inferno Pistol target=None hidden=false cost=15 owner= | r46-sal-inferno-pistol-max:max=1 field=selections scope=parent
+entryLink r44-ba-contemptor-jump | Furioso-pattern Jump Pack target=r44-ba-furioso-jump-pack hidden=false cost= owner=Legion Contemptor Dreadnought | r44-ba-contemptor-jump-max:max=1 field=selections scope=parent
+entryLink r44-hq-praetor-r44-ba-blade-perdition | Blade of Perdition target=r44-ba-blade-perdition hidden=false cost= owner=Legion Praetor | r44-hq-praetor-r44-ba-blade-perdition-max:max=1 field=selections scope=parent
+entryLink r44-hq-praetor-r44-ba-death-mask | Death Mask target=r44-ba-death-mask hidden=false cost= owner=Legion Praetor | r44-hq-praetor-r44-ba-death-mask-max:max=1 field=selections scope=parent
+entryLink r44-hq-praetor-r44-ba-inferno-pistol | Inferno Pistol target=r44-ba-inferno-pistol hidden=false cost= owner=Legion Praetor | r44-hq-praetor-r44-ba-inferno-pistol-max:max=1 field=selections scope=parent
+entryLink r46-hq-praetor-r46-sal-inferno-pistol | Inferno Pistol target=r46-sal-inferno-pistol hidden=false cost= owner=Legion Praetor | r46-hq-praetor-r46-sal-inferno-pistol-max:max=1 field=selections scope=parent
+selectionEntry r25-consul-ix-sanguinary-high-priest-consul | Sanguinary High Priest Consul target=None hidden=false cost=45 owner=Legion Centurion | r25-consul-ix-sanguinary-high-priest-consul-max:max=1 field=selections scope=parent
+entryLink r44-hq-centurion-r44-ba-blade-perdition | Blade of Perdition target=r44-ba-blade-perdition hidden=false cost= owner=Legion Centurion | r44-hq-centurion-r44-ba-blade-perdition-max:max=1 field=selections scope=parent
+entryLink r44-hq-centurion-r44-ba-death-mask | Death Mask target=r44-ba-death-mask hidden=false cost= owner=Legion Centurion | r44-hq-centurion-r44-ba-death-mask-max:max=1 field=selections scope=parent
+entryLink r44-hq-centurion-r44-ba-inferno-pistol | Inferno Pistol target=r44-ba-inferno-pistol hidden=false cost= owner=Legion Centurion | r44-hq-centurion-r44-ba-inferno-pistol-max:max=1 field=selections scope=parent
+entryLink r46-hq-centurion-r46-sal-inferno-pistol | Inferno Pistol target=r46-sal-inferno-pistol hidden=false cost= owner=Legion Centurion | r46-hq-centurion-r46-sal-inferno-pistol-max:max=1 field=selections scope=parent
+entryLink r44-ba-rhino-engines | Over-charged Engines target=r44-ba-overcharged-engines hidden=false cost= owner=Damocles Command Rhino | r44-ba-rhino-engines-max:max=1 field=selections scope=parent
+selectionEntry legion-ix | IX Legion — Blood Angels target=None hidden=false cost=0 owner= | legion-ix-max:max=1 field=selections scope=parent
+selectionEntry r25-rite-ix-0-the-day-of-revelation | Blood Angels Rite of War — The Day Of Revelation target=None hidden=false cost= owner= | r25-rite-ix-0-the-day-of-revelation-max:max=1 field=selections scope=parent
+selectionEntry r25-rite-ix-1-the-day-of-sorrows | Blood Angels Rite of War — The Day Of Sorrows target=None hidden=false cost= owner= | r25-rite-ix-1-the-day-of-sorrows-max:max=1 field=selections scope=parent
+selectionEntry r41-unit-ix-5-sanguinary-guard-opt-0-inferno-pistol | Inferno Pistol target=None hidden=false cost=10 owner=SANGUINARY GUARD | r41-unit-ix-5-sanguinary-guard-opt-0-inferno-pistol-max:max=6 field=selections scope=parent
+selectionEntry r41-unit-xviii-2-salamanders-infernus-destroyer-squad-opt-12-inferno-pistol | Inferno Pistol target=None hidden=false cost=10 owner=SALAMANDERS INFERNUS DESTROYER SQUAD | r41-unit-xviii-2-salamanders-infernus-destroyer-squad-opt-12-inferno-pistol-max:max=1 field=selections scope=parent
+selectionEntry r42-role-xviii-0-salamanders-infernus-destroyer-squads-r41-unit-xviii-2-salamanders-infernus-destroyer-squad-opt-12-inferno-pistol | Inferno Pistol target=None hidden=false cost=10 owner=SALAMANDERS INFERNUS DESTROYER SQUAD | r42-role-xviii-0-salamanders-infernus-destroyer-squads-r41-unit-xviii-2-salamanders-infernus-destroyer-squad-opt-12-inferno-pistol-max:max=1 field=selections scope=parent
+selectionEntry r46-al-reward-55-r41-unit-xviii-2-salamanders-infernus-destroyer-squad-opt-12-inferno-pistol | Inferno Pistol target=None hidden=false cost=10 owner=SALAMANDERS INFERNUS DESTROYER SQUAD — Rewards of Treachery | r46-al-reward-55-r41-unit-xviii-2-salamanders-infernus-destroyer-squad-opt-12-inferno-pistol-max:max=1 field=selections scope=parent
+
+=== BLOOD ANGELS RITES ===
+RITE r25-rite-ix-0-the-day-of-revelation -> Blood Angels Rite of War — The Day Of Revelation
+  RULE The Day Of Revelation :: The Day of Revelation is the archetypal assault doctrine of the IX Legion, entire formations descending from the heavens in a single precisely timed attack before the enemy can organise an effective defence.
+EFFECTS
+HOST OF ANGELS
+Legion Veteran Squads equipped with Jump Packs may be selected as Troops choices. They may fulfil compulsory Troops selections. Legion Assault Squads remain Troops choices normally.
+THE DAY IS REVEALED
+Blood Angels units composed entirely of Jump Infantry may deploy using Deep Strike even if the mission would not normally permit it. All Jump Infantry units placed in Reserve using this Rite must enter play using Deep Strike.
+ON WINGS OF FIRE
+At the beginning of the second Blood Angels player turn, all Blood Angels Jump Infantry units currently held in Reserve become available automatically. No Reserve rolls are made for these units and they must enter play durin
+RITE r25-rite-ix-1-the-day-of-sorrows -> Blood Angels Rite of War — The Day Of Sorrows
+  RULE The Day Of Sorrows :: The Day of Sorrows represents those battles in which the IX Legion has suffered catastrophic casualties yet refuses to yield, its surviving warriors becoming increasingly consumed by grief and fury as their brothers fall around them.
+EFFECTS
+THE BITTER END
+When a non-Vehicle Blood Angels unit is reduced to half or fewer of the number of models with which it began the battle, it gains Stubborn and Feel No Pain (6+). These rules remain in effect for the remainder of the battle. If the unit already possesses Feel No Pain, improve its existing Feel No Pain roll by one step instead, to a maximum of 4+.
+SORROW BECOMES FURY
+A Blood Angels unit affected by The Bitter End gains +1 to its combat-resolution score whenever it wins a close combat. This bonus is not cumulative.
+NO DEATH UNREMEMBERED
+Whenever a Blood Angels unit affected by The Bitter End is completely destroyed, every friendly non-Veh
+
+=== GST STANDARD FOC / BA MODIFIERS ===
+FOC fl-hq HQ -> cat-hq
+  CON fl-hq-min min=1
+  CON fl-hq-max max=2
+FOC fl-troops Troops -> cat-troops
+  CON fl-troops-min min=2
+  CON fl-troops-max max=6
+FOC fl-elites Elites -> cat-elites
+  CON fl-elites-max max=3
+FOC fl-fast Fast Attack -> cat-fast
+  CON fl-fast-max max=3
+FOC fl-heavy Heavy Support -> cat-heavy
+  CON fl-heavy-max max=3
+  BA MOD r44-ba-revelation-heavy-max type=set field=fl-heavy-max value=1 conds=[('atLeast', '1', 'roster', 'r25-rite-ix-0-the-day-of-revelation')]
