@@ -37,4 +37,10 @@ jobs:
           git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r72-night-lords-final.txt inspection-r56-all-unit-sizes.txt
           git diff --cached --quiet || git commit -m 'Revision 72: finalize Night Lords implementation'
           git pull --rebase origin main
-          git push
+          for attempt in 1 2 3 4 5; do
+            git push && exit 0
+            echo "Push attempt ${attempt} failed; retrying..."
+            sleep $((attempt * 3))
+            git pull --rebase origin main
+          done
+          exit 1
