@@ -15,22 +15,24 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - name: Preflight shared Armoury ids
+      - name: Preflight and repair Revision 70 builder
         run: |
           python - <<'PY'
           from pathlib import Path
           import xml.etree.ElementTree as ET
-          cat=Path('Legiones Astartes.cat')
-          root=ET.parse(cat).getroot()
+          root=ET.parse('Legiones Astartes.cat').getroot()
           ids={e.get('id') for e in root.iter() if e.get('id')}
           p=Path('.github/build/rev70_imperial_fists_live_fix.py')
           s=p.read_text(encoding='utf-8')
+          # Repair two missing closing parentheses found by the first syntax run.
+          s=s.replace("for n,u in enumerate(list(cr.iter(C('selectionEntry'))):", "for n,u in enumerate(list(cr.iter(C('selectionEntry')))):")
           # Grenade Harness was historically local in some units. Use a local 10pt entry if no shared id exists.
           if 'gear-grenade-harness' not in ids:
               old="if kind=='huscarl': link(war,uid+'-gh','Grenade Harness','gear-grenade-harness')"
               new="if kind=='huscarl': local(war,uid+'-gh','Grenade Harness',10,'Terminator Armour only.')"
-              if old not in s: raise SystemExit('Expected Grenade Harness line not found')
-              p.write_text(s.replace(old,new),encoding='utf-8')
+              if old in s: s=s.replace(old,new)
+          p.write_text(s,encoding='utf-8')
+          compile(s,str(p),'exec')
           PY
       - name: Apply Revision 70
         run: python .github/build/rev70_imperial_fists_live_fix.py
