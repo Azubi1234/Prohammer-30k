@@ -29,6 +29,10 @@ jobs:
           new="                dest=ensure(oldaz,'profiles')\n                for p in list(ps):\n                    cp=deepcopy(p); cp.set('id','r74-ba-azk-up-profile-'+(p.get('id') or 'model')); dest.append(cp)"
           assert old in s
           s=s.replace(old,new,1)
+          old="ET.indent(ct,space='  ');ET.indent(gt,space='  ');ET.indent(it,space='  ')\nct.write(CAT,encoding='utf-8',xml_declaration=True);gt.write(GST,encoding='utf-8',xml_declaration=True);it.write(IDX,encoding='utf-8',xml_declaration=True)"
+          new="ET.indent(ct,space='  ');ET.indent(gt,space='  ');ET.indent(it,space='  ')\nET.register_namespace('',CNS);ct.write(CAT,encoding='utf-8',xml_declaration=True)\nET.register_namespace('',GNS);gt.write(GST,encoding='utf-8',xml_declaration=True)\nET.register_namespace('',INS);it.write(IDX,encoding='utf-8',xml_declaration=True)"
+          assert old in s
+          s=s.replace(old,new,1)
           p.write_text(s,encoding='utf-8')
           PY
       - name: Apply Revision 74 Blood Angels
