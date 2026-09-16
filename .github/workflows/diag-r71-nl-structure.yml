@@ -1,0 +1,27 @@
+name: Diagnose Revision 71 Night Lords structure
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/r71_diag_nl_structure.py'
+      - '.github/workflows/diag-r71-nl-structure.yml'
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Diagnose Night Lords structure
+        run: python .github/build/r71_diag_nl_structure.py
+      - name: Commit diagnostic
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add inspection-r71-nl-structure.txt
+          git diff --cached --quiet || git commit -m 'Revision 71 diagnostic: inspect Night Lords structure'
+          git pull --rebase origin main
+          git push
