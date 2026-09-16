@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/build/r74_diag_blood_angels.py'
+      - '.github/build/r74_diag_ba_models.py'
       - '.github/workflows/r74-blood-angels-diagnostic.yml'
 jobs:
   diag:
@@ -15,13 +16,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - name: Run diagnostic
-        run: python .github/build/r74_diag_blood_angels.py
-      - name: Commit diagnostic
+      - name: Run diagnostics
+        run: |
+          python .github/build/r74_diag_blood_angels.py
+          python .github/build/r74_diag_ba_models.py
+      - name: Commit diagnostics
         run: |
           git config user.name 'Azubi1234'
           git config user.email '132048044+Azubi1234@users.noreply.github.com'
-          git add inspection-r74-blood-angels-diag.txt
-          git diff --cached --quiet || git commit -m 'Add Revision 74 Blood Angels diagnostic output'
+          git add inspection-r74-blood-angels-diag.txt inspection-r74-ba-models.txt
+          git diff --cached --quiet || git commit -m 'Update Revision 74 Blood Angels diagnostics'
           git pull --rebase origin main
           for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
