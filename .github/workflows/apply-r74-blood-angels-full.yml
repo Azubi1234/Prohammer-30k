@@ -1,0 +1,40 @@
+name: Apply Revision 74 Blood Angels full
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev74_blood_angels_full.py'
+      - '.github/workflows/apply-r74-blood-angels-full.yml'
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply Revision 74 Blood Angels
+        run: python .github/build/rev74_blood_angels_full.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 74
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          c=ET.parse('Legiones Astartes.cat').getroot(); g=ET.parse('Prohammer 30k.gst').getroot()
+          assert c.get('revision')=='74' and c.get('gameSystemRevision')=='42'
+          assert g.get('revision')=='42'
+          cat=open('Legiones Astartes.cat',encoding='utf-8').read(); gst=open('Prohammer 30k.gst',encoding='utf-8').read()
+          assert '<ns0:' not in cat and '<ns0:' not in gst
+          print(open('inspection-r74-blood-angels-full.txt',encoding='utf-8').read())
+          PY
+      - name: Commit generated live data
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r74-blood-angels-full.txt inspection-r56-all-unit-sizes.txt
+          git diff --cached --quiet || git commit -m 'Revision 74: implement Blood Angels fully'
+          git pull --rebase origin main
+          for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
