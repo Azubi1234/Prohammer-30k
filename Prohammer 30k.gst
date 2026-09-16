@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ns0:gameSystem xmlns:ns0="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="31" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
+<ns0:gameSystem xmlns:ns0="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="32" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
   <ns0:comment>Horus Heresy army lists adapted for use with ProHammer Classic.</ns0:comment>
   <ns0:readme>Core system skeleton for Prohammer 30k. Contains points, core profile types, battlefield roles, mandatory Army Configuration and the standard Force Organisation Chart.</ns0:readme>
   <ns0:costTypes>
@@ -65,6 +65,10 @@
     <ns0:categoryEntry id="cat-alpha-reward" name="Rewards of Treachery Limit" hidden="true" />
     <ns0:categoryEntry id="r47-cat-wb-favour" name="Word Bearers Favour of the Pantheon Limit" hidden="true" />
     <ns0:categoryEntry id="r63-sw-cat-grey-slayer" name="Space Wolves Grey Slayer Requirement" hidden="true" />
+    <ns0:categoryEntry id="r64-if-cat-stone-comp" name="Stone Gauntlet Compulsory Troops" hidden="true" />
+    <ns0:categoryEntry id="r64-if-cat-templar-comp" name="Templar Assault Compulsory Troops" hidden="true" />
+    <ns0:categoryEntry id="r64-if-cat-templar-limit" name="Templar Brethren 0-1" hidden="true" />
+    <ns0:categoryEntry id="r64-if-cat-tarantula-limit" name="Tarantula Batteries 0-2" hidden="true" />
   </ns0:categoryEntries>
   <ns0:forceEntries>
     <ns0:forceEntry id="force-standard" name="Standard Age of Darkness Detachment" hidden="false">
@@ -182,16 +186,6 @@
                 <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-iv" shared="true" includeChildSelections="true" includeChildForces="false" />
               </ns0:conditions>
             </ns0:modifier>
-            <ns0:modifier id="r44-if-stone-fast-max" type="set" value="1" field="fl-fast-max">
-              <ns0:conditions>
-                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-0-the-stone-gauntlet" shared="true" includeChildSelections="true" includeChildForces="false" />
-              </ns0:conditions>
-            </ns0:modifier>
-            <ns0:modifier id="r44-if-templar-fast-max" type="set" value="1" field="fl-fast-max">
-              <ns0:conditions>
-                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-2-templar-assault" shared="true" includeChildSelections="true" includeChildForces="false" />
-              </ns0:conditions>
-            </ns0:modifier>
             <ns0:modifier id="r44-nl-fast-max" type="set" value="4" field="fl-fast-max">
               <ns0:conditions>
                 <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
@@ -200,6 +194,16 @@
             <ns0:modifier id="r44-ih-gorgon-fast-max" type="set" value="1" field="fl-fast-max">
               <ns0:conditions>
                 <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r64-if-stone-fast-max" type="set" value="1" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-0-the-stone-gauntlet" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r64-if-templar-fast-max" type="set" value="1" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-2-templar-assault" shared="true" includeChildSelections="true" includeChildForces="false" />
               </ns0:conditions>
             </ns0:modifier>
           </ns0:modifiers>
@@ -287,6 +291,54 @@
             <ns0:modifier id="r63-sw-grey-slayer-min-mod" type="set" value="1" field="r63-sw-grey-slayer-min">
               <ns0:conditions>
                 <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vi-1-the-bloodied-claws" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="r64-if-fl-r64-if-cat-stone-comp" name="Stone Gauntlet Compulsory Troops" hidden="true" targetId="r64-if-cat-stone-comp">
+          <ns0:constraints>
+            <ns0:constraint id="r64-if-r64-if-cat-stone-comp-min" type="min" value="0" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r64-if-r64-if-cat-stone-comp-min-mod" type="set" value="2" field="r64-if-r64-if-cat-stone-comp-min">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-0-the-stone-gauntlet" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="r64-if-fl-r64-if-cat-templar-comp" name="Templar Assault Compulsory Troops" hidden="true" targetId="r64-if-cat-templar-comp">
+          <ns0:constraints>
+            <ns0:constraint id="r64-if-r64-if-cat-templar-comp-min" type="min" value="0" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r64-if-r64-if-cat-templar-comp-min-mod" type="set" value="2" field="r64-if-r64-if-cat-templar-comp-min">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-2-templar-assault" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="r64-if-fl-r64-if-cat-templar-limit" name="Templar Brethren 0-1" hidden="true" targetId="r64-if-cat-templar-limit">
+          <ns0:constraints>
+            <ns0:constraint id="r64-if-r64-if-cat-templar-limit-max" type="max" value="99" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r64-if-r64-if-cat-templar-limit-max-mod" type="set" value="1" field="r64-if-r64-if-cat-templar-limit-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-vii" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="r64-if-fl-r64-if-cat-tarantula-limit" name="Tarantula Batteries 0-2" hidden="true" targetId="r64-if-cat-tarantula-limit">
+          <ns0:constraints>
+            <ns0:constraint id="r64-if-r64-if-cat-tarantula-limit-max" type="max" value="99" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r64-if-r64-if-cat-tarantula-limit-max-mod" type="set" value="2" field="r64-if-r64-if-cat-tarantula-limit-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-vii" shared="true" includeChildSelections="true" includeChildForces="false" />
               </ns0:conditions>
             </ns0:modifier>
           </ns0:modifiers>

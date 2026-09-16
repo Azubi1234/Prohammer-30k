@@ -1,0 +1,29 @@
+Revision 64 — Imperial Fists full-army implementation
+Catalogue revision: 64
+Game-system revision: 32
+
+Source authority: current Forces of the Legions document only.
+
+Implemented:
+- Disciplined Fire, Fortification Masters, Blind to the Risk
+- Solarite Power Gauntlet, Vigil Pattern Storm Shield, Teleportation Transponders
+- The Stone Gauntlet, Hammerfall Strike Force, Templar Assault
+- Templar Brethren Squad 5–10
+- Phalanx Warder Squad 5–10
+- Huscarl Terminator Retinue 5–10
+- Tarantula Sentry Gun Battery 1–3, 0–2 batteries
+- Sigismund, Fafnir Rann, Alexis Polux, Camba Diaz, Evander Garrius
+- Rogal Dorn
+
+Exact Dedicated Transport audit:
+- Templar Brethren: Rhino, Drop Pod, Dreadclaw Drop Pod, Land Raider
+- Phalanx Warders: Rhino, Dreadclaw Drop Pod, Land Raider
+
+Rite mechanics:
+- Stone Gauntlet and Templar Assault: Fast Attack maximum 1 enforced.
+- Stone Gauntlet compulsory Troops requirement enforced through hidden category: minimum 2 Breacher/Warder selections.
+- Templar Assault compulsory Troops requirement enforced through hidden category: minimum 2 Templar Brethren selections.
+- Hammerfall and Stone Gauntlet Warder Troops role clones added.
+- Templar Assault Templar Brethren Troops role clone added.
+- Templar Assault Land Raider Phobos/Proteus and conditional Spartan transport options exposed with source restriction text.
+- Requirements without a safe universal catalogue tag (Fortification bans, voluntary Deep Strike ban, Vehicle Reserve requirement, Warlord equipment requirement, shield-equipped IC requirement) remain explicitly stated in the Rite rule rather than guessed.

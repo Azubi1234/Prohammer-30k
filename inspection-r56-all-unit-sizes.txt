@@ -1,4 +1,4 @@
-Top-level unit entries audited: 356
+Top-level unit entries audited: 359
 UI-standard flags: 0
 
 UNIT tactical-unit :: Legion Tactical Squad
@@ -142,6 +142,7 @@ UNIT hq-praetor :: Legion Praetor
   MODEL ('hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
   MODEL ('hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
   MODEL ('hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r64-if-praetor-huscarl-r64-if-huscarl-models', 'Retinue Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
 
 UNIT hq-centurion :: Legion Centurion
   MODEL ('r30-prae-castellax-extra', 'Castellax Battle-Automata', '1', [('max', '5', 'parent'), ('min', '1', 'parent')], ['105'])
@@ -459,14 +460,66 @@ UNIT r41-unit-vi-11-vi-leman-russ-the-wolf-king :: Leman Russ — The Wolf King
   MODEL ('r63-sw-russ-term-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
   MODEL ('r63-sw-russ-term-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
 
-UNIT r41-unit-vii-0-templar-brethren-squad :: TEMPLAR BRETHREN SQUAD
-  MODEL ('r41-unit-vii-0-templar-brethren-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+UNIT r41-unit-vii-0-templar-brethren-squad :: Templar Brethren Squad
+  MODEL ('r64-if-templar-models', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+  MODEL ('r64-if-templar-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-templar-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-templar-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r64-if-templar-assault-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-templar-assault-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-templar-assault-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
 
-UNIT r41-unit-vii-1-phalanx-warder-squad :: PHALANX WARDER SQUAD
-  MODEL ('r41-unit-vii-1-phalanx-warder-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['28'])
+UNIT r41-unit-vii-1-phalanx-warder-squad :: Phalanx Warder Squad
+  MODEL ('r64-if-warder-models', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['28'])
+  MODEL ('r64-if-warder-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-warder-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-warder-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
 
-UNIT r41-unit-vii-2-huscarl-terminator-retinue :: HUSCARL TERMINATOR RETINUE
-  MODEL ('r41-unit-vii-2-huscarl-terminator-retinue-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+UNIT r41-unit-vii-2-huscarl-terminator-retinue :: Huscarl Terminator Retinue
+  MODEL ('r64-if-huscarl-models', 'Retinue Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-vii-3-tarantula-sentry-gun-battery :: Tarantula Sentry Gun Battery
+  MODEL ('r64-if-tarantula-guns', 'Tarantula Sentry Guns', '1', [('max', '3', 'parent'), ('min', '1', 'parent')], ['20'])
+
+UNIT r41-unit-vii-4-sigismund-first-captain :: Sigismund, First Captain
+  MODEL ('r64-if-sig-templar-r64-if-templar-models', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+  MODEL ('r64-if-sig-templar-r64-if-templar-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-sig-templar-r64-if-templar-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-sig-templar-r64-if-templar-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r64-if-sig-huscarl-r64-if-huscarl-models', 'Retinue Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-vii-7-camba-diaz :: Camba Diaz
+  MODEL ('r64-if-diaz-warder-r64-if-warder-models', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['28'])
+  MODEL ('r64-if-diaz-warder-r64-if-warder-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-diaz-warder-r64-if-warder-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-diaz-warder-r64-if-warder-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r64-if-diaz-command-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r64-if-diaz-command-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-diaz-command-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-diaz-command-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-vii-8-evander-garrius :: Evander Garrius
+  MODEL ('r64-if-garrius-huscarl-r64-if-huscarl-models', 'Retinue Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+  MODEL ('r64-if-garrius-term-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r64-if-garrius-term-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-garrius-term-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-garrius-term-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-vii-9-vii-rogal-dorn-the-praetorian-of-terra :: Rogal Dorn — The Praetorian of Terra
+  MODEL ('r64-if-dorn-honour-hq-praetor-ret-honour-champ', 'Legion Champion', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r64-if-dorn-honour-hq-praetor-ret-honour-base', 'Legion Honour Guard', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['40'])
+  MODEL ('r64-if-dorn-honour-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-dorn-honour-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-dorn-honour-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r64-if-dorn-term-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r64-if-dorn-term-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-dorn-term-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-dorn-term-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r64-if-dorn-huscarl-r64-if-huscarl-models', 'Retinue Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+  MODEL ('r64-if-dorn-templar-r64-if-templar-models', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+  MODEL ('r64-if-dorn-templar-r64-if-templar-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-dorn-templar-r64-if-templar-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-dorn-templar-r64-if-templar-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
 
 UNIT r41-unit-viii-0-terror-squad :: TERROR SQUAD
   MODEL ('r41-unit-viii-0-terror-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
@@ -913,5 +966,26 @@ UNIT r60-ws-bike-troops :: Legion Bike Squadron
 
 UNIT r60-ws-sagyar-ebon-troops :: EBON KESHIG
   MODEL ('r60-ws-sagyar-ebon-troops-r60-ws-ebon-models', 'Ebon Keshig', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['45'])
+
+UNIT r64-if-stone-warders :: Phalanx Warder Squad — Stone Gauntlet Troops
+  MODEL ('r64-if-stone-warders-r64-if-warder-models', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['28'])
+  MODEL ('r64-if-stone-warders-r64-if-warder-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-stone-warders-r64-if-warder-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-stone-warders-r64-if-warder-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r64-if-hammer-warders :: Phalanx Warder Squad — Hammerfall Troops
+  MODEL ('r64-if-hammer-warders-r64-if-warder-models', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['28'])
+  MODEL ('r64-if-hammer-warders-r64-if-warder-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-hammer-warders-r64-if-warder-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-hammer-warders-r64-if-warder-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r64-if-templar-troops :: Templar Brethren Squad — Templar Assault Troops
+  MODEL ('r64-if-templar-troops-r64-if-templar-models', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+  MODEL ('r64-if-templar-troops-r64-if-templar-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-templar-troops-r64-if-templar-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-templar-troops-r64-if-templar-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r64-if-templar-troops-assault-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r64-if-templar-troops-assault-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r64-if-templar-troops-assault-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
 
 === FLAGS ===
