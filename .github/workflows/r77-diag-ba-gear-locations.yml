@@ -1,0 +1,27 @@
+name: R77 Diagnose Blood Angels gear locations
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/r77_diag_ba_gear_locations.py'
+      - '.github/workflows/r77-diag-ba-gear-locations.yml'
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Diagnose
+        run: python .github/build/r77_diag_ba_gear_locations.py
+      - name: Commit report
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add inspection-r77-ba-gear-locations.txt
+          git diff --cached --quiet || git commit -m 'Diagnostic: Blood Angels gear locations'
+          git pull --rebase origin main
+          for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
