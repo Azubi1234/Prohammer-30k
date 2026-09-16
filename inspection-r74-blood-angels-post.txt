@@ -1,0 +1,88 @@
+=== CANONICAL PRESENTATION ===
+dawn: hidden=false top_profiles=0 bad_rules=[] model_children=['Squad Models'] rules=['Legiones Astartes (Blood Angels)', 'Hammer of Wrath']
+pal: hidden=false top_profiles=0 bad_rules=[] model_children=['Squad Models'] rules=['Legiones Astartes (Blood Angels)', 'Stubborn', 'The Blood is Forever']
+tears: hidden=false top_profiles=0 bad_rules=[] model_children=['Squad Models'] rules=['Legiones Astartes (Blood Angels)', 'Counter-Attack', 'Dual Pistols', 'Destroyer Cadre']
+ofanim: hidden=false top_profiles=0 bad_rules=[] model_children=['Squad Models'] rules=['Legiones Astartes (Blood Angels)', 'Preferred Enemy (Characters)']
+grav: hidden=false top_profiles=0 bad_rules=[] model_children=['Grav Chariots'] rules=['Legiones Astartes (Blood Angels)', 'Grav Engines']
+guard: hidden=true top_profiles=0 bad_rules=[] model_children=['Squad Models'] rules=['Legiones Astartes (Blood Angels)', 'Fearless', 'Servants of the Great Angel']
+ral: hidden=false top_profiles=0 bad_rules=[] model_children=['RALDORON, THE BLOODED'] rules=['Legiones Astartes (Blood Angels)', 'Independent Character', 'Master of the Legion', 'First Captain of the Blood Angels', 'The Blooded']
+zephon: hidden=false top_profiles=0 bad_rules=[] model_children=['DOMINION ZEPHON'] rules=['Legiones Astartes (Blood Angels)', 'Independent Character', 'Dual Pistols', 'Exarch of the High Host']
+crohne: hidden=false top_profiles=0 bad_rules=[] model_children=['ASTER CROHNE'] rules=['Legiones Astartes (Blood Angels)', 'Independent Character', 'Feel No Pain (4+)']
+azk: hidden=true top_profiles=0 bad_rules=[] model_children=['AZKAELLON'] rules=[]
+amit: hidden=false top_profiles=0 bad_rules=[] model_children=['NASSIR AMIT, THE FLESH TEARER'] rules=['Legiones Astartes (Blood Angels)', 'Independent Character', 'Master of the Legion', 'Furious Charge']
+sang: hidden=false top_profiles=0 bad_rules=[] model_children=['IX — SANGUINIUS, THE GREAT ANGEL'] rules=['Primarch', 'Legiones Astartes (Blood Angels)', 'Angelic Charge', 'Sire of the Blood Angels', 'The Angel Descends']
+
+=== PER-MODEL / QUANTITY OPTIONS ===
+dawn Krak grenades: id=r41-unit-ix-0-dawnbreaker-cohort-opt-1-krak-grenades cost=['0'] mods=[('r74-ba-dawn-krak-cost', 'increment', 'pts', '2', [], [('1', 'root-entry', 'r41-unit-ix-0-dawnbreaker-cohort-additional')])]
+dawn Melta bombs: id=r41-unit-ix-0-dawnbreaker-cohort-opt-2-melta-bombs cost=['0'] mods=[('r74-ba-dawn-melta-cost', 'increment', 'pts', '5', [], [('1', 'root-entry', 'r41-unit-ix-0-dawnbreaker-cohort-additional')])]
+tears Krak grenades: id=r41-unit-ix-2-angel-s-tears-squad-opt-4-krak-grenades cost=['0'] mods=[('r74-ba-tears-krak-cost', 'increment', 'pts', '2', [], [('1', 'root-entry', 'r41-unit-ix-2-angel-s-tears-squad-additional')])]
+tears Melta bombs: id=r41-unit-ix-2-angel-s-tears-squad-opt-5-melta-bombs cost=['0'] mods=[('r74-ba-tears-melta-cost', 'increment', 'pts', '5', [], [('1', 'root-entry', 'r41-unit-ix-2-angel-s-tears-squad-additional')])]
+ofanim Krak grenades: id=r41-unit-ix-3-ofanim-court-opt-0-krak-grenades cost=['0'] mods=[('r74-ba-ofanim-krak-cost', 'increment', 'pts', '2', [], [('1', 'root-entry', 'r41-unit-ix-3-ofanim-court-additional')])]
+ofanim Melta bombs: id=r41-unit-ix-3-ofanim-court-opt-1-melta-bombs cost=['0'] mods=[('r74-ba-ofanim-melta-cost', 'increment', 'pts', '5', [], [('1', 'root-entry', 'r41-unit-ix-3-ofanim-court-additional')])]
+ofanim Jump Packs: id=r74-ba-ofanim-jump cost=['0'] mods=[('r74-ba-ofanim-jump-cost', 'increment', 'pts', '15', [], [('1', 'root-entry', 'r41-unit-ix-3-ofanim-court-additional')])]
+guard Krak grenades: id=r41-unit-ix-5-sanguinary-guard-opt-1-krak-grenades cost=['0'] mods=[('r74-ba-guard-krak-cost', 'increment', 'pts', '2', [], [('1', 'root-entry', 'r41-unit-ix-5-sanguinary-guard-additional')])]
+guard Melta bombs: id=r41-unit-ix-5-sanguinary-guard-opt-2-melta-bombs cost=['0'] mods=[('r74-ba-guard-melta-cost', 'increment', 'pts', '5', [], [('1', 'root-entry', 'r41-unit-ix-5-sanguinary-guard-additional')])]
+r74-ba-tears-special: cons=[('r74-ba-tears-special-max', 'max', '1', 'selections', 'parent')] mods=[('r74-ba-tears-special-at10', 'increment', 'r74-ba-tears-special-max', '1', [('atLeast', '10', 'root-entry', 'r41-unit-ix-2-angel-s-tears-squad-additional')], [])] choices=['Rotor Cannon', 'Heavy Flamer', "Angel's Tears Grenade Launcher", 'Assault Cannon with Suspensor Web']
+r74-ba-pal-heavy: cons=[('r74-ba-pal-heavy-max', 'max', '1', 'selections', 'parent')] mods=[] choices=['Heavy Flamer', 'Assault Cannon', 'Plasma Blaster']
+r74-ba-pal-melee: cons=[('r74-ba-pal-melee-max', 'max', '0', 'selections', 'parent')] mods=[('r74-ba-pal-melee-max-inc', 'increment', 'r74-ba-pal-melee-max', '1', [], [('1', 'root-entry', 'r41-unit-ix-1-crimson-paladin-squad-additional')])] choices=['Power fist', 'Thunder hammer']
+
+=== ARMOURY / CONSUL ===
+Rhino Over-charged=[('r74-ba-rhino-engines', 'Over-charged Engines', 'r44-ba-overcharged-engines', [('r74-ba-rhino-engines-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'legion-ix')], [])])]
+Damocles hq-consul-signals-damocles: bad_overcharged_links=0
+Damocles hq-damocles: bad_overcharged_links=0
+Contemptor Furioso link=[('r74-ba-contemptor-jump', [('r74-ba-contemptor-jump-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'legion-ix')], [])])]
+High Priest rules=['Legion Support Officer', 'Apothecarion', 'Sanguinius’ Chosen'] fixed=['Narthecium', 'Reductor']
+
+=== RETINUES / CHARACTERS ===
+ral: model=['RALDORON, THE BLOODED'] retinues=[('RETINUE — choose up to one (no separate FOC slot)', ['Legion Command Squad', 'Legion Terminator Command Squad', 'Sanguinary Guard Squad'])]
+zephon: model=['DOMINION ZEPHON'] retinues=[('RETINUE — choose up to one (no separate FOC slot)', ['Angel’s Tears Squad'])]
+crohne: model=['ASTER CROHNE'] retinues=[('RETINUE — choose up to one (no separate FOC slot)', ['Legion Command Squad'])]
+amit: model=['NASSIR AMIT, THE FLESH TEARER'] retinues=[('RETINUE — choose up to one (no separate FOC slot)', ['Legion Command Squad'])]
+sang: model=['IX — SANGUINIUS, THE GREAT ANGEL'] retinues=[('RETINUE — choose up to one (no separate FOC slot)', ['Legion Honour Guard Squad', 'Sanguinary Guard Squad'])]
+Praetor Sanguinary Guard=[('r74-ba-pra-guard-r41-unit-ix-5-sanguinary-guard', 'true', [(None, 'set', 'hidden', 'true', [('lessThan', '1', 'roster', 'legion-ix')], []), ('r74-ba-pra-guard-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'legion-ix')], [])])]
+
+=== RITES ===
+Revelation Veteran hidden=true cats=[('Troops', 'cat-troops', 'true'), ('Revelation compulsory Troops', 'r74-ba-cat-revelation-comp', 'false')] mods=[('r74-ba-rev-vet-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'legion-ix'), ('atLeast', '1', 'roster', 'r25-rite-ix-0-the-day-of-revelation')], [])]
+r74-ba-cat-revelation-comp: cat=True constraints=[('r74-ba-r74-ba-cat-revelation-comp-min', 'min', '0', 'selections', 'parent')] mods=[('r74-ba-r74-ba-cat-revelation-comp-min-set', 'set', 'r74-ba-r74-ba-cat-revelation-comp-min', '2', [('atLeast', '1', 'roster', 'r25-rite-ix-0-the-day-of-revelation')], [])]
+r74-ba-cat-sorrows-comp: cat=True constraints=[('r74-ba-r74-ba-cat-sorrows-comp-min', 'min', '0', 'selections', 'parent')] mods=[('r74-ba-r74-ba-cat-sorrows-comp-min-set', 'set', 'r74-ba-r74-ba-cat-sorrows-comp-min', '2', [('atLeast', '1', 'roster', 'r25-rite-ix-1-the-day-of-sorrows')], [])]
+Heavy mods=[('r74-ba-rev-heavy-max', 'set', 'fl-heavy-max', '1', [('atLeast', '1', 'roster', 'r25-rite-ix-0-the-day-of-revelation')], [])]
+
+=== SANGUINIUS ===
+rules=['Primarch', 'Legiones Astartes (Blood Angels)', 'Angelic Charge', 'Sire of the Blood Angels', 'The Angel Descends'] model=['IX — SANGUINIUS, THE GREAT ANGEL'] modifiers=[(None, 'set', 'hidden', 'true', [('lessThan', '1', 'roster', 'legion-ix')], []), (None, 'set', 'hidden', 'true', [('lessThan', '1', 'roster', 'allegiance-loyalist')], []), ('r74-ba-r41-unit-ix-11-ix-sanguinius-the-great-angel-legion', 'set', 'hidden', 'true', [('lessThan', '1', 'roster', 'legion-ix')], []), ('r74-ba-sang-loyalist', 'set', 'hidden', 'true', [('lessThan', '1', 'roster', 'allegiance-loyalist')], [])]
+
+=== CONTEMPTOR DCCW STRUCTURE FOR FOLLOW-UP ===
+GROUP contemptor-primary Primary Arm cons=[('contemptor-primary-min', 'min', '1', 'selections', 'parent'), ('contemptor-primary-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-p-tlhb Twin-linked Heavy Bolter cost=[] cons=[('contemptor-p-tlhb-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-p-mm Multi-Melta cost=[] cons=[('contemptor-p-mm-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-p-tlac Twin-linked Autocannon cost=['5'] cons=[('contemptor-p-tlac-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-p-pc Plasma Cannon cost=['10'] cons=[('contemptor-p-pc-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-p-tlvc Twin-linked Volkite Culverin cost=['15'] cons=[('contemptor-p-tlvc-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-p-kheres Kheres Assault Cannon cost=['15'] cons=[('contemptor-p-kheres-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-p-tllc Twin-linked Lascannon cost=['25'] cons=[('contemptor-p-tllc-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-p-hcb Heavy Conversion Beamer cost=['35'] cons=[('contemptor-p-hcb-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-p-dccw Dreadnought Close Combat Weapon with built-in Twin-linked Bolter cost=[] cons=[('contemptor-p-dccw-max', 'max', '1', 'selections', 'parent')] mods=[]
+GROUP contemptor-secondary Secondary Arm cons=[('contemptor-secondary-min', 'min', '1', 'selections', 'parent'), ('contemptor-secondary-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-s-dccw Dreadnought Close Combat Weapon with built-in Twin-linked Bolter cost=[] cons=[('contemptor-s-dccw-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-s-tlhb Twin-linked Heavy Bolter cost=[] cons=[('contemptor-s-tlhb-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-s-mm Multi-Melta cost=[] cons=[('contemptor-s-mm-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-s-tlac Twin-linked Autocannon cost=['10'] cons=[('contemptor-s-tlac-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-s-pc Plasma Cannon cost=['10'] cons=[('contemptor-s-pc-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-s-tlvc Twin-linked Volkite Culverin cost=['15'] cons=[('contemptor-s-tlvc-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-s-kheres Kheres Assault Cannon cost=['15'] cons=[('contemptor-s-kheres-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-s-tllc Twin-linked Lascannon cost=['25'] cons=[('contemptor-s-tllc-max', 'max', '1', 'selections', 'parent')] mods=[]
+  ENTRY contemptor-s-chainfist Chainfist with built-in Twin-linked Bolter cost=['10'] cons=[('contemptor-s-chainfist-max', 'max', '1', 'selections', 'parent')] mods=[]
+
+=== WARLORD / HQ JUMP-PACK STRUCTURE FOR FOLLOW-UP ===
+r66-if-praetor-hammer-warlord Designate as Hammerfall Warlord owner=hq-praetor cons=[('r66-if-praetor-hammer-warlord-max', 'max', '1', 'selections', 'parent')] mods=[('r66-if-praetor-hammer-warlord-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-1-hammerfall-strike-force'), ('atLeast', '1', 'root-entry', 'r64-if-gear-trans-ic')], [])]
+r66-if-praetor-templar-warlord Designate as Templar Assault Warlord owner=hq-praetor cons=[('r66-if-praetor-templar-warlord-max', 'max', '1', 'selections', 'parent')] mods=[('r66-if-praetor-templar-show-1', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-2-templar-assault'), ('atLeast', '1', 'root-entry', 'gear-power-weapon')], []), ('r66-if-praetor-templar-show-2', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-2-templar-assault'), ('atLeast', '1', 'root-entry', 'gear-hq-relic')], []), ('r66-if-praetor-templar-show-3', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-2-templar-assault'), ('atLeast', '1', 'root-entry', 'gear-rending')], []), ('r67-if-r66-if-praetor-templar-warlord-hide-dorn', 'set', 'hidden', 'true', [('atLeast', '1', 'roster', 'r41-unit-vii-9-vii-rogal-dorn-the-praetorian-of-terra')], [])]
+r66-if-centurion-hammer-warlord Designate as Hammerfall Warlord owner=hq-centurion cons=[('r66-if-centurion-hammer-warlord-max', 'max', '1', 'selections', 'parent')] mods=[('r66-if-centurion-hammer-warlord-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-1-hammerfall-strike-force'), ('atLeast', '1', 'root-entry', 'r64-if-gear-trans-ic')], [])]
+r66-if-centurion-templar-warlord Designate as Templar Assault Warlord owner=hq-centurion cons=[('r66-if-centurion-templar-warlord-max', 'max', '1', 'selections', 'parent')] mods=[('r66-if-centurion-templar-show-1', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-2-templar-assault'), ('atLeast', '1', 'root-entry', 'gear-power-weapon')], []), ('r66-if-centurion-templar-show-2', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-2-templar-assault'), ('atLeast', '1', 'root-entry', 'gear-hq-relic')], []), ('r66-if-centurion-templar-show-3', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-2-templar-assault'), ('atLeast', '1', 'root-entry', 'gear-rending')], []), ('r67-if-r66-if-centurion-templar-warlord-hide-dorn', 'set', 'hidden', 'true', [('atLeast', '1', 'roster', 'r41-unit-vii-9-vii-rogal-dorn-the-praetorian-of-terra')], [])]
+r57-iw-golg-warlord Erasmus Golg is the army Warlord owner=r41-unit-iv-5-erasmus-golg cons=[('r57-iw-golg-warlord-max', 'max', '1', 'selections', 'parent')] mods=[]
+r66-if-sigismund-hammer-warlord Designate as Hammerfall Warlord owner=r41-unit-vii-4-sigismund-first-captain cons=[('r66-if-sigismund-hammer-warlord-max', 'max', '1', 'selections', 'parent')] mods=[('r66-if-sigismund-hammer-warlord-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-1-hammerfall-strike-force'), ('atLeast', '1', 'root-entry', 'r64-if-gear-trans-ic')], [])]
+r66-if-sigismund-templar-warlord Designate as Templar Assault Warlord owner=r41-unit-vii-4-sigismund-first-captain cons=[('r66-if-sigismund-templar-warlord-max', 'max', '1', 'selections', 'parent')] mods=[('r66-if-sigismund-templar-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-2-templar-assault')], []), ('r67-if-r66-if-sigismund-templar-warlord-hide-dorn', 'set', 'hidden', 'true', [('atLeast', '1', 'roster', 'r41-unit-vii-9-vii-rogal-dorn-the-praetorian-of-terra')], [])]
+r66-if-rann-hammer-warlord Designate as Hammerfall Warlord owner=r41-unit-vii-5-fafnir-rann cons=[('r66-if-rann-hammer-warlord-max', 'max', '1', 'selections', 'parent')] mods=[('r66-if-rann-hammer-warlord-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-1-hammerfall-strike-force'), ('atLeast', '1', 'root-entry', 'r64-if-gear-trans-ic')], [])]
+r66-if-rann-templar-warlord Designate as Templar Assault Warlord owner=r41-unit-vii-5-fafnir-rann cons=[('r66-if-rann-templar-warlord-max', 'max', '1', 'selections', 'parent')] mods=[('r66-if-rann-templar-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-2-templar-assault')], []), ('r67-if-r66-if-rann-templar-warlord-hide-dorn', 'set', 'hidden', 'true', [('atLeast', '1', 'roster', 'r41-unit-vii-9-vii-rogal-dorn-the-praetorian-of-terra')], [])]
+r66-if-polux-hammer-warlord Designate as Hammerfall Warlord owner=r41-unit-vii-6-alexis-polux cons=[('r66-if-polux-hammer-warlord-max', 'max', '1', 'selections', 'parent')] mods=[('r66-if-polux-hammer-warlord-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-1-hammerfall-strike-force'), ('atLeast', '1', 'root-entry', 'r64-if-gear-trans-ic')], [])]
+r66-if-diaz-hammer-warlord Designate as Hammerfall Warlord owner=r41-unit-vii-7-camba-diaz cons=[('r66-if-diaz-hammer-warlord-max', 'max', '1', 'selections', 'parent')] mods=[('r66-if-diaz-hammer-warlord-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-1-hammerfall-strike-force'), ('atLeast', '1', 'root-entry', 'r64-if-gear-trans-ic')], [])]
+r66-if-diaz-templar-warlord Designate as Templar Assault Warlord owner=r41-unit-vii-7-camba-diaz cons=[('r66-if-diaz-templar-warlord-max', 'max', '1', 'selections', 'parent')] mods=[('r66-if-diaz-templar-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-2-templar-assault')], []), ('r67-if-r66-if-diaz-templar-warlord-hide-dorn', 'set', 'hidden', 'true', [('atLeast', '1', 'roster', 'r41-unit-vii-9-vii-rogal-dorn-the-praetorian-of-terra')], [])]
+r66-if-garrius-hammer-warlord Designate as Hammerfall Warlord owner=r41-unit-vii-8-evander-garrius cons=[('r66-if-garrius-hammer-warlord-max', 'max', '1', 'selections', 'parent')] mods=[('r66-if-garrius-hammer-warlord-show', 'set', 'hidden', 'false', [('atLeast', '1', 'roster', 'r25-rite-vii-1-hammerfall-strike-force'), ('atLeast', '1', 'root-entry', 'r64-if-gear-trans-ic')], [])]
