@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/build/rev73_night_lords_rules_rites.py'
+      - '.github/build/rev73_night_lords_rules_rites_runner.py'
       - '.github/workflows/apply-r73-night-lords-rules-rites.yml'
 jobs:
   apply:
@@ -16,7 +17,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Apply Revision 73 Night Lords correction
-        run: python .github/build/rev73_night_lords_rules_rites.py
+        run: python .github/build/rev73_night_lords_rules_rites_runner.py
       - name: Run permanent unit-size audit
         run: python .github/build/r56_audit_all_unit_sizes.py
       - name: Verify Revision 73
