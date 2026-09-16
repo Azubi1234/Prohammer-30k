@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/build/rev71_night_lords_live.py'
+      - '.github/build/r71_repair_night_lords_builder.py'
       - '.github/workflows/apply-r71-night-lords-live.yml'
 jobs:
   apply:
@@ -15,6 +16,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      - name: Repair Revision 71 builder to current UI standard
+        run: python .github/build/r71_repair_night_lords_builder.py
       - name: Compile Revision 71 builder
         run: python -m py_compile .github/build/rev71_night_lords_live.py
       - name: Apply Revision 71
@@ -25,17 +28,19 @@ jobs:
         run: |
           python - <<'PY'
           import xml.etree.ElementTree as ET
-          c=ET.parse('Legiones Astartes.cat').getroot(); g=ET.parse('Prohammer 30k.gst').getroot(); i=ET.parse('index.xml').getroot()
+          c=ET.parse('Legiones Astartes.cat').getroot(); g=ET.parse('Prohammer 30k.gst').getroot(); ET.parse('index.xml')
           assert c.get('revision')=='71' and c.get('gameSystemRevision')=='39'
           assert g.get('revision')=='39'
           cat=open('Legiones Astartes.cat',encoding='utf-8').read(); gst=open('Prohammer 30k.gst',encoding='utf-8').read()
           assert '<ns0:' not in cat and '<ns0:' not in gst
+          report=open('inspection-r56-all-unit-sizes.txt',encoding='utf-8').read()
+          assert 'UI-standard flags: 0' in report, report[:1000]
           print(open('inspection-r71-night-lords-live.txt',encoding='utf-8').read())
           PY
       - name: Commit generated live data
         run: |
           git config user.name 'Azubi1234'
           git config user.email '132048044+Azubi1234@users.noreply.github.com'
-          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r71-night-lords-live.txt inspection-r56-all-unit-sizes.txt
+          git add '.github/build/rev71_night_lords_live.py' 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r71-night-lords-live.txt inspection-r56-all-unit-sizes.txt
           git diff --cached --quiet || git commit -m 'Revision 71: complete Night Lords live implementation'
           git push
