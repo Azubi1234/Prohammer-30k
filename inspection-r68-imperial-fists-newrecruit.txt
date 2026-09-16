@@ -1,0 +1,10 @@
+Revision 68 — Imperial Fists New Recruit presentation correction
+Catalogue revision: 68
+Game-system revision: 36
+
+- Removed the ineffective Rev67 locked-child display groups.
+- Added explicit New Recruit-visible unit-entry rules for fixed wargear, special rules, options/retinue summaries.
+- Sigismund now has explicit Wargear, Special Rules and Command Retinue rule blocks.
+- Sigismund's functional retinue selector is retained and verified to contain Templar Brethren Squad and Huscarl Terminator Retinue.
+- Diaz, Garrius and Dorn retinue selectors remain functional and are renamed clearly.
+- All Rev66 conditional Rite enforcement and Rev64 functional army options are preserved.
