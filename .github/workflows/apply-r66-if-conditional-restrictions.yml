@@ -1,0 +1,39 @@
+name: Apply Revision 66 Imperial Fists conditional restrictions
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev66_if_conditional_restrictions.py'
+      - '.github/workflows/apply-r66-if-conditional-restrictions.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply restarted conditional restriction pass
+        run: python .github/build/rev66_if_conditional_restrictions.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 66
+        run: |
+          grep -q 'dataRevision="66"' index.xml
+          grep -q 'dataRevision="34"' index.xml
+          grep -q 'Designate as Hammerfall Warlord' 'Legiones Astartes.cat'
+          grep -q 'Designate as Templar Assault Warlord' 'Legiones Astartes.cat'
+          grep -q 'Revision 66 — Imperial Fists conditional restriction restart' inspection-r66-imperial-fists-conditional.txt
+      - name: Commit generated data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r66-imperial-fists-conditional.txt inspection-r56-all-unit-sizes.txt
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+          else
+            git commit -m 'Revision 66: restart Imperial Fists conditional restrictions'
+            git push
+          fi
