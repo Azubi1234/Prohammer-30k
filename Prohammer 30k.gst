@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="37" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
+<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="38" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
   <comment>Horus Heresy army lists adapted for use with ProHammer Classic.</comment>
   <readme>Core system skeleton for Prohammer 30k. Contains points, core profile types, battlefield roles, mandatory Army Configuration and the standard Force Organisation Chart.</readme>
   <costTypes>
@@ -328,9 +328,14 @@
           </constraints>
           <modifiers>
             <modifier id="r64-if-r64-if-cat-templar-limit-max-mod" type="set" value="1" field="r64-if-r64-if-cat-templar-limit-max">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-vii" shared="true" includeChildSelections="true" includeChildForces="false" />
-              </conditions>
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-vii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                    <condition type="lessThan" value="1" field="selections" scope="roster" childId="r25-rite-vii-2-templar-assault" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
             </modifier>
           </modifiers>
         </categoryLink>

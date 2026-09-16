@@ -184,20 +184,24 @@ for n,x in enumerate([e for e in cr.iter(C('entryLink')) if e.get('targetId')==S
 # 4) Hammerfall: fill omitted Imperial Fists Infantry entries, while keeping normal Terminator transponder access independent of the Rite.
 HAMMER_NAMES=('Legion Tactical Squad','Legion Assault Squad','Legion Breacher Siege Squad','Legion Reconnaissance Squad','Legion Veteran Squad','Legion Seeker Squad','Legion Heavy Support Squad','Legion Destroyer Squad','Techmarine Covenant','Legion Command Squad','Legion Honour Guard Squad','Legion Apothecarion Detachment','Legion Apothecary Detachment','Templar Brethren Squad','Phalanx Warder Squad')
 added_hammer=[]
-for n,u in enumerate(list(cr.iter(C('selectionEntry'))):
+for n,u in enumerate(list(cr.iter(C('selectionEntry')))):
     name=u.get('name') or ''
     if any(name.startswith(q) for q in HAMMER_NAMES) and not has_target(u,TRANS_UNIT):
         x=link(u,f'r70-if-hammer-trans-{n}','Teleportation Transponders — Hammerfall',TRANS_UNIT)
         add_show_if(x,f'r70-if-hammer-trans-show-{n}',HAMMER)
         added_hammer.append(name)
-for n,u in enumerate(list(cr.iter(C('selectionEntry'))):
+for n,u in enumerate(list(cr.iter(C('selectionEntry')))):
     if (u.get('name') or '').startswith('Legion Terminator Command Squad') and not has_target(u,TRANS_UNIT):
         link(u,f'r70-if-termcmd-trans-{n}','Teleportation Transponders',TRANS_UNIT)
 
 # 5) Templar Assault transport: exact one-vehicle choice, Phobos/Proteus only at the current 5-10 squad size.
 def new_templar_transport(u,idx):
     for g in direct_groups(u):
-        if (g.get('name') or '')=='Templar Assault — Assault Transport': remove_node(cr,g)
+        gname=(g.get('name') or '')
+        if gname=='Templar Assault — Assault Transport':
+            remove_node(cr,g)
+        elif gname=='Dedicated Transport':
+            add_hide_if(g,f'r70-if-templar-normal-dt-hide-{idx}',TEMPLAR)
     g=group(u,f'r70-if-templar-transport-{idx}','Templar Assault — Assault Transport',maxsel=1)
     add_show_if(g,f'r70-if-templar-transport-{idx}-show',TEMPLAR)
     for j,(source,name) in enumerate((('hs-lr-phobos','Land Raider Phobos'),('hs-lr-proteus','Land Raider Proteus'))):
@@ -253,7 +257,9 @@ for g in [x for x in cr.iter(C('selectionEntryGroup')) if (x.get('id') or '').st
     assert names==['Land Raider Phobos','Land Raider Proteus'],names
 
 ET.indent(ct,space='  '); ET.indent(gt,space='  '); ET.indent(it,space='  ')
-ct.write(CAT,encoding='utf-8',xml_declaration=True); gt.write(GST,encoding='utf-8',xml_declaration=True); it.write(IDX,encoding='utf-8',xml_declaration=True)
+ET.register_namespace('',CNS); ct.write(CAT,encoding='utf-8',xml_declaration=True)
+ET.register_namespace('',GNS); gt.write(GST,encoding='utf-8',xml_declaration=True)
+ET.register_namespace('',INS); it.write(IDX,encoding='utf-8',xml_declaration=True)
 ET.parse(CAT); ET.parse(GST); ET.parse(IDX)
 OUT.write_text(f'''Revision 70 — Imperial Fists live standards fix\nCatalogue revision: 70\nGame-system revision: 38\n\nImplemented:\n- Templar Assault now suspends the normal Templar Brethren 0–1 restriction while the Rite is selected.\n- Templar Assault still requires at least two compulsory Templar Brethren Troops through the existing Rev64 validation.\n- Rite text and Templar unit summary explicitly state the 0–1 override.\n- Huscarl ranged/melee replacement maxima now follow ordinary Huscarl count: 4 at five total models, scaling to 9 at ten total models.\n- Tarantula Lascannon replacements now scale 1–3 with selected Sentry Guns.\n- Templar Champion, Warder Sergeant and Huscarl Captain now receive real 50-point permitted Armoury selectors instead of Solarite-only placeholders.\n- Templar Champion Refractor Field only appears at maximum squad size; Warder/Huscarl leaders do not receive it because their existing Invulnerable Saves make it illegal.\n- Solarite +5 Power Fist exchange options are conditional on a selected Power Fist.\n- Hammerfall transponder coverage was filled for omitted Infantry/retinue entries ({len(added_hammer)} additional entry instances).\n- Legion Terminator Command Squad copies receive normal Terminator transponder access where missing.\n- Templar Assault transport choice is rebuilt as exactly one Phobos or Proteus. Spartan is not selectable with the current 5–10 Templar unit size because the source condition for it is never met.\n- CAT/GST/index revisions bumped for New Recruit cache refresh.\n''',encoding='utf-8')
 print(OUT.read_text())

@@ -465,9 +465,8 @@ UNIT r41-unit-vii-0-templar-brethren-squad :: Templar Brethren Squad
   MODEL ('r64-if-templar-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
   MODEL ('r64-if-templar-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
   MODEL ('r64-if-templar-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
-  MODEL ('r64-if-templar-assault-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
-  MODEL ('r64-if-templar-assault-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
-  MODEL ('r64-if-templar-assault-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r70-if-ta-0-0-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r70-if-ta-0-1-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
 
 UNIT r41-unit-vii-1-phalanx-warder-squad :: Phalanx Warder Squad
   MODEL ('r64-if-warder-models', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['28'])
@@ -486,6 +485,8 @@ UNIT r41-unit-vii-4-sigismund-first-captain :: Sigismund, First Captain
   MODEL ('r64-if-sig-templar-r64-if-templar-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
   MODEL ('r64-if-sig-templar-r64-if-templar-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
   MODEL ('r64-if-sig-templar-r64-if-templar-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r70-if-ta-1-0-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r70-if-ta-1-1-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
   MODEL ('r64-if-sig-huscarl-r64-if-huscarl-models', 'Retinue Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
 
 UNIT r41-unit-vii-7-camba-diaz :: Camba Diaz
@@ -520,6 +521,8 @@ UNIT r41-unit-vii-9-vii-rogal-dorn-the-praetorian-of-terra :: Rogal Dorn — The
   MODEL ('r64-if-dorn-templar-r64-if-templar-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
   MODEL ('r64-if-dorn-templar-r64-if-templar-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
   MODEL ('r64-if-dorn-templar-r64-if-templar-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r70-if-ta-2-0-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r70-if-ta-2-1-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
 
 UNIT r41-unit-viii-0-terror-squad :: TERROR SQUAD
   MODEL ('r41-unit-viii-0-terror-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
@@ -984,8 +987,7 @@ UNIT r64-if-templar-troops :: Templar Brethren Squad — Templar Assault Troops
   MODEL ('r64-if-templar-troops-r64-if-templar-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
   MODEL ('r64-if-templar-troops-r64-if-templar-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
   MODEL ('r64-if-templar-troops-r64-if-templar-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
-  MODEL ('r64-if-templar-troops-assault-transport-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
-  MODEL ('r64-if-templar-troops-assault-transport-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
-  MODEL ('r64-if-templar-troops-assault-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r70-if-ta-3-0-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r70-if-ta-3-1-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
 
 === FLAGS ===

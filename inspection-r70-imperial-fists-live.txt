@@ -1,0 +1,17 @@
+Revision 70 — Imperial Fists live standards fix
+Catalogue revision: 70
+Game-system revision: 38
+
+Implemented:
+- Templar Assault now suspends the normal Templar Brethren 0–1 restriction while the Rite is selected.
+- Templar Assault still requires at least two compulsory Templar Brethren Troops through the existing Rev64 validation.
+- Rite text and Templar unit summary explicitly state the 0–1 override.
+- Huscarl ranged/melee replacement maxima now follow ordinary Huscarl count: 4 at five total models, scaling to 9 at ten total models.
+- Tarantula Lascannon replacements now scale 1–3 with selected Sentry Guns.
+- Templar Champion, Warder Sergeant and Huscarl Captain now receive real 50-point permitted Armoury selectors instead of Solarite-only placeholders.
+- Templar Champion Refractor Field only appears at maximum squad size; Warder/Huscarl leaders do not receive it because their existing Invulnerable Saves make it illegal.
+- Solarite +5 Power Fist exchange options are conditional on a selected Power Fist.
+- Hammerfall transponder coverage was filled for omitted Infantry/retinue entries (32 additional entry instances).
+- Legion Terminator Command Squad copies receive normal Terminator transponder access where missing.
+- Templar Assault transport choice is rebuilt as exactly one Phobos or Proteus. Spartan is not selectable with the current 5–10 Templar unit size because the source condition for it is never met.
+- CAT/GST/index revisions bumped for New Recruit cache refresh.
