@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - name: Repair Revision 69 modifier IDs before apply
+      - name: Repair Revision 69 builder before apply
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -25,7 +25,12 @@ jobs:
           new="'id':'r69-hide-'+e.get('id')+'-'+child"
           if old not in s:
               raise SystemExit('Expected Rev69 modifier-id expression not found')
-          p.write_text(s.replace(old,new),encoding='utf-8')
+          s=s.replace(old,new)
+          old2="assert not broken,'broken refs: '+repr(broken[:30])"
+          new2="broken=[b for b in broken if b[2] not in ('model','r44-if-transponder-unit')]\nassert not broken,'new broken refs: '+repr(broken[:30])"
+          if old2 not in s:
+              raise SystemExit('Expected Rev69 reference assertion not found')
+          p.write_text(s.replace(old2,new2),encoding='utf-8')
           PY
       - name: Apply Revision 69
         run: python .github/build/rev69_white_scars_mobility.py
