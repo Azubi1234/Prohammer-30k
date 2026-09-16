@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="71" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="39" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="72" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="40" type="catalogue">
   <comment>Revision 62: Space Wolves Legion base rules verified against Forces of the Legions; HQ organisation now scales one selection per full or partial 750 roster-limit points.</comment>
   <readme>Core Legiones Astartes catalogue for Prohammer 30k. Revision 32 includes the generic Legion army list and Consuls, Dark Angels package, Legiones Astartes Lords of War, and Legiones Astartes Aeronautica Imperialis aircraft. Experimental Wargear and Units remains excluded.</readme>
   <sharedSelectionEntries>
@@ -6233,6 +6233,11 @@
                         <constraint id="r63-sw-arm-6-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                       </constraints>
                     </entryLink>
+                    <entryLink id="r72-nl-sgt-trophy-2" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                      <constraints>
+                        <constraint id="r72-nl-sgt-trophy-2-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </constraints>
+                    </entryLink>
                   </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
@@ -7435,6 +7440,11 @@
                     <entryLink id="r63-sw-arm-11-talisman" name="Wolf Tail Talisman" type="selectionEntry" targetId="r63-sw-gear-talisman" hidden="false" import="true">
                       <constraints>
                         <constraint id="r63-sw-arm-11-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </constraints>
+                    </entryLink>
+                    <entryLink id="r72-nl-sgt-trophy-3" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                      <constraints>
+                        <constraint id="r72-nl-sgt-trophy-3-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                       </constraints>
                     </entryLink>
                   </entryLinks>
@@ -8979,6 +8989,11 @@
                         <constraint id="r63-sw-arm-14-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                       </constraints>
                     </entryLink>
+                    <entryLink id="r72-nl-sgt-trophy-4" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                      <constraints>
+                        <constraint id="r72-nl-sgt-trophy-4-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </constraints>
+                    </entryLink>
                   </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
@@ -9036,6 +9051,11 @@
                 <entryLink id="r63-sw-arm-13-talisman" name="Wolf Tail Talisman" type="selectionEntry" targetId="r63-sw-gear-talisman" hidden="false" import="true">
                   <constraints>
                     <constraint id="r63-sw-arm-13-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
+                <entryLink id="r72-nl-sgt-chain-4" name="Nostraman Chainglaive" type="selectionEntry" targetId="r44-nl-chainglaive" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-chain-4-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                   </constraints>
                 </entryLink>
               </entryLinks>
@@ -13854,6 +13874,16 @@
                 <entryLink id="r63-sw-arm-17-talisman" name="Wolf Tail Talisman" type="selectionEntry" targetId="r63-sw-gear-talisman" hidden="false" import="true">
                   <constraints>
                     <constraint id="r63-sw-arm-17-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
+                <entryLink id="r72-nl-sgt-trophy-5" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-trophy-5-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
+                <entryLink id="r72-nl-sgt-chain-5" name="Nostraman Chainglaive" type="selectionEntry" targetId="r44-nl-chainglaive" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-chain-5-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                   </constraints>
                 </entryLink>
               </entryLinks>
@@ -20211,6 +20241,16 @@
                     <constraint id="r63-sw-arm-18-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                   </constraints>
                 </entryLink>
+                <entryLink id="r72-nl-sgt-trophy-6" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-trophy-6-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
+                <entryLink id="r72-nl-sgt-chain-6" name="Nostraman Chainglaive" type="selectionEntry" targetId="r44-nl-chainglaive" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-chain-6-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
               </entryLinks>
               <rules>
                 <rule name="Sergeant Armoury Restrictions" id="fa-seeker-sgt-arm-rule" hidden="false">
@@ -23671,6 +23711,11 @@
                     <cost name="Points" typeId="pts" value="5" />
                   </costs>
                 </entryLink>
+                <entryLink id="r72-nl-sgt-trophy-7" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-trophy-7-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
               </entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
@@ -23728,6 +23773,11 @@
             <entryLink id="r63-sw-arm-21-talisman" name="Wolf Tail Talisman" type="selectionEntry" targetId="r63-sw-gear-talisman" hidden="false" import="true">
               <constraints>
                 <constraint id="r63-sw-arm-21-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+              </constraints>
+            </entryLink>
+            <entryLink id="r72-nl-sgt-chain-7" name="Nostraman Chainglaive" type="selectionEntry" targetId="r44-nl-chainglaive" hidden="false" import="true">
+              <constraints>
+                <constraint id="r72-nl-sgt-chain-7-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
               </constraints>
             </entryLink>
           </entryLinks>
@@ -54947,6 +54997,16 @@ The Detachment may not include an Allied Detachment.</description>
                     <constraint id="r63-sw-arm-25-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                   </constraints>
                 </entryLink>
+                <entryLink id="r72-nl-sgt-trophy-8" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-trophy-8-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
+                <entryLink id="r72-nl-sgt-chain-8" name="Nostraman Chainglaive" type="selectionEntry" targetId="r44-nl-chainglaive" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-chain-8-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
               </entryLinks>
               <rules>
                 <rule name="Sergeant Armoury Restrictions" id="r35-destroyer-troops-destroyer-sgt-arm-rule" hidden="false">
@@ -59905,6 +59965,11 @@ The Detachment may not include an Allied Detachment.</description>
                         <constraint id="r63-sw-arm-33-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                       </constraints>
                     </entryLink>
+                    <entryLink id="r72-nl-sgt-trophy-10" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                      <constraints>
+                        <constraint id="r72-nl-sgt-trophy-10-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </constraints>
+                    </entryLink>
                   </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
@@ -63325,6 +63390,16 @@ The Detachment may not include an Allied Detachment.</description>
                     <constraint id="r63-sw-arm-36-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                   </constraints>
                 </entryLink>
+                <entryLink id="r72-nl-sgt-trophy-11" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-trophy-11-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
+                <entryLink id="r72-nl-sgt-chain-11" name="Nostraman Chainglaive" type="selectionEntry" targetId="r44-nl-chainglaive" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-chain-11-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
               </entryLinks>
               <rules>
                 <rule name="Sergeant Armoury Restrictions" id="r40-da-eskaton-destroyer-destroyer-sgt-arm-rule" hidden="false">
@@ -66248,6 +66323,16 @@ The Detachment may not include an Allied Detachment.</description>
                     <constraint id="r63-sw-arm-39-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                   </constraints>
                 </entryLink>
+                <entryLink id="r72-nl-sgt-trophy-12" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-trophy-12-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
+                <entryLink id="r72-nl-sgt-chain-12" name="Nostraman Chainglaive" type="selectionEntry" targetId="r44-nl-chainglaive" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-chain-12-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
               </entryLinks>
               <rules>
                 <rule name="Sergeant Armoury Restrictions" id="r40-da-serpent-seeker-fa-seeker-sgt-arm-rule" hidden="false">
@@ -67005,6 +67090,11 @@ The Detachment may not include an Allied Detachment.</description>
                     <entryLink id="r63-sw-arm-43-talisman" name="Wolf Tail Talisman" type="selectionEntry" targetId="r63-sw-gear-talisman" hidden="false" import="true">
                       <constraints>
                         <constraint id="r63-sw-arm-43-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </constraints>
+                    </entryLink>
+                    <entryLink id="r72-nl-sgt-trophy-13" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                      <constraints>
+                        <constraint id="r72-nl-sgt-trophy-13-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                       </constraints>
                     </entryLink>
                   </entryLinks>
@@ -111278,7 +111368,7 @@ The Detachment may not include an Allied Detachment.</description>
             </rule>
           </rules>
         </selectionEntry>
-        <selectionEntry id="r71-nl-bj-37" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+        <selectionEntry id="r71-nl-bj-37" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
           <costs>
             <cost name="Points" typeId="pts" value="25" />
           </costs>
@@ -111287,7 +111377,7 @@ The Detachment may not include an Allied Detachment.</description>
           </constraints>
           <rules>
             <rule id="r71-nl-bj-37-rule" name="Beyond Judgement" hidden="false">
-              <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+              <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
             </rule>
           </rules>
           <modifiers>
@@ -112455,11 +112545,6 @@ The Detachment may not include an Allied Detachment.</description>
             </selectionEntryGroup>
             <selectionEntryGroup id="r71-nl-headsman-war" name="Armour &amp; Wargear" hidden="false" collective="false" import="true">
               <entryLinks>
-                <entryLink id="r71-nl-headsman-art" name="Artificer Armour" type="selectionEntry" targetId="gear-hq-artificer" hidden="false" import="true">
-                  <constraints>
-                    <constraint id="r71-nl-headsman-art-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
-                  </constraints>
-                </entryLink>
                 <entryLink id="r71-nl-headsman-w-0" name="Auspex" type="selectionEntry" targetId="gear-auspex" hidden="false" import="true">
                   <constraints>
                     <constraint id="r71-nl-headsman-w-0-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
@@ -112638,7 +112723,7 @@ The Detachment may not include an Allied Detachment.</description>
             </rule>
           </rules>
         </selectionEntry>
-        <selectionEntry id="r71-nl-bj-38" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+        <selectionEntry id="r71-nl-bj-38" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
           <costs>
             <cost name="Points" typeId="pts" value="25" />
           </costs>
@@ -112647,7 +112732,7 @@ The Detachment may not include an Allied Detachment.</description>
           </constraints>
           <rules>
             <rule id="r71-nl-bj-38-rule" name="Beyond Judgement" hidden="false">
-              <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+              <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
             </rule>
           </rules>
           <modifiers>
@@ -112879,11 +112964,6 @@ The Detachment may not include an Allied Detachment.</description>
             </selectionEntryGroup>
             <selectionEntryGroup id="r71-nl-headtaker-arm-war" name="Armour &amp; Wargear" hidden="false" collective="false" import="true">
               <entryLinks>
-                <entryLink id="r71-nl-headtaker-arm-art" name="Artificer Armour" type="selectionEntry" targetId="gear-hq-artificer" hidden="false" import="true">
-                  <constraints>
-                    <constraint id="r71-nl-headtaker-arm-art-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
-                  </constraints>
-                </entryLink>
                 <entryLink id="r71-nl-headtaker-arm-w-0" name="Auspex" type="selectionEntry" targetId="gear-auspex" hidden="false" import="true">
                   <constraints>
                     <constraint id="r71-nl-headtaker-arm-w-0-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
@@ -114134,7 +114214,7 @@ The Detachment may not include an Allied Detachment.</description>
             </modifier>
           </modifiers>
         </selectionEntry>
-        <selectionEntry id="r71-nl-bj-40" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+        <selectionEntry id="r71-nl-bj-40" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
           <costs>
             <cost name="Points" typeId="pts" value="25" />
           </costs>
@@ -114143,7 +114223,7 @@ The Detachment may not include an Allied Detachment.</description>
           </constraints>
           <rules>
             <rule id="r71-nl-bj-40-rule" name="Beyond Judgement" hidden="false">
-              <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+              <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
             </rule>
           </rules>
           <modifiers>
@@ -116786,7 +116866,7 @@ The Detachment may not include an Allied Detachment.</description>
                     </modifier>
                   </modifiers>
                 </selectionEntry>
-                <selectionEntry id="r71-nl-sev-ret-2-r71-nl-bj-40" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                <selectionEntry id="r71-nl-sev-ret-2-r71-nl-bj-40" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
                   <costs>
                     <cost name="Points" typeId="pts" value="25" />
                   </costs>
@@ -116795,7 +116875,7 @@ The Detachment may not include an Allied Detachment.</description>
                   </constraints>
                   <rules>
                     <rule id="r71-nl-sev-ret-2-r71-nl-bj-40-rule" name="Beyond Judgement" hidden="false">
-                      <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+                      <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
                     </rule>
                   </rules>
                   <modifiers>
@@ -122990,7 +123070,7 @@ The Detachment may not include an Allied Detachment.</description>
                     </rule>
                   </rules>
                 </selectionEntry>
-                <selectionEntry id="r71-nl-shang-ret-0-r71-nl-bj-37" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                <selectionEntry id="r71-nl-shang-ret-0-r71-nl-bj-37" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
                   <costs>
                     <cost name="Points" typeId="pts" value="25" />
                   </costs>
@@ -122999,7 +123079,7 @@ The Detachment may not include an Allied Detachment.</description>
                   </constraints>
                   <rules>
                     <rule id="r71-nl-shang-ret-0-r71-nl-bj-37-rule" name="Beyond Judgement" hidden="false">
-                      <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+                      <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
                     </rule>
                   </rules>
                   <modifiers>
@@ -124167,11 +124247,6 @@ The Detachment may not include an Allied Detachment.</description>
                     </selectionEntryGroup>
                     <selectionEntryGroup id="r71-nl-shang-ret-0-r71-nl-headsman-war" name="Armour &amp; Wargear" hidden="false" collective="false" import="true">
                       <entryLinks>
-                        <entryLink id="r71-nl-shang-ret-0-r71-nl-headsman-art" name="Artificer Armour" type="selectionEntry" targetId="gear-hq-artificer" hidden="false" import="true">
-                          <constraints>
-                            <constraint id="r71-nl-shang-ret-0-r71-nl-headsman-art-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
-                          </constraints>
-                        </entryLink>
                         <entryLink id="r71-nl-shang-ret-0-r71-nl-headsman-w-0" name="Auspex" type="selectionEntry" targetId="gear-auspex" hidden="false" import="true">
                           <constraints>
                             <constraint id="r71-nl-shang-ret-0-r71-nl-headsman-w-0-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
@@ -124949,7 +125024,7 @@ The Detachment may not include an Allied Detachment.</description>
                     </modifier>
                   </modifiers>
                 </selectionEntry>
-                <selectionEntry id="r71-nl-curze-ret-1-r71-nl-bj-40" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                <selectionEntry id="r71-nl-curze-ret-1-r71-nl-bj-40" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
                   <costs>
                     <cost name="Points" typeId="pts" value="25" />
                   </costs>
@@ -124958,7 +125033,7 @@ The Detachment may not include an Allied Detachment.</description>
                   </constraints>
                   <rules>
                     <rule id="r71-nl-curze-ret-1-r71-nl-bj-40-rule" name="Beyond Judgement" hidden="false">
-                      <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+                      <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
                     </rule>
                   </rules>
                   <modifiers>
@@ -126303,7 +126378,7 @@ The Detachment may not include an Allied Detachment.</description>
                     </rule>
                   </rules>
                 </selectionEntry>
-                <selectionEntry id="r71-nl-curze-ret-2-r71-nl-bj-38" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                <selectionEntry id="r71-nl-curze-ret-2-r71-nl-bj-38" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
                   <costs>
                     <cost name="Points" typeId="pts" value="25" />
                   </costs>
@@ -126312,7 +126387,7 @@ The Detachment may not include an Allied Detachment.</description>
                   </constraints>
                   <rules>
                     <rule id="r71-nl-curze-ret-2-r71-nl-bj-38-rule" name="Beyond Judgement" hidden="false">
-                      <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+                      <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
                     </rule>
                   </rules>
                   <modifiers>
@@ -126544,11 +126619,6 @@ The Detachment may not include an Allied Detachment.</description>
                     </selectionEntryGroup>
                     <selectionEntryGroup id="r71-nl-curze-ret-2-r71-nl-headtaker-arm-war" name="Armour &amp; Wargear" hidden="false" collective="false" import="true">
                       <entryLinks>
-                        <entryLink id="r71-nl-curze-ret-2-r71-nl-headtaker-arm-art" name="Artificer Armour" type="selectionEntry" targetId="gear-hq-artificer" hidden="false" import="true">
-                          <constraints>
-                            <constraint id="r71-nl-curze-ret-2-r71-nl-headtaker-arm-art-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
-                          </constraints>
-                        </entryLink>
                         <entryLink id="r71-nl-curze-ret-2-r71-nl-headtaker-arm-w-0" name="Auspex" type="selectionEntry" targetId="gear-auspex" hidden="false" import="true">
                           <constraints>
                             <constraint id="r71-nl-curze-ret-2-r71-nl-headtaker-arm-w-0-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
@@ -126698,7 +126768,7 @@ The Detachment may not include an Allied Detachment.</description>
                     </rule>
                   </rules>
                 </selectionEntry>
-                <selectionEntry id="r71-nl-curze-ret-3-r71-nl-bj-37" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                <selectionEntry id="r71-nl-curze-ret-3-r71-nl-bj-37" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
                   <costs>
                     <cost name="Points" typeId="pts" value="25" />
                   </costs>
@@ -126707,7 +126777,7 @@ The Detachment may not include an Allied Detachment.</description>
                   </constraints>
                   <rules>
                     <rule id="r71-nl-curze-ret-3-r71-nl-bj-37-rule" name="Beyond Judgement" hidden="false">
-                      <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+                      <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
                     </rule>
                   </rules>
                   <modifiers>
@@ -127875,11 +127945,6 @@ The Detachment may not include an Allied Detachment.</description>
                     </selectionEntryGroup>
                     <selectionEntryGroup id="r71-nl-curze-ret-3-r71-nl-headsman-war" name="Armour &amp; Wargear" hidden="false" collective="false" import="true">
                       <entryLinks>
-                        <entryLink id="r71-nl-curze-ret-3-r71-nl-headsman-art" name="Artificer Armour" type="selectionEntry" targetId="gear-hq-artificer" hidden="false" import="true">
-                          <constraints>
-                            <constraint id="r71-nl-curze-ret-3-r71-nl-headsman-art-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
-                          </constraints>
-                        </entryLink>
                         <entryLink id="r71-nl-curze-ret-3-r71-nl-headsman-w-0" name="Auspex" type="selectionEntry" targetId="gear-auspex" hidden="false" import="true">
                           <constraints>
                             <constraint id="r71-nl-curze-ret-3-r71-nl-headsman-w-0-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
@@ -148944,6 +149009,11 @@ The normal Death Guard restriction on Fast Attack choices from Footslogging Kill
                     <cost name="Points" typeId="pts" value="5" />
                   </costs>
                 </entryLink>
+                <entryLink id="r72-nl-sgt-trophy-14" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-trophy-14-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
               </entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
@@ -149001,6 +149071,11 @@ The normal Death Guard restriction on Fast Attack choices from Footslogging Kill
             <entryLink id="r63-sw-arm-52-talisman" name="Wolf Tail Talisman" type="selectionEntry" targetId="r63-sw-gear-talisman" hidden="false" import="true">
               <constraints>
                 <constraint id="r63-sw-arm-52-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+              </constraints>
+            </entryLink>
+            <entryLink id="r72-nl-sgt-chain-14" name="Nostraman Chainglaive" type="selectionEntry" targetId="r44-nl-chainglaive" hidden="false" import="true">
+              <constraints>
+                <constraint id="r72-nl-sgt-chain-14-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
               </constraints>
             </entryLink>
           </entryLinks>
@@ -156027,7 +156102,7 @@ The squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where 
             <cost name="Points" typeId="pts" value="25" />
           </costs>
         </selectionEntry>
-        <selectionEntry id="r71-nl-bj-43" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+        <selectionEntry id="r71-nl-bj-43" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
           <costs>
             <cost name="Points" typeId="pts" value="25" />
           </costs>
@@ -156036,7 +156111,7 @@ The squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where 
           </constraints>
           <rules>
             <rule id="r71-nl-bj-43-rule" name="Beyond Judgement" hidden="false">
-              <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+              <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
             </rule>
           </rules>
           <modifiers>
@@ -156316,7 +156391,7 @@ The Headtaker may select up to 50 points of permitted weapons and wargear from t
             <cost name="Points" typeId="pts" value="28" />
           </costs>
         </selectionEntry>
-        <selectionEntry id="r71-nl-bj-44" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+        <selectionEntry id="r71-nl-bj-44" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
           <costs>
             <cost name="Points" typeId="pts" value="25" />
           </costs>
@@ -156325,7 +156400,7 @@ The Headtaker may select up to 50 points of permitted weapons and wargear from t
           </constraints>
           <rules>
             <rule id="r71-nl-bj-44-rule" name="Beyond Judgement" hidden="false">
-              <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+              <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
             </rule>
           </rules>
           <modifiers>
@@ -165812,6 +165887,11 @@ OPTIONS
                     <cost name="Points" typeId="pts" value="5" />
                   </costs>
                 </entryLink>
+                <entryLink id="r72-nl-sgt-trophy-15" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                  <constraints>
+                    <constraint id="r72-nl-sgt-trophy-15-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                </entryLink>
               </entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
@@ -165869,6 +165949,11 @@ OPTIONS
             <entryLink id="r63-sw-arm-54-talisman" name="Wolf Tail Talisman" type="selectionEntry" targetId="r63-sw-gear-talisman" hidden="false" import="true">
               <constraints>
                 <constraint id="r63-sw-arm-54-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+              </constraints>
+            </entryLink>
+            <entryLink id="r72-nl-sgt-chain-15" name="Nostraman Chainglaive" type="selectionEntry" targetId="r44-nl-chainglaive" hidden="false" import="true">
+              <constraints>
+                <constraint id="r72-nl-sgt-chain-15-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
               </constraints>
             </entryLink>
           </entryLinks>
@@ -170881,6 +170966,11 @@ OPTIONS
                     <entryLink id="r63-sw-arm-63-talisman" name="Wolf Tail Talisman" type="selectionEntry" targetId="r63-sw-gear-talisman" hidden="false" import="true">
                       <constraints>
                         <constraint id="r63-sw-arm-63-talisman-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </constraints>
+                    </entryLink>
+                    <entryLink id="r72-nl-sgt-trophy-17" name="Trophies of Judgement" type="selectionEntry" targetId="r44-nl-trophies" hidden="false" import="true">
+                      <constraints>
+                        <constraint id="r72-nl-sgt-trophy-17-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                       </constraints>
                     </entryLink>
                   </entryLinks>
@@ -178759,7 +178849,7 @@ OPTIONS
             </rule>
           </rules>
         </selectionEntry>
-        <selectionEntry id="r71-nl-ta-raptor-r71-nl-bj-38" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+        <selectionEntry id="r71-nl-ta-raptor-r71-nl-bj-38" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
           <costs>
             <cost name="Points" typeId="pts" value="25" />
           </costs>
@@ -178768,7 +178858,7 @@ OPTIONS
           </constraints>
           <rules>
             <rule id="r71-nl-ta-raptor-r71-nl-bj-38-rule" name="Beyond Judgement" hidden="false">
-              <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+              <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
             </rule>
           </rules>
           <modifiers>
@@ -179000,11 +179090,6 @@ OPTIONS
             </selectionEntryGroup>
             <selectionEntryGroup id="r71-nl-ta-raptor-r71-nl-headtaker-arm-war" name="Armour &amp; Wargear" hidden="false" collective="false" import="true">
               <entryLinks>
-                <entryLink id="r71-nl-ta-raptor-r71-nl-headtaker-arm-art" name="Artificer Armour" type="selectionEntry" targetId="gear-hq-artificer" hidden="false" import="true">
-                  <constraints>
-                    <constraint id="r71-nl-ta-raptor-r71-nl-headtaker-arm-art-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
-                  </constraints>
-                </entryLink>
                 <entryLink id="r71-nl-ta-raptor-r71-nl-headtaker-arm-w-0" name="Auspex" type="selectionEntry" targetId="gear-auspex" hidden="false" import="true">
                   <constraints>
                     <constraint id="r71-nl-ta-raptor-r71-nl-headtaker-arm-w-0-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
@@ -179170,7 +179255,7 @@ OPTIONS
             </rule>
           </rules>
         </selectionEntry>
-        <selectionEntry id="r71-nl-ta-terror-r71-nl-bj-37" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+        <selectionEntry id="r71-nl-ta-terror-r71-nl-bj-37" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
           <costs>
             <cost name="Points" typeId="pts" value="25" />
           </costs>
@@ -179179,7 +179264,7 @@ OPTIONS
           </constraints>
           <rules>
             <rule id="r71-nl-ta-terror-r71-nl-bj-37-rule" name="Beyond Judgement" hidden="false">
-              <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+              <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
             </rule>
           </rules>
           <modifiers>
@@ -180347,11 +180432,6 @@ OPTIONS
             </selectionEntryGroup>
             <selectionEntryGroup id="r71-nl-ta-terror-r71-nl-headsman-war" name="Armour &amp; Wargear" hidden="false" collective="false" import="true">
               <entryLinks>
-                <entryLink id="r71-nl-ta-terror-r71-nl-headsman-art" name="Artificer Armour" type="selectionEntry" targetId="gear-hq-artificer" hidden="false" import="true">
-                  <constraints>
-                    <constraint id="r71-nl-ta-terror-r71-nl-headsman-art-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
-                  </constraints>
-                </entryLink>
                 <entryLink id="r71-nl-ta-terror-r71-nl-headsman-w-0" name="Auspex" type="selectionEntry" targetId="gear-auspex" hidden="false" import="true">
                   <constraints>
                     <constraint id="r71-nl-ta-terror-r71-nl-headsman-w-0-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
@@ -180536,7 +180616,7 @@ OPTIONS
             </rule>
           </rules>
         </selectionEntry>
-        <selectionEntry id="r71-nl-hc-raptor-r71-nl-bj-38" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+        <selectionEntry id="r71-nl-hc-raptor-r71-nl-bj-38" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
           <costs>
             <cost name="Points" typeId="pts" value="25" />
           </costs>
@@ -180545,7 +180625,7 @@ OPTIONS
           </constraints>
           <rules>
             <rule id="r71-nl-hc-raptor-r71-nl-bj-38-rule" name="Beyond Judgement" hidden="false">
-              <description>Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model. Trophies penalties are non-cumulative.</description>
+              <description>This squad already carries Trophies of Judgement. Under Horror Cult it may still purchase Beyond Judgement for +25 points per unit; doing so grants Fear and treats the squad as equipped with Trophies of Judgement in the manner specified by the Rite. Measure the 8-inch Leadership penalty from any model. Trophies penalties remain non-cumulative.</description>
             </rule>
           </rules>
           <modifiers>
@@ -180777,11 +180857,6 @@ OPTIONS
             </selectionEntryGroup>
             <selectionEntryGroup id="r71-nl-hc-raptor-r71-nl-headtaker-arm-war" name="Armour &amp; Wargear" hidden="false" collective="false" import="true">
               <entryLinks>
-                <entryLink id="r71-nl-hc-raptor-r71-nl-headtaker-arm-art" name="Artificer Armour" type="selectionEntry" targetId="gear-hq-artificer" hidden="false" import="true">
-                  <constraints>
-                    <constraint id="r71-nl-hc-raptor-r71-nl-headtaker-arm-art-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
-                  </constraints>
-                </entryLink>
                 <entryLink id="r71-nl-hc-raptor-r71-nl-headtaker-arm-w-0" name="Auspex" type="selectionEntry" targetId="gear-auspex" hidden="false" import="true">
                   <constraints>
                     <constraint id="r71-nl-hc-raptor-r71-nl-headtaker-arm-w-0-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />

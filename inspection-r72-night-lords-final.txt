@@ -1,0 +1,12 @@
+Revision 72 — Night Lords final standards polish
+Catalogue revision: 72
+Game-system revision: 40
+
+Final fixes applied:
+- Removed accidental universal Artificer Armour access from Headsman/Headtaker 50-point Sergeant Armouries (8 links removed across canonical/copy entries).
+- Completed Night Lords Sergeant Armoury coverage across 17 generic/copy units: 14 missing Trophies links and 9 missing Chainglaive links added through existing Sergeant Armoury containers.
+- Horror Cult Beyond Judgement selectors on already-Trophied Terror/Raptor/Atramentar units were relabelled to avoid presenting duplicate physical Trophies while retaining the source-required +25 Rite upgrade and Fear effect (13 selectors).
+- Current Curze retinue structure was revalidated: Terminator Command, Atramentar, Night Raptors, Terror Squad.
+- Current Terror Squad source was revalidated: no Kraken Light Bolts option is granted by its unit entry.
+- Duplicate IDs and XML parse validation passed.
+- CAT/GST/index revisions bumped for New Recruit cache refresh.
