@@ -1,0 +1,40 @@
+name: Apply Revision 76 Blood Angels armoury placement
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev76_blood_angels_armoury_placement.py'
+      - '.github/workflows/apply-r76-blood-angels-armoury-placement.yml'
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply Revision 76
+        run: python .github/build/rev76_blood_angels_armoury_placement.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 76
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          c=ET.parse('Legiones Astartes.cat').getroot(); g=ET.parse('Prohammer 30k.gst').getroot()
+          assert c.get('revision')=='76' and c.get('gameSystemRevision')=='43'
+          assert g.get('revision')=='43'
+          cat=open('Legiones Astartes.cat',encoding='utf-8').read(); gst=open('Prohammer 30k.gst',encoding='utf-8').read()
+          assert '<ns0:' not in cat and '<ns0:' not in gst
+          print(open('inspection-r76-blood-angels-armoury-placement.txt',encoding='utf-8').read())
+          PY
+      - name: Commit generated live data
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' index.xml inspection-r76-blood-angels-armoury-placement.txt inspection-r56-all-unit-sizes.txt
+          git diff --cached --quiet || git commit -m 'Revision 76: fix Blood Angels armoury weapon placement'
+          git pull --rebase origin main
+          for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
