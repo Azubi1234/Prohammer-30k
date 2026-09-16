@@ -1,0 +1,20 @@
+Revision 66 — Imperial Fists conditional restriction restart
+Catalogue revision: 66
+Game-system revision: 34
+
+Conditional enforcement:
+- Stone Gauntlet automatically requires at least one Independent Character with Boarding Shield or Vigil Pattern Storm Shield; Alexis Polux satisfies this through his fixed Vigil shield.
+- Hammerfall gives the source-legal +10 Teleportation Transponders access to all named Imperial Fists Independent Characters (Garrius normally because of Cataphractii armour; Sigismund, Rann, Polux and Diaz while Hammerfall is selected).
+- Hammerfall requires exactly one designated Warlord. The designation only becomes selectable after that character has selected Teleportation Transponders.
+- Templar Assault requires exactly one designated Warlord. Generic Praetor/Centurion designation only becomes selectable when that character has selected Power Weapon, Relic Blade or Rending Weapon. Sigismund, Fafnir Rann and Camba Diaz are valid through their fixed source wargear.
+
+Already enforced by Revision 64 and retained:
+- Stone Gauntlet compulsory Breacher/Warder requirement.
+- Templar Assault compulsory Templar Brethren requirement.
+- Stone Gauntlet and Templar Assault Fast Attack maximum 1.
+- Rite-specific Troops role changes and Templar Assault transport access.
+
+Source limitations left as battle/deployment rules rather than false roster restrictions:
+- Stone Gauntlet: no voluntary Deep Strike.
+- Hammerfall: every Vehicle begins in Reserve.
+- Hammerfall/Templar Assault: no Fortifications (the current standard detachment has no selectable Fortification role anyway).
