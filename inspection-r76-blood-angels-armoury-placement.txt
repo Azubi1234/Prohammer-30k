@@ -1,0 +1,21 @@
+Revision 76 — Blood Angels armoury placement fix
+Catalogue revision: 76
+Game-system revision: 43
+
+Root cause
+- Rev74 matched every selection group whose name contained the word "armoury". That accidentally injected Inferno Pistol and Blade of Perdition into Mobility, Sergeant, other-Legion and cloned armoury groups.
+
+Fix
+- Removed 406 shared Inferno Pistol / Blade of Perdition / Blade exchange links created across the catalogue.
+- Explicit unit-local Blood Angels options were not touched: Sanguinary Guard Inferno Pistol and the Moritat two-Inferno replacement remain.
+- Generic Blood Angels Praetor and Centurion now each have one dedicated Blood Angels Armoury — Weapons group.
+- Inferno Pistol +15 and Blade of Perdition +25 live only in that group.
+- The +10 Blade of Perdition Power Weapon exchange is in the same group, only appears after an actual Power Weapon is selected, and is mutually exclusive with the +25 purchase.
+- Blade of Perdition no longer appears in ordinary squad/Sergeant entries or unrelated Armoury/Mobility groups.
+
+Validation
+- No r74-ba-arm-* broad-injection links remain.
+- No Blood Angels shared weapon link exists under Mobility or another Legion armoury.
+- Exactly six deliberate shared links remain across Praetor/Centurion.
+- Explicit Sanguinary Guard and Moritat Inferno options survived.
+- Duplicate-ID and XML parse validation passed.
