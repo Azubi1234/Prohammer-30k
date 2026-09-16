@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="74" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="42" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="75" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="43" type="catalogue">
   <comment>Revision 62: Space Wolves Legion base rules verified against Forces of the Legions; HQ organisation now scales one selection per full or partial 750 roster-limit points.</comment>
   <readme>Core Legiones Astartes catalogue for Prohammer 30k. Revision 32 includes the generic Legion army list and Consuls, Dark Angels package, Legiones Astartes Lords of War, and Legiones Astartes Aeronautica Imperialis aircraft. Experimental Wargear and Units remains excluded.</readme>
   <sharedSelectionEntries>
@@ -20114,14 +20114,12 @@
             <constraint id="r74-ba-contemptor-jump-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
           </constraints>
           <modifiers>
-            <modifier id="r74-ba-contemptor-jump-show" type="set" value="false" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
+            <modifier id="r75-ba-furioso-show" type="set" value="false" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="contemptor-p-dccw" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="contemptor-s-dccw" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
             </modifier>
           </modifiers>
         </entryLink>
@@ -31316,14 +31314,11 @@
             <constraint id="r74-ba-hq-praetor-r74-ba-blade-exchange-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
           </constraints>
           <modifiers>
-            <modifier id="r74-ba-hq-praetor-r74-ba-blade-exchange-show" type="set" value="false" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
+            <modifier id="r75-ba-ba-hq-praetor-r74-ba-blade-exchange-show" type="set" value="false" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="gear-power-weapon" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
             </modifier>
           </modifiers>
         </entryLink>
@@ -35318,6 +35313,32 @@
             </modifier>
           </modifiers>
         </selectionEntry>
+        <selectionEntry id="r75-ba-hq-praetor-rev-warlord" name="Designate as Day of Revelation Warlord" type="upgrade" hidden="true" import="true">
+          <constraints>
+            <constraint id="r75-ba-hq-praetor-rev-warlord-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </constraints>
+          <costs>
+            <cost name="Points" typeId="pts" value="0" />
+          </costs>
+          <categoryLinks>
+            <categoryLink id="r75-ba-hq-praetor-rev-warlord-cat" name="Day of Revelation — Warlord with Jump Pack" hidden="false" targetId="r75-ba-cat-rev-warlord-jump" primary="false" />
+          </categoryLinks>
+          <modifiers>
+            <modifier id="r75-ba-hq-praetor-rev-warlord-show" type="set" value="false" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-praetor-jump" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="r41-unit-ix-11-ix-sanguinius-the-great-angel" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <rules>
+            <rule id="r75-ba-hq-praetor-rev-warlord-rule" name="Day of Revelation Warlord" hidden="false">
+              <description>This Praetor is the army Warlord for The Day of Revelation and is equipped with a Jump Pack.</description>
+            </rule>
+          </rules>
+        </selectionEntry>
       </selectionEntries>
     </selectionEntry>
     <selectionEntry type="unit" name="Legion Centurion" id="hq-centurion" hidden="false" import="true">
@@ -35443,14 +35464,11 @@
             <constraint id="r74-ba-hq-centurion-r74-ba-blade-exchange-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
           </constraints>
           <modifiers>
-            <modifier id="r74-ba-hq-centurion-r74-ba-blade-exchange-show" type="set" value="false" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
+            <modifier id="r75-ba--hq-centurion-r74-ba-blade-exchange-show" type="set" value="false" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="gear-power-weapon" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
             </modifier>
           </modifiers>
         </entryLink>
@@ -45320,6 +45338,32 @@ All other equipment is selected normally from the Space Marine Armoury.</descrip
             </modifier>
           </modifiers>
         </selectionEntry>
+        <selectionEntry id="r75-ba-hq-centurion-rev-warlord" name="Designate as Day of Revelation Warlord" type="upgrade" hidden="true" import="true">
+          <constraints>
+            <constraint id="r75-ba-hq-centurion-rev-warlord-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </constraints>
+          <costs>
+            <cost name="Points" typeId="pts" value="0" />
+          </costs>
+          <categoryLinks>
+            <categoryLink id="r75-ba-hq-centurion-rev-warlord-cat" name="Day of Revelation — Warlord with Jump Pack" hidden="false" targetId="r75-ba-cat-rev-warlord-jump" primary="false" />
+          </categoryLinks>
+          <modifiers>
+            <modifier id="r75-ba-hq-centurion-rev-warlord-show" type="set" value="false" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="hq-centurion-jump" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="r41-unit-ix-11-ix-sanguinius-the-great-angel" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <rules>
+            <rule id="r75-ba-hq-centurion-rev-warlord-rule" name="Day of Revelation Warlord" hidden="false">
+              <description>This Centurion is the army Warlord for The Day of Revelation and is equipped with a Jump Pack.</description>
+            </rule>
+          </rules>
+        </selectionEntry>
       </selectionEntries>
     </selectionEntry>
     <selectionEntry type="unit" name="Damocles Command Rhino" id="hq-damocles" hidden="false" import="true">
@@ -48617,7 +48661,7 @@ The army's Warlord must be equipped with a Power Weapon, Rending Weapon, Relic B
                 </rule>
               </rules>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Blood Angels Rite of War — The Day Of Revelation" hidden="false" id="r25-rite-ix-0-the-day-of-revelation">
+            <selectionEntry type="upgrade" import="true" name="Blood Angels Rite of War — The Day Of Revelation" hidden="true" id="r25-rite-ix-0-the-day-of-revelation">
               <constraints>
                 <constraint id="r25-rite-ix-0-the-day-of-revelation-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
@@ -48632,26 +48676,31 @@ The army's Warlord must be equipped with a Power Weapon, Rending Weapon, Relic B
                     <condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
                   </conditions>
                 </modifier>
+                <modifier id="r75-ba-rev-legion-show" type="set" value="false" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
               </modifiers>
               <rules>
-                <rule id="r74-ba-rev-host" name="Host of Angels" hidden="false">
-                  <description>Legion Veteran Squads equipped with Jump Packs may be selected as Troops and may fulfil compulsory Troops selections. Legion Assault Squads remain Troops normally.</description>
+                <rule id="r75-ba-rev-host" name="Host of Angels" hidden="false">
+                  <description>Legion Veteran Squads equipped with Jump Packs may be selected as Troops choices and may fulfil compulsory Troops selections. Legion Assault Squads remain Troops choices normally.</description>
                 </rule>
-                <rule id="r74-ba-rev-revealed" name="The Day is Revealed" hidden="false">
-                  <description>Blood Angels units composed entirely of Jump Infantry may deploy using Deep Strike even if the mission would not normally permit it. All Jump Infantry units placed in Reserve using this Rite must enter using Deep Strike.</description>
+                <rule id="r75-ba-rev-revealed" name="The Day is Revealed" hidden="false">
+                  <description>Blood Angels units composed entirely of Jump Infantry may deploy using Deep Strike even if the mission would not normally permit it. All Jump Infantry units placed in Reserve using this Rite must enter play using Deep Strike.</description>
                 </rule>
-                <rule id="r74-ba-rev-wings" name="On Wings of Fire" hidden="false">
-                  <description>At the beginning of the second Blood Angels player turn, all Blood Angels Jump Infantry units currently in Reserve become available automatically. No Reserve rolls are made and they must enter that turn using Deep Strike.</description>
+                <rule id="r75-ba-rev-wings" name="On Wings of Fire" hidden="false">
+                  <description>At the beginning of the second Blood Angels player turn, all Blood Angels Jump Infantry units currently held in Reserve become available automatically. No Reserve rolls are made and they must enter play during that turn using Deep Strike.</description>
                 </rule>
-                <rule id="r74-ba-rev-shock" name="Angelic Shock Assault" hidden="false">
-                  <description>A Blood Angels Jump Infantry unit which charges in the same turn it arrived using Deep Strike receives the normal +1 Attack bonus for charging and normal benefits of Assault Grenades. This overrides the normal ProHammer restriction on charging after Deep Strike.</description>
+                <rule id="r75-ba-rev-shock" name="Angelic Shock Assault" hidden="false">
+                  <description>A Blood Angels Jump Infantry unit which charges during the same turn it arrived using Deep Strike receives the normal +1 Attack bonus for charging and the normal benefits of any Assault Grenades it carries. This overrides the normal ProHammer restriction on charging after Deep Strike. All other Deep Strike rules apply normally.</description>
                 </rule>
-                <rule id="r74-ba-rev-limits" name="Day of Revelation — Limitations" hidden="false">
-                  <description>The Warlord must have a Jump Pack. At least half of the Detachment’s non-Vehicle units, rounding up, must consist entirely of models with Jump Packs. Every Jump Infantry unit must begin in Reserve and enter by Deep Strike. Maximum one Heavy Support choice. No Fortification. The ratio and deployment-state requirements remain player-checked because New Recruit cannot determine battlefield deployment state or reliably express the required roster ratio.</description>
+                <rule id="r75-ba-rev-limits" name="Limitations" hidden="false">
+                  <description>The army Warlord must be equipped with a Jump Pack. At least half of the non-Vehicle units in the Detachment, rounding up, must be composed entirely of models equipped with Jump Packs. Every Jump Infantry unit must begin the battle in Reserve and enter play using Deep Strike. The Detachment may include no more than one Heavy Support choice and may not include a Fortification. New Recruit enforces the Warlord, compulsory Troops and Heavy Support restrictions; the half-army ratio and deployment-state restrictions remain player-checked.</description>
                 </rule>
               </rules>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Blood Angels Rite of War — The Day Of Sorrows" hidden="false" id="r25-rite-ix-1-the-day-of-sorrows">
+            <selectionEntry type="upgrade" import="true" name="Blood Angels Rite of War — The Day Of Sorrows" hidden="true" id="r25-rite-ix-1-the-day-of-sorrows">
               <constraints>
                 <constraint id="r25-rite-ix-1-the-day-of-sorrows-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
@@ -48666,22 +48715,27 @@ The army's Warlord must be equipped with a Power Weapon, Rending Weapon, Relic B
                     <condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
                   </conditions>
                 </modifier>
+                <modifier id="r75-ba-sor-legion-show" type="set" value="false" field="hidden">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </modifier>
               </modifiers>
               <rules>
-                <rule id="r74-ba-sor-bitter" name="The Bitter End" hidden="false">
-                  <description>When a non-Vehicle Blood Angels unit is reduced to half or fewer of the models with which it began the battle, it gains Stubborn and Feel No Pain (6+) for the rest of the battle. If it already has Feel No Pain, improve it one step, to a maximum of 4+.</description>
+                <rule id="r75-ba-sor-bitter" name="The Bitter End" hidden="false">
+                  <description>When a non-Vehicle Blood Angels unit is reduced to half or fewer of the number of models with which it began the battle, it gains Stubborn and Feel No Pain (6+). These rules remain for the rest of the battle. If it already has Feel No Pain, improve that roll by one step instead, to a maximum of 4+.</description>
                 </rule>
-                <rule id="r74-ba-sor-fury" name="Sorrow Becomes Fury" hidden="false">
-                  <description>A Blood Angels unit affected by The Bitter End gains +1 to its combat-resolution score whenever it wins a close combat. This is not cumulative.</description>
+                <rule id="r75-ba-sor-fury" name="Sorrow Becomes Fury" hidden="false">
+                  <description>A Blood Angels unit affected by The Bitter End gains +1 to its combat-resolution score whenever it wins a close combat. This bonus is not cumulative.</description>
                 </rule>
-                <rule id="r74-ba-sor-death" name="No Death Unremembered" hidden="false">
-                  <description>Whenever a Blood Angels unit affected by The Bitter End is destroyed, every friendly non-Vehicle Blood Angels unit with at least one model within 6 inches may re-roll its next failed Morale or Pinning test before the end of the following Blood Angels player turn.</description>
+                <rule id="r75-ba-sor-death" name="No Death Unremembered" hidden="false">
+                  <description>Whenever a Blood Angels unit affected by The Bitter End is completely destroyed, every friendly non-Vehicle Blood Angels unit with at least one model within 6 inches may re-roll its next failed Morale or Pinning test before the end of the following Blood Angels player turn.</description>
                 </rule>
-                <rule id="r74-ba-sor-hold" name="Hold Until the Last" hidden="false">
-                  <description>Legion Tactical Squads and Legion Breacher Siege Squads may re-roll failed Pinning tests while at least one model is within 6 inches of an Objective.</description>
+                <rule id="r75-ba-sor-hold" name="Hold Until the Last" hidden="false">
+                  <description>Legion Tactical Squads and Legion Breacher Siege Squads may re-roll failed Pinning tests while they have at least one model within 6 inches of an Objective.</description>
                 </rule>
-                <rule id="r74-ba-sor-limits" name="Day of Sorrows — Limitations" hidden="false">
-                  <description>The compulsory Troops choices must be selected from Legion Tactical Squads, Legion Assault Squads or Legion Breacher Siege Squads. Units affected by The Bitter End may not voluntarily withdraw from close combat; if they win and the enemy retreats, they must Pursue whenever normally permitted. No Fortification.</description>
+                <rule id="r75-ba-sor-limits" name="Limitations" hidden="false">
+                  <description>The army compulsory Troops choices must be selected from Legion Tactical Squads, Legion Assault Squads or Legion Breacher Siege Squads. Units affected by The Bitter End may not voluntarily withdraw from close combat. If such a unit wins a close combat and the enemy retreats, it must Pursue whenever normally permitted. The Detachment may not include a Fortification.</description>
                 </rule>
               </rules>
             </selectionEntry>
@@ -138122,6 +138176,20 @@ The Detachment may not include an Allied Detachment.</description>
           <description>At the beginning of each Assault phase, nominate one enemy Independent Character or squad leader in base contact with Raldoron. Until the end of that phase, Raldoron may re-roll failed To Hit rolls made against that model.</description>
         </rule>
       </rules>
+      <entryLinks>
+        <entryLink id="r75-ba-r41-unit-ix-6-raldoron-the-blooded-death-mask" name="Death Mask" type="selectionEntry" targetId="r44-ba-death-mask" hidden="true" import="true">
+          <constraints>
+            <constraint id="r75-ba-r41-unit-ix-6-raldoron-the-blooded-death-mask-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </constraints>
+          <modifiers>
+            <modifier id="r75-ba-r41-unit-ix-6-raldoron-the-blooded-death-mask-show" type="set" value="false" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+        </entryLink>
+      </entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="DOMINION ZEPHON" hidden="false" id="r41-unit-ix-7-dominion-zephon">
       <costs>
@@ -138585,6 +138653,32 @@ The Detachment may not include an Allied Detachment.</description>
             <constraint id="r74-ba-zephon-frag-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
           </constraints>
         </selectionEntry>
+        <selectionEntry id="r75-ba-r41-unit-ix-7-dominion-zephon-rev-warlord" name="Designate as Day of Revelation Warlord" type="upgrade" hidden="true" import="true">
+          <constraints>
+            <constraint id="r75-ba-r41-unit-ix-7-dominion-zephon-rev-warlord-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </constraints>
+          <costs>
+            <cost name="Points" typeId="pts" value="0" />
+          </costs>
+          <categoryLinks>
+            <categoryLink id="r75-ba-r41-unit-ix-7-dominion-zephon-rev-warlord-cat" name="Day of Revelation — Warlord with Jump Pack" hidden="false" targetId="r75-ba-cat-rev-warlord-jump" primary="false" />
+          </categoryLinks>
+          <modifiers>
+            <modifier id="r75-ba-r41-unit-ix-7-dominion-zephon-rev-warlord-show" type="set" value="false" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="r74-ba-zephon-jump" shared="true" includeChildSelections="true" includeChildForces="false" />
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="r41-unit-ix-11-ix-sanguinius-the-great-angel" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+          <rules>
+            <rule id="r75-ba-r41-unit-ix-7-dominion-zephon-rev-warlord-rule" name="Day of Revelation Warlord" hidden="false">
+              <description>Dominion Zephon is the army Warlord for The Day of Revelation; his fixed wargear includes a Jump Pack.</description>
+            </rule>
+          </rules>
+        </selectionEntry>
       </selectionEntries>
       <rules>
         <rule id="r74-ba-zephon-rule-legiones-astartes-blood-angels" name="Legiones Astartes (Blood Angels)" hidden="false">
@@ -138600,6 +138694,20 @@ The Detachment may not include an Allied Detachment.</description>
           <description>Zephon may join an Angel’s Tears Squad or Legion Destroyer Squad despite Destroyer Cadre restrictions. He may select one Angel’s Tears Squad as his retinue; it occupies no separate Force Organisation slot.</description>
         </rule>
       </rules>
+      <entryLinks>
+        <entryLink id="r75-ba-r41-unit-ix-7-dominion-zephon-death-mask" name="Death Mask" type="selectionEntry" targetId="r44-ba-death-mask" hidden="true" import="true">
+          <constraints>
+            <constraint id="r75-ba-r41-unit-ix-7-dominion-zephon-death-mask-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </constraints>
+          <modifiers>
+            <modifier id="r75-ba-r41-unit-ix-7-dominion-zephon-death-mask-show" type="set" value="false" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+        </entryLink>
+      </entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="ASTER CROHNE" hidden="false" id="r41-unit-ix-8-aster-crohne">
       <costs>
@@ -139525,6 +139633,20 @@ The Detachment may not include an Allied Detachment.</description>
           <description>This model has Feel No Pain (4+).</description>
         </rule>
       </rules>
+      <entryLinks>
+        <entryLink id="r75-ba-r41-unit-ix-8-aster-crohne-death-mask" name="Death Mask" type="selectionEntry" targetId="r44-ba-death-mask" hidden="true" import="true">
+          <constraints>
+            <constraint id="r75-ba-r41-unit-ix-8-aster-crohne-death-mask-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </constraints>
+          <modifiers>
+            <modifier id="r75-ba-r41-unit-ix-8-aster-crohne-death-mask-show" type="set" value="false" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+        </entryLink>
+      </entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="AZKAELLON" hidden="true" id="r41-unit-ix-9-azkaellon">
       <costs>
@@ -140492,6 +140614,20 @@ The Detachment may not include an Allied Detachment.</description>
           <description>Uses the normal ProHammer Furious Charge special rule.</description>
         </rule>
       </rules>
+      <entryLinks>
+        <entryLink id="r75-ba-r41-unit-ix-10-nassir-amit-the-flesh-tearer-death-mask" name="Death Mask" type="selectionEntry" targetId="r44-ba-death-mask" hidden="true" import="true">
+          <constraints>
+            <constraint id="r75-ba-r41-unit-ix-10-nassir-amit-the-flesh-tearer-death-mask-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </constraints>
+          <modifiers>
+            <modifier id="r75-ba-r41-unit-ix-10-nassir-amit-the-flesh-tearer-death-mask-show" type="set" value="false" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-ix" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+        </entryLink>
+      </entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="IX — SANGUINIUS, THE GREAT ANGEL" hidden="false" id="r41-unit-ix-11-ix-sanguinius-the-great-angel">
       <costs>

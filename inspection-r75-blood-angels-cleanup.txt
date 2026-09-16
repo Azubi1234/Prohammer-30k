@@ -1,0 +1,33 @@
+Revision 75 — Blood Angels Source Entry cleanup + complete Rite pass
+Catalogue revision: 75
+Game-system revision: 43
+
+Presentation
+- Removed 0 nested Blood Angels Source Entry / aggregate import rule blocks, including model-child dumps that Rev74 did not detect.
+- Aster Crohne is explicitly validated against the exact duplicate Source Entry presentation bug reported in New Recruit.
+
+The Day of Revelation
+- Host of Angels, The Day is Revealed, On Wings of Fire, Angelic Shock Assault and Limitations are separate actual rule blocks.
+- Jump Pack Veteran Troops remain a Rite-gated Troops choice with mandatory Jump Packs and can satisfy the hidden compulsory-Troops requirement.
+- Assault Squads and Jump Veteran Troops satisfy the two compulsory Troops requirement.
+- Heavy Support is limited to 0-1.
+- A hidden validation category now requires a designated Warlord actually equipped with a Jump Pack. Praetor/Centurion markers only appear with their Jump Pack selected; Zephon qualifies through fixed wargear.
+- Sanguinius deliberately does not satisfy the Jump Pack requirement: Great Wings were not silently redefined as a Jump Pack.
+- The half-of-non-Vehicle-units Jump Pack ratio and Reserve/Deep Strike deployment state remain player-checked because New Recruit cannot safely infer those roster/battlefield states.
+- Fortifications are set to 0 automatically if a Fortification slot exists in the game system.
+
+The Day of Sorrows
+- The Bitter End, Sorrow Becomes Fury, No Death Unremembered, Hold Until the Last and Limitations are separate actual rule blocks.
+- Compulsory Troops are mechanically restricted to Tactical, Assault and Breacher Squads through the hidden compulsory category.
+- Voluntary withdrawal/Pursuit effects remain readable battlefield rules.
+- Fortifications are set to 0 automatically if a Fortification slot exists.
+
+Other BA restrictions
+- Furioso-pattern Jump Pack now appears only when a Contemptor has BOTH Dreadnought Close Combat Weapons.
+- Blade of Perdition +10 exchange now requires an actually selected Power Weapon on Praetor/Centurion.
+- Raldoron, Zephon, Crohne and Amit receive explicit Death Mask access as Blood Angels Independent Characters.
+
+Validation
+- No Source Entry/aggregate dump remains anywhere under canonical/generated Blood Angels unit subtrees.
+- Both Rite presentations and their functional roster restrictions validate.
+- Duplicate IDs and XML parsing validate.

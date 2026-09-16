@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="42" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
+<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="43" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
   <comment>Horus Heresy army lists adapted for use with ProHammer Classic.</comment>
   <readme>Core system skeleton for Prohammer 30k. Contains points, core profile types, battlefield roles, mandatory Army Configuration and the standard Force Organisation Chart.</readme>
   <costTypes>
@@ -76,6 +76,7 @@
     <categoryEntry id="r71-nl-cat-horror-comp" name="Horror Cult compulsory Night Raptor" hidden="true" />
     <categoryEntry id="r74-ba-cat-revelation-comp" name="Day of Revelation — compulsory Assault/Veteran Troops" hidden="true" />
     <categoryEntry id="r74-ba-cat-sorrows-comp" name="Day of Sorrows — compulsory Tactical/Assault/Breacher Troops" hidden="true" />
+    <categoryEntry id="r75-ba-cat-rev-warlord-jump" name="Day of Revelation — Warlord with Jump Pack" hidden="true" />
   </categoryEntries>
   <forceEntries>
     <forceEntry id="force-standard" name="Standard Age of Darkness Detachment" hidden="false">
@@ -275,6 +276,11 @@
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
+            <modifier id="r75-ba-rev-heavy-max" type="set" value="1" field="fl-heavy-max">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
           </modifiers>
         </categoryLink>
         <categoryLink id="fl-transport" name="Dedicated Transport" hidden="false" targetId="cat-transport" />
@@ -447,6 +453,11 @@
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
+            <modifier id="r75-ba-r74-ba-cat-revelation-comp-set" type="set" value="2" field="r74-ba-r74-ba-cat-revelation-comp-min">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
           </modifiers>
         </categoryLink>
         <categoryLink id="r74-ba-fl-r74-ba-cat-sorrows-comp" name="Day of Sorrows — compulsory Tactical/Assault/Breacher Troops" hidden="true" targetId="r74-ba-cat-sorrows-comp">
@@ -457,6 +468,23 @@
             <modifier id="r74-ba-r74-ba-cat-sorrows-comp-min-set" type="set" value="2" field="r74-ba-r74-ba-cat-sorrows-comp-min">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-1-the-day-of-sorrows" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+            <modifier id="r75-ba-r74-ba-cat-sorrows-comp-set" type="set" value="2" field="r74-ba-r74-ba-cat-sorrows-comp-min">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-1-the-day-of-sorrows" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+        </categoryLink>
+        <categoryLink id="r75-ba-fl-r75-ba-cat-rev-warlord-jump" name="Day of Revelation — Warlord with Jump Pack" hidden="true" targetId="r75-ba-cat-rev-warlord-jump">
+          <constraints>
+            <constraint id="r75-ba-r75-ba-cat-rev-warlord-jump-min" type="min" value="0" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </constraints>
+          <modifiers>
+            <modifier id="r75-ba-r75-ba-cat-rev-warlord-jump-set" type="set" value="1" field="r75-ba-r75-ba-cat-rev-warlord-jump-min">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
           </modifiers>
