@@ -193,8 +193,9 @@ cs=ensure(jump,'constraints')
 if not any(x.get('type')=='max' and x.get('scope')=='roster' for x in cs.findall(C('constraint'))):constraint(jump,'r74-ba-furioso-roster','max',1,scope='roster')
 
 # Attach BA armoury options to generic armoury groups rather than globally dumping them on units.
+PARENT_MAP={c:p for p in cr.iter() for c in p}
 def owner_unit(e):
-    pm={c:p for p in cr.iter() for c in p};p=e
+    pm=PARENT_MAP;p=e
     while p is not None:
         if p.tag==C('selectionEntry') and p.get('type')=='unit':return p
         p=pm.get(p)
@@ -401,7 +402,9 @@ if sopts is not None:
         if azmodel is not None:
             ps=azmodel.find(C('profiles'))
             if ps is not None:
-                dest=ensure(oldaz,'profiles');[dest.append(deepcopy(p)) for p in list(ps)]
+                dest=ensure(oldaz,'profiles')
+                for p in list(ps):
+                    cp=deepcopy(p); cp.set('id','r74-ba-azk-up-profile-'+(p.get('id') or 'model')); dest.append(cp)
         for nm in ('Artificer Armour','Sanguine-pattern Jump Pack','Death Mask','Glaive Encarmine','Angelus Boltgun','Frag grenades'):add_rule(oldaz,'r74-ba-azk-up-'+re.sub('[^a-z0-9]+','-',nm.lower()).strip('-'),nm,'Fixed Azkaellon wargear.')
 # Hide standalone Azkaellon imported entry.
 U['azk'].set('hidden','true')
@@ -556,7 +559,9 @@ for e in ir.iter(I('dataIndexEntry')):
     elif e.get('filePath')=='Prohammer 30k.gst':e.set('dataRevision','42')
 
 ET.indent(ct,space='  ');ET.indent(gt,space='  ');ET.indent(it,space='  ')
-ct.write(CAT,encoding='utf-8',xml_declaration=True);gt.write(GST,encoding='utf-8',xml_declaration=True);it.write(IDX,encoding='utf-8',xml_declaration=True)
+ET.register_namespace('',CNS);ct.write(CAT,encoding='utf-8',xml_declaration=True)
+ET.register_namespace('',GNS);gt.write(GST,encoding='utf-8',xml_declaration=True)
+ET.register_namespace('',INS);it.write(IDX,encoding='utf-8',xml_declaration=True)
 ET.parse(CAT);ET.parse(GST);ET.parse(IDX)
 OUT.write_text(f'''Revision 74 — Blood Angels full New Recruit implementation\nCatalogue revision: 74\nGame-system revision: 42\n\nPresentation\n- Removed {removed_sources} canonical Blood Angels Source Entry / aggregate dump rules.\n- Moved {profiles_moved} model profiles off top-level unit shells onto real model selections, using the Night Lords Rev73 presentation fix as the permanent standard.\n- Added individually named actual rules and fixed wargear for the Blood Angels units, characters and Sanguinius.\n\nArmy rules and armoury\n- Legion selector now exposes Angels of Death, Descent of Angels and Vengeance of a Fallen Angel as separate actual rules.\n- Repaired Death Mask, Inferno Pistol, Blade of Perdition, Over-charged Engines and Furioso-pattern Jump Pack access.\n- Over-charged Engines now attach to the real Legion Rhino rather than Damocles Command Rhino.\n- Moritat receives the two-Inferno-Pistol +20 replacement.\n- Sanguinary High Priest Consul is a functional Centurion branch with Narthecium, Reductor, Legion Support Officer, Apothecarion and Sanguinius' Chosen.\n\nUnique units\n- Dawnbreakers: 5-10, scaling grenades, Equinox replacements, Champion Armoury and weapon rules.\n- Crimson Paladins: 3-5, shared melee-replacement cap, one shield-to-heavy replacement, Coriolis Shield, Blood is Forever and Dedicated Transport.\n- Angel's Tears: 5-10, correct 1-per-5 special-weapon cap, Arch-Erelim weapon block/Armoury, scaling grenades, Dual Pistols and Destroyer Cadre.\n- Ofanim: 3-5, scaling grenades and whole-squad +15/model Jump Pack option.\n- Grav Chariots: repaired from a fixed one-model shell to a true 1-3 model squadron with model-scaled weapon replacements.\n- Sanguinary Guard: 3-6, retinue only, scaling upgrades, Azkaellon as an in-squad +35 upgrade rather than a standalone Elites choice.\n\nCharacters and Primarch\n- Raldoron, Zephon, Crohne and Amit now have real model profiles, fixed wargear, named actual rules and functional retinues.\n- Sanguinius has a real model profile, Loyalist gate, Blade/Spear choice, Infernus profile, Great Wings, Angelic Charge, Sire of the Blood Angels, The Angel Descends, and Honour Guard/Sanguinary Guard retinues.\n\nRites\n- Day of Revelation: functional Jump Veteran Troops clone, compulsory Assault/Jump Veteran requirement, and 0-1 Heavy Support. Deployment/ratio restrictions remain visible where New Recruit cannot reliably infer battlefield state or a half-roster ratio.\n- Day of Sorrows: functional compulsory Tactical/Assault/Breacher requirement; battlefield half-strength/Pursuit effects remain as actual Rite rules.\n\nValidation\n- No canonical Blood Angels Source Entry rules remain.\n- No canonical Blood Angels model profile remains on a top-level unit shell.\n- Critical unit sizes/cost counters, Rite categories, retinue-only entries, duplicate IDs and XML parsing validated.\n''',encoding='utf-8')
 print(OUT.read_text())

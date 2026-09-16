@@ -1,4 +1,4 @@
-Top-level unit entries audited: 360
+Top-level unit entries audited: 361
 UI-standard flags: 0
 
 UNIT tactical-unit :: Legion Tactical Squad
@@ -142,6 +142,7 @@ UNIT hq-praetor :: Legion Praetor
   MODEL ('hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
   MODEL ('hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
   MODEL ('hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r74-ba-pra-guard-r41-unit-ix-5-sanguinary-guard-additional', 'Squad Models', '3', [('max', '6', 'parent'), ('min', '3', 'parent')], ['55'])
   MODEL ('r64-if-praetor-huscarl-r64-if-huscarl-models', 'Retinue Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
 
 UNIT hq-centurion :: Legion Centurion
@@ -611,6 +612,9 @@ UNIT r41-unit-ix-0-dawnbreaker-cohort :: DAWNBREAKER COHORT
 
 UNIT r41-unit-ix-1-crimson-paladin-squad :: CRIMSON PALADIN SQUAD
   MODEL ('r41-unit-ix-1-crimson-paladin-squad-additional', 'Squad Models', '3', [('max', '5', 'parent'), ('min', '3', 'parent')], ['45'])
+  MODEL ('r74-ba-pal-lr-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '3', 'parent')], ['250'])
+  MODEL ('r74-ba-pal-lr-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '3', 'parent')], ['200'])
+  MODEL ('r74-ba-pal-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
 
 UNIT r41-unit-ix-2-angel-s-tears-squad :: ANGEL'S TEARS SQUAD
   MODEL ('r41-unit-ix-2-angel-s-tears-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
@@ -618,8 +622,53 @@ UNIT r41-unit-ix-2-angel-s-tears-squad :: ANGEL'S TEARS SQUAD
 UNIT r41-unit-ix-3-ofanim-court :: OFANIM COURT
   MODEL ('r41-unit-ix-3-ofanim-court-additional', 'Squad Models', '3', [('max', '5', 'parent'), ('min', '3', 'parent')], ['50'])
 
+UNIT r41-unit-ix-4-grav-chariot-squadron :: GRAV CHARIOT SQUADRON
+  MODEL ('r74-ba-grav-models', 'Grav Chariots', '1', [('min', '1', 'parent'), ('max', '3', 'parent')], ['65'])
+
 UNIT r41-unit-ix-5-sanguinary-guard :: SANGUINARY GUARD
   MODEL ('r41-unit-ix-5-sanguinary-guard-additional', 'Squad Models', '3', [('max', '6', 'parent'), ('min', '3', 'parent')], ['55'])
+
+UNIT r41-unit-ix-6-raldoron-the-blooded :: RALDORON, THE BLOODED
+  MODEL ('r74-ba-ral-cmd-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r74-ba-ral-cmd-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r74-ba-ral-cmd-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r74-ba-ral-cmd-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r74-ba-ral-tcmd-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r74-ba-ral-tcmd-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r74-ba-ral-tcmd-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r74-ba-ral-tcmd-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r74-ba-ral-guard-r41-unit-ix-5-sanguinary-guard-additional', 'Squad Models', '3', [('max', '6', 'parent'), ('min', '3', 'parent')], ['55'])
+  MODEL ('r74-ba-ral-model', 'RALDORON, THE BLOODED', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
+
+UNIT r41-unit-ix-7-dominion-zephon :: DOMINION ZEPHON
+  MODEL ('r74-ba-zephon-tears-r41-unit-ix-2-angel-s-tears-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['30'])
+  MODEL ('r74-ba-zephon-model', 'DOMINION ZEPHON', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
+
+UNIT r41-unit-ix-8-aster-crohne :: ASTER CROHNE
+  MODEL ('r74-ba-crohne-cmd-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r74-ba-crohne-cmd-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r74-ba-crohne-cmd-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r74-ba-crohne-cmd-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r74-ba-crohne-model', 'ASTER CROHNE', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
+
+UNIT r41-unit-ix-9-azkaellon :: AZKAELLON
+  MODEL ('r74-ba-azk-model', 'AZKAELLON', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
+
+UNIT r41-unit-ix-10-nassir-amit-the-flesh-tearer :: NASSIR AMIT, THE FLESH TEARER
+  MODEL ('r74-ba-amit-cmd-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r74-ba-amit-cmd-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r74-ba-amit-cmd-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r74-ba-amit-cmd-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r74-ba-amit-model', 'NASSIR AMIT, THE FLESH TEARER', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
+
+UNIT r41-unit-ix-11-ix-sanguinius-the-great-angel :: IX — SANGUINIUS, THE GREAT ANGEL
+  MODEL ('r74-ba-sang-model', 'IX — SANGUINIUS, THE GREAT ANGEL', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
+  MODEL ('r74-ba-sang-honour-hq-praetor-ret-honour-champ', 'Legion Champion', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r74-ba-sang-honour-hq-praetor-ret-honour-base', 'Legion Honour Guard', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['40'])
+  MODEL ('r74-ba-sang-honour-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r74-ba-sang-honour-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r74-ba-sang-honour-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r74-ba-sang-guard-r41-unit-ix-5-sanguinary-guard-additional', 'Squad Models', '3', [('max', '6', 'parent'), ('min', '3', 'parent')], ['55'])
 
 UNIT r41-unit-x-1-gorgon-terminator-squad :: GORGON TERMINATOR SQUAD
   MODEL ('r41-unit-x-1-gorgon-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
@@ -1065,5 +1114,14 @@ UNIT r71-nl-ta-terror-r41-unit-viii-0-terror-squad :: Terror Squad — Terror As
 
 UNIT r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad :: Night Raptor Squad — Horror Cult Troops
   MODEL ('r71-nl-hc-raptor-r71-nl-raptor-models', '4 Night Raptors + Raptor Sergeant', '5', [('min', '5', 'parent'), ('max', '15', 'parent')], ['28'])
+
+UNIT r74-ba-rev-vet-veteran-unit :: Legion Veteran Squad (Jump Packs) — Day of Revelation
+  MODEL ('r74-ba-rev-vet-veteran-included', 'Legion Veterans', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20'])
+  MODEL ('r74-ba-rev-vet-veteran-sergeant', 'Legion Veteran Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r74-ba-rev-vet-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r74-ba-rev-vet-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r74-ba-rev-vet-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r74-ba-rev-vet-r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r74-ba-rev-vet-r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
 
 === FLAGS ===

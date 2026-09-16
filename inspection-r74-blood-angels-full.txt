@@ -1,0 +1,36 @@
+Revision 74 — Blood Angels full New Recruit implementation
+Catalogue revision: 74
+Game-system revision: 42
+
+Presentation
+- Removed 12 canonical Blood Angels Source Entry / aggregate dump rules.
+- Moved 16 model profiles off top-level unit shells onto real model selections, using the Night Lords Rev73 presentation fix as the permanent standard.
+- Added individually named actual rules and fixed wargear for the Blood Angels units, characters and Sanguinius.
+
+Army rules and armoury
+- Legion selector now exposes Angels of Death, Descent of Angels and Vengeance of a Fallen Angel as separate actual rules.
+- Repaired Death Mask, Inferno Pistol, Blade of Perdition, Over-charged Engines and Furioso-pattern Jump Pack access.
+- Over-charged Engines now attach to the real Legion Rhino rather than Damocles Command Rhino.
+- Moritat receives the two-Inferno-Pistol +20 replacement.
+- Sanguinary High Priest Consul is a functional Centurion branch with Narthecium, Reductor, Legion Support Officer, Apothecarion and Sanguinius' Chosen.
+
+Unique units
+- Dawnbreakers: 5-10, scaling grenades, Equinox replacements, Champion Armoury and weapon rules.
+- Crimson Paladins: 3-5, shared melee-replacement cap, one shield-to-heavy replacement, Coriolis Shield, Blood is Forever and Dedicated Transport.
+- Angel's Tears: 5-10, correct 1-per-5 special-weapon cap, Arch-Erelim weapon block/Armoury, scaling grenades, Dual Pistols and Destroyer Cadre.
+- Ofanim: 3-5, scaling grenades and whole-squad +15/model Jump Pack option.
+- Grav Chariots: repaired from a fixed one-model shell to a true 1-3 model squadron with model-scaled weapon replacements.
+- Sanguinary Guard: 3-6, retinue only, scaling upgrades, Azkaellon as an in-squad +35 upgrade rather than a standalone Elites choice.
+
+Characters and Primarch
+- Raldoron, Zephon, Crohne and Amit now have real model profiles, fixed wargear, named actual rules and functional retinues.
+- Sanguinius has a real model profile, Loyalist gate, Blade/Spear choice, Infernus profile, Great Wings, Angelic Charge, Sire of the Blood Angels, The Angel Descends, and Honour Guard/Sanguinary Guard retinues.
+
+Rites
+- Day of Revelation: functional Jump Veteran Troops clone, compulsory Assault/Jump Veteran requirement, and 0-1 Heavy Support. Deployment/ratio restrictions remain visible where New Recruit cannot reliably infer battlefield state or a half-roster ratio.
+- Day of Sorrows: functional compulsory Tactical/Assault/Breacher requirement; battlefield half-strength/Pursuit effects remain as actual Rite rules.
+
+Validation
+- No canonical Blood Angels Source Entry rules remain.
+- No canonical Blood Angels model profile remains on a top-level unit shell.
+- Critical unit sizes/cost counters, Rite categories, retinue-only entries, duplicate IDs and XML parsing validated.

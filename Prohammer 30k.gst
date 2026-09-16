@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="41" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
+<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="42" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
   <comment>Horus Heresy army lists adapted for use with ProHammer Classic.</comment>
   <readme>Core system skeleton for Prohammer 30k. Contains points, core profile types, battlefield roles, mandatory Army Configuration and the standard Force Organisation Chart.</readme>
   <costTypes>
@@ -74,6 +74,8 @@
     <categoryEntry id="r66-if-cat-templar-warlord" name="Templar Assault — Warlord with qualifying melee weapon" hidden="true" />
     <categoryEntry id="r71-nl-cat-terror-assault-comp" name="Terror Assault compulsory Terror formation" hidden="true" />
     <categoryEntry id="r71-nl-cat-horror-comp" name="Horror Cult compulsory Night Raptor" hidden="true" />
+    <categoryEntry id="r74-ba-cat-revelation-comp" name="Day of Revelation — compulsory Assault/Veteran Troops" hidden="true" />
+    <categoryEntry id="r74-ba-cat-sorrows-comp" name="Day of Sorrows — compulsory Tactical/Assault/Breacher Troops" hidden="true" />
   </categoryEntries>
   <forceEntries>
     <forceEntry id="force-standard" name="Standard Age of Darkness Detachment" hidden="false">
@@ -243,11 +245,6 @@
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vi-0-the-pale-hunters" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
-            <modifier id="r44-ba-revelation-heavy-max" type="set" value="1" field="fl-heavy-max">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
-              </conditions>
-            </modifier>
             <modifier id="r45-we-berserker-heavy-max" type="set" value="1" field="fl-heavy-max">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-xii-0-berserker-assault" shared="true" includeChildSelections="true" includeChildForces="false" />
@@ -271,6 +268,11 @@
             <modifier id="r73-nl-fl-heavy" type="set" value="1" field="fl-heavy-max">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+            <modifier id="r74-ba-rev-heavy-max" type="set" value="1" field="fl-heavy-max">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
           </modifiers>
@@ -431,6 +433,30 @@
             <modifier id="r71-nl-r71-nl-cat-horror-comp-min-mod" type="set" value="1" field="r71-nl-r71-nl-cat-horror-comp-min">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+        </categoryLink>
+        <categoryLink id="r74-ba-fl-r74-ba-cat-revelation-comp" name="Day of Revelation — compulsory Assault/Veteran Troops" hidden="true" targetId="r74-ba-cat-revelation-comp">
+          <constraints>
+            <constraint id="r74-ba-r74-ba-cat-revelation-comp-min" type="min" value="0" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </constraints>
+          <modifiers>
+            <modifier id="r74-ba-r74-ba-cat-revelation-comp-min-set" type="set" value="2" field="r74-ba-r74-ba-cat-revelation-comp-min">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+        </categoryLink>
+        <categoryLink id="r74-ba-fl-r74-ba-cat-sorrows-comp" name="Day of Sorrows — compulsory Tactical/Assault/Breacher Troops" hidden="true" targetId="r74-ba-cat-sorrows-comp">
+          <constraints>
+            <constraint id="r74-ba-r74-ba-cat-sorrows-comp-min" type="min" value="0" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </constraints>
+          <modifiers>
+            <modifier id="r74-ba-r74-ba-cat-sorrows-comp-min-set" type="set" value="2" field="r74-ba-r74-ba-cat-sorrows-comp-min">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-1-the-day-of-sorrows" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
           </modifiers>
