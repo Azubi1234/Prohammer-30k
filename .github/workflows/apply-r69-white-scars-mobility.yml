@@ -15,6 +15,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      - name: Repair Revision 69 modifier IDs before apply
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('.github/build/rev69_white_scars_mobility.py')
+          s=p.read_text(encoding='utf-8')
+          old="'id':'r69-hide-'+e.get('id')[-24:]+'-'+child[-18:]"
+          new="'id':'r69-hide-'+e.get('id')+'-'+child"
+          if old not in s:
+              raise SystemExit('Expected Rev69 modifier-id expression not found')
+          p.write_text(s.replace(old,new),encoding='utf-8')
+          PY
       - name: Apply Revision 69
         run: python .github/build/rev69_white_scars_mobility.py
       - name: Run permanent unit-size audit
