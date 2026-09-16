@@ -1,0 +1,283 @@
+=== CAT ALLEGIANCE / TRAITOR / LOYALIST OBJECTS ===
+modifier r52-tactical-unit-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r52-assault-unit-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r52-breacher-unit-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r52-veteran-unit-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r52-destroyer-unit-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r52-fa-seeker-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r52-hq-praetor-ec-armoury-hide-allegiance-traitor | None | target=None hidden=None 
+rule r29-herald-banner | Banner of Allegiance | target=None hidden=false 
+selectionEntryGroup hq-consul-herald-banner | Banner of Allegiance | target=None hidden=false hq-consul-herald-banner-min:min=1 field=selections scope=parent; hq-consul-herald-banner-max:max=1 field=selections scope=parent
+selectionEntry hq-consul-herald-aquila | Banner of the Aquila — Loyalist | target=None hidden=false hq-consul-herald-aquila-max:max=1 field=selections scope=parent
+selectionEntry hq-consul-herald-eye | Banner of the Eye — Traitor | target=None hidden=false hq-consul-herald-eye-max:max=1 field=selections scope=parent
+modifier r52-hq-centurion-ec-armoury-hide-allegiance-traitor | None | target=None hidden=None 
+selectionEntryGroup config-allegiance | Allegiance | target=None hidden=false config-allegiance-min:min=1 field=selections scope=parent; config-allegiance-max:max=1 field=selections scope=parent
+selectionEntry allegiance-loyalist | Loyalist | target=None hidden=false allegiance-loyalist-max:max=1 field=selections scope=parent
+constraint allegiance-loyalist-max | None | target=None hidden=None 
+rule allegiance-loyalist-rule | Allegiance: Loyalist | target=None hidden=false 
+selectionEntry allegiance-traitor | Traitor | target=None hidden=false allegiance-traitor-max:max=1 field=selections scope=parent
+constraint allegiance-traitor-max | None | target=None hidden=None 
+rule allegiance-traitor-rule | Allegiance: Traitor | target=None hidden=false 
+modifier r52-r41-unit-iii-0-palatine-blade-squad-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r41-unit-iii-2-kakophoni-squad-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r52-r41-unit-iii-2-kakophoni-squad-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+rule r52-ec-ka-traitor | Traitor Only | target=None hidden=false 
+modifier r52-r41-unit-iii-3-sun-killer-squad-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r60-ws-hibou-retinue-legion-veteran-squad-r52-veteran-unit-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r60-ws-hasik-retinue-legion-veteran-squad-r52-veteran-unit-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+rule r60-ws-hasik-traitor | Traitor Only | target=None hidden=false 
+modifier r63-sw-russ-loyalist-hide | None | target=None hidden=None 
+rule r63-sw-russ-traitor | Bring Me the Traitor | target=None hidden=false 
+modifier r52-ec-sonic-hss-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r52-ec-third-kako-r41-unit-iii-2-kakophoni-squad-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r52-ec-third-kakophoni-troops-hide-allegiance-traitor | None | target=None hidden=None 
+rule r52-ec-third-kako-r52-ec-ka-traitor | Traitor Only | target=None hidden=false 
+modifier r57-iw-hammer-tactical-r52-tactical-unit-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+modifier r57-iw-hammer-breacher-r52-breacher-unit-third-shrieker-hide-allegiance-traitor | None | target=None hidden=None 
+
+=== GST FORCE / CATEGORY LINKS ===
+categoryLink fl-config | Configuration -> cat-config | fl-config-min:min=1 field=selections scope=parent; fl-config-max:max=1 field=selections scope=parent
+constraint fl-config-min | None -> None | min=1 field=selections scope=parent
+constraint fl-config-max | None -> None | max=1 field=selections scope=parent
+categoryLink fl-hq | HQ -> cat-hq | fl-hq-min:min=1 field=selections scope=parent; fl-hq-max:max=2 field=selections scope=parent
+constraint fl-hq-min | None -> None | min=1 field=selections scope=parent
+constraint fl-hq-max | None -> None | max=2 field=selections scope=parent
+categoryLink fl-troops | Troops -> cat-troops | fl-troops-min:min=2 field=selections scope=parent; fl-troops-max:max=6 field=selections scope=parent
+constraint fl-troops-min | None -> None | min=2 field=selections scope=parent
+constraint fl-troops-max | None -> None | max=6 field=selections scope=parent
+categoryLink fl-elites | Elites -> cat-elites | fl-elites-max:max=3 field=selections scope=parent
+constraint fl-elites-max | None -> None | max=3 field=selections scope=parent
+categoryLink fl-fast | Fast Attack -> cat-fast | fl-fast-max:max=3 field=selections scope=parent
+constraint fl-fast-max | None -> None | max=3 field=selections scope=parent
+categoryLink fl-heavy | Heavy Support -> cat-heavy | fl-heavy-max:max=3 field=selections scope=parent
+constraint fl-heavy-max | None -> None | max=3 field=selections scope=parent
+categoryLink fl-transport | Dedicated Transport -> cat-transport | 
+categoryLink fl-low | Lords of War -> cat-low | fl-low-max:max=1 field=selections scope=parent
+constraint fl-low-max | None -> None | max=1 field=selections scope=parent
+categoryLink fl-retinue | Retinue -> cat-retinue | 
+categoryLink fl-dg-mobile | Death Guard Mobile Support Limit -> cat-dg-mobile | r45-dg-mobile-max:max=1 field=selections scope=parent
+constraint r45-dg-mobile-max | None -> None | max=1 field=selections scope=parent
+categoryLink fl-auxiliary | Auxiliary -> cat-auxiliary | 
+categoryLink fl-alpha-reward | Rewards of Treachery Limit -> cat-alpha-reward | r46-al-reward-max:max=1 field=selections scope=parent
+constraint r46-al-reward-max | None -> None | max=1 field=selections scope=parent
+categoryLink r47-fl-wb-favour | Word Bearers Favour Limit -> r47-cat-wb-favour | r47-wb-favour-roster-max:max=1 field=selections scope=roster
+constraint r47-wb-favour-roster-max | None -> None | max=1 field=selections scope=roster
+categoryLink r63-sw-fl-grey-slayer | Grey Slayer Requirement -> r63-sw-cat-grey-slayer | r63-sw-grey-slayer-min:min=0 field=selections scope=parent
+constraint r63-sw-grey-slayer-min | None -> None | min=0 field=selections scope=parent
+categoryLink r64-if-fl-r64-if-cat-stone-comp | Stone Gauntlet Compulsory Troops -> r64-if-cat-stone-comp | r64-if-r64-if-cat-stone-comp-min:min=0 field=selections scope=parent
+constraint r64-if-r64-if-cat-stone-comp-min | None -> None | min=0 field=selections scope=parent
+categoryLink r64-if-fl-r64-if-cat-templar-comp | Templar Assault Compulsory Troops -> r64-if-cat-templar-comp | r64-if-r64-if-cat-templar-comp-min:min=0 field=selections scope=parent
+constraint r64-if-r64-if-cat-templar-comp-min | None -> None | min=0 field=selections scope=parent
+categoryLink r64-if-fl-r64-if-cat-templar-limit | Templar Brethren 0-1 -> r64-if-cat-templar-limit | r64-if-r64-if-cat-templar-limit-max:max=99 field=selections scope=parent
+constraint r64-if-r64-if-cat-templar-limit-max | None -> None | max=99 field=selections scope=parent
+categoryLink r64-if-fl-r64-if-cat-tarantula-limit | Tarantula Batteries 0-2 -> r64-if-cat-tarantula-limit | r64-if-r64-if-cat-tarantula-limit-max:max=99 field=selections scope=parent
+constraint r64-if-r64-if-cat-tarantula-limit-max | None -> None | max=99 field=selections scope=parent
+categoryLink r66-if-fl-r66-if-cat-stone-shield-ic | Stone Gauntlet — Shield-bearing Independent Character -> r66-if-cat-stone-shield-ic | r66-if-fl-r66-if-cat-stone-shield-ic-min:min=0 field=selections scope=parent
+constraint r66-if-fl-r66-if-cat-stone-shield-ic-min | None -> None | min=0 field=selections scope=parent
+categoryLink r66-if-fl-r66-if-cat-hammer-warlord | Hammerfall — Warlord with Teleportation Transponders -> r66-if-cat-hammer-warlord | r66-if-fl-r66-if-cat-hammer-warlord-min:min=0 field=selections scope=parent; r66-if-fl-r66-if-cat-hammer-warlord-max:max=99 field=selections scope=parent
+constraint r66-if-fl-r66-if-cat-hammer-warlord-min | None -> None | min=0 field=selections scope=parent
+constraint r66-if-fl-r66-if-cat-hammer-warlord-max | None -> None | max=99 field=selections scope=parent
+categoryLink r66-if-fl-r66-if-cat-templar-warlord | Templar Assault — Warlord with qualifying melee weapon -> r66-if-cat-templar-warlord | r66-if-fl-r66-if-cat-templar-warlord-min:min=0 field=selections scope=parent; r66-if-fl-r66-if-cat-templar-warlord-max:max=99 field=selections scope=parent
+constraint r66-if-fl-r66-if-cat-templar-warlord-min | None -> None | min=0 field=selections scope=parent
+constraint r66-if-fl-r66-if-cat-templar-warlord-max | None -> None | max=99 field=selections scope=parent
+
+=== GST CATEGORY ENTRIES FORT/HQ/ALLEGIANCE ===
+cat-hq | HQ hidden=false
+
+=== GENERIC RETINUE / HQ SOURCES ===
+veteran-unit | Legion Veteran Squad | primary=Elites | hidden=false 
+hq-praetor | Legion Praetor | primary=HQ | hidden=false hq-praetor-max:max=2 field=selections scope=parent
+hq-centurion | Legion Centurion | primary=HQ | hidden=false hq-centurion-max:max=2 field=selections scope=parent
+r35-pride-veteran-veteran-unit | Legion Veteran Squad | primary=Troops | hidden=true 
+r40-da-vow-veteran | Legion Veteran Squad | primary=Troops | hidden=true 
+r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-veteran-unit | Legion Veteran Squad | primary=Troops | hidden=true 
+
+=== ALL TOP HQ ENTRIES ===
+hq-praetor | Legion Praetor | hq-praetor-max:max=2 field=selections scope=parent
+hq-centurion | Legion Centurion | hq-centurion-max:max=2 field=selections scope=parent
+hq-damocles | Damocles Command Rhino | hq-damocles-max:max=1 field=selections scope=parent; hq-damocles-roster-max:max=1 field=selections scope=roster
+da22-corswain | Corswain, Seneschal of the First Legion | da22-corswain-rostermax:max=1 field=selections scope=roster
+da22-sedras | Marduk Sedras, Lord of the Twenty-Third Order | da22-sedras-rostermax:max=1 field=selections scope=roster
+da22-redloss | Farith Redloss | da22-redloss-rostermax:max=1 field=selections scope=roster
+da22-holguin | Holguin | da22-holguin-rostermax:max=1 field=selections scope=roster
+r41-unit-iii-4-lord-commander-eidolon | LORD COMMANDER EIDOLON | r41-unit-iii-4-lord-commander-eidolon-unique:max=1 field=selections scope=roster
+r41-unit-iii-5-saul-tarvitz | SAUL TARVITZ | 
+r41-unit-iii-6-captain-lucius | CAPTAIN LUCIUS | r41-unit-iii-6-captain-lucius-unique:max=1 field=selections scope=roster
+r41-unit-iii-7-fabius-bile | FABIUS BILE | 
+r41-unit-iii-8-rylanor-the-unyielding | RYLANOR THE UNYIELDING | 
+r41-unit-iv-4-narik-dreygur | NÂRIK DREYGUR | r41-unit-iv-4-narik-dreygur-unique:max=1 field=selections scope=roster
+r41-unit-iv-5-erasmus-golg | ERASMUS GOLG | r41-unit-iv-5-erasmus-golg-unique:max=1 field=selections scope=roster
+r41-unit-iv-6-kyr-vhalen | KYR VHALEN | 
+r41-unit-iv-7-forrix-first-captain-of-the-iron-warriors | FORRIX, FIRST CAPTAIN OF THE IRON WARRIORS | r41-unit-iv-7-forrix-first-captain-of-the-iron-warriors-unique:max=1 field=selections scope=roster
+r41-unit-iv-8-kroeger-the-bloody-handed | KROEGER, THE BLOODY-HANDED | r41-unit-iv-8-kroeger-the-bloody-handed-unique:max=1 field=selections scope=roster
+r41-unit-v-4-qin-xa-master-of-the-keshig | QIN XA, MASTER OF THE KESHIG | r41-unit-v-4-qin-xa-master-of-the-keshig-unique:max=1 field=selections scope=roster
+r41-unit-v-5-targutai-yesugei | TARGUTAI YESUGEI | r41-unit-v-5-targutai-yesugei-unique:max=1 field=selections scope=roster
+r41-unit-v-6-shiban-khan | SHIBAN KHAN | 
+r41-unit-v-7-hibou-khan | HIBOU KHAN | 
+r41-unit-v-8-hasik-noyan-khan | HASIK NOYAN-KHAN | 
+r41-unit-vi-7-hvarl-red-blade | Hvarl Red-Blade | r41-unit-vi-7-hvarl-red-blade-unique:max=1 field=selections scope=roster
+r41-unit-vi-8-geigor-fell-hand | Geigor Fell-Hand | r41-unit-vi-8-geigor-fell-hand-unique:max=1 field=selections scope=roster
+r41-unit-vi-9-bjorn-the-fell-handed | Björn the Fell-Handed | r41-unit-vi-9-bjorn-the-fell-handed-unique:max=1 field=selections scope=roster
+r41-unit-vi-10-ohthere-wyrdmake | Ohthere Wyrdmake | r41-unit-vi-10-ohthere-wyrdmake-unique:max=1 field=selections scope=roster
+r41-unit-vii-4-sigismund-first-captain | Sigismund, First Captain | r41-unit-vii-4-sigismund-first-captain-unique:max=1 field=selections scope=roster
+r41-unit-vii-5-fafnir-rann | Fafnir Rann | r41-unit-vii-5-fafnir-rann-unique:max=1 field=selections scope=roster
+r41-unit-vii-6-alexis-polux | Alexis Polux | r41-unit-vii-6-alexis-polux-unique:max=1 field=selections scope=roster
+r41-unit-vii-7-camba-diaz | Camba Diaz | r41-unit-vii-7-camba-diaz-unique:max=1 field=selections scope=roster
+r41-unit-vii-8-evander-garrius | Evander Garrius | r41-unit-vii-8-evander-garrius-unique:max=1 field=selections scope=roster
+r41-unit-viii-4-jago-sevatarion | JAGO SEVATARION | r41-unit-viii-4-jago-sevatarion-unique:max=1 field=selections scope=roster
+r41-unit-viii-5-kheron-ophion | KHERON OPHION | r41-unit-viii-5-kheron-ophion-unique:max=1 field=selections scope=roster
+r41-unit-viii-6-malcharion-the-war-sage | MALCHARION, THE WAR-SAGE | r41-unit-viii-6-malcharion-the-war-sage-unique:max=1 field=selections scope=roster
+r41-unit-viii-7-shang | SHANG | r41-unit-viii-7-shang-unique:max=1 field=selections scope=roster
+r41-unit-viii-8-flaymaster-mawdrym-llansahai | FLAYMASTER MAWDRYM LLANSAHAI | r41-unit-viii-8-flaymaster-mawdrym-llansahai-unique:max=1 field=selections scope=roster
+r41-unit-ix-6-raldoron-the-blooded | RALDORON, THE BLOODED | r41-unit-ix-6-raldoron-the-blooded-unique:max=1 field=selections scope=roster
+r41-unit-ix-7-dominion-zephon | DOMINION ZEPHON | r41-unit-ix-7-dominion-zephon-unique:max=1 field=selections scope=roster
+r41-unit-ix-8-aster-crohne | ASTER CROHNE | r41-unit-ix-8-aster-crohne-unique:max=1 field=selections scope=roster
+r41-unit-ix-10-nassir-amit-the-flesh-tearer | NASSIR AMIT, THE FLESH TEARER | r41-unit-ix-10-nassir-amit-the-flesh-tearer-unique:max=1 field=selections scope=roster
+r41-unit-x-4-shadrak-meduson | SHADRAK MEDUSON | r41-unit-x-4-shadrak-meduson-unique:max=1 field=selections scope=roster
+r41-unit-x-5-autek-mor | AUTEK MOR | r41-unit-x-5-autek-mor-unique:max=1 field=selections scope=roster
+r41-unit-x-6-gabriel-santar | GABRIEL SANTAR | r41-unit-x-6-gabriel-santar-unique:max=1 field=selections scope=roster
+r41-unit-xii-6-kharn-the-bloody | KHÂRN THE BLOODY | r41-unit-xii-6-kharn-the-bloody-unique:max=1 field=selections scope=roster
+r41-unit-xii-7-shabran-darr | SHABRAN DARR | r41-unit-xii-7-shabran-darr-unique:max=1 field=selections scope=roster
+r41-unit-xii-8-gahlan-surlak | GAhLAN SURLAK | r41-unit-xii-8-gahlan-surlak-unique:max=1 field=selections scope=roster
+r41-unit-xii-9-kargos-the-bloodspitter | KARGOS, THE BLOODSPITTER | r41-unit-xii-9-kargos-the-bloodspitter-unique:max=1 field=selections scope=roster
+r41-unit-xii-10-captain-ehrlen | CAPTAIN EHRLEN | r41-unit-xii-10-captain-ehrlen-unique:max=1 field=selections scope=roster
+r41-unit-xii-11-delvarus | DELVARUS | r41-unit-xii-11-delvarus-unique:max=1 field=selections scope=roster
+r41-unit-xiii-4-marius-gage-first-master | MARIUS GAGE, FIRST MASTER | r41-unit-xiii-4-marius-gage-first-master-unique:max=1 field=selections scope=roster
+r41-unit-xiii-5-remus-ventanus | REMUS VENTANUS | r41-unit-xiii-5-remus-ventanus-unique:max=1 field=selections scope=roster
+r41-unit-xiii-8-titus-prayto | TITUS PRAYTO | r41-unit-xiii-8-titus-prayto-unique:max=1 field=selections scope=roster
+r41-unit-xiv-3-calas-typhon-first-captain | CALAS TYPHON, FIRST CAPTAIN | r41-unit-xiv-3-calas-typhon-first-captain-unique:max=1 field=selections scope=roster
+r41-unit-xiv-4-crysos-morturg | CRYSOS MORTURG | r41-unit-xiv-4-crysos-morturg-unique:max=1 field=selections scope=roster
+r41-unit-xiv-5-durak-rask | DURAK RASK | r41-unit-xiv-5-durak-rask-unique:max=1 field=selections scope=roster
+r41-unit-xiv-6-ignatius-grulgor | IGNATIUS GRULGOR | r41-unit-xiv-6-ignatius-grulgor-unique:max=1 field=selections scope=roster
+r41-unit-xiv-7-nathaniel-garro | NATHANIEL GARRO | r41-unit-xiv-7-nathaniel-garro-unique:max=1 field=selections scope=roster
+r41-unit-xv-6-ahzek-ahriman | AHZEK AHRIMAN | r41-unit-xv-6-ahzek-ahriman-unique:max=1 field=selections scope=roster
+r41-unit-xv-7-phosis-t-kar | PHOSIS T'KAR | r41-unit-xv-7-phosis-t-kar-unique:max=1 field=selections scope=roster
+r41-unit-xv-8-magistus-amon-the-hidden | MAGISTUS AMON, THE HIDDEN | r41-unit-xv-8-magistus-amon-the-hidden-unique:max=1 field=selections scope=roster
+r41-unit-xv-9-hathor-maat | HATHOR MAAT | r41-unit-xv-9-hathor-maat-unique:max=1 field=selections scope=roster
+r41-unit-xv-10-sanakht | SANAKHT | r41-unit-xv-10-sanakht-unique:max=1 field=selections scope=roster
+r41-unit-xvi-4-ezekyle-abaddon-first-captain | EZEKYLE ABADDON, FIRST CAPTAIN | r41-unit-xvi-4-ezekyle-abaddon-first-captain-unique:max=1 field=selections scope=roster
+r41-unit-xvi-5-horus-aximand-little-horus | HORUS AXIMAND, “LITTLE HORUS” | r41-unit-xvi-5-horus-aximand-little-horus-unique:max=1 field=selections scope=roster
+r41-unit-xvi-6-garviel-loken | GARVIEL LOKEN | r41-unit-xvi-6-garviel-loken-unique:max=1 field=selections scope=roster
+r41-unit-xvi-7-maloghurst-the-twisted | MALOGHURST THE TWISTED | r41-unit-xvi-7-maloghurst-the-twisted-unique:max=1 field=selections scope=roster
+r41-unit-xvi-8-tybalt-marr-the-either | TYBALT MARR, “THE EITHER” | r41-unit-xvi-8-tybalt-marr-the-either-unique:max=1 field=selections scope=roster
+r41-unit-xvi-9-vheren-ashurhaddon | VHEREN ASHURHADDON | r41-unit-xvi-9-vheren-ashurhaddon-unique:max=1 field=selections scope=roster
+r41-unit-xvi-11-tarik-torgaddon | TARIK TORGADDON | r41-unit-xvi-11-tarik-torgaddon-unique:max=1 field=selections scope=roster
+r41-unit-xvii-6-argel-tal | ARGEL TAL | r41-unit-xvii-6-argel-tal-unique:max=1 field=selections scope=roster
+r41-unit-xvii-7-high-chaplain-erebus | HIGH CHAPLAIN EREBUS | r41-unit-xvii-7-high-chaplain-erebus-unique:max=1 field=selections scope=roster
+r41-unit-xvii-8-kor-phaeron-the-black-cardinal | KOR PHAERON, THE BLACK CARDINAL | r41-unit-xvii-8-kor-phaeron-the-black-cardinal-unique:max=1 field=selections scope=roster
+r41-unit-xvii-9-zardu-layak | ZARDU LAYAK | r41-unit-xvii-9-zardu-layak-unique:max=1 field=selections scope=roster
+r41-unit-xvii-11-hol-beloth | HOL BELOTH | r41-unit-xvii-11-hol-beloth-unique:max=1 field=selections scope=roster
+r41-unit-xviii-5-artellus-numeon | ARTELLUS NUMEON | r41-unit-xviii-5-artellus-numeon-unique:max=1 field=selections scope=roster
+r41-unit-xviii-6-lord-chaplain-nomus-rhy-tan | LORD CHAPLAIN NOMUS RHY'TAN | r41-unit-xviii-6-lord-chaplain-nomus-rhy-tan-unique:max=1 field=selections scope=roster
+r41-unit-xviii-7-xiaphas-jurr-prophet-of-fire | XIAPHAS JURR, PROPHET OF FIRE | r41-unit-xviii-7-xiaphas-jurr-prophet-of-fire-unique:max=1 field=selections scope=roster
+r41-unit-xviii-9-forgefather-t-kell | FORGEFATHER T'KELL | r41-unit-xviii-9-forgefather-t-kell-unique:max=1 field=selections scope=roster
+r41-unit-xix-4-kaedes-nex | KAEDES NEX | r41-unit-xix-4-kaedes-nex-unique:max=1 field=selections scope=roster
+r41-unit-xix-5-alvarex-maun | ALVAREX MAUN | r41-unit-xix-5-alvarex-maun-unique:max=1 field=selections scope=roster
+r41-unit-xix-6-agapito-nev | AGAPITO NEV | r41-unit-xix-6-agapito-nev-unique:max=1 field=selections scope=roster
+r41-unit-xix-7-branne-nev | BRANNE NEV | r41-unit-xix-7-branne-nev-unique:max=1 field=selections scope=roster
+r41-unit-xix-8-nykona-sharrowkyn | NYKONA SHARROWKYN | r41-unit-xix-8-nykona-sharrowkyn-unique:max=1 field=selections scope=roster
+r41-unit-xx-4-armillus-dynat | ARMILLUS DYNAT | r41-unit-xx-4-armillus-dynat-unique:max=1 field=selections scope=roster
+r41-unit-xx-5-exodus | EXODUS | r41-unit-xx-5-exodus-unique:max=1 field=selections scope=roster
+r41-unit-xx-6-autilon-skorr | AUTILON SKORR | r41-unit-xx-6-autilon-skorr-unique:max=1 field=selections scope=roster
+r41-unit-xx-7-ingo-pech | INGO PECH | r41-unit-xx-7-ingo-pech-unique:max=1 field=selections scope=roster
+r41-unit-xx-8-mathias-herzog | MATHIAS HERZOG | r41-unit-xx-8-mathias-herzog-unique:max=1 field=selections scope=roster
+r41-unit-xx-9-sheed-ranko | SHEED RANKO | r41-unit-xx-9-sheed-ranko-unique:max=1 field=selections scope=roster
+r42-role-xv-crimson-magnus-hq-r41-unit-xv-11-xv-magnus-the-red-the-crimson-king | XV — MAGNUS THE RED, THE CRIMSON KING | r42-role-xv-crimson-magnus-hq-r41-unit-xv-11-xv-magnus-the-red-the-crimson-king-unique:max=1 field=selections scope=roster
+r47-ih-castrmen-orth | Castrmen Orth — Tank Commander Upgrade | r47-ih-castrmen-orth-max:max=1 field=selections scope=roster
+
+=== STANDARD UNIT GROUP NAMES FOR SERGEANT ARMOURY ===
+ENTRY tactical-unit Legion Tactical Squad
+  GROUP sgt-armoury | Sergeant Armoury (max 50 pts) | sgt-armoury-pts-max:max=50 field=pts scope=parent
+  GROUP sgt-weapons | Sergeant Armoury - Weapons | sgt-weapons-max:max=2 field=selections scope=parent
+  GROUP sgt-single | Single-Handed Weapons | sgt-single-max:max=2 field=selections scope=parent
+  GROUP sgt-twohand | Two-Handed Weapons | sgt-twohand-max:max=1 field=selections scope=parent
+  GROUP sgt-wargear | Sergeant Armoury - Wargear | 
+  GROUP tac-loadout | Squad Weapons | load-min:min=1 field=selections scope=parent; load-max:max=1 field=selections scope=parent
+  GROUP tac-heavy-weapons | Heavy Weapons | tac-heavy-max:max=1 field=selections scope=parent
+  GROUP tac-special-weapons | Special Weapons | tac-special-max:max=2 field=selections scope=parent
+  GROUP r40-da-ammo-tactical-unit | Dark Angels Armoury — Ammunition | 
+  GROUP r40-da-steel-transport-tactical-unit-hs-spartan-hs-spartan-replace | Main Weapon Replacements | 
+  GROUP r40-da-steel-transport-tactical-unit-hs-spartan-hs-spartan-pintle | Pintle-mounted Weapon | r40-da-steel-transport-tactical-unit-hs-spartan-hs-spartan-pintle-max:max=1 field=selections scope=parent
+  GROUP r40-da-steel-transport-tactical-unit-hs-spartan-r40-da-ammo-hs-spartan | Dark Angels Armoury — Ammunition | 
+  GROUP r49-legion-upgrades-tactical-unit | Legion Wargear & Upgrades | 
+  GROUP r57-tactical-unit-iw | Iron Warriors Armoury | 
+ENTRY assault-unit Legion Assault Squad
+  GROUP assault-sgt-unit-wargear | Sergeant Wargear | 
+  GROUP assault-sgt-armoury | Additional Sergeant Armoury (max 50 pts) | assault-sgt-armoury-pts-max:max=50 field=pts scope=parent
+  GROUP assault-sgt-armoury-weapons | Additional Armoury Weapon | assault-sgt-armoury-weapons-max:max=1 field=selections scope=parent
+  GROUP assault-sgt-armoury-twohand | Two-Handed Weapons | assault-sgt-armoury-twohand-max:max=1 field=selections scope=parent
+  GROUP assault-sgt-armoury-wargear | Wargear | 
+  GROUP assault-squad-wargear | Squad-wide Wargear | 
+  GROUP assault-weapon-exchanges | Assault Weapon Exchanges (1 per 5 models) | assault-weapon-exchanges-max:max=2 field=selections scope=parent
+  GROUP r49-legion-upgrades-assault-unit | Legion Wargear & Upgrades | 
+  GROUP r57-assault-unit-iw | Iron Warriors Armoury | 
+ENTRY breacher-unit Legion Breacher Siege Squad
+  GROUP breacher-sgt-unit-wargear | Sergeant Wargear | 
+  GROUP breacher-sgt-armoury | Additional Sergeant Armoury (max 50 pts) | breacher-sgt-armoury-pts-max:max=50 field=pts scope=parent
+  GROUP breacher-sgt-armoury-weapons | Additional Armoury Weapon (replaces one carried weapon) | breacher-sgt-armoury-weapons-max:max=1 field=selections scope=parent
+  GROUP breacher-sgt-armoury-single | Single-Handed Weapons | breacher-sgt-armoury-single-max:max=1 field=selections scope=parent
+  GROUP breacher-sgt-armoury-two | Two-Handed Weapons | breacher-sgt-armoury-two-max:max=1 field=selections scope=parent
+  GROUP breacher-sgt-armoury-wargear | Wargear | 
+  GROUP breacher-squad-wargear | Squad-wide Wargear | 
+  GROUP breacher-specialists | Specialist Weapons (1 per 5 models) | breacher-specialists-max:max=2 field=selections scope=parent
+  GROUP r40-da-steel-transport-breacher-unit-hs-spartan-hs-spartan-replace | Main Weapon Replacements | 
+  GROUP r40-da-steel-transport-breacher-unit-hs-spartan-hs-spartan-pintle | Pintle-mounted Weapon | r40-da-steel-transport-breacher-unit-hs-spartan-hs-spartan-pintle-max:max=1 field=selections scope=parent
+  GROUP r40-da-steel-transport-breacher-unit-hs-spartan-r40-da-ammo-hs-spartan | Dark Angels Armoury — Ammunition | 
+  GROUP r49-legion-upgrades-breacher-unit | Legion Wargear & Upgrades | 
+  GROUP r57-breacher-unit-iw | Iron Warriors Armoury | 
+ENTRY recon-unit Legion Reconnaissance Squad
+  GROUP recon-sgt-weapons | Sergeant Weapon Options | recon-sgt-weapons-max:max=2 field=selections scope=parent
+  GROUP recon-sgt-armoury-weapon | Additional Armoury Weapon (replaces one existing weapon) | recon-sgt-armoury-weapon-max:max=1 field=selections scope=parent
+  GROUP recon-sgt-wargear | Sergeant Wargear | 
+  GROUP recon-sgt-armoury | Additional Sergeant Armoury (max 50 pts) | recon-sgt-armoury-pts-max:max=50 field=pts scope=parent
+  GROUP recon-sgt-armoury-wargear | Wargear | 
+  GROUP r40-da-steel-transport-recon-unit-hs-spartan-hs-spartan-replace | Main Weapon Replacements | 
+  GROUP r40-da-steel-transport-recon-unit-hs-spartan-hs-spartan-pintle | Pintle-mounted Weapon | r40-da-steel-transport-recon-unit-hs-spartan-hs-spartan-pintle-max:max=1 field=selections scope=parent
+  GROUP r40-da-steel-transport-recon-unit-hs-spartan-r40-da-ammo-hs-spartan | Dark Angels Armoury — Ammunition | 
+  GROUP r49-legion-upgrades-recon-unit | Legion Wargear & Upgrades | 
+ENTRY veteran-unit Legion Veteran Squad
+  GROUP veteran-melee | Close Combat Weapon Replacements | veteran-melee-max:max=5 field=selections scope=parent
+  GROUP veteran-individual | Individual Wargear | 
+  GROUP veteran-specialists | Specialist Weapons (1 per 5 models) | veteran-specialists-max:max=1 field=selections scope=parent
+  GROUP veteran-sgt-armoury | Legion Veteran Sergeant — Additional Armoury (max 50 pts) | veteran-sgt-armoury-pts-max:max=50 field=pts scope=parent
+  GROUP r40-da-ammo-veteran-unit | Dark Angels Armoury — Ammunition | 
+  GROUP r40-da-steel-transport-veteran-unit-hs-spartan-hs-spartan-replace | Main Weapon Replacements | 
+  GROUP r40-da-steel-transport-veteran-unit-hs-spartan-hs-spartan-pintle | Pintle-mounted Weapon | r40-da-steel-transport-veteran-unit-hs-spartan-hs-spartan-pintle-max:max=1 field=selections scope=parent
+  GROUP r40-da-steel-transport-veteran-unit-hs-spartan-r40-da-ammo-hs-spartan | Dark Angels Armoury — Ammunition | 
+  GROUP r49-legion-upgrades-veteran-unit | Legion Wargear & Upgrades | 
+  GROUP r57-veteran-unit-iw | Iron Warriors Armoury | 
+ENTRY destroyer-unit Legion Destroyer Squad
+  GROUP destroyer-squad-wargear | Squad-wide Wargear | 
+  GROUP destroyer-weapons | Destroyer Weapons (1 per 5 models) | destroyer-weapons-max:max=1 field=selections scope=parent
+  GROUP destroyer-sgt | Legion Destroyer Sergeant | 
+  GROUP destroyer-sgt-armoury | Additional permitted Sergeant Armoury (max 50 pts) | destroyer-sgt-armoury-pts-max:max=50 field=pts scope=parent
+  GROUP r40-da-ammo-destroyer-unit | Dark Angels Armoury — Ammunition | 
+  GROUP r40-da-steel-transport-destroyer-unit-hs-spartan-hs-spartan-replace | Main Weapon Replacements | 
+  GROUP r40-da-steel-transport-destroyer-unit-hs-spartan-hs-spartan-pintle | Pintle-mounted Weapon | r40-da-steel-transport-destroyer-unit-hs-spartan-hs-spartan-pintle-max:max=1 field=selections scope=parent
+  GROUP r40-da-steel-transport-destroyer-unit-hs-spartan-r40-da-ammo-hs-spartan | Dark Angels Armoury — Ammunition | 
+  GROUP r49-legion-upgrades-destroyer-unit | Legion Wargear & Upgrades | 
+ENTRY fa-seeker Legion Seeker Squad
+  GROUP fa-seeker-special | Special Weapons (maximum two) | fa-seeker-special-max:max=2 field=selections scope=parent
+  GROUP fa-seeker-sergeant | Legion Seeker Sergeant | 
+  GROUP fa-seeker-sgtw-pistol | Sergeant Bolt Pistol Replacement | fa-seeker-sgtw-pistol-max:max=1 field=selections scope=parent
+  GROUP fa-seeker-sgtw-melee | Sergeant Melee Weapon | fa-seeker-sgtw-melee-max:max=1 field=selections scope=parent
+  GROUP fa-seeker-sgt-armoury | Additional Sergeant Armoury (max 50 pts) | fa-seeker-sgt-armoury-pts-max:max=50 field=pts scope=parent
+  GROUP r40-da-steel-transport-fa-seeker-hs-spartan-hs-spartan-replace | Main Weapon Replacements | 
+  GROUP r40-da-steel-transport-fa-seeker-hs-spartan-hs-spartan-pintle | Pintle-mounted Weapon | r40-da-steel-transport-fa-seeker-hs-spartan-hs-spartan-pintle-max:max=1 field=selections scope=parent
+  GROUP r40-da-steel-transport-fa-seeker-hs-spartan-r40-da-ammo-hs-spartan | Dark Angels Armoury — Ammunition | 
+  GROUP r49-legion-upgrades-fa-seeker | Legion Wargear & Upgrades | 
+  GROUP r57-fa-seeker-iw | Iron Warriors Armoury | 
+ENTRY hs-heavy-support-squad Legion Heavy Support Squad
+  GROUP hs-hss-heavy | Heavy Weapons — up to four Marines | hs-hss-heavy-max:max=4 field=selections scope=parent
+  GROUP hs-hss-sgt-bolter | Legion Sergeant — Bolter Replacement | hs-hss-sgt-bolter-max:max=1 field=selections scope=parent
+  GROUP hs-hss-sgt-pistol | Legion Sergeant — Bolt Pistol Replacement | hs-hss-sgt-pistol-max:max=1 field=selections scope=parent
+  GROUP hs-hss-sgt-eq | Legion Sergeant — Equipment | 
+  GROUP hs-hss-armoury | Additional Sergeant Armoury (max 50 pts) | hs-hss-armoury-pts:max=50 field=pts scope=parent
+  GROUP hs-hss-armoury-weapons | Armoury Weapons | hs-hss-armoury-weapons-max:max=2 field=selections scope=parent
+  GROUP hs-hss-armoury-wargear | Armoury Wargear | 
+  GROUP r40-da-ammo-hs-heavy-support-squad | Dark Angels Armoury — Ammunition | 
+  GROUP r40-da-steel-transport-hs-heavy-support-squad-hs-spartan-hs-spartan-replace | Main Weapon Replacements | 
+  GROUP r40-da-steel-transport-hs-heavy-support-squad-hs-spartan-hs-spartan-pintle | Pintle-mounted Weapon | r40-da-steel-transport-hs-heavy-support-squad-hs-spartan-hs-spartan-pintle-max:max=1 field=selections scope=parent
+  GROUP r40-da-steel-transport-hs-heavy-support-squad-hs-spartan-r40-da-ammo-hs-spartan | Dark Angels Armoury — Ammunition | 
+  GROUP r49-legion-upgrades-hs-heavy-support-squad | Legion Wargear & Upgrades | 
+  GROUP r57-hs-heavy-support-squad-iw | Iron Warriors Armoury | 
