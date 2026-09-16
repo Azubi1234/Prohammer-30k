@@ -1,0 +1,23 @@
+Revision 78 — Blood Angels armoury merge
+Catalogue revision: 78
+Game-system revision: 45
+
+Correction
+- Removed the separate Blood Angels Armoury container entirely.
+- Inferno Pistol and both Blade of Perdition purchase modes are now placed directly inside each generic HQ's existing weapon section.
+- Death Mask is now placed directly inside each generic HQ's existing Additional Wargear section.
+- Each BA item is individually hidden unless Legion IX is selected, so New Recruit does not have to render a conditional parent container.
+- Explicit Sanguinary Guard, Moritat and named-character options are unchanged.
+
+Actual target groups found at build time:
+- hq-praetor: weapon -> hq-praetor-weapons :: Weapon Replacements (max 100 Armoury pts; max 2 weapons)
+- hq-praetor: wargear -> hq-praetor-wargear :: Additional Wargear (max 100 Armoury pts combined)
+- hq-centurion: weapon -> hq-centurion-weapons :: Weapon Replacements (max 100 Armoury pts; max 2 weapons)
+- hq-centurion: wargear -> hq-centurion-wargear :: Additional Wargear (max 100 Armoury pts combined)
+
+Validation
+- Weapons have the exact existing weapon group as parent.
+- Death Mask has the exact existing wargear group as parent.
+- No dedicated Blood Angels Armoury group remains on Praetor/Centurion.
+- No old r74 broad-injection or r76/r77 generic BA armoury structures remain.
+- XML parse and duplicate-ID validation passed.
