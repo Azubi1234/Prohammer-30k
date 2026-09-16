@@ -42,3 +42,4 @@ print('\nALLEGIANCE')
 for e in cr.iter():
     if 'allegiance' in (e.get('id') or '').lower() or 'allegiance' in (e.get('name') or '').lower():
         print(e.tag.split('}')[-1],e.get('id'),repr(e.get('name')))
+# trigger 2
