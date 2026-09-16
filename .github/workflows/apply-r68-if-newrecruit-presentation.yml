@@ -1,0 +1,36 @@
+name: Apply Revision 68 Imperial Fists New Recruit presentation fix
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev68_if_newrecruit_presentation.py'
+      - '.github/workflows/apply-r68-if-newrecruit-presentation.yml'
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply Revision 68 presentation correction
+        run: python .github/build/rev68_if_newrecruit_presentation.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 68
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          assert ET.parse('Legiones Astartes.cat').getroot().get('revision')=='68'
+          assert ET.parse('Prohammer 30k.gst').getroot().get('revision')=='36'
+          print(open('inspection-r68-imperial-fists-newrecruit.txt',encoding='utf-8').read())
+          PY
+      - name: Commit generated data
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r68-imperial-fists-newrecruit.txt
+          git diff --cached --quiet || git commit -m 'Revision 68: fix Imperial Fists New Recruit presentation'
+          git push
