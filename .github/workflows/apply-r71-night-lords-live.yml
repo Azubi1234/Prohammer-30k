@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/build/rev71_night_lords_live.py'
       - '.github/build/r71_repair_night_lords_builder.py'
+      - '.github/build/r71_repair2_night_lords_builder.py'
       - '.github/workflows/apply-r71-night-lords-live.yml'
 jobs:
   apply:
@@ -17,7 +18,9 @@ jobs:
         with:
           python-version: '3.x'
       - name: Repair Revision 71 builder to current UI standard
-        run: python .github/build/r71_repair_night_lords_builder.py
+        run: |
+          python .github/build/r71_repair_night_lords_builder.py
+          python .github/build/r71_repair2_night_lords_builder.py
       - name: Compile Revision 71 builder
         run: python -m py_compile .github/build/rev71_night_lords_live.py
       - name: Apply Revision 71
