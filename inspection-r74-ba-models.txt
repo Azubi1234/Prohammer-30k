@@ -1,0 +1,39 @@
+
+UNIT r41-unit-ix-0-dawnbreaker-cohort DAWNBREAKER COHORT cost=[('pts', '35.0')] cons=[]
+ DIRECT model r41-unit-ix-0-dawnbreaker-cohort-additional Squad Models default=5 hidden=false cost=[('pts', '35')] cons=[('r41-unit-ix-0-dawnbreaker-cohort-additional-max', 'max', '10', 'selections', 'parent'), ('r41-unit-ix-0-dawnbreaker-cohort-additional-min-total', 'min', '5', 'selections', 'parent')] mods=[]
+ GROUP r41-unit-ix-0-dawnbreaker-cohort-options Options cons=[] mods=[]
+
+UNIT r41-unit-ix-1-crimson-paladin-squad CRIMSON PALADIN SQUAD cost=[('pts', '25.0')] cons=[]
+ DIRECT model r41-unit-ix-1-crimson-paladin-squad-additional Squad Models default=3 hidden=false cost=[('pts', '45')] cons=[('r41-unit-ix-1-crimson-paladin-squad-additional-max', 'max', '5', 'selections', 'parent'), ('r41-unit-ix-1-crimson-paladin-squad-additional-min-total', 'min', '3', 'selections', 'parent')] mods=[]
+ GROUP r41-unit-ix-1-crimson-paladin-squad-options Options cons=[] mods=[]
+
+UNIT r41-unit-ix-2-angel-s-tears-squad ANGEL'S TEARS SQUAD cost=[('pts', '60.0')] cons=[]
+ DIRECT model r41-unit-ix-2-angel-s-tears-squad-additional Squad Models default=5 hidden=false cost=[('pts', '30')] cons=[('r41-unit-ix-2-angel-s-tears-squad-additional-max', 'max', '10', 'selections', 'parent'), ('r41-unit-ix-2-angel-s-tears-squad-additional-min-total', 'min', '5', 'selections', 'parent')] mods=[]
+ GROUP r41-unit-ix-2-angel-s-tears-squad-options Options cons=[] mods=[]
+
+UNIT r41-unit-ix-3-ofanim-court OFANIM COURT cost=[('pts', '0.0')] cons=[]
+ DIRECT model r41-unit-ix-3-ofanim-court-additional Squad Models default=3 hidden=false cost=[('pts', '50')] cons=[('r41-unit-ix-3-ofanim-court-additional-max', 'max', '5', 'selections', 'parent'), ('r41-unit-ix-3-ofanim-court-additional-min-total', 'min', '3', 'selections', 'parent')] mods=[]
+ GROUP r41-unit-ix-3-ofanim-court-options Options cons=[] mods=[]
+
+UNIT r41-unit-ix-4-grav-chariot-squadron GRAV CHARIOT SQUADRON cost=[('pts', '65')] cons=[]
+ GROUP r41-unit-ix-4-grav-chariot-squadron-options Options cons=[] mods=[]
+
+UNIT r41-unit-ix-5-sanguinary-guard SANGUINARY GUARD cost=[('pts', '10.0')] cons=[]
+ DIRECT model r41-unit-ix-5-sanguinary-guard-additional Squad Models default=3 hidden=false cost=[('pts', '55')] cons=[('r41-unit-ix-5-sanguinary-guard-additional-max', 'max', '6', 'selections', 'parent'), ('r41-unit-ix-5-sanguinary-guard-additional-min-total', 'min', '3', 'selections', 'parent')] mods=[]
+ GROUP r41-unit-ix-5-sanguinary-guard-options Options cons=[] mods=[]
+
+UNIT r41-unit-ix-6-raldoron-the-blooded RALDORON, THE BLOODED cost=[('pts', '195')] cons=[('r41-unit-ix-6-raldoron-the-blooded-unique', 'max', '1', 'selections', 'roster')]
+ GROUP r41-unit-ix-6-raldoron-the-blooded-options Options cons=[] mods=[]
+
+UNIT r41-unit-ix-7-dominion-zephon DOMINION ZEPHON cost=[('pts', '175')] cons=[('r41-unit-ix-7-dominion-zephon-unique', 'max', '1', 'selections', 'roster')]
+ GROUP r41-unit-ix-7-dominion-zephon-options Options cons=[] mods=[]
+
+UNIT r41-unit-ix-8-aster-crohne ASTER CROHNE cost=[('pts', '180')] cons=[('r41-unit-ix-8-aster-crohne-unique', 'max', '1', 'selections', 'roster')]
+ GROUP r41-unit-ix-8-aster-crohne-options Options cons=[] mods=[]
+
+UNIT r41-unit-ix-9-azkaellon AZKAELLON cost=[('pts', '35')] cons=[('r41-unit-ix-9-azkaellon-unique', 'max', '1', 'selections', 'roster')]
+
+UNIT r41-unit-ix-10-nassir-amit-the-flesh-tearer NASSIR AMIT, THE FLESH TEARER cost=[('pts', '180')] cons=[('r41-unit-ix-10-nassir-amit-the-flesh-tearer-unique', 'max', '1', 'selections', 'roster')]
+ GROUP r41-unit-ix-10-nassir-amit-the-flesh-tearer-options Options cons=[] mods=[]
+
+UNIT r41-unit-ix-11-ix-sanguinius-the-great-angel IX — SANGUINIUS, THE GREAT ANGEL cost=[('pts', '510')] cons=[('r41-unit-ix-11-ix-sanguinius-the-great-angel-unique', 'max', '1', 'selections', 'roster')]
