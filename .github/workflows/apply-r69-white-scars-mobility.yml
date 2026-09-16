@@ -1,0 +1,39 @@
+name: Apply Revision 69 White Scars mounted characters and retinues
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev69_white_scars_mobility.py'
+      - '.github/workflows/apply-r69-white-scars-mobility.yml'
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply Revision 69
+        run: python .github/build/rev69_white_scars_mobility.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 69
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          c=ET.parse('Legiones Astartes.cat').getroot(); g=ET.parse('Prohammer 30k.gst').getroot()
+          assert c.get('revision')=='69' and c.get('gameSystemRevision')=='37'
+          assert g.get('revision')=='37'
+          cat=open('Legiones Astartes.cat',encoding='utf-8').read(); gst=open('Prohammer 30k.gst',encoding='utf-8').read()
+          assert '<ns0:' not in cat and '<ns0:' not in gst
+          print(open('inspection-r69-white-scars-mobility.txt',encoding='utf-8').read())
+          PY
+      - name: Commit generated data
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r69-white-scars-mobility.txt inspection-r56-all-unit-sizes.txt
+          git diff --cached --quiet || git commit -m 'Revision 69: add White Scars mounted characters and retinues'
+          git push
