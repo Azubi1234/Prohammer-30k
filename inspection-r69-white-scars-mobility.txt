@@ -1,0 +1,6 @@
+SHIBAN KHAN: Bike +35, Jetbike +5; mounted retinue options: Legion Command Squad 5-5
+HIBOU KHAN: Bike +35, Jetbike +5; mounted retinue options: Legion Command Squad 5-5, Legion Veteran Squad 5-10
+HASIK NOYAN-KHAN: Bike +35, Jetbike +5; mounted retinue options: Legion Command Squad 5-5, Legion Veteran Squad 5-10
+Generic Legion Command Squad retinue: Bikes +20/model and Jetbikes +35/model, 5-5 models.
+Jaghatai Honour Guard retinue: Jetbikes +35/model when Voidbike selected, 3-10 models.
+CAT69 / GST37; canonical namespaces restored; duplicate IDs=0; broken refs=0.
