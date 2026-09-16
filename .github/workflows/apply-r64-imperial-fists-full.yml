@@ -1,0 +1,41 @@
+name: Apply Revision 64 Imperial Fists full army
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev64_imperial_fists_full.py'
+      - '.github/workflows/apply-r64-imperial-fists-full.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply full Imperial Fists implementation
+        run: python .github/build/rev64_imperial_fists_full.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 64
+        run: |
+          grep -q 'dataRevision="64"' index.xml
+          grep -q 'dataRevision="32"' index.xml
+          grep -q 'Imperial Fists full-army implementation' inspection-r64-imperial-fists-full.txt
+          cat inspection-r64-imperial-fists-full.txt
+      - name: Commit generated data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r64-imperial-fists-full.txt inspection-r56-all-unit-sizes.txt
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+          else
+            git commit -m 'Revision 64: implement full Imperial Fists army'
+            git push
+          fi
