@@ -24,41 +24,18 @@ jobs:
           ids={e.get('id') for e in root.iter() if e.get('id')}
           p=Path('.github/build/rev70_imperial_fists_live_fix.py')
           s=p.read_text(encoding='utf-8')
-
-          # Persist the syntax repair from the first dry run.
           s=s.replace("for n,u in enumerate(list(cr.iter(C('selectionEntry'))):", "for n,u in enumerate(list(cr.iter(C('selectionEntry')))):")
-
-          # Grenade Harness was historically local in some units. Use a local 10pt entry if no shared id exists.
           if 'gear-grenade-harness' not in ids:
               old="if kind=='huscarl': link(war,uid+'-gh','Grenade Harness','gear-grenade-harness')"
               new="if kind=='huscarl': local(war,uid+'-gh','Grenade Harness',10,'Terminator Armour only.')"
               if old in s: s=s.replace(old,new)
-
-          # Every Templar Brethren copy (including retinue clones) must hide its normal Dedicated Transport while Templar Assault is active.
-          old="""def new_templar_transport(u,idx):
-    for g in direct_groups(u):
-        if (g.get('name') or '')=='Templar Assault — Assault Transport': remove_node(cr,g)
-    g=group(u,f'r70-if-templar-transport-{idx}','Templar Assault — Assault Transport',maxsel=1)"""
-          new="""def new_templar_transport(u,idx):
-    for g in direct_groups(u):
-        gname=(g.get('name') or '')
-        if gname=='Templar Assault — Assault Transport':
-            remove_node(cr,g)
-        elif gname=='Dedicated Transport':
-            add_hide_if(g,f'r70-if-templar-normal-dt-hide-{idx}',TEMPLAR)
-    g=group(u,f'r70-if-templar-transport-{idx}','Templar Assault — Assault Transport',maxsel=1)"""
+          old="def new_templar_transport(u,idx):\n    for g in direct_groups(u):\n        if (g.get('name') or '')=='Templar Assault — Assault Transport': remove_node(cr,g)\n    g=group(u,f'r70-if-templar-transport-{idx}','Templar Assault — Assault Transport',maxsel=1)"
+          new="def new_templar_transport(u,idx):\n    for g in direct_groups(u):\n        gname=(g.get('name') or '')\n        if gname=='Templar Assault — Assault Transport':\n            remove_node(cr,g)\n        elif gname=='Dedicated Transport':\n            add_hide_if(g,f'r70-if-templar-normal-dt-hide-{idx}',TEMPLAR)\n    g=group(u,f'r70-if-templar-transport-{idx}','Templar Assault — Assault Transport',maxsel=1)"
           if old in s: s=s.replace(old,new)
-
-          # ElementTree only supports one default namespace at a time. Register each schema immediately before writing its file.
-          old="""ET.indent(ct,space='  '); ET.indent(gt,space='  '); ET.indent(it,space='  ')
-ct.write(CAT,encoding='utf-8',xml_declaration=True); gt.write(GST,encoding='utf-8',xml_declaration=True); it.write(IDX,encoding='utf-8',xml_declaration=True)"""
-          new="""ET.indent(ct,space='  '); ET.indent(gt,space='  '); ET.indent(it,space='  ')
-ET.register_namespace('',CNS); ct.write(CAT,encoding='utf-8',xml_declaration=True)
-ET.register_namespace('',GNS); gt.write(GST,encoding='utf-8',xml_declaration=True)
-ET.register_namespace('',INS); it.write(IDX,encoding='utf-8',xml_declaration=True)"""
+          old="ET.indent(ct,space='  '); ET.indent(gt,space='  '); ET.indent(it,space='  ')\nct.write(CAT,encoding='utf-8',xml_declaration=True); gt.write(GST,encoding='utf-8',xml_declaration=True); it.write(IDX,encoding='utf-8',xml_declaration=True)"
+          new="ET.indent(ct,space='  '); ET.indent(gt,space='  '); ET.indent(it,space='  ')\nET.register_namespace('',CNS); ct.write(CAT,encoding='utf-8',xml_declaration=True)\nET.register_namespace('',GNS); gt.write(GST,encoding='utf-8',xml_declaration=True)\nET.register_namespace('',INS); it.write(IDX,encoding='utf-8',xml_declaration=True)"
           if old not in s: raise SystemExit('Expected XML write block not found')
           s=s.replace(old,new)
-
           p.write_text(s,encoding='utf-8')
           compile(s,str(p),'exec')
           PY
