@@ -1,3 +1,4 @@
+# trigger after workflow creation
 name: Apply Revision 76 Blood Angels armoury placement
 on:
   workflow_dispatch:
