@@ -1,0 +1,781 @@
+CAT revision=70 GST revision=38 GSTref=38
+
+=== NIGHT LORDS UNIQUE / CHARACTER / PRIMARCH ENTRIES ===
+
+----------------------------------------------------------------------------------------------------
+TOP r41-unit-viii-0-terror-squad | TERROR SQUAD | cats=Elites
+selectionEntry r41-unit-viii-0-terror-squad | TERROR SQUAD | type=unit hidden=false cost=25.0 | 
+  selectionEntries:
+    selectionEntry r41-unit-viii-0-terror-squad-additional | Squad Models | type=model hidden=false cost=25 | max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+  selectionEntryGroups:
+    selectionEntryGroup r41-unit-viii-0-terror-squad-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r41-unit-viii-0-terror-squad-opt-0-for | for | type=upgrade hidden=false cost=25 | max=1 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-0-terror-squad-opt-1-rending-weapon | Rending Weapon | type=upgrade hidden=false cost=5 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-0-terror-squad-opt-2-power-weapon | Power weapon | type=upgrade hidden=false cost=10 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-0-terror-squad-opt-3-volkite-charger | Volkite Charger | type=upgrade hidden=false cost=10 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-0-terror-squad-opt-4-flamer | Flamer | type=upgrade hidden=false cost=5 | max=1 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-0-terror-squad-opt-5-rotor-cannon | Rotor Cannon | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-0-terror-squad-opt-6-heavy-flamer | Heavy Flamer | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-0-terror-squad-opt-7-krak-grenades | Krak grenades (base unit; +2 pts/model) | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-0-terror-squad-opt-8-melta-bombs | Melta bombs (base unit; +5 pts/model) | type=upgrade hidden=false cost=25 | max=1 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-0-terror-squad-opt-9-stealth-adept | Stealth Adept (base unit; +1 pts/model) | type=upgrade hidden=false cost=5 | max=1 field=selections scope=parent child=None
+  RULE r41-unit-viii-0-terror-squad-source | Source Entry :: Terror Marine | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Headsman | 5 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
+Force Organisation:
+• Elites
+Unit Composition:
+• 4 Terror Marines
+• 1 Headsman
+Unit Type:
+• Infantry
+• The Headsman is a Character
+Wargear:
+• Power Armour
+• Bolter
+• Bolt pistol
+• Chainsword
+• Frag grenades
+• Trophies of Judgement
+Special Rules:
+• Legiones Astartes (Night Lords)
+• Infiltrate
+• Preferred Enemy (Infantry)
+OPTIONS
+• The squad may include up to five additional Terror Marines
+for +25 points per model.
+• Any model may replace his Chainsword with:
+• Rending Weapon ........................
+  RULE r41-unit-viii-0-terror-squad-opt-0-context | Option restriction :: • The squad may include up to five additional Terror Marines
+  RULE r41-unit-viii-0-terror-squad-opt-1-context | Option restriction :: • Any model may replace his Chainsword with:
+  RULE r41-unit-viii-0-terror-squad-opt-2-context | Option restriction :: • Any model may replace his Chainsword with:
+  RULE r41-unit-viii-0-terror-squad-opt-3-context | Option restriction :: • Any model may replace his Bolter with:
+  RULE r41-unit-viii-0-terror-squad-opt-4-context | Option restriction :: replace his Bolter with:
+  RULE r41-unit-viii-0-terror-squad-opt-5-context | Option restriction :: replace his Bolter with:
+  RULE r41-unit-viii-0-terror-squad-opt-6-context | Option restriction :: replace his Bolter with:
+  RULE r41-unit-viii-0-terror-squad-opt-7-context | Option restriction :: • The entire squad may take:
+  RULE r41-unit-viii-0-terror-squad-opt-7-squadwide | Squad-wide cost note :: The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  RULE r41-unit-viii-0-terror-squad-opt-8-context | Option restriction :: • The entire squad may take:
+  RULE r41-unit-viii-0-terror-squad-opt-8-squadwide | Squad-wide cost note :: The source prices this option at +5 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  RULE r41-unit-viii-0-terror-squad-opt-9-context | Option restriction :: • The entire squad may take:
+  RULE r41-unit-viii-0-terror-squad-opt-9-squadwide | Squad-wide cost note :: The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  PROFILE Terror Marine [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=3+
+  PROFILE Headsman [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=3; Ld=9; Sv=3+
+
+----------------------------------------------------------------------------------------------------
+TOP r41-unit-viii-1-night-raptor-squad | NIGHT RAPTOR SQUAD | cats=Fast Attack
+selectionEntry r41-unit-viii-1-night-raptor-squad | NIGHT RAPTOR SQUAD | type=unit hidden=false cost=0.0 | 
+  selectionEntries:
+    selectionEntry r41-unit-viii-1-night-raptor-squad-additional | Squad Models | type=model hidden=false cost=28 | max=15 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+  selectionEntryGroups:
+    selectionEntryGroup r41-unit-viii-1-night-raptor-squad-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r41-unit-viii-1-night-raptor-squad-opt-0-for | for | type=upgrade hidden=false cost=28 | max=1 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-1-night-raptor-squad-opt-1-rending-weapon | Rending Weapon | type=upgrade hidden=false cost=5 | max=5 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-1-night-raptor-squad-opt-2-power-weapon | Power weapon | type=upgrade hidden=false cost=10 | max=5 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-1-night-raptor-squad-opt-3-volkite-serpenta | Volkite Serpenta | type=upgrade hidden=false cost=5 | max=2 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-1-night-raptor-squad-opt-4-hand-flamer | Hand Flamer | type=upgrade hidden=false cost=5 | max=2 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-1-night-raptor-squad-opt-5-plasma-pistol | Plasma Pistol | type=upgrade hidden=false cost=15 | max=2 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-1-night-raptor-squad-opt-6-melta-bombs | Melta bombs | type=upgrade hidden=false cost=5 | max=2 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-1-night-raptor-squad-opt-7-krak-grenades | Krak grenades (base unit; +2 pts/model) | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-1-night-raptor-squad-opt-8-stealth-adept | Stealth Adept (base unit; +1 pts/model) | type=upgrade hidden=false cost=5 | max=1 field=selections scope=parent child=None
+  RULE r41-unit-viii-1-night-raptor-squad-source | Source Entry :: Night Raptor | 4 | 4 | 4 | 4 | 1 | 4 | 1 | 8 | 3+
+Raptor Sergeant | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Headtaker | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Force Organisation:
+• Fast Attack
+Unit Composition:
+• 4 Night Raptors
+• 1 Raptor Sergeant
+Unit Type:
+• Jump Infantry
+• The Raptor Sergeant is a Character
+Wargear:
+• Power Armour
+• Jump Pack
+• Bolt pistol
+• Chainsword
+• Frag grenades
+• Trophies of Judgement
+Special Rules:
+• Legiones Astartes (Night Lords)
+• Hit & Run
+OPTIONS
+• The squad may include up to ten additional Night Raptors
+for +28 points per model.
+• Up to five models may replace their C
+  RULE r41-unit-viii-1-night-raptor-squad-opt-0-context | Option restriction :: • The squad may include up to ten additional Night Raptors
+  RULE r41-unit-viii-1-night-raptor-squad-opt-1-context | Option restriction :: • Up to five models may replace their Chainsword with:
+  RULE r41-unit-viii-1-night-raptor-squad-opt-2-context | Option restriction :: • Up to five models may replace their Chainsword with:
+  RULE r41-unit-viii-1-night-raptor-squad-opt-3-context | Option restriction :: • Up to two Night Raptors may replace their Bolt pistol with:
+  RULE r41-unit-viii-1-night-raptor-squad-opt-4-context | Option restriction :: • Up to two Night Raptors may replace their Bolt pistol with:
+  RULE r41-unit-viii-1-night-raptor-squad-opt-5-context | Option restriction :: • Up to two Night Raptors may replace their Bolt pistol with:
+  RULE r41-unit-viii-1-night-raptor-squad-opt-6-context | Option restriction :: • Up to two models may take:
+  RULE r41-unit-viii-1-night-raptor-squad-opt-7-context | Option restriction :: • The entire squad may take:
+  RULE r41-unit-viii-1-night-raptor-squad-opt-7-squadwide | Squad-wide cost note :: The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  RULE r41-unit-viii-1-night-raptor-squad-opt-8-context | Option restriction :: • The entire squad may take:
+  RULE r41-unit-viii-1-night-raptor-squad-opt-8-squadwide | Squad-wide cost note :: The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  PROFILE Night Raptor [Model] :: WS=4; BS=4; S=4; T=4; W=1; I=4; A=1; Ld=8; Sv=3+
+  PROFILE Raptor Sergeant [Model] :: WS=4; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=3+
+  PROFILE Headtaker [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=3+
+
+----------------------------------------------------------------------------------------------------
+TOP r41-unit-viii-2-contekar-terminator-elite | CONTEKAR TERMINATOR ELITE | cats=Elites
+selectionEntry r41-unit-viii-2-contekar-terminator-elite | CONTEKAR TERMINATOR ELITE | type=unit hidden=false cost=0.0 | 
+  selectionEntries:
+    selectionEntry r41-unit-viii-2-contekar-terminator-elite-additional | Squad Models | type=model hidden=false cost=50 | max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+  selectionEntryGroups:
+    selectionEntryGroup r41-unit-viii-2-contekar-terminator-elite-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r41-unit-viii-2-contekar-terminator-elite-opt-0-volkite-culverin | Volkite Culverin | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-2-contekar-terminator-elite-opt-1-escaton-power-claw | Escaton Power Claw | type=upgrade hidden=false cost=10 | max=2 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-2-contekar-terminator-elite-opt-2-grenade-harness | Grenade Harness | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+    selectionEntryGroup r49-legion-upgrades-r41-unit-viii-2-contekar-terminator-elite | Legion Wargear & Upgrades | type=None hidden=false cost= | 
+      entryLinks:
+        entryLink r44-r41-unit-viii-2-contekar-terminator-elite-nl-trans | Teleportation Transponders | type=selectionEntry hidden=false cost= | max=1 field=selections scope=parent child=None
+  entryLinks:
+  RULE r41-unit-viii-2-contekar-terminator-elite-source | Source Entry :: Contekar | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 2+/5+
+Contekar Dissident | 5 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 2+/5+
+NOSTRAMAN CHAINBLADE A Nostraman Chainblade is a Two-Handed Rending Weapon which grants +1 Strength. ESCATON POWER CLAW An Escaton Power Claw counts as a Power Fist. In addition, the wielder may re-roll failed To Wound rolls made with the Escaton Power Claw.
+Force Organisation:
+• Elites
+Unit Composition:
+• 4 Contekar
+• 1 Contekar Dissident
+Unit Type:
+• Infantry
+• The Contekar Dissident is a Character
+Wargear:
+• Tartaros Terminator Armour
+• Heavy Flamer
+• Nostraman Chainblade
+Special Rule
+  RULE r41-unit-viii-2-contekar-terminator-elite-opt-0-context | Option restriction :: • Every model may replace their Heavy Flamer with:
+  RULE r41-unit-viii-2-contekar-terminator-elite-opt-1-context | Option restriction :: • Up to two models may replace their Nostraman Chainblade with:
+  RULE r41-unit-viii-2-contekar-terminator-elite-opt-2-context | Option restriction :: • The Contekar Dissident may take:
+  PROFILE Contekar [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=2+/5+
+  PROFILE Contekar Dissident [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=3; Ld=9; Sv=2+/5+
+
+----------------------------------------------------------------------------------------------------
+TOP r41-unit-viii-3-atramentar-flay-clade | ATRAMENTAR FLAY-CLADE | cats=Elites
+selectionEntry r41-unit-viii-3-atramentar-flay-clade | ATRAMENTAR FLAY-CLADE | type=unit hidden=false cost=0.0 | 
+  selectionEntries:
+    selectionEntry r41-unit-viii-3-atramentar-flay-clade-additional | Squad Models | type=model hidden=false cost=50 | max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+  selectionEntryGroups:
+    selectionEntryGroup r41-unit-viii-3-atramentar-flay-clade-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-0-storm-bolter | Storm bolter | type=upgrade hidden=false cost=0 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-1-foeblaster-boltgun | Foeblaster Boltgun | type=upgrade hidden=false cost=5 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-2-combi-flamer | Combi-flamer | type=upgrade hidden=false cost=10 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-3-combi-volkite-charger | Combi-volkite charger | type=upgrade hidden=false cost=10 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-4-combi-meltagun | Combi-meltagun | type=upgrade hidden=false cost=15 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-5-combi-plasma-gun | Combi-plasma gun | type=upgrade hidden=false cost=15 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-6-power-fist | Power fist | type=upgrade hidden=false cost=5 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-7-lightning-claw | Lightning claw | type=upgrade hidden=false cost=5 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-8-chainfist | Chainfist | type=upgrade hidden=false cost=10 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-9-thunder-hammer | Thunder hammer | type=upgrade hidden=false cost=10 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-10-pair-of-lightning-claws | Pair of Lightning Claws | type=upgrade hidden=false cost=15 | max=10 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-11-heavy-flamer | Heavy Flamer | type=upgrade hidden=false cost=10 | max=2 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-12-reaper-autocannon | Reaper Autocannon | type=upgrade hidden=false cost=15 | max=2 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-3-atramentar-flay-clade-opt-13-plasma-blaster | Plasma Blaster | type=upgrade hidden=false cost=15 | max=2 field=selections scope=parent child=None
+    selectionEntryGroup r49-legion-upgrades-r41-unit-viii-3-atramentar-flay-clade | Legion Wargear & Upgrades | type=None hidden=false cost= | 
+      entryLinks:
+        entryLink r44-r41-unit-viii-3-atramentar-flay-clade-nl-trans | Teleportation Transponders | type=selectionEntry hidden=false cost= | max=1 field=selections scope=parent child=None
+  entryLinks:
+  RULE r41-unit-viii-3-atramentar-flay-clade-source | Source Entry :: Atramentar | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 2+/4+
+Force Organisation:
+• Elites
+TELEPORT ASSAULT An Atramentar Flay-Clade may deploy using Deep Strike evenif the mission being played does not normally permit Deep Strike. All other normal ProHammer Deep Strike rules apply.
+Unit Composition:
+• 5 Atramentar
+Unit Type:
+• Infantry
+Wargear:
+• Cataphractii Terminator Armour
+• Trophies of Judgement
+• Combi-bolter
+• Power weapon
+Special Rules:
+• Legiones Astartes (Night Lords)
+• Fearless
+• Teleport Assault
+OPTIONS
+• The squad may include up to five additional Atramentar for +50 points per model.
+• Any 
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-0-context | Option restriction :: • Any model may replace his Combi-bolter with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-1-context | Option restriction :: • Any model may replace his Combi-bolter with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-2-context | Option restriction :: • Any model may replace his Combi-bolter with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-3-context | Option restriction :: • Any model may replace his Combi-bolter with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-4-context | Option restriction :: • Any model may replace his Combi-bolter with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-5-context | Option restriction :: • Any model may replace his Combi-bolter with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-6-context | Option restriction :: • Any model may replace his Power weapon with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-7-context | Option restriction :: • Any model may replace his Power weapon with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-8-context | Option restriction :: • Any model may replace his Power weapon with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-9-context | Option restriction :: • Any model may replace his Power weapon with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-10-context | Option restriction :: • Any model may replace both his Combi-bolter and Power weapon with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-11-context | Option restriction :: • For every five models, one Atramentar may replace his Combi-bolter with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-12-context | Option restriction :: • For every five models, one Atramentar may replace his Combi-bolter with:
+  RULE r41-unit-viii-3-atramentar-flay-clade-opt-13-context | Option restriction :: • For every five models, one Atramentar may replace his Combi-bolter with:
+  PROFILE Atramentar [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=2+/4+
+
+----------------------------------------------------------------------------------------------------
+TOP r41-unit-viii-4-jago-sevatarion | JAGO SEVATARION | cats=HQ
+selectionEntry r41-unit-viii-4-jago-sevatarion | JAGO SEVATARION | type=unit hidden=false cost=200 | max=1 field=selections scope=roster child=None
+  selectionEntryGroups:
+    selectionEntryGroup r41-unit-viii-4-jago-sevatarion-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r41-unit-viii-4-jago-sevatarion-opt-0-krak-grenades | Krak grenades | type=upgrade hidden=false cost=2 | max=1 field=selections scope=parent child=None
+  RULE r41-unit-viii-4-jago-sevatarion-source | Source Entry :: Sevatar | 7 | 5 | 4 | 4 | 3 | 5 | 4 | 10 | 2+/4+
+Force Organisation:
+NIGHT'S WHISPER Night's Whisper is a Two-Handed, Master-crafted Power Weapon.Attacks made with Night's Whisper are resolved at Strength 6. VISIONS OF DOOM Sevatar knows only the Withering Gaze psychic power.When making the Psychic Test required to invoke Withering Gaze,Sevatar uses Leadership 7 rather than his normal Leadership. WITHERING GAZE Withering Gaze is used during the Night Lords Shooting phase instead of Sevatar firing a weapon. Choose one visible enemy unit within 12" and take a Psychic Test.If successful, until th
+  RULE r41-unit-viii-4-jago-sevatarion-opt-0-context | Option restriction :: • Sevatar may take:
+  PROFILE Sevatar [Model] :: WS=7; BS=5; S=4; T=4; W=3; I=5; A=4; Ld=10; Sv=2+/4+
+
+----------------------------------------------------------------------------------------------------
+TOP r41-unit-viii-5-kheron-ophion | KHERON OPHION | cats=HQ
+selectionEntry r41-unit-viii-5-kheron-ophion | KHERON OPHION | type=unit hidden=false cost=180 | max=1 field=selections scope=roster child=None
+  selectionEntryGroups:
+    selectionEntryGroup r41-unit-viii-5-kheron-ophion-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r41-unit-viii-5-kheron-ophion-opt-0-krak-grenades | Krak grenades | type=upgrade hidden=false cost=2 | max=1 field=selections scope=parent child=None
+  RULE r41-unit-viii-5-kheron-ophion-source | Source Entry :: Kheron Ophion | 6 | 5 | 4 | 4 | 3 | 5 | 4 | 10 | 3+/5+
+Force Organisation:
+THE BLOODY AEGIS Against close-combat attacks, Ophion's Invulnerable Save is improved to 3+. Against all other attacks he uses his Refractor Field normally. THE COWARD After Ophion loses his first Wound, he gains Feel No Pain (4+) for the remainder of the battle. If Ophion is subsequently reduced to one remaining Wound, replace Feel No Pain (4+) with Feel No Pain (3+). COMMAND RETINUE Ophion may select a Legion Command Squad or Contekar Terminator Elite as his retinue. The selected unit does not occupy a separate Force 
+  RULE r41-unit-viii-5-kheron-ophion-opt-0-context | Option restriction :: • Ophion may take:
+  PROFILE Kheron Ophion [Model] :: WS=6; BS=5; S=4; T=4; W=3; I=5; A=4; Ld=10; Sv=3+/5+
+
+----------------------------------------------------------------------------------------------------
+TOP r41-unit-viii-6-malcharion-the-war-sage | MALCHARION, THE WAR-SAGE | cats=HQ
+selectionEntry r41-unit-viii-6-malcharion-the-war-sage | MALCHARION, THE WAR-SAGE | type=unit hidden=false cost=155 | max=1 field=selections scope=roster child=None
+  selectionEntryGroups:
+    selectionEntryGroup r41-unit-viii-6-malcharion-the-war-sage-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r41-unit-viii-6-malcharion-the-war-sage-opt-0-krak-grenades | Krak grenades | type=upgrade hidden=false cost=2 | max=1 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-6-malcharion-the-war-sage-opt-1-melta-bombs | Melta bombs | type=upgrade hidden=false cost=5 | max=1 field=selections scope=parent child=None
+  RULE r41-unit-viii-6-malcharion-the-war-sage-source | Source Entry :: Malcharion | 6 | 5 | 4 | 4 | 3 | 5 | 3 | 10 | 2+/5+
+Force Organisation:
+WAR-SAGE Malcharion and any Night Lords unit he has joined may re-roll failed Morale and Pinning tests. The second result must be accepted. COMMAND RETINUE Malcharion may select one Legion Command Squad or Legion Veteran Squad as his retinue. The selected unit does not occupy a separate Force Organisation slot.
+• HQ
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Artificer Armour
+• Refractor Field
+• Master-crafted Power Weapon
+• Bolter
+• Bolt pistol
+• Frag grenades
+Special Rules:
+• Legiones Astartes (Night Lords)
+• Independen
+  RULE r41-unit-viii-6-malcharion-the-war-sage-opt-0-context | Option restriction :: • Malcharion may take:
+  RULE r41-unit-viii-6-malcharion-the-war-sage-opt-1-context | Option restriction :: • Malcharion may take:
+  PROFILE Malcharion [Model] :: WS=6; BS=5; S=4; T=4; W=3; I=5; A=3; Ld=10; Sv=2+/5+
+
+----------------------------------------------------------------------------------------------------
+TOP r41-unit-viii-7-shang | SHANG | cats=HQ
+selectionEntry r41-unit-viii-7-shang | SHANG | type=unit hidden=false cost=165 | max=1 field=selections scope=roster child=None
+  selectionEntryGroups:
+    selectionEntryGroup r41-unit-viii-7-shang-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r41-unit-viii-7-shang-opt-0-krak-grenades | Krak grenades | type=upgrade hidden=false cost=2 | max=1 field=selections scope=parent child=None
+        selectionEntry r41-unit-viii-7-shang-opt-1-melta-bombs | Melta bombs | type=upgrade hidden=false cost=5 | max=1 field=selections scope=parent child=None
+  RULE r41-unit-viii-7-shang-source | Source Entry :: Shang | 6 | 5 | 4 | 4 | 3 | 5 | 3 | 10 | 2+/5+
+Force Organisation:
+TERROR RETINUE Shang may select one Terror Squad as his retinue. The Terror Squad does not occupy a separate Force Organisation slot. Shang and the Terror Squad count as a single HQ selection.
+• HQ
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Artificer Armour
+• Refractor Field
+• Master-crafted Power Weapon
+• Bolt pistol
+• Trophies of Judgement
+• Frag grenades
+Special Rules:
+• Legiones Astartes (Night Lords)
+• Independent Character
+• Master of the Legion
+• Infiltrate
+• Preferred Enemy (Independent Characters)
+OPTIONS
+• Shang may
+  RULE r41-unit-viii-7-shang-opt-0-context | Option restriction :: • Shang may take:
+  RULE r41-unit-viii-7-shang-opt-1-context | Option restriction :: • Shang may take:
+  PROFILE Shang [Model] :: WS=6; BS=5; S=4; T=4; W=3; I=5; A=3; Ld=10; Sv=2+/5+
+
+----------------------------------------------------------------------------------------------------
+TOP r41-unit-viii-8-flaymaster-mawdrym-llansahai | FLAYMASTER MAWDRYM LLANSAHAI | cats=HQ
+selectionEntry r41-unit-viii-8-flaymaster-mawdrym-llansahai | FLAYMASTER MAWDRYM LLANSAHAI | type=unit hidden=false cost=125 | max=1 field=selections scope=roster child=None
+  selectionEntryGroups:
+    selectionEntryGroup r41-unit-viii-8-flaymaster-mawdrym-llansahai-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r41-unit-viii-8-flaymaster-mawdrym-llansahai-opt-0-krak-grenades | Krak grenades | type=upgrade hidden=false cost=2 | max=1 field=selections scope=parent child=None
+  RULE r41-unit-viii-8-flaymaster-mawdrym-llansahai-source | Source Entry :: Mawdrym Llansahai | 5 | 5 | 4 | 4 | 3 | 4 | 2 | 9 | 3+/5+
+Force Organisation:
+RED JAQA Red Jaqa is a Rending Weapon. Any natural To Wound roll of 6 made with Red Jaqa inflicts a Massive Wound (D3) instead of a normal Wound. DEVIL'S LUCK Mawdrym may re-roll Feel No Pain rolls of 1. A dice may never be re-rolled more than once. UNFIT FOR COMMAND Mawdrym may not fulfil the army's compulsory HQ requirement. He may never be the army's Warlord.\#
+• HQ
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Power Armour
+• Refractor Field
+• Narthecium
+• Red Jaqa
+• Bolt pistol
+• Frag grenades
+Special Rules:
+• Leg
+  RULE r41-unit-viii-8-flaymaster-mawdrym-llansahai-opt-0-context | Option restriction :: • Mawdrym may take:
+  PROFILE Mawdrym Llansahai [Model] :: WS=5; BS=5; S=4; T=4; W=3; I=4; A=2; Ld=9; Sv=3+/5+
+
+----------------------------------------------------------------------------------------------------
+TOP r41-unit-viii-9-viii-konrad-curze-the-night-haunter | VIII — KONRAD CURZE, THE NIGHT HAUNTER | cats=Lords of War
+selectionEntry r41-unit-viii-9-viii-konrad-curze-the-night-haunter | VIII — KONRAD CURZE, THE NIGHT HAUNTER | type=unit hidden=false cost=500 | max=1 field=selections scope=roster child=None
+  RULE r41-unit-viii-9-viii-konrad-curze-the-night-haunter-source | Source Entry :: Primarch of the Night Lords, the Night Haunter, the King of Terrors
+Konrad Curze was terror given flesh. Raised alone in the lightless cities of Nostramo, he learned from childhood that fear could accomplish what armies often could not, and carried that lesson into command of the VIII Legion. Worlds which might have resisted conventional conquest were broken by exemplary atrocity, their populations forced into obedience by the certainty that the Night Lords would make resistance unbearable.
+Yet behind the calculated horror lay a mind tormented by visions of futures yet to come. Curze fought wi
+  PROFILE Konrad Curze [Model] :: WS=8; BS=6; S=6; T=6; W=6; I=8; A=6; Ld=10; Sv=1+
+
+----------------------------------------------------------------------------------------------------
+TOP r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad | NIGHT RAPTOR SQUAD | cats=Troops
+selectionEntry r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad | NIGHT RAPTOR SQUAD | type=unit hidden=true cost=0.0 | 
+  selectionEntries:
+    selectionEntry r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-additional | Squad Models | type=model hidden=false cost=28 | max=15 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+  selectionEntryGroups:
+    selectionEntryGroup r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-0-for | for | type=upgrade hidden=false cost=28 | max=1 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-1-rending-weapon | Rending Weapon | type=upgrade hidden=false cost=5 | max=5 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-2-power-weapon | Power weapon | type=upgrade hidden=false cost=10 | max=5 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-3-volkite-serpenta | Volkite Serpenta | type=upgrade hidden=false cost=5 | max=2 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-4-hand-flamer | Hand Flamer | type=upgrade hidden=false cost=5 | max=2 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-5-plasma-pistol | Plasma Pistol | type=upgrade hidden=false cost=15 | max=2 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-6-melta-bombs | Melta bombs | type=upgrade hidden=false cost=5 | max=2 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-7-krak-grenades | Krak grenades (base unit; +2 pts/model) | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-8-stealth-adept | Stealth Adept (base unit; +1 pts/model) | type=upgrade hidden=false cost=5 | max=1 field=selections scope=parent child=None
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-source | Source Entry :: Night Raptor | 4 | 4 | 4 | 4 | 1 | 4 | 1 | 8 | 3+
+Raptor Sergeant | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Headtaker | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Force Organisation:
+• Fast Attack
+Unit Composition:
+• 4 Night Raptors
+• 1 Raptor Sergeant
+Unit Type:
+• Jump Infantry
+• The Raptor Sergeant is a Character
+Wargear:
+• Power Armour
+• Jump Pack
+• Bolt pistol
+• Chainsword
+• Frag grenades
+• Trophies of Judgement
+Special Rules:
+• Legiones Astartes (Night Lords)
+• Hit & Run
+OPTIONS
+• The squad may include up to ten additional Night Raptors
+for +28 points per model.
+• Up to five models may replace their C
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-rite-note | Rite of War Interaction :: The Terror Assault is the favoured method of war of the VIII Legion: a sudden offensive conducted beneath artificial darkness, with enemy communications disrupted and rapid assault formations descending upon isolated positions before a coherent defence can be organised.
+EFFECTS
+COVER OF DARKNESS
+The first Battle Round is fought using the Night Fighting rules. At the beginning of the second Battle Round, roll a D6. On a 3+, Night Fighting remains in effect for the second Battle Round. If Night Fighting remained in effect during the second Battle Round,
+roll again at the beginning of the third B
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-clone-cleanup | Builder compatibility :: Removed 1 obsolete armoury link(s) inherited from the generic source entry while creating this Rite-specific battlefield-role copy.
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-0-context | Option restriction :: • The squad may include up to ten additional Night Raptors
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-1-context | Option restriction :: • Up to five models may replace their Chainsword with:
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-2-context | Option restriction :: • Up to five models may replace their Chainsword with:
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-3-context | Option restriction :: • Up to two Night Raptors may replace their Bolt pistol with:
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-4-context | Option restriction :: • Up to two Night Raptors may replace their Bolt pistol with:
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-5-context | Option restriction :: • Up to two Night Raptors may replace their Bolt pistol with:
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-6-context | Option restriction :: • Up to two models may take:
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-7-context | Option restriction :: • The entire squad may take:
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-7-squadwide | Squad-wide cost note :: The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-8-context | Option restriction :: • The entire squad may take:
+  RULE r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-8-squadwide | Squad-wide cost note :: The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  PROFILE Night Raptor [Model] :: WS=4; BS=4; S=4; T=4; W=1; I=4; A=1; Ld=8; Sv=3+
+  PROFILE Raptor Sergeant [Model] :: WS=4; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=3+
+  PROFILE Headtaker [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=3+
+
+----------------------------------------------------------------------------------------------------
+TOP r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad | NIGHT RAPTOR SQUAD | cats=Troops
+selectionEntry r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad | NIGHT RAPTOR SQUAD | type=unit hidden=true cost=0.0 | 
+  selectionEntries:
+    selectionEntry r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-additional | Squad Models | type=model hidden=false cost=28 | max=15 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+  selectionEntryGroups:
+    selectionEntryGroup r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-0-for | for | type=upgrade hidden=false cost=28 | max=1 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-1-rending-weapon | Rending Weapon | type=upgrade hidden=false cost=5 | max=5 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-2-power-weapon | Power weapon | type=upgrade hidden=false cost=10 | max=5 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-3-volkite-serpenta | Volkite Serpenta | type=upgrade hidden=false cost=5 | max=2 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-4-hand-flamer | Hand Flamer | type=upgrade hidden=false cost=5 | max=2 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-5-plasma-pistol | Plasma Pistol | type=upgrade hidden=false cost=15 | max=2 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-6-melta-bombs | Melta bombs | type=upgrade hidden=false cost=5 | max=2 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-7-krak-grenades | Krak grenades (base unit; +2 pts/model) | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+        selectionEntry r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-8-stealth-adept | Stealth Adept (base unit; +1 pts/model) | type=upgrade hidden=false cost=5 | max=1 field=selections scope=parent child=None
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-source | Source Entry :: Night Raptor | 4 | 4 | 4 | 4 | 1 | 4 | 1 | 8 | 3+
+Raptor Sergeant | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Headtaker | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Force Organisation:
+• Fast Attack
+Unit Composition:
+• 4 Night Raptors
+• 1 Raptor Sergeant
+Unit Type:
+• Jump Infantry
+• The Raptor Sergeant is a Character
+Wargear:
+• Power Armour
+• Jump Pack
+• Bolt pistol
+• Chainsword
+• Frag grenades
+• Trophies of Judgement
+Special Rules:
+• Legiones Astartes (Night Lords)
+• Hit & Run
+OPTIONS
+• The squad may include up to ten additional Night Raptors
+for +28 points per model.
+• Up to five models may replace their C
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-rite-note | Rite of War Interaction :: Some formations of the VIII Legion abandoned even the pretence of disciplined terror warfare, becoming predatory cults of murder whose commanders measured victory in screams and mutilated corpses. The Night Raptors were amongst the most infamous of these formations, descending upon isolated prey in great packs and competing for the most spectacular kill.
+EFFECTS
+RAPTOR CULT
+Night Raptor Squads may be selected as Troops choices. Night Raptor Squads may fulfil compulsory Troops selections. At least one of the Detachment's compulsory Troops selections must be a Night Raptor Squad.
+BEYOND JUDGEMEN
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-clone-cleanup | Builder compatibility :: Removed 1 obsolete armoury link(s) inherited from the generic source entry while creating this Rite-specific battlefield-role copy.
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-0-context | Option restriction :: • The squad may include up to ten additional Night Raptors
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-1-context | Option restriction :: • Up to five models may replace their Chainsword with:
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-2-context | Option restriction :: • Up to five models may replace their Chainsword with:
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-3-context | Option restriction :: • Up to two Night Raptors may replace their Bolt pistol with:
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-4-context | Option restriction :: • Up to two Night Raptors may replace their Bolt pistol with:
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-5-context | Option restriction :: • Up to two Night Raptors may replace their Bolt pistol with:
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-6-context | Option restriction :: • Up to two models may take:
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-7-context | Option restriction :: • The entire squad may take:
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-7-squadwide | Squad-wide cost note :: The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-8-context | Option restriction :: • The entire squad may take:
+  RULE r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-opt-8-squadwide | Squad-wide cost note :: The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  PROFILE Night Raptor [Model] :: WS=4; BS=4; S=4; T=4; W=1; I=4; A=1; Ld=8; Sv=3+
+  PROFILE Raptor Sergeant [Model] :: WS=4; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=3+
+  PROFILE Headtaker [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=3+
+
+----------------------------------------------------------------------------------------------------
+TOP r46-al-reward-18 | TERROR SQUAD — Rewards of Treachery | cats=Elites, Rewards of Treachery Limit
+selectionEntry r46-al-reward-18 | TERROR SQUAD — Rewards of Treachery | type=unit hidden=false cost=25.0 | 
+  selectionEntries:
+    selectionEntry r46-al-reward-18-r41-unit-viii-0-terror-squad-additional | Squad Models | type=model hidden=false cost=25 | max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+  selectionEntryGroups:
+    selectionEntryGroup r46-al-reward-18-r41-unit-viii-0-terror-squad-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-0-for | for | type=upgrade hidden=false cost=25 | max=1 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-1-rending-weapon | Rending Weapon | type=upgrade hidden=false cost=5 | max=10 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-2-power-weapon | Power weapon | type=upgrade hidden=false cost=10 | max=10 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-3-volkite-charger | Volkite Charger | type=upgrade hidden=false cost=10 | max=10 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-4-flamer | Flamer | type=upgrade hidden=false cost=5 | max=1 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-5-rotor-cannon | Rotor Cannon | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-6-heavy-flamer | Heavy Flamer | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-7-krak-grenades | Krak grenades (base unit; +2 pts/model) | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-8-melta-bombs | Melta bombs (base unit; +5 pts/model) | type=upgrade hidden=false cost=25 | max=1 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-9-stealth-adept | Stealth Adept (base unit; +1 pts/model) | type=upgrade hidden=false cost=5 | max=1 field=selections scope=parent child=None
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-source | Source Entry :: Terror Marine | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Headsman | 5 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
+Force Organisation:
+• Elites
+Unit Composition:
+• 4 Terror Marines
+• 1 Headsman
+Unit Type:
+• Infantry
+• The Headsman is a Character
+Wargear:
+• Power Armour
+• Bolter
+• Bolt pistol
+• Chainsword
+• Frag grenades
+• Trophies of Judgement
+Special Rules:
+• Legiones Astartes (Night Lords)
+• Infiltrate
+• Preferred Enemy (Infantry)
+OPTIONS
+• The squad may include up to five additional Terror Marines
+for +25 points per model.
+• Any model may replace his Chainsword with:
+• Rending Weapon ........................
+  RULE r46-al-reward-18-rule | The Rewards of Treachery :: One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-0-context | Option restriction :: • The squad may include up to five additional Terror Marines
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-1-context | Option restriction :: • Any model may replace his Chainsword with:
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-2-context | Option restriction :: • Any model may replace his Chainsword with:
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-3-context | Option restriction :: • Any model may replace his Bolter with:
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-4-context | Option restriction :: replace his Bolter with:
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-5-context | Option restriction :: replace his Bolter with:
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-6-context | Option restriction :: replace his Bolter with:
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-7-context | Option restriction :: • The entire squad may take:
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-7-squadwide | Squad-wide cost note :: The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-8-context | Option restriction :: • The entire squad may take:
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-8-squadwide | Squad-wide cost note :: The source prices this option at +5 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-9-context | Option restriction :: • The entire squad may take:
+  RULE r46-al-reward-18-r41-unit-viii-0-terror-squad-opt-9-squadwide | Squad-wide cost note :: The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  PROFILE Terror Marine [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=3+
+  PROFILE Headsman [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=3; Ld=9; Sv=3+
+
+----------------------------------------------------------------------------------------------------
+TOP r46-al-reward-19 | NIGHT RAPTOR SQUAD — Rewards of Treachery | cats=Elites, Rewards of Treachery Limit
+selectionEntry r46-al-reward-19 | NIGHT RAPTOR SQUAD — Rewards of Treachery | type=unit hidden=false cost=0.0 | 
+  selectionEntries:
+    selectionEntry r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-additional | Squad Models | type=model hidden=false cost=28 | max=15 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+  selectionEntryGroups:
+    selectionEntryGroup r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-0-for | for | type=upgrade hidden=false cost=28 | max=1 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-1-rending-weapon | Rending Weapon | type=upgrade hidden=false cost=5 | max=5 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-2-power-weapon | Power weapon | type=upgrade hidden=false cost=10 | max=5 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-3-volkite-serpenta | Volkite Serpenta | type=upgrade hidden=false cost=5 | max=2 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-4-hand-flamer | Hand Flamer | type=upgrade hidden=false cost=5 | max=2 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-5-plasma-pistol | Plasma Pistol | type=upgrade hidden=false cost=15 | max=2 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-6-melta-bombs | Melta bombs | type=upgrade hidden=false cost=5 | max=2 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-7-krak-grenades | Krak grenades (base unit; +2 pts/model) | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-8-stealth-adept | Stealth Adept (base unit; +1 pts/model) | type=upgrade hidden=false cost=5 | max=1 field=selections scope=parent child=None
+  RULE r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-source | Source Entry :: Night Raptor | 4 | 4 | 4 | 4 | 1 | 4 | 1 | 8 | 3+
+Raptor Sergeant | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Headtaker | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Force Organisation:
+• Fast Attack
+Unit Composition:
+• 4 Night Raptors
+• 1 Raptor Sergeant
+Unit Type:
+• Jump Infantry
+• The Raptor Sergeant is a Character
+Wargear:
+• Power Armour
+• Jump Pack
+• Bolt pistol
+• Chainsword
+• Frag grenades
+• Trophies of Judgement
+Special Rules:
+• Legiones Astartes (Night Lords)
+• Hit & Run
+OPTIONS
+• The squad may include up to ten additional Night Raptors
+for +28 points per model.
+• Up to five models may replace their C
+  RULE r46-al-reward-19-rule | The Rewards of Treachery :: One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.
+  RULE r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-0-context | Option restriction :: • The squad may include up to ten additional Night Raptors
+  RULE r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-1-context | Option restriction :: • Up to five models may replace their Chainsword with:
+  RULE r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-2-context | Option restriction :: • Up to five models may replace their Chainsword with:
+  RULE r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-3-context | Option restriction :: • Up to two Night Raptors may replace their Bolt pistol with:
+  RULE r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-4-context | Option restriction :: • Up to two Night Raptors may replace their Bolt pistol with:
+  RULE r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-5-context | Option restriction :: • Up to two Night Raptors may replace their Bolt pistol with:
+  RULE r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-6-context | Option restriction :: • Up to two models may take:
+  RULE r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-7-context | Option restriction :: • The entire squad may take:
+  RULE r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-7-squadwide | Squad-wide cost note :: The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  RULE r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-8-context | Option restriction :: • The entire squad may take:
+  RULE r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-opt-8-squadwide | Squad-wide cost note :: The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.
+  PROFILE Night Raptor [Model] :: WS=4; BS=4; S=4; T=4; W=1; I=4; A=1; Ld=8; Sv=3+
+  PROFILE Raptor Sergeant [Model] :: WS=4; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=3+
+  PROFILE Headtaker [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=3+
+
+----------------------------------------------------------------------------------------------------
+TOP r46-al-reward-20 | CONTEKAR TERMINATOR ELITE — Rewards of Treachery | cats=Elites, Rewards of Treachery Limit
+selectionEntry r46-al-reward-20 | CONTEKAR TERMINATOR ELITE — Rewards of Treachery | type=unit hidden=false cost=0.0 | 
+  selectionEntries:
+    selectionEntry r46-al-reward-20-r41-unit-viii-2-contekar-terminator-elite-additional | Squad Models | type=model hidden=false cost=50 | max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+  selectionEntryGroups:
+    selectionEntryGroup r46-al-reward-20-r41-unit-viii-2-contekar-terminator-elite-options | Options | type=None hidden=false cost= | 
+      selectionEntries:
+        selectionEntry r46-al-reward-20-r41-unit-viii-2-contekar-terminator-elite-opt-0-volkite-culverin | Volkite Culverin | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-20-r41-unit-viii-2-contekar-terminator-elite-opt-1-escaton-power-claw | Escaton Power Claw | type=upgrade hidden=false cost=10 | max=2 field=selections scope=parent child=None
+        selectionEntry r46-al-reward-20-r41-unit-viii-2-contekar-terminator-elite-opt-2-grenade-harness | Grenade Harness | type=upgrade hidden=false cost=10 | max=1 field=selections scope=parent child=None
+    selectionEntryGroup r49-legion-upgrades-r46-al-reward-20 | Legion Wargear & Upgrades | type=None hidden=false cost= | 
+      entryLinks:
+        entryLink r46-al-reward-20-r44-r41-unit-viii-2-contekar-terminator-elite-nl-trans | Teleportation Transponders | type=selectionEntry hidden=false cost= | max=1 field=selections scope=parent child=None
+  entryLinks:
+  RULE r46-al-reward-20-r41-unit-viii-2-contekar-terminator-elite-source | Source Entry :: Contekar | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 2+/5+
+Contekar Dissident | 5 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 2+/5+
+NOSTRAMAN CHAINBLADE A Nostraman Chainblade is a Two-Handed Rending Weapon which grants +1 Strength. ESCATON POWER CLAW An Escaton Power Claw counts as a Power Fist. In addition, the wielder may re-roll failed To Wound rolls made with the Escaton Power Claw.
+Force Organisation:
+• Elites
+Unit Composition:
+• 4 Contekar
+• 1 Contekar Dissident
+Unit Type:
+• Infantry
+• The Contekar Dissident is a Character
+Wargear:
+• Tartaros Terminator Armour
+• Heavy Flamer
+• Nostraman Chainblade
+Special Rule
+  RULE r46-al-reward-20-rule | The Rewards of Treachery :: One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.
+  RULE r46-al-reward-20-r41-unit-viii-2-contekar-terminator-elite-opt-0-context | Option restriction :: • Every model may replace their Heavy Flamer with:
+  RULE r46-al-reward-20-r41-unit-viii-2-contekar-terminator-elite-opt-1-context | Option restriction :: • Up to two models may replace their Nostraman Chainblade with:
+  RULE r46-al-reward-20-r41-unit-viii-2-contekar-terminator-elite-opt-2-context | Option restriction :: • The Contekar Dissident may take:
+  PROFILE Contekar [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=2; Ld=9; Sv=2+/5+
+  PROFILE Contekar Dissident [Model] :: WS=5; BS=4; S=4; T=4; W=1; I=4; A=3; Ld=9; Sv=2+/5+
+
+=== NIGHT LORDS SHARED ARMOURY OBJECTS ===
+r44-nl-chainglaive: Nostraman Chainglaive cost=10
+  Nostraman Chainglaive: Night Lords Independent Character or squad Sergeant. User +1 Strength, Rending, Two-Handed. Does not count as a Power Weapon.
+r44-nl-trophies: Trophies of Judgement cost=10
+  Trophies of Judgement: Night Lords Independent Character or squad Sergeant. Enemy units with a model within 8” suffer -1 Leadership. Multiple sources do not stack.
+r44-nl-stealth-ic: Stealth Adept cost=5
+  Stealth Adept: Night Lords Independent Character. Gains Stealth. Models on Bikes/Jetbikes or in Terminator Armour may not purchase it.
+r44-nl-stealth-unit: Stealth Adept — unit cost=0
+  Stealth Adept — unit: Night Lords Infantry or Jump Infantry only; +1 point per model and every model must purchase it. Grants Stealth. Bikes, Jetbikes, Terminator Armour, Dreadnoughts and Vehicles cannot take it. Add the correct +1/model total to the roster using the model-counted option where supported.
+r44-nl-kraken-bolts: Kraken Light Bolts cost=10
+  Kraken Light Bolts: Tactical or Veteran Squad. Bolters, Combi-Bolters, Twin-linked Bolters and bolter components of Combi-Weapons become AP4. Cannot combine with Special Issue Ammunition or another ammunition upgrade; Tactical Squads cannot use Fury of the Legion while firing them.
+r44-nl-transponder-character: Teleportation Transponders cost=10
+  Teleportation Transponders: Night Lords Independent Character in Terminator Armour. Grants Deep Strike even where mission rules would not normally permit it.
+r44-nl-transponder-unit: Teleportation Transponders cost=15
+  Teleportation Transponders: Night Lords unit entirely in Terminator Armour. Grants Deep Strike even where mission rules would not normally permit it.
+
+=== OWNERS / LINKS OF NIGHT LORDS ARMOURY ITEMS ===
+tactical-unit | Legion Tactical Squad :: LINK r44-tactical-unit-nl-stealth Stealth Adept — unit -> r44-nl-stealth-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-7 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+tactical-unit | Legion Tactical Squad :: LINK r44-tactical-unit-nl-kraken Kraken Light Bolts -> r44-nl-kraken-bolts hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-8 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+assault-unit | Legion Assault Squad :: LINK r44-assault-unit-nl-stealth Stealth Adept — unit -> r44-nl-stealth-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-28 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+recon-unit | Legion Reconnaissance Squad :: LINK r44-recon-unit-nl-stealth Stealth Adept — unit -> r44-nl-stealth-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-56 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+veteran-unit | Legion Veteran Squad :: LINK r44-veteran-unit-nl-stealth Stealth Adept — unit -> r44-nl-stealth-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-70 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+veteran-unit | Legion Veteran Squad :: LINK r44-veteran-unit-nl-kraken Kraken Light Bolts -> r44-nl-kraken-bolts hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-71 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+terminator-unit | Legion Terminator Squad :: LINK r44-terminator-unit-nl-trans Teleportation Transponders -> r44-nl-transponder-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-94 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+fa-seeker | Legion Seeker Squad :: LINK r44-fa-seeker-nl-stealth Stealth Adept — unit -> r44-nl-stealth-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-121 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+hq-praetor | Legion Praetor :: LINK r44-hq-praetor-r44-nl-chainglaive Nostraman Chainglaive -> r44-nl-chainglaive hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-186 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+hq-praetor | Legion Praetor :: LINK r44-hq-praetor-r44-nl-trophies Trophies of Judgement -> r44-nl-trophies hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-187 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+hq-praetor | Legion Praetor :: LINK r44-hq-praetor-r44-nl-stealth-ic Stealth Adept -> r44-nl-stealth-ic hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-188 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+hq-praetor | Legion Praetor :: LINK r44-hq-praetor-r44-nl-transponder-character Teleportation Transponders -> r44-nl-transponder-character hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-189 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+hq-centurion | Legion Centurion :: LINK r44-hq-centurion-r44-nl-chainglaive Nostraman Chainglaive -> r44-nl-chainglaive hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-251 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+hq-centurion | Legion Centurion :: LINK r44-hq-centurion-r44-nl-trophies Trophies of Judgement -> r44-nl-trophies hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-252 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+hq-centurion | Legion Centurion :: LINK r44-hq-centurion-r44-nl-stealth-ic Stealth Adept -> r44-nl-stealth-ic hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-253 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+hq-centurion | Legion Centurion :: LINK r44-hq-centurion-r44-nl-transponder-character Teleportation Transponders -> r44-nl-transponder-character hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-254 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+r60-ws-hibou-retinue-legion-veteran-squad | Legion Veteran Squad :: LINK r60-ws-hibou-retinue-legion-veteran-squad-r44-veteran-unit-nl-stealth Stealth Adept — unit -> r44-nl-stealth-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r60-ws-hibou-retinue-legion-veteran-squad-r48-vis-70 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+r60-ws-hibou-retinue-legion-veteran-squad | Legion Veteran Squad :: LINK r60-ws-hibou-retinue-legion-veteran-squad-r44-veteran-unit-nl-kraken Kraken Light Bolts -> r44-nl-kraken-bolts hidden=false max=1 field=selections scope=parent child=None
+  MOD r60-ws-hibou-retinue-legion-veteran-squad-r48-vis-71 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+r60-ws-hasik-retinue-legion-veteran-squad | Legion Veteran Squad :: LINK r60-ws-hasik-retinue-legion-veteran-squad-r44-veteran-unit-nl-stealth Stealth Adept — unit -> r44-nl-stealth-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r60-ws-hasik-retinue-legion-veteran-squad-r48-vis-70 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+r60-ws-hasik-retinue-legion-veteran-squad | Legion Veteran Squad :: LINK r60-ws-hasik-retinue-legion-veteran-squad-r44-veteran-unit-nl-kraken Kraken Light Bolts -> r44-nl-kraken-bolts hidden=false max=1 field=selections scope=parent child=None
+  MOD r60-ws-hasik-retinue-legion-veteran-squad-r48-vis-71 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+r41-unit-viii-2-contekar-terminator-elite | CONTEKAR TERMINATOR ELITE :: LINK r44-r41-unit-viii-2-contekar-terminator-elite-nl-trans Teleportation Transponders -> r44-nl-transponder-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-310 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+r41-unit-viii-3-atramentar-flay-clade | ATRAMENTAR FLAY-CLADE :: LINK r44-r41-unit-viii-3-atramentar-flay-clade-nl-trans Teleportation Transponders -> r44-nl-transponder-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-311 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+r46-al-reward-20 | CONTEKAR TERMINATOR ELITE — Rewards of Treachery :: LINK r46-al-reward-20-r44-r41-unit-viii-2-contekar-terminator-elite-nl-trans Teleportation Transponders -> r44-nl-transponder-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r48-vis-416 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+r57-iw-golg-term-troops | Legion Terminator Squad — Terminator Attack :: LINK r57-iw-golg-term-troops-r44-terminator-unit-nl-trans Teleportation Transponders -> r44-nl-transponder-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r57-iw-golg-term-troops-r48-vis-94 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+r57-iw-hammer-tactical | Legion Tactical Squad — Hammer Compulsory :: LINK r57-iw-hammer-tactical-r44-tactical-unit-nl-stealth Stealth Adept — unit -> r44-nl-stealth-unit hidden=false max=1 field=selections scope=parent child=None
+  MOD r57-iw-hammer-tactical-r48-vis-7 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+r57-iw-hammer-tactical | Legion Tactical Squad — Hammer Compulsory :: LINK r57-iw-hammer-tactical-r44-tactical-unit-nl-kraken Kraken Light Bolts -> r44-nl-kraken-bolts hidden=false max=1 field=selections scope=parent child=None
+  MOD r57-iw-hammer-tactical-r48-vis-8 type=set field=hidden value=true
+    COND lessThan 1 scope=roster child=legion-viii field=selections
+
+=== NIGHT LORDS RITES / ROLE CLONES ===
+r25-rite-viii-0-terror-assault | Night Lords Rite of War — Terror Assault | cats= hidden=false cost= max=1 field=selections scope=parent child=None
+  MODCOND lessThan 1 scope=roster child=legion-viii
+r25-rite-viii-1-horror-cult | Night Lords Rite of War — Horror Cult | cats= hidden=false cost= max=1 field=selections scope=parent child=None
+  MODCOND lessThan 1 scope=roster child=legion-viii
+r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad | NIGHT RAPTOR SQUAD | cats=Troops hidden=true cost=0.0 
+  MODCOND lessThan 1 scope=roster child=legion-viii
+  MODCOND lessThan 1 scope=roster child=r25-rite-viii-0-terror-assault
+r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad | NIGHT RAPTOR SQUAD | cats=Troops hidden=true cost=0.0 
+  MODCOND lessThan 1 scope=roster child=legion-viii
+  MODCOND lessThan 1 scope=roster child=r25-rite-viii-1-horror-cult
+
+=== GST NIGHT LORDS / RITE MODIFIERS ===
+MOD r44-nl-fast-max type=set field=fl-fast-max value=4
+  COND atLeast 1 scope=roster child=legion-viii field=selections
+MOD r44-nl-heavy-max type=set field=fl-heavy-max value=1
+  COND atLeast 1 scope=roster child=legion-viii field=selections
+
+=== SERGEANT / UNIT CANDIDATES ===
+tactical-unit | Legion Tactical Squad | cats=Troops | models=tac-marine:Legion Tactical Marine default=9 min=9 field=selections scope=parent child=None; max=19 field=selections scope=parent child=None; tac-sergeant:Legion Tactical Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+assault-unit | Legion Assault Squad | cats=Troops | models=assault-marine:Legion Assault Marine default=9 min=9 field=selections scope=parent child=None; max=19 field=selections scope=parent child=None; assault-sergeant:Legion Assault Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+breacher-unit | Legion Breacher Siege Squad | cats=Troops, Stone Gauntlet Compulsory Troops | models=breacher-marine:Legion Breacher Marine default=9 min=9 field=selections scope=parent child=None; max=19 field=selections scope=parent child=None; breacher-sergeant:Legion Breacher Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+recon-unit | Legion Reconnaissance Squad | cats=Troops | models=recon-marine:Legion Recon Marine default=4 min=4 field=selections scope=parent child=None; max=9 field=selections scope=parent child=None; recon-sergeant:Legion Recon Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+veteran-unit | Legion Veteran Squad | cats=Elites | models=veteran-included:Legion Veterans default=4 min=4 field=selections scope=parent child=None; max=9 field=selections scope=parent child=None; veteran-sergeant:Legion Veteran Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+destroyer-unit | Legion Destroyer Squad | cats=Elites | models=destroyer-included:Legion Destroyers default=4 min=4 field=selections scope=parent child=None; max=9 field=selections scope=parent child=None; destroyer-sergeant:Legion Destroyer Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+techmarine-covenant | Techmarine Covenant | cats=Elites | models=techmarine-I:Legion Techmarine I default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None; techmarine-II:Legion Techmarine II default=None max=1 field=selections scope=parent child=None; techmarine-III:Legion Techmarine III default=None max=1 field=selections scope=parent child=None
+rapier-unit | Legion Rapier Weapons Battery | cats=Elites | models=rapier-carrier:Rapier Carrier default=1 min=1 field=selections scope=parent child=None; max=3 field=selections scope=parent child=None
+fa-seeker | Legion Seeker Squad | cats=Fast Attack | models=fa-seeker-included:Legion Seekers default=4 min=4 field=selections scope=parent child=None; max=9 field=selections scope=parent child=None; fa-seeker-sgt:Legion Seeker Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+hs-heavy-support-squad | Legion Heavy Support Squad | cats=Heavy Support | models=hs-hss-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+hs-venator | Sicaran Venator Tank Destroyer | cats=Heavy Support | models=
+r32-low-cerberus | Legion Cerberus Heavy Tank Destroyer | cats=Lords of War | models=
+r32-low-falchion | Legion Falchion Super-heavy Tank Destroyer | cats=Lords of War | models=
+r35-pride-veteran-veteran-unit | Legion Veteran Squad | cats=Troops | models=r35-pride-veteran-veteran-included:Legion Veterans default=4 min=4 field=selections scope=parent child=None; max=9 field=selections scope=parent child=None; r35-pride-veteran-veteran-sergeant:Legion Veteran Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+r35-destroyer-troops-destroyer-unit | Legion Destroyer Squad | cats=Troops | models=r35-destroyer-troops-destroyer-included:Legion Destroyers default=4 min=4 field=selections scope=parent child=None; max=9 field=selections scope=parent child=None; r35-destroyer-troops-destroyer-sergeant:Legion Destroyer Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+r40-da-storm-tactical | Legion Tactical Squad (Storm of War compulsory) | cats=Troops | models=r40-da-storm-tactical-tac-marine:Legion Tactical Marine default=9 min=9 field=selections scope=parent child=None; max=19 field=selections scope=parent child=None; r40-da-storm-tactical-tac-sergeant:Legion Tactical Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+r40-da-storm-assault | Legion Assault Squad (Storm of War compulsory) | cats=Troops | models=r40-da-storm-assault-assault-marine:Legion Assault Marine default=9 min=9 field=selections scope=parent child=None; max=19 field=selections scope=parent child=None; r40-da-storm-assault-assault-sergeant:Legion Assault Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+r40-da-vow-veteran | Legion Veteran Squad | cats=Troops | models=r40-da-vow-veteran-veteran-included:Legion Veterans default=4 min=4 field=selections scope=parent child=None; max=9 field=selections scope=parent child=None; r40-da-vow-veteran-veteran-sergeant:Legion Veteran Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+r40-da-eskaton-destroyer | Legion Destroyer Squad | cats=Troops | models=r40-da-eskaton-destroyer-destroyer-included:Legion Destroyers default=4 min=4 field=selections scope=parent child=None; max=9 field=selections scope=parent child=None; r40-da-eskaton-destroyer-destroyer-sergeant:Legion Destroyer Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+r40-da-serpent-seeker | Legion Seeker Squad | cats=Troops | models=r40-da-serpent-seeker-fa-seeker-included:Legion Seekers default=4 min=4 field=selections scope=parent child=None; max=9 field=selections scope=parent child=None; r40-da-serpent-seeker-fa-seeker-sgt:Legion Seeker Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+r40-da-serpent-assault | Legion Assault Squad (Serpent’s Bane compulsory) | cats=Troops | models=r40-da-serpent-assault-assault-marine:Legion Assault Marine default=9 min=9 field=selections scope=parent child=None; max=19 field=selections scope=parent child=None; r40-da-serpent-assault-assault-sergeant:Legion Assault Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+r41-unit-viii-0-terror-squad | TERROR SQUAD | cats=Elites | models=r41-unit-viii-0-terror-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r41-unit-viii-1-night-raptor-squad | NIGHT RAPTOR SQUAD | cats=Fast Attack | models=r41-unit-viii-1-night-raptor-squad-additional:Squad Models default=5 max=15 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r41-unit-xii-2-red-hand-destroyer-mortalis-squad | RED HAND DESTROYER MORTALIS SQUAD | cats=Elites | models=r41-unit-xii-2-red-hand-destroyer-mortalis-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r41-unit-xii-5-triarii-breacher-squad | TRIARII BREACHER SQUAD | cats=Elites | models=r41-unit-xii-5-triarii-breacher-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r41-unit-xiii-3-nemesis-destroyer-squad | NEMESIS DESTROYER SQUAD | cats=Elites | models=r41-unit-xiii-3-nemesis-destroyer-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r41-unit-xviii-2-salamanders-infernus-destroyer-squad | SALAMANDERS INFERNUS DESTROYER SQUAD | cats=Elites | models=r41-unit-xviii-2-salamanders-infernus-destroyer-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r41-unit-xix-1-dark-fury-assault-squad | DARK FURY ASSAULT SQUAD | cats=Fast Attack | models=r41-unit-xix-1-dark-fury-assault-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad | NIGHT RAPTOR SQUAD | cats=Troops | models=r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-additional:Squad Models default=5 max=15 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad | NIGHT RAPTOR SQUAD | cats=Troops | models=r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-additional:Squad Models default=5 max=15 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-veteran-unit | Legion Veteran Squad | cats=Troops | models=r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-veteran-included:Legion Veterans default=4 min=4 field=selections scope=parent child=None; max=9 field=selections scope=parent child=None; r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-veteran-sergeant:Legion Veteran Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+r42-role-xiv-0-legion-heavy-support-squads-hs-heavy-support-squad | Legion Heavy Support Squad | cats=Troops | models=r42-role-xiv-0-legion-heavy-support-squads-hs-hss-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r42-role-xviii-0-salamanders-infernus-destroyer-squads-r41-unit-xviii-2-salamanders-infernus-destroyer-squad | SALAMANDERS INFERNUS DESTROYER SQUAD | cats=Troops | models=r42-role-xviii-0-salamanders-infernus-destroyer-squads-r41-unit-xviii-2-salamanders-infernus-destroyer-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r46-al-reward-18 | TERROR SQUAD — Rewards of Treachery | cats=Elites, Rewards of Treachery Limit | models=r46-al-reward-18-r41-unit-viii-0-terror-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r46-al-reward-19 | NIGHT RAPTOR SQUAD — Rewards of Treachery | cats=Elites, Rewards of Treachery Limit | models=r46-al-reward-19-r41-unit-viii-1-night-raptor-squad-additional:Squad Models default=5 max=15 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r46-al-reward-30 | RED HAND DESTROYER MORTALIS SQUAD — Rewards of Treachery | cats=Elites, Rewards of Treachery Limit | models=r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r46-al-reward-33 | TRIARII BREACHER SQUAD — Rewards of Treachery | cats=Elites, Rewards of Treachery Limit | models=r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r46-al-reward-37 | NEMESIS DESTROYER SQUAD — Rewards of Treachery | cats=Elites, Rewards of Treachery Limit | models=r46-al-reward-37-r41-unit-xiii-3-nemesis-destroyer-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r46-al-reward-55 | SALAMANDERS INFERNUS DESTROYER SQUAD — Rewards of Treachery | cats=Elites, Rewards of Treachery Limit | models=r46-al-reward-55-r41-unit-xviii-2-salamanders-infernus-destroyer-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r46-al-reward-59 | DARK FURY ASSAULT SQUAD — Rewards of Treachery | cats=Elites, Rewards of Treachery Limit | models=r46-al-reward-59-r41-unit-xix-1-dark-fury-assault-squad-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r52-ec-sonic-hss | Legion Heavy Support Squad — Sonic Weaponry | cats=Heavy Support | models=r52-ec-sonic-hss-hs-hss-additional:Squad Models default=5 max=10 field=selections scope=parent child=None; min=5 field=selections scope=parent child=None
+r57-iw-hammer-tactical | Legion Tactical Squad — Hammer Compulsory | cats=Troops | models=r57-iw-hammer-tactical-tac-marine:Legion Tactical Marine default=9 min=9 field=selections scope=parent child=None; max=19 field=selections scope=parent child=None; r57-iw-hammer-tactical-tac-sergeant:Legion Tactical Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
+r57-iw-hammer-breacher | Legion Breacher Siege Squad — Hammer Compulsory | cats=Troops | models=r57-iw-hammer-breacher-breacher-marine:Legion Breacher Marine default=9 min=9 field=selections scope=parent child=None; max=19 field=selections scope=parent child=None; r57-iw-hammer-breacher-breacher-sergeant:Legion Breacher Sergeant default=1 min=1 field=selections scope=parent child=None; max=1 field=selections scope=parent child=None
