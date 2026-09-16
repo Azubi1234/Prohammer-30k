@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="38" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
+<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="39" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
   <comment>Horus Heresy army lists adapted for use with ProHammer Classic.</comment>
   <readme>Core system skeleton for Prohammer 30k. Contains points, core profile types, battlefield roles, mandatory Army Configuration and the standard Force Organisation Chart.</readme>
   <costTypes>
@@ -72,6 +72,8 @@
     <categoryEntry id="r66-if-cat-stone-shield-ic" name="Stone Gauntlet — Shield-bearing Independent Character" hidden="true" />
     <categoryEntry id="r66-if-cat-hammer-warlord" name="Hammerfall — Warlord with Teleportation Transponders" hidden="true" />
     <categoryEntry id="r66-if-cat-templar-warlord" name="Templar Assault — Warlord with qualifying melee weapon" hidden="true" />
+    <categoryEntry id="r71-nl-cat-terror-assault-comp" name="Terror Assault compulsory Terror formation" hidden="true" />
+    <categoryEntry id="r71-nl-cat-horror-comp" name="Horror Cult compulsory Night Raptor" hidden="true" />
   </categoryEntries>
   <forceEntries>
     <forceEntry id="force-standard" name="Standard Age of Darkness Detachment" hidden="false">
@@ -154,6 +156,16 @@
                 </conditionGroup>
               </conditionGroups>
             </modifier>
+            <modifier id="r71-nl-mawdrym-hq-min" type="set" value="2" field="fl-hq-min">
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="r41-unit-viii-8-flaymaster-mawdrym-llansahai" shared="true" includeChildSelections="true" includeChildForces="false" />
+                    <condition type="lessThan" value="1" field="selections" scope="roster" childId="da22-rite-primarchs-chosen" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
           </modifiers>
         </categoryLink>
         <categoryLink id="fl-troops" name="Troops" hidden="false" targetId="cat-troops">
@@ -189,11 +201,6 @@
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-iv" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
-            <modifier id="r44-nl-fast-max" type="set" value="4" field="fl-fast-max">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
-              </conditions>
-            </modifier>
             <modifier id="r44-ih-gorgon-fast-max" type="set" value="1" field="fl-fast-max">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
@@ -207,6 +214,11 @@
             <modifier id="r64-if-templar-fast-max" type="set" value="1" field="fl-fast-max">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-2-templar-assault" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+            <modifier id="r44-nl-fast-max" type="set" value="4" field="fl-fast-max">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
           </modifiers>
@@ -229,11 +241,6 @@
             <modifier id="r43-sw-pale-heavy-max" type="set" value="1" field="fl-heavy-max">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vi-0-the-pale-hunters" shared="true" includeChildSelections="true" includeChildForces="false" />
-              </conditions>
-            </modifier>
-            <modifier id="r44-nl-heavy-max" type="set" value="1" field="fl-heavy-max">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
             <modifier id="r44-ba-revelation-heavy-max" type="set" value="1" field="fl-heavy-max">
@@ -259,6 +266,11 @@
             <modifier id="r52-ec-maru-heavy-max" type="set" value="2" field="fl-heavy-max">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-iii-0-the-maru-skara" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+            <modifier id="r44-nl-heavy-max" type="set" value="1" field="fl-heavy-max">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
           </modifiers>
@@ -395,6 +407,30 @@
             <modifier id="r66-if-fl-r66-if-cat-templar-warlord-max-mod" type="set" value="1" field="r66-if-fl-r66-if-cat-templar-warlord-max">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-2-templar-assault" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+        </categoryLink>
+        <categoryLink id="r71-nl-fl-r71-nl-cat-terror-assault-comp" name="Terror Assault compulsory Terror formation" hidden="true" targetId="r71-nl-cat-terror-assault-comp">
+          <constraints>
+            <constraint id="r71-nl-r71-nl-cat-terror-assault-comp-min" type="min" value="0" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </constraints>
+          <modifiers>
+            <modifier id="r71-nl-r71-nl-cat-terror-assault-comp-min-mod" type="set" value="1" field="r71-nl-r71-nl-cat-terror-assault-comp-min">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-0-terror-assault" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+        </categoryLink>
+        <categoryLink id="r71-nl-fl-r71-nl-cat-horror-comp" name="Horror Cult compulsory Night Raptor" hidden="true" targetId="r71-nl-cat-horror-comp">
+          <constraints>
+            <constraint id="r71-nl-r71-nl-cat-horror-comp-min" type="min" value="0" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </constraints>
+          <modifiers>
+            <modifier id="r71-nl-r71-nl-cat-horror-comp-min-mod" type="set" value="1" field="r71-nl-r71-nl-cat-horror-comp-min">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
           </modifiers>

@@ -1,4 +1,4 @@
-Top-level unit entries audited: 359
+Top-level unit entries audited: 360
 UI-standard flags: 0
 
 UNIT tactical-unit :: Legion Tactical Squad
@@ -524,17 +524,79 @@ UNIT r41-unit-vii-9-vii-rogal-dorn-the-praetorian-of-terra :: Rogal Dorn — The
   MODEL ('r70-if-ta-2-0-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
   MODEL ('r70-if-ta-2-1-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
 
-UNIT r41-unit-viii-0-terror-squad :: TERROR SQUAD
-  MODEL ('r41-unit-viii-0-terror-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['25'])
+UNIT r41-unit-viii-0-terror-squad :: Terror Squad
+  MODEL ('r71-nl-terror-models', '4 Terror Marines + Headsman', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['25'])
+  MODEL ('r71-nl-terror-transport-hs-lr-phobos-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-terror-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r71-nl-terror-transport-hs-lr-achilles-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
 
-UNIT r41-unit-viii-1-night-raptor-squad :: NIGHT RAPTOR SQUAD
-  MODEL ('r41-unit-viii-1-night-raptor-squad-additional', 'Squad Models', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['28'])
+UNIT r41-unit-viii-1-night-raptor-squad :: Night Raptor Squad
+  MODEL ('r71-nl-raptor-models', '4 Night Raptors + Raptor Sergeant', '5', [('min', '5', 'parent'), ('max', '15', 'parent')], ['28'])
 
-UNIT r41-unit-viii-2-contekar-terminator-elite :: CONTEKAR TERMINATOR ELITE
-  MODEL ('r41-unit-viii-2-contekar-terminator-elite-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+UNIT r41-unit-viii-2-contekar-terminator-elite :: Contekar Terminator Elite
+  MODEL ('r71-nl-contekar-models', '4 Contekar + Contekar Dissident', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['50'])
+  MODEL ('r71-nl-contekar-transport-hs-lr-phobos-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-contekar-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
 
-UNIT r41-unit-viii-3-atramentar-flay-clade :: ATRAMENTAR FLAY-CLADE
-  MODEL ('r41-unit-viii-3-atramentar-flay-clade-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+UNIT r41-unit-viii-3-atramentar-flay-clade :: Atramentar Flay-Clade
+  MODEL ('r71-nl-atramentar-models', '5 Atramentar', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['50'])
+  MODEL ('r71-nl-atramentar-transport-hs-lr-phobos-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-atramentar-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r41-unit-viii-4-jago-sevatarion :: Jago Sevatarion
+  MODEL ('r71-nl-sev-ret-0-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r71-nl-sev-ret-0-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-sev-ret-0-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r71-nl-sev-ret-0-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r71-nl-sev-ret-1-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r71-nl-sev-ret-1-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-sev-ret-1-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r71-nl-sev-ret-1-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r71-nl-sev-ret-2-r71-nl-atramentar-models', '5 Atramentar', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['50'])
+  MODEL ('r71-nl-sev-ret-2-r71-nl-atramentar-transport-hs-lr-phobos-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-sev-ret-2-r71-nl-atramentar-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r41-unit-viii-5-kheron-ophion :: Kheron Ophion
+  MODEL ('r71-nl-oph-ret-0-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r71-nl-oph-ret-0-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-oph-ret-0-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r71-nl-oph-ret-0-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r71-nl-oph-ret-1-r71-nl-contekar-models', '4 Contekar + Contekar Dissident', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['50'])
+  MODEL ('r71-nl-oph-ret-1-r71-nl-contekar-transport-hs-lr-phobos-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-oph-ret-1-r71-nl-contekar-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r41-unit-viii-6-malcharion-the-war-sage :: Malcharion, the War-Sage
+  MODEL ('r71-nl-mal-ret-0-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r71-nl-mal-ret-0-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-mal-ret-0-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r71-nl-mal-ret-0-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r71-nl-mal-ret-1-veteran-included', 'Legion Veterans', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20'])
+  MODEL ('r71-nl-mal-ret-1-veteran-sergeant', 'Legion Veteran Sergeant', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r71-nl-mal-ret-1-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-mal-ret-1-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r71-nl-mal-ret-1-r37-spear-veteran-transport-src-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r71-nl-mal-ret-1-r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos (10 models or fewer)', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-mal-ret-1-r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r41-unit-viii-7-shang :: Shang
+  MODEL ('r71-nl-shang-ret-0-r71-nl-terror-models', '4 Terror Marines + Headsman', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['25'])
+  MODEL ('r71-nl-shang-ret-0-r71-nl-terror-transport-hs-lr-phobos-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-shang-ret-0-r71-nl-terror-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r71-nl-shang-ret-0-r71-nl-terror-transport-hs-lr-achilles-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-viii-9-viii-konrad-curze-the-night-haunter :: Konrad Curze, the Night Haunter
+  MODEL ('r71-nl-curze-ret-0-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r71-nl-curze-ret-0-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-curze-ret-0-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r71-nl-curze-ret-0-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r71-nl-curze-ret-1-r71-nl-atramentar-models', '5 Atramentar', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['50'])
+  MODEL ('r71-nl-curze-ret-1-r71-nl-atramentar-transport-hs-lr-phobos-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-curze-ret-1-r71-nl-atramentar-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r71-nl-curze-ret-2-r71-nl-raptor-models', '4 Night Raptors + Raptor Sergeant', '5', [('min', '5', 'parent'), ('max', '15', 'parent')], ['28'])
+  MODEL ('r71-nl-curze-ret-3-r71-nl-terror-models', '4 Terror Marines + Headsman', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['25'])
+  MODEL ('r71-nl-curze-ret-3-r71-nl-terror-transport-hs-lr-phobos-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-curze-ret-3-r71-nl-terror-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r71-nl-curze-ret-3-r71-nl-terror-transport-hs-lr-achilles-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
 
 UNIT r41-unit-ix-0-dawnbreaker-cohort :: DAWNBREAKER COHORT
   MODEL ('r41-unit-ix-0-dawnbreaker-cohort-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['35'])
@@ -694,12 +756,6 @@ UNIT r42-role-vii-1-effects-landing-force-phalanx-warder-squads-r41-unit-vii-1-p
 
 UNIT r42-role-vii-2-effects-templar-host-templar-brethren-squads-r41-unit-vii-0-templar-brethren-squad :: TEMPLAR BRETHREN SQUAD
   MODEL ('r42-role-vii-2-effects-templar-host-templar-brethren-squads-r41-unit-vii-0-templar-brethren-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
-
-UNIT r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad :: NIGHT RAPTOR SQUAD
-  MODEL ('r42-role-viii-0-terror-formations-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-additional', 'Squad Models', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['28'])
-
-UNIT r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad :: NIGHT RAPTOR SQUAD
-  MODEL ('r42-role-viii-1-effects-raptor-cult-night-raptor-squads-r41-unit-viii-1-night-raptor-squad-additional', 'Squad Models', '5', [('max', '15', 'parent'), ('min', '5', 'parent')], ['28'])
 
 UNIT r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad :: RAMPAGER SQUAD
   MODEL ('r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
@@ -989,5 +1045,17 @@ UNIT r64-if-templar-troops :: Templar Brethren Squad — Templar Assault Troops
   MODEL ('r64-if-templar-troops-r64-if-templar-transport-lr-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
   MODEL ('r70-if-ta-3-0-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
   MODEL ('r70-if-ta-3-1-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+
+UNIT r71-nl-ta-raptor-r41-unit-viii-1-night-raptor-squad :: Night Raptor Squad — Terror Assault Troops
+  MODEL ('r71-nl-ta-raptor-r71-nl-raptor-models', '4 Night Raptors + Raptor Sergeant', '5', [('min', '5', 'parent'), ('max', '15', 'parent')], ['28'])
+
+UNIT r71-nl-ta-terror-r41-unit-viii-0-terror-squad :: Terror Squad — Terror Assault Troops
+  MODEL ('r71-nl-ta-terror-r71-nl-terror-models', '4 Terror Marines + Headsman', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['25'])
+  MODEL ('r71-nl-ta-terror-r71-nl-terror-transport-hs-lr-phobos-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
+  MODEL ('r71-nl-ta-terror-r71-nl-terror-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r71-nl-ta-terror-r71-nl-terror-transport-hs-lr-achilles-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad :: Night Raptor Squad — Horror Cult Troops
+  MODEL ('r71-nl-hc-raptor-r71-nl-raptor-models', '4 Night Raptors + Raptor Sergeant', '5', [('min', '5', 'parent'), ('max', '15', 'parent')], ['28'])
 
 === FLAGS ===

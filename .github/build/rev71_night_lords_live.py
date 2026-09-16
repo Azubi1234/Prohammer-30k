@@ -91,16 +91,20 @@ def max_constraint(e):
     cs=e.find(C('constraints'))
     return next((x for x in cs.findall(C('constraint')) if x.get('type')=='max' and x.get('field')=='selections'),None) if cs is not None else None
 def dynamic_group_max(g,base,extra_id,prefix,per_extra=1):
+    # extra_id is now the true total-model counter; allow one replacement per selected model.
     c=max_constraint(g)
-    if c is None:c=constraint(g,prefix+'-max','max',base,child=True)
-    else:c.set('value',str(base))
+    if c is None:c=constraint(g,prefix+'-max','max',0,child=True)
+    else:c.set('value','0')
     m=ET.SubElement(ensure(g,'modifiers'),C('modifier'),{'id':prefix+'-inc','type':'increment','value':str(per_extra),'field':c.get('id')}); rs=ET.SubElement(m,C('repeats')); ET.SubElement(rs,C('repeat'),{'value':'1','repeats':'1','field':'selections','scope':'parent','childId':extra_id,'shared':'true','roundUp':'false','includeChildSelections':'false','includeChildForces':'false'})
 def per_five_group(p,i,n,extra_id):
-    g=group(p,i,n,maxv=1); c=max_constraint(g); m=ET.SubElement(ensure(g,'modifiers'),C('modifier'),{'id':i+'-ten','type':'increment','value':'1','field':c.get('id')}); cs=ET.SubElement(m,C('conditions')); ET.SubElement(cs,C('condition'),{'type':'atLeast','value':'5','field':'selections','scope':'parent','childId':extra_id,'shared':'true','includeChildSelections':'true','includeChildForces':'false'}); return g
+    # All current users are 5-10 model squads: one choice at 5-9, two at 10.
+    g=group(p,i,n,maxv=1); c=max_constraint(g); m=ET.SubElement(ensure(g,'modifiers'),C('modifier'),{'id':i+'-ten','type':'increment','value':'1','field':c.get('id')}); cs=ET.SubElement(m,C('conditions')); ET.SubElement(cs,C('condition'),{'type':'atLeast','value':'10','field':'selections','scope':'parent','childId':extra_id,'shared':'true','includeChildSelections':'true','includeChildForces':'false'}); return g
 def scaled_toggle_multi(p,i,n,per,model_ids,ruletext=None):
     e=entry(p,i,n,0)
     mods=ensure(e,'modifiers')
-    for j,mid in enumerate(model_ids):
+    # Some callers pass the same total-model counter twice for backward helper compatibility.
+    unique_ids=list(dict.fromkeys(model_ids))
+    for j,mid in enumerate(unique_ids):
         m=ET.SubElement(mods,C('modifier'),{'id':f'{i}-cost-{j}','type':'increment','value':str(per),'field':'pts'}); rs=ET.SubElement(m,C('repeats')); ET.SubElement(rs,C('repeat'),{'value':'1','repeats':'1','field':'selections','scope':'root-entry','childId':mid,'shared':'true','roundUp':'false','includeChildSelections':'false','includeChildForces':'false'})
     if ruletext:rule(e,i+'-rule',n,ruletext)
     return e
@@ -109,7 +113,13 @@ def clear_build(u,profiles=False):
     for t in ('rules','entryLinks','selectionEntries','selectionEntryGroups','costs'):wipe(u,t)
     if profiles:wipe(u,'profiles')
 def fixed_plus_extra(u,prefix,base,extra_cost,max_total,base_name='Base Squad',extra_name='Additional Models'):
-    b=entry(u,prefix+'-base',base_name,0,'model',base,base,base); ex=entry(u,prefix+'-extra',extra_name,extra_cost,'model',max_total-base,0,0); return b,ex
+    # New Recruit UI standard: use one real model counter at the unit's true total size.
+    # The top-level unit pays the non-model remainder, while the counter pays the per-model value.
+    costs=u.findall('./'+C('costs')+'/'+C('cost'))
+    current=float(costs[0].get('value','0')) if costs else 0.0
+    set_points(u,current-(base*extra_cost))
+    m=entry(u,prefix+'-models',base_name.replace('Base Squad — ','') if 'Base Squad — ' in base_name else base_name,extra_cost,'model',max_total,base,base)
+    return m,m
 def add_rule_list(u,prefix,items):
     for j,(n,text) in enumerate(items):rule(u,f'{prefix}-{j}',n,text)
 def remove_links_target(root,targets):
@@ -133,14 +143,14 @@ def dedicated_transport_infantry(u,prefix,extra_id):
     link(g,prefix+'-rhino','Legion Rhino Armoured Carrier','transport-rhino');link(g,prefix+'-drop','Legion Drop Pod','transport-drop-pod');link(g,prefix+'-dread','Dreadclaw Drop Pod','transport-dreadclaw')
     for src,nm,cap_extra in [('hs-lr-phobos','Land Raider Phobos',5),('hs-lr-proteus','Land Raider Proteus',5),('hs-lr-achilles','Land Raider Achilles',1)]:
         v=clone_vehicle(src,prefix+'-'+src+'-',nm)
-        if cap_extra<5:hide_if_atleast(v,prefix+'-'+src+'-cap',extra_id,cap_extra+1)
+        if cap_extra<5:hide_if_atleast(v,prefix+'-'+src+'-cap',extra_id,7)
         ensure(g,'selectionEntries').append(v)
     return g
 def dedicated_transport_terminator(u,prefix,extra_id):
     g=group(u,prefix,'Dedicated Transport',maxv=1)
-    d=link(g,prefix+'-dread','Dreadclaw Drop Pod','transport-dreadclaw');hide_if_atleast(d,prefix+'-dread-cap',extra_id,1)
+    d=link(g,prefix+'-dread','Dreadclaw Drop Pod','transport-dreadclaw');hide_if_atleast(d,prefix+'-dread-cap',extra_id,6)
     for src,nm in [('hs-lr-phobos','Land Raider Phobos'),('hs-lr-proteus','Land Raider Proteus')]:
-        v=clone_vehicle(src,prefix+'-'+src+'-',nm);hide_if_atleast(v,prefix+'-'+src+'-cap',extra_id,1);ensure(g,'selectionEntries').append(v)
+        v=clone_vehicle(src,prefix+'-'+src+'-',nm);hide_if_atleast(v,prefix+'-'+src+'-cap',extra_id,6);ensure(g,'selectionEntries').append(v)
     sp=clone_vehicle('hs-spartan',prefix+'-spartan-','Legion Spartan Assault Tank');ensure(g,'selectionEntries').append(sp)
     return g
 def retinue(char,prefix,choices):
@@ -279,8 +289,7 @@ pair=entry(u,'r71-nl-atramentar-pair','Pair of Lightning Claws — replaces both
 for j,g in enumerate((rangedg,meleeg)):
     c=max_constraint(g);m=ET.SubElement(ensure(g,'modifiers'),C('modifier'),{'id':f'r71-nl-atramentar-pair-dec-{j}','type':'decrement','value':'1','field':c.get('id')});rs=ET.SubElement(m,C('repeats'));ET.SubElement(rs,C('repeat'),{'value':'1','repeats':'1','field':'selections','scope':'parent','childId':pair.get('id'),'shared':'true','roundUp':'false','includeChildSelections':'false','includeChildForces':'false'})
 # Pair count itself follows total model count.
-pm=max_constraint(pair);m=ET.SubElement(ensure(pair,'modifiers'),C('modifier'),{'id':'r71-nl-atramentar-pair-inc','type':'increment','value':'1','field':pm.get('id')}); # reset base below
-pm.set('value','5');rs=ET.SubElement(m,C('repeats'));ET.SubElement(rs,C('repeat'),{'value':'1','repeats':'1','field':'selections','scope':'parent','childId':e.get('id'),'shared':'true','roundUp':'false','includeChildSelections':'false','includeChildForces':'false'})
+pm=max_constraint(pair);pm.set('value','0');m=ET.SubElement(ensure(pair,'modifiers'),C('modifier'),{'id':'r71-nl-atramentar-pair-inc','type':'increment','value':'1','field':pm.get('id')});rs=ET.SubElement(m,C('repeats'));ET.SubElement(rs,C('repeat'),{'value':'1','repeats':'1','field':'selections','scope':'parent','childId':e.get('id'),'shared':'true','roundUp':'false','includeChildSelections':'false','includeChildForces':'false'})
 hg=per_five_group(u,'r71-nl-atramentar-heavy','Heavy Weapon Replacements — one per five models',e.get('id'))
 for k,n,c in [('flamer','Heavy Flamer',10),('reaper','Reaper Autocannon',15),('plasma','Plasma Blaster',15)]:x=entry(hg,'r71-nl-atramentar-h-'+k,n,c,maxv=2);rule(x,'r71-nl-atramentar-h-'+k+'-rule','Replacement','Replaces one Atramentar’s Combi-bolter.')
 dedicated_transport_terminator(u,'r71-nl-atramentar-transport',e.get('id'))
@@ -301,13 +310,13 @@ def leader_armoury(u,prefix,title,extra_id,max_extra,show_child=None):
     war=group(a,prefix+'-war','Armour & Wargear');link(war,prefix+'-art','Artificer Armour','gear-hq-artificer')
     for j,(n,tid) in enumerate(WARG):link(war,f'{prefix}-w-{j}',n,tid)
     link(war,prefix+'-melta','Melta Bombs','gear-melta-bombs');entry(war,prefix+'-mc','Master-crafted Weapon',15)
-    rf=link(war,prefix+'-rf','Refractor Field','gear-hq-refractor');show_if_all(rf,prefix+'-rf-show',[('atLeast',max_extra,'root-entry',extra_id)])
+    rf=link(war,prefix+'-rf','Refractor Field','gear-hq-refractor');show_if_all(rf,prefix+'-rf-show',[('atLeast',max_extra+5,'root-entry',extra_id)])
 leader_armoury(U['terror'],'r71-nl-headsman','Headsman','r71-nl-terror-extra',5)
 leader_armoury(U['raptor'],'r71-nl-headtaker-arm','Headtaker','r71-nl-raptor-extra',10,'r71-nl-raptor-headtaker')
 
 # ----- Generic squad Night Lords options -----
 # Add Chainglaive/Trophies to Sergeant Armouries; add true +1/model Stealth to eligible Infantry/Jump Infantry unit entries, including generic Rite copies.
-ELIGIBLE_PREFIXES=('legion tactical squad','legion assault squad','legion breacher siege squad','legion reconnaissance squad','legion veteran squad','legion destroyer squad','legion seeker squad','legion heavy support squad')
+ELIGIBLE_PREFIXES=('legion tactical squad','legion assault squad','legion breacher siege squad','legion reconnaissance squad','legion veteran squad','legion destroyer squad','legion seeker squad','legion heavy support squad','legion command squad','legion honour guard squad','legion apothecarion detachment','legion apothecary detachment','techmarine covenant')
 def is_generic_eligible(u):return u.get('type')=='unit' and any((u.get('name') or '').lower().startswith(x) for x in ELIGIBLE_PREFIXES)
 def add_generic_nl(u,idx):
     mids=model_ids(u)
@@ -328,7 +337,7 @@ for idx,u in enumerate([x for x in cr.iter(C('selectionEntry')) if x.get('type')
     if not any(l.get('targetId')=='r44-nl-kraken-bolts' for l in u.iter(C('entryLink'))):link(u,f'r71-nl-kraken-{idx}','Kraken Light Bolts','r44-nl-kraken-bolts')
 
 # Generic all-Terminator squad transponders.
-for idx,u in enumerate([x for x in cr.iter(C('selectionEntry')) if x.get('type')=='unit' and (x.get('name') or '').lower().startswith('legion terminator squad')]):
+for idx,u in enumerate([x for x in cr.iter(C('selectionEntry')) if x.get('type')=='unit' and ((x.get('name') or '').lower().startswith('legion terminator squad') or (x.get('name') or '').lower().startswith('legion terminator command squad'))]):
     if not any(l.get('targetId')=='r44-nl-transponder-unit' for l in u.iter(C('entryLink'))):link(u,f'r71-nl-term-trans-{idx}','Teleportation Transponders','r44-nl-transponder-unit')
 
 # Horror Cult Beyond Judgement for eligible squads. Unique Terror/Raptors already carry Trophies, but the Rite purchase is represented separately because the +25 purchase is what confers Fear.
@@ -426,17 +435,20 @@ assert byid(cr,'r71-nl-ta-terror-'+IDS['terror']) is not None
 assert byid(cr,'r71-nl-hc-raptor-'+IDS['raptor']) is not None
 # Unit-size structures: fixed 5 plus correct extras.
 for key,maxextra in [('terror',5),('raptor',10),('contekar',5),('atramentar',5)]:
-    u=U[key];models=[x for x in u.findall('./'+C('selectionEntries')+'/'+C('selectionEntry')) if x.get('type')=='model'];assert len(models)>=2,(key,len(models));assert any(x.get('defaultAmount')=='5' for x in models);assert any(any(c.get('type')=='max' and c.get('value')==str(maxextra) for c in x.findall('./'+C('constraints')+'/'+C('constraint'))) and x.get('defaultAmount')=='0' for x in models)
+    u=U[key];models=[x for x in u.findall('./'+C('selectionEntries')+'/'+C('selectionEntry')) if x.get('type')=='model'];assert len(models)>=1,(key,len(models));assert any(x.get('defaultAmount')=='5' for x in models);assert any(any(c.get('type')=='max' and c.get('value')==str(maxextra+5) for c in x.findall('./'+C('constraints')+'/'+C('constraint'))) and x.get('defaultAmount')=='5' for x in models)
 # Character retinues and Curze retinue exist.
 for x in (sev,oph,mal,sha,cur):assert any('Retinue' in (g.get('name') or '') for g in x.iter(C('selectionEntryGroup'))),x.get('name')
 # Traitor gates.
 for x in (oph,maw,byid(cr,HC)):assert any(c.get('childId')=='allegiance-traitor' for c in x.iter(C('condition'))),x.get('name')
 # Atramentar heavy combined limit begins one; Contekar every-model group begins five.
 assert max_constraint(byid(cr,'r71-nl-atramentar-heavy')).get('value')=='1'
-assert max_constraint(byid(cr,'r71-nl-contekar-ranged')).get('value')=='5'
+assert max_constraint(byid(cr,'r71-nl-contekar-ranged')).get('value')=='0'
 
 ET.indent(ct,space='  ');ET.indent(gt,space='  ');ET.indent(it,space='  ')
-ct.write(CAT,encoding='utf-8',xml_declaration=True);gt.write(GST,encoding='utf-8',xml_declaration=True);it.write(IDX,encoding='utf-8',xml_declaration=True)
+# ElementTree only keeps one default namespace registration at a time. Register the matching schema immediately before each write so New Recruit receives clean default-namespace XML instead of ns0 prefixes.
+ET.register_namespace('',CNS);ct.write(CAT,encoding='utf-8',xml_declaration=True)
+ET.register_namespace('',GNS);gt.write(GST,encoding='utf-8',xml_declaration=True)
+ET.register_namespace('',INS);it.write(IDX,encoding='utf-8',xml_declaration=True)
 ET.parse(CAT);ET.parse(GST);ET.parse(IDX)
-OUT.write_text('''Revision 71 — Night Lords live implementation\nCatalogue revision: 71\nGame-system revision: 39\n\nImplemented:\n- Current Lords of the Night, Terror Made Manifest, Masters of the Terror Assault and Legion-wide 4 Fast Attack / 1 Heavy Support structure.\n- Night Lords Armoury rebuilt around proper Chainglaive two-handed placement, Trophies, true +1/model Stealth Adept, Kraken Light Bolts, and conditional Terminator-only Teleportation Transponders.\n- Generic eligible Sergeants receive Chainglaive/Trophies through their actual Sergeant Armoury groups.\n- Terror Squad rebuilt at 5–10 models with scaling squad-wide upgrades, per-five special weapons, Headsman 50-point Armoury and capacity-aware transports.\n- Night Raptor Squad rebuilt at 5–15 with correct replacement limits, true per-model upgrades and functional Headtaker + 50-point Armoury.\n- Contekar rebuilt at 5–10; Volkite replacement scales to every selected model; dedicated transports respect Terminator capacity.\n- Atramentar rebuilt at 5–10; ranged/melee replacements scale, paired claws consume both replacement allowances, heavy weapons scale 1 per 5, and dedicated transports respect Terminator capacity.\n- Terror Assault provides functional Raptor and Terror Troops copies plus a compulsory Terror-formation requirement.\n- Horror Cult is Traitor-gated, provides functional Raptor Troops and a compulsory Raptor requirement, and exposes Beyond Judgement as a +25 Rite-gated squad upgrade.\n- Sevatar, Ophion, Malcharion, Shang and Mawdrym were cleaned of source dumps and given their current rules/options; their retinues are selectable and slotless.\n- Ophion and Mawdrym are Traitor-only. Mawdrym cannot satisfy the compulsory HQ by himself: outside Primarch’s Chosen his presence raises the HQ minimum to two.\n- Konrad Curze is rebuilt with clean wargear/rules, Widowmakers ranged profile, current psychic rules, and selectable Primarch retinues.\n- CAT/GST/index revisions bumped for New Recruit cache refresh.\n''',encoding='utf-8')
+OUT.write_text('''Revision 71 — Night Lords live implementation\nCatalogue revision: 71\nGame-system revision: 39\n\nImplemented:\n- Current Lords of the Night, Terror Made Manifest, Masters of the Terror Assault and Legion-wide 4 Fast Attack / 1 Heavy Support structure.\n- Night Lords Armoury rebuilt around proper Chainglaive two-handed placement, Trophies, true +1/model Stealth Adept, Kraken Light Bolts, and conditional Terminator-only Teleportation Transponders.\n- Generic eligible Sergeants receive Chainglaive/Trophies through their actual Sergeant Armoury groups; Infantry/Jump Infantry support also covers Command, Honour Guard, Apothecarion and Techmarine units where applicable.\n- Terror Squad rebuilt at 5–10 models with scaling squad-wide upgrades, per-five special weapons, Headsman 50-point Armoury and capacity-aware transports.\n- Night Raptor Squad rebuilt at 5–15 with correct replacement limits, true per-model upgrades and functional Headtaker + 50-point Armoury.\n- Contekar rebuilt at 5–10; Volkite replacement scales to every selected model; dedicated transports respect Terminator capacity.\n- Atramentar rebuilt at 5–10; ranged/melee replacements scale, paired claws consume both replacement allowances, heavy weapons scale 1 per 5, and dedicated transports respect Terminator capacity.\n- Terror Assault provides functional Raptor and Terror Troops copies plus a compulsory Terror-formation requirement.\n- Horror Cult is Traitor-gated, provides functional Raptor Troops and a compulsory Raptor requirement, and exposes Beyond Judgement as a +25 Rite-gated squad upgrade.\n- Sevatar, Ophion, Malcharion, Shang and Mawdrym were cleaned of source dumps and given their current rules/options; their retinues are selectable and slotless.\n- Ophion and Mawdrym are Traitor-only. Mawdrym cannot satisfy the compulsory HQ by himself: outside Primarch’s Chosen his presence raises the HQ minimum to two.\n- Konrad Curze is rebuilt with clean wargear/rules, Widowmakers ranged profile, current psychic rules, and selectable Primarch retinues.\n- CAT/GST/index revisions bumped for New Recruit cache refresh.\n''',encoding='utf-8')
 print(OUT.read_text())

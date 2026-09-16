@@ -1,0 +1,18 @@
+Revision 71 — Night Lords live implementation
+Catalogue revision: 71
+Game-system revision: 39
+
+Implemented:
+- Current Lords of the Night, Terror Made Manifest, Masters of the Terror Assault and Legion-wide 4 Fast Attack / 1 Heavy Support structure.
+- Night Lords Armoury rebuilt around proper Chainglaive two-handed placement, Trophies, true +1/model Stealth Adept, Kraken Light Bolts, and conditional Terminator-only Teleportation Transponders.
+- Generic eligible Sergeants receive Chainglaive/Trophies through their actual Sergeant Armoury groups; Infantry/Jump Infantry support also covers Command, Honour Guard, Apothecarion and Techmarine units where applicable.
+- Terror Squad rebuilt at 5–10 models with scaling squad-wide upgrades, per-five special weapons, Headsman 50-point Armoury and capacity-aware transports.
+- Night Raptor Squad rebuilt at 5–15 with correct replacement limits, true per-model upgrades and functional Headtaker + 50-point Armoury.
+- Contekar rebuilt at 5–10; Volkite replacement scales to every selected model; dedicated transports respect Terminator capacity.
+- Atramentar rebuilt at 5–10; ranged/melee replacements scale, paired claws consume both replacement allowances, heavy weapons scale 1 per 5, and dedicated transports respect Terminator capacity.
+- Terror Assault provides functional Raptor and Terror Troops copies plus a compulsory Terror-formation requirement.
+- Horror Cult is Traitor-gated, provides functional Raptor Troops and a compulsory Raptor requirement, and exposes Beyond Judgement as a +25 Rite-gated squad upgrade.
+- Sevatar, Ophion, Malcharion, Shang and Mawdrym were cleaned of source dumps and given their current rules/options; their retinues are selectable and slotless.
+- Ophion and Mawdrym are Traitor-only. Mawdrym cannot satisfy the compulsory HQ by himself: outside Primarch’s Chosen his presence raises the HQ minimum to two.
+- Konrad Curze is rebuilt with clean wargear/rules, Widowmakers ranged profile, current psychic rules, and selectable Primarch retinues.
+- CAT/GST/index revisions bumped for New Recruit cache refresh.
