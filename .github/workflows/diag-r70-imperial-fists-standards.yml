@@ -21,6 +21,6 @@ jobs:
         run: |
           git config user.name 'Azubi1234'
           git config user.email '132048044+Azubi1234@users.noreply.github.com'
-          git add inspection-r70-if-standards-diagnostic.txt
+          git add inspection-r70-if-standards-diagnostic-compact.txt
           git diff --cached --quiet || git commit -m 'Revision 70 diagnostic: audit Imperial Fists standards gaps'
           git push
