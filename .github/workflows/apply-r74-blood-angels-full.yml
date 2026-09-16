@@ -15,6 +15,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      - name: Patch Revision 74 builder hotfixes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('.github/build/rev74_blood_angels_full.py')
+          s=p.read_text(encoding='utf-8')
+          old="def owner_unit(e):\n    pm={c:p for p in cr.iter() for c in p};p=e"
+          new="PARENT_MAP={c:p for p in cr.iter() for c in p}\ndef owner_unit(e):\n    pm=PARENT_MAP;p=e"
+          assert old in s
+          s=s.replace(old,new,1)
+          old="                dest=ensure(oldaz,'profiles');[dest.append(deepcopy(p)) for p in list(ps)]"
+          new="                dest=ensure(oldaz,'profiles')\n                for p in list(ps):\n                    cp=deepcopy(p); cp.set('id','r74-ba-azk-up-profile-'+(p.get('id') or 'model')); dest.append(cp)"
+          assert old in s
+          s=s.replace(old,new,1)
+          p.write_text(s,encoding='utf-8')
+          PY
       - name: Apply Revision 74 Blood Angels
         run: python .github/build/rev74_blood_angels_full.py
       - name: Run permanent unit-size audit
@@ -34,7 +50,7 @@ jobs:
         run: |
           git config user.name 'Azubi1234'
           git config user.email '132048044+Azubi1234@users.noreply.github.com'
-          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r74-blood-angels-full.txt inspection-r56-all-unit-sizes.txt
+          git add '.github/build/rev74_blood_angels_full.py' 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r74-blood-angels-full.txt inspection-r56-all-unit-sizes.txt
           git diff --cached --quiet || git commit -m 'Revision 74: implement Blood Angels fully'
           git pull --rebase origin main
           for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
