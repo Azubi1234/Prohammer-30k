@@ -1,0 +1,17 @@
+Revision 67 — Imperial Fists final visible pass
+Catalogue revision: 67
+Game-system revision: 35
+
+Purpose:
+- The Rev64/66 data contained the character rules as direct BattleScribe <rules>, but New Recruit can present those only in the rules/roster view. Revision 67 adds locked visible child entries for all fixed wargear and special rules on every Imperial Fists unique unit and character, so the complete entry is visible when editing the unit.
+
+Finalised:
+- Templar Brethren, Phalanx Warders, Huscarls and Tarantulas now visibly show their fixed equipment and rules.
+- Sigismund, Rann, Polux, Diaz, Garrius and Dorn now visibly show complete fixed wargear and named rules rather than appearing as statblocks only.
+- Existing options, retinues, Rite role changes, exact unit sizes, Dedicated Transports and Rev66 conditional restrictions are retained.
+- Huscarl Terminator Retinue is hidden as a standalone pick and remains available through the legal Dorn/Sigismund/Terminator-Praetor retinue paths.
+- Templar Assault hides the normal Templar Dedicated Transport group and uses the Rite-specific Assault Transport group.
+- Dorn automatically satisfies the Templar Assault Warlord weapon requirement through Storm’s Teeth; other Warlord designation controls hide while Dorn is present.
+- Hammerfall and Dorn are mutually unavailable because a Primarch must be the Warlord, Primarchs cannot buy unlisted upgrades, and Dorn has no Teleportation Transponder option.
+- Broad Rev64 Solarite links were cleaned out of unrelated Armoury groups and restored only to genuine Character armoury groups.
+- Catalogue, game-system and data-index XML are serialized with their own canonical default namespaces.
