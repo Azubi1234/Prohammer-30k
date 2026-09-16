@@ -1,0 +1,27 @@
+name: Revision 74 Blood Angels post-build audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/r74_post_blood_angels_audit.py'
+      - '.github/workflows/r74-blood-angels-post-audit.yml'
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Run Blood Angels post-build audit
+        run: python .github/build/r74_post_blood_angels_audit.py
+      - name: Commit post-build audit
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add inspection-r74-blood-angels-post.txt
+          git diff --cached --quiet || git commit -m 'Add Revision 74 Blood Angels post-build audit'
+          git pull --rebase origin main
+          for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
