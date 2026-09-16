@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ns0:catalogue xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="64" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="32" type="catalogue">
+<ns0:catalogue xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="65" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="33" type="catalogue">
   <ns0:comment>Revision 62: Space Wolves Legion base rules verified against Forces of the Legions; HQ organisation now scales one selection per full or partial 750 roster-limit points.</ns0:comment>
   <ns0:readme>Core Legiones Astartes catalogue for Prohammer 30k. Revision 32 includes the generic Legion army list and Consuls, Dark Angels package, Legiones Astartes Lords of War, and Legiones Astartes Aeronautica Imperialis aircraft. Experimental Wargear and Units remains excluded.</ns0:readme>
   <ns0:sharedSelectionEntries>
@@ -1790,6 +1790,9 @@
           <ns0:description>Grants a 5+ Invulnerable Save, occupies one hand and prevents the bonus Attack for fighting with two weapons.</ns0:description>
         </ns0:rule>
       </ns0:rules>
+      <ns0:categoryLinks>
+        <ns0:categoryLink id="r65-if-board-cat" name="Stone Gauntlet — Shield-bearing Independent Character" hidden="true" targetId="r65-if-cat-stone-shield-ic" primary="false" />
+      </ns0:categoryLinks>
     </ns0:selectionEntry>
     <ns0:selectionEntry type="upgrade" import="true" name="Combat Shield" hidden="false" id="gear-hq-combat-shield">
       <ns0:rules>
@@ -3699,6 +3702,9 @@
           </ns0:conditions>
         </ns0:modifier>
       </ns0:modifiers>
+      <ns0:categoryLinks>
+        <ns0:categoryLink id="r65-if-vigil-cat" name="Stone Gauntlet — Shield-bearing Independent Character" hidden="true" targetId="r65-if-cat-stone-shield-ic" primary="false" />
+      </ns0:categoryLinks>
     </ns0:selectionEntry>
     <ns0:selectionEntry id="r64-if-gear-trans-ic" name="Teleportation Transponders" type="upgrade" hidden="false" import="true">
       <ns0:costs>
@@ -3719,6 +3725,9 @@
           </ns0:conditions>
         </ns0:modifier>
       </ns0:modifiers>
+      <ns0:categoryLinks>
+        <ns0:categoryLink id="r65-if-trans-ic-cat" name="Hammerfall — Transponder-equipped Warlord candidate" hidden="true" targetId="r65-if-cat-hammer-trans-ic" primary="false" />
+      </ns0:categoryLinks>
     </ns0:selectionEntry>
     <ns0:selectionEntry id="r64-if-gear-trans-unit" name="Teleportation Transponders" type="upgrade" hidden="false" import="true">
       <ns0:costs>
@@ -45236,6 +45245,24 @@ The Detachment may not include a Fortification.</ns0:description>
                   <ns0:description>Phalanx Warder Squads may be selected as Troops and fulfil compulsory Troops. Any Imperial Fists Infantry unit may buy Teleportation Transponders for +15 points per unit and any Imperial Fists Independent Character for +10, overriding the Terminator-only restriction. A unit arriving by Deep Strike using Transponders gains Shrouded until the beginning of its next player turn; after placement, enemy units within 12 inches and line of sight test Initiative or suffer Blind until the end of their next player turn. The Warlord must have Transponders; every Vehicle must begin in Reserve; no Fortification may be included.</ns0:description>
                 </ns0:rule>
               </ns0:rules>
+              <ns0:selectionEntryGroups>
+                <ns0:selectionEntryGroup id="r65-if-hammer-warlord-confirm-group" name="Hammerfall Warlord Requirement" hidden="false" collective="false" import="true">
+                  <ns0:constraints>
+                    <ns0:constraint id="r65-if-hammer-warlord-confirm-group-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+                    <ns0:constraint id="r65-if-hammer-warlord-confirm-group-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:constraints>
+                  <ns0:selectionEntries>
+                    <ns0:selectionEntry id="r65-if-hammer-warlord-confirm" name="Confirm: the chosen Warlord is the Imperial Fists Independent Character equipped with Teleportation Transponders." type="upgrade" hidden="false" import="true">
+                      <ns0:constraints>
+                        <ns0:constraint id="r65-if-hammer-warlord-confirm-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </ns0:constraints>
+                      <ns0:costs>
+                        <ns0:cost name="Points" typeId="pts" value="0" />
+                      </ns0:costs>
+                    </ns0:selectionEntry>
+                  </ns0:selectionEntries>
+                </ns0:selectionEntryGroup>
+              </ns0:selectionEntryGroups>
             </ns0:selectionEntry>
             <ns0:selectionEntry type="upgrade" import="true" name="Imperial Fists Rite of War — Templar Assault" hidden="false" id="r25-rite-vii-2-templar-assault">
               <ns0:constraints>
@@ -45280,6 +45307,24 @@ The army's Warlord must be equipped with a Power Weapon, Rending Weapon, Relic B
                   <ns0:description>Templar Brethren Squads may be selected as Troops and fulfil compulsory Troops. If a Templar Brethren Squad charges after disembarking from an Assault Vehicle in the same turn it gains Furious Charge and its normal charge distance increases from 6 inches to 7 inches. In the first round of a combat in which it charged, models may re-roll To Hit rolls of 1 with Rending Weapons, Power Weapons, Relic Blades and other sword-like weapons. Compulsory Troops must be Templar Brethren. Maximum one Fast Attack choice; no Fortification. The Warlord must have a Power Weapon, Rending Weapon, Relic Blade or other sword-like close-combat weapon which ignores Armour Saves.</ns0:description>
                 </ns0:rule>
               </ns0:rules>
+              <ns0:selectionEntryGroups>
+                <ns0:selectionEntryGroup id="r65-if-templar-warlord-confirm-group" name="Templar Assault Warlord Requirement" hidden="false" collective="false" import="true">
+                  <ns0:constraints>
+                    <ns0:constraint id="r65-if-templar-warlord-confirm-group-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+                    <ns0:constraint id="r65-if-templar-warlord-confirm-group-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:constraints>
+                  <ns0:selectionEntries>
+                    <ns0:selectionEntry id="r65-if-templar-warlord-confirm" name="Confirm: the chosen Warlord is equipped with a Power Weapon, Rending Weapon, Relic Blade, or another sword-like close-combat weapon that ignores Armour Saves." type="upgrade" hidden="false" import="true">
+                      <ns0:constraints>
+                        <ns0:constraint id="r65-if-templar-warlord-confirm-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                      </ns0:constraints>
+                      <ns0:costs>
+                        <ns0:cost name="Points" typeId="pts" value="0" />
+                      </ns0:costs>
+                    </ns0:selectionEntry>
+                  </ns0:selectionEntries>
+                </ns0:selectionEntryGroup>
+              </ns0:selectionEntryGroups>
             </ns0:selectionEntry>
             <ns0:selectionEntry type="upgrade" import="true" name="Night Lords Rite of War — Terror Assault" hidden="false" id="r25-rite-viii-0-terror-assault">
               <ns0:constraints>
@@ -101168,6 +101213,20 @@ The Detachment may not include an Allied Detachment.</ns0:description>
           </ns0:selectionEntries>
         </ns0:selectionEntryGroup>
       </ns0:selectionEntryGroups>
+      <ns0:entryLinks>
+        <ns0:entryLink id="r65-if-sigismund-hammer-trans" name="Teleportation Transponders" type="selectionEntry" targetId="r64-if-gear-trans-ic" hidden="true" import="true">
+          <ns0:constraints>
+            <ns0:constraint id="r65-if-sigismund-hammer-trans-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r65-if-sigismund-hammer-trans-show" type="set" value="false" field="hidden">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-1-hammerfall-strike-force" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:entryLink>
+      </ns0:entryLinks>
     </ns0:selectionEntry>
     <ns0:selectionEntry type="unit" import="true" name="Fafnir Rann" hidden="false" id="r41-unit-vii-5-fafnir-rann">
       <ns0:categoryLinks>
@@ -101241,10 +101300,26 @@ The Detachment may not include an Allied Detachment.</ns0:description>
           </ns0:constraints>
         </ns0:selectionEntry>
       </ns0:selectionEntries>
+      <ns0:entryLinks>
+        <ns0:entryLink id="r65-if-rann-hammer-trans" name="Teleportation Transponders" type="selectionEntry" targetId="r64-if-gear-trans-ic" hidden="true" import="true">
+          <ns0:constraints>
+            <ns0:constraint id="r65-if-rann-hammer-trans-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r65-if-rann-hammer-trans-show" type="set" value="false" field="hidden">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-1-hammerfall-strike-force" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:entryLink>
+      </ns0:entryLinks>
     </ns0:selectionEntry>
     <ns0:selectionEntry type="unit" import="true" name="Alexis Polux" hidden="false" id="r41-unit-vii-6-alexis-polux">
       <ns0:categoryLinks>
         <ns0:categoryLink id="r41-unit-vii-6-alexis-polux-cat" name="HQ" hidden="false" targetId="cat-hq" primary="true" />
+        <ns0:categoryLink id="r65-if-polux-stone-cat" name="Stone Gauntlet — Shield-bearing Independent Character" hidden="true" targetId="r65-if-cat-stone-shield-ic" primary="false" />
+        <ns0:categoryLink id="r65-if-polux-hammer-cat" name="Hammerfall — Transponder-equipped Warlord candidate" hidden="true" targetId="r65-if-cat-hammer-trans-ic" primary="false" />
       </ns0:categoryLinks>
       <ns0:modifiers>
         <ns0:modifier type="set" value="true" field="hidden">
@@ -103324,6 +103399,20 @@ The Detachment may not include an Allied Detachment.</ns0:description>
           </ns0:selectionEntries>
         </ns0:selectionEntryGroup>
       </ns0:selectionEntryGroups>
+      <ns0:entryLinks>
+        <ns0:entryLink id="r65-if-diaz-hammer-trans" name="Teleportation Transponders" type="selectionEntry" targetId="r64-if-gear-trans-ic" hidden="true" import="true">
+          <ns0:constraints>
+            <ns0:constraint id="r65-if-diaz-hammer-trans-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r65-if-diaz-hammer-trans-show" type="set" value="false" field="hidden">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-1-hammerfall-strike-force" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:entryLink>
+      </ns0:entryLinks>
     </ns0:selectionEntry>
     <ns0:selectionEntry type="unit" import="true" name="Evander Garrius" hidden="false" id="r41-unit-vii-8-evander-garrius">
       <ns0:categoryLinks>
@@ -104134,6 +104223,13 @@ The Detachment may not include an Allied Detachment.</ns0:description>
           </ns0:selectionEntries>
         </ns0:selectionEntryGroup>
       </ns0:selectionEntryGroups>
+      <ns0:entryLinks>
+        <ns0:entryLink id="r65-if-garrius-trans" name="Teleportation Transponders" type="selectionEntry" targetId="r64-if-gear-trans-ic" hidden="false" import="true">
+          <ns0:constraints>
+            <ns0:constraint id="r65-if-garrius-trans-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </ns0:constraints>
+        </ns0:entryLink>
+      </ns0:entryLinks>
     </ns0:selectionEntry>
     <ns0:selectionEntry type="unit" import="true" name="Rogal Dorn — The Praetorian of Terra" hidden="false" id="r41-unit-vii-9-vii-rogal-dorn-the-praetorian-of-terra">
       <ns0:categoryLinks>

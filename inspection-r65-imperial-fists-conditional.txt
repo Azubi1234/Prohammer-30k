@@ -1,0 +1,19 @@
+Revision 65 — Imperial Fists conditional restriction pass
+Catalogue revision: 65
+Game-system revision: 33
+
+Added conditional enforcement:
+- Stone Gauntlet now requires at least one shield-bearing Independent Character in the roster. The validation counts a generic HQ taking Boarding Shield, a generic HQ taking Vigil Pattern Storm Shield, or Alexis Polux with his fixed Vigil shield.
+- Hammerfall now requires at least one Independent Character with Teleportation Transponders. Polux satisfies this with his fixed transponder.
+- Hammerfall transponder access is now extended to Sigismund, Fafnir Rann and Camba Diaz while the Rite is selected, and Evander Garrius may buy it normally because he wears Cataphractii armour.
+- Hammerfall includes a required Warlord confirmation after the automatic transponder-equipped-IC validation, because the catalogue has no universal Warlord designation field.
+- Templar Assault includes a required Warlord weapon confirmation for its exact source restriction.
+
+Already enforced from Revision 64:
+- Stone Gauntlet compulsory Breacher/Warder requirement.
+- Templar Assault compulsory Templar Brethren requirement.
+- Stone Gauntlet and Templar Assault Fast Attack maximum 1.
+
+Not converted into false roster restrictions:
+- Vehicle Reserve and voluntary Deep Strike are deployment choices, so they remain exact rule text.
+- The current standard detachment has no selectable Fortification role/entries, so the Fortification bans cannot currently be violated in New Recruit.

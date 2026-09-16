@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ns0:gameSystem xmlns:ns0="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="32" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
+<ns0:gameSystem xmlns:ns0="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="33" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
   <ns0:comment>Horus Heresy army lists adapted for use with ProHammer Classic.</ns0:comment>
   <ns0:readme>Core system skeleton for Prohammer 30k. Contains points, core profile types, battlefield roles, mandatory Army Configuration and the standard Force Organisation Chart.</ns0:readme>
   <ns0:costTypes>
@@ -69,6 +69,8 @@
     <ns0:categoryEntry id="r64-if-cat-templar-comp" name="Templar Assault Compulsory Troops" hidden="true" />
     <ns0:categoryEntry id="r64-if-cat-templar-limit" name="Templar Brethren 0-1" hidden="true" />
     <ns0:categoryEntry id="r64-if-cat-tarantula-limit" name="Tarantula Batteries 0-2" hidden="true" />
+    <ns0:categoryEntry id="r65-if-cat-stone-shield-ic" name="Stone Gauntlet — Shield-bearing Independent Character" hidden="true" />
+    <ns0:categoryEntry id="r65-if-cat-hammer-trans-ic" name="Hammerfall — Transponder-equipped Warlord candidate" hidden="true" />
   </ns0:categoryEntries>
   <ns0:forceEntries>
     <ns0:forceEntry id="force-standard" name="Standard Age of Darkness Detachment" hidden="false">
@@ -339,6 +341,30 @@
             <ns0:modifier id="r64-if-r64-if-cat-tarantula-limit-max-mod" type="set" value="2" field="r64-if-r64-if-cat-tarantula-limit-max">
               <ns0:conditions>
                 <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-vii" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="r65-if-fl-r65-if-cat-stone-shield-ic" name="Stone Gauntlet — Shield-bearing Independent Character" hidden="true" targetId="r65-if-cat-stone-shield-ic">
+          <ns0:constraints>
+            <ns0:constraint id="r65-if-fl-r65-if-cat-stone-shield-ic-min" type="min" value="0" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r65-if-fl-r65-if-cat-stone-shield-ic-min-mod" type="set" value="1" field="r65-if-fl-r65-if-cat-stone-shield-ic-min">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-0-the-stone-gauntlet" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="r65-if-fl-r65-if-cat-hammer-trans-ic" name="Hammerfall — Transponder-equipped Warlord candidate" hidden="true" targetId="r65-if-cat-hammer-trans-ic">
+          <ns0:constraints>
+            <ns0:constraint id="r65-if-fl-r65-if-cat-hammer-trans-ic-min" type="min" value="0" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r65-if-fl-r65-if-cat-hammer-trans-ic-min-mod" type="set" value="1" field="r65-if-fl-r65-if-cat-hammer-trans-ic-min">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-1-hammerfall-strike-force" shared="true" includeChildSelections="true" includeChildForces="false" />
               </ns0:conditions>
             </ns0:modifier>
           </ns0:modifiers>
