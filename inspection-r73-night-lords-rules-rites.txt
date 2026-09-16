@@ -1,0 +1,14 @@
+Revision 73 — Night Lords actual rules / Stealth / Rites correction
+Catalogue revision: 73
+Game-system revision: 41
+
+- Removed 19 synthetic aggregate Special Rules source-dump blocks and replaced them with 55 individually named actual special-rule blocks on canonical/copy Night Lords entries.
+- Moved 34 model profiles off top-level source-entry shells; 6 named characters/Primarch now use a real locked model child, preventing their stat profile from being presented as the unit's Source Entry rule block.
+- Curze now visibly carries Primarch, Legiones Astartes (Night Lords), Psyker (ML1), Stealth, Hit & Run and Precognition in addition to his existing detailed named rules. He does not receive a purchasable Stealth Adept upgrade.
+- Added missing Stealth Adept to 0 eligible Infantry/Jump Infantry squad entries/copies and to 1 named Night Lords Independent Characters. Existing Terror/Raptor/generic Stealth options were preserved. Terminators/Bikes/Jetbikes/Dreadnoughts/Vehicles remain excluded.
+- Added Beyond Judgement to 13 previously uncovered eligible Horror Cult Infantry/Jump Infantry squad entries/copies.
+- Terror Assault Troops clones are now explicitly gated to Terror Assault; Horror Cult Raptor Troops are explicitly gated to Horror Cult. Hidden compulsory categories remain attached.
+- Legion VIII 0-4 Fast Attack / 0-1 Heavy Support limits were reasserted.
+- Horror Cult Traitor gate was verified.
+- Fortification category links currently present in the Standard force: 0; where no Fortification slot exists there is nothing additional for New Recruit to mechanically forbid, so the written Rite limitation remains.
+- Duplicate-ID, XML parse, canonical-rule and Rite visibility validation passed.

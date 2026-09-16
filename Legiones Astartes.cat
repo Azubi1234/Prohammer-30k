@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="72" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="40" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="73" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="41" type="catalogue">
   <comment>Revision 62: Space Wolves Legion base rules verified against Forces of the Legions; HQ organisation now scales one selection per full or partial 750 roster-limit points.</comment>
   <readme>Core Legiones Astartes catalogue for Prohammer 30k. Revision 32 includes the generic Legion army list and Consuls, Dark Angels package, Legiones Astartes Lords of War, and Legiones Astartes Aeronautica Imperialis aircraft. Experimental Wargear and Units remains excluded.</readme>
   <sharedSelectionEntries>
@@ -31797,6 +31797,31 @@
                     </rule>
                   </rules>
                 </selectionEntry>
+                <selectionEntry id="r73-nl-bj-11" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-11-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-11-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-11-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
+                </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
                 <selectionEntryGroup name="Terminator Armour Pattern" id="hq-praetor-ret-tc-armour" hidden="false">
@@ -40960,6 +40985,31 @@ He may therefore take a Jump Pack for the normal points cost.</description>
                       <description>The Champion's Power Weapon is Master-crafted at no additional cost. The Champion may select up to 50 points of permitted Space Marine Armoury equipment.</description>
                     </rule>
                   </rules>
+                </selectionEntry>
+                <selectionEntry id="r73-nl-bj-13" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-13-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-13-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-13-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
                 </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
@@ -70957,6 +71007,31 @@ The Detachment may not include an Allied Detachment.</description>
                     </rule>
                   </rules>
                 </selectionEntry>
+                <selectionEntry id="r73-nl-bj-27" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-27-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-27-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-27-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
+                </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
                 <selectionEntryGroup name="Terminator Armour Pattern" id="r52-ec-ful-termcommand-hq-praetor-ret-tc-armour" hidden="false">
@@ -72812,6 +72887,31 @@ The Detachment may not include an Allied Detachment.</description>
                     </rule>
                   </rules>
                 </selectionEntry>
+                <selectionEntry id="r73-nl-bj-28" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-28-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-28-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-28-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
+                </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
                 <selectionEntryGroup name="Terminator Armour Pattern" id="r57-iw-golg-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-armour" hidden="false">
@@ -74190,6 +74290,31 @@ The Detachment may not include an Allied Detachment.</description>
                       <description>The Champion's Power Weapon is Master-crafted at no additional cost. The Champion may select up to 50 points of permitted Space Marine Armoury equipment.</description>
                     </rule>
                   </rules>
+                </selectionEntry>
+                <selectionEntry id="r73-nl-bj-29" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-29-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-29-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-29-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
                 </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
@@ -76510,6 +76635,31 @@ The Detachment may not include an Allied Detachment.</description>
                     </rule>
                   </rules>
                 </selectionEntry>
+                <selectionEntry id="r73-nl-bj-32" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-32-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-32-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-32-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
+                </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
                 <selectionEntryGroup name="Terminator Armour Pattern" id="r57-iw-pert-retinue-legion-terminator-command-squad-hq-praetor-ret-tc-armour" hidden="false">
@@ -78063,6 +78213,31 @@ The Detachment may not include an Allied Detachment.</description>
                       <description>The Champion's Power Weapon is Master-crafted at no additional cost. The Champion may select up to 50 points of permitted Space Marine Armoury equipment.</description>
                     </rule>
                   </rules>
+                </selectionEntry>
+                <selectionEntry id="r73-nl-bj-33" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-33-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-33-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-33-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
                 </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
@@ -92707,6 +92882,31 @@ The Detachment may not include an Allied Detachment.</description>
                     </rule>
                   </rules>
                 </selectionEntry>
+                <selectionEntry id="r73-nl-bj-40" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-40-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-40-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-40-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
+                </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
                 <selectionEntryGroup name="Terminator Armour Pattern" id="r63-sw-hvarl-term-hq-praetor-ret-tc-armour" hidden="false">
@@ -96852,6 +97052,31 @@ The Detachment may not include an Allied Detachment.</description>
                       <description>The Champion's Power Weapon is Master-crafted at no additional cost. The Champion may select up to 50 points of permitted Space Marine Armoury equipment.</description>
                     </rule>
                   </rules>
+                </selectionEntry>
+                <selectionEntry id="r73-nl-bj-43" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-43-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-43-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-43-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
                 </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
@@ -107103,6 +107328,31 @@ The Detachment may not include an Allied Detachment.</description>
                     </rule>
                   </rules>
                 </selectionEntry>
+                <selectionEntry id="r73-nl-bj-45" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-45-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-45-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-45-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
+                </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
                 <selectionEntryGroup name="Terminator Armour Pattern" id="r64-if-garrius-term-hq-praetor-ret-tc-armour" hidden="false">
@@ -108427,6 +108677,31 @@ The Detachment may not include an Allied Detachment.</description>
                       <description>The Champion's Power Weapon is Master-crafted at no additional cost. The Champion may select up to 50 points of permitted Space Marine Armoury equipment.</description>
                     </rule>
                   </rules>
+                </selectionEntry>
+                <selectionEntry id="r73-nl-bj-47" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-47-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-47-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-47-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
                 </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
@@ -111277,34 +111552,6 @@ The Detachment may not include an Allied Detachment.</description>
           </conditions>
         </modifier>
       </modifiers>
-      <profiles>
-        <profile name="Terror Marine" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-0-terror-squad-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">5</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">2</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Headsman" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-0-terror-squad-profile-1">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">5</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">3</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="25.0" />
       </costs>
@@ -111317,6 +111564,34 @@ The Detachment may not include an Allied Detachment.</description>
             <constraint id="r71-nl-terror-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
             <constraint id="r71-nl-terror-models-max" type="max" value="10" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
           </constraints>
+          <profiles>
+            <profile name="Terror Marine" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-0-terror-squad-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">5</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile name="Headsman" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-0-terror-squad-profile-1">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">5</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">3</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
         </selectionEntry>
         <selectionEntry id="r71-nl-terror-krak" name="Krak Grenades — whole squad" type="upgrade" hidden="false" import="true">
           <costs>
@@ -111395,14 +111670,17 @@ The Detachment may not include an Allied Detachment.</description>
         </selectionEntry>
       </selectionEntries>
       <rules>
-        <rule id="r71-nl-terror-rule-0" name="Unit Composition" hidden="false">
-          <description>4 Terror Marines and 1 Headsman. The Headsman is a Character. Up to five additional Terror Marines may be added.</description>
-        </rule>
         <rule id="r71-nl-terror-rule-1" name="Wargear" hidden="false">
           <description>Power Armour, Bolter, Bolt pistol, Chainsword, Frag grenades and Trophies of Judgement.</description>
         </rule>
-        <rule id="r71-nl-terror-rule-2" name="Special Rules" hidden="false">
-          <description>Legiones Astartes (Night Lords), Infiltrate, Preferred Enemy (Infantry).</description>
+        <rule id="r73-nl-rule-r41-unit-viii-0-terror-squad-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-r41-unit-viii-0-terror-squad-infiltrate" name="Infiltrate" hidden="false">
+          <description>The unit uses the ProHammer Infiltrate special rule. If its mission or transport circumstances do not permit Infiltrate, deploy it normally.</description>
+        </rule>
+        <rule id="r73-nl-rule-r41-unit-viii-0-terror-squad-preferred-enemy-infantry" name="Preferred Enemy (Infantry)" hidden="false">
+          <description>The unit has Preferred Enemy against Infantry and uses the normal ProHammer Preferred Enemy rules against eligible Infantry targets.</description>
         </rule>
       </rules>
       <selectionEntryGroups>
@@ -112613,47 +112891,6 @@ The Detachment may not include an Allied Detachment.</description>
           </conditions>
         </modifier>
       </modifiers>
-      <profiles>
-        <profile name="Night Raptor" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-1-night-raptor-squad-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">4</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">1</characteristic>
-            <characteristic name="Ld" typeId="model-ld">8</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Raptor Sergeant" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-1-night-raptor-squad-profile-1">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">4</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">2</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Headtaker" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-1-night-raptor-squad-profile-2">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">5</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">2</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="0.0" />
       </costs>
@@ -112666,6 +112903,47 @@ The Detachment may not include an Allied Detachment.</description>
             <constraint id="r71-nl-raptor-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
             <constraint id="r71-nl-raptor-models-max" type="max" value="15" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
           </constraints>
+          <profiles>
+            <profile name="Night Raptor" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-1-night-raptor-squad-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">1</characteristic>
+                <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile name="Raptor Sergeant" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-1-night-raptor-squad-profile-1">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile name="Headtaker" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-1-night-raptor-squad-profile-2">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">5</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
         </selectionEntry>
         <selectionEntry id="r71-nl-raptor-melta" name="Melta Bombs — up to two models" type="upgrade" hidden="false" import="true">
           <costs>
@@ -112750,14 +113028,14 @@ The Detachment may not include an Allied Detachment.</description>
         </selectionEntry>
       </selectionEntries>
       <rules>
-        <rule id="r71-nl-raptor-rule-0" name="Unit Composition" hidden="false">
-          <description>4 Night Raptors and 1 Raptor Sergeant. The Raptor Sergeant is a Character. Up to ten additional Night Raptors may be added.</description>
-        </rule>
         <rule id="r71-nl-raptor-rule-1" name="Wargear" hidden="false">
           <description>Power Armour, Jump Pack, Bolt pistol, Chainsword, Frag grenades and Trophies of Judgement.</description>
         </rule>
-        <rule id="r71-nl-raptor-rule-2" name="Special Rules" hidden="false">
-          <description>Legiones Astartes (Night Lords), Hit &amp; Run.</description>
+        <rule id="r73-nl-rule-r41-unit-viii-1-night-raptor-squad-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-r41-unit-viii-1-night-raptor-squad-hit-run" name="Hit &amp; Run" hidden="false">
+          <description>The unit uses the ProHammer Hit &amp; Run special rule.</description>
         </rule>
       </rules>
       <selectionEntryGroups>
@@ -113032,34 +113310,6 @@ The Detachment may not include an Allied Detachment.</description>
           </conditions>
         </modifier>
       </modifiers>
-      <profiles>
-        <profile name="Contekar" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-2-contekar-terminator-elite-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">5</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">2</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">2+/5+</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Contekar Dissident" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-2-contekar-terminator-elite-profile-1">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">5</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">3</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">2+/5+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="0.0" />
       </costs>
@@ -113072,6 +113322,34 @@ The Detachment may not include an Allied Detachment.</description>
             <constraint id="r71-nl-contekar-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
             <constraint id="r71-nl-contekar-models-max" type="max" value="10" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
           </constraints>
+          <profiles>
+            <profile name="Contekar" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-2-contekar-terminator-elite-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">5</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">2+/5+</characteristic>
+              </characteristics>
+            </profile>
+            <profile name="Contekar Dissident" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-2-contekar-terminator-elite-profile-1">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">5</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">3</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">2+/5+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
         </selectionEntry>
         <selectionEntry id="r71-nl-contekar-harness" name="Grenade Harness — Contekar Dissident" type="upgrade" hidden="false" import="true">
           <costs>
@@ -113108,20 +113386,20 @@ The Detachment may not include an Allied Detachment.</description>
         </selectionEntry>
       </selectionEntries>
       <rules>
-        <rule id="r71-nl-contekar-rule-0" name="Unit Composition" hidden="false">
-          <description>4 Contekar and 1 Contekar Dissident. The Dissident is a Character. Up to five additional Contekar may be added.</description>
-        </rule>
         <rule id="r71-nl-contekar-rule-1" name="Wargear" hidden="false">
           <description>Tartaros Terminator Armour, Heavy Flamer and Nostraman Chainblade.</description>
-        </rule>
-        <rule id="r71-nl-contekar-rule-2" name="Special Rules" hidden="false">
-          <description>Legiones Astartes (Night Lords), Stubborn.</description>
         </rule>
         <rule id="r71-nl-contekar-rule-3" name="Nostraman Chainblade" hidden="false">
           <description>A Nostraman Chainblade is a Two-Handed Rending Weapon which grants +1 Strength.</description>
         </rule>
         <rule id="r71-nl-contekar-rule-4" name="Escaton Power Claw" hidden="false">
           <description>An Escaton Power Claw counts as a Power Fist. In addition, the wielder may re-roll failed To Wound rolls made with it.</description>
+        </rule>
+        <rule id="r73-nl-rule-r41-unit-viii-2-contekar-terminator-elite-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-r41-unit-viii-2-contekar-terminator-elite-stubborn" name="Stubborn" hidden="false">
+          <description>The unit uses the ProHammer Stubborn special rule.</description>
         </rule>
       </rules>
       <selectionEntryGroups>
@@ -114171,21 +114449,6 @@ The Detachment may not include an Allied Detachment.</description>
           </conditions>
         </modifier>
       </modifiers>
-      <profiles>
-        <profile name="Atramentar" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-3-atramentar-flay-clade-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">5</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">2</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">2+/4+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="0.0" />
       </costs>
@@ -114198,6 +114461,21 @@ The Detachment may not include an Allied Detachment.</description>
             <constraint id="r71-nl-atramentar-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
             <constraint id="r71-nl-atramentar-models-max" type="max" value="10" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
           </constraints>
+          <profiles>
+            <profile name="Atramentar" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-3-atramentar-flay-clade-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">5</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">2+/4+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
         </selectionEntry>
         <selectionEntry id="r71-nl-atramentar-pair" name="Pair of Lightning Claws — replaces both weapons" type="upgrade" hidden="false" import="true">
           <costs>
@@ -114241,17 +114519,17 @@ The Detachment may not include an Allied Detachment.</description>
         </selectionEntry>
       </selectionEntries>
       <rules>
-        <rule id="r71-nl-atramentar-rule-0" name="Unit Composition" hidden="false">
-          <description>5 Atramentar. Up to five additional Atramentar may be added.</description>
-        </rule>
         <rule id="r71-nl-atramentar-rule-1" name="Wargear" hidden="false">
           <description>Cataphractii Terminator Armour, Trophies of Judgement, Combi-bolter and Power Weapon.</description>
         </rule>
-        <rule id="r71-nl-atramentar-rule-2" name="Special Rules" hidden="false">
-          <description>Legiones Astartes (Night Lords), Fearless, Teleport Assault.</description>
-        </rule>
         <rule id="r71-nl-atramentar-rule-3" name="Teleport Assault" hidden="false">
           <description>An Atramentar Flay-Clade may deploy using Deep Strike even if the mission does not normally permit Deep Strike. All other normal ProHammer Deep Strike rules apply.</description>
+        </rule>
+        <rule id="r73-nl-rule-r41-unit-viii-3-atramentar-flay-clade-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-r41-unit-viii-3-atramentar-flay-clade-fearless" name="Fearless" hidden="false">
+          <description>The unit uses the ProHammer Fearless special rule.</description>
         </rule>
       </rules>
       <selectionEntryGroups>
@@ -115471,30 +115749,12 @@ The Detachment may not include an Allied Detachment.</description>
       <constraints>
         <constraint id="r41-unit-viii-4-jago-sevatarion-unique" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
       </constraints>
-      <profiles>
-        <profile name="Sevatar" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-4-jago-sevatarion-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">7</characteristic>
-            <characteristic name="BS" typeId="model-bs">5</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">3</characteristic>
-            <characteristic name="I" typeId="model-i">5</characteristic>
-            <characteristic name="A" typeId="model-a">4</characteristic>
-            <characteristic name="Ld" typeId="model-ld">10</characteristic>
-            <characteristic name="Sv" typeId="model-sv">2+/4+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="200" />
       </costs>
       <rules>
         <rule id="r71-nl-sevatar-wargear" name="Wargear" hidden="false">
           <description>Artificer Armour; Iron Halo; Night’s Whisper; Bolt pistol; Trophies of Judgement; Frag grenades.</description>
-        </rule>
-        <rule id="r71-nl-sevatar-special" name="Special Rules" hidden="false">
-          <description>Legiones Astartes (Night Lords); Independent Character; Master of the Legion; Psyker (Mastery Level 1); Visions of Doom.</description>
         </rule>
         <rule id="r71-nl-sevatar-rule-0" name="Night’s Whisper" hidden="false">
           <description>Night’s Whisper is a Two-Handed, Master-crafted Power Weapon. Attacks made with it are resolved at Strength 6.</description>
@@ -115504,6 +115764,18 @@ The Detachment may not include an Allied Detachment.</description>
         </rule>
         <rule id="r71-nl-sevatar-rule-2" name="Withering Gaze" hidden="false">
           <description>Used during the Night Lords Shooting phase instead of Sevatar firing a weapon. Choose one visible enemy unit within 12 inches and take a Psychic Test. If successful, until the beginning of the next Night Lords turn that unit must pass a Leadership test before declaring a charge against Sevatar or a unit he has joined. If failed it may not declare that charge, but may charge another legal target.</description>
+        </rule>
+        <rule id="r73-nl-rule-sevatar-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-sevatar-independent-character" name="Independent Character" hidden="false">
+          <description>Uses the normal ProHammer Independent Character rules.</description>
+        </rule>
+        <rule id="r73-nl-rule-sevatar-master-of-the-legion" name="Master of the Legion" hidden="false">
+          <description>This model has the Master of the Legion special rule and counts toward all normal Master of the Legion restrictions.</description>
+        </rule>
+        <rule id="r73-nl-rule-sevatar-psyker-mastery-level-1" name="Psyker (Mastery Level 1)" hidden="false">
+          <description>This model is a Psyker with Mastery Level 1 and follows the normal ProHammer psychic rules.</description>
         </rule>
       </rules>
       <selectionEntries>
@@ -115519,6 +115791,30 @@ The Detachment may not include an Allied Detachment.</description>
               <description>Adds Krak grenades.</description>
             </rule>
           </rules>
+        </selectionEntry>
+        <selectionEntry id="r73-nl-sevatar-model" name="Jago Sevatarion" type="model" hidden="false" import="true" defaultAmount="1">
+          <costs>
+            <cost name="Points" typeId="pts" value="0" />
+          </costs>
+          <constraints>
+            <constraint id="r73-nl-sevatar-model-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+            <constraint id="r73-nl-sevatar-model-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </constraints>
+          <profiles>
+            <profile name="Sevatar" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-4-jago-sevatarion-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">7</characteristic>
+                <characteristic name="BS" typeId="model-bs">5</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">3</characteristic>
+                <characteristic name="I" typeId="model-i">5</characteristic>
+                <characteristic name="A" typeId="model-a">4</characteristic>
+                <characteristic name="Ld" typeId="model-ld">10</characteristic>
+                <characteristic name="Sv" typeId="model-sv">2+/4+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
         </selectionEntry>
       </selectionEntries>
       <selectionEntryGroups>
@@ -116474,6 +116770,31 @@ The Detachment may not include an Allied Detachment.</description>
                     </rule>
                   </rules>
                 </selectionEntry>
+                <selectionEntry id="r73-nl-bj-53" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-53-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-53-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-53-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
+                </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
                 <selectionEntryGroup name="Terminator Armour Pattern" id="r71-nl-sev-ret-1-hq-praetor-ret-tc-armour" hidden="false">
@@ -116823,21 +117144,6 @@ The Detachment may not include an Allied Detachment.</description>
               </entryLinks>
             </selectionEntry>
             <selectionEntry type="unit" import="true" name="Atramentar Flay-Clade" hidden="false" id="r71-nl-sev-ret-2-r41-unit-viii-3-atramentar-flay-clade">
-              <profiles>
-                <profile name="Atramentar" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-sev-ret-2-r41-unit-viii-3-atramentar-flay-clade-profile-0">
-                  <characteristics>
-                    <characteristic name="WS" typeId="model-ws">5</characteristic>
-                    <characteristic name="BS" typeId="model-bs">4</characteristic>
-                    <characteristic name="S" typeId="model-s">4</characteristic>
-                    <characteristic name="T" typeId="model-t">4</characteristic>
-                    <characteristic name="W" typeId="model-w">1</characteristic>
-                    <characteristic name="I" typeId="model-i">4</characteristic>
-                    <characteristic name="A" typeId="model-a">2</characteristic>
-                    <characteristic name="Ld" typeId="model-ld">9</characteristic>
-                    <characteristic name="Sv" typeId="model-sv">2+/4+</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
               <costs>
                 <cost name="Points" typeId="pts" value="0.0" />
               </costs>
@@ -116850,6 +117156,21 @@ The Detachment may not include an Allied Detachment.</description>
                     <constraint id="r71-nl-sev-ret-2-r71-nl-atramentar-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                     <constraint id="r71-nl-sev-ret-2-r71-nl-atramentar-models-max" type="max" value="10" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                   </constraints>
+                  <profiles>
+                    <profile name="Atramentar" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-sev-ret-2-r41-unit-viii-3-atramentar-flay-clade-profile-0">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">5</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">2</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">2+/4+</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
                 </selectionEntry>
                 <selectionEntry id="r71-nl-sev-ret-2-r71-nl-atramentar-pair" name="Pair of Lightning Claws — replaces both weapons" type="upgrade" hidden="false" import="true">
                   <costs>
@@ -116893,17 +117214,17 @@ The Detachment may not include an Allied Detachment.</description>
                 </selectionEntry>
               </selectionEntries>
               <rules>
-                <rule id="r71-nl-sev-ret-2-r71-nl-atramentar-rule-0" name="Unit Composition" hidden="false">
-                  <description>5 Atramentar. Up to five additional Atramentar may be added.</description>
-                </rule>
                 <rule id="r71-nl-sev-ret-2-r71-nl-atramentar-rule-1" name="Wargear" hidden="false">
                   <description>Cataphractii Terminator Armour, Trophies of Judgement, Combi-bolter and Power Weapon.</description>
                 </rule>
-                <rule id="r71-nl-sev-ret-2-r71-nl-atramentar-rule-2" name="Special Rules" hidden="false">
-                  <description>Legiones Astartes (Night Lords), Fearless, Teleport Assault.</description>
-                </rule>
                 <rule id="r71-nl-sev-ret-2-r71-nl-atramentar-rule-3" name="Teleport Assault" hidden="false">
                   <description>An Atramentar Flay-Clade may deploy using Deep Strike even if the mission does not normally permit Deep Strike. All other normal ProHammer Deep Strike rules apply.</description>
+                </rule>
+                <rule id="r73-nl-rule-r71-nl-sev-ret-2-r41-unit-viii-3-atramentar-flay-clade-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+                  <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+                </rule>
+                <rule id="r73-nl-rule-r71-nl-sev-ret-2-r41-unit-viii-3-atramentar-flay-clade-fearless" name="Fearless" hidden="false">
+                  <description>The unit uses the ProHammer Fearless special rule.</description>
                 </rule>
               </rules>
               <selectionEntryGroups>
@@ -118137,21 +118458,6 @@ The Detachment may not include an Allied Detachment.</description>
       <constraints>
         <constraint id="r41-unit-viii-5-kheron-ophion-unique" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
       </constraints>
-      <profiles>
-        <profile name="Kheron Ophion" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-5-kheron-ophion-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">6</characteristic>
-            <characteristic name="BS" typeId="model-bs">5</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">3</characteristic>
-            <characteristic name="I" typeId="model-i">5</characteristic>
-            <characteristic name="A" typeId="model-a">4</characteristic>
-            <characteristic name="Ld" typeId="model-ld">10</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+/5+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="180" />
       </costs>
@@ -118159,14 +118465,23 @@ The Detachment may not include an Allied Detachment.</description>
         <rule id="r71-nl-ophion-wargear" name="Wargear" hidden="false">
           <description>Power Armour; Refractor Field; Power Axe; Volkite Serpenta; The Bloody Aegis; Frag grenades; Melta bombs.</description>
         </rule>
-        <rule id="r71-nl-ophion-special" name="Special Rules" hidden="false">
-          <description>Legiones Astartes (Night Lords); Independent Character; Master of the Legion; Stubborn; The Coward.</description>
-        </rule>
         <rule id="r71-nl-ophion-rule-0" name="The Bloody Aegis" hidden="false">
           <description>Against close-combat attacks Ophion’s Invulnerable Save is improved to 3+. Against all other attacks he uses his Refractor Field normally.</description>
         </rule>
         <rule id="r71-nl-ophion-rule-1" name="The Coward" hidden="false">
           <description>After Ophion loses his first Wound, he gains Feel No Pain (4+) for the remainder of the battle. If subsequently reduced to one remaining Wound, replace this with Feel No Pain (3+).</description>
+        </rule>
+        <rule id="r73-nl-rule-ophion-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-ophion-independent-character" name="Independent Character" hidden="false">
+          <description>Uses the normal ProHammer Independent Character rules.</description>
+        </rule>
+        <rule id="r73-nl-rule-ophion-master-of-the-legion" name="Master of the Legion" hidden="false">
+          <description>This model has the Master of the Legion special rule and counts toward all normal Master of the Legion restrictions.</description>
+        </rule>
+        <rule id="r73-nl-rule-ophion-stubborn" name="Stubborn" hidden="false">
+          <description>The unit uses the ProHammer Stubborn special rule.</description>
         </rule>
       </rules>
       <selectionEntries>
@@ -118182,6 +118497,30 @@ The Detachment may not include an Allied Detachment.</description>
               <description>Adds Krak grenades.</description>
             </rule>
           </rules>
+        </selectionEntry>
+        <selectionEntry id="r73-nl-ophion-model" name="Kheron Ophion" type="model" hidden="false" import="true" defaultAmount="1">
+          <costs>
+            <cost name="Points" typeId="pts" value="0" />
+          </costs>
+          <constraints>
+            <constraint id="r73-nl-ophion-model-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+            <constraint id="r73-nl-ophion-model-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </constraints>
+          <profiles>
+            <profile name="Kheron Ophion" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-5-kheron-ophion-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">6</characteristic>
+                <characteristic name="BS" typeId="model-bs">5</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">3</characteristic>
+                <characteristic name="I" typeId="model-i">5</characteristic>
+                <characteristic name="A" typeId="model-a">4</characteristic>
+                <characteristic name="Ld" typeId="model-ld">10</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+/5+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
         </selectionEntry>
       </selectionEntries>
       <selectionEntryGroups>
@@ -118967,34 +119306,6 @@ The Detachment may not include an Allied Detachment.</description>
               </selectionEntryGroups>
             </selectionEntry>
             <selectionEntry type="unit" import="true" name="Contekar Terminator Elite" hidden="false" id="r71-nl-oph-ret-1-r41-unit-viii-2-contekar-terminator-elite">
-              <profiles>
-                <profile name="Contekar" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-oph-ret-1-r41-unit-viii-2-contekar-terminator-elite-profile-0">
-                  <characteristics>
-                    <characteristic name="WS" typeId="model-ws">5</characteristic>
-                    <characteristic name="BS" typeId="model-bs">4</characteristic>
-                    <characteristic name="S" typeId="model-s">4</characteristic>
-                    <characteristic name="T" typeId="model-t">4</characteristic>
-                    <characteristic name="W" typeId="model-w">1</characteristic>
-                    <characteristic name="I" typeId="model-i">4</characteristic>
-                    <characteristic name="A" typeId="model-a">2</characteristic>
-                    <characteristic name="Ld" typeId="model-ld">9</characteristic>
-                    <characteristic name="Sv" typeId="model-sv">2+/5+</characteristic>
-                  </characteristics>
-                </profile>
-                <profile name="Contekar Dissident" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-oph-ret-1-r41-unit-viii-2-contekar-terminator-elite-profile-1">
-                  <characteristics>
-                    <characteristic name="WS" typeId="model-ws">5</characteristic>
-                    <characteristic name="BS" typeId="model-bs">4</characteristic>
-                    <characteristic name="S" typeId="model-s">4</characteristic>
-                    <characteristic name="T" typeId="model-t">4</characteristic>
-                    <characteristic name="W" typeId="model-w">1</characteristic>
-                    <characteristic name="I" typeId="model-i">4</characteristic>
-                    <characteristic name="A" typeId="model-a">3</characteristic>
-                    <characteristic name="Ld" typeId="model-ld">9</characteristic>
-                    <characteristic name="Sv" typeId="model-sv">2+/5+</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
               <costs>
                 <cost name="Points" typeId="pts" value="0.0" />
               </costs>
@@ -119007,6 +119318,34 @@ The Detachment may not include an Allied Detachment.</description>
                     <constraint id="r71-nl-oph-ret-1-r71-nl-contekar-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                     <constraint id="r71-nl-oph-ret-1-r71-nl-contekar-models-max" type="max" value="10" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                   </constraints>
+                  <profiles>
+                    <profile name="Contekar" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-oph-ret-1-r41-unit-viii-2-contekar-terminator-elite-profile-0">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">5</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">2</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">2+/5+</characteristic>
+                      </characteristics>
+                    </profile>
+                    <profile name="Contekar Dissident" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-oph-ret-1-r41-unit-viii-2-contekar-terminator-elite-profile-1">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">5</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">3</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">2+/5+</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
                 </selectionEntry>
                 <selectionEntry id="r71-nl-oph-ret-1-r71-nl-contekar-harness" name="Grenade Harness — Contekar Dissident" type="upgrade" hidden="false" import="true">
                   <costs>
@@ -119043,20 +119382,20 @@ The Detachment may not include an Allied Detachment.</description>
                 </selectionEntry>
               </selectionEntries>
               <rules>
-                <rule id="r71-nl-oph-ret-1-r71-nl-contekar-rule-0" name="Unit Composition" hidden="false">
-                  <description>4 Contekar and 1 Contekar Dissident. The Dissident is a Character. Up to five additional Contekar may be added.</description>
-                </rule>
                 <rule id="r71-nl-oph-ret-1-r71-nl-contekar-rule-1" name="Wargear" hidden="false">
                   <description>Tartaros Terminator Armour, Heavy Flamer and Nostraman Chainblade.</description>
-                </rule>
-                <rule id="r71-nl-oph-ret-1-r71-nl-contekar-rule-2" name="Special Rules" hidden="false">
-                  <description>Legiones Astartes (Night Lords), Stubborn.</description>
                 </rule>
                 <rule id="r71-nl-oph-ret-1-r71-nl-contekar-rule-3" name="Nostraman Chainblade" hidden="false">
                   <description>A Nostraman Chainblade is a Two-Handed Rending Weapon which grants +1 Strength.</description>
                 </rule>
                 <rule id="r71-nl-oph-ret-1-r71-nl-contekar-rule-4" name="Escaton Power Claw" hidden="false">
                   <description>An Escaton Power Claw counts as a Power Fist. In addition, the wielder may re-roll failed To Wound rolls made with it.</description>
+                </rule>
+                <rule id="r73-nl-rule-r71-nl-oph-ret-1-r41-unit-viii-2-contekar-terminator-elite-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+                  <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+                </rule>
+                <rule id="r73-nl-rule-r71-nl-oph-ret-1-r41-unit-viii-2-contekar-terminator-elite-stubborn" name="Stubborn" hidden="false">
+                  <description>The unit uses the ProHammer Stubborn special rule.</description>
                 </rule>
               </rules>
               <selectionEntryGroups>
@@ -120113,21 +120452,6 @@ The Detachment may not include an Allied Detachment.</description>
       <constraints>
         <constraint id="r41-unit-viii-6-malcharion-the-war-sage-unique" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
       </constraints>
-      <profiles>
-        <profile name="Malcharion" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-6-malcharion-the-war-sage-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">6</characteristic>
-            <characteristic name="BS" typeId="model-bs">5</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">3</characteristic>
-            <characteristic name="I" typeId="model-i">5</characteristic>
-            <characteristic name="A" typeId="model-a">3</characteristic>
-            <characteristic name="Ld" typeId="model-ld">10</characteristic>
-            <characteristic name="Sv" typeId="model-sv">2+/5+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="155" />
       </costs>
@@ -120135,11 +120459,14 @@ The Detachment may not include an Allied Detachment.</description>
         <rule id="r71-nl-malcharion-wargear" name="Wargear" hidden="false">
           <description>Artificer Armour; Refractor Field; Master-crafted Power Weapon; Bolter; Bolt pistol; Frag grenades.</description>
         </rule>
-        <rule id="r71-nl-malcharion-special" name="Special Rules" hidden="false">
-          <description>Legiones Astartes (Night Lords); Independent Character; War-Sage.</description>
-        </rule>
         <rule id="r71-nl-malcharion-rule-0" name="War-Sage" hidden="false">
           <description>Malcharion and any Night Lords unit he has joined may re-roll failed Morale and Pinning tests. The second result must be accepted.</description>
+        </rule>
+        <rule id="r73-nl-rule-malcharion-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-malcharion-independent-character" name="Independent Character" hidden="false">
+          <description>Uses the normal ProHammer Independent Character rules.</description>
         </rule>
       </rules>
       <selectionEntries>
@@ -120168,6 +120495,30 @@ The Detachment may not include an Allied Detachment.</description>
               <description>Adds Melta bombs.</description>
             </rule>
           </rules>
+        </selectionEntry>
+        <selectionEntry id="r73-nl-malcharion-model" name="Malcharion, the War-Sage" type="model" hidden="false" import="true" defaultAmount="1">
+          <costs>
+            <cost name="Points" typeId="pts" value="0" />
+          </costs>
+          <constraints>
+            <constraint id="r73-nl-malcharion-model-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+            <constraint id="r73-nl-malcharion-model-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </constraints>
+          <profiles>
+            <profile name="Malcharion" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-6-malcharion-the-war-sage-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">6</characteristic>
+                <characteristic name="BS" typeId="model-bs">5</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">3</characteristic>
+                <characteristic name="I" typeId="model-i">5</characteristic>
+                <characteristic name="A" typeId="model-a">3</characteristic>
+                <characteristic name="Ld" typeId="model-ld">10</characteristic>
+                <characteristic name="Sv" typeId="model-sv">2+/5+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
         </selectionEntry>
       </selectionEntries>
       <selectionEntryGroups>
@@ -122918,21 +123269,6 @@ The Detachment may not include an Allied Detachment.</description>
       <constraints>
         <constraint id="r41-unit-viii-7-shang-unique" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
       </constraints>
-      <profiles>
-        <profile name="Shang" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-7-shang-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">6</characteristic>
-            <characteristic name="BS" typeId="model-bs">5</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">3</characteristic>
-            <characteristic name="I" typeId="model-i">5</characteristic>
-            <characteristic name="A" typeId="model-a">3</characteristic>
-            <characteristic name="Ld" typeId="model-ld">10</characteristic>
-            <characteristic name="Sv" typeId="model-sv">2+/5+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="165" />
       </costs>
@@ -122940,8 +123276,20 @@ The Detachment may not include an Allied Detachment.</description>
         <rule id="r71-nl-shang-wargear" name="Wargear" hidden="false">
           <description>Artificer Armour; Refractor Field; Master-crafted Power Weapon; Bolt pistol; Trophies of Judgement; Frag grenades.</description>
         </rule>
-        <rule id="r71-nl-shang-special" name="Special Rules" hidden="false">
-          <description>Legiones Astartes (Night Lords); Independent Character; Master of the Legion; Infiltrate; Preferred Enemy (Independent Characters).</description>
+        <rule id="r73-nl-rule-shang-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-shang-independent-character" name="Independent Character" hidden="false">
+          <description>Uses the normal ProHammer Independent Character rules.</description>
+        </rule>
+        <rule id="r73-nl-rule-shang-master-of-the-legion" name="Master of the Legion" hidden="false">
+          <description>This model has the Master of the Legion special rule and counts toward all normal Master of the Legion restrictions.</description>
+        </rule>
+        <rule id="r73-nl-rule-shang-infiltrate" name="Infiltrate" hidden="false">
+          <description>The unit uses the ProHammer Infiltrate special rule. If its mission or transport circumstances do not permit Infiltrate, deploy it normally.</description>
+        </rule>
+        <rule id="r73-nl-rule-shang-preferred-enemy-independent-characters" name="Preferred Enemy (Independent Characters)" hidden="false">
+          <description>The model has Preferred Enemy against Independent Characters and uses the normal ProHammer Preferred Enemy rules against eligible Independent Character targets.</description>
         </rule>
       </rules>
       <selectionEntries>
@@ -122971,6 +123319,30 @@ The Detachment may not include an Allied Detachment.</description>
             </rule>
           </rules>
         </selectionEntry>
+        <selectionEntry id="r73-nl-shang-model" name="Shang" type="model" hidden="false" import="true" defaultAmount="1">
+          <costs>
+            <cost name="Points" typeId="pts" value="0" />
+          </costs>
+          <constraints>
+            <constraint id="r73-nl-shang-model-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+            <constraint id="r73-nl-shang-model-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </constraints>
+          <profiles>
+            <profile name="Shang" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-7-shang-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">6</characteristic>
+                <characteristic name="BS" typeId="model-bs">5</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">3</characteristic>
+                <characteristic name="I" typeId="model-i">5</characteristic>
+                <characteristic name="A" typeId="model-a">3</characteristic>
+                <characteristic name="Ld" typeId="model-ld">10</characteristic>
+                <characteristic name="Sv" typeId="model-sv">2+/5+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
       </selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup id="r71-nl-shang-ret" name="Command Retinue (does not occupy a separate Force Organisation slot)" hidden="false" collective="false" import="true">
@@ -122979,34 +123351,6 @@ The Detachment may not include an Allied Detachment.</description>
           </constraints>
           <selectionEntries>
             <selectionEntry type="unit" import="true" name="Terror Squad" hidden="false" id="r71-nl-shang-ret-0-r41-unit-viii-0-terror-squad">
-              <profiles>
-                <profile name="Terror Marine" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-shang-ret-0-r41-unit-viii-0-terror-squad-profile-0">
-                  <characteristics>
-                    <characteristic name="WS" typeId="model-ws">5</characteristic>
-                    <characteristic name="BS" typeId="model-bs">4</characteristic>
-                    <characteristic name="S" typeId="model-s">4</characteristic>
-                    <characteristic name="T" typeId="model-t">4</characteristic>
-                    <characteristic name="W" typeId="model-w">1</characteristic>
-                    <characteristic name="I" typeId="model-i">4</characteristic>
-                    <characteristic name="A" typeId="model-a">2</characteristic>
-                    <characteristic name="Ld" typeId="model-ld">9</characteristic>
-                    <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-                  </characteristics>
-                </profile>
-                <profile name="Headsman" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-shang-ret-0-r41-unit-viii-0-terror-squad-profile-1">
-                  <characteristics>
-                    <characteristic name="WS" typeId="model-ws">5</characteristic>
-                    <characteristic name="BS" typeId="model-bs">4</characteristic>
-                    <characteristic name="S" typeId="model-s">4</characteristic>
-                    <characteristic name="T" typeId="model-t">4</characteristic>
-                    <characteristic name="W" typeId="model-w">1</characteristic>
-                    <characteristic name="I" typeId="model-i">4</characteristic>
-                    <characteristic name="A" typeId="model-a">3</characteristic>
-                    <characteristic name="Ld" typeId="model-ld">9</characteristic>
-                    <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
               <costs>
                 <cost name="Points" typeId="pts" value="25.0" />
               </costs>
@@ -123019,6 +123363,34 @@ The Detachment may not include an Allied Detachment.</description>
                     <constraint id="r71-nl-shang-ret-0-r71-nl-terror-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                     <constraint id="r71-nl-shang-ret-0-r71-nl-terror-models-max" type="max" value="10" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                   </constraints>
+                  <profiles>
+                    <profile name="Terror Marine" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-shang-ret-0-r41-unit-viii-0-terror-squad-profile-0">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">5</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">2</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+                      </characteristics>
+                    </profile>
+                    <profile name="Headsman" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-shang-ret-0-r41-unit-viii-0-terror-squad-profile-1">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">5</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">3</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
                 </selectionEntry>
                 <selectionEntry id="r71-nl-shang-ret-0-r71-nl-terror-krak" name="Krak Grenades — whole squad" type="upgrade" hidden="false" import="true">
                   <costs>
@@ -123097,14 +123469,17 @@ The Detachment may not include an Allied Detachment.</description>
                 </selectionEntry>
               </selectionEntries>
               <rules>
-                <rule id="r71-nl-shang-ret-0-r71-nl-terror-rule-0" name="Unit Composition" hidden="false">
-                  <description>4 Terror Marines and 1 Headsman. The Headsman is a Character. Up to five additional Terror Marines may be added.</description>
-                </rule>
                 <rule id="r71-nl-shang-ret-0-r71-nl-terror-rule-1" name="Wargear" hidden="false">
                   <description>Power Armour, Bolter, Bolt pistol, Chainsword, Frag grenades and Trophies of Judgement.</description>
                 </rule>
-                <rule id="r71-nl-shang-ret-0-r71-nl-terror-rule-2" name="Special Rules" hidden="false">
-                  <description>Legiones Astartes (Night Lords), Infiltrate, Preferred Enemy (Infantry).</description>
+                <rule id="r73-nl-rule-r71-nl-shang-ret-0-r41-unit-viii-0-terror-squad-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+                  <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+                </rule>
+                <rule id="r73-nl-rule-r71-nl-shang-ret-0-r41-unit-viii-0-terror-squad-infiltrate" name="Infiltrate" hidden="false">
+                  <description>The unit uses the ProHammer Infiltrate special rule. If its mission or transport circumstances do not permit Infiltrate, deploy it normally.</description>
+                </rule>
+                <rule id="r73-nl-rule-r71-nl-shang-ret-0-r41-unit-viii-0-terror-squad-preferred-enemy-infantry" name="Preferred Enemy (Infantry)" hidden="false">
+                  <description>The unit has Preferred Enemy against Infantry and uses the normal ProHammer Preferred Enemy rules against eligible Infantry targets.</description>
                 </rule>
               </rules>
               <selectionEntryGroups>
@@ -124332,30 +124707,12 @@ The Detachment may not include an Allied Detachment.</description>
       <constraints>
         <constraint id="r41-unit-viii-8-flaymaster-mawdrym-llansahai-unique" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
       </constraints>
-      <profiles>
-        <profile name="Mawdrym Llansahai" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-8-flaymaster-mawdrym-llansahai-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">5</characteristic>
-            <characteristic name="BS" typeId="model-bs">5</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">3</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">2</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+/5+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="125" />
       </costs>
       <rules>
         <rule id="r71-nl-mawdrym-wargear" name="Wargear" hidden="false">
           <description>Power Armour; Refractor Field; Narthecium; Red Jaqa; Bolt pistol; Frag grenades.</description>
-        </rule>
-        <rule id="r71-nl-mawdrym-special" name="Special Rules" hidden="false">
-          <description>Legiones Astartes (Night Lords); Independent Character; Fearless; Feel No Pain (5+); Devil’s Luck; Unfit for Command.</description>
         </rule>
         <rule id="r71-nl-mawdrym-rule-0" name="Red Jaqa" hidden="false">
           <description>Red Jaqa is a Rending Weapon. Any natural To Wound roll of 6 made with Red Jaqa inflicts a Massive Wound (D3) instead of a normal Wound.</description>
@@ -124365,6 +124722,18 @@ The Detachment may not include an Allied Detachment.</description>
         </rule>
         <rule id="r71-nl-mawdrym-rule-2" name="Unfit for Command" hidden="false">
           <description>Mawdrym may not fulfil the army’s compulsory HQ requirement and may never be the army’s Warlord.</description>
+        </rule>
+        <rule id="r73-nl-rule-mawdrym-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-mawdrym-independent-character" name="Independent Character" hidden="false">
+          <description>Uses the normal ProHammer Independent Character rules.</description>
+        </rule>
+        <rule id="r73-nl-rule-mawdrym-fearless" name="Fearless" hidden="false">
+          <description>The unit uses the ProHammer Fearless special rule.</description>
+        </rule>
+        <rule id="r73-nl-rule-mawdrym-feel-no-pain-5" name="Feel No Pain (5+)" hidden="false">
+          <description>The model has Feel No Pain (5+) and uses the normal ProHammer Feel No Pain rules.</description>
         </rule>
       </rules>
       <selectionEntries>
@@ -124378,6 +124747,43 @@ The Detachment may not include an Allied Detachment.</description>
           <rules>
             <rule id="r71-nl-mawdrym-opt-0-rule" name="Option" hidden="false">
               <description>Adds Krak grenades.</description>
+            </rule>
+          </rules>
+        </selectionEntry>
+        <selectionEntry id="r73-nl-mawdrym-model" name="Flaymaster Mawdrym Llansahai" type="model" hidden="false" import="true" defaultAmount="1">
+          <costs>
+            <cost name="Points" typeId="pts" value="0" />
+          </costs>
+          <constraints>
+            <constraint id="r73-nl-mawdrym-model-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+            <constraint id="r73-nl-mawdrym-model-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </constraints>
+          <profiles>
+            <profile name="Mawdrym Llansahai" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-8-flaymaster-mawdrym-llansahai-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">5</characteristic>
+                <characteristic name="BS" typeId="model-bs">5</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">3</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+/5+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+        <selectionEntry id="r73-nl-mawdrym-stealth" name="Stealth Adept" type="upgrade" hidden="false" import="true">
+          <costs>
+            <cost name="Points" typeId="pts" value="5" />
+          </costs>
+          <constraints>
+            <constraint id="r73-nl-mawdrym-stealth-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </constraints>
+          <rules>
+            <rule id="r73-nl-mawdrym-stealth-rule" name="Stealth Adept" hidden="false">
+              <description>This Independent Character gains Stealth. If joining a unit with Stealth Adept, both the unit and attached Independent Character must possess the upgrade for the unit to benefit.</description>
             </rule>
           </rules>
         </selectionEntry>
@@ -124397,38 +124803,12 @@ The Detachment may not include an Allied Detachment.</description>
       <constraints>
         <constraint id="r41-unit-viii-9-viii-konrad-curze-the-night-haunter-unique" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
       </constraints>
-      <profiles>
-        <profile name="Konrad Curze" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-9-viii-konrad-curze-the-night-haunter-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">8</characteristic>
-            <characteristic name="BS" typeId="model-bs">6</characteristic>
-            <characteristic name="S" typeId="model-s">6</characteristic>
-            <characteristic name="T" typeId="model-t">6</characteristic>
-            <characteristic name="W" typeId="model-w">6</characteristic>
-            <characteristic name="I" typeId="model-i">8</characteristic>
-            <characteristic name="A" typeId="model-a">6</characteristic>
-            <characteristic name="Ld" typeId="model-ld">10</characteristic>
-            <characteristic name="Sv" typeId="model-sv">1+</characteristic>
-          </characteristics>
-        </profile>
-        <profile id="r71-nl-curze-widow" name="Widowmakers" hidden="false" typeId="prof-ranged" typeName="Ranged Weapon">
-          <characteristics>
-            <characteristic name="Range" typeId="ranged-range">12"</characteristic>
-            <characteristic name="S" typeId="ranged-s">4</characteristic>
-            <characteristic name="AP" typeId="ranged-ap">5</characteristic>
-            <characteristic name="Type" typeId="ranged-type">Assault 3, Lethal Precision</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="500" />
       </costs>
       <rules>
         <rule id="r71-nl-curze-0" name="Wargear" hidden="false">
           <description>Nightmare Mantle; Mercy &amp; Forgiveness; Widowmakers; Frag Grenades.</description>
-        </rule>
-        <rule id="r71-nl-curze-1" name="Special Rules" hidden="false">
-          <description>Primarch; Legiones Astartes (Night Lords); Psyker (Mastery Level 1); King of Terrors; Bloody Murder; Night Haunter; Dark Precognition.</description>
         </rule>
         <rule id="r71-nl-curze-2" name="Nightmare Mantle" hidden="false">
           <description>The Nightmare Mantle counts as Primarch Armour.</description>
@@ -124453,6 +124833,24 @@ The Detachment may not include an Allied Detachment.</description>
         </rule>
         <rule id="r71-nl-curze-raptor-ret" name="Night Raptor Retinue" hidden="false">
           <description>If Konrad Curze selects a Night Raptor Squad as his Primarch Retinue, that unit may use his Hit &amp; Run special rule while he remains part of the unit.</description>
+        </rule>
+        <rule id="r73-nl-rule-curze-primarch" name="Primarch" hidden="false">
+          <description>Konrad Curze uses the universal Primarch rules presented in Forces of the Legions.</description>
+        </rule>
+        <rule id="r73-nl-rule-curze-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-curze-psyker-mastery-level-1" name="Psyker (Mastery Level 1)" hidden="false">
+          <description>This model is a Psyker with Mastery Level 1 and follows the normal ProHammer psychic rules.</description>
+        </rule>
+        <rule id="r73-nl-rule-curze-stealth" name="Stealth" hidden="false">
+          <description>Konrad Curze has the Stealth special rule as part of Night Haunter.</description>
+        </rule>
+        <rule id="r73-nl-rule-curze-hit-run" name="Hit &amp; Run" hidden="false">
+          <description>The unit uses the ProHammer Hit &amp; Run special rule.</description>
+        </rule>
+        <rule id="r73-nl-rule-curze-precognition" name="Precognition" hidden="false">
+          <description>Blessing, Self. The Psyker re-rolls failed To Hit and To Wound rolls and failed saving throws. Curze knows only this Divination power and tests to invoke it using Leadership 8, as specified by Dark Precognition.</description>
         </rule>
       </rules>
       <selectionEntryGroups>
@@ -124631,6 +125029,31 @@ The Detachment may not include an Allied Detachment.</description>
                       <description>The Champion's Power Weapon is Master-crafted at no additional cost. The Champion may select up to 50 points of permitted Space Marine Armoury equipment.</description>
                     </rule>
                   </rules>
+                </selectionEntry>
+                <selectionEntry id="r73-nl-bj-60" name="Beyond Judgement — Trophies of Judgement &amp; Fear" type="upgrade" hidden="true" import="true">
+                  <costs>
+                    <cost name="Points" typeId="pts" value="25" />
+                  </costs>
+                  <constraints>
+                    <constraint id="r73-nl-bj-60-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+                  </constraints>
+                  <rules>
+                    <rule id="r73-nl-bj-60-rule" name="Beyond Judgement" hidden="false">
+                      <description>Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.</description>
+                    </rule>
+                  </rules>
+                  <modifiers>
+                    <modifier id="r73-nl-bj-60-show" type="set" value="false" field="hidden">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-viii-1-horror-cult" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </modifier>
+                  </modifiers>
                 </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
@@ -124981,21 +125404,6 @@ The Detachment may not include an Allied Detachment.</description>
               </entryLinks>
             </selectionEntry>
             <selectionEntry type="unit" import="true" name="Atramentar Flay-Clade" hidden="false" id="r71-nl-curze-ret-1-r41-unit-viii-3-atramentar-flay-clade">
-              <profiles>
-                <profile name="Atramentar" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-curze-ret-1-r41-unit-viii-3-atramentar-flay-clade-profile-0">
-                  <characteristics>
-                    <characteristic name="WS" typeId="model-ws">5</characteristic>
-                    <characteristic name="BS" typeId="model-bs">4</characteristic>
-                    <characteristic name="S" typeId="model-s">4</characteristic>
-                    <characteristic name="T" typeId="model-t">4</characteristic>
-                    <characteristic name="W" typeId="model-w">1</characteristic>
-                    <characteristic name="I" typeId="model-i">4</characteristic>
-                    <characteristic name="A" typeId="model-a">2</characteristic>
-                    <characteristic name="Ld" typeId="model-ld">9</characteristic>
-                    <characteristic name="Sv" typeId="model-sv">2+/4+</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
               <costs>
                 <cost name="Points" typeId="pts" value="0.0" />
               </costs>
@@ -125008,6 +125416,21 @@ The Detachment may not include an Allied Detachment.</description>
                     <constraint id="r71-nl-curze-ret-1-r71-nl-atramentar-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                     <constraint id="r71-nl-curze-ret-1-r71-nl-atramentar-models-max" type="max" value="10" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                   </constraints>
+                  <profiles>
+                    <profile name="Atramentar" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-curze-ret-1-r41-unit-viii-3-atramentar-flay-clade-profile-0">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">5</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">2</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">2+/4+</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
                 </selectionEntry>
                 <selectionEntry id="r71-nl-curze-ret-1-r71-nl-atramentar-pair" name="Pair of Lightning Claws — replaces both weapons" type="upgrade" hidden="false" import="true">
                   <costs>
@@ -125051,17 +125474,17 @@ The Detachment may not include an Allied Detachment.</description>
                 </selectionEntry>
               </selectionEntries>
               <rules>
-                <rule id="r71-nl-curze-ret-1-r71-nl-atramentar-rule-0" name="Unit Composition" hidden="false">
-                  <description>5 Atramentar. Up to five additional Atramentar may be added.</description>
-                </rule>
                 <rule id="r71-nl-curze-ret-1-r71-nl-atramentar-rule-1" name="Wargear" hidden="false">
                   <description>Cataphractii Terminator Armour, Trophies of Judgement, Combi-bolter and Power Weapon.</description>
                 </rule>
-                <rule id="r71-nl-curze-ret-1-r71-nl-atramentar-rule-2" name="Special Rules" hidden="false">
-                  <description>Legiones Astartes (Night Lords), Fearless, Teleport Assault.</description>
-                </rule>
                 <rule id="r71-nl-curze-ret-1-r71-nl-atramentar-rule-3" name="Teleport Assault" hidden="false">
                   <description>An Atramentar Flay-Clade may deploy using Deep Strike even if the mission does not normally permit Deep Strike. All other normal ProHammer Deep Strike rules apply.</description>
+                </rule>
+                <rule id="r73-nl-rule-r71-nl-curze-ret-1-r41-unit-viii-3-atramentar-flay-clade-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+                  <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+                </rule>
+                <rule id="r73-nl-rule-r71-nl-curze-ret-1-r41-unit-viii-3-atramentar-flay-clade-fearless" name="Fearless" hidden="false">
+                  <description>The unit uses the ProHammer Fearless special rule.</description>
                 </rule>
               </rules>
               <selectionEntryGroups>
@@ -126268,47 +126691,6 @@ The Detachment may not include an Allied Detachment.</description>
               </selectionEntryGroups>
             </selectionEntry>
             <selectionEntry type="unit" import="true" name="Night Raptor Squad" hidden="false" id="r71-nl-curze-ret-2-r41-unit-viii-1-night-raptor-squad">
-              <profiles>
-                <profile name="Night Raptor" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-curze-ret-2-r41-unit-viii-1-night-raptor-squad-profile-0">
-                  <characteristics>
-                    <characteristic name="WS" typeId="model-ws">4</characteristic>
-                    <characteristic name="BS" typeId="model-bs">4</characteristic>
-                    <characteristic name="S" typeId="model-s">4</characteristic>
-                    <characteristic name="T" typeId="model-t">4</characteristic>
-                    <characteristic name="W" typeId="model-w">1</characteristic>
-                    <characteristic name="I" typeId="model-i">4</characteristic>
-                    <characteristic name="A" typeId="model-a">1</characteristic>
-                    <characteristic name="Ld" typeId="model-ld">8</characteristic>
-                    <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-                  </characteristics>
-                </profile>
-                <profile name="Raptor Sergeant" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-curze-ret-2-r41-unit-viii-1-night-raptor-squad-profile-1">
-                  <characteristics>
-                    <characteristic name="WS" typeId="model-ws">4</characteristic>
-                    <characteristic name="BS" typeId="model-bs">4</characteristic>
-                    <characteristic name="S" typeId="model-s">4</characteristic>
-                    <characteristic name="T" typeId="model-t">4</characteristic>
-                    <characteristic name="W" typeId="model-w">1</characteristic>
-                    <characteristic name="I" typeId="model-i">4</characteristic>
-                    <characteristic name="A" typeId="model-a">2</characteristic>
-                    <characteristic name="Ld" typeId="model-ld">9</characteristic>
-                    <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-                  </characteristics>
-                </profile>
-                <profile name="Headtaker" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-curze-ret-2-r41-unit-viii-1-night-raptor-squad-profile-2">
-                  <characteristics>
-                    <characteristic name="WS" typeId="model-ws">5</characteristic>
-                    <characteristic name="BS" typeId="model-bs">4</characteristic>
-                    <characteristic name="S" typeId="model-s">4</characteristic>
-                    <characteristic name="T" typeId="model-t">4</characteristic>
-                    <characteristic name="W" typeId="model-w">1</characteristic>
-                    <characteristic name="I" typeId="model-i">4</characteristic>
-                    <characteristic name="A" typeId="model-a">2</characteristic>
-                    <characteristic name="Ld" typeId="model-ld">9</characteristic>
-                    <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
               <costs>
                 <cost name="Points" typeId="pts" value="0.0" />
               </costs>
@@ -126321,6 +126703,47 @@ The Detachment may not include an Allied Detachment.</description>
                     <constraint id="r71-nl-curze-ret-2-r71-nl-raptor-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                     <constraint id="r71-nl-curze-ret-2-r71-nl-raptor-models-max" type="max" value="15" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                   </constraints>
+                  <profiles>
+                    <profile name="Night Raptor" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-curze-ret-2-r41-unit-viii-1-night-raptor-squad-profile-0">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">4</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">1</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+                      </characteristics>
+                    </profile>
+                    <profile name="Raptor Sergeant" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-curze-ret-2-r41-unit-viii-1-night-raptor-squad-profile-1">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">4</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">2</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+                      </characteristics>
+                    </profile>
+                    <profile name="Headtaker" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-curze-ret-2-r41-unit-viii-1-night-raptor-squad-profile-2">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">5</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">2</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
                 </selectionEntry>
                 <selectionEntry id="r71-nl-curze-ret-2-r71-nl-raptor-melta" name="Melta Bombs — up to two models" type="upgrade" hidden="false" import="true">
                   <costs>
@@ -126344,26 +126767,6 @@ The Detachment may not include an Allied Detachment.</description>
                       </repeats>
                     </modifier>
                   </modifiers>
-                </selectionEntry>
-                <selectionEntry id="r71-nl-curze-ret-2-r71-nl-raptor-stealth" name="Stealth Adept — whole squad" type="upgrade" hidden="false" import="true">
-                  <costs>
-                    <cost name="Points" typeId="pts" value="0" />
-                  </costs>
-                  <constraints>
-                    <constraint id="r71-nl-curze-ret-2-r71-nl-raptor-stealth-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
-                  </constraints>
-                  <modifiers>
-                    <modifier id="r71-nl-curze-ret-2-r71-nl-raptor-stealth-cost-0" type="increment" value="1" field="pts">
-                      <repeats>
-                        <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="r71-nl-curze-ret-2-r71-nl-raptor-models" shared="true" roundUp="false" includeChildSelections="false" includeChildForces="false" />
-                      </repeats>
-                    </modifier>
-                  </modifiers>
-                  <rules>
-                    <rule id="r71-nl-curze-ret-2-r71-nl-raptor-stealth-rule" name="Stealth Adept — whole squad" hidden="false">
-                      <description>Every model gains Stealth. An attached Independent Character must also possess Stealth Adept or the squad may not benefit while attached.</description>
-                    </rule>
-                  </rules>
                 </selectionEntry>
                 <selectionEntry id="r71-nl-curze-ret-2-r71-nl-raptor-headtaker" name="Upgrade Raptor Sergeant to Headtaker (WS5)" type="upgrade" hidden="false" import="true">
                   <costs>
@@ -126405,14 +126808,14 @@ The Detachment may not include an Allied Detachment.</description>
                 </selectionEntry>
               </selectionEntries>
               <rules>
-                <rule id="r71-nl-curze-ret-2-r71-nl-raptor-rule-0" name="Unit Composition" hidden="false">
-                  <description>4 Night Raptors and 1 Raptor Sergeant. The Raptor Sergeant is a Character. Up to ten additional Night Raptors may be added.</description>
-                </rule>
                 <rule id="r71-nl-curze-ret-2-r71-nl-raptor-rule-1" name="Wargear" hidden="false">
                   <description>Power Armour, Jump Pack, Bolt pistol, Chainsword, Frag grenades and Trophies of Judgement.</description>
                 </rule>
-                <rule id="r71-nl-curze-ret-2-r71-nl-raptor-rule-2" name="Special Rules" hidden="false">
-                  <description>Legiones Astartes (Night Lords), Hit &amp; Run.</description>
+                <rule id="r73-nl-rule-r71-nl-curze-ret-2-r41-unit-viii-1-night-raptor-squad-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+                  <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+                </rule>
+                <rule id="r73-nl-rule-r71-nl-curze-ret-2-r41-unit-viii-1-night-raptor-squad-hit-run" name="Hit &amp; Run" hidden="false">
+                  <description>The unit uses the ProHammer Hit &amp; Run special rule.</description>
                 </rule>
               </rules>
               <selectionEntryGroups>
@@ -126677,34 +127080,6 @@ The Detachment may not include an Allied Detachment.</description>
               </selectionEntryGroups>
             </selectionEntry>
             <selectionEntry type="unit" import="true" name="Terror Squad" hidden="false" id="r71-nl-curze-ret-3-r41-unit-viii-0-terror-squad">
-              <profiles>
-                <profile name="Terror Marine" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-curze-ret-3-r41-unit-viii-0-terror-squad-profile-0">
-                  <characteristics>
-                    <characteristic name="WS" typeId="model-ws">5</characteristic>
-                    <characteristic name="BS" typeId="model-bs">4</characteristic>
-                    <characteristic name="S" typeId="model-s">4</characteristic>
-                    <characteristic name="T" typeId="model-t">4</characteristic>
-                    <characteristic name="W" typeId="model-w">1</characteristic>
-                    <characteristic name="I" typeId="model-i">4</characteristic>
-                    <characteristic name="A" typeId="model-a">2</characteristic>
-                    <characteristic name="Ld" typeId="model-ld">9</characteristic>
-                    <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-                  </characteristics>
-                </profile>
-                <profile name="Headsman" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-curze-ret-3-r41-unit-viii-0-terror-squad-profile-1">
-                  <characteristics>
-                    <characteristic name="WS" typeId="model-ws">5</characteristic>
-                    <characteristic name="BS" typeId="model-bs">4</characteristic>
-                    <characteristic name="S" typeId="model-s">4</characteristic>
-                    <characteristic name="T" typeId="model-t">4</characteristic>
-                    <characteristic name="W" typeId="model-w">1</characteristic>
-                    <characteristic name="I" typeId="model-i">4</characteristic>
-                    <characteristic name="A" typeId="model-a">3</characteristic>
-                    <characteristic name="Ld" typeId="model-ld">9</characteristic>
-                    <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
               <costs>
                 <cost name="Points" typeId="pts" value="25.0" />
               </costs>
@@ -126717,6 +127092,34 @@ The Detachment may not include an Allied Detachment.</description>
                     <constraint id="r71-nl-curze-ret-3-r71-nl-terror-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                     <constraint id="r71-nl-curze-ret-3-r71-nl-terror-models-max" type="max" value="10" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
                   </constraints>
+                  <profiles>
+                    <profile name="Terror Marine" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-curze-ret-3-r41-unit-viii-0-terror-squad-profile-0">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">5</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">2</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+                      </characteristics>
+                    </profile>
+                    <profile name="Headsman" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-curze-ret-3-r41-unit-viii-0-terror-squad-profile-1">
+                      <characteristics>
+                        <characteristic name="WS" typeId="model-ws">5</characteristic>
+                        <characteristic name="BS" typeId="model-bs">4</characteristic>
+                        <characteristic name="S" typeId="model-s">4</characteristic>
+                        <characteristic name="T" typeId="model-t">4</characteristic>
+                        <characteristic name="W" typeId="model-w">1</characteristic>
+                        <characteristic name="I" typeId="model-i">4</characteristic>
+                        <characteristic name="A" typeId="model-a">3</characteristic>
+                        <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                        <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
                 </selectionEntry>
                 <selectionEntry id="r71-nl-curze-ret-3-r71-nl-terror-krak" name="Krak Grenades — whole squad" type="upgrade" hidden="false" import="true">
                   <costs>
@@ -126748,26 +127151,6 @@ The Detachment may not include an Allied Detachment.</description>
                     </modifier>
                   </modifiers>
                 </selectionEntry>
-                <selectionEntry id="r71-nl-curze-ret-3-r71-nl-terror-stealth" name="Stealth Adept — whole squad" type="upgrade" hidden="false" import="true">
-                  <costs>
-                    <cost name="Points" typeId="pts" value="0" />
-                  </costs>
-                  <constraints>
-                    <constraint id="r71-nl-curze-ret-3-r71-nl-terror-stealth-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
-                  </constraints>
-                  <modifiers>
-                    <modifier id="r71-nl-curze-ret-3-r71-nl-terror-stealth-cost-0" type="increment" value="1" field="pts">
-                      <repeats>
-                        <repeat value="1" repeats="1" field="selections" scope="root-entry" childId="r71-nl-curze-ret-3-r71-nl-terror-models" shared="true" roundUp="false" includeChildSelections="false" includeChildForces="false" />
-                      </repeats>
-                    </modifier>
-                  </modifiers>
-                  <rules>
-                    <rule id="r71-nl-curze-ret-3-r71-nl-terror-stealth-rule" name="Stealth Adept — whole squad" hidden="false">
-                      <description>Every model gains Stealth. An attached Independent Character must also possess Stealth Adept or the squad may not benefit while that character remains attached.</description>
-                    </rule>
-                  </rules>
-                </selectionEntry>
                 <selectionEntry id="r71-nl-curze-ret-3-r71-nl-bj-37" name="Beyond Judgement — Fear (Trophies already equipped)" type="upgrade" hidden="true" import="true">
                   <costs>
                     <cost name="Points" typeId="pts" value="25" />
@@ -126795,14 +127178,17 @@ The Detachment may not include an Allied Detachment.</description>
                 </selectionEntry>
               </selectionEntries>
               <rules>
-                <rule id="r71-nl-curze-ret-3-r71-nl-terror-rule-0" name="Unit Composition" hidden="false">
-                  <description>4 Terror Marines and 1 Headsman. The Headsman is a Character. Up to five additional Terror Marines may be added.</description>
-                </rule>
                 <rule id="r71-nl-curze-ret-3-r71-nl-terror-rule-1" name="Wargear" hidden="false">
                   <description>Power Armour, Bolter, Bolt pistol, Chainsword, Frag grenades and Trophies of Judgement.</description>
                 </rule>
-                <rule id="r71-nl-curze-ret-3-r71-nl-terror-rule-2" name="Special Rules" hidden="false">
-                  <description>Legiones Astartes (Night Lords), Infiltrate, Preferred Enemy (Infantry).</description>
+                <rule id="r73-nl-rule-r71-nl-curze-ret-3-r41-unit-viii-0-terror-squad-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+                  <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+                </rule>
+                <rule id="r73-nl-rule-r71-nl-curze-ret-3-r41-unit-viii-0-terror-squad-infiltrate" name="Infiltrate" hidden="false">
+                  <description>The unit uses the ProHammer Infiltrate special rule. If its mission or transport circumstances do not permit Infiltrate, deploy it normally.</description>
+                </rule>
+                <rule id="r73-nl-rule-r71-nl-curze-ret-3-r41-unit-viii-0-terror-squad-preferred-enemy-infantry" name="Preferred Enemy (Infantry)" hidden="false">
+                  <description>The unit has Preferred Enemy against Infantry and uses the normal ProHammer Preferred Enemy rules against eligible Infantry targets.</description>
                 </rule>
               </rules>
               <selectionEntryGroups>
@@ -128005,6 +128391,40 @@ The Detachment may not include an Allied Detachment.</description>
           </selectionEntries>
         </selectionEntryGroup>
       </selectionEntryGroups>
+      <selectionEntries>
+        <selectionEntry id="r73-nl-curze-model" name="Konrad Curze, the Night Haunter" type="model" hidden="false" import="true" defaultAmount="1">
+          <costs>
+            <cost name="Points" typeId="pts" value="0" />
+          </costs>
+          <constraints>
+            <constraint id="r73-nl-curze-model-min" type="min" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+            <constraint id="r73-nl-curze-model-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </constraints>
+          <profiles>
+            <profile name="Konrad Curze" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-viii-9-viii-konrad-curze-the-night-haunter-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">8</characteristic>
+                <characteristic name="BS" typeId="model-bs">6</characteristic>
+                <characteristic name="S" typeId="model-s">6</characteristic>
+                <characteristic name="T" typeId="model-t">6</characteristic>
+                <characteristic name="W" typeId="model-w">6</characteristic>
+                <characteristic name="I" typeId="model-i">8</characteristic>
+                <characteristic name="A" typeId="model-a">6</characteristic>
+                <characteristic name="Ld" typeId="model-ld">10</characteristic>
+                <characteristic name="Sv" typeId="model-sv">1+</characteristic>
+              </characteristics>
+            </profile>
+            <profile id="r71-nl-curze-widow" name="Widowmakers" hidden="false" typeId="prof-ranged" typeName="Ranged Weapon">
+              <characteristics>
+                <characteristic name="Range" typeId="ranged-range">12"</characteristic>
+                <characteristic name="S" typeId="ranged-s">4</characteristic>
+                <characteristic name="AP" typeId="ranged-ap">5</characteristic>
+                <characteristic name="Type" typeId="ranged-type">Assault 3, Lethal Precision</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+      </selectionEntries>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="DAWNBREAKER COHORT" hidden="false" id="r41-unit-ix-0-dawnbreaker-cohort">
       <costs>
@@ -178739,47 +179159,6 @@ OPTIONS
       </entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Night Raptor Squad — Terror Assault Troops" hidden="true" id="r71-nl-ta-raptor-r41-unit-viii-1-night-raptor-squad">
-      <profiles>
-        <profile name="Night Raptor" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-ta-raptor-r41-unit-viii-1-night-raptor-squad-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">4</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">1</characteristic>
-            <characteristic name="Ld" typeId="model-ld">8</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Raptor Sergeant" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-ta-raptor-r41-unit-viii-1-night-raptor-squad-profile-1">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">4</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">2</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Headtaker" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-ta-raptor-r41-unit-viii-1-night-raptor-squad-profile-2">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">5</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">2</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="0.0" />
       </costs>
@@ -178792,6 +179171,47 @@ OPTIONS
             <constraint id="r71-nl-ta-raptor-r71-nl-raptor-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
             <constraint id="r71-nl-ta-raptor-r71-nl-raptor-models-max" type="max" value="15" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
           </constraints>
+          <profiles>
+            <profile name="Night Raptor" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-ta-raptor-r41-unit-viii-1-night-raptor-squad-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">1</characteristic>
+                <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile name="Raptor Sergeant" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-ta-raptor-r41-unit-viii-1-night-raptor-squad-profile-1">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile name="Headtaker" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-ta-raptor-r41-unit-viii-1-night-raptor-squad-profile-2">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">5</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
         </selectionEntry>
         <selectionEntry id="r71-nl-ta-raptor-r71-nl-raptor-melta" name="Melta Bombs — up to two models" type="upgrade" hidden="false" import="true">
           <costs>
@@ -178876,14 +179296,14 @@ OPTIONS
         </selectionEntry>
       </selectionEntries>
       <rules>
-        <rule id="r71-nl-ta-raptor-r71-nl-raptor-rule-0" name="Unit Composition" hidden="false">
-          <description>4 Night Raptors and 1 Raptor Sergeant. The Raptor Sergeant is a Character. Up to ten additional Night Raptors may be added.</description>
-        </rule>
         <rule id="r71-nl-ta-raptor-r71-nl-raptor-rule-1" name="Wargear" hidden="false">
           <description>Power Armour, Jump Pack, Bolt pistol, Chainsword, Frag grenades and Trophies of Judgement.</description>
         </rule>
-        <rule id="r71-nl-ta-raptor-r71-nl-raptor-rule-2" name="Special Rules" hidden="false">
-          <description>Legiones Astartes (Night Lords), Hit &amp; Run.</description>
+        <rule id="r73-nl-rule-r71-nl-ta-raptor-r41-unit-viii-1-night-raptor-squad-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-r71-nl-ta-raptor-r41-unit-viii-1-night-raptor-squad-hit-run" name="Hit &amp; Run" hidden="false">
+          <description>The unit uses the ProHammer Hit &amp; Run special rule.</description>
         </rule>
       </rules>
       <selectionEntryGroups>
@@ -179151,7 +179571,7 @@ OPTIONS
         <categoryLink id="r71-nl-r71-nl-ta-raptor-r41-unit-viii-1-night-raptor-squad-r71-nl-cat-terror-assault-comp" name="r71-nl-cat-terror-assault-comp" hidden="true" targetId="r71-nl-cat-terror-assault-comp" primary="false" />
       </categoryLinks>
       <modifiers>
-        <modifier id="r71-nl-ta-raptor-show" type="set" value="false" field="hidden">
+        <modifier id="r73-nl-role-show-r71-nl-ta-raptor-r41-unit-viii-1-night-raptor-squad" type="set" value="false" field="hidden">
           <conditionGroups>
             <conditionGroup type="and">
               <conditions>
@@ -179164,34 +179584,6 @@ OPTIONS
       </modifiers>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Terror Squad — Terror Assault Troops" hidden="true" id="r71-nl-ta-terror-r41-unit-viii-0-terror-squad">
-      <profiles>
-        <profile name="Terror Marine" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-ta-terror-r41-unit-viii-0-terror-squad-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">5</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">2</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Headsman" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-ta-terror-r41-unit-viii-0-terror-squad-profile-1">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">5</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">3</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="25.0" />
       </costs>
@@ -179204,6 +179596,34 @@ OPTIONS
             <constraint id="r71-nl-ta-terror-r71-nl-terror-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
             <constraint id="r71-nl-ta-terror-r71-nl-terror-models-max" type="max" value="10" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
           </constraints>
+          <profiles>
+            <profile name="Terror Marine" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-ta-terror-r41-unit-viii-0-terror-squad-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">5</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile name="Headsman" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-ta-terror-r41-unit-viii-0-terror-squad-profile-1">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">5</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">3</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
         </selectionEntry>
         <selectionEntry id="r71-nl-ta-terror-r71-nl-terror-krak" name="Krak Grenades — whole squad" type="upgrade" hidden="false" import="true">
           <costs>
@@ -179282,14 +179702,17 @@ OPTIONS
         </selectionEntry>
       </selectionEntries>
       <rules>
-        <rule id="r71-nl-ta-terror-r71-nl-terror-rule-0" name="Unit Composition" hidden="false">
-          <description>4 Terror Marines and 1 Headsman. The Headsman is a Character. Up to five additional Terror Marines may be added.</description>
-        </rule>
         <rule id="r71-nl-ta-terror-r71-nl-terror-rule-1" name="Wargear" hidden="false">
           <description>Power Armour, Bolter, Bolt pistol, Chainsword, Frag grenades and Trophies of Judgement.</description>
         </rule>
-        <rule id="r71-nl-ta-terror-r71-nl-terror-rule-2" name="Special Rules" hidden="false">
-          <description>Legiones Astartes (Night Lords), Infiltrate, Preferred Enemy (Infantry).</description>
+        <rule id="r73-nl-rule-r71-nl-ta-terror-r41-unit-viii-0-terror-squad-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-r71-nl-ta-terror-r41-unit-viii-0-terror-squad-infiltrate" name="Infiltrate" hidden="false">
+          <description>The unit uses the ProHammer Infiltrate special rule. If its mission or transport circumstances do not permit Infiltrate, deploy it normally.</description>
+        </rule>
+        <rule id="r73-nl-rule-r71-nl-ta-terror-r41-unit-viii-0-terror-squad-preferred-enemy-infantry" name="Preferred Enemy (Infantry)" hidden="false">
+          <description>The unit has Preferred Enemy against Infantry and uses the normal ProHammer Preferred Enemy rules against eligible Infantry targets.</description>
         </rule>
       </rules>
       <selectionEntryGroups>
@@ -180493,7 +180916,7 @@ OPTIONS
         <categoryLink id="r71-nl-r71-nl-ta-terror-r41-unit-viii-0-terror-squad-r71-nl-cat-terror-assault-comp" name="r71-nl-cat-terror-assault-comp" hidden="true" targetId="r71-nl-cat-terror-assault-comp" primary="false" />
       </categoryLinks>
       <modifiers>
-        <modifier id="r71-nl-ta-terror-show" type="set" value="false" field="hidden">
+        <modifier id="r73-nl-role-show-r71-nl-ta-terror-r41-unit-viii-0-terror-squad" type="set" value="false" field="hidden">
           <conditionGroups>
             <conditionGroup type="and">
               <conditions>
@@ -180506,47 +180929,6 @@ OPTIONS
       </modifiers>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Night Raptor Squad — Horror Cult Troops" hidden="true" id="r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad">
-      <profiles>
-        <profile name="Night Raptor" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad-profile-0">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">4</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">1</characteristic>
-            <characteristic name="Ld" typeId="model-ld">8</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Raptor Sergeant" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad-profile-1">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">4</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">2</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Headtaker" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad-profile-2">
-          <characteristics>
-            <characteristic name="WS" typeId="model-ws">5</characteristic>
-            <characteristic name="BS" typeId="model-bs">4</characteristic>
-            <characteristic name="S" typeId="model-s">4</characteristic>
-            <characteristic name="T" typeId="model-t">4</characteristic>
-            <characteristic name="W" typeId="model-w">1</characteristic>
-            <characteristic name="I" typeId="model-i">4</characteristic>
-            <characteristic name="A" typeId="model-a">2</characteristic>
-            <characteristic name="Ld" typeId="model-ld">9</characteristic>
-            <characteristic name="Sv" typeId="model-sv">3+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
       <costs>
         <cost name="Points" typeId="pts" value="0.0" />
       </costs>
@@ -180559,6 +180941,47 @@ OPTIONS
             <constraint id="r71-nl-hc-raptor-r71-nl-raptor-models-min" type="min" value="5" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
             <constraint id="r71-nl-hc-raptor-r71-nl-raptor-models-max" type="max" value="15" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
           </constraints>
+          <profiles>
+            <profile name="Night Raptor" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad-profile-0">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">1</characteristic>
+                <characteristic name="Ld" typeId="model-ld">8</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile name="Raptor Sergeant" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad-profile-1">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">4</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+            <profile name="Headtaker" typeId="prof-model" typeName="Model" hidden="false" id="r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad-profile-2">
+              <characteristics>
+                <characteristic name="WS" typeId="model-ws">5</characteristic>
+                <characteristic name="BS" typeId="model-bs">4</characteristic>
+                <characteristic name="S" typeId="model-s">4</characteristic>
+                <characteristic name="T" typeId="model-t">4</characteristic>
+                <characteristic name="W" typeId="model-w">1</characteristic>
+                <characteristic name="I" typeId="model-i">4</characteristic>
+                <characteristic name="A" typeId="model-a">2</characteristic>
+                <characteristic name="Ld" typeId="model-ld">9</characteristic>
+                <characteristic name="Sv" typeId="model-sv">3+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
         </selectionEntry>
         <selectionEntry id="r71-nl-hc-raptor-r71-nl-raptor-melta" name="Melta Bombs — up to two models" type="upgrade" hidden="false" import="true">
           <costs>
@@ -180643,14 +181066,14 @@ OPTIONS
         </selectionEntry>
       </selectionEntries>
       <rules>
-        <rule id="r71-nl-hc-raptor-r71-nl-raptor-rule-0" name="Unit Composition" hidden="false">
-          <description>4 Night Raptors and 1 Raptor Sergeant. The Raptor Sergeant is a Character. Up to ten additional Night Raptors may be added.</description>
-        </rule>
         <rule id="r71-nl-hc-raptor-r71-nl-raptor-rule-1" name="Wargear" hidden="false">
           <description>Power Armour, Jump Pack, Bolt pistol, Chainsword, Frag grenades and Trophies of Judgement.</description>
         </rule>
-        <rule id="r71-nl-hc-raptor-r71-nl-raptor-rule-2" name="Special Rules" hidden="false">
-          <description>Legiones Astartes (Night Lords), Hit &amp; Run.</description>
+        <rule id="r73-nl-rule-r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad-legiones-astartes-night-lords" name="Legiones Astartes (Night Lords)" hidden="false">
+          <description>This model belongs to the VIII Legion and is affected by rules and effects which refer to Legiones Astartes (Night Lords).</description>
+        </rule>
+        <rule id="r73-nl-rule-r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad-hit-run" name="Hit &amp; Run" hidden="false">
+          <description>The unit uses the ProHammer Hit &amp; Run special rule.</description>
         </rule>
       </rules>
       <selectionEntryGroups>
@@ -180918,7 +181341,7 @@ OPTIONS
         <categoryLink id="r71-nl-r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad-r71-nl-cat-horror-comp" name="r71-nl-cat-horror-comp" hidden="true" targetId="r71-nl-cat-horror-comp" primary="false" />
       </categoryLinks>
       <modifiers>
-        <modifier id="r71-nl-hc-raptor-show" type="set" value="false" field="hidden">
+        <modifier id="r73-nl-role-show-r71-nl-hc-raptor-r41-unit-viii-1-night-raptor-squad" type="set" value="false" field="hidden">
           <conditionGroups>
             <conditionGroup type="and">
               <conditions>

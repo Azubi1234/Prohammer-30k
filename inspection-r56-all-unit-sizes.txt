@@ -544,6 +544,7 @@ UNIT r41-unit-viii-3-atramentar-flay-clade :: Atramentar Flay-Clade
   MODEL ('r71-nl-atramentar-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
 
 UNIT r41-unit-viii-4-jago-sevatarion :: Jago Sevatarion
+  MODEL ('r73-nl-sevatar-model', 'Jago Sevatarion', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
   MODEL ('r71-nl-sev-ret-0-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
   MODEL ('r71-nl-sev-ret-0-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
   MODEL ('r71-nl-sev-ret-0-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
@@ -557,6 +558,7 @@ UNIT r41-unit-viii-4-jago-sevatarion :: Jago Sevatarion
   MODEL ('r71-nl-sev-ret-2-r71-nl-atramentar-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
 
 UNIT r41-unit-viii-5-kheron-ophion :: Kheron Ophion
+  MODEL ('r73-nl-ophion-model', 'Kheron Ophion', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
   MODEL ('r71-nl-oph-ret-0-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
   MODEL ('r71-nl-oph-ret-0-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
   MODEL ('r71-nl-oph-ret-0-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
@@ -566,6 +568,7 @@ UNIT r41-unit-viii-5-kheron-ophion :: Kheron Ophion
   MODEL ('r71-nl-oph-ret-1-r71-nl-contekar-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
 
 UNIT r41-unit-viii-6-malcharion-the-war-sage :: Malcharion, the War-Sage
+  MODEL ('r73-nl-malcharion-model', 'Malcharion, the War-Sage', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
   MODEL ('r71-nl-mal-ret-0-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
   MODEL ('r71-nl-mal-ret-0-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
   MODEL ('r71-nl-mal-ret-0-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
@@ -579,10 +582,14 @@ UNIT r41-unit-viii-6-malcharion-the-war-sage :: Malcharion, the War-Sage
   MODEL ('r71-nl-mal-ret-1-r40-da-steel-transport-veteran-unit-r37-spear-tac-transport-src-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus (10 models or fewer)', None, [('max', '1', 'parent')], ['200'])
 
 UNIT r41-unit-viii-7-shang :: Shang
+  MODEL ('r73-nl-shang-model', 'Shang', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
   MODEL ('r71-nl-shang-ret-0-r71-nl-terror-models', '4 Terror Marines + Headsman', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['25'])
   MODEL ('r71-nl-shang-ret-0-r71-nl-terror-transport-hs-lr-phobos-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
   MODEL ('r71-nl-shang-ret-0-r71-nl-terror-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
   MODEL ('r71-nl-shang-ret-0-r71-nl-terror-transport-hs-lr-achilles-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-viii-8-flaymaster-mawdrym-llansahai :: Flaymaster Mawdrym Llansahai
+  MODEL ('r73-nl-mawdrym-model', 'Flaymaster Mawdrym Llansahai', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
 
 UNIT r41-unit-viii-9-viii-konrad-curze-the-night-haunter :: Konrad Curze, the Night Haunter
   MODEL ('r71-nl-curze-ret-0-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
@@ -597,6 +604,7 @@ UNIT r41-unit-viii-9-viii-konrad-curze-the-night-haunter :: Konrad Curze, the Ni
   MODEL ('r71-nl-curze-ret-3-r71-nl-terror-transport-hs-lr-phobos-hs-lr-phobos', 'Land Raider Phobos', '1', [('max', '1', 'parent')], ['250'])
   MODEL ('r71-nl-curze-ret-3-r71-nl-terror-transport-hs-lr-proteus-hs-lr-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
   MODEL ('r71-nl-curze-ret-3-r71-nl-terror-transport-hs-lr-achilles-hs-lr-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r73-nl-curze-model', 'Konrad Curze, the Night Haunter', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
 
 UNIT r41-unit-ix-0-dawnbreaker-cohort :: DAWNBREAKER COHORT
   MODEL ('r41-unit-ix-0-dawnbreaker-cohort-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['35'])
