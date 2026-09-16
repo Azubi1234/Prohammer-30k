@@ -1,0 +1,56 @@
+name: Apply Revision 70 Imperial Fists live standards fix
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev70_imperial_fists_live_fix.py'
+      - '.github/workflows/apply-r70-imperial-fists-live-fix.yml'
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Preflight shared Armoury ids
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          cat=Path('Legiones Astartes.cat')
+          root=ET.parse(cat).getroot()
+          ids={e.get('id') for e in root.iter() if e.get('id')}
+          p=Path('.github/build/rev70_imperial_fists_live_fix.py')
+          s=p.read_text(encoding='utf-8')
+          # Grenade Harness was historically local in some units. Use a local 10pt entry if no shared id exists.
+          if 'gear-grenade-harness' not in ids:
+              old="if kind=='huscarl': link(war,uid+'-gh','Grenade Harness','gear-grenade-harness')"
+              new="if kind=='huscarl': local(war,uid+'-gh','Grenade Harness',10,'Terminator Armour only.')"
+              if old not in s: raise SystemExit('Expected Grenade Harness line not found')
+              p.write_text(s.replace(old,new),encoding='utf-8')
+          PY
+      - name: Apply Revision 70
+        run: python .github/build/rev70_imperial_fists_live_fix.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 70
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          c=ET.parse('Legiones Astartes.cat').getroot(); g=ET.parse('Prohammer 30k.gst').getroot()
+          assert c.get('revision')=='70' and c.get('gameSystemRevision')=='38'
+          assert g.get('revision')=='38'
+          cat=open('Legiones Astartes.cat',encoding='utf-8').read(); gst=open('Prohammer 30k.gst',encoding='utf-8').read()
+          assert '<ns0:' not in cat and '<ns0:' not in gst
+          print(open('inspection-r70-imperial-fists-live.txt',encoding='utf-8').read())
+          PY
+      - name: Commit generated live data
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add '.github/build/rev70_imperial_fists_live_fix.py' 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r70-imperial-fists-live.txt inspection-r56-all-unit-sizes.txt
+          git diff --cached --quiet || git commit -m 'Revision 70: complete Imperial Fists live implementation'
+          git push
