@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - '.github/build/r74_post_blood_angels_audit.py'
+      - '.github/build/r74_post_blood_angels_audit_v2.py'
       - '.github/workflows/r74-blood-angels-post-audit.yml'
 jobs:
   audit:
@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Run Blood Angels post-build audit
-        run: python .github/build/r74_post_blood_angels_audit.py
+        run: python .github/build/r74_post_blood_angels_audit_v2.py
       - name: Commit post-build audit
         run: |
           git config user.name 'Azubi1234'
