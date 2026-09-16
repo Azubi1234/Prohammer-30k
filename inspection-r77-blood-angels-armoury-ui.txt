@@ -1,0 +1,20 @@
+Revision 77 — Blood Angels Armoury UI containment fix
+Catalogue revision: 77
+Game-system revision: 44
+
+Cause
+- Rev76 correctly removed the 406 broad-injection links, but its new Blood Angels Armoury group began with hidden=true and relied on an unhide modifier. New Recruit can render children of such a conditional container without rendering the container heading, visually flattening the items into the preceding group (for example Armour Replacement).
+- Death Mask was also still a direct root-level Praetor/Centurion link instead of living in the dedicated Blood Angels Armoury container.
+
+Fix
+- Rebuilt Praetor and Centurion Blood Angels Armoury groups as normal visible groups which are hidden only when Legion IX is absent, matching the established project pattern used by other Legion armouries.
+- Death Mask, Inferno Pistol and Blade of Perdition now live only inside that one Blood Angels Armoury group on each generic HQ.
+- Blade exchange remains conditional on actually selecting a Power Weapon and mutually exclusive with the full +25 Blade purchase.
+- Removed 4 stale/shared BA links or old Rev76 containers from those generic HQ shells.
+- Explicit unit-local options such as Sanguinary Guard Inferno Pistols, Moritat double Inferno Pistols, and named-character Death Masks are preserved.
+- CAT and GST revisions both bumped (77 / 44) to force a clean New Recruit refresh rather than relying on catalogue-only cache invalidation.
+
+Validation
+- No shared BA item exists under Armour Replacement, Mobility, Additional Wargear, retinue, or generic HQ root level.
+- No r74-ba-arm-* broad-injection objects remain.
+- Duplicate-ID and XML parse validation passed.
