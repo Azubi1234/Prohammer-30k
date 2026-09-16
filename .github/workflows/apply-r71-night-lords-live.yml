@@ -1,0 +1,41 @@
+name: Apply Revision 71 Night Lords live implementation
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev71_night_lords_live.py'
+      - '.github/workflows/apply-r71-night-lords-live.yml'
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Compile Revision 71 builder
+        run: python -m py_compile .github/build/rev71_night_lords_live.py
+      - name: Apply Revision 71
+        run: python .github/build/rev71_night_lords_live.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 71
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          c=ET.parse('Legiones Astartes.cat').getroot(); g=ET.parse('Prohammer 30k.gst').getroot(); i=ET.parse('index.xml').getroot()
+          assert c.get('revision')=='71' and c.get('gameSystemRevision')=='39'
+          assert g.get('revision')=='39'
+          cat=open('Legiones Astartes.cat',encoding='utf-8').read(); gst=open('Prohammer 30k.gst',encoding='utf-8').read()
+          assert '<ns0:' not in cat and '<ns0:' not in gst
+          print(open('inspection-r71-night-lords-live.txt',encoding='utf-8').read())
+          PY
+      - name: Commit generated live data
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r71-night-lords-live.txt inspection-r56-all-unit-sizes.txt
+          git diff --cached --quiet || git commit -m 'Revision 71: complete Night Lords live implementation'
+          git push
