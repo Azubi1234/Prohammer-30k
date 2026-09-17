@@ -1,0 +1,13 @@
+Revision 90 — World Eaters forced refresh
+CAT=90 GSTref=52 GST=52
+
+KHÂRN THE BLOODY: clean structured entry; no Source Entry dump
+SHABRAN DARR: clean structured entry; no Source Entry dump
+GAHLAN SURLAK: clean structured entry; no Source Entry dump
+KARGOS, THE BLOODSPITTER: clean structured entry; no Source Entry dump
+CAPTAIN EHRLEN: clean structured entry; no Source Entry dump
+DELVARUS: clean structured entry; no Source Entry dump
+XII — ANGRON, THE RED ANGEL: clean structured entry; no Source Entry dump
+ANGRON, THE RED ANGEL: clean structured entry; no Source Entry dump
+
+Cache-busting action: bumped both catalogue and game-system revisions so New Recruit must rebuild the game data rather than reusing a stale CAT89/GST51 resolved copy.
