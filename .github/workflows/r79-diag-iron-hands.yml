@@ -1,0 +1,27 @@
+name: R79 Diagnose Iron Hands
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/r79_diag_iron_hands.py'
+      - '.github/workflows/r79-diag-iron-hands.yml'
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Diagnose Iron Hands
+        run: python .github/build/r79_diag_iron_hands.py
+      - name: Commit diagnostic
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add inspection-r79-iron-hands-diagnostic.txt
+          git diff --cached --quiet || git commit -m 'Revision 79 diagnostic: audit Iron Hands'
+          git pull --rebase origin main
+          git push
