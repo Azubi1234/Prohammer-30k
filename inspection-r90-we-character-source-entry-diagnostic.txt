@@ -1,0 +1,76 @@
+CAT revision=89 GSTref=51
+
+========================================================================================================================
+Kharn | r41-unit-xii-6-kharn-the-bloody | FOUND=True
+unit name=KHÂRN THE BLOODY hidden=false
+GROUP r89-we-kharn-wargear | Wargear | children=1
+GROUP r89-we-kharn-weapon | Weapon | children=2
+GROUP r89-we-kharn-special-rules | Special Rules | children=1
+GROUP r89-we-kharn-options | Options | children=1
+SUSPICIOUS DESCENDANTS=0
+
+========================================================================================================================
+Shabran Darr | r41-unit-xii-7-shabran-darr | FOUND=True
+unit name=SHABRAN DARR hidden=false
+GROUP r89-we-darr-wargear | Wargear | children=1
+GROUP r89-we-darr-special-rules | Special Rules | children=1
+GROUP r89-we-darr-options | Options | children=1
+SUSPICIOUS DESCENDANTS=0
+
+========================================================================================================================
+Gahlan Surlak | r41-unit-xii-8-gahlan-surlak | FOUND=True
+unit name=GAhLAN SURLAK hidden=false
+GROUP r89-we-surlak-wargear | Wargear | children=1
+GROUP r89-we-surlak-special-rules | Special Rules | children=1
+GROUP r89-we-surlak-options | Options | children=1
+SUSPICIOUS DESCENDANTS=0
+
+========================================================================================================================
+Kargos | r41-unit-xii-9-kargos-the-bloodspitter | FOUND=True
+unit name=KARGOS, THE BLOODSPITTER hidden=false
+GROUP r89-we-kargos-wargear | Wargear | children=1
+GROUP r89-we-kargos-special-rules | Special Rules | children=1
+GROUP r89-we-kargos-options | Options | children=1
+SUSPICIOUS DESCENDANTS=0
+
+========================================================================================================================
+Captain Ehrlen | r41-unit-xii-10-captain-ehrlen | FOUND=True
+unit name=CAPTAIN EHRLEN hidden=false
+GROUP r89-we-ehrlen-wargear | Wargear | children=1
+GROUP r89-we-ehrlen-special-rules | Special Rules | children=1
+GROUP r89-we-ehrlen-options | Options | children=1
+SUSPICIOUS DESCENDANTS=0
+
+========================================================================================================================
+Delvarus | r41-unit-xii-11-delvarus | FOUND=True
+unit name=DELVARUS hidden=false
+GROUP r89-we-delvarus-wargear | Wargear | children=1
+GROUP r89-we-delvarus-special-rules | Special Rules | children=1
+GROUP r89-we-delvarus-options | Options | children=1
+SUSPICIOUS DESCENDANTS=0
+
+========================================================================================================================
+Angron | r41-unit-xii-12-xii-angron-the-red-angel | FOUND=True
+unit name=XII — ANGRON, THE RED ANGEL hidden=false
+GROUP r89-we-angron-wargear | Wargear | children=1
+GROUP r89-we-angron-weapon | Weapon | children=2
+GROUP r89-we-angron-special-rules | Special Rules | children=1
+SUSPICIOUS DESCENDANTS=0
+
+========================================================================================================================
+Angron, the Red Angel | r41-unit-xii-13-angron-the-red-angel | FOUND=True
+unit name=ANGRON, THE RED ANGEL hidden=true
+GROUP r89-we-daemon-angron-wargear | Wargear | children=1
+GROUP r89-we-daemon-angron-special-rules | Special Rules | children=1
+GROUP r89-we-daemon-angron-restrictions | Restrictions | children=1
+SUSPICIOUS DESCENDANTS=0
+
+========================================================================================================================
+GLOBAL DELVARUS / SOURCE ENTRY NODES
+
+  DESC=Close Combat Weapon. Uses the bearer's Strength and permits normal Armour Saves. | At half the weapon's maximum range or less, roll 2D6 for Armour Penetration instead of D6. | On a natural To Wound roll of 6, the wound is automatically successful and treated as a Power Weapon attack. Against vehicles, an Armour Penetration roll of 6 adds an additional D3. | On a natural To Wound roll of 6, the wound is automatically successful and treated as a Power Weapon attack. Against vehicles, an Armour Penetration roll of 6 adds an additional D3. | At half the weapon's maximum range or less, roll 2D6 for Armour Penetration instead of D6. | On a natural To Wound roll of 6, the wound is automatically successful and treated as a Power Weapon attack. Against vehicles, an Armour Penetration roll of 6 adds an additional D3. | The Bolter component may be fired normally. The secondary component may be fired once per battle. Both components may not be fired in the same Shooting phase. | The Bolter component may be fired normally. Choose the Frag or Krak profile when firing the secondary Grenade Launcher component; that secondary component may be fired once per battle. Both components may not be fired in the same Shooting phase. | The Bolter component may be fired normally. The Meltagun component may be fired once per battle. Both components may not be fired in the same Shooting phase. | The Bolter component may be fired normally. The Plasma Gun component may be fired once per battle. Both components may not be fired in the same Shooting phase. | The Bolter component may be fired normally. The Volkite Charger comp
+selectionEntries[::]
+  DESC=Models wearing Power Armour have a 3+ Armour Save. | All models have And They Shall Know No Fear as presented in ProHammer Classic and gain the named Legiones Astartes rule of their chosen Legion. They are not Fearless. | Frag Grenades use the normal ProHammer Frag Grenade and Assault Grenade rules. Against vehicles, Frag Grenades have Strength 4 + D6 Armour Penetration. | The squad may declare Fury of the Legion in its Shooting phase if it did not move in the preceding Movement phase, did not arrive from Reserves or Deep Strike or disembark that turn, and at least five models remain armed with Bolters or Bolt Pistols. Models armed with Bolters or Bolt Pistols may fire those weapons twice: a Bolter fires 2 shots up to 24" or 4 shots up to 12", and a Bolt Pistol fires 2 shots. All Fury attacks are directed at the same target unless another rule permits otherwise. After using Fury, the squad may not enter Overwatch, make Return Fire or Stand & Shoot reactions, or fire during its next friendly Shooting phase. | A Legion Tactical Squad begins with its listed basic wargear automatically. Squad-wide Chainsword purchases, Bolter-for-Chainsword exchanges and Krak Grenade purchases are selected once for the squad and their points scale with squad size; they are not selected model-by-model. | May select up to 50 points of permitted weapons and wargear from the Space Marine Armoury. Only items marked for Squad Sergeants are available. The Sergeant may carry no more than two weapons, only one of which may be two-handed. A pair of Lightning Claws counts as two weapon choices. His standard Bolter 
+selectionEntry[r41-unit-xii-11-delvarus::DELVARUS] <- selectionEntries[::]
+  DESC=Confers a 3+ Armour Save. | A Caedere Weapon is a one-handed close-combat weapon at User +1 Strength with Rending. It does not count as a Power Weapon. | Uses the normal Bolt pistol profile. | Uses the normal Boarding Shield rules. | Uses the normal Frag grenade rules. | Uses the World Eaters Legion special rule. | Uses the normal Independent Character rules. | Any Triarii Breacher Squad joined by Delvarus gains Stubborn and Furious Charge. | Delvarus may select one Legion Triarii Breacher Squad as his retinue. The selected squad does not occupy a separate Force Organisation slot. | Uses the normal Melta bomb rules.
+profile[r41-unit-xii-11-delvarus-profile-0::Delvarus] <- profiles[::] <- selectionEntry[r41-unit-xii-11-delvarus::DELVARUS] <- selectionEntries[::]
