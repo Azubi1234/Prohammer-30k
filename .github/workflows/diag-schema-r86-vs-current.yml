@@ -1,0 +1,39 @@
+name: Compare R86 and current BattleScribe schema errors
+on:
+  push:
+    paths:
+      - '.github/workflows/diag-schema-r86-vs-current.yml'
+  workflow_dispatch:
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install XML tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libxml2-utils
+      - name: Compare R86 to current
+        shell: bash
+        run: |
+          set +e
+          curl -fsSL 'https://raw.githubusercontent.com/alexdawn/battle-cogitator/ec1cc7283c5c5c656f8892d0351dfe4879fdcb2d/notebooks/battlescribe/catelogue_schema.xsd' -o /tmp/catalogue.xsd
+          cp /tmp/catalogue.xsd /tmp/gamesystem.xsd
+          sed -i 's#http://www.battlescribe.net/schema/catalogueSchema#http://www.battlescribe.net/schema/gameSystemSchema#g' /tmp/gamesystem.xsd
+          git show 65aa61a7f3656b6a1abe4a1cd0faea214c0276ec:'Legiones Astartes.cat' > /tmp/r86.cat
+          git show 65aa61a7f3656b6a1abe4a1cd0faea214c0276ec:'Prohammer 30k.gst' > /tmp/r86.gst
+          xmllint --noout --schema /tmp/catalogue.xsd /tmp/r86.cat 2> /tmp/r86-cat.log
+          xmllint --noout --schema /tmp/gamesystem.xsd /tmp/r86.gst 2> /tmp/r86-gst.log
+          xmllint --noout --schema /tmp/catalogue.xsd 'Legiones Astartes.cat' 2> /tmp/current-cat.log
+          xmllint --noout --schema /tmp/gamesystem.xsd 'Prohammer 30k.gst' 2> /tmp/current-gst.log
+          echo '=== COUNTS ==='
+          echo "R86 CAT: $(grep -c 'Schemas validity error' /tmp/r86-cat.log)"
+          echo "CUR CAT: $(grep -c 'Schemas validity error' /tmp/current-cat.log)"
+          echo "R86 GST: $(grep -c 'Schemas validity error' /tmp/r86-gst.log)"
+          echo "CUR GST: $(grep -c 'Schemas validity error' /tmp/current-gst.log)"
+          sed -E 's#^[^:]+:[0-9]+: ##' /tmp/r86-cat.log | grep 'Schemas validity error' | sort -u > /tmp/r86-norm.txt
+          sed -E 's#^[^:]+:[0-9]+: ##' /tmp/current-cat.log | grep 'Schemas validity error' | sort -u > /tmp/current-norm.txt
+          echo '=== ERROR TYPES NEW SINCE R86 ==='
+          comm -13 /tmp/r86-norm.txt /tmp/current-norm.txt || true
+          echo '=== ERROR TYPES PRESENT IN R86 BUT NOT CURRENT ==='
+          comm -23 /tmp/r86-norm.txt /tmp/current-norm.txt || true
