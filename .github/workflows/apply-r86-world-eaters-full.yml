@@ -1,0 +1,44 @@
+name: Apply Revision 86 World Eaters full
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev86_world_eaters_full.py'
+      - '.github/workflows/apply-r86-world-eaters-full.yml'
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply World Eaters Revision 86
+        run: python .github/build/rev86_world_eaters_full.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify XML
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          C='http://www.battlescribe.net/schema/catalogueSchema'
+          root=ET.parse('Legiones Astartes.cat').getroot()
+          assert root.get('revision')=='86'
+          assert root.get('gameSystemRevision')=='51'
+          raw=Path('Legiones Astartes.cat').read_text(encoding='utf-8')
+          assert '<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema"' in raw
+          assert '<ns0:' not in raw
+          print(Path('inspection-r86-world-eaters-full.txt').read_text())
+          PY
+      - name: Commit live Revision 86
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r86-world-eaters-full.txt inspection-r56-all-unit-sizes.txt
+          git diff --cached --quiet || git commit -m 'Revision 86: finish World Eaters rules and Angron Transfigured'
+          git pull --rebase origin main
+          for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
