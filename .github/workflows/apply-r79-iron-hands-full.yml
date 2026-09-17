@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/build/rev79_iron_hands_full.py'
+      - '.github/build/rev79_iron_hands_runner.py'
       - '.github/workflows/apply-r79-iron-hands-full.yml'
 jobs:
   apply:
@@ -16,7 +17,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Apply Revision 79
-        run: python .github/build/rev79_iron_hands_full.py
+        run: python .github/build/rev79_iron_hands_runner.py
       - name: Run permanent unit-size audit
         run: python .github/build/r56_audit_all_unit_sizes.py
       - name: Verify XML and revisions
