@@ -1,0 +1,17 @@
+Revision 89 — World Eaters named-character audit
+CAT=89 GSTref=51
+
+Khârn: 180 pts | Wargear OK | Special Rules OK | Options OK | Source dump NONE
+Shabran Darr: 150 pts | Wargear OK | Special Rules OK | Options OK | Source dump NONE
+Gahlan Surlak: 125 pts | Wargear OK | Special Rules OK | Options OK | Source dump NONE
+Kargos: 120 pts | Wargear OK | Special Rules OK | Options OK | Source dump NONE
+Captain Ehrlen: 95 pts | Wargear OK | Special Rules OK | Options OK | Source dump NONE
+Delvarus: 120 pts | Wargear OK | Special Rules OK | Options OK | Source dump NONE
+Angron: 515 pts | Wargear OK | Special Rules OK | Options n/a | Source dump NONE
+Angron, the Red Angel: 650 pts | Wargear OK | Special Rules OK | Options n/a | Source dump NONE
+
+Legacy source artifacts removed during this pass: 0
+Kharn: restored The Cutter as base weapon; Gorechild is +55 option and is blocked while mortal Angron uses Gorefather & Gorechild.
+Shabran Darr: restored full wargear, Stubborn, Dual Pistols, Master of Destroyers and Loyalist-only presentation.
+All six HQ characters plus mortal Angron and Daemon Angron now use one clean Wargear group and one clean Special Rules group.
+Daemon Angron: every listed special rule has an individual tooltip.
