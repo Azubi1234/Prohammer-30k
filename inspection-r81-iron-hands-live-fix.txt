@@ -1,0 +1,19 @@
+Revision 81 — Iron Hands live correction
+CAT=81 GST=48
+
+Presentation
+- Scrubbed 0 remaining Iron Hands Source Entry/source-dump nodes and revalidated Autek/Ferrus top-level profile placement.
+
+Dangerous Weaponry
+- Removed 16 old standalone Graviton-substitution links.
+- Added Graviton Gun directly inside 14 existing Special Weapons groups which already contain a Flamer; each costs 15 points and only appears for Iron Hands.
+
+Ferrus Manus
+- Added real fixed wargear entries for Medusan Carapace, Forgebreaker, Living Metal Hands, Frag Grenades, Twin-linked Meltagun, Twin-linked Plasma Gun, Heavy Flamer, Cortex Controller and Nuncio Vox.
+- Reasserted Primarch, Legiones Astartes (Iron Hands), The Gorgon, Master of the Forge and Forged for War as distinct rules.
+- Existing Primarch retinue choices remain intact.
+
+Rites
+- Head of the Gorgon: Fast Attack max 1; non-Forge Consuls max 1 (16 Consul upgrades tagged); Blessed Autosimulacra free and compulsory through 31 existing vehicle links; Scions of Iron rebuilt with 144 conditional Phobos/Proteus entries which inherit the parent Rhino visibility/capacity logic.
+- Company of Bitter Iron: Loyalist-only visibility; repaired Immortal Troops clone; at least one compulsory Immortal enforced; Ferrus excluded.
+- Battlefield-state and Allied-Detachment restrictions remain explicit rules where New Recruit cannot reliably infer them.

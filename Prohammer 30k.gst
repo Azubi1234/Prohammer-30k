@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ns0:gameSystem xmlns:ns0="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="47" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
+<ns0:gameSystem xmlns:ns0="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="48" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
   <ns0:comment>Horus Heresy army lists adapted for use with ProHammer Classic.</ns0:comment>
   <ns0:readme>Core system skeleton for Prohammer 30k. Contains points, core profile types, battlefield roles, mandatory Army Configuration and the standard Force Organisation Chart.</ns0:readme>
   <ns0:costTypes>
@@ -80,6 +80,8 @@
     <ns0:categoryEntry id="r79-ih-bitter-comp" name="Company of Bitter Iron — compulsory Medusan Immortal" hidden="true" />
     <ns0:categoryEntry id="r80-ih-bitter-comp" name="Company of Bitter Iron — compulsory Medusan Immortal" hidden="true" />
     <ns0:categoryEntry id="r80-ih-head-nonforge-consul" name="Head of the Gorgon — non-Forge-Lord Consuls" hidden="true" />
+    <ns0:categoryEntry id="r81-ih-nonforge-consul" name="Head of the Gorgon — non-Forge Consul" hidden="true" />
+    <ns0:categoryEntry id="r81-ih-bitter-comp" name="Company of Bitter Iron — compulsory Immortal" hidden="true" />
   </ns0:categoryEntries>
   <ns0:forceEntries>
     <ns0:forceEntry id="force-standard" name="Standard Age of Darkness Detachment" hidden="false">
@@ -223,6 +225,11 @@
               </ns0:conditions>
             </ns0:modifier>
             <ns0:modifier id="r80-ih-head-fast-max" type="set" value="1" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r81-ih-head-fast-max" type="set" value="1" field="fl-fast-max">
               <ns0:conditions>
                 <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
               </ns0:conditions>
@@ -524,6 +531,30 @@
             <ns0:modifier id="r80-ih-head-consul-set" type="set" value="1" field="r80-ih-head-consul-max">
               <ns0:conditions>
                 <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="r81-ih-head-consul-limit" name="Head of the Gorgon — non-Forge Consul" hidden="true" targetId="r81-ih-nonforge-consul">
+          <ns0:constraints>
+            <ns0:constraint id="r81-ih-head-consul-max" type="max" value="99" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r81-ih-head-consul-set" type="set" value="1" field="r81-ih-head-consul-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="r81-ih-bitter-comp-link" name="Company of Bitter Iron — compulsory Immortal" hidden="true" targetId="r81-ih-bitter-comp">
+          <ns0:constraints>
+            <ns0:constraint id="r81-ih-bitter-comp-min" type="min" value="0" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r81-ih-bitter-comp-set" type="set" value="1" field="r81-ih-bitter-comp-min">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-1-company-of-bitter-iron" shared="true" includeChildSelections="true" includeChildForces="false" />
               </ns0:conditions>
             </ns0:modifier>
           </ns0:modifiers>
