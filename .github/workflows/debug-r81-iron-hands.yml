@@ -1,0 +1,23 @@
+name: Debug Revision 81 Iron Hands
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/debug-r81-iron-hands.yml']
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    permissions: {contents: write}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.x'}
+      - name: Capture traceback
+        run: python .github/build/rev81_iron_hands_live_fix.py > r81-debug.txt 2>&1 || true
+      - name: Commit traceback
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add r81-debug.txt
+          git diff --cached --quiet || git commit -m 'Debug Revision 81 Iron Hands traceback'
+          git pull --rebase origin main
+          git push
