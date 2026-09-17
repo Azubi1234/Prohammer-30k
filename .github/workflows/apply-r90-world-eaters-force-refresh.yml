@@ -1,0 +1,47 @@
+name: Apply Revision 90 World Eaters force refresh
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev90_force_refresh_world_eaters.py'
+      - '.github/workflows/apply-r90-world-eaters-force-refresh.yml'
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply Revision 90 force refresh
+        run: python .github/build/rev90_force_refresh_world_eaters.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 90
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          C='http://www.battlescribe.net/schema/catalogueSchema'; G='http://www.battlescribe.net/schema/gameSystemSchema'
+          cr=ET.parse('Legiones Astartes.cat').getroot(); gr=ET.parse('Prohammer 30k.gst').getroot()
+          assert cr.get('revision')=='90'
+          assert cr.get('gameSystemRevision')=='52'
+          assert gr.get('revision')=='52'
+          q=lambda t:f'{{{C}}}{t}'
+          surlak=next(e for e in cr.iter(q('selectionEntry')) if e.get('id')=='r41-unit-xii-8-gahlan-surlak')
+          assert surlak.get('name')=='GAHLAN SURLAK'
+          for uid in ('r41-unit-xii-6-kharn-the-bloody','r41-unit-xii-7-shabran-darr','r41-unit-xii-8-gahlan-surlak','r41-unit-xii-9-kargos-the-bloodspitter','r41-unit-xii-10-captain-ehrlen','r41-unit-xii-11-delvarus','r41-unit-xii-12-xii-angron-the-red-angel','r41-unit-xii-13-angron-the-red-angel'):
+              u=next(e for e in cr.iter(q('selectionEntry')) if e.get('id')==uid)
+              assert not any((e.get('name') or '').lower().startswith('source entry') for e in u.iter())
+          print(open('inspection-r90-world-eaters-force-refresh.txt',encoding='utf-8').read())
+          PY
+      - name: Commit live Revision 90
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r90-world-eaters-force-refresh.txt inspection-r56-all-unit-sizes.txt
+          git diff --cached --quiet || git commit -m 'Revision 90: force-refresh World Eaters character cleanup'
+          git pull --rebase origin main
+          for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
