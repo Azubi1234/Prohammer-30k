@@ -1,0 +1,12 @@
+Revision 85 — Gabriel Santar minimum game-size correction
+CAT=85 GSTref=51
+
+Entry: GABRIEL SANTAR (r41-unit-x-6-gabriel-santar)
+Old 1500 restriction: {'id': 'r79-ih-santar-1500', 'type': 'min', 'value': '1500', 'field': 'selections', 'scope': 'roster', 'shared': 'true', 'includeChildSelections': 'false', 'includeChildForces': 'false'}
+New 1500 restriction: {'id': 'r79-ih-santar-1500', 'type': 'min', 'value': '1500', 'field': 'limit::points', 'scope': 'roster', 'shared': 'true', 'includeChildSelections': 'true', 'includeChildForces': 'true', 'percentValue': 'false'}
+
+Result:
+- Removed the accidental minimum-1500 SELECTIONS semantics that rendered as (1/1500).
+- The 1500 threshold now checks the roster Points LIMIT instead.
+- Santar remains a unique max-1 character; this does not scale to 2 at 3000, 3 at 4500, etc.
+- Below a declared 1500-point game limit Santar is illegal; at 1500+ he is legal, subject to his normal max-1 cap.
