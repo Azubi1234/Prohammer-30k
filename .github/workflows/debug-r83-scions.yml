@@ -1,0 +1,21 @@
+name: Debug R83 Scions
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/debug-r83-scions.yml']
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    permissions: {contents: write}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.x'}
+      - run: python .github/build/rev83_iron_hands_scions_final.py > r83-debug.txt 2>&1 || true
+      - run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add r83-debug.txt
+          git diff --cached --quiet || git commit -m 'Debug R83 Scions'
+          git pull --rebase origin main
+          git push
