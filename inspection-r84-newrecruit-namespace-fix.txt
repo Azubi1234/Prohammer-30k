@@ -1,0 +1,12 @@
+Revision 84 — New Recruit namespace ingestion fix
+CAT=84 GST=51
+
+Root before normalization:
+CAT: <ns0:catalogue xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="83" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="50" type="catalogue">
+GST: <ns0:gameSystem xmlns:ns0="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="50" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
+
+Root after normalization and revision bump:
+CAT: <catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="84" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="51" type="catalogue">
+GST: <gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="51" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
+
+Reason: CAT/GST had again been serialized with ns0: namespace prefixes. This previously caused New Recruit ingestion to fail silently and retain the older cached catalogue. The live data is now canonical default-namespace BattleScribe XML.
