@@ -1,0 +1,25 @@
+Revision 86 — World Eaters full implementation
+CAT=86 GSTref=51
+
+Fixed base/additional costs:
+- Rampagers 110 +22/model
+- Red Butchers 300 +60/model, 0-1
+- Red Hand Destroyers 160 +22/model
+- Inductii 130 +13/model
+- Devourers 225 +45/model
+- Triarii 155 +27/model
+
+Kharn:
+- 180 points
+- proper roster Points Limit minimum 1500
+
+Rites of War:
+- Berserker Assault complete rules text; Rampager Troops copy corrected; Heavy Support max 1 enforced
+- Crimson Path complete rules text and limitations
+
+Angron, the Red Angel:
+- 650 points
+- aggregate import block replaced by discrete rules
+- World Eaters-only visibility
+- mortal/daemon forms mutually exclusive
+- full Blood Calls to Blood summoning table, Deep Strike/charge arrival, Daemonic Flight, Blades and The Nails Sing included

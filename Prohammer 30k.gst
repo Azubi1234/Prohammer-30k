@@ -256,11 +256,6 @@
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vi-0-the-pale-hunters" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
-            <modifier id="r45-we-berserker-heavy-max" type="set" value="1" field="fl-heavy-max">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-xii-0-berserker-assault" shared="true" includeChildSelections="true" includeChildForces="false" />
-              </conditions>
-            </modifier>
             <modifier id="r46-wb-dark-brethren-heavy-max" type="set" value="1" field="fl-heavy-max">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-xvii-0-the-dark-brethren" shared="true" includeChildSelections="true" includeChildForces="false" />
@@ -291,7 +286,7 @@
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
-          </modifiers>
+          <modifier id="r86-we-berserker-heavy-max" type="set" value="1" field="fl-heavy-max"><conditions><condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-xii-0-berserker-assault" shared="true" includeChildSelections="true" includeChildForces="false" /></conditions></modifier></modifiers>
         </categoryLink>
         <categoryLink id="fl-transport" name="Dedicated Transport" hidden="false" targetId="cat-transport" />
         <categoryLink id="fl-low" name="Lords of War" hidden="false" targetId="cat-low">

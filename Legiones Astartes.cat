@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="85" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="51" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="86" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="51" type="catalogue">
   <comment>Revision 62: Space Wolves Legion base rules verified against Forces of the Legions; HQ organisation now scales one selection per full or partial 750 roster-limit points.</comment>
   <readme>Core Legiones Astartes catalogue for Prohammer 30k. Revision 32 includes the generic Legion army list and Consuls, Dark Angels package, Legiones Astartes Lords of War, and Legiones Astartes Aeronautica Imperialis aircraft. Experimental Wargear and Units remains excluded.</readme>
   <sharedSelectionEntries>
@@ -47929,7 +47929,20 @@ The army's Warlord must be equipped with a Chainaxe, Caedere Weapon, Rending Wea
 The Detachment may include no more than one Heavy Support choice.
 The Detachment may not include a Fortification.</description>
                 </rule>
-              </rules>
+              <rule id="r86-berserker-full" name="Berserker Assault — Effects &amp; Limitations" hidden="false"><description>THE RED HAND
+Rampager Squads may be selected as Troops choices and may fulfil compulsory Troops selections. Legion Assault Squads may fulfil compulsory Troops selections normally.
+
+HEADLONG ASSAULT
+World Eaters Infantry and Jump Infantry units gain Fleet. A unit with Fleet may charge after making an Advance move, following the normal ProHammer rules.
+
+WEAPONS OF THE PITS
+World Eaters models in Legion Assault Squads and Rampager Squads may purchase Chainaxes for +2 points per model instead of the normal +4 points.
+
+BLOOD FORWARD
+A non-Vehicle World Eaters unit must declare a charge during its Assault phase if it is normally eligible to charge and at least one enemy unit is within its current charge distance. If more than one legal target is available, the World Eaters player chooses which unit is charged.
+
+LIMITATIONS
+The army's compulsory Troops choices must be Legion Assault Squads or Rampager Squads. At least one compulsory Troops choice must be a Rampager Squad. The army's Warlord must be equipped with a Chainaxe, Caedere Weapon, Rending Weapon, Power Weapon or another close-combat weapon. The Detachment may include no more than one Heavy Support choice and may not include a Fortification.</description></rule></rules>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="World Eaters Rite of War — The Crimson Path" hidden="false" id="r25-rite-xii-1-the-crimson-path">
               <constraints>
@@ -47962,7 +47975,17 @@ The Detachment may not include Immobile units.
 The Detachment may not include a Fortification.
 The Detachment may not include an Allied Detachment drawn from another Space Marine Legion.</description>
                 </rule>
-              </rules>
+              <rule id="r86-crimson-full" name="The Crimson Path — Effects &amp; Limitations" hidden="false"><description>FORLORN HOPE
+World Eaters Infantry models gain Feel No Pain (5+) while within the enemy deployment zone. If a model already possesses Feel No Pain, improve it by one step while it remains within the enemy deployment zone, to a maximum of 3+.
+
+UNTO DEATH
+World Eaters Independent Characters gain It Will Not Die while within the enemy deployment zone. If a Character already possesses It Will Not Die, it instead regains a lost Wound on a 4+ while within the enemy deployment zone.
+
+THE PATH MUST END IN BLOOD
+At the end of the battle, if the World Eaters have no surviving non-Vehicle unit at least partially within the enemy deployment zone, the opposing player gains +150 Victory Points. If the opposing army has completely destroyed more World Eaters units than the World Eaters have completely destroyed enemy units, the opposing player gains another +150 Victory Points. These penalties only apply in missions using Victory Points.
+
+LIMITATIONS
+The Detachment may not include units with Slow and Purposeful, Immobile units, Fortifications, or an Allied Detachment drawn from another Space Marine Legion.</description></rule></rules>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Ultramarines Rite of War — The Logos Lectora" hidden="false" id="r25-rite-xiii-0-the-logos-lectora">
               <constraints>
@@ -143498,7 +143521,7 @@ The Detachment may not include an Allied Detachment.</description>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="RAMPAGER SQUAD" hidden="false" id="r41-unit-xii-0-rampager-squad">
       <costs>
-        <cost name="Points" typeId="pts" value="0.0" />
+        <cost name="Points" typeId="pts" value="0" />
       </costs>
       <categoryLinks>
         <categoryLink id="r41-unit-xii-0-rampager-squad-cat" name="Elites" hidden="false" targetId="cat-elites" primary="true" />
@@ -143587,7 +143610,7 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
             <cost name="Points" typeId="pts" value="22" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r41-unit-xii-0-rampager-squad-r86-size" name="Rampager" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="22" /></costs><constraints><constraint id="r41-unit-xii-0-rampager-squad-r86-size-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r41-unit-xii-0-rampager-squad-r86-size-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r41-unit-xii-0-rampager-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -143635,7 +143658,7 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
                 <constraint id="r41-unit-xii-0-rampager-squad-opt-3-frag-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="5" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r41-unit-xii-0-rampager-squad-opt-3-context" hidden="false">
@@ -143644,14 +143667,14 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
                 <rule name="Squad-wide cost note" id="r41-unit-xii-0-rampager-squad-opt-3-squadwide" hidden="false">
                   <description>The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +1 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades" type="increment" field="pts" value="1"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r41-unit-xii-0-rampager-squad-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Krak grenades (base unit; +2 pts/model)" hidden="false" id="r41-unit-xii-0-rampager-squad-opt-4-krak-grenades">
               <constraints>
                 <constraint id="r41-unit-xii-0-rampager-squad-opt-4-krak-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="10" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r41-unit-xii-0-rampager-squad-opt-4-context" hidden="false">
@@ -143660,14 +143683,14 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
                 <rule name="Squad-wide cost note" id="r41-unit-xii-0-rampager-squad-opt-4-squadwide" hidden="false">
                   <description>The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +2 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades" type="increment" field="pts" value="2"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r41-unit-xii-0-rampager-squad-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Jump Packs (base unit; +15 pts/model)" hidden="false" id="r41-unit-xii-0-rampager-squad-opt-5-jump-packs">
               <constraints>
                 <constraint id="r41-unit-xii-0-rampager-squad-opt-5-jump-packs-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="75" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r41-unit-xii-0-rampager-squad-opt-5-context" hidden="false">
@@ -143676,8 +143699,8 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
                 <rule name="Squad-wide cost note" id="r41-unit-xii-0-rampager-squad-opt-5-squadwide" hidden="false">
                   <description>The source prices this option at +15 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r41-unit-xii-0-rampager-squad-opt-5-jump-packs" name="Per-model cost" hidden="false"><description>This upgrade costs +15 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r41-unit-xii-0-rampager-squad-opt-5-jump-packs" type="increment" field="pts" value="15"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r41-unit-xii-0-rampager-squad-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
         <selectionEntryGroup id="r49-legion-upgrades-r41-unit-xii-0-rampager-squad" name="Legion Wargear &amp; Upgrades" hidden="false" collective="false" import="true">
@@ -143727,7 +143750,7 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="RED BUTCHER SQUAD" hidden="false" id="r41-unit-xii-1-red-butcher-squad">
       <costs>
-        <cost name="Points" typeId="pts" value="0.0" />
+        <cost name="Points" typeId="pts" value="0" />
       </costs>
       <categoryLinks>
         <categoryLink id="r41-unit-xii-1-red-butcher-squad-cat" name="Elites" hidden="false" targetId="cat-elites" primary="true" />
@@ -143793,7 +143816,7 @@ A squad may select a Land Raider, Dreadclaw Drop Pod or Spartan Assault Tank whe
             <cost name="Points" typeId="pts" value="60" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r41-unit-xii-1-red-butcher-squad-r86-size" name="Red Butcher" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="60" /></costs><constraints><constraint id="r41-unit-xii-1-red-butcher-squad-r86-size-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r41-unit-xii-1-red-butcher-squad-r86-size-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r41-unit-xii-1-red-butcher-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -143839,10 +143862,10 @@ A squad may select a Land Raider, Dreadclaw Drop Pod or Spartan Assault Tank whe
           </selectionEntries>
         </selectionEntryGroup>
       </selectionEntryGroups>
-    </selectionEntry>
+    <constraints><constraint id="r86-red-butcher-unique" type="max" value="1" field="selections" scope="roster" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="true" /></constraints></selectionEntry>
     <selectionEntry type="unit" import="true" name="RED HAND DESTROYER MORTALIS SQUAD" hidden="false" id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad">
       <costs>
-        <cost name="Points" typeId="pts" value="50.0" />
+        <cost name="Points" typeId="pts" value="50" />
       </costs>
       <categoryLinks>
         <categoryLink id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-cat" name="Elites" hidden="false" targetId="cat-elites" primary="true" />
@@ -143948,7 +143971,7 @@ A Mortalis Squad may select a Rhino, Drop Pod, Dreadclaw Drop Podor Land Raider 
             <cost name="Points" typeId="pts" value="22" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-r86-size" name="Red Hand Destroyer" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="22" /></costs><constraints><constraint id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-r86-size-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-r86-size-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -144022,7 +144045,7 @@ A Mortalis Squad may select a Rhino, Drop Pod, Dreadclaw Drop Podor Land Raider 
                 <constraint id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-5-krak-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="10" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-5-context" hidden="false">
@@ -144031,14 +144054,14 @@ A Mortalis Squad may select a Rhino, Drop Pod, Dreadclaw Drop Podor Land Raider 
                 <rule name="Squad-wide cost note" id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-5-squadwide" hidden="false">
                   <description>The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-5-krak-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +2 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-5-krak-grenades" type="increment" field="pts" value="2"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Melta bombs (base unit; +5 pts/model)" hidden="false" id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-melta-bombs">
               <constraints>
                 <constraint id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-melta-bombs-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="25" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-context" hidden="false">
@@ -144047,8 +144070,8 @@ A Mortalis Squad may select a Rhino, Drop Pod, Dreadclaw Drop Podor Land Raider 
                 <rule name="Squad-wide cost note" id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-squadwide" hidden="false">
                   <description>The source prices this option at +5 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-melta-bombs" name="Per-model cost" hidden="false"><description>This upgrade costs +5 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-melta-bombs" type="increment" field="pts" value="5"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Rending Weapon" hidden="false" id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-7-rending-weapon">
               <constraints>
                 <constraint id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-7-rending-weapon-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
@@ -144133,7 +144156,7 @@ A Mortalis Squad may select a Rhino, Drop Pod, Dreadclaw Drop Podor Land Raider 
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="WORLD EATERS INDUCTII SQUAD" hidden="false" id="r41-unit-xii-3-world-eaters-inductii-squad">
       <costs>
-        <cost name="Points" typeId="pts" value="0.0" />
+        <cost name="Points" typeId="pts" value="0" />
       </costs>
       <categoryLinks>
         <categoryLink id="r41-unit-xii-3-world-eaters-inductii-squad-cat" name="Troops" hidden="false" targetId="cat-troops" primary="true" />
@@ -144220,7 +144243,7 @@ A squad of ten models or fewer may select a Rhino, Drop Pod or Dreadclaw Drop Po
             <cost name="Points" typeId="pts" value="13" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r41-unit-xii-3-world-eaters-inductii-squad-r86-size" name="Inductii" type="model" hidden="false" import="true" defaultAmount="10"><costs><cost name="Points" typeId="pts" value="13" /></costs><constraints><constraint id="r41-unit-xii-3-world-eaters-inductii-squad-r86-size-min" type="min" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r41-unit-xii-3-world-eaters-inductii-squad-r86-size-max" type="max" value="20" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r41-unit-xii-3-world-eaters-inductii-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -144255,7 +144278,7 @@ A squad of ten models or fewer may select a Rhino, Drop Pod or Dreadclaw Drop Po
                 <constraint id="r41-unit-xii-3-world-eaters-inductii-squad-opt-2-frag-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="10" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r41-unit-xii-3-world-eaters-inductii-squad-opt-2-context" hidden="false">
@@ -144264,14 +144287,14 @@ A squad of ten models or fewer may select a Rhino, Drop Pod or Dreadclaw Drop Po
                 <rule name="Squad-wide cost note" id="r41-unit-xii-3-world-eaters-inductii-squad-opt-2-squadwide" hidden="false">
                   <description>The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r41-unit-xii-3-world-eaters-inductii-squad-opt-2-frag-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +1 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r41-unit-xii-3-world-eaters-inductii-squad-opt-2-frag-grenades" type="increment" field="pts" value="1"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r41-unit-xii-3-world-eaters-inductii-squad-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Krak grenades (base unit; +2 pts/model)" hidden="false" id="r41-unit-xii-3-world-eaters-inductii-squad-opt-3-krak-grenades">
               <constraints>
                 <constraint id="r41-unit-xii-3-world-eaters-inductii-squad-opt-3-krak-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="20" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r41-unit-xii-3-world-eaters-inductii-squad-opt-3-context" hidden="false">
@@ -144280,8 +144303,8 @@ A squad of ten models or fewer may select a Rhino, Drop Pod or Dreadclaw Drop Po
                 <rule name="Squad-wide cost note" id="r41-unit-xii-3-world-eaters-inductii-squad-opt-3-squadwide" hidden="false">
                   <description>The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r41-unit-xii-3-world-eaters-inductii-squad-opt-3-krak-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +2 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r41-unit-xii-3-world-eaters-inductii-squad-opt-3-krak-grenades" type="increment" field="pts" value="2"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r41-unit-xii-3-world-eaters-inductii-squad-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Rending Weapon" hidden="false" id="r41-unit-xii-3-world-eaters-inductii-squad-opt-4-rending-weapon">
               <constraints>
                 <constraint id="r41-unit-xii-3-world-eaters-inductii-squad-opt-4-rending-weapon-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
@@ -144327,7 +144350,7 @@ A squad of ten models or fewer may select a Rhino, Drop Pod or Dreadclaw Drop Po
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="DEVOURER TERMINATOR SQUAD" hidden="false" id="r41-unit-xii-4-devourer-terminator-squad">
       <costs>
-        <cost name="Points" typeId="pts" value="0.0" />
+        <cost name="Points" typeId="pts" value="0" />
       </costs>
       <categoryLinks>
         <categoryLink id="r41-unit-xii-4-devourer-terminator-squad-cat" name="Elites" hidden="false" targetId="cat-elites" primary="true" />
@@ -144417,7 +144440,7 @@ The squad may select a Land Raider, Dreadclaw Drop Pod or Spartan Assault Tank w
             <cost name="Points" typeId="pts" value="45" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r41-unit-xii-4-devourer-terminator-squad-r86-size" name="Devourer" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="45" /></costs><constraints><constraint id="r41-unit-xii-4-devourer-terminator-squad-r86-size-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r41-unit-xii-4-devourer-terminator-squad-r86-size-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r41-unit-xii-4-devourer-terminator-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -144557,7 +144580,7 @@ The squad may select a Land Raider, Dreadclaw Drop Pod or Spartan Assault Tank w
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="TRIARII BREACHER SQUAD" hidden="false" id="r41-unit-xii-5-triarii-breacher-squad">
       <costs>
-        <cost name="Points" typeId="pts" value="20.0" />
+        <cost name="Points" typeId="pts" value="20" />
       </costs>
       <categoryLinks>
         <categoryLink id="r41-unit-xii-5-triarii-breacher-squad-cat" name="Elites" hidden="false" targetId="cat-elites" primary="true" />
@@ -144640,7 +144663,7 @@ A squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Tr
             <cost name="Points" typeId="pts" value="27" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r41-unit-xii-5-triarii-breacher-squad-r86-size" name="Triarii Breacher" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="27" /></costs><constraints><constraint id="r41-unit-xii-5-triarii-breacher-squad-r86-size-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r41-unit-xii-5-triarii-breacher-squad-r86-size-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r41-unit-xii-5-triarii-breacher-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -144675,7 +144698,7 @@ A squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Tr
                 <constraint id="r41-unit-xii-5-triarii-breacher-squad-opt-2-frag-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="5" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r41-unit-xii-5-triarii-breacher-squad-opt-2-context" hidden="false">
@@ -144684,14 +144707,14 @@ A squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Tr
                 <rule name="Squad-wide cost note" id="r41-unit-xii-5-triarii-breacher-squad-opt-2-squadwide" hidden="false">
                   <description>The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r41-unit-xii-5-triarii-breacher-squad-opt-2-frag-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +1 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r41-unit-xii-5-triarii-breacher-squad-opt-2-frag-grenades" type="increment" field="pts" value="1"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r41-unit-xii-5-triarii-breacher-squad-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Krak grenades (base unit; +2 pts/model)" hidden="false" id="r41-unit-xii-5-triarii-breacher-squad-opt-3-krak-grenades">
               <constraints>
                 <constraint id="r41-unit-xii-5-triarii-breacher-squad-opt-3-krak-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="10" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r41-unit-xii-5-triarii-breacher-squad-opt-3-context" hidden="false">
@@ -144700,8 +144723,8 @@ A squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Tr
                 <rule name="Squad-wide cost note" id="r41-unit-xii-5-triarii-breacher-squad-opt-3-squadwide" hidden="false">
                   <description>The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r41-unit-xii-5-triarii-breacher-squad-opt-3-krak-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +2 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r41-unit-xii-5-triarii-breacher-squad-opt-3-krak-grenades" type="increment" field="pts" value="2"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r41-unit-xii-5-triarii-breacher-squad-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -144722,7 +144745,7 @@ A squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Tr
       </modifiers>
       <constraints>
         <constraint id="r41-unit-xii-6-kharn-the-bloody-unique" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
-      </constraints>
+      <constraint id="r86-kharn-1500" type="min" value="1500" field="limit::points" scope="roster" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="true" /></constraints>
       <profiles>
         <profile name="Khârn" typeId="prof-model" typeName="Model" hidden="false" id="r41-unit-xii-6-kharn-the-bloody-profile-0">
           <characteristics>
@@ -144767,7 +144790,7 @@ OPTIONS
 • Gorechild ........................................ +55 points
 Gorechild may only be selected if Angron is not equipped with Gorechild in the same army.</description>
         </rule>
-      </rules>
+      <rule id="r86-kharn-1500-note" name="Minimum Game Size" hidden="false"><description>Khârn the Bloody may only be selected in an army with a declared points limit of 1,500 points or greater.</description></rule></rules>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r41-unit-xii-6-kharn-the-bloody-options" collective="false" import="true">
           <selectionEntries>
@@ -145294,7 +145317,7 @@ OPTIONS
             <condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xii" shared="true" includeChildSelections="true" includeChildForces="false" />
           </conditions>
         </modifier>
-      </modifiers>
+      <modifier id="r86-angron-mortal-hide-daemon" type="set" value="true" field="hidden"><conditionGroups><conditionGroup type="and"><conditions><condition type="atLeast" value="1" field="selections" scope="roster" childId="r41-unit-xii-13-angron-the-red-angel" shared="true" includeChildSelections="true" includeChildForces="false" /></conditions></conditionGroup></conditionGroups></modifier></modifiers>
       <constraints>
         <constraint id="r41-unit-xii-12-xii-angron-the-red-angel-unique" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
       </constraints>
@@ -145341,7 +145364,7 @@ ARMOUR OF MARS Forged for the Primarch of the XII Legion, the Armour of Mars was
         </rule>
       </rules>
     </selectionEntry>
-    <selectionEntry type="unit" import="true" name="ANGRON, THE RED ANGEL" hidden="false" id="r41-unit-xii-13-angron-the-red-angel">
+    <selectionEntry type="unit" import="true" name="ANGRON, THE RED ANGEL" hidden="true" id="r41-unit-xii-13-angron-the-red-angel">
       <costs>
         <cost name="Points" typeId="pts" value="650" />
       </costs>
@@ -145354,7 +145377,7 @@ ARMOUR OF MARS Forged for the Primarch of the XII Legion, the Armour of Mars was
             <condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xii" shared="true" includeChildSelections="true" includeChildForces="false" />
           </conditions>
         </modifier>
-      </modifiers>
+      <modifier id="r86-angron-daemon-show" type="set" value="false" field="hidden"><conditionGroups><conditionGroup type="and"><conditions><condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-xii" shared="true" includeChildSelections="true" includeChildForces="false" /></conditions></conditionGroup></conditionGroups></modifier><modifier id="r86-angron-daemon-hide-mortal" type="set" value="true" field="hidden"><conditionGroups><conditionGroup type="and"><conditions><condition type="atLeast" value="1" field="selections" scope="roster" childId="r41-unit-xii-12-xii-angron-the-red-angel" shared="true" includeChildSelections="true" includeChildForces="false" /></conditions></conditionGroup></conditionGroups></modifier></modifiers>
       <constraints>
         <constraint id="r41-unit-xii-13-angron-the-red-angel-unique" field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
       </constraints>
@@ -145374,37 +145397,7 @@ ARMOUR OF MARS Forged for the Primarch of the XII Legion, the Armour of Mars was
         </profile>
       </profiles>
       <rules>
-        <rule name="Source Entry" id="r41-unit-xii-13-angron-the-red-angel-source" hidden="false">
-          <description>Daemon Primarch of Khorne
-Angron’s ascension did not free him from rage; it made rage the entirety of his existence. Where once stood a broken Primarch now rampages the Red Angel, a towering incarnation of slaughter whose coming must be purchased in blood. As the World Eaters butcher their foes in close combat, Angron is drawn ever nearer to the material realm. When at last he descends, the madness of the Nails spreads across the battlefield until restraint, discipline and reason are drowned beneath an all-consuming desire to kill.
-Angron, the Red Angel | 9 | 5 | 8 | 7 | 8 | 7 | 8 | 10 | 2+/4++
-Force Organisation:
-• Lord of War
-Unit Composition:
-• 1 Angron, the Red Angel
-Unit Type:
-• Monstrous Creature (Character)
-Wargear:
-• Blades of the Red Angel
-• Daemonic Armour
-Special Rules:
-• Daemon
-• Fear
-• Fearless
-• Fleet
-• Furious Charge
-• Eternal Warrior
-• Adamantium Will
-• Master of the Legion
-• Daemonic Flight
-• Blood Calls to Blood
-• The Red Angel Descends
-• The Nails Sing
-RESTRICTIONS
-Angron, the Red Angel may only be selected for a World Eaters army. An army may not include both Angron, the Red Angel and Angron in his mortal form.
-DAEMONIC FLIGHT Angron may move up to 12" during the Movement phase and may move over intervening models and terrain while doing so. Angron may never join another unit and no model may join him. BLADES OF THE RED ANGEL The Blades of the Red Angel count as a pair of Master-crafted Power Weapons. Angron receives the normal +1 Attack for fighting with two close-combat weapons. Against Vehicles, attacks made with the Blades of the Red Angel have Armourbane. Against Monstrous Creatures and models with Toughness 6 or greater, Angron may re-roll failed To Wound rolls. BLOOD CALLS TO BLOOD Angron may never begin the battle on the battlefield and does not make normal Reserve rolls. Instead, keep a cumulative total of all unsaved Wounds inflicted upon enemy models by friendly World Eaters models in close combat. Only Wounds actually suffered count. Excess Wounds beyond those a model had remaining do not count. Wounds caused by shooting or psychic shooting attacks never contribute. At the end of each World Eaters Assault phase, consult the following table: Wounds Inflicted Summoning Roll 0–9 Cannot be summoned 10–19 6+ 20–29 5+ 30–39 4+ 40–49 3+ 50+ 2+ If successful, Angron arrives at the beginning of the controlling player’s next turn. If Angron has not previously been summoned, he automatically arrives at the beginning of Turn 5. THE RED ANGEL DESCENDS When Angron arrives, deploy him using the Deep Strike rules. Angron does not scatter. Angron may declare a charge during the same turn in which he arrives. Unlike a normal model charging after Deep Strike, Angron retains all bonus Attacks and other benefits normally gained for charging. THE NAILS SING While Angron is on the battlefield, all units gain +1 Attack during the first round of a close combat in which they charged. In addition, any unit composed entirely of models wearing Power Armour or Artificer Armour may declare charges against enemies up to 8" away instead of 6". These benefits affect friend and foe alike. World Eaters suffer the following additional effects: Compulsory Charge: If an eligible enemy unit is within charge distance, a World Eaters unit must charge the nearest eligible enemy unit. No Restraint: A World Eaters unit which wins a close combat must Pursue an enemy which Falls Back. This overrides rules which would normally prevent that unit from Pursuing unless a Pursuit is physically or mission-wise impossible. Bloodward Consolidation: If the opposing unit is destroyed and no Pursuit is possible, the World Eaters unit must Consolidate as directly as possible towards the nearest enemy unit. The Attack granted by The Nails Sing is cumulative with the normal charge bonus and the World Eaters’ Blood Frenzy.</description>
-        </rule>
-      </rules>
+        <rule id="r86-angron-daemon" name="Daemon" hidden="false"><description>Angron is a Daemon. He uses the Daemon rules in addition to the special rules listed here.</description></rule><rule id="r86-angron-flight" name="Daemonic Flight" hidden="false"><description>Angron may move up to 12" in the Movement phase and may move over intervening models and terrain. Angron may never join another unit and no model may join him.</description></rule><rule id="r86-angron-blades" name="Blades of the Red Angel" hidden="false"><description>Counts as a pair of Master-crafted Power Weapons. Angron receives the normal +1 Attack for fighting with two close-combat weapons. Against Vehicles, attacks made with the Blades have Armourbane. Against Monstrous Creatures and models with Toughness 6 or greater, Angron may re-roll failed To Wound rolls.</description></rule><rule id="r86-angron-blood" name="Blood Calls to Blood" hidden="false"><description>Angron never begins the battle on the battlefield and does not make normal Reserve rolls. Keep a cumulative total of unsaved Wounds inflicted on enemy models by friendly World Eaters models in close combat. Only Wounds actually suffered count; excess Wounds do not. Shooting and psychic shooting do not contribute. At the end of each World Eaters Assault phase roll to summon Angron: 0–9 Wounds: cannot be summoned; 10–19: 6+; 20–29: 5+; 30–39: 4+; 40–49: 3+; 50+: 2+. If successful, Angron arrives at the beginning of the controlling player’s next turn. If not previously summoned, he automatically arrives at the beginning of Turn 5.</description></rule><rule id="r86-angron-descends" name="The Red Angel Descends" hidden="false"><description>When Angron arrives, deploy him using Deep Strike. He does not scatter. Angron may declare a charge in the same turn he arrives and retains all bonus Attacks and other benefits normally gained for charging.</description></rule><rule id="r86-angron-nails" name="The Nails Sing" hidden="false"><description>While Angron is on the battlefield, all units gain +1 Attack during the first round of a close combat in which they charged. Any unit composed entirely of models wearing Power Armour or Artificer Armour may charge enemies up to 8" away instead of 6". These benefits affect friend and foe alike. World Eaters additionally suffer: Compulsory Charge — if an eligible enemy is within charge distance, the unit must charge the nearest eligible enemy; No Restraint — a World Eaters unit that wins combat must Pursue a Falling Back enemy unless physically or mission-wise impossible; Bloodward Consolidation — if the enemy is destroyed and no Pursuit is possible, Consolidate as directly as possible toward the nearest enemy unit.</description></rule><rule id="r86-angron-armour" name="Daemonic Armour" hidden="false"><description>Angron has the 2+ Armour Save and 4+ Invulnerable Save shown in his profile.</description></rule><rule id="r86-angron-restrict" name="Restrictions" hidden="false"><description>Angron, the Red Angel may only be selected in a World Eaters army. An army may not include both Angron, the Red Angel and Angron in his mortal form.</description></rule><rule id="r86-angron-core-fear" name="Fear" hidden="false"><description>Angron, the Red Angel has the Fear special rule.</description></rule><rule id="r86-angron-core-fearless" name="Fearless" hidden="false"><description>Angron, the Red Angel has the Fearless special rule.</description></rule><rule id="r86-angron-core-fleet" name="Fleet" hidden="false"><description>Angron, the Red Angel has the Fleet special rule.</description></rule><rule id="r86-angron-core-furious-charge" name="Furious Charge" hidden="false"><description>Angron, the Red Angel has the Furious Charge special rule.</description></rule><rule id="r86-angron-core-eternal-warrior" name="Eternal Warrior" hidden="false"><description>Angron, the Red Angel has the Eternal Warrior special rule.</description></rule><rule id="r86-angron-core-adamantium-will" name="Adamantium Will" hidden="false"><description>Angron, the Red Angel has the Adamantium Will special rule.</description></rule><rule id="r86-angron-core-master-of-the-legion" name="Master of the Legion" hidden="false"><description>Angron, the Red Angel has the Master of the Legion special rule.</description></rule></rules>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="INVICTARUS SUZERAIN SQUAD" hidden="false" id="r41-unit-xiii-0-invictarus-suzerain-squad">
       <costs>
@@ -159231,7 +159224,7 @@ The army's Warlord must be equipped with a Power Weapon, Rending Weapon, Relic B
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="RAMPAGER SQUAD" hidden="true" id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad">
       <costs>
-        <cost name="Points" typeId="pts" value="0.0" />
+        <cost name="Points" typeId="pts" value="0" />
       </costs>
       <categoryLinks>
         <categoryLink id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-cat" name="Troops" hidden="false" targetId="cat-troops" primary="true" />
@@ -159247,7 +159240,7 @@ The army's Warlord must be equipped with a Power Weapon, Rending Weapon, Relic B
             <condition type="lessThan" value="1" field="selections" scope="roster" childId="r25-rite-xii-0-berserker-assault" shared="true" includeChildSelections="true" includeChildForces="false" />
           </conditions>
         </modifier>
-      </modifiers>
+      <modifier id="r86-berserker-rampager-show" type="set" value="false" field="hidden"><conditionGroups><conditionGroup type="and"><conditions><condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-xii" shared="true" includeChildSelections="true" includeChildForces="false" /><condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-xii-0-berserker-assault" shared="true" includeChildSelections="true" includeChildForces="false" /></conditions></conditionGroup></conditionGroups></modifier></modifiers>
       <profiles>
         <profile name="Rampager" typeId="prof-model" typeName="Model" hidden="false" id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-profile-0">
           <characteristics>
@@ -159349,7 +159342,7 @@ The Detachment may not include a Fortification.</description>
             <cost name="Points" typeId="pts" value="22" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-r86-size" name="Squad model" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="22" /></costs><constraints><constraint id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-r86-size-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-r86-size-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -159397,7 +159390,7 @@ The Detachment may not include a Fortification.</description>
                 <constraint id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="5" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-context" hidden="false">
@@ -159406,14 +159399,14 @@ The Detachment may not include a Fortification.</description>
                 <rule name="Squad-wide cost note" id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-squadwide" hidden="false">
                   <description>The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +1 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades" type="increment" field="pts" value="1"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Krak grenades (base unit; +2 pts/model)" hidden="false" id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades">
               <constraints>
                 <constraint id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="10" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-context" hidden="false">
@@ -159422,14 +159415,14 @@ The Detachment may not include a Fortification.</description>
                 <rule name="Squad-wide cost note" id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-squadwide" hidden="false">
                   <description>The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +2 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades" type="increment" field="pts" value="2"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Jump Packs (base unit; +15 pts/model)" hidden="false" id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-jump-packs">
               <constraints>
                 <constraint id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-jump-packs-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="75" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-context" hidden="false">
@@ -159438,8 +159431,8 @@ The Detachment may not include a Fortification.</description>
                 <rule name="Squad-wide cost note" id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-squadwide" hidden="false">
                   <description>The source prices this option at +15 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-jump-packs" name="Per-model cost" hidden="false"><description>This upgrade costs +15 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-jump-packs" type="increment" field="pts" value="15"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -170567,7 +170560,7 @@ OPTIONS
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="RAMPAGER SQUAD — Rewards of Treachery" hidden="false" id="r46-al-reward-28">
       <costs>
-        <cost name="Points" typeId="pts" value="0.0" />
+        <cost name="Points" typeId="pts" value="0" />
       </costs>
       <modifiers>
         <modifier id="r48-vis-431" type="set" value="true" field="hidden">
@@ -170661,7 +170654,7 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
             <cost name="Points" typeId="pts" value="22" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r46-al-reward-28-r86-size" name="Squad model" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="22" /></costs><constraints><constraint id="r46-al-reward-28-r86-size-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r46-al-reward-28-r86-size-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -170709,7 +170702,7 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
                 <constraint id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="5" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-context" hidden="false">
@@ -170718,14 +170711,14 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
                 <rule name="Squad-wide cost note" id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-squadwide" hidden="false">
                   <description>The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +1 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades" type="increment" field="pts" value="1"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r46-al-reward-28-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Krak grenades (base unit; +2 pts/model)" hidden="false" id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades">
               <constraints>
                 <constraint id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="10" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-context" hidden="false">
@@ -170734,14 +170727,14 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
                 <rule name="Squad-wide cost note" id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-squadwide" hidden="false">
                   <description>The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +2 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades" type="increment" field="pts" value="2"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r46-al-reward-28-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Jump Packs (base unit; +15 pts/model)" hidden="false" id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-jump-packs">
               <constraints>
                 <constraint id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-jump-packs-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="75" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-context" hidden="false">
@@ -170750,8 +170743,8 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
                 <rule name="Squad-wide cost note" id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-squadwide" hidden="false">
                   <description>The source prices this option at +15 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-jump-packs" name="Per-model cost" hidden="false"><description>This upgrade costs +15 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-jump-packs" type="increment" field="pts" value="15"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r46-al-reward-28-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
         <selectionEntryGroup id="r49-legion-upgrades-r46-al-reward-28" name="Legion Wargear &amp; Upgrades" hidden="false" collective="false" import="true">
@@ -170805,7 +170798,7 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="RED BUTCHER SQUAD — Rewards of Treachery" hidden="false" id="r46-al-reward-29">
       <costs>
-        <cost name="Points" typeId="pts" value="0.0" />
+        <cost name="Points" typeId="pts" value="0" />
       </costs>
       <modifiers>
         <modifier id="r48-vis-436" type="set" value="true" field="hidden">
@@ -170876,7 +170869,7 @@ A squad may select a Land Raider, Dreadclaw Drop Pod or Spartan Assault Tank whe
             <cost name="Points" typeId="pts" value="60" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r46-al-reward-29-r86-size" name="Squad model" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="60" /></costs><constraints><constraint id="r46-al-reward-29-r86-size-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r46-al-reward-29-r86-size-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -170929,7 +170922,7 @@ A squad may select a Land Raider, Dreadclaw Drop Pod or Spartan Assault Tank whe
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="RED HAND DESTROYER MORTALIS SQUAD — Rewards of Treachery" hidden="false" id="r46-al-reward-30">
       <costs>
-        <cost name="Points" typeId="pts" value="50.0" />
+        <cost name="Points" typeId="pts" value="50" />
       </costs>
       <modifiers>
         <modifier id="r48-vis-438" type="set" value="true" field="hidden">
@@ -171040,7 +171033,7 @@ A Mortalis Squad may select a Rhino, Drop Pod, Dreadclaw Drop Podor Land Raider 
             <cost name="Points" typeId="pts" value="22" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r46-al-reward-30-r86-size" name="Squad model" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="22" /></costs><constraints><constraint id="r46-al-reward-30-r86-size-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r46-al-reward-30-r86-size-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -171114,7 +171107,7 @@ A Mortalis Squad may select a Rhino, Drop Pod, Dreadclaw Drop Podor Land Raider 
                 <constraint id="r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-5-krak-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="10" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-5-context" hidden="false">
@@ -171123,14 +171116,14 @@ A Mortalis Squad may select a Rhino, Drop Pod, Dreadclaw Drop Podor Land Raider 
                 <rule name="Squad-wide cost note" id="r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-5-squadwide" hidden="false">
                   <description>The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-5-krak-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +2 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-5-krak-grenades" type="increment" field="pts" value="2"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r46-al-reward-30-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Melta bombs (base unit; +5 pts/model)" hidden="false" id="r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-melta-bombs">
               <constraints>
                 <constraint id="r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-melta-bombs-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="25" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-context" hidden="false">
@@ -171139,8 +171132,8 @@ A Mortalis Squad may select a Rhino, Drop Pod, Dreadclaw Drop Podor Land Raider 
                 <rule name="Squad-wide cost note" id="r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-squadwide" hidden="false">
                   <description>The source prices this option at +5 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-melta-bombs" name="Per-model cost" hidden="false"><description>This upgrade costs +5 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-melta-bombs" type="increment" field="pts" value="5"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r46-al-reward-30-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Rending Weapon" hidden="false" id="r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-7-rending-weapon">
               <constraints>
                 <constraint id="r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-7-rending-weapon-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
@@ -171229,7 +171222,7 @@ A Mortalis Squad may select a Rhino, Drop Pod, Dreadclaw Drop Podor Land Raider 
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="WORLD EATERS INDUCTII SQUAD — Rewards of Treachery" hidden="false" id="r46-al-reward-31">
       <costs>
-        <cost name="Points" typeId="pts" value="0.0" />
+        <cost name="Points" typeId="pts" value="0" />
       </costs>
       <modifiers>
         <modifier id="r48-vis-440" type="set" value="true" field="hidden">
@@ -171321,7 +171314,7 @@ A squad of ten models or fewer may select a Rhino, Drop Pod or Dreadclaw Drop Po
             <cost name="Points" typeId="pts" value="13" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r46-al-reward-31-r86-size" name="Squad model" type="model" hidden="false" import="true" defaultAmount="10"><costs><cost name="Points" typeId="pts" value="13" /></costs><constraints><constraint id="r46-al-reward-31-r86-size-min" type="min" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r46-al-reward-31-r86-size-max" type="max" value="20" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -171356,7 +171349,7 @@ A squad of ten models or fewer may select a Rhino, Drop Pod or Dreadclaw Drop Po
                 <constraint id="r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-2-frag-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="10" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-2-context" hidden="false">
@@ -171365,14 +171358,14 @@ A squad of ten models or fewer may select a Rhino, Drop Pod or Dreadclaw Drop Po
                 <rule name="Squad-wide cost note" id="r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-2-squadwide" hidden="false">
                   <description>The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-2-frag-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +1 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-2-frag-grenades" type="increment" field="pts" value="1"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r46-al-reward-31-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Krak grenades (base unit; +2 pts/model)" hidden="false" id="r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-3-krak-grenades">
               <constraints>
                 <constraint id="r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-3-krak-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="20" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-3-context" hidden="false">
@@ -171381,8 +171374,8 @@ A squad of ten models or fewer may select a Rhino, Drop Pod or Dreadclaw Drop Po
                 <rule name="Squad-wide cost note" id="r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-3-squadwide" hidden="false">
                   <description>The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-3-krak-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +2 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-3-krak-grenades" type="increment" field="pts" value="2"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r46-al-reward-31-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Rending Weapon" hidden="false" id="r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-4-rending-weapon">
               <constraints>
                 <constraint id="r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-4-rending-weapon-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
@@ -171432,7 +171425,7 @@ A squad of ten models or fewer may select a Rhino, Drop Pod or Dreadclaw Drop Po
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="DEVOURER TERMINATOR SQUAD — Rewards of Treachery" hidden="false" id="r46-al-reward-32">
       <costs>
-        <cost name="Points" typeId="pts" value="0.0" />
+        <cost name="Points" typeId="pts" value="0" />
       </costs>
       <modifiers>
         <modifier id="r48-vis-442" type="set" value="true" field="hidden">
@@ -171527,7 +171520,7 @@ The squad may select a Land Raider, Dreadclaw Drop Pod or Spartan Assault Tank w
             <cost name="Points" typeId="pts" value="45" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r46-al-reward-32-r86-size" name="Squad model" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="45" /></costs><constraints><constraint id="r46-al-reward-32-r86-size-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r46-al-reward-32-r86-size-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r46-al-reward-32-r41-unit-xii-4-devourer-terminator-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -171671,7 +171664,7 @@ The squad may select a Land Raider, Dreadclaw Drop Pod or Spartan Assault Tank w
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="TRIARII BREACHER SQUAD — Rewards of Treachery" hidden="false" id="r46-al-reward-33">
       <costs>
-        <cost name="Points" typeId="pts" value="20.0" />
+        <cost name="Points" typeId="pts" value="20" />
       </costs>
       <modifiers>
         <modifier id="r48-vis-444" type="set" value="true" field="hidden">
@@ -171759,7 +171752,7 @@ A squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Tr
             <cost name="Points" typeId="pts" value="27" />
           </costs>
         </selectionEntry>
-      </selectionEntries>
+      <selectionEntry id="r46-al-reward-33-r86-size" name="Squad model" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="27" /></costs><constraints><constraint id="r46-al-reward-33-r86-size-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /><constraint id="r46-al-reward-33-r86-size-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="false" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-options" collective="false" import="true">
           <selectionEntries>
@@ -171794,7 +171787,7 @@ A squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Tr
                 <constraint id="r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-2-frag-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="5" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-2-context" hidden="false">
@@ -171803,14 +171796,14 @@ A squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Tr
                 <rule name="Squad-wide cost note" id="r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-2-squadwide" hidden="false">
                   <description>The source prices this option at +1 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-2-frag-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +1 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-2-frag-grenades" type="increment" field="pts" value="1"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r46-al-reward-33-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Krak grenades (base unit; +2 pts/model)" hidden="false" id="r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-3-krak-grenades">
               <constraints>
                 <constraint id="r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-3-krak-grenades-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" type="max" />
               </constraints>
               <costs>
-                <cost name="Points" typeId="pts" value="10" />
+                <cost name="Points" typeId="pts" value="0" />
               </costs>
               <rules>
                 <rule name="Option restriction" id="r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-3-context" hidden="false">
@@ -171819,8 +171812,8 @@ A squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Tr
                 <rule name="Squad-wide cost note" id="r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-3-squadwide" hidden="false">
                   <description>The source prices this option at +2 points per model. The displayed selection charges the parsed base unit only; apply the same per-model surcharge for any additional models selected.</description>
                 </rule>
-              </rules>
-            </selectionEntry>
+              <rule id="r86-scaled-r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-3-krak-grenades" name="Per-model cost" hidden="false"><description>This upgrade costs +2 points per model and automatically scales with the squad size selected.</description></rule></rules>
+            <modifiers><modifier id="r86-scaled-cost-r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-3-krak-grenades" type="increment" field="pts" value="2"><repeats><repeat field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="r46-al-reward-33-r86-size" repeats="1" roundUp="false" /></repeats></modifier></modifiers></selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
       </selectionEntryGroups>

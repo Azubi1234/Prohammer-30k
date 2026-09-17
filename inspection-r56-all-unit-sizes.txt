@@ -715,21 +715,27 @@ UNIT r41-unit-x-7-x-ferrus-manus-the-gorgon :: X — FERRUS MANUS, THE GORGON
 
 UNIT r41-unit-xii-0-rampager-squad :: RAMPAGER SQUAD
   MODEL ('r41-unit-xii-0-rampager-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+  MODEL ('r41-unit-xii-0-rampager-squad-r86-size', 'Rampager', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['22'])
 
 UNIT r41-unit-xii-1-red-butcher-squad :: RED BUTCHER SQUAD
   MODEL ('r41-unit-xii-1-red-butcher-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['60'])
+  MODEL ('r41-unit-xii-1-red-butcher-squad-r86-size', 'Red Butcher', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['60'])
 
 UNIT r41-unit-xii-2-red-hand-destroyer-mortalis-squad :: RED HAND DESTROYER MORTALIS SQUAD
   MODEL ('r41-unit-xii-2-red-hand-destroyer-mortalis-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+  MODEL ('r41-unit-xii-2-red-hand-destroyer-mortalis-squad-r86-size', 'Red Hand Destroyer', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['22'])
 
 UNIT r41-unit-xii-3-world-eaters-inductii-squad :: WORLD EATERS INDUCTII SQUAD
   MODEL ('r41-unit-xii-3-world-eaters-inductii-squad-additional', 'Squad Models', '10', [('max', '20', 'parent'), ('min', '10', 'parent')], ['13'])
+  MODEL ('r41-unit-xii-3-world-eaters-inductii-squad-r86-size', 'Inductii', '10', [('min', '10', 'parent'), ('max', '20', 'parent')], ['13'])
 
 UNIT r41-unit-xii-4-devourer-terminator-squad :: DEVOURER TERMINATOR SQUAD
   MODEL ('r41-unit-xii-4-devourer-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+  MODEL ('r41-unit-xii-4-devourer-terminator-squad-r86-size', 'Devourer', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['45'])
 
 UNIT r41-unit-xii-5-triarii-breacher-squad :: TRIARII BREACHER SQUAD
   MODEL ('r41-unit-xii-5-triarii-breacher-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+  MODEL ('r41-unit-xii-5-triarii-breacher-squad-r86-size', 'Triarii Breacher', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['27'])
 
 UNIT r41-unit-xiii-0-invictarus-suzerain-squad :: INVICTARUS SUZERAIN SQUAD
   MODEL ('r41-unit-xiii-0-invictarus-suzerain-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
@@ -853,6 +859,7 @@ UNIT r42-role-vii-2-effects-templar-host-templar-brethren-squads-r41-unit-vii-0-
 
 UNIT r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad :: RAMPAGER SQUAD
   MODEL ('r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+  MODEL ('r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-r86-size', 'Squad model', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['22'])
 
 UNIT r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-veteran-unit :: Legion Veteran Squad
   MODEL ('r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-veteran-included', 'Legion Veterans', '4', [('min', '4', 'parent'), ('max', '9', 'parent')], ['20'])
@@ -976,21 +983,27 @@ UNIT r46-al-reward-27 :: MORLOCK TERMINATOR SQUAD — Rewards of Treachery
 
 UNIT r46-al-reward-28 :: RAMPAGER SQUAD — Rewards of Treachery
   MODEL ('r46-al-reward-28-r41-unit-xii-0-rampager-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+  MODEL ('r46-al-reward-28-r86-size', 'Squad model', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['22'])
 
 UNIT r46-al-reward-29 :: RED BUTCHER SQUAD — Rewards of Treachery
   MODEL ('r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['60'])
+  MODEL ('r46-al-reward-29-r86-size', 'Squad model', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['60'])
 
 UNIT r46-al-reward-30 :: RED HAND DESTROYER MORTALIS SQUAD — Rewards of Treachery
   MODEL ('r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
+  MODEL ('r46-al-reward-30-r86-size', 'Squad model', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['22'])
 
 UNIT r46-al-reward-31 :: WORLD EATERS INDUCTII SQUAD — Rewards of Treachery
   MODEL ('r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-additional', 'Squad Models', '10', [('max', '20', 'parent'), ('min', '10', 'parent')], ['13'])
+  MODEL ('r46-al-reward-31-r86-size', 'Squad model', '10', [('min', '10', 'parent'), ('max', '20', 'parent')], ['13'])
 
 UNIT r46-al-reward-32 :: DEVOURER TERMINATOR SQUAD — Rewards of Treachery
   MODEL ('r46-al-reward-32-r41-unit-xii-4-devourer-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
+  MODEL ('r46-al-reward-32-r86-size', 'Squad model', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['45'])
 
 UNIT r46-al-reward-33 :: TRIARII BREACHER SQUAD — Rewards of Treachery
   MODEL ('r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+  MODEL ('r46-al-reward-33-r86-size', 'Squad model', '5', [('min', '5', 'parent'), ('max', '10', 'parent')], ['27'])
 
 UNIT r46-al-reward-34 :: INVICTARUS SUZERAIN SQUAD — Rewards of Treachery
   MODEL ('r46-al-reward-34-r41-unit-xiii-0-invictarus-suzerain-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
