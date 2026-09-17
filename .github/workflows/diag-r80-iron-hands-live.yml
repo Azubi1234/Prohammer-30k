@@ -1,0 +1,26 @@
+name: Diagnose Revision 80 Iron Hands live issues
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/r80_diag_iron_hands_live.py'
+      - '.github/workflows/diag-r80-iron-hands-live.yml'
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: python .github/build/r80_diag_iron_hands_live.py
+      - name: Commit diagnostic
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add inspection-r80-iron-hands-live.txt
+          git diff --cached --quiet || git commit -m 'Revision 80 diagnostic: inspect Iron Hands live issues'
+          git pull --rebase origin main
+          git push
