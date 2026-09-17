@@ -1,0 +1,19 @@
+Revision 87 — World Eaters builder cleanup
+CAT=87 GSTref=51
+Source blobs removed: 13
+
+Squad-size UI normalized to ONE source-correct model counter:
+- Rampagers 5–10 @ 22/model (110 starting total)
+- Red Butchers 5–10 @ 60/model (300 starting total)
+- Red Hand Destroyers 5–10 @ 22/model + 50 fixed (160 starting total)
+- Inductii 10–20 @ 13/model (130 starting total)
+- Devourers 5–10 @ 45/model (225 starting total)
+- Triarii 5–10 @ 27/model + 20 fixed (155 starting total)
+
+Presentation:
+- Removed Source Entry dump rules from all XII canonical entries
+- Added structured Wargear and Special Rules sections to unique squads and named characters
+- Captain Ehrlen now has clean wargear, Loyalist Only and Command Retinue tooltips
+- Daemon Angron now exposes every source-listed special rule and wargear item as a clickable tooltip entry
+- Red Hand missile option renamed correctly and its one-per-five limits scale 1/2 at 5/10 models
+- Squad-wide per-model upgrade labels/cost helpers cleaned up
