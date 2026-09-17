@@ -6,6 +6,7 @@ on:
       - '.github/build/rev86_world_eaters_full.py'
       - '.github/workflows/apply-r86-world-eaters-full.yml'
 
+# Touch after workflow creation so the push trigger executes on main.
 jobs:
   apply:
     runs-on: ubuntu-latest
@@ -25,7 +26,6 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import xml.etree.ElementTree as ET
-          C='http://www.battlescribe.net/schema/catalogueSchema'
           root=ET.parse('Legiones Astartes.cat').getroot()
           assert root.get('revision')=='86'
           assert root.get('gameSystemRevision')=='51'
