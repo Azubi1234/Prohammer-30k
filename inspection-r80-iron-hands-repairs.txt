@@ -1,0 +1,28 @@
+Revision 80 — Iron Hands repair pass
+CAT=80 GST=47
+
+Presentation
+- Removed 2 remaining Iron Hands Source Entry/aggregate dump rules globally.
+
+Dangerous Weaponry
+- Removed 14 floating Graviton Gun instead of Flamer links.
+- Added Graviton Gun as an Iron Hands-only choice inside 16 Special Weapons groups which already contain a Flamer.
+
+Ferrus Manus
+- Added a real fixed Wargear group: Medusan Carapace, Twin-linked Meltagun, Twin-linked Plasma Gun, Heavy Flamer, Forgebreaker, Living Metal Hands and Frag Grenades.
+- Carapace explicitly carries Cortex Controller and Nuncio Vox rules.
+- Existing Primarch/The Gorgon/Master of the Forge/Forged for War rules and retinues retained.
+
+Rites
+- Rebuilt Rite visibility with explicit AND gating.
+- Company of Bitter Iron now uses the canonical 0–1 Medusan Immortal Troops entry rather than a duplicate Troops clone; at least one is mechanically compulsory while the Rite is active.
+- Ferrus is hidden under Company of Bitter Iron.
+- Head of the Gorgon Fast Attack max 1 reasserted.
+- Head of the Gorgon now mechanically limits non-Forge-Lord Consuls to 1 through a hidden validation category (232 Consul upgrade entries tagged).
+- Scions of Iron repaired on 14 current conditional Land Raider entries with explicit Legion X + Rite gating.
+- Relics of War free/compulsory Blessed Autosimulacra reasserted across 31 existing vehicle links.
+
+Validation
+- No standalone Iron Hands Graviton substitution links remain outside Special Weapons groups.
+- Obsolete Bitter Iron duplicate Troops clone removed.
+- Duplicate-ID and XML parse validation passed.

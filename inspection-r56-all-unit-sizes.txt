@@ -1,4 +1,4 @@
-Top-level unit entries audited: 362
+Top-level unit entries audited: 361
 UI-standard flags: 0
 
 UNIT tactical-unit :: Legion Tactical Squad
@@ -850,9 +850,6 @@ UNIT r42-role-vii-1-effects-landing-force-phalanx-warder-squads-r41-unit-vii-1-p
 
 UNIT r42-role-vii-2-effects-templar-host-templar-brethren-squads-r41-unit-vii-0-templar-brethren-squad :: TEMPLAR BRETHREN SQUAD
   MODEL ('r42-role-vii-2-effects-templar-host-templar-brethren-squads-r41-unit-vii-0-templar-brethren-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
-
-UNIT r42-role-x-1-effects-company-of-immortals-medusan-immortal-squads-r41-unit-x-0-medusan-immortal-squad :: MEDUSAN IMMORTAL SQUAD
-  MODEL ('r79-ih-san-immortal-squads-r41-unit-x-0-medusan-immortal-squad-models', 'Squad Models', '1', [('min', '1', 'parent'), ('max', '20', 'parent')], ['0'])
 
 UNIT r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad :: RAMPAGER SQUAD
   MODEL ('r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
