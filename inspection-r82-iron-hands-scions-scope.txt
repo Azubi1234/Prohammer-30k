@@ -1,0 +1,7 @@
+Revision 82 — Iron Hands Scions scope correction
+CAT=82 GST=49
+Removed prior Scions entries: 144
+Added legal/generic Iron Hands Scions entries: 0
+No Scions entries remain under units explicitly gated to another Legion.
+
+
