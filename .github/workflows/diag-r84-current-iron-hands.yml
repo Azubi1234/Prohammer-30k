@@ -1,0 +1,28 @@
+name: Diagnose current Iron Hands after Rev84
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/diag-r84-current-iron-hands.yml'
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Run current IH diagnostic
+        run: |
+          python .github/build/r80_diag_iron_hands_live.py
+          cp inspection-r80-iron-hands-live.txt inspection-r84-current-iron-hands.txt
+      - name: Commit diagnostic
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add inspection-r84-current-iron-hands.txt
+          git diff --cached --quiet || git commit -m 'Rev84 diagnostic: inspect current Iron Hands live catalogue'
+          git pull --rebase origin main
+          git push
