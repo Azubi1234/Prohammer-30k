@@ -1,0 +1,44 @@
+CAT revision=84 GSTref=51
+Autek id=r41-unit-x-5-autek-mor name=AUTEK MOR
+selectionEntry id=r41-unit-x-5-autek-mor name=AUTEK MOR target=None type=unit
+rule id=r79-ih-rule-r41-unit-x-5-autek-mor-legiones-astartes-iron-hands name=Legiones Astartes (Iron Hands) target=None type=None
+  DESC=This model belongs to the X Legion and is affected by rules and effects which refer to Legiones Astartes (Iron Hands).
+rule id=r79-ih-rule-r41-unit-x-5-autek-mor-independent-character name=Independent Character target=None type=None
+  DESC=Uses the normal ProHammer Independent Character rules.
+rule id=r79-ih-rule-r41-unit-x-5-autek-mor-master-of-the-legion name=Master of the Legion target=None type=None
+  DESC=This model has Master of the Legion and counts toward all normal Master of the Legion restrictions.
+rule id=r79-ih-rule-r41-unit-x-5-autek-mor-furious-charge name=Furious Charge target=None type=None
+  DESC=Uses the normal ProHammer Furious Charge special rule.
+rule id=r79-ih-rule-r41-unit-x-5-autek-mor-battlesmith name=Battlesmith target=None type=None
+  DESC=Autek Mor uses the normal Battlesmith rule. His Servo-Arm provides the normal +1 bonus, so he normally repairs a damaged Vehicle on a 4+.
+selectionEntry id=r79-ih-autek-model name=AUTEK MOR target=None type=model
+profile id=r41-unit-x-5-autek-mor-profile-0 name=Autek Mor target=None type=None
+rule id=r79-ih-autek-termcommand-hq-praetor-ret-tc-std name=Standard Wargear target=None type=None
+  DESC=Five Terminator Veterans, each equipped with the selected Terminator Armour pattern, a Combi-Bolter and a Power Weapon.
+rule id=r79-ih-autek-termcommand-hq-praetor-ret-tc-la name=Legiones Astartes target=None type=None
+  DESC=Every model has Legiones Astartes and And They Shall Know No Fear as presented in ProHammer Classic, and is not Fearless.
+rule id=r79-ih-autek-termcommand-hq-praetor-ret-tc-ret name=Retinue target=None type=None
+  DESC=May only be selected for an eligible HQ character equipped with Terminator, Tartaros or Cataphractii Terminator Armour. It occupies no separate Force Organisation slot; the character and squad count as one HQ selection but may deploy and operate separately.
+profile id=r79-ih-autek-termcommand-hq-praetor-ret-tc-vets-prof name=Terminator Veteran target=None type=None
+profile id=r79-ih-autek-termcommand-hq-praetor-ret-tc-apoth-prof name=Terminator Apothecary target=None type=None
+rule id=r79-ih-autek-termcommand-hq-praetor-ret-tc-apothrule name=Terminator Apothecary target=None type=None
+  DESC=The Narthecium and Reductor may be used while wearing any Terminator Armour pattern, overriding normal Armoury restrictions. The Apothecary may select up to 50 points of permitted Armoury equipment.
+profile id=r79-ih-autek-termcommand-hq-praetor-ret-tc-standard-prof name=Terminator Standard Bearer target=None type=None
+rule id=r79-ih-autek-termcommand-hq-praetor-ret-tc-standardrule name=Terminator Standard Bearer target=None type=None
+  DESC=The selected standard may be carried in any Terminator Armour pattern, overriding normal Armoury restrictions. The Standard Bearer may select up to 50 points of permitted Armoury equipment.
+profile id=r79-ih-autek-termcommand-hq-praetor-ret-tc-champ-prof name=Terminator Champion target=None type=None
+rule id=r79-ih-autek-termcommand-hq-praetor-ret-tc-champrule name=Terminator Champion target=None type=None
+  DESC=The Champion's Power Weapon is Master-crafted at no additional cost. The Champion may select up to 50 points of permitted Space Marine Armoury equipment.
+rule id=r79-ih-autek-termcommand-r73-nl-bj-11-rule name=Beyond Judgement target=None type=None
+  DESC=Under Horror Cult this unit purchases Beyond Judgement for +25 points. Every model is treated as equipped with Trophies of Judgement and the unit gains Fear. Measure the 8-inch Leadership penalty from any model; multiple Trophies penalties remain non-cumulative.
+rule id=r79-ih-autek-termcommand-hq-praetor-ret-tc-cyclonerule name=Cyclone Missile Launcher target=None type=None
+  DESC=A Terminator Veteran with a Cyclone Missile Launcher retains his Combi-Bolter and close-combat weapon; other heavy weapon choices replace the Combi-Bolter.
+rule id=r79-ih-autek-termcommand-hq-praetor-ret-tc-land-lrrule name=Land Raider Dedicated Transport target=None type=None
+  DESC=Select a pattern with sufficient Transport Capacity. These entries use the profiles and standard wargear/rules of the corresponding Legion Land Raider Battle Squadron entry; use that entry for full vehicle upgrade options.
+profile id=r79-ih-autek-termcommand-hq-praetor-ret-tc-land-land-raider-phobos-prof name=Land Raider Phobos target=None type=None
+profile id=r79-ih-autek-termcommand-hq-praetor-ret-tc-land-land-raider-proteus-prof name=Land Raider Proteus target=None type=None
+profile id=r79-ih-autek-termcommand-hq-praetor-ret-tc-land-land-raider-achilles-prof name=Land Raider Achilles target=None type=None
+
+contains literal Source Entry=False
+contains Force Organisation=True
+contains BATTLESMITH=False
