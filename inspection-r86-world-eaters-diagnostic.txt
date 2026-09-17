@@ -1,0 +1,1348 @@
+CAT revision=85 GST ref=51 GST revision=51
+
+=== MATCH INDEX ===
+selectionEntry[gear-hq-chainaxe::Chainaxe]
+rule[gear-hq-chainaxe-rule::Chainaxe] <- selectionEntry[gear-hq-chainaxe::Chainaxe]
+selectionEntry[r45-we-chainaxe::Chainaxe]
+constraint[r45-we-chainaxe-max::] <- selectionEntry[r45-we-chainaxe::Chainaxe]
+rule[r45-we-chainaxe-rule::Chainaxe] <- selectionEntry[r45-we-chainaxe::Chainaxe]
+selectionEntry[r45-we-caedere::Caedere Weapon]
+constraint[r45-we-caedere-max::] <- selectionEntry[r45-we-caedere::Caedere Weapon]
+rule[r45-we-caedere-rule::Caedere Weapon] <- selectionEntry[r45-we-caedere::Caedere Weapon]
+selectionEntry[r45-we-chainaxe-berserker::Chainaxe — Berserker Assault price]
+constraint[r45-we-chainaxe-berserker-max::] <- selectionEntry[r45-we-chainaxe-berserker::Chainaxe — Berserker Assault price]
+rule[r45-we-chainaxe-berserker-rule::Chainaxe — Berserker Assault price] <- selectionEntry[r45-we-chainaxe-berserker::Chainaxe — Berserker Assault price]
+selectionEntry[r46-soh-chainaxe::Chainaxe]
+constraint[r46-soh-chainaxe-max::] <- selectionEntry[r46-soh-chainaxe::Chainaxe]
+rule[r46-soh-chainaxe-rule::Chainaxe] <- selectionEntry[r46-soh-chainaxe::Chainaxe]
+entryLink[r45-tactical-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-tactical-unit::Legion Wargear & Upgrades] <- selectionEntry[tactical-unit::Legion Tactical Squad]
+selectionEntry[r37-assault-dfa-assault-unit::Death from Above (Legion Assault Company)] <- selectionEntry[assault-unit::Legion Assault Squad]
+rule[r37-assault-dfa-assault-unit-rule::Death from Above (Legion Assault Company)] <- selectionEntry[r37-assault-dfa-assault-unit::Death from Above (Legion Assault Company)] <- selectionEntry[assault-unit::Legion Assault Squad]
+entryLink[r45-assault-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-assault-unit::Legion Wargear & Upgrades] <- selectionEntry[assault-unit::Legion Assault Squad]
+entryLink[r45-assault-unit-we-chain-discount::Chainaxe — Berserker Assault price] <- selectionEntryGroup[r49-legion-upgrades-assault-unit::Legion Wargear & Upgrades] <- selectionEntry[assault-unit::Legion Assault Squad]
+entryLink[r45-breacher-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-breacher-unit::Legion Wargear & Upgrades] <- selectionEntry[breacher-unit::Legion Breacher Siege Squad]
+selectionEntry[r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[veteran-unit::Legion Veteran Squad]
+rule[r37-assault-dfa-veteran-unit-rule::Death from Above (Legion Assault Company)] <- selectionEntry[r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[veteran-unit::Legion Veteran Squad]
+entryLink[veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[veteran-unit::Legion Veteran Squad]
+constraint[veteran-melee-chainaxe-max::] <- entryLink[veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[veteran-unit::Legion Veteran Squad]
+entryLink[r45-veteran-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-veteran-unit::Legion Wargear & Upgrades] <- selectionEntry[veteran-unit::Legion Veteran Squad]
+entryLink[r45-destroyer-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-destroyer-unit::Legion Wargear & Upgrades] <- selectionEntry[destroyer-unit::Legion Destroyer Squad]
+entryLink[hq-praetor-sw-0::Chainaxe] <- selectionEntryGroup[hq-praetor-single::Single-handed Weapons] <- selectionEntryGroup[hq-praetor-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-praetor::Legion Praetor]
+entryLink[r45-hq-praetor-we-chain::Chainaxe] <- selectionEntryGroup[hq-praetor-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-praetor::Legion Praetor]
+entryLink[r45-hq-praetor-we-caedere::Caedere Weapon] <- selectionEntryGroup[hq-praetor-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-praetor::Legion Praetor]
+constraint[r45-hq-praetor-we-caedere-max::] <- entryLink[r45-hq-praetor-we-caedere::Caedere Weapon] <- selectionEntryGroup[hq-praetor-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-praetor::Legion Praetor]
+entryLink[r46-hq-praetor-r46-soh-chainaxe::Chainaxe] <- selectionEntryGroup[hq-praetor-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-praetor::Legion Praetor]
+constraint[r46-hq-praetor-r46-soh-chainaxe-max::] <- entryLink[r46-hq-praetor-r46-soh-chainaxe::Chainaxe] <- selectionEntryGroup[hq-praetor-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-praetor::Legion Praetor]
+entryLink[hq-centurion-sw-0::Chainaxe] <- selectionEntryGroup[hq-centurion-single::Single-handed Weapons] <- selectionEntryGroup[hq-centurion-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-centurion::Legion Centurion]
+entryLink[r45-hq-centurion-we-chain::Chainaxe] <- selectionEntryGroup[hq-centurion-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-centurion::Legion Centurion]
+entryLink[r45-hq-centurion-we-caedere::Caedere Weapon] <- selectionEntryGroup[hq-centurion-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-centurion::Legion Centurion]
+constraint[r45-hq-centurion-we-caedere-max::] <- entryLink[r45-hq-centurion-we-caedere::Caedere Weapon] <- selectionEntryGroup[hq-centurion-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-centurion::Legion Centurion]
+entryLink[r46-hq-centurion-r46-soh-chainaxe::Chainaxe] <- selectionEntryGroup[hq-centurion-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-centurion::Legion Centurion]
+constraint[r46-hq-centurion-r46-soh-chainaxe-max::] <- entryLink[r46-hq-centurion-r46-soh-chainaxe::Chainaxe] <- selectionEntryGroup[hq-centurion-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-centurion::Legion Centurion]
+selectionEntry[legion-xii::XII Legion — World Eaters] <- selectionEntryGroup[config-legion::Legion] <- selectionEntry[config-army::Army Configuration]
+rule[legion-xii-named::Legiones Astartes (World Eaters)] <- selectionEntry[legion-xii::XII Legion — World Eaters] <- selectionEntryGroup[config-legion::Legion] <- selectionEntry[config-army::Army Configuration]
+rule[r25-legion-xii-reference::World Eaters — Legion Rules & Armoury] <- selectionEntry[legion-xii::XII Legion — World Eaters] <- selectionEntryGroup[config-legion::Legion] <- selectionEntry[config-army::Army Configuration]
+rule[r25-legion-xvi-reference::Sons Of Horus — Legion Rules & Armoury] <- selectionEntry[legion-xvi::XVI Legion — Sons of Horus] <- selectionEntryGroup[config-legion::Legion] <- selectionEntry[config-army::Army Configuration]
+selectionEntry[r25-rite-xii-0-berserker-assault::World Eaters Rite of War — Berserker Assault] <- selectionEntryGroup[config-rites::Rite of War (optional)] <- selectionEntry[config-army::Army Configuration]
+rule[r25-rite-xii-0-berserker-assault-rule::Berserker Assault] <- selectionEntry[r25-rite-xii-0-berserker-assault::World Eaters Rite of War — Berserker Assault] <- selectionEntryGroup[config-rites::Rite of War (optional)] <- selectionEntry[config-army::Army Configuration]
+selectionEntry[r25-rite-xii-1-the-crimson-path::World Eaters Rite of War — The Crimson Path] <- selectionEntryGroup[config-rites::Rite of War (optional)] <- selectionEntry[config-army::Army Configuration]
+rule[r25-rite-xii-1-the-crimson-path-rule::The Crimson Path] <- selectionEntry[r25-rite-xii-1-the-crimson-path::World Eaters Rite of War — The Crimson Path] <- selectionEntryGroup[config-rites::Rite of War (optional)] <- selectionEntry[config-army::Army Configuration]
+entryLink[r35-pride-veteran-veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[r35-pride-veteran-veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[r35-pride-veteran-veteran-unit::Legion Veteran Squad]
+constraint[r35-pride-veteran-veteran-melee-chainaxe-max::] <- entryLink[r35-pride-veteran-veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[r35-pride-veteran-veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[r35-pride-veteran-veteran-unit::Legion Veteran Squad]
+entryLink[r40-da-storm-centurion-group-r40-da-storm-tactical-hq-centurion-sw-0::Chainaxe] <- selectionEntryGroup[r40-da-storm-centurion-group-r40-da-storm-tactical-hq-centurion-single::Single-handed Weapons] <- selectionEntryGroup[r40-da-storm-centurion-group-r40-da-storm-tactical-hq-centurion-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[r40-da-storm-centurion-group-r40-da-storm-tactical-centurion::Legion Centurion] <- selectionEntryGroup[r40-da-storm-centurion-group-r40-da-storm-tactical::Storm of War — Embedded Legion Centurion (20-model squad only)] <- selectionEntry[r40-da-storm-tactical::Legion Tactical Squad (Storm of War compulsory)]
+selectionEntry[r40-da-storm-assault-r37-assault-dfa-assault-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r40-da-storm-assault::Legion Assault Squad (Storm of War compulsory)]
+rule[r40-da-storm-assault-r37-assault-dfa-assault-unit-rule::Death from Above (Legion Assault Company)] <- selectionEntry[r40-da-storm-assault-r37-assault-dfa-assault-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r40-da-storm-assault::Legion Assault Squad (Storm of War compulsory)]
+entryLink[r40-da-storm-centurion-group-r40-da-storm-assault-hq-centurion-sw-0::Chainaxe] <- selectionEntryGroup[r40-da-storm-centurion-group-r40-da-storm-assault-hq-centurion-single::Single-handed Weapons] <- selectionEntryGroup[r40-da-storm-centurion-group-r40-da-storm-assault-hq-centurion-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[r40-da-storm-centurion-group-r40-da-storm-assault-centurion::Legion Centurion] <- selectionEntryGroup[r40-da-storm-centurion-group-r40-da-storm-assault::Storm of War — Embedded Legion Centurion (20-model squad only)] <- selectionEntry[r40-da-storm-assault::Legion Assault Squad (Storm of War compulsory)]
+selectionEntry[r40-da-vow-veteran-r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r40-da-vow-veteran::Legion Veteran Squad]
+rule[r40-da-vow-veteran-r37-assault-dfa-veteran-unit-rule::Death from Above (Legion Assault Company)] <- selectionEntry[r40-da-vow-veteran-r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r40-da-vow-veteran::Legion Veteran Squad]
+entryLink[r40-da-vow-veteran-veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[r40-da-vow-veteran-veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[r40-da-vow-veteran::Legion Veteran Squad]
+constraint[r40-da-vow-veteran-veteran-melee-chainaxe-max::] <- entryLink[r40-da-vow-veteran-veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[r40-da-vow-veteran-veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[r40-da-vow-veteran::Legion Veteran Squad]
+selectionEntry[r40-da-serpent-assault-r37-assault-dfa-assault-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r40-da-serpent-assault::Legion Assault Squad (Serpent’s Bane compulsory)]
+rule[r40-da-serpent-assault-r37-assault-dfa-assault-unit-rule::Death from Above (Legion Assault Company)] <- selectionEntry[r40-da-serpent-assault-r37-assault-dfa-assault-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r40-da-serpent-assault::Legion Assault Squad (Serpent’s Bane compulsory)]
+selectionEntry[r60-ws-hibou-retinue-legion-veteran-squad-r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r60-ws-hibou-retinue-legion-veteran-squad::Legion Veteran Squad] <- selectionEntryGroup[r60-ws-hibou-retinue::Retinue (does not occupy a separate FOC slot)] <- selectionEntry[r41-unit-v-7-hibou-khan::HIBOU KHAN]
+rule[r60-ws-hibou-retinue-legion-veteran-squad-r37-assault-dfa-veteran-unit-rule::Death from Above (Legion Assault Company)] <- selectionEntry[r60-ws-hibou-retinue-legion-veteran-squad-r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r60-ws-hibou-retinue-legion-veteran-squad::Legion Veteran Squad] <- selectionEntryGroup[r60-ws-hibou-retinue::Retinue (does not occupy a separate FOC slot)] <- selectionEntry[r41-unit-v-7-hibou-khan::HIBOU KHAN]
+entryLink[r60-ws-hibou-retinue-legion-veteran-squad-veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[r60-ws-hibou-retinue-legion-veteran-squad-veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[r60-ws-hibou-retinue-legion-veteran-squad::Legion Veteran Squad] <- selectionEntryGroup[r60-ws-hibou-retinue::Retinue (does not occupy a separate FOC slot)] <- selectionEntry[r41-unit-v-7-hibou-khan::HIBOU KHAN]
+constraint[r60-ws-hibou-retinue-legion-veteran-squad-veteran-melee-chainaxe-max::] <- entryLink[r60-ws-hibou-retinue-legion-veteran-squad-veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[r60-ws-hibou-retinue-legion-veteran-squad-veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[r60-ws-hibou-retinue-legion-veteran-squad::Legion Veteran Squad] <- selectionEntryGroup[r60-ws-hibou-retinue::Retinue (does not occupy a separate FOC slot)] <- selectionEntry[r41-unit-v-7-hibou-khan::HIBOU KHAN]
+entryLink[r60-ws-hibou-retinue-legion-veteran-squad-r45-veteran-unit-we-chain::Chainaxe] <- selectionEntryGroup[r60-ws-hibou-retinue-legion-veteran-squad-r49-legion-upgrades-veteran-unit::Legion Wargear & Upgrades] <- selectionEntry[r60-ws-hibou-retinue-legion-veteran-squad::Legion Veteran Squad] <- selectionEntryGroup[r60-ws-hibou-retinue::Retinue (does not occupy a separate FOC slot)] <- selectionEntry[r41-unit-v-7-hibou-khan::HIBOU KHAN]
+selectionEntry[r60-ws-hasik-retinue-legion-veteran-squad-r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r60-ws-hasik-retinue-legion-veteran-squad::Legion Veteran Squad] <- selectionEntryGroup[r60-ws-hasik-retinue::Retinue (does not occupy a separate FOC slot)] <- selectionEntry[r41-unit-v-8-hasik-noyan-khan::HASIK NOYAN-KHAN]
+rule[r60-ws-hasik-retinue-legion-veteran-squad-r37-assault-dfa-veteran-unit-rule::Death from Above (Legion Assault Company)] <- selectionEntry[r60-ws-hasik-retinue-legion-veteran-squad-r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r60-ws-hasik-retinue-legion-veteran-squad::Legion Veteran Squad] <- selectionEntryGroup[r60-ws-hasik-retinue::Retinue (does not occupy a separate FOC slot)] <- selectionEntry[r41-unit-v-8-hasik-noyan-khan::HASIK NOYAN-KHAN]
+entryLink[r60-ws-hasik-retinue-legion-veteran-squad-veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[r60-ws-hasik-retinue-legion-veteran-squad-veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[r60-ws-hasik-retinue-legion-veteran-squad::Legion Veteran Squad] <- selectionEntryGroup[r60-ws-hasik-retinue::Retinue (does not occupy a separate FOC slot)] <- selectionEntry[r41-unit-v-8-hasik-noyan-khan::HASIK NOYAN-KHAN]
+constraint[r60-ws-hasik-retinue-legion-veteran-squad-veteran-melee-chainaxe-max::] <- entryLink[r60-ws-hasik-retinue-legion-veteran-squad-veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[r60-ws-hasik-retinue-legion-veteran-squad-veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[r60-ws-hasik-retinue-legion-veteran-squad::Legion Veteran Squad] <- selectionEntryGroup[r60-ws-hasik-retinue::Retinue (does not occupy a separate FOC slot)] <- selectionEntry[r41-unit-v-8-hasik-noyan-khan::HASIK NOYAN-KHAN]
+entryLink[r60-ws-hasik-retinue-legion-veteran-squad-r45-veteran-unit-we-chain::Chainaxe] <- selectionEntryGroup[r60-ws-hasik-retinue-legion-veteran-squad-r49-legion-upgrades-veteran-unit::Legion Wargear & Upgrades] <- selectionEntry[r60-ws-hasik-retinue-legion-veteran-squad::Legion Veteran Squad] <- selectionEntryGroup[r60-ws-hasik-retinue::Retinue (does not occupy a separate FOC slot)] <- selectionEntry[r41-unit-v-8-hasik-noyan-khan::HASIK NOYAN-KHAN]
+selectionEntry[r71-nl-mal-ret-1-r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r71-nl-mal-ret-1-veteran-unit::Legion Veteran Squad] <- selectionEntryGroup[r71-nl-mal-ret::Command Retinue (does not occupy a separate Force Organisation slot)] <- selectionEntry[r41-unit-viii-6-malcharion-the-war-sage::Malcharion, the War-Sage]
+rule[r71-nl-mal-ret-1-r37-assault-dfa-veteran-unit-rule::Death from Above (Legion Assault Company)] <- selectionEntry[r71-nl-mal-ret-1-r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r71-nl-mal-ret-1-veteran-unit::Legion Veteran Squad] <- selectionEntryGroup[r71-nl-mal-ret::Command Retinue (does not occupy a separate Force Organisation slot)] <- selectionEntry[r41-unit-viii-6-malcharion-the-war-sage::Malcharion, the War-Sage]
+entryLink[r71-nl-mal-ret-1-veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[r71-nl-mal-ret-1-veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[r71-nl-mal-ret-1-veteran-unit::Legion Veteran Squad] <- selectionEntryGroup[r71-nl-mal-ret::Command Retinue (does not occupy a separate Force Organisation slot)] <- selectionEntry[r41-unit-viii-6-malcharion-the-war-sage::Malcharion, the War-Sage]
+constraint[r71-nl-mal-ret-1-veteran-melee-chainaxe-max::] <- entryLink[r71-nl-mal-ret-1-veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[r71-nl-mal-ret-1-veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[r71-nl-mal-ret-1-veteran-unit::Legion Veteran Squad] <- selectionEntryGroup[r71-nl-mal-ret::Command Retinue (does not occupy a separate Force Organisation slot)] <- selectionEntry[r41-unit-viii-6-malcharion-the-war-sage::Malcharion, the War-Sage]
+entryLink[r71-nl-mal-ret-1-r45-veteran-unit-we-chain::Chainaxe] <- selectionEntryGroup[r71-nl-mal-ret-1-r49-legion-upgrades-veteran-unit::Legion Wargear & Upgrades] <- selectionEntry[r71-nl-mal-ret-1-veteran-unit::Legion Veteran Squad] <- selectionEntryGroup[r71-nl-mal-ret::Command Retinue (does not occupy a separate Force Organisation slot)] <- selectionEntry[r41-unit-viii-6-malcharion-the-war-sage::Malcharion, the War-Sage]
+selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+categoryLink[r41-unit-xii-0-rampager-squad-cat::Elites] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+profile[r41-unit-xii-0-rampager-squad-profile-0::Rampager] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+profile[r41-unit-xii-0-rampager-squad-profile-1::Rampager Champion] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r41-unit-xii-0-rampager-squad-source::Source Entry] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r41-unit-xii-0-rampager-squad-additional::Squad Models] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r41-unit-xii-0-rampager-squad-additional-max::] <- selectionEntry[r41-unit-xii-0-rampager-squad-additional::Squad Models] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r41-unit-xii-0-rampager-squad-additional-min-total::] <- selectionEntry[r41-unit-xii-0-rampager-squad-additional::Squad Models] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon-max::] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r41-unit-xii-0-rampager-squad-opt-0-context::Option restriction] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r41-unit-xii-0-rampager-squad-opt-1-power-weapon::Power weapon] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r41-unit-xii-0-rampager-squad-opt-1-power-weapon-max::] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-1-power-weapon::Power weapon] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r41-unit-xii-0-rampager-squad-opt-1-context::Option restriction] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-1-power-weapon::Power weapon] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol::Plasma pistol] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol-max::] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol::Plasma pistol] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r41-unit-xii-0-rampager-squad-opt-2-context::Option restriction] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol::Plasma pistol] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r41-unit-xii-0-rampager-squad-opt-3-frag-grenades::Frag grenades (base unit; +1 pts/model)] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r41-unit-xii-0-rampager-squad-opt-3-frag-grenades-max::] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-3-frag-grenades::Frag grenades (base unit; +1 pts/model)] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r41-unit-xii-0-rampager-squad-opt-3-context::Option restriction] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-3-frag-grenades::Frag grenades (base unit; +1 pts/model)] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r41-unit-xii-0-rampager-squad-opt-3-squadwide::Squad-wide cost note] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-3-frag-grenades::Frag grenades (base unit; +1 pts/model)] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r41-unit-xii-0-rampager-squad-opt-4-krak-grenades::Krak grenades (base unit; +2 pts/model)] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r41-unit-xii-0-rampager-squad-opt-4-krak-grenades-max::] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-4-krak-grenades::Krak grenades (base unit; +2 pts/model)] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r41-unit-xii-0-rampager-squad-opt-4-context::Option restriction] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-4-krak-grenades::Krak grenades (base unit; +2 pts/model)] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r41-unit-xii-0-rampager-squad-opt-4-squadwide::Squad-wide cost note] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-4-krak-grenades::Krak grenades (base unit; +2 pts/model)] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r41-unit-xii-0-rampager-squad-opt-5-jump-packs::Jump Packs (base unit; +15 pts/model)] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r41-unit-xii-0-rampager-squad-opt-5-jump-packs-max::] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-5-jump-packs::Jump Packs (base unit; +15 pts/model)] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r41-unit-xii-0-rampager-squad-opt-5-context::Option restriction] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-5-jump-packs::Jump Packs (base unit; +15 pts/model)] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r41-unit-xii-0-rampager-squad-opt-5-squadwide::Squad-wide cost note] <- selectionEntry[r41-unit-xii-0-rampager-squad-opt-5-jump-packs::Jump Packs (base unit; +15 pts/model)] <- selectionEntryGroup[r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntryGroup[r49-legion-upgrades-r41-unit-xii-0-rampager-squad::Legion Wargear & Upgrades] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+entryLink[r45-r41-unit-xii-0-rampager-squad-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-r41-unit-xii-0-rampager-squad::Legion Wargear & Upgrades] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r45-r41-unit-xii-0-rampager-squad-we-chain-max::] <- entryLink[r45-r41-unit-xii-0-rampager-squad-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-r41-unit-xii-0-rampager-squad::Legion Wargear & Upgrades] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+modifier[r45-r41-unit-xii-0-rampager-squad-we-chain-hide-rite::] <- entryLink[r45-r41-unit-xii-0-rampager-squad-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-r41-unit-xii-0-rampager-squad::Legion Wargear & Upgrades] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+entryLink[r45-r41-unit-xii-0-rampager-squad-we-chain-discount::Chainaxe — Berserker Assault price] <- selectionEntryGroup[r49-legion-upgrades-r41-unit-xii-0-rampager-squad::Legion Wargear & Upgrades] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r45-r41-unit-xii-0-rampager-squad-we-chain-discount-max::] <- entryLink[r45-r41-unit-xii-0-rampager-squad-we-chain-discount::Chainaxe — Berserker Assault price] <- selectionEntryGroup[r49-legion-upgrades-r41-unit-xii-0-rampager-squad::Legion Wargear & Upgrades] <- selectionEntry[r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r41-unit-xii-1-red-butcher-squad::RED BUTCHER SQUAD]
+profile[r41-unit-xii-1-red-butcher-squad-profile-0::Red Butcher] <- selectionEntry[r41-unit-xii-1-red-butcher-squad::RED BUTCHER SQUAD]
+rule[r41-unit-xii-1-red-butcher-squad-source::Source Entry] <- selectionEntry[r41-unit-xii-1-red-butcher-squad::RED BUTCHER SQUAD]
+rule[r41-unit-xii-1-red-butcher-squad-opt-0-context::Option restriction] <- selectionEntry[r41-unit-xii-1-red-butcher-squad-opt-0-power-fist::Power fist] <- selectionEntryGroup[r41-unit-xii-1-red-butcher-squad-options::Options] <- selectionEntry[r41-unit-xii-1-red-butcher-squad::RED BUTCHER SQUAD]
+rule[r41-unit-xii-1-red-butcher-squad-opt-1-context::Option restriction] <- selectionEntry[r41-unit-xii-1-red-butcher-squad-opt-1-chainfist::Chainfist] <- selectionEntryGroup[r41-unit-xii-1-red-butcher-squad-options::Options] <- selectionEntry[r41-unit-xii-1-red-butcher-squad::RED BUTCHER SQUAD]
+rule[r41-unit-xii-1-red-butcher-squad-opt-2-context::Option restriction] <- selectionEntry[r41-unit-xii-1-red-butcher-squad-opt-2-thunder-hammer::Thunder hammer] <- selectionEntryGroup[r41-unit-xii-1-red-butcher-squad-options::Options] <- selectionEntry[r41-unit-xii-1-red-butcher-squad::RED BUTCHER SQUAD]
+rule[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-source::Source Entry] <- selectionEntry[r41-unit-xii-2-red-hand-destroyer-mortalis-squad::RED HAND DESTROYER MORTALIS SQUAD]
+rule[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-7-context::Option restriction] <- selectionEntry[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-7-rending-weapon::Rending Weapon] <- selectionEntryGroup[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options::Options] <- selectionEntry[r41-unit-xii-2-red-hand-destroyer-mortalis-squad::RED HAND DESTROYER MORTALIS SQUAD]
+rule[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-8-context::Option restriction] <- selectionEntry[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-8-power-weapon::Power weapon] <- selectionEntryGroup[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options::Options] <- selectionEntry[r41-unit-xii-2-red-hand-destroyer-mortalis-squad::RED HAND DESTROYER MORTALIS SQUAD]
+rule[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-9-context::Option restriction] <- selectionEntry[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-9-power-fist::Power fist] <- selectionEntryGroup[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options::Options] <- selectionEntry[r41-unit-xii-2-red-hand-destroyer-mortalis-squad::RED HAND DESTROYER MORTALIS SQUAD]
+rule[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-10-context::Option restriction] <- selectionEntry[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-10-lightning-claw::Lightning claw] <- selectionEntryGroup[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options::Options] <- selectionEntry[r41-unit-xii-2-red-hand-destroyer-mortalis-squad::RED HAND DESTROYER MORTALIS SQUAD]
+rule[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-11-context::Option restriction] <- selectionEntry[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-11-thunder-hammer::Thunder hammer] <- selectionEntryGroup[r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options::Options] <- selectionEntry[r41-unit-xii-2-red-hand-destroyer-mortalis-squad::RED HAND DESTROYER MORTALIS SQUAD]
+selectionEntry[r41-unit-xii-3-world-eaters-inductii-squad::WORLD EATERS INDUCTII SQUAD]
+rule[r41-unit-xii-3-world-eaters-inductii-squad-source::Source Entry] <- selectionEntry[r41-unit-xii-3-world-eaters-inductii-squad::WORLD EATERS INDUCTII SQUAD]
+rule[r41-unit-xii-3-world-eaters-inductii-squad-opt-4-context::Option restriction] <- selectionEntry[r41-unit-xii-3-world-eaters-inductii-squad-opt-4-rending-weapon::Rending Weapon] <- selectionEntryGroup[r41-unit-xii-3-world-eaters-inductii-squad-options::Options] <- selectionEntry[r41-unit-xii-3-world-eaters-inductii-squad::WORLD EATERS INDUCTII SQUAD]
+rule[r41-unit-xii-3-world-eaters-inductii-squad-opt-5-context::Option restriction] <- selectionEntry[r41-unit-xii-3-world-eaters-inductii-squad-opt-5-power-weapon::Power weapon] <- selectionEntryGroup[r41-unit-xii-3-world-eaters-inductii-squad-options::Options] <- selectionEntry[r41-unit-xii-3-world-eaters-inductii-squad::WORLD EATERS INDUCTII SQUAD]
+rule[r41-unit-xii-3-world-eaters-inductii-squad-opt-6-context::Option restriction] <- selectionEntry[r41-unit-xii-3-world-eaters-inductii-squad-opt-6-power-fist::Power fist] <- selectionEntryGroup[r41-unit-xii-3-world-eaters-inductii-squad-options::Options] <- selectionEntry[r41-unit-xii-3-world-eaters-inductii-squad::WORLD EATERS INDUCTII SQUAD]
+rule[r41-unit-xii-4-devourer-terminator-squad-source::Source Entry] <- selectionEntry[r41-unit-xii-4-devourer-terminator-squad::DEVOURER TERMINATOR SQUAD]
+rule[r41-unit-xii-5-triarii-breacher-squad-source::Source Entry] <- selectionEntry[r41-unit-xii-5-triarii-breacher-squad::TRIARII BREACHER SQUAD]
+selectionEntry[r41-unit-xii-5-triarii-breacher-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r41-unit-xii-5-triarii-breacher-squad-options::Options] <- selectionEntry[r41-unit-xii-5-triarii-breacher-squad::TRIARII BREACHER SQUAD]
+constraint[r41-unit-xii-5-triarii-breacher-squad-opt-0-caedere-weapon-max::] <- selectionEntry[r41-unit-xii-5-triarii-breacher-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r41-unit-xii-5-triarii-breacher-squad-options::Options] <- selectionEntry[r41-unit-xii-5-triarii-breacher-squad::TRIARII BREACHER SQUAD]
+rule[r41-unit-xii-5-triarii-breacher-squad-opt-0-context::Option restriction] <- selectionEntry[r41-unit-xii-5-triarii-breacher-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r41-unit-xii-5-triarii-breacher-squad-options::Options] <- selectionEntry[r41-unit-xii-5-triarii-breacher-squad::TRIARII BREACHER SQUAD]
+rule[r41-unit-xii-5-triarii-breacher-squad-opt-1-context::Option restriction] <- selectionEntry[r41-unit-xii-5-triarii-breacher-squad-opt-1-power-weapon::Power weapon] <- selectionEntryGroup[r41-unit-xii-5-triarii-breacher-squad-options::Options] <- selectionEntry[r41-unit-xii-5-triarii-breacher-squad::TRIARII BREACHER SQUAD]
+selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+categoryLink[r41-unit-xii-6-kharn-the-bloody-cat::HQ] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+constraint[r41-unit-xii-6-kharn-the-bloody-unique::] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+profile[r41-unit-xii-6-kharn-the-bloody-profile-0::Khârn] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+rule[r41-unit-xii-6-kharn-the-bloody-source::Source Entry] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+selectionEntryGroup[r41-unit-xii-6-kharn-the-bloody-options::Options] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+selectionEntry[r41-unit-xii-6-kharn-the-bloody-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-6-kharn-the-bloody-options::Options] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+constraint[r41-unit-xii-6-kharn-the-bloody-opt-0-krak-grenades-max::] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-6-kharn-the-bloody-options::Options] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+rule[r41-unit-xii-6-kharn-the-bloody-opt-0-context::Option restriction] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-6-kharn-the-bloody-options::Options] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+selectionEntry[r41-unit-xii-6-kharn-the-bloody-opt-1-jump-pack::Jump Pack] <- selectionEntryGroup[r41-unit-xii-6-kharn-the-bloody-options::Options] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+constraint[r41-unit-xii-6-kharn-the-bloody-opt-1-jump-pack-max::] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody-opt-1-jump-pack::Jump Pack] <- selectionEntryGroup[r41-unit-xii-6-kharn-the-bloody-options::Options] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+rule[r41-unit-xii-6-kharn-the-bloody-opt-1-context::Option restriction] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody-opt-1-jump-pack::Jump Pack] <- selectionEntryGroup[r41-unit-xii-6-kharn-the-bloody-options::Options] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+selectionEntry[r41-unit-xii-6-kharn-the-bloody-opt-2-gorechild::Gorechild] <- selectionEntryGroup[r41-unit-xii-6-kharn-the-bloody-options::Options] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+constraint[r41-unit-xii-6-kharn-the-bloody-opt-2-gorechild-max::] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody-opt-2-gorechild::Gorechild] <- selectionEntryGroup[r41-unit-xii-6-kharn-the-bloody-options::Options] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+rule[r41-unit-xii-6-kharn-the-bloody-opt-2-context::Option restriction] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody-opt-2-gorechild::Gorechild] <- selectionEntryGroup[r41-unit-xii-6-kharn-the-bloody-options::Options] <- selectionEntry[r41-unit-xii-6-kharn-the-bloody::KHÂRN THE BLOODY]
+selectionEntry[r41-unit-xii-7-shabran-darr::SHABRAN DARR]
+categoryLink[r41-unit-xii-7-shabran-darr-cat::HQ] <- selectionEntry[r41-unit-xii-7-shabran-darr::SHABRAN DARR]
+constraint[r41-unit-xii-7-shabran-darr-unique::] <- selectionEntry[r41-unit-xii-7-shabran-darr::SHABRAN DARR]
+profile[r41-unit-xii-7-shabran-darr-profile-0::Shabran Darr] <- selectionEntry[r41-unit-xii-7-shabran-darr::SHABRAN DARR]
+rule[r41-unit-xii-7-shabran-darr-source::Source Entry] <- selectionEntry[r41-unit-xii-7-shabran-darr::SHABRAN DARR]
+selectionEntryGroup[r41-unit-xii-7-shabran-darr-options::Options] <- selectionEntry[r41-unit-xii-7-shabran-darr::SHABRAN DARR]
+selectionEntry[r41-unit-xii-7-shabran-darr-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-7-shabran-darr-options::Options] <- selectionEntry[r41-unit-xii-7-shabran-darr::SHABRAN DARR]
+constraint[r41-unit-xii-7-shabran-darr-opt-0-krak-grenades-max::] <- selectionEntry[r41-unit-xii-7-shabran-darr-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-7-shabran-darr-options::Options] <- selectionEntry[r41-unit-xii-7-shabran-darr::SHABRAN DARR]
+rule[r41-unit-xii-7-shabran-darr-opt-0-context::Option restriction] <- selectionEntry[r41-unit-xii-7-shabran-darr-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-7-shabran-darr-options::Options] <- selectionEntry[r41-unit-xii-7-shabran-darr::SHABRAN DARR]
+selectionEntry[r41-unit-xii-7-shabran-darr-opt-1-melta-bombs::Melta bombs] <- selectionEntryGroup[r41-unit-xii-7-shabran-darr-options::Options] <- selectionEntry[r41-unit-xii-7-shabran-darr::SHABRAN DARR]
+constraint[r41-unit-xii-7-shabran-darr-opt-1-melta-bombs-max::] <- selectionEntry[r41-unit-xii-7-shabran-darr-opt-1-melta-bombs::Melta bombs] <- selectionEntryGroup[r41-unit-xii-7-shabran-darr-options::Options] <- selectionEntry[r41-unit-xii-7-shabran-darr::SHABRAN DARR]
+rule[r41-unit-xii-7-shabran-darr-opt-1-context::Option restriction] <- selectionEntry[r41-unit-xii-7-shabran-darr-opt-1-melta-bombs::Melta bombs] <- selectionEntryGroup[r41-unit-xii-7-shabran-darr-options::Options] <- selectionEntry[r41-unit-xii-7-shabran-darr::SHABRAN DARR]
+selectionEntry[r41-unit-xii-8-gahlan-surlak::GAhLAN SURLAK]
+categoryLink[r41-unit-xii-8-gahlan-surlak-cat::HQ] <- selectionEntry[r41-unit-xii-8-gahlan-surlak::GAhLAN SURLAK]
+constraint[r41-unit-xii-8-gahlan-surlak-unique::] <- selectionEntry[r41-unit-xii-8-gahlan-surlak::GAhLAN SURLAK]
+profile[r41-unit-xii-8-gahlan-surlak-profile-0::Gahlan Surlak] <- selectionEntry[r41-unit-xii-8-gahlan-surlak::GAhLAN SURLAK]
+rule[r41-unit-xii-8-gahlan-surlak-source::Source Entry] <- selectionEntry[r41-unit-xii-8-gahlan-surlak::GAhLAN SURLAK]
+selectionEntryGroup[r41-unit-xii-8-gahlan-surlak-options::Options] <- selectionEntry[r41-unit-xii-8-gahlan-surlak::GAhLAN SURLAK]
+selectionEntry[r41-unit-xii-8-gahlan-surlak-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-8-gahlan-surlak-options::Options] <- selectionEntry[r41-unit-xii-8-gahlan-surlak::GAhLAN SURLAK]
+constraint[r41-unit-xii-8-gahlan-surlak-opt-0-krak-grenades-max::] <- selectionEntry[r41-unit-xii-8-gahlan-surlak-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-8-gahlan-surlak-options::Options] <- selectionEntry[r41-unit-xii-8-gahlan-surlak::GAhLAN SURLAK]
+rule[r41-unit-xii-8-gahlan-surlak-opt-0-context::Option restriction] <- selectionEntry[r41-unit-xii-8-gahlan-surlak-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-8-gahlan-surlak-options::Options] <- selectionEntry[r41-unit-xii-8-gahlan-surlak::GAhLAN SURLAK]
+selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+categoryLink[r41-unit-xii-9-kargos-the-bloodspitter-cat::HQ] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+constraint[r41-unit-xii-9-kargos-the-bloodspitter-unique::] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+profile[r41-unit-xii-9-kargos-the-bloodspitter-profile-0::Kargos] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+rule[r41-unit-xii-9-kargos-the-bloodspitter-source::Source Entry] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+selectionEntryGroup[r41-unit-xii-9-kargos-the-bloodspitter-options::Options] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-9-kargos-the-bloodspitter-options::Options] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+constraint[r41-unit-xii-9-kargos-the-bloodspitter-opt-0-krak-grenades-max::] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-9-kargos-the-bloodspitter-options::Options] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+rule[r41-unit-xii-9-kargos-the-bloodspitter-opt-0-context::Option restriction] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-9-kargos-the-bloodspitter-options::Options] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter-opt-1-melta-bombs::Melta bombs] <- selectionEntryGroup[r41-unit-xii-9-kargos-the-bloodspitter-options::Options] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+constraint[r41-unit-xii-9-kargos-the-bloodspitter-opt-1-melta-bombs-max::] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter-opt-1-melta-bombs::Melta bombs] <- selectionEntryGroup[r41-unit-xii-9-kargos-the-bloodspitter-options::Options] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+rule[r41-unit-xii-9-kargos-the-bloodspitter-opt-1-context::Option restriction] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter-opt-1-melta-bombs::Melta bombs] <- selectionEntryGroup[r41-unit-xii-9-kargos-the-bloodspitter-options::Options] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter-opt-2-jump-pack::Jump Pack] <- selectionEntryGroup[r41-unit-xii-9-kargos-the-bloodspitter-options::Options] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+constraint[r41-unit-xii-9-kargos-the-bloodspitter-opt-2-jump-pack-max::] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter-opt-2-jump-pack::Jump Pack] <- selectionEntryGroup[r41-unit-xii-9-kargos-the-bloodspitter-options::Options] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+rule[r41-unit-xii-9-kargos-the-bloodspitter-opt-2-context::Option restriction] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter-opt-2-jump-pack::Jump Pack] <- selectionEntryGroup[r41-unit-xii-9-kargos-the-bloodspitter-options::Options] <- selectionEntry[r41-unit-xii-9-kargos-the-bloodspitter::KARGOS, THE BLOODSPITTER]
+selectionEntry[r41-unit-xii-10-captain-ehrlen::CAPTAIN EHRLEN]
+categoryLink[r41-unit-xii-10-captain-ehrlen-cat::HQ] <- selectionEntry[r41-unit-xii-10-captain-ehrlen::CAPTAIN EHRLEN]
+constraint[r41-unit-xii-10-captain-ehrlen-unique::] <- selectionEntry[r41-unit-xii-10-captain-ehrlen::CAPTAIN EHRLEN]
+profile[r41-unit-xii-10-captain-ehrlen-profile-0::Captain Ehrlen] <- selectionEntry[r41-unit-xii-10-captain-ehrlen::CAPTAIN EHRLEN]
+rule[r41-unit-xii-10-captain-ehrlen-source::Source Entry] <- selectionEntry[r41-unit-xii-10-captain-ehrlen::CAPTAIN EHRLEN]
+selectionEntryGroup[r41-unit-xii-10-captain-ehrlen-options::Options] <- selectionEntry[r41-unit-xii-10-captain-ehrlen::CAPTAIN EHRLEN]
+selectionEntry[r41-unit-xii-10-captain-ehrlen-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-10-captain-ehrlen-options::Options] <- selectionEntry[r41-unit-xii-10-captain-ehrlen::CAPTAIN EHRLEN]
+constraint[r41-unit-xii-10-captain-ehrlen-opt-0-krak-grenades-max::] <- selectionEntry[r41-unit-xii-10-captain-ehrlen-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-10-captain-ehrlen-options::Options] <- selectionEntry[r41-unit-xii-10-captain-ehrlen::CAPTAIN EHRLEN]
+rule[r41-unit-xii-10-captain-ehrlen-opt-0-context::Option restriction] <- selectionEntry[r41-unit-xii-10-captain-ehrlen-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-10-captain-ehrlen-options::Options] <- selectionEntry[r41-unit-xii-10-captain-ehrlen::CAPTAIN EHRLEN]
+selectionEntry[r41-unit-xii-10-captain-ehrlen-opt-1-melta-bombs::Melta bombs] <- selectionEntryGroup[r41-unit-xii-10-captain-ehrlen-options::Options] <- selectionEntry[r41-unit-xii-10-captain-ehrlen::CAPTAIN EHRLEN]
+constraint[r41-unit-xii-10-captain-ehrlen-opt-1-melta-bombs-max::] <- selectionEntry[r41-unit-xii-10-captain-ehrlen-opt-1-melta-bombs::Melta bombs] <- selectionEntryGroup[r41-unit-xii-10-captain-ehrlen-options::Options] <- selectionEntry[r41-unit-xii-10-captain-ehrlen::CAPTAIN EHRLEN]
+rule[r41-unit-xii-10-captain-ehrlen-opt-1-context::Option restriction] <- selectionEntry[r41-unit-xii-10-captain-ehrlen-opt-1-melta-bombs::Melta bombs] <- selectionEntryGroup[r41-unit-xii-10-captain-ehrlen-options::Options] <- selectionEntry[r41-unit-xii-10-captain-ehrlen::CAPTAIN EHRLEN]
+selectionEntry[r41-unit-xii-11-delvarus::DELVARUS]
+categoryLink[r41-unit-xii-11-delvarus-cat::HQ] <- selectionEntry[r41-unit-xii-11-delvarus::DELVARUS]
+constraint[r41-unit-xii-11-delvarus-unique::] <- selectionEntry[r41-unit-xii-11-delvarus::DELVARUS]
+profile[r41-unit-xii-11-delvarus-profile-0::Delvarus] <- selectionEntry[r41-unit-xii-11-delvarus::DELVARUS]
+rule[r41-unit-xii-11-delvarus-source::Source Entry] <- selectionEntry[r41-unit-xii-11-delvarus::DELVARUS]
+selectionEntryGroup[r41-unit-xii-11-delvarus-options::Options] <- selectionEntry[r41-unit-xii-11-delvarus::DELVARUS]
+selectionEntry[r41-unit-xii-11-delvarus-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-11-delvarus-options::Options] <- selectionEntry[r41-unit-xii-11-delvarus::DELVARUS]
+constraint[r41-unit-xii-11-delvarus-opt-0-krak-grenades-max::] <- selectionEntry[r41-unit-xii-11-delvarus-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-11-delvarus-options::Options] <- selectionEntry[r41-unit-xii-11-delvarus::DELVARUS]
+rule[r41-unit-xii-11-delvarus-opt-0-context::Option restriction] <- selectionEntry[r41-unit-xii-11-delvarus-opt-0-krak-grenades::Krak grenades] <- selectionEntryGroup[r41-unit-xii-11-delvarus-options::Options] <- selectionEntry[r41-unit-xii-11-delvarus::DELVARUS]
+selectionEntry[r41-unit-xii-11-delvarus-opt-1-melta-bombs::Melta bombs] <- selectionEntryGroup[r41-unit-xii-11-delvarus-options::Options] <- selectionEntry[r41-unit-xii-11-delvarus::DELVARUS]
+constraint[r41-unit-xii-11-delvarus-opt-1-melta-bombs-max::] <- selectionEntry[r41-unit-xii-11-delvarus-opt-1-melta-bombs::Melta bombs] <- selectionEntryGroup[r41-unit-xii-11-delvarus-options::Options] <- selectionEntry[r41-unit-xii-11-delvarus::DELVARUS]
+rule[r41-unit-xii-11-delvarus-opt-1-context::Option restriction] <- selectionEntry[r41-unit-xii-11-delvarus-opt-1-melta-bombs::Melta bombs] <- selectionEntryGroup[r41-unit-xii-11-delvarus-options::Options] <- selectionEntry[r41-unit-xii-11-delvarus::DELVARUS]
+selectionEntry[r41-unit-xii-12-xii-angron-the-red-angel::XII — ANGRON, THE RED ANGEL]
+categoryLink[r41-unit-xii-12-xii-angron-the-red-angel-cat::Lords of War] <- selectionEntry[r41-unit-xii-12-xii-angron-the-red-angel::XII — ANGRON, THE RED ANGEL]
+constraint[r41-unit-xii-12-xii-angron-the-red-angel-unique::] <- selectionEntry[r41-unit-xii-12-xii-angron-the-red-angel::XII — ANGRON, THE RED ANGEL]
+profile[r41-unit-xii-12-xii-angron-the-red-angel-profile-0::Angron] <- selectionEntry[r41-unit-xii-12-xii-angron-the-red-angel::XII — ANGRON, THE RED ANGEL]
+rule[r41-unit-xii-12-xii-angron-the-red-angel-source::Source Entry] <- selectionEntry[r41-unit-xii-12-xii-angron-the-red-angel::XII — ANGRON, THE RED ANGEL]
+selectionEntry[r41-unit-xii-13-angron-the-red-angel::ANGRON, THE RED ANGEL]
+categoryLink[r41-unit-xii-13-angron-the-red-angel-cat::Lords of War] <- selectionEntry[r41-unit-xii-13-angron-the-red-angel::ANGRON, THE RED ANGEL]
+constraint[r41-unit-xii-13-angron-the-red-angel-unique::] <- selectionEntry[r41-unit-xii-13-angron-the-red-angel::ANGRON, THE RED ANGEL]
+profile[r41-unit-xii-13-angron-the-red-angel-profile-0::Angron, the Red Angel] <- selectionEntry[r41-unit-xii-13-angron-the-red-angel::ANGRON, THE RED ANGEL]
+rule[r41-unit-xii-13-angron-the-red-angel-source::Source Entry] <- selectionEntry[r41-unit-xii-13-angron-the-red-angel::ANGRON, THE RED ANGEL]
+rule[r41-unit-xvi-1-reaver-attack-squad-source::Source Entry] <- selectionEntry[r41-unit-xvi-1-reaver-attack-squad::REAVER ATTACK SQUAD]
+selectionEntry[r41-unit-xvi-1-reaver-attack-squad-opt-4-replace-his-chainaxe-with-a-power-fist::Replace his Chainaxe with a Power fist] <- selectionEntryGroup[r41-unit-xvi-1-reaver-attack-squad-options::Options] <- selectionEntry[r41-unit-xvi-1-reaver-attack-squad::REAVER ATTACK SQUAD]
+constraint[r41-unit-xvi-1-reaver-attack-squad-opt-4-replace-his-chainaxe-with-a-power-fist-max::] <- selectionEntry[r41-unit-xvi-1-reaver-attack-squad-opt-4-replace-his-chainaxe-with-a-power-fist::Replace his Chainaxe with a Power fist] <- selectionEntryGroup[r41-unit-xvi-1-reaver-attack-squad-options::Options] <- selectionEntry[r41-unit-xvi-1-reaver-attack-squad::REAVER ATTACK SQUAD]
+rule[r41-unit-xvi-1-reaver-attack-squad-opt-5-context::Option restriction] <- selectionEntry[r41-unit-xvi-1-reaver-attack-squad-opt-5-a-pair-of-lightning-claws::a pair of Lightning Claws] <- selectionEntryGroup[r41-unit-xvi-1-reaver-attack-squad-options::Options] <- selectionEntry[r41-unit-xvi-1-reaver-attack-squad::REAVER ATTACK SQUAD]
+rule[r41-unit-xvii-0-covenant-zealot-mob-source::Source Entry] <- selectionEntry[r41-unit-xvii-0-covenant-zealot-mob::COVENANT ZEALOT MOB]
+selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+categoryLink[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-cat::Troops] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+modifier[r42-role-xii-0-effects-the-red-hand-rampager-squads-hide::] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+profile[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-profile-0::Rampager] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+profile[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-profile-1::Rampager Champion] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-source::Source Entry] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r42-role-xii-0-effects-the-red-hand-rampager-squads-rite-note::Rite of War Interaction] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r42-role-xii-0-effects-the-red-hand-rampager-squads-clone-cleanup::Builder compatibility] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-additional::Squad Models] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-additional-max::] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-additional::Squad Models] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-additional-min-total::] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-additional::Squad Models] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon-max::] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-0-context::Option restriction] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-1-power-weapon::Power weapon] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-1-power-weapon-max::] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-1-power-weapon::Power weapon] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-1-context::Option restriction] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-1-power-weapon::Power weapon] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol::Plasma pistol] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol-max::] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol::Plasma pistol] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-2-context::Option restriction] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol::Plasma pistol] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades::Frag grenades (base unit; +1 pts/model)] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades-max::] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades::Frag grenades (base unit; +1 pts/model)] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-context::Option restriction] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades::Frag grenades (base unit; +1 pts/model)] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-squadwide::Squad-wide cost note] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades::Frag grenades (base unit; +1 pts/model)] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades::Krak grenades (base unit; +2 pts/model)] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades-max::] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades::Krak grenades (base unit; +2 pts/model)] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-context::Option restriction] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades::Krak grenades (base unit; +2 pts/model)] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-squadwide::Squad-wide cost note] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades::Krak grenades (base unit; +2 pts/model)] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-jump-packs::Jump Packs (base unit; +15 pts/model)] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+constraint[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-jump-packs-max::] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-jump-packs::Jump Packs (base unit; +15 pts/model)] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-context::Option restriction] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-jump-packs::Jump Packs (base unit; +15 pts/model)] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+rule[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-squadwide::Squad-wide cost note] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-jump-packs::Jump Packs (base unit; +15 pts/model)] <- selectionEntryGroup[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad::RAMPAGER SQUAD]
+selectionEntry[r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-veteran-unit::Legion Veteran Squad]
+rule[r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-r37-assault-dfa-veteran-unit-rule::Death from Above (Legion Assault Company)] <- selectionEntry[r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r42-role-xiv-0-effects-superior-firepower-legion-veteran-squads-veteran-unit::Legion Veteran Squad]
+rule[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad-source::Source Entry] <- selectionEntry[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad::REAVER ATTACK SQUAD]
+selectionEntry[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad-opt-4-replace-his-chainaxe-with-a-power-fist::Replace his Chainaxe with a Power fist] <- selectionEntryGroup[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad-options::Options] <- selectionEntry[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad::REAVER ATTACK SQUAD]
+constraint[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad-opt-4-replace-his-chainaxe-with-a-power-fist-max::] <- selectionEntry[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad-opt-4-replace-his-chainaxe-with-a-power-fist::Replace his Chainaxe with a Power fist] <- selectionEntryGroup[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad-options::Options] <- selectionEntry[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad::REAVER ATTACK SQUAD]
+rule[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad-opt-5-context::Option restriction] <- selectionEntry[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad-opt-5-a-pair-of-lightning-claws::a pair of Lightning Claws] <- selectionEntryGroup[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad-options::Options] <- selectionEntry[r42-role-xvi-1-effects-reaver-onslaught-reaver-attack-squads-r41-unit-xvi-1-reaver-attack-squad::REAVER ATTACK SQUAD]
+selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+profile[r46-al-reward-28-r41-unit-xii-0-rampager-squad-profile-0::Rampager] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+profile[r46-al-reward-28-r41-unit-xii-0-rampager-squad-profile-1::Rampager Champion] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-28-r41-unit-xii-0-rampager-squad-source::Source Entry] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-additional::Squad Models] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+constraint[r46-al-reward-28-r41-unit-xii-0-rampager-squad-additional-max::] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-additional::Squad Models] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+constraint[r46-al-reward-28-r41-unit-xii-0-rampager-squad-additional-min-total::] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-additional::Squad Models] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+constraint[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon-max::] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-0-context::Option restriction] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-1-power-weapon::Power weapon] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+constraint[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-1-power-weapon-max::] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-1-power-weapon::Power weapon] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-1-context::Option restriction] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-1-power-weapon::Power weapon] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol::Plasma pistol] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+constraint[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol-max::] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol::Plasma pistol] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-2-context::Option restriction] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol::Plasma pistol] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades::Frag grenades (base unit; +1 pts/model)] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+constraint[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades-max::] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades::Frag grenades (base unit; +1 pts/model)] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-context::Option restriction] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades::Frag grenades (base unit; +1 pts/model)] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-squadwide::Squad-wide cost note] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades::Frag grenades (base unit; +1 pts/model)] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades::Krak grenades (base unit; +2 pts/model)] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+constraint[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades-max::] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades::Krak grenades (base unit; +2 pts/model)] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-context::Option restriction] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades::Krak grenades (base unit; +2 pts/model)] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-squadwide::Squad-wide cost note] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades::Krak grenades (base unit; +2 pts/model)] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-jump-packs::Jump Packs (base unit; +15 pts/model)] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+constraint[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-jump-packs-max::] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-jump-packs::Jump Packs (base unit; +15 pts/model)] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-context::Option restriction] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-jump-packs::Jump Packs (base unit; +15 pts/model)] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-squadwide::Squad-wide cost note] <- selectionEntry[r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-jump-packs::Jump Packs (base unit; +15 pts/model)] <- selectionEntryGroup[r46-al-reward-28-r41-unit-xii-0-rampager-squad-options::Options] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+entryLink[r46-al-reward-28-r45-r41-unit-xii-0-rampager-squad-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-r46-al-reward-28::Legion Wargear & Upgrades] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+constraint[r46-al-reward-28-r45-r41-unit-xii-0-rampager-squad-we-chain-max::] <- entryLink[r46-al-reward-28-r45-r41-unit-xii-0-rampager-squad-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-r46-al-reward-28::Legion Wargear & Upgrades] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+modifier[r46-al-reward-28-r45-r41-unit-xii-0-rampager-squad-we-chain-hide-rite::] <- entryLink[r46-al-reward-28-r45-r41-unit-xii-0-rampager-squad-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-r46-al-reward-28::Legion Wargear & Upgrades] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+entryLink[r46-al-reward-28-r45-r41-unit-xii-0-rampager-squad-we-chain-discount::Chainaxe — Berserker Assault price] <- selectionEntryGroup[r49-legion-upgrades-r46-al-reward-28::Legion Wargear & Upgrades] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+constraint[r46-al-reward-28-r45-r41-unit-xii-0-rampager-squad-we-chain-discount-max::] <- entryLink[r46-al-reward-28-r45-r41-unit-xii-0-rampager-squad-we-chain-discount::Chainaxe — Berserker Assault price] <- selectionEntryGroup[r49-legion-upgrades-r46-al-reward-28::Legion Wargear & Upgrades] <- selectionEntry[r46-al-reward-28::RAMPAGER SQUAD — Rewards of Treachery]
+selectionEntry[r46-al-reward-29::RED BUTCHER SQUAD — Rewards of Treachery]
+profile[r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-profile-0::Red Butcher] <- selectionEntry[r46-al-reward-29::RED BUTCHER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-source::Source Entry] <- selectionEntry[r46-al-reward-29::RED BUTCHER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-opt-0-context::Option restriction] <- selectionEntry[r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-opt-0-power-fist::Power fist] <- selectionEntryGroup[r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-options::Options] <- selectionEntry[r46-al-reward-29::RED BUTCHER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-opt-1-context::Option restriction] <- selectionEntry[r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-opt-1-chainfist::Chainfist] <- selectionEntryGroup[r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-options::Options] <- selectionEntry[r46-al-reward-29::RED BUTCHER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-opt-2-context::Option restriction] <- selectionEntry[r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-opt-2-thunder-hammer::Thunder hammer] <- selectionEntryGroup[r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-options::Options] <- selectionEntry[r46-al-reward-29::RED BUTCHER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-source::Source Entry] <- selectionEntry[r46-al-reward-30::RED HAND DESTROYER MORTALIS SQUAD — Rewards of Treachery]
+rule[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-7-context::Option restriction] <- selectionEntry[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-7-rending-weapon::Rending Weapon] <- selectionEntryGroup[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options::Options] <- selectionEntry[r46-al-reward-30::RED HAND DESTROYER MORTALIS SQUAD — Rewards of Treachery]
+rule[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-8-context::Option restriction] <- selectionEntry[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-8-power-weapon::Power weapon] <- selectionEntryGroup[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options::Options] <- selectionEntry[r46-al-reward-30::RED HAND DESTROYER MORTALIS SQUAD — Rewards of Treachery]
+rule[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-9-context::Option restriction] <- selectionEntry[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-9-power-fist::Power fist] <- selectionEntryGroup[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options::Options] <- selectionEntry[r46-al-reward-30::RED HAND DESTROYER MORTALIS SQUAD — Rewards of Treachery]
+rule[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-10-context::Option restriction] <- selectionEntry[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-10-lightning-claw::Lightning claw] <- selectionEntryGroup[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options::Options] <- selectionEntry[r46-al-reward-30::RED HAND DESTROYER MORTALIS SQUAD — Rewards of Treachery]
+rule[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-11-context::Option restriction] <- selectionEntry[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-11-thunder-hammer::Thunder hammer] <- selectionEntryGroup[r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options::Options] <- selectionEntry[r46-al-reward-30::RED HAND DESTROYER MORTALIS SQUAD — Rewards of Treachery]
+selectionEntry[r46-al-reward-31::WORLD EATERS INDUCTII SQUAD — Rewards of Treachery]
+rule[r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-source::Source Entry] <- selectionEntry[r46-al-reward-31::WORLD EATERS INDUCTII SQUAD — Rewards of Treachery]
+rule[r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-4-context::Option restriction] <- selectionEntry[r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-4-rending-weapon::Rending Weapon] <- selectionEntryGroup[r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-options::Options] <- selectionEntry[r46-al-reward-31::WORLD EATERS INDUCTII SQUAD — Rewards of Treachery]
+rule[r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-5-context::Option restriction] <- selectionEntry[r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-5-power-weapon::Power weapon] <- selectionEntryGroup[r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-options::Options] <- selectionEntry[r46-al-reward-31::WORLD EATERS INDUCTII SQUAD — Rewards of Treachery]
+rule[r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-6-context::Option restriction] <- selectionEntry[r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-6-power-fist::Power fist] <- selectionEntryGroup[r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-options::Options] <- selectionEntry[r46-al-reward-31::WORLD EATERS INDUCTII SQUAD — Rewards of Treachery]
+rule[r46-al-reward-32-r41-unit-xii-4-devourer-terminator-squad-source::Source Entry] <- selectionEntry[r46-al-reward-32::DEVOURER TERMINATOR SQUAD — Rewards of Treachery]
+rule[r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-source::Source Entry] <- selectionEntry[r46-al-reward-33::TRIARII BREACHER SQUAD — Rewards of Treachery]
+selectionEntry[r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-options::Options] <- selectionEntry[r46-al-reward-33::TRIARII BREACHER SQUAD — Rewards of Treachery]
+constraint[r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-0-caedere-weapon-max::] <- selectionEntry[r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-options::Options] <- selectionEntry[r46-al-reward-33::TRIARII BREACHER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-0-context::Option restriction] <- selectionEntry[r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-0-caedere-weapon::Caedere Weapon] <- selectionEntryGroup[r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-options::Options] <- selectionEntry[r46-al-reward-33::TRIARII BREACHER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-1-context::Option restriction] <- selectionEntry[r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-opt-1-power-weapon::Power weapon] <- selectionEntryGroup[r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-options::Options] <- selectionEntry[r46-al-reward-33::TRIARII BREACHER SQUAD — Rewards of Treachery]
+rule[r46-al-reward-47-r41-unit-xvi-1-reaver-attack-squad-source::Source Entry] <- selectionEntry[r46-al-reward-47::REAVER ATTACK SQUAD — Rewards of Treachery]
+selectionEntry[r46-al-reward-47-r41-unit-xvi-1-reaver-attack-squad-opt-4-replace-his-chainaxe-with-a-power-fist::Replace his Chainaxe with a Power fist] <- selectionEntryGroup[r46-al-reward-47-r41-unit-xvi-1-reaver-attack-squad-options::Options] <- selectionEntry[r46-al-reward-47::REAVER ATTACK SQUAD — Rewards of Treachery]
+constraint[r46-al-reward-47-r41-unit-xvi-1-reaver-attack-squad-opt-4-replace-his-chainaxe-with-a-power-fist-max::] <- selectionEntry[r46-al-reward-47-r41-unit-xvi-1-reaver-attack-squad-opt-4-replace-his-chainaxe-with-a-power-fist::Replace his Chainaxe with a Power fist] <- selectionEntryGroup[r46-al-reward-47-r41-unit-xvi-1-reaver-attack-squad-options::Options] <- selectionEntry[r46-al-reward-47::REAVER ATTACK SQUAD — Rewards of Treachery]
+rule[r46-al-reward-47-r41-unit-xvi-1-reaver-attack-squad-opt-5-context::Option restriction] <- selectionEntry[r46-al-reward-47-r41-unit-xvi-1-reaver-attack-squad-opt-5-a-pair-of-lightning-claws::a pair of Lightning Claws] <- selectionEntryGroup[r46-al-reward-47-r41-unit-xvi-1-reaver-attack-squad-options::Options] <- selectionEntry[r46-al-reward-47::REAVER ATTACK SQUAD — Rewards of Treachery]
+entryLink[r57-iw-hammer-tactical-r45-tactical-unit-we-chain::Chainaxe] <- selectionEntryGroup[r57-iw-hammer-tactical-r49-legion-upgrades-tactical-unit::Legion Wargear & Upgrades] <- selectionEntry[r57-iw-hammer-tactical::Legion Tactical Squad — Hammer Compulsory]
+entryLink[r57-iw-hammer-breacher-r45-breacher-unit-we-chain::Chainaxe] <- selectionEntryGroup[r57-iw-hammer-breacher-r49-legion-upgrades-breacher-unit::Legion Wargear & Upgrades] <- selectionEntry[r57-iw-hammer-breacher::Legion Breacher Siege Squad — Hammer Compulsory]
+selectionEntry[r74-ba-rev-vet-r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r74-ba-rev-vet-veteran-unit::Legion Veteran Squad (Jump Packs) — Day of Revelation]
+rule[r74-ba-rev-vet-r37-assault-dfa-veteran-unit-rule::Death from Above (Legion Assault Company)] <- selectionEntry[r74-ba-rev-vet-r37-assault-dfa-veteran-unit::Death from Above (Legion Assault Company)] <- selectionEntry[r74-ba-rev-vet-veteran-unit::Legion Veteran Squad (Jump Packs) — Day of Revelation]
+entryLink[r74-ba-rev-vet-veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[r74-ba-rev-vet-veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[r74-ba-rev-vet-veteran-unit::Legion Veteran Squad (Jump Packs) — Day of Revelation]
+constraint[r74-ba-rev-vet-veteran-melee-chainaxe-max::] <- entryLink[r74-ba-rev-vet-veteran-melee-chainaxe::Chainaxe (replaces Chainsword)] <- selectionEntryGroup[r74-ba-rev-vet-veteran-melee::Close Combat Weapon Replacements] <- selectionEntry[r74-ba-rev-vet-veteran-unit::Legion Veteran Squad (Jump Packs) — Day of Revelation]
+entryLink[r74-ba-rev-vet-r45-veteran-unit-we-chain::Chainaxe] <- selectionEntryGroup[r74-ba-rev-vet-r49-legion-upgrades-veteran-unit::Legion Wargear & Upgrades] <- selectionEntry[r74-ba-rev-vet-veteran-unit::Legion Veteran Squad (Jump Packs) — Day of Revelation]
+
+=== TOP-LEVEL WORLD EATERS / XII UNITS ===
+
+====================================================================================================
+UNIT r41-unit-xii-0-rampager-squad | RAMPAGER SQUAD | hidden=false | cost=Points=0.0 | 
+  CATEGORIES Elites->cat-elites
+  TOP PROFILE r41-unit-xii-0-rampager-squad-profile-0 | Rampager :: WS=4 BS=4 S=4 T=4 W=1 I=4 A=2 Ld=9 Sv=3+
+  TOP PROFILE r41-unit-xii-0-rampager-squad-profile-1 | Rampager Champion :: WS=4 BS=4 S=4 T=4 W=1 I=4 A=3 Ld=9 Sv=3+
+  TOP RULE r41-unit-xii-0-rampager-squad-source | Source Entry :: Rampager | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Rampager Champion | 4 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
+Force Organisation:
+• Elites
+CAEDERE WEAPONS Caedere Weapons represent the many gladiatorial blades, axes, hooks and other fighting weapons employed by the XII Legion. For the purposes of these rules, a Caedere Weapon counts as a Rending Weapon.
+Unit Composition:
+• 4 Rampagers
+• 1 Rampager Champion
+Unit Type:
+• Infantry
+• The Rampager Champion is a Character
+Wargear:
+• Power Armour
+• Bolt pistol
+• Chainaxe
+Special Rules:
+• Legiones Astartes (World Eaters)
+OPTIONS
+• The squad may include up to five additional Rampagers for +22 points per model.
+• Up to three Rampagers may replace their Chainaxe with:
+• Caedere Weapon ................................. +3 points
+• Power weapon ................................... +7 points
+• If the squad numbers ten models, up to six Rampagers may make one of
+  GROUP r41-unit-xii-0-rampager-squad-options | Options | hidden=false |  | conds=
+    ENTRY r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon | Caedere Weapon | hidden=false | cost=Points=3 | max=3 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-0-rampager-squad-opt-1-power-weapon | Power weapon | hidden=false | cost=Points=7 | max=3 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol | Plasma pistol | hidden=false | cost=Points=10 | max=3 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-0-rampager-squad-opt-3-frag-grenades | Frag grenades (base unit; +1 pts/model) | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-0-rampager-squad-opt-4-krak-grenades | Krak grenades (base unit; +2 pts/model) | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-0-rampager-squad-opt-5-jump-packs | Jump Packs (base unit; +15 pts/model) | hidden=false | cost=Points=75 | max=1 field=selections scope=parent child=None | conds=
+  GROUP r49-legion-upgrades-r41-unit-xii-0-rampager-squad | Legion Wargear & Upgrades | hidden=false |  | conds=atLeast 1 selections scope=force child=r25-rite-xii-0-berserker-assault; lessThan 1 selections scope=roster child=legion-xii; lessThan 1 selections scope=roster child=legion-xii; lessThan 1 selections scope=force child=r25-rite-xii-0-berserker-assault
+    LINK r45-r41-unit-xii-0-rampager-squad-we-chain | Chainaxe -> r45-we-chainaxe | hidden=false | max=1 field=selections scope=parent child=None | conds=atLeast 1 selections scope=force child=r25-rite-xii-0-berserker-assault; lessThan 1 selections scope=roster child=legion-xii
+    LINK r45-r41-unit-xii-0-rampager-squad-we-chain-discount | Chainaxe — Berserker Assault price -> r45-we-chainaxe-berserker | hidden=false | max=1 field=selections scope=parent child=None | conds=lessThan 1 selections scope=roster child=legion-xii; lessThan 1 selections scope=force child=r25-rite-xii-0-berserker-assault
+
+====================================================================================================
+UNIT r41-unit-xii-1-red-butcher-squad | RED BUTCHER SQUAD | hidden=false | cost=Points=0.0 | 
+  CATEGORIES Elites->cat-elites
+  TOP PROFILE r41-unit-xii-1-red-butcher-squad-profile-0 | Red Butcher :: WS=3 BS=2 S=4 T=4 W=2 I=3 A=4 Ld=9 Sv=2+/4+
+  TOP RULE r41-unit-xii-1-red-butcher-squad-source | Source Entry :: Red Butcher | 3 | 2 | 4 | 4 | 2 | 3 | 4 | 9 | 2+/4+
+Force Organisation:
+• Elites
+RAVENING MADMEN Red Butchers always hit models with a Weapon Skill on a 3+ in close combat, regardless of the normal Weapon Skill comparison. Enemy models likewise always hit Red Butchers on a 3+. This does not affect attacks made against Vehicles or other targets without a Weapon Skill and does not override a rule which allows a model to hit on a better fixed result. Red Butchers never count as a Scoring Unit.
+• 0–1
+Unit Composition:
+• 5 Red Butchers
+Unit Type:
+• Infantry
+Wargear:
+• Cataphractii Terminator Armour
+• Two Power weapons
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Fearless
+• Ravening Madmen
+OPTIONS
+• The squad may include up to five additional Red Butchers for +60 points per model.
+• Any Red Butcher may replace one Power weapon with:
+• Power fist ....................................... +
+  GROUP r41-unit-xii-1-red-butcher-squad-options | Options | hidden=false |  | conds=
+    ENTRY r41-unit-xii-1-red-butcher-squad-opt-0-power-fist | Power fist | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-1-red-butcher-squad-opt-1-chainfist | Chainfist | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-1-red-butcher-squad-opt-2-thunder-hammer | Thunder hammer | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r41-unit-xii-2-red-hand-destroyer-mortalis-squad | RED HAND DESTROYER MORTALIS SQUAD | hidden=false | cost=Points=50.0 | 
+  CATEGORIES Elites->cat-elites
+  TOP PROFILE r41-unit-xii-2-red-hand-destroyer-mortalis-squad-profile-0 | Red Hand Destroyer :: WS=4 BS=4 S=4 T=4 W=1 I=4 A=2 Ld=9 Sv=3+
+  TOP PROFILE r41-unit-xii-2-red-hand-destroyer-mortalis-squad-profile-1 | Red Hand Sergeant :: WS=4 BS=4 S=4 T=4 W=1 I=4 A=3 Ld=9 Sv=3+
+  TOP RULE r41-unit-xii-2-red-hand-destroyer-mortalis-squad-source | Source Entry :: Red Hand Destroyer | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Red Hand Sergeant | 4 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
+Force Organisation:
+• Elites
+Unit Composition:
+• 4 Red Hand Destroyers
+• 1 Red Hand Sergeant
+Unit Type:
+• Infantry
+• The Red Hand Sergeant is a Character
+Wargear:
+• Power Armour
+• Two Bolt pistols
+• Chainaxe
+• Frag grenades
+• Rad grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Counter-Attack
+• Dual Pistols
+• Destroyer Cadre
+OPTIONS
+• The squad may include up to five additional Red Hand Destroyers for +22 points per model.
+• For every five models, one Red Hand Destroyer may replace one Bolt pistol with:
+• Volkite serpenta ................................. +5 points
+• Hand flamer ...................................... +5 points
+• Plasma pistol ................................... +15 points
+• Missile launcher with Suspensor Web
+and Rad Missiles ........................
+  GROUP r41-unit-xii-2-red-hand-destroyer-mortalis-squad-options | Options | hidden=false |  | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-0-volkite-serpenta | Volkite serpenta | hidden=false | cost=Points=5 | max=2 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-1-hand-flamer | Hand flamer | hidden=false | cost=Points=5 | max=2 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-2-plasma-pistol | Plasma pistol | hidden=false | cost=Points=15 | max=2 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-3-and-rad-missiles | and Rad Missiles | hidden=false | cost=Points=25 | max=2 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-4-one-phosphex-bomb | One Phosphex Bomb | hidden=false | cost=Points=10 | max=2 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-5-krak-grenades | Krak grenades (base unit; +2 pts/model) | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-6-melta-bombs | Melta bombs (base unit; +5 pts/model) | hidden=false | cost=Points=25 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-7-rending-weapon | Rending Weapon | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-8-power-weapon | Power weapon | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-9-power-fist | Power fist | hidden=false | cost=Points=15 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-10-lightning-claw | Lightning claw | hidden=false | cost=Points=15 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-11-thunder-hammer | Thunder hammer | hidden=false | cost=Points=20 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-2-red-hand-destroyer-mortalis-squad-opt-12-artificer-armour | Artificer Armour | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r41-unit-xii-3-world-eaters-inductii-squad | WORLD EATERS INDUCTII SQUAD | hidden=false | cost=Points=0.0 | 
+  CATEGORIES Troops->cat-troops
+  TOP PROFILE r41-unit-xii-3-world-eaters-inductii-squad-profile-0 | Inductii :: WS=4 BS=3 S=4 T=4 W=1 I=4 A=1 Ld=7 Sv=3+
+  TOP PROFILE r41-unit-xii-3-world-eaters-inductii-squad-profile-1 | Inductii Sergeant :: WS=4 BS=3 S=4 T=4 W=1 I=4 A=2 Ld=8 Sv=3+
+  TOP RULE r41-unit-xii-3-world-eaters-inductii-squad-source | Source Entry :: Inductii | 4 | 3 | 4 | 4 | 1 | 4 | 1 | 7 | 3+
+Inductii Sergeant | 4 | 3 | 4 | 4 | 1 | 4 | 2 | 8 | 3+
+NAILS-BROKEN If an Inductii Squad is able to declare a charge during the Assault phase, it must do so. If more than one enemy unit may legally be charged, the World Eaters player chooses the target normally.
+Force Organisation:
+• Troops
+Unit Composition:
+• 9 Inductii
+• 1 Inductii Sergeant
+Unit Type:
+• Infantry
+• The Inductii Sergeant is a Character
+Wargear:
+• Power Armour
+• Bolt pistol
+• Chainsword
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Nails-Broken
+OPTIONS
+• The squad may include up to ten additional Inductii for +13 points per model.
+• For every ten models, one Inductii may replace his Bolt pistol with:
+• Flamer ............................................ +5 points
+• Meltagun ......................................... +10 points
+• The entire squad may take:
+• Frag grenades 
+  GROUP r41-unit-xii-3-world-eaters-inductii-squad-options | Options | hidden=false |  | conds=
+    ENTRY r41-unit-xii-3-world-eaters-inductii-squad-opt-0-flamer | Flamer | hidden=false | cost=Points=5 | max=2 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-3-world-eaters-inductii-squad-opt-1-meltagun | Meltagun | hidden=false | cost=Points=10 | max=2 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-3-world-eaters-inductii-squad-opt-2-frag-grenades | Frag grenades (base unit; +1 pts/model) | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-3-world-eaters-inductii-squad-opt-3-krak-grenades | Krak grenades (base unit; +2 pts/model) | hidden=false | cost=Points=20 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-3-world-eaters-inductii-squad-opt-4-rending-weapon | Rending Weapon | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-3-world-eaters-inductii-squad-opt-5-power-weapon | Power weapon | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-3-world-eaters-inductii-squad-opt-6-power-fist | Power fist | hidden=false | cost=Points=15 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r41-unit-xii-4-devourer-terminator-squad | DEVOURER TERMINATOR SQUAD | hidden=false | cost=Points=0.0 | 
+  CATEGORIES Elites->cat-elites
+  TOP PROFILE r41-unit-xii-4-devourer-terminator-squad-profile-0 | Devourer :: WS=5 BS=4 S=4 T=4 W=1 I=4 A=2 Ld=9 Sv=2+/4+
+  TOP PROFILE r41-unit-xii-4-devourer-terminator-squad-profile-1 | Devourer Chieftain :: WS=5 BS=4 S=4 T=4 W=1 I=4 A=3 Ld=10 Sv=2+/4+
+  TOP RULE r41-unit-xii-4-devourer-terminator-squad-source | Source Entry :: Devourer | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 2+/4+
+Devourer Chieftain | 5 | 4 | 4 | 4 | 1 | 4 | 3 | 10 | 2+/4+
+Force Organisation:
+• Elites
+DEVOURERS Angron may select one Devourer Terminator Squad as his retinue. If selected in this manner, the Devourers do not occupy a separate Elites choice.
+Unit Composition:
+• 4 Devourers
+• 1 Devourer Chieftain
+Unit Type:
+• Infantry
+• The Devourer Chieftain is a Character
+Wargear:
+• Cataphractii Terminator Armour
+• Combi-bolter
+• Power weapon
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Stubborn
+• Devourers
+OPTIONS
+• The squad may include up to five additional Devourers for +45 points per model.
+• Any model may replace his Combi-bolter with:
+• Foeblaster Boltgun .............................. +5 points
+• Combi-flamer ................................... +10 points
+• Combi-volkite charger ......................... +10 points
+• Combi-meltagun .....
+  GROUP r41-unit-xii-4-devourer-terminator-squad-options | Options | hidden=false |  | conds=
+    ENTRY r41-unit-xii-4-devourer-terminator-squad-opt-0-foeblaster-boltgun | Foeblaster Boltgun | hidden=false | cost=Points=5 | max=10 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-4-devourer-terminator-squad-opt-1-combi-flamer | Combi-flamer | hidden=false | cost=Points=10 | max=10 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-4-devourer-terminator-squad-opt-2-combi-volkite-charger | Combi-volkite charger | hidden=false | cost=Points=10 | max=10 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-4-devourer-terminator-squad-opt-3-combi-meltagun | Combi-meltagun | hidden=false | cost=Points=15 | max=10 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-4-devourer-terminator-squad-opt-4-combi-plasma-gun | Combi-plasma gun | hidden=false | cost=Points=15 | max=10 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-4-devourer-terminator-squad-opt-5-power-fist | Power fist | hidden=false | cost=Points=5 | max=10 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-4-devourer-terminator-squad-opt-6-lightning-claw | Lightning claw | hidden=false | cost=Points=5 | max=10 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-4-devourer-terminator-squad-opt-7-chainfist | Chainfist | hidden=false | cost=Points=10 | max=10 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-4-devourer-terminator-squad-opt-8-thunder-hammer | Thunder hammer | hidden=false | cost=Points=10 | max=10 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-4-devourer-terminator-squad-opt-9-grenade-harness | Grenade Harness | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r41-unit-xii-5-triarii-breacher-squad | TRIARII BREACHER SQUAD | hidden=false | cost=Points=20.0 | 
+  CATEGORIES Elites->cat-elites
+  TOP PROFILE r41-unit-xii-5-triarii-breacher-squad-profile-0 | Trarii Breacher :: WS=4 BS=4 S=4 T=4 W=1 I=4 A=2 Ld=9 Sv=3+
+  TOP PROFILE r41-unit-xii-5-triarii-breacher-squad-profile-1 | Trarii Breacher Champion :: WS=4 BS=4 S=4 T=4 W=1 I=4 A=3 Ld=9 Sv=3+
+  TOP RULE r41-unit-xii-5-triarii-breacher-squad-source | Source Entry :: Trarii Breacher | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Trarii Breacher Champion | 4 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
+Force Organisation:
+• Elites
+Unit Composition:
+• 4 Trarii Breacher
+• 1 Trarii Breacher Champion
+Unit Type:
+• Infantry
+• The Rampager Champion is a Character
+Wargear:
+• Power Armour
+• Bolt pistol
+• Chainaxe
+• Boarding Shield
+Special Rules:
+• Legiones Astartes (World Eaters)
+OPTIONS
+• The squad may include up to five additional Trarii Breacher for +27 points per model.
+• All Trarii Breacher may replace their Chainaxe with:
+• Caedere Weapon ................................. +5 points
+• Power weapon ................................... +10 points
+• The entire squad may take:
+• Frag grenades ............................ +1 point per model
+• Krak grenades ........................... +2 points per model
+Trarii Breacher CHAMPION
+TheTriarii Breacher Champion may select up to 50 points
+  GROUP r41-unit-xii-5-triarii-breacher-squad-options | Options | hidden=false |  | conds=
+    ENTRY r41-unit-xii-5-triarii-breacher-squad-opt-0-caedere-weapon | Caedere Weapon | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-5-triarii-breacher-squad-opt-1-power-weapon | Power weapon | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-5-triarii-breacher-squad-opt-2-frag-grenades | Frag grenades (base unit; +1 pts/model) | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-5-triarii-breacher-squad-opt-3-krak-grenades | Krak grenades (base unit; +2 pts/model) | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r41-unit-xii-6-kharn-the-bloody | KHÂRN THE BLOODY | hidden=false | cost=Points=180 | max=1 field=selections scope=roster child=None
+  CATEGORIES HQ->cat-hq
+  TOP PROFILE r41-unit-xii-6-kharn-the-bloody-profile-0 | Khârn :: WS=6 BS=5 S=4 T=4 W=3 I=5 A=4 Ld=9 Sv=2+/4+
+  TOP RULE r41-unit-xii-6-kharn-the-bloody-source | Source Entry :: Khârn | 6 | 5 | 4 | 4 | 3 | 5 | 4 | 9 | 2+/4+
+Force Organisation:
+THE CUTTER The Cutter is a Power Weapon which grants Khârn +1 Strength. GORECHILD Gorechild is a Master-crafted Power Weapon which grants Khârn +3 Strength. At the beginning of the first round of each close combat, roll a D3. Khârn gains that many additional Attacks for the duration of that round. THE BLOODY Whenever Khârn rolls a natural 1 To Hit in close combat, that attack instead hits the nearest friendly model within 6". If several friendly models are equally close, the opposing player chooses which is hit. Resolve the hit using Khârn's current Strength and the weapon being used. The friendly model may take any saves normally permitted. Wounds caused in this manner do not count towards the close-combat result. If no friendly model is within 6", the roll of 1 is simply a miss. COMMAND RETINUE Khârn may select one Legio
+  GROUP r41-unit-xii-6-kharn-the-bloody-options | Options | hidden=false |  | conds=
+    ENTRY r41-unit-xii-6-kharn-the-bloody-opt-0-krak-grenades | Krak grenades | hidden=false | cost=Points=2 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-6-kharn-the-bloody-opt-1-jump-pack | Jump Pack | hidden=false | cost=Points=20 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-6-kharn-the-bloody-opt-2-gorechild | Gorechild | hidden=false | cost=Points=55 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r41-unit-xii-7-shabran-darr | SHABRAN DARR | hidden=false | cost=Points=150 | max=1 field=selections scope=roster child=None
+  CATEGORIES HQ->cat-hq
+  TOP PROFILE r41-unit-xii-7-shabran-darr-profile-0 | Shabran Darr :: WS=6 BS=5 S=4 T=4 W=3 I=5 A=3 Ld=10 Sv=2+/5+
+  TOP RULE r41-unit-xii-7-shabran-darr-source | Source Entry :: Shabran Darr | 6 | 5 | 4 | 4 | 3 | 5 | 3 | 10 | 2+/5+
+Force Organisation:
+• HQ
+MASTER OF DESTROYERS Shabran Darr may join Legion Destroyer Squads and Red Hand Destroyer Squads despite the normal restrictions imposed by Destroyer Cadre. Darr may select one Red Hand Destroyer Mortalis or Assault Squad as his retinue. The selected squad does not occupy a separate Force Organisation slot.
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Artificer Armour
+• Refractor Field
+• Two Bolt pistols
+• Power Weapon
+• Frag grenades
+• Rad grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Independent Character
+• Stubborn
+• Dual Pistols
+• Master of Destroyers
+Allegiance:
+• Loyalist only
+OPTIONS
+• Shabran Darr may take:
+• Krak grenades ..................................... +2 points
+• Melta bombs ...................................... +5 points
+  GROUP r41-unit-xii-7-shabran-darr-options | Options | hidden=false |  | conds=
+    ENTRY r41-unit-xii-7-shabran-darr-opt-0-krak-grenades | Krak grenades | hidden=false | cost=Points=2 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-7-shabran-darr-opt-1-melta-bombs | Melta bombs | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r41-unit-xii-8-gahlan-surlak | GAhLAN SURLAK | hidden=false | cost=Points=125 | max=1 field=selections scope=roster child=None
+  CATEGORIES HQ->cat-hq
+  TOP PROFILE r41-unit-xii-8-gahlan-surlak-profile-0 | Gahlan Surlak :: WS=5 BS=5 S=4 T=4 W=2 I=4 A=2 Ld=9 Sv=3+/5+
+  TOP RULE r41-unit-xii-8-gahlan-surlak-source | Source Entry :: Gahlan Surlak | 5 | 5 | 4 | 4 | 2 | 4 | 2 | 9 | 3+/5+
+Force Organisation:
+• HQ
+ARCHITECT OF THE NAILS After deployment but before the first turn begins, nominate one friendly World Eaters Infantry unit which is not wearing any form of Terminator Armour. That unit gains Furious Charge for the duration of the battle. A unit enhanced in this manner must declare a charge whenever it is legally able to do so. Only one unit may be enhanced in this manner.
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Power Armour
+• Refractor Field
+• Narthecium
+• Reductor
+• Bolt pistol
+• Chainsword
+• Frag grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Independent Character
+• Apothecary
+• Architect of the Nails
+• Legion Support Officer
+OPTIONS
+• Surlak may take:
+• Krak grenades ..................................... +2 points
+  GROUP r41-unit-xii-8-gahlan-surlak-options | Options | hidden=false |  | conds=
+    ENTRY r41-unit-xii-8-gahlan-surlak-opt-0-krak-grenades | Krak grenades | hidden=false | cost=Points=2 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r41-unit-xii-9-kargos-the-bloodspitter | KARGOS, THE BLOODSPITTER | hidden=false | cost=Points=120 | max=1 field=selections scope=roster child=None
+  CATEGORIES HQ->cat-hq
+  TOP PROFILE r41-unit-xii-9-kargos-the-bloodspitter-profile-0 | Kargos :: WS=5 BS=4 S=4 T=4 W=3 I=5 A=3 Ld=9 Sv=3+
+  TOP RULE r41-unit-xii-9-kargos-the-bloodspitter-source | Source Entry :: Kargos | 5 | 4 | 4 | 4 | 3 | 5 | 3 | 9 | 3+
+Force Organisation:
+• HQ
+WARRIOR-APOTHECARY Kargos may use his Narthecium even while he is in base contact with an enemy model. All other normal Narthecium restrictions continue to apply. COMMAND RETINUE Kargos may select one Legion Command Squad. If Kargos has a Jump Pack, the Command Squad may purchase Jump Packs normally. The selected squad does not occupy a separate Force Organisation slot.
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Power Armour
+• Narthecium
+• Reductor
+• Chainaxe
+• Bolt pistol
+• Frag grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Independent Character
+• Apothecary
+• Warrior-Apothecary
+OPTIONS
+• Kargos may take:
+• Krak grenades ..................................... +2 points
+• Melta bombs ...................................... +5 points
+• Jump Pack ........................................ +20 points
+  GROUP r41-unit-xii-9-kargos-the-bloodspitter-options | Options | hidden=false |  | conds=
+    ENTRY r41-unit-xii-9-kargos-the-bloodspitter-opt-0-krak-grenades | Krak grenades | hidden=false | cost=Points=2 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-9-kargos-the-bloodspitter-opt-1-melta-bombs | Melta bombs | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-9-kargos-the-bloodspitter-opt-2-jump-pack | Jump Pack | hidden=false | cost=Points=20 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r41-unit-xii-10-captain-ehrlen | CAPTAIN EHRLEN | hidden=false | cost=Points=95 | max=1 field=selections scope=roster child=None
+  CATEGORIES HQ->cat-hq
+  TOP PROFILE r41-unit-xii-10-captain-ehrlen-profile-0 | Captain Ehrlen :: WS=5 BS=5 S=4 T=4 W=2 I=5 A=3 Ld=9 Sv=3+/5+
+  TOP RULE r41-unit-xii-10-captain-ehrlen-source | Source Entry :: Captain Ehrlen | 5 | 5 | 4 | 4 | 2 | 5 | 3 | 9 | 3+/5+
+Force Organisation:
+• HQ
+Unit Type:
+COMMAND RETINUE Ehrlen may select one Legion Command Squad as his retinue. Every model in the Command Squad may purchase a Jump Pack for +15 points per model. If Jump Packs are purchased, every model in the squad must receive one and the squad may not select a Dedicated Transport. This Command Squad does not occupy a separate Force Organisation slot.
+• Jump Infantry (Character)
+Wargear:
+• Power Armour
+• Refractor Field
+• Jump Pack
+• Rending Weapon
+• Bolt pistol
+• Bionics
+• Frag grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Independent Character
+Allegiance:
+• Loyalist only
+OPTIONS
+• Captain Ehrlen may take:
+• Krak grenades ..................................... +2 points
+• Melta bombs ...................................... +5 points
+  GROUP r41-unit-xii-10-captain-ehrlen-options | Options | hidden=false |  | conds=
+    ENTRY r41-unit-xii-10-captain-ehrlen-opt-0-krak-grenades | Krak grenades | hidden=false | cost=Points=2 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-10-captain-ehrlen-opt-1-melta-bombs | Melta bombs | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r41-unit-xii-11-delvarus | DELVARUS | hidden=false | cost=Points=120 | max=1 field=selections scope=roster child=None
+  CATEGORIES HQ->cat-hq
+  TOP PROFILE r41-unit-xii-11-delvarus-profile-0 | Delvarus :: WS=5 BS=4 S=4 T=4 W=2 I=5 A=3 Ld=9 Sv=3+
+  TOP RULE r41-unit-xii-11-delvarus-source | Source Entry :: Delvarus | 5 | 4 | 4 | 4 | 2 | 5 | 3 | 9 | 3+
+Force Organisation:• HQ
+GLADIATOR CHAMPION Any Trarii Breacher squad that is joined by Delvarus Becomes Stubborn and gets Furious charge. COMMAND RETINUE Delvarus may select one Legion Trarii Breacher Squad. The selected squad does not occupy a separate Force Organisation slot.
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Power Armour
+• Caedere Weapon
+• Bolt pistol
+• Boarding Shield
+• Frag grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Independent Character
+OPTIONS
+• Kargos may take:
+• Krak grenades ..................................... +2 points
+• Melta bombs ...................................... +5 points
+  GROUP r41-unit-xii-11-delvarus-options | Options | hidden=false |  | conds=
+    ENTRY r41-unit-xii-11-delvarus-opt-0-krak-grenades | Krak grenades | hidden=false | cost=Points=2 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r41-unit-xii-11-delvarus-opt-1-melta-bombs | Melta bombs | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r41-unit-xii-12-xii-angron-the-red-angel | XII — ANGRON, THE RED ANGEL | hidden=false | cost=Points=515 | max=1 field=selections scope=roster child=None
+  CATEGORIES Lords of War->cat-low
+  TOP PROFILE r41-unit-xii-12-xii-angron-the-red-angel-profile-0 | Angron :: WS=9 BS=6 S=7 T=6 W=6 I=7 A=6 Ld=10 Sv=1+
+  TOP RULE r41-unit-xii-12-xii-angron-the-red-angel-source | Source Entry :: Primarch of the World Eaters, Lord of the Red Sands, the Red Angel
+Angron was violence incarnate, a Primarch broken upon the killing fields of Nuceria long before the Emperor found him. The cybernetic Butcher’s Nails driven into his brain transformed anger into agony and battle into the only fleeting relief from an existence of constant pain. When command of the XII Legion was given to him, the warriors who would become the World Eaters were reshaped in their father’s image.
+In battle Angron cared little for manoeuvre, subtlety or the preservation of his own warriors. He sought the enemy with single-minded fury, crashing into their lines with Gorefather and Gorechild roaring in his hands. With every death the Nails drove him deeper into frenzy, until friend and foe alike risked falling beneath the Red Angel’s blades.
+Angron | 9 | 6 | 7 | 6 | 6 | 7 | 6 | 10 | 1+
+Force Organisation:
+• Lord
+
+====================================================================================================
+UNIT r41-unit-xii-13-angron-the-red-angel | ANGRON, THE RED ANGEL | hidden=false | cost=Points=650 | max=1 field=selections scope=roster child=None
+  CATEGORIES Lords of War->cat-low
+  TOP PROFILE r41-unit-xii-13-angron-the-red-angel-profile-0 | Angron, the Red Angel :: WS=9 BS=5 S=8 T=7 W=8 I=7 A=8 Ld=10 Sv=2+/4++
+  TOP RULE r41-unit-xii-13-angron-the-red-angel-source | Source Entry :: Daemon Primarch of Khorne
+Angron’s ascension did not free him from rage; it made rage the entirety of his existence. Where once stood a broken Primarch now rampages the Red Angel, a towering incarnation of slaughter whose coming must be purchased in blood. As the World Eaters butcher their foes in close combat, Angron is drawn ever nearer to the material realm. When at last he descends, the madness of the Nails spreads across the battlefield until restraint, discipline and reason are drowned beneath an all-consuming desire to kill.
+Angron, the Red Angel | 9 | 5 | 8 | 7 | 8 | 7 | 8 | 10 | 2+/4++
+Force Organisation:
+• Lord of War
+Unit Composition:
+• 1 Angron, the Red Angel
+Unit Type:
+• Monstrous Creature (Character)
+Wargear:
+• Blades of the Red Angel
+• Daemonic Armour
+Special Rules:
+• Daemon
+• Fear
+• Fearless
+• Fleet
+• Furious Charge
+• Eternal Warrior
+• Adamantium Will
+• Master of the Legi
+
+====================================================================================================
+UNIT r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad | RAMPAGER SQUAD | hidden=true | cost=Points=0.0 | 
+  CATEGORIES Troops->cat-troops
+  TOP PROFILE r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-profile-0 | Rampager :: WS=4 BS=4 S=4 T=4 W=1 I=4 A=2 Ld=9 Sv=3+
+  TOP PROFILE r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-profile-1 | Rampager Champion :: WS=4 BS=4 S=4 T=4 W=1 I=4 A=3 Ld=9 Sv=3+
+  TOP RULE r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-source | Source Entry :: Rampager | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Rampager Champion | 4 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
+Force Organisation:
+• Elites
+CAEDERE WEAPONS Caedere Weapons represent the many gladiatorial blades, axes, hooks and other fighting weapons employed by the XII Legion. For the purposes of these rules, a Caedere Weapon counts as a Rending Weapon.
+Unit Composition:
+• 4 Rampagers
+• 1 Rampager Champion
+Unit Type:
+• Infantry
+• The Rampager Champion is a Character
+Wargear:
+• Power Armour
+• Bolt pistol
+• Chainaxe
+Special Rules:
+• Legiones Astartes (World Eaters)
+OPTIONS
+• The squad may include up to five additional Rampagers for +22 points per model.
+• Up to three Rampagers may replace their Chainaxe with:
+• Caedere Weapon ................................. +3 points
+• Power weapon ................................... +7 points
+• If the squad numbers ten models, up to six Rampagers may make one of
+  TOP RULE r42-role-xii-0-effects-the-red-hand-rampager-squads-rite-note | Rite of War Interaction :: A Berserker Assault commits the XII Legion to a single overwhelming attack, massed assault formations racing ahead of their support elements to close with the enemy before disciplined resistance can be organised.
+EFFECTS
+THE RED HAND
+Rampager Squads may be selected as Troops choices and may fulfil compulsory Troops selections.
+Legion Assault Squads may fulfil compulsory Troops selections normally.
+HEADLONG ASSAULT
+World Eaters Infantry and Jump Infantry units gain the Fleet special rule.
+A unit with Fleet may charge after making an Advance move, following the normal ProHammer rules.
+WEAPONS OF THE PITS
+World Eaters models in Legion Assault Squads and Rampager Squads may purchase Chainaxes for +2 points per model instead of the normal +4 points.
+BLOOD FORWARD
+A non-Vehicle World Eaters unit must declare a charge during its Assault phase if it is normally eligible to charge and at least on
+  TOP RULE r42-role-xii-0-effects-the-red-hand-rampager-squads-clone-cleanup | Builder compatibility :: Removed 1 obsolete armoury link(s) inherited from the generic source entry while creating this Rite-specific battlefield-role copy.
+  GROUP r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-options | Options | hidden=false |  | conds=
+    ENTRY r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon | Caedere Weapon | hidden=false | cost=Points=3 | max=3 field=selections scope=parent child=None | conds=
+    ENTRY r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-1-power-weapon | Power weapon | hidden=false | cost=Points=7 | max=3 field=selections scope=parent child=None | conds=
+    ENTRY r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol | Plasma pistol | hidden=false | cost=Points=10 | max=3 field=selections scope=parent child=None | conds=
+    ENTRY r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades | Frag grenades (base unit; +1 pts/model) | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades | Krak grenades (base unit; +2 pts/model) | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-opt-5-jump-packs | Jump Packs (base unit; +15 pts/model) | hidden=false | cost=Points=75 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r46-al-reward-28 | RAMPAGER SQUAD — Rewards of Treachery | hidden=false | cost=Points=0.0 | 
+  CATEGORIES Elites->cat-elites, Rewards of Treachery Limit->cat-alpha-reward
+  TOP PROFILE r46-al-reward-28-r41-unit-xii-0-rampager-squad-profile-0 | Rampager :: WS=4 BS=4 S=4 T=4 W=1 I=4 A=2 Ld=9 Sv=3+
+  TOP PROFILE r46-al-reward-28-r41-unit-xii-0-rampager-squad-profile-1 | Rampager Champion :: WS=4 BS=4 S=4 T=4 W=1 I=4 A=3 Ld=9 Sv=3+
+  TOP RULE r46-al-reward-28-r41-unit-xii-0-rampager-squad-source | Source Entry :: Rampager | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Rampager Champion | 4 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
+Force Organisation:
+• Elites
+CAEDERE WEAPONS Caedere Weapons represent the many gladiatorial blades, axes, hooks and other fighting weapons employed by the XII Legion. For the purposes of these rules, a Caedere Weapon counts as a Rending Weapon.
+Unit Composition:
+• 4 Rampagers
+• 1 Rampager Champion
+Unit Type:
+• Infantry
+• The Rampager Champion is a Character
+Wargear:
+• Power Armour
+• Bolt pistol
+• Chainaxe
+Special Rules:
+• Legiones Astartes (World Eaters)
+OPTIONS
+• The squad may include up to five additional Rampagers for +22 points per model.
+• Up to three Rampagers may replace their Chainaxe with:
+• Caedere Weapon ................................. +3 points
+• Power weapon ................................... +7 points
+• If the squad numbers ten models, up to six Rampagers may make one of
+  TOP RULE r46-al-reward-28-rule | The Rewards of Treachery :: One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.
+  GROUP r46-al-reward-28-r41-unit-xii-0-rampager-squad-options | Options | hidden=false |  | conds=
+    ENTRY r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-0-caedere-weapon | Caedere Weapon | hidden=false | cost=Points=3 | max=3 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-1-power-weapon | Power weapon | hidden=false | cost=Points=7 | max=3 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-2-plasma-pistol | Plasma pistol | hidden=false | cost=Points=10 | max=3 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-3-frag-grenades | Frag grenades (base unit; +1 pts/model) | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-4-krak-grenades | Krak grenades (base unit; +2 pts/model) | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-28-r41-unit-xii-0-rampager-squad-opt-5-jump-packs | Jump Packs (base unit; +15 pts/model) | hidden=false | cost=Points=75 | max=1 field=selections scope=parent child=None | conds=
+  GROUP r49-legion-upgrades-r46-al-reward-28 | Legion Wargear & Upgrades | hidden=false |  | conds=atLeast 1 selections scope=force child=r25-rite-xii-0-berserker-assault; lessThan 1 selections scope=roster child=legion-xii; lessThan 1 selections scope=roster child=legion-xii; lessThan 1 selections scope=force child=r25-rite-xii-0-berserker-assault
+    LINK r46-al-reward-28-r45-r41-unit-xii-0-rampager-squad-we-chain | Chainaxe -> r45-we-chainaxe | hidden=false | max=1 field=selections scope=parent child=None | conds=atLeast 1 selections scope=force child=r25-rite-xii-0-berserker-assault; lessThan 1 selections scope=roster child=legion-xii
+    LINK r46-al-reward-28-r45-r41-unit-xii-0-rampager-squad-we-chain-discount | Chainaxe — Berserker Assault price -> r45-we-chainaxe-berserker | hidden=false | max=1 field=selections scope=parent child=None | conds=lessThan 1 selections scope=roster child=legion-xii; lessThan 1 selections scope=force child=r25-rite-xii-0-berserker-assault
+
+====================================================================================================
+UNIT r46-al-reward-29 | RED BUTCHER SQUAD — Rewards of Treachery | hidden=false | cost=Points=0.0 | 
+  CATEGORIES Elites->cat-elites, Rewards of Treachery Limit->cat-alpha-reward
+  TOP PROFILE r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-profile-0 | Red Butcher :: WS=3 BS=2 S=4 T=4 W=2 I=3 A=4 Ld=9 Sv=2+/4+
+  TOP RULE r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-source | Source Entry :: Red Butcher | 3 | 2 | 4 | 4 | 2 | 3 | 4 | 9 | 2+/4+
+Force Organisation:
+• Elites
+RAVENING MADMEN Red Butchers always hit models with a Weapon Skill on a 3+ in close combat, regardless of the normal Weapon Skill comparison. Enemy models likewise always hit Red Butchers on a 3+. This does not affect attacks made against Vehicles or other targets without a Weapon Skill and does not override a rule which allows a model to hit on a better fixed result. Red Butchers never count as a Scoring Unit.
+• 0–1
+Unit Composition:
+• 5 Red Butchers
+Unit Type:
+• Infantry
+Wargear:
+• Cataphractii Terminator Armour
+• Two Power weapons
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Fearless
+• Ravening Madmen
+OPTIONS
+• The squad may include up to five additional Red Butchers for +60 points per model.
+• Any Red Butcher may replace one Power weapon with:
+• Power fist ....................................... +
+  TOP RULE r46-al-reward-29-rule | The Rewards of Treachery :: One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.
+  GROUP r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-options | Options | hidden=false |  | conds=
+    ENTRY r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-opt-0-power-fist | Power fist | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-opt-1-chainfist | Chainfist | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-opt-2-thunder-hammer | Thunder hammer | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+
+====================================================================================================
+UNIT r46-al-reward-31 | WORLD EATERS INDUCTII SQUAD — Rewards of Treachery | hidden=false | cost=Points=0.0 | 
+  CATEGORIES Elites->cat-elites, Rewards of Treachery Limit->cat-alpha-reward
+  TOP PROFILE r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-profile-0 | Inductii :: WS=4 BS=3 S=4 T=4 W=1 I=4 A=1 Ld=7 Sv=3+
+  TOP PROFILE r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-profile-1 | Inductii Sergeant :: WS=4 BS=3 S=4 T=4 W=1 I=4 A=2 Ld=8 Sv=3+
+  TOP RULE r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-source | Source Entry :: Inductii | 4 | 3 | 4 | 4 | 1 | 4 | 1 | 7 | 3+
+Inductii Sergeant | 4 | 3 | 4 | 4 | 1 | 4 | 2 | 8 | 3+
+NAILS-BROKEN If an Inductii Squad is able to declare a charge during the Assault phase, it must do so. If more than one enemy unit may legally be charged, the World Eaters player chooses the target normally.
+Force Organisation:
+• Troops
+Unit Composition:
+• 9 Inductii
+• 1 Inductii Sergeant
+Unit Type:
+• Infantry
+• The Inductii Sergeant is a Character
+Wargear:
+• Power Armour
+• Bolt pistol
+• Chainsword
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Nails-Broken
+OPTIONS
+• The squad may include up to ten additional Inductii for +13 points per model.
+• For every ten models, one Inductii may replace his Bolt pistol with:
+• Flamer ............................................ +5 points
+• Meltagun ......................................... +10 points
+• The entire squad may take:
+• Frag grenades 
+  TOP RULE r46-al-reward-31-rule | The Rewards of Treachery :: One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.
+  GROUP r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-options | Options | hidden=false |  | conds=
+    ENTRY r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-0-flamer | Flamer | hidden=false | cost=Points=5 | max=2 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-1-meltagun | Meltagun | hidden=false | cost=Points=10 | max=2 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-2-frag-grenades | Frag grenades (base unit; +1 pts/model) | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-3-krak-grenades | Krak grenades (base unit; +2 pts/model) | hidden=false | cost=Points=20 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-4-rending-weapon | Rending Weapon | hidden=false | cost=Points=5 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-5-power-weapon | Power weapon | hidden=false | cost=Points=10 | max=1 field=selections scope=parent child=None | conds=
+    ENTRY r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-opt-6-power-fist | Power fist | hidden=false | cost=Points=15 | max=1 field=selections scope=parent child=None | conds=
+
+=== WORLD EATERS CONDITIONAL LINKS ON GENERIC CORE UNITS ===
+[hq-praetor | Legion Praetor]
+entryLink[r45-hq-praetor-we-chain::Chainaxe] <- selectionEntryGroup[hq-praetor-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-praetor::Legion Praetor] | conds=lessThan 1 selections scope=roster child=legion-xii
+constraint[r45-hq-praetor-we-chain-max::] <- entryLink[r45-hq-praetor-we-chain::Chainaxe] <- selectionEntryGroup[hq-praetor-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-praetor::Legion Praetor] | conds=
+entryLink[r45-hq-praetor-we-caedere::Caedere Weapon] <- selectionEntryGroup[hq-praetor-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-praetor::Legion Praetor] | conds=lessThan 1 selections scope=roster child=legion-xii
+constraint[r45-hq-praetor-we-caedere-max::] <- entryLink[r45-hq-praetor-we-caedere::Caedere Weapon] <- selectionEntryGroup[hq-praetor-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-praetor::Legion Praetor] | conds=
+[hq-centurion | Legion Centurion]
+entryLink[r45-hq-centurion-we-chain::Chainaxe] <- selectionEntryGroup[hq-centurion-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-centurion::Legion Centurion] | conds=lessThan 1 selections scope=roster child=legion-xii
+constraint[r45-hq-centurion-we-chain-max::] <- entryLink[r45-hq-centurion-we-chain::Chainaxe] <- selectionEntryGroup[hq-centurion-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-centurion::Legion Centurion] | conds=
+entryLink[r45-hq-centurion-we-caedere::Caedere Weapon] <- selectionEntryGroup[hq-centurion-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-centurion::Legion Centurion] | conds=lessThan 1 selections scope=roster child=legion-xii
+constraint[r45-hq-centurion-we-caedere-max::] <- entryLink[r45-hq-centurion-we-caedere::Caedere Weapon] <- selectionEntryGroup[hq-centurion-weapons::Weapon Replacements (max 100 Armoury pts; max 2 weapons)] <- selectionEntry[hq-centurion::Legion Centurion] | conds=
+[tactical-unit | Legion Tactical Squad]
+entryLink[r45-tactical-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-tactical-unit::Legion Wargear & Upgrades] <- selectionEntry[tactical-unit::Legion Tactical Squad] | conds=lessThan 1 selections scope=roster child=legion-xii
+constraint[r45-tactical-unit-we-chain-max::] <- entryLink[r45-tactical-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-tactical-unit::Legion Wargear & Upgrades] <- selectionEntry[tactical-unit::Legion Tactical Squad] | conds=
+[assault-unit | Legion Assault Squad]
+entryLink[r45-assault-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-assault-unit::Legion Wargear & Upgrades] <- selectionEntry[assault-unit::Legion Assault Squad] | conds=atLeast 1 selections scope=force child=r25-rite-xii-0-berserker-assault; lessThan 1 selections scope=roster child=legion-xii
+constraint[r45-assault-unit-we-chain-max::] <- entryLink[r45-assault-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-assault-unit::Legion Wargear & Upgrades] <- selectionEntry[assault-unit::Legion Assault Squad] | conds=
+modifier[r45-assault-unit-we-chain-hide-rite::] <- entryLink[r45-assault-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-assault-unit::Legion Wargear & Upgrades] <- selectionEntry[assault-unit::Legion Assault Squad] | conds=atLeast 1 selections scope=force child=r25-rite-xii-0-berserker-assault
+entryLink[r45-assault-unit-we-chain-discount::Chainaxe — Berserker Assault price] <- selectionEntryGroup[r49-legion-upgrades-assault-unit::Legion Wargear & Upgrades] <- selectionEntry[assault-unit::Legion Assault Squad] | conds=lessThan 1 selections scope=roster child=legion-xii; lessThan 1 selections scope=force child=r25-rite-xii-0-berserker-assault
+constraint[r45-assault-unit-we-chain-discount-max::] <- entryLink[r45-assault-unit-we-chain-discount::Chainaxe — Berserker Assault price] <- selectionEntryGroup[r49-legion-upgrades-assault-unit::Legion Wargear & Upgrades] <- selectionEntry[assault-unit::Legion Assault Squad] | conds=
+[breacher-unit | Legion Breacher Siege Squad]
+entryLink[r45-breacher-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-breacher-unit::Legion Wargear & Upgrades] <- selectionEntry[breacher-unit::Legion Breacher Siege Squad] | conds=lessThan 1 selections scope=roster child=legion-xii
+constraint[r45-breacher-unit-we-chain-max::] <- entryLink[r45-breacher-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-breacher-unit::Legion Wargear & Upgrades] <- selectionEntry[breacher-unit::Legion Breacher Siege Squad] | conds=
+[veteran-unit | Legion Veteran Squad]
+entryLink[r45-veteran-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-veteran-unit::Legion Wargear & Upgrades] <- selectionEntry[veteran-unit::Legion Veteran Squad] | conds=lessThan 1 selections scope=roster child=legion-xii
+constraint[r45-veteran-unit-we-chain-max::] <- entryLink[r45-veteran-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-veteran-unit::Legion Wargear & Upgrades] <- selectionEntry[veteran-unit::Legion Veteran Squad] | conds=
+[destroyer-unit | Legion Destroyer Squad]
+entryLink[r45-destroyer-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-destroyer-unit::Legion Wargear & Upgrades] <- selectionEntry[destroyer-unit::Legion Destroyer Squad] | conds=lessThan 1 selections scope=roster child=legion-xii
+constraint[r45-destroyer-unit-we-chain-max::] <- entryLink[r45-destroyer-unit-we-chain::Chainaxe] <- selectionEntryGroup[r49-legion-upgrades-destroyer-unit::Legion Wargear & Upgrades] <- selectionEntry[destroyer-unit::Legion Destroyer Squad] | conds=
+
+=== XII RITES / FORCE ORG MODIFIERS ===
+CAT: selectionEntry[r45-we-chainaxe-berserker::Chainaxe — Berserker Assault price] hidden=false field=None value=None target=None
+CAT: rule[r45-we-chainaxe-berserker-rule::Chainaxe — Berserker Assault price] hidden=false field=None value=None target=None
+CAT: entryLink[r45-assault-unit-we-chain-discount::Chainaxe — Berserker Assault price] hidden=false field=None value=None target=r45-we-chainaxe-berserker
+CAT: selectionEntry[r25-rite-xii-0-berserker-assault::World Eaters Rite of War — Berserker Assault] hidden=false field=None value=None target=None
+CAT: constraint[r25-rite-xii-0-berserker-assault-max::] hidden=None field=selections value=1 target=None
+CAT: rule[r25-rite-xii-0-berserker-assault-rule::Berserker Assault] hidden=false field=None value=None target=None
+CAT: selectionEntry[r25-rite-xii-1-the-crimson-path::World Eaters Rite of War — The Crimson Path] hidden=false field=None value=None target=None
+CAT: constraint[r25-rite-xii-1-the-crimson-path-max::] hidden=None field=selections value=1 target=None
+CAT: rule[r25-rite-xii-1-the-crimson-path-rule::The Crimson Path] hidden=false field=None value=None target=None
+CAT: selectionEntry[r25-rite-xiii-0-the-logos-lectora::Ultramarines Rite of War — The Logos Lectora] hidden=false field=None value=None target=None
+CAT: constraint[r25-rite-xiii-0-the-logos-lectora-max::] hidden=None field=selections value=1 target=None
+CAT: rule[r25-rite-xiii-0-the-logos-lectora-rule::The Logos Lectora] hidden=false field=None value=None target=None
+CAT: selectionEntry[r25-rite-xiii-1-vigil-opertii-mission::Ultramarines Rite of War — Vigil Opertii Mission] hidden=false field=None value=None target=None
+CAT: constraint[r25-rite-xiii-1-vigil-opertii-mission-max::] hidden=None field=selections value=1 target=None
+CAT: rule[r25-rite-xiii-1-vigil-opertii-mission-rule::Vigil Opertii Mission] hidden=false field=None value=None target=None
+CAT: entryLink[r45-r41-unit-xii-0-rampager-squad-we-chain-discount::Chainaxe — Berserker Assault price] hidden=false field=None value=None target=r45-we-chainaxe-berserker
+CAT: entryLink[r46-al-reward-28-r45-r41-unit-xii-0-rampager-squad-we-chain-discount::Chainaxe — Berserker Assault price] hidden=false field=None value=None target=r45-we-chainaxe-berserker
+GST: modifier[r45-we-berserker-heavy-max::] hidden=None field=fl-heavy-max value=1 target=None
+
+=== XII SOURCE-ENTRY AGGREGATE / IMPLEMENTATION RISKS ===
+r41-unit-xii-0-rampager-squad | RAMPAGER SQUAD :: AGGREGATE SOURCE RULE: Rampager | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Rampager Champion | 4 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
+Force Organisation:
+• Elites
+CAEDERE WEAPONS Caedere Weapons represent the many gladiatorial blades, axes, hooks and other fighting weapons employed by the XII Legion. For the purposes of these rules, a Caedere Weapon counts as a Rending Weapon.
+Unit Composition:
+• 4 Rampagers
+• 1 Rampager Champion
+Unit Type:
+• Infantry
+• The Rampager Champion is a Character
+Wargear:
+• Power Armour
+• Bolt pistol
+• Chainaxe
+Special Rules:
+• Legiones Astartes (World Eaters)
+OPTIONS
+• The squad may include up to five additional Rampagers for +22 points per model.
+• Up to three Rampagers may replace their Chainaxe with:
+• Caedere Weapon ................................. +3 points
+• Power weapon ................................... +7 points
+• If the squad numbers ten models, up to six Rampagers may make one of the above exchanges.
+• Up to three Rampagers may replace their Bolt pistol with:
+• Plasma pistol ................................. +10 points
+• If the squad numbers ten models, up to six Rampagers may make this exchange.
+• The entire squad may take:
+• Frag grenades ............................ +1 p
+r41-unit-xii-1-red-butcher-squad | RED BUTCHER SQUAD :: AGGREGATE SOURCE RULE: Red Butcher | 3 | 2 | 4 | 4 | 2 | 3 | 4 | 9 | 2+/4+
+Force Organisation:
+• Elites
+RAVENING MADMEN Red Butchers always hit models with a Weapon Skill on a 3+ in close combat, regardless of the normal Weapon Skill comparison. Enemy models likewise always hit Red Butchers on a 3+. This does not affect attacks made against Vehicles or other targets without a Weapon Skill and does not override a rule which allows a model to hit on a better fixed result. Red Butchers never count as a Scoring Unit.
+• 0–1
+Unit Composition:
+• 5 Red Butchers
+Unit Type:
+• Infantry
+Wargear:
+• Cataphractii Terminator Armour
+• Two Power weapons
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Fearless
+• Ravening Madmen
+OPTIONS
+• The squad may include up to five additional Red Butchers for +60 points per model.
+• Any Red Butcher may replace one Power weapon with:
+• Power fist ....................................... +5 points
+• Chainfist ....................................... +10 points
+• Thunder hammer ................................. +10 points
+The Attacks characteristic shown in the profile already includes the bonus Attack for fighting with two close-combat weapons.
+DEDICATED TRANSPORT
+A squad may select a
+r41-unit-xii-2-red-hand-destroyer-mortalis-squad | RED HAND DESTROYER MORTALIS SQUAD :: AGGREGATE SOURCE RULE: Red Hand Destroyer | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Red Hand Sergeant | 4 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
+Force Organisation:
+• Elites
+Unit Composition:
+• 4 Red Hand Destroyers
+• 1 Red Hand Sergeant
+Unit Type:
+• Infantry
+• The Red Hand Sergeant is a Character
+Wargear:
+• Power Armour
+• Two Bolt pistols
+• Chainaxe
+• Frag grenades
+• Rad grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Counter-Attack
+• Dual Pistols
+• Destroyer Cadre
+OPTIONS
+• The squad may include up to five additional Red Hand Destroyers for +22 points per model.
+• For every five models, one Red Hand Destroyer may replace one Bolt pistol with:
+• Volkite serpenta ................................. +5 points
+• Hand flamer ...................................... +5 points
+• Plasma pistol ................................... +15 points
+• Missile launcher with Suspensor Web
+and Rad Missiles ................................ +25 points
+• For every five models, one Red Hand Destroyer may take:
+• One Phosphex Bomb .............................. +10 points
+• The entire squad may take:
+• Krak grenades ............................ +2 points per model
+• Melta bombs .............................. +5 points per model
+R
+r41-unit-xii-3-world-eaters-inductii-squad | WORLD EATERS INDUCTII SQUAD :: AGGREGATE SOURCE RULE: Inductii | 4 | 3 | 4 | 4 | 1 | 4 | 1 | 7 | 3+
+Inductii Sergeant | 4 | 3 | 4 | 4 | 1 | 4 | 2 | 8 | 3+
+NAILS-BROKEN If an Inductii Squad is able to declare a charge during the Assault phase, it must do so. If more than one enemy unit may legally be charged, the World Eaters player chooses the target normally.
+Force Organisation:
+• Troops
+Unit Composition:
+• 9 Inductii
+• 1 Inductii Sergeant
+Unit Type:
+• Infantry
+• The Inductii Sergeant is a Character
+Wargear:
+• Power Armour
+• Bolt pistol
+• Chainsword
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Nails-Broken
+OPTIONS
+• The squad may include up to ten additional Inductii for +13 points per model.
+• For every ten models, one Inductii may replace his Bolt pistol with:
+• Flamer ............................................ +5 points
+• Meltagun ......................................... +10 points
+• The entire squad may take:
+• Frag grenades ............................... +1 point per model
+• Krak grenades .............................. +2 points per model
+INDUCTII SERGEANT
+The Inductii Sergeant may replace his Chainaxe with:
+• Rending Weapon .................................... +5 points
+• Power weapon ................................
+r41-unit-xii-4-devourer-terminator-squad | DEVOURER TERMINATOR SQUAD :: AGGREGATE SOURCE RULE: Devourer | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 2+/4+
+Devourer Chieftain | 5 | 4 | 4 | 4 | 1 | 4 | 3 | 10 | 2+/4+
+Force Organisation:
+• Elites
+DEVOURERS Angron may select one Devourer Terminator Squad as his retinue. If selected in this manner, the Devourers do not occupy a separate Elites choice.
+Unit Composition:
+• 4 Devourers
+• 1 Devourer Chieftain
+Unit Type:
+• Infantry
+• The Devourer Chieftain is a Character
+Wargear:
+• Cataphractii Terminator Armour
+• Combi-bolter
+• Power weapon
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Stubborn
+• Devourers
+OPTIONS
+• The squad may include up to five additional Devourers for +45 points per model.
+• Any model may replace his Combi-bolter with:
+• Foeblaster Boltgun .............................. +5 points
+• Combi-flamer ................................... +10 points
+• Combi-volkite charger ......................... +10 points
+• Combi-meltagun ................................ +15 points
+• Combi-plasma gun .............................. +15 points
+• Any model may replace his Power weapon with:
+• Power fist ....................................... +5 points
+• Lightning claw .................................. +5 points
+• Chainfist ................
+r41-unit-xii-5-triarii-breacher-squad | TRIARII BREACHER SQUAD :: AGGREGATE SOURCE RULE: Trarii Breacher | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
+Trarii Breacher Champion | 4 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
+Force Organisation:
+• Elites
+Unit Composition:
+• 4 Trarii Breacher
+• 1 Trarii Breacher Champion
+Unit Type:
+• Infantry
+• The Rampager Champion is a Character
+Wargear:
+• Power Armour
+• Bolt pistol
+• Chainaxe
+• Boarding Shield
+Special Rules:
+• Legiones Astartes (World Eaters)
+OPTIONS
+• The squad may include up to five additional Trarii Breacher for +27 points per model.
+• All Trarii Breacher may replace their Chainaxe with:
+• Caedere Weapon ................................. +5 points
+• Power weapon ................................... +10 points
+• The entire squad may take:
+• Frag grenades ............................ +1 point per model
+• Krak grenades ........................... +2 points per model
+Trarii Breacher CHAMPION
+TheTriarii Breacher Champion may select up to 50 points of permitted weapons and wargear from the Space Marine Armoury.
+DEDICATED TRANSPORT
+A squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Transport Capacity permits.
+r41-unit-xii-6-kharn-the-bloody | KHÂRN THE BLOODY :: AGGREGATE SOURCE RULE: Khârn | 6 | 5 | 4 | 4 | 3 | 5 | 4 | 9 | 2+/4+
+Force Organisation:
+THE CUTTER The Cutter is a Power Weapon which grants Khârn +1 Strength. GORECHILD Gorechild is a Master-crafted Power Weapon which grants Khârn +3 Strength. At the beginning of the first round of each close combat, roll a D3. Khârn gains that many additional Attacks for the duration of that round. THE BLOODY Whenever Khârn rolls a natural 1 To Hit in close combat, that attack instead hits the nearest friendly model within 6". If several friendly models are equally close, the opposing player chooses which is hit. Resolve the hit using Khârn's current Strength and the weapon being used. The friendly model may take any saves normally permitted. Wounds caused in this manner do not count towards the close-combat result. If no friendly model is within 6", the roll of 1 is simply a miss. COMMAND RETINUE Khârn may select one Legion Command Squad or Rampager Squad as his retinue. The selected unit does not occupy a separate Force Organisation slot.
+• HQ
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Artificer Armour
+• Iron Halo
+• Plasma pistol
+• The Cutter
+• Frag grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Inde
+r41-unit-xii-7-shabran-darr | SHABRAN DARR :: AGGREGATE SOURCE RULE: Shabran Darr | 6 | 5 | 4 | 4 | 3 | 5 | 3 | 10 | 2+/5+
+Force Organisation:
+• HQ
+MASTER OF DESTROYERS Shabran Darr may join Legion Destroyer Squads and Red Hand Destroyer Squads despite the normal restrictions imposed by Destroyer Cadre. Darr may select one Red Hand Destroyer Mortalis or Assault Squad as his retinue. The selected squad does not occupy a separate Force Organisation slot.
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Artificer Armour
+• Refractor Field
+• Two Bolt pistols
+• Power Weapon
+• Frag grenades
+• Rad grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Independent Character
+• Stubborn
+• Dual Pistols
+• Master of Destroyers
+Allegiance:
+• Loyalist only
+OPTIONS
+• Shabran Darr may take:
+• Krak grenades ..................................... +2 points
+• Melta bombs ...................................... +5 points
+r41-unit-xii-8-gahlan-surlak | GAhLAN SURLAK :: AGGREGATE SOURCE RULE: Gahlan Surlak | 5 | 5 | 4 | 4 | 2 | 4 | 2 | 9 | 3+/5+
+Force Organisation:
+• HQ
+ARCHITECT OF THE NAILS After deployment but before the first turn begins, nominate one friendly World Eaters Infantry unit which is not wearing any form of Terminator Armour. That unit gains Furious Charge for the duration of the battle. A unit enhanced in this manner must declare a charge whenever it is legally able to do so. Only one unit may be enhanced in this manner.
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Power Armour
+• Refractor Field
+• Narthecium
+• Reductor
+• Bolt pistol
+• Chainsword
+• Frag grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Independent Character
+• Apothecary
+• Architect of the Nails
+• Legion Support Officer
+OPTIONS
+• Surlak may take:
+• Krak grenades ..................................... +2 points
+r41-unit-xii-9-kargos-the-bloodspitter | KARGOS, THE BLOODSPITTER :: AGGREGATE SOURCE RULE: Kargos | 5 | 4 | 4 | 4 | 3 | 5 | 3 | 9 | 3+
+Force Organisation:
+• HQ
+WARRIOR-APOTHECARY Kargos may use his Narthecium even while he is in base contact with an enemy model. All other normal Narthecium restrictions continue to apply. COMMAND RETINUE Kargos may select one Legion Command Squad. If Kargos has a Jump Pack, the Command Squad may purchase Jump Packs normally. The selected squad does not occupy a separate Force Organisation slot.
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Power Armour
+• Narthecium
+• Reductor
+• Chainaxe
+• Bolt pistol
+• Frag grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Independent Character
+• Apothecary
+• Warrior-Apothecary
+OPTIONS
+• Kargos may take:
+• Krak grenades ..................................... +2 points
+• Melta bombs ...................................... +5 points
+• Jump Pack ........................................ +20 points
+r41-unit-xii-10-captain-ehrlen | CAPTAIN EHRLEN :: AGGREGATE SOURCE RULE: Captain Ehrlen | 5 | 5 | 4 | 4 | 2 | 5 | 3 | 9 | 3+/5+
+Force Organisation:
+• HQ
+Unit Type:
+COMMAND RETINUE Ehrlen may select one Legion Command Squad as his retinue. Every model in the Command Squad may purchase a Jump Pack for +15 points per model. If Jump Packs are purchased, every model in the squad must receive one and the squad may not select a Dedicated Transport. This Command Squad does not occupy a separate Force Organisation slot.
+• Jump Infantry (Character)
+Wargear:
+• Power Armour
+• Refractor Field
+• Jump Pack
+• Rending Weapon
+• Bolt pistol
+• Bionics
+• Frag grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Independent Character
+Allegiance:
+• Loyalist only
+OPTIONS
+• Captain Ehrlen may take:
+• Krak grenades ..................................... +2 points
+• Melta bombs ...................................... +5 points
+r41-unit-xii-11-delvarus | DELVARUS :: AGGREGATE SOURCE RULE: Delvarus | 5 | 4 | 4 | 4 | 2 | 5 | 3 | 9 | 3+
+Force Organisation:• HQ
+GLADIATOR CHAMPION Any Trarii Breacher squad that is joined by Delvarus Becomes Stubborn and gets Furious charge. COMMAND RETINUE Delvarus may select one Legion Trarii Breacher Squad. The selected squad does not occupy a separate Force Organisation slot.
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Power Armour
+• Caedere Weapon
+• Bolt pistol
+• Boarding Shield
+• Frag grenades
+Special Rules:
+• Legiones Astartes (World Eaters)
+• Independent Character
+OPTIONS
+• Kargos may take:
+• Krak grenades ..................................... +2 points
+• Melta bombs ...................................... +5 points
+r41-unit-xii-12-xii-angron-the-red-angel | XII — ANGRON, THE RED ANGEL :: AGGREGATE SOURCE RULE: Primarch of the World Eaters, Lord of the Red Sands, the Red Angel
+Angron was violence incarnate, a Primarch broken upon the killing fields of Nuceria long before the Emperor found him. The cybernetic Butcher’s Nails driven into his brain transformed anger into agony and battle into the only fleeting relief from an existence of constant pain. When command of the XII Legion was given to him, the warriors who would become the World Eaters were reshaped in their father’s image.
+In battle Angron cared little for manoeuvre, subtlety or the preservation of his own warriors. He sought the enemy with single-minded fury, crashing into their lines with Gorefather and Gorechild roaring in his hands. With every death the Nails drove him deeper into frenzy, until friend and foe alike risked falling beneath the Red Angel’s blades.
+Angron | 9 | 6 | 7 | 6 | 6 | 7 | 6 | 10 | 1+
+Force Organisation:
+• Lord of War
+Unit Composition:
+• 1 Angron
+Unit Type:
+• Infantry (Character)
+Wargear:
+• Armour of Mars
+• Gorefather & Gorechild
+• Spite Furnace
+• Frag Grenades
+Special Rules:
+• Primarch
+• Legiones Astartes (World Eaters)
+• The Red Angel
+• Butcher’s Nails
+• Sire of the World Eaters
+• The Nails Demand Blood
+r41-unit-xii-13-angron-the-red-angel | ANGRON, THE RED ANGEL :: AGGREGATE SOURCE RULE: Daemon Primarch of Khorne
+Angron’s ascension did not free him from rage; it made rage the entirety of his existence. Where once stood a broken Primarch now rampages the Red Angel, a towering incarnation of slaughter whose coming must be purchased in blood. As the World Eaters butcher their foes in close combat, Angron is drawn ever nearer to the material realm. When at last he descends, the madness of the Nails spreads across the battlefield until restraint, discipline and reason are drowned beneath an all-consuming desire to kill.
+Angron, the Red Angel | 9 | 5 | 8 | 7 | 8 | 7 | 8 | 10 | 2+/4++
+Force Organisation:
+• Lord of War
+Unit Composition:
+• 1 Angron, the Red Angel
+Unit Type:
+• Monstrous Creature (Character)
+Wargear:
+• Blades of the Red Angel
+• Daemonic Armour
+Special Rules:
+• Daemon
+• Fear
+• Fearless
+• Fleet
+• Furious Charge
+• Eternal Warrior
+• Adamantium Will
+• Master of the Legion
+• Daemonic Flight
+• Blood Calls to Blood
+• The Red Angel Descends
+• The Nails Sing
+RESTRICTIONS
+Angron, the Red Angel may only be selected for a World Eaters army. An army may not include both Angron, the Red Angel and Angron in his mortal form.
+DAEMONIC FLIGHT Angron may move up to 12" during th
+
+=== LIKELY POINT-THRESHOLD CHARACTER CONSTRAINTS ===
+r41-unit-xii-6-kharn-the-bloody | KHÂRN THE BLOODY :: max=1 field=selections scope=roster child=None
+r41-unit-xii-7-shabran-darr | SHABRAN DARR :: max=1 field=selections scope=roster child=None
+r41-unit-xii-8-gahlan-surlak | GAhLAN SURLAK :: max=1 field=selections scope=roster child=None
+r41-unit-xii-9-kargos-the-bloodspitter | KARGOS, THE BLOODSPITTER :: max=1 field=selections scope=roster child=None
+r41-unit-xii-10-captain-ehrlen | CAPTAIN EHRLEN :: max=1 field=selections scope=roster child=None
+r41-unit-xii-11-delvarus | DELVARUS :: max=1 field=selections scope=roster child=None
+r41-unit-xii-12-xii-angron-the-red-angel | XII — ANGRON, THE RED ANGEL :: max=1 field=selections scope=roster child=None
+r41-unit-xii-13-angron-the-red-angel | ANGRON, THE RED ANGEL :: max=1 field=selections scope=roster child=None
