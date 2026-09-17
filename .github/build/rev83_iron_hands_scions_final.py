@@ -34,7 +34,6 @@ def hide_without_head(x,pref):
  x.set('hidden','true');m=ET.SubElement(ensure(x,'modifiers'),C('modifier'),{'id':pref+'show-head','type':'set','value':'false','field':'hidden'});cs=ET.SubElement(m,C('conditions'));ET.SubElement(cs,C('condition'),{'type':'atLeast','value':'1','field':'selections','scope':'roster','childId':HEAD,'shared':'true','includeChildSelections':'true','includeChildForces':'false'})
 def add_hide_over_10(g,pref,u):
  models=[m for m in u.findall('./'+C('selectionEntries')+'/'+C('selectionEntry')) if m.get('type')=='model']
- # Current normalized Iron Hands squads use a total-model counter where possible; otherwise use the expandable non-sergeant counter (>9 means >10 total).
  counter=next((m for m in models if 'squad models' in (m.get('name') or '').lower()),None)
  if counter is not None:
   child=counter.get('id');threshold='10'
@@ -43,63 +42,48 @@ def add_hide_over_10(g,pref,u):
   if exp is None:return
   child=exp.get('id');threshold='9'
  mod=ET.SubElement(ensure(g,'modifiers'),C('modifier'),{'id':pref+'hide-over10','type':'set','value':'true','field':'hidden'});cs=ET.SubElement(mod,C('conditions'));ET.SubElement(cs,C('condition'),{'type':'greaterThan','value':threshold,'field':'selections','scope':'root-entry','childId':child,'shared':'true','includeChildSelections':'false','includeChildForces':'false'})
-# Remove any generated Scions entries from R82 or remnants.
 removed=0
 for p in list(cr.iter()):
  ses=p.find(C('selectionEntries'))
  if ses is not None:
   for x in list(ses):
    if 'scions' in (x.get('id') or '').lower() and ('phobos' in (x.get('id') or '').lower() or 'proteus' in (x.get('id') or '').lower()):ses.remove(x);removed+=1
-# Source LR entries from existing Honour Guard LR group (known good transport copies).
 hon=byid(cr,'hq-praetor-ret-honour');ph=pr=None
 if hon is not None:
  for x in hon.iter(C('selectionEntry')):
   if (x.get('name') or '')=='Land Raider Phobos':ph=x
   if (x.get('name') or '')=='Land Raider Proteus':pr=x
 if ph is None or pr is None:raise RuntimeError('Could not find reusable Phobos/Proteus transport entries')
-# Exact canonical/generic entries whose current army-list structure contains a normal Rhino DT.
-TARGETS={
- 'tactical-unit':'tac-transport','recon-unit':'recon-transport','veteran-unit':'veteran-transport','destroyer-unit':'destroyer-transport','fa-seeker':'fa-seeker-transport','hs-heavy-support-squad':'hs-hss-transport','hq-praetor-ret-honour':'hq-praetor-ret-honour-transport','hq-centurion-ret-command':'hq-centurion-ret-command-transport',
- 'techmarine-covenant':'techmarine-I-transport'
-}
+TARGETS={'tactical-unit':'tac-transport','recon-unit':'recon-transport','veteran-unit':'veteran-transport','destroyer-unit':'destroyer-transport','fa-seeker':'fa-seeker-transport','hs-heavy-support-squad':'hs-hss-transport','hq-praetor-ret-honour':'hq-praetor-ret-honour-transport','hq-centurion-ret-command':'hq-centurion-ret-command-transport','techmarine-covenant':'techmarine-I-transport'}
 added=[]
 for uid,gid in TARGETS.items():
  u=byid(cr,uid);g=byid(cr,gid)
  if u is None or g is None:continue
- # Add inside the same normal DT group so its normal Rhino availability/capacity visibility remains authoritative.
  for base,label in ((ph,'Land Raider Phobos (Scions of Iron)'),(pr,'Land Raider Proteus (Scions of Iron)')):
   pref=f'r83-ih-scions-{len(added)}-';x=clone_entry(base,pref,label);x.set('type','upgrade');wipe(x,'categoryLinks');wipe(x,'constraints');constraint(x,pref+'max','max',1);hide_without_head(x,pref);ensure(g,'selectionEntries').append(x);added.append((uid,gid,label))
-# Medusan Immortals currently lacked their source-listed DT menu. Rebuild exact <=10 menu from source.
 imm=byid(cr,IMM)
 if imm is None:raise RuntimeError('Missing Medusan Immortals')
-# Remove old generated dedicated transport groups if any exact R83 ID exists.
 groups=ensure(imm,'selectionEntryGroups');old=next((x for x in groups.findall(C('selectionEntryGroup')) if x.get('id')=='r83-ih-imm-transport'),None)
 if old is not None:groups.remove(old)
 ig=ET.SubElement(groups,C('selectionEntryGroup'),{'id':'r83-ih-imm-transport','name':'Dedicated Transport (10 models or fewer)','hidden':'false'});constraint(ig,'r83-ih-imm-transport-max','max',1);add_hide_over_10(ig,'r83-ih-imm-transport-',imm)
-# Reuse canonical shared transport links from Veteran DT for Rhino/Drop/Dreadclaw.
 vg=byid(cr,'veteran-transport')
 if vg is None:raise RuntimeError('Missing Veteran transport source')
 for nm in ('Rhino','Drop Pod','Dreadclaw Drop Pod'):
  src=next((x for x in vg.findall('./'+C('entryLinks')+'/'+C('entryLink')) if (x.get('name') or '')==nm),None)
  if src is not None:ensure(ig,'entryLinks').append(clone_link(src,'r83-ih-imm-'+re.sub('[^a-z0-9]+','-',nm.lower())+'-'))
-# Land Raider normal option per current Immortal entry: Phobos/Proteus where capacity permits.
 for base,label in ((ph,'Land Raider Phobos'),(pr,'Land Raider Proteus')):
  x=clone_entry(base,'r83-ih-imm-'+re.sub('[^a-z0-9]+','-',label.lower())+'-',label);x.set('type','upgrade');wipe(x,'categoryLinks');wipe(x,'constraints');constraint(x,'r83-ih-imm-'+re.sub('[^a-z0-9]+','-',label.lower())+'-max','max',1);ensure(ig,'selectionEntries').append(x)
-# Head Scions duplicates are not needed on Immortals because their normal source entry already permits Land Raider at <=10.
-# Revisions/cache.
 cr.set('revision','83');cr.set('gameSystemRevision','50');gr.set('revision','50')
 for e in ir.iter(I('dataIndexEntry')):
  if e.get('filePath')=='Legiones Astartes.cat':e.set('dataRevision','83')
  elif e.get('filePath')=='Prohammer 30k.gst':e.set('dataRevision','50')
-# Validation.
 assert len(added)>=12,added
 assert byid(cr,'r83-ih-imm-transport') is not None
-# Generated Scions must exist only below the explicit target groups.
 pm={c:p for p in cr.iter() for c in p};bad=[]
 for x in cr.iter(C('selectionEntry')):
  if (x.get('id') or '').startswith('r83-ih-scions-'):
-  p=pm.get(x)
-  if p is None or p.get('id') not in set(TARGETS.values()):bad.append((x.get('id'),p.get('id') if p is not None else None))
+  box=pm.get(x);g=pm.get(box) if box is not None else None
+  if g is None or g.get('id') not in set(TARGETS.values()):bad.append((x.get('id'),g.get('id') if g is not None else None))
 if bad:raise RuntimeError('Scions outside explicit groups '+str(bad))
 for root,label in ((cr,'CAT'),(gr,'GST')):
  seen=set();dup=[]
