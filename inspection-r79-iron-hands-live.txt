@@ -1,0 +1,30 @@
+Revision 79 — Iron Hands full standards pass
+CAT=79 GST=46
+
+Presentation
+- Removed 12 Source Entry / aggregate imported rule dumps from Iron Hands canonical, Rite-clone and Rewards-of-Treachery copies.
+- Moved 13 top-level profiles onto real model selections; created 5 locked named-character/Primarch model children.
+- Replaced source dumps with actual individual rules.
+
+Armoury
+- Removed 8 old generic HQ Iron Hands armoury links.
+- Albian Power Gladius now lives in Weapon Replacements.
+- Servo-Arm, Mechadendrites and Bionics now live in Additional Wargear.
+- Servo-Arm is hidden when the generic HQ takes a Jump Pack.
+
+Current source values
+- Medusan Immortals 150; Gorgons 250; Morlocks 275; Venerable Forge Lord 155; Meduson 165; Autek Mor 205; Santar 220; Ferrus Manus 505.
+- Santar retains the current 1500+ restriction.
+
+Rites
+- Head of the Gorgon rebuilt into named rules; Fast Attack max 1; Blessed Autosimulacra is free/compulsory through 31 existing vehicle links; Scions of Iron added 14 conditional Land Raider pattern entries to Rhino-capable infantry transport menus.
+- Company of Bitter Iron rebuilt into named rules; Loyalist-gated; Ferrus excluded; existing Immortal Troops clone repaired; compulsory Immortal category enforced.
+
+Characters / retinues
+- Meduson Command Squad; Autek Terminator Command; Santar Morlocks; Ferrus Honour Guard/Terminator Command/Morlocks.
+- Added Castrmen Orth as current 50-point HQ vehicle-commander upgrade entry.
+
+Validation
+- No Iron Hands Source Entry/aggregate source dumps remain in audited canonical/clone/reward entries.
+- Gladius placement validated in generic HQ weapon sections.
+- Duplicate-ID and XML parse validation passed.

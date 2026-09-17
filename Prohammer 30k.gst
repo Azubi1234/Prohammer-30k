@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="45" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
+<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-a1d2-5ede-e74f-7479" name="Prohammer 30k" revision="46" battleScribeVersion="2.03" authorName="Prohammer 30k Project" type="gameSystem">
   <comment>Horus Heresy army lists adapted for use with ProHammer Classic.</comment>
   <readme>Core system skeleton for Prohammer 30k. Contains points, core profile types, battlefield roles, mandatory Army Configuration and the standard Force Organisation Chart.</readme>
   <costTypes>
@@ -77,6 +77,7 @@
     <categoryEntry id="r74-ba-cat-revelation-comp" name="Day of Revelation — compulsory Assault/Veteran Troops" hidden="true" />
     <categoryEntry id="r74-ba-cat-sorrows-comp" name="Day of Sorrows — compulsory Tactical/Assault/Breacher Troops" hidden="true" />
     <categoryEntry id="r75-ba-cat-rev-warlord-jump" name="Day of Revelation — Warlord with Jump Pack" hidden="true" />
+    <categoryEntry id="r79-ih-bitter-comp" name="Company of Bitter Iron — compulsory Medusan Immortal" hidden="true" />
   </categoryEntries>
   <forceEntries>
     <forceEntry id="force-standard" name="Standard Age of Darkness Detachment" hidden="false">
@@ -485,6 +486,18 @@
             <modifier id="r75-ba-r75-ba-cat-rev-warlord-jump-set" type="set" value="1" field="r75-ba-r75-ba-cat-rev-warlord-jump-min">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-ix-0-the-day-of-revelation" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </conditions>
+            </modifier>
+          </modifiers>
+        </categoryLink>
+        <categoryLink id="r79-ih-bitter-comp-link" name="Company of Bitter Iron — compulsory Medusan Immortal" hidden="true" targetId="r79-ih-bitter-comp">
+          <constraints>
+            <constraint id="r79-ih-bitter-comp-min" type="min" value="0" field="selections" scope="parent" shared="true" includeChildSelections="false" includeChildForces="false" />
+          </constraints>
+          <modifiers>
+            <modifier id="r79-ih-bitter-comp-set" type="set" value="1" field="r79-ih-bitter-comp-min">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-1-company-of-bitter-iron" shared="true" includeChildSelections="true" includeChildForces="false" />
               </conditions>
             </modifier>
           </modifiers>

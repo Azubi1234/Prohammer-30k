@@ -1,4 +1,4 @@
-Top-level unit entries audited: 361
+Top-level unit entries audited: 362
 UI-standard flags: 0
 
 UNIT tactical-unit :: Legion Tactical Squad
@@ -670,11 +670,48 @@ UNIT r41-unit-ix-11-ix-sanguinius-the-great-angel :: IX — SANGUINIUS, THE GREA
   MODEL ('r74-ba-sang-honour-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
   MODEL ('r74-ba-sang-guard-r41-unit-ix-5-sanguinary-guard-additional', 'Squad Models', '3', [('max', '6', 'parent'), ('min', '3', 'parent')], ['55'])
 
+UNIT r41-unit-x-0-medusan-immortal-squad :: MEDUSAN IMMORTAL SQUAD
+  MODEL ('r79-ih-r41-unit-x-0-medusan-immortal-squad-models', 'Squad Models', '5', [('min', '5', 'parent'), ('max', '20', 'parent')], ['0'])
+
 UNIT r41-unit-x-1-gorgon-terminator-squad :: GORGON TERMINATOR SQUAD
   MODEL ('r41-unit-x-1-gorgon-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['45'])
 
 UNIT r41-unit-x-2-morlock-terminator-squad :: MORLOCK TERMINATOR SQUAD
   MODEL ('r41-unit-x-2-morlock-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-x-3-venerable-forge-lord :: VENERABLE FORGE LORD
+  MODEL ('r79-ih-forge-model', 'VENERABLE FORGE LORD', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
+
+UNIT r41-unit-x-4-shadrak-meduson :: SHADRAK MEDUSON
+  MODEL ('r79-ih-meduson-command-hq-centurion-ret-command-vets', 'Legion Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r79-ih-meduson-command-hq-centurion-ret-command-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r79-ih-meduson-command-hq-centurion-ret-command-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r79-ih-meduson-command-hq-centurion-ret-command-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r79-ih-meduson-model', 'SHADRAK MEDUSON', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
+
+UNIT r41-unit-x-5-autek-mor :: AUTEK MOR
+  MODEL ('r79-ih-autek-model', 'AUTEK MOR', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
+  MODEL ('r79-ih-autek-termcommand-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r79-ih-autek-termcommand-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r79-ih-autek-termcommand-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r79-ih-autek-termcommand-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+
+UNIT r41-unit-x-6-gabriel-santar :: GABRIEL SANTAR
+  MODEL ('r79-ih-santar-model', 'GABRIEL SANTAR', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
+  MODEL ('r79-ih-santar-morlocks-r41-unit-x-2-morlock-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
+
+UNIT r41-unit-x-7-x-ferrus-manus-the-gorgon :: X — FERRUS MANUS, THE GORGON
+  MODEL ('r79-ih-ferrus-model', 'X — FERRUS MANUS, THE GORGON', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], ['0'])
+  MODEL ('r79-ih-ferrus-honour-hq-praetor-ret-honour-champ', 'Legion Champion', '1', [('min', '1', 'parent'), ('max', '1', 'parent')], [])
+  MODEL ('r79-ih-ferrus-honour-hq-praetor-ret-honour-base', 'Legion Honour Guard', '2', [('min', '2', 'parent'), ('max', '9', 'parent')], ['40'])
+  MODEL ('r79-ih-ferrus-honour-hq-praetor-ret-honour-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r79-ih-ferrus-honour-hq-praetor-ret-honour-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r79-ih-ferrus-honour-hq-praetor-ret-honour-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r79-ih-ferrus-termcommand-hq-praetor-ret-tc-vets', 'Terminator Veterans', '5', [('min', '5', 'parent'), ('max', '5', 'parent')], [])
+  MODEL ('r79-ih-ferrus-termcommand-hq-praetor-ret-tc-land-land-raider-phobos', 'Land Raider Phobos', None, [('max', '1', 'parent')], ['250'])
+  MODEL ('r79-ih-ferrus-termcommand-hq-praetor-ret-tc-land-land-raider-proteus', 'Land Raider Proteus', None, [('max', '1', 'parent')], ['200'])
+  MODEL ('r79-ih-ferrus-termcommand-hq-praetor-ret-tc-land-land-raider-achilles', 'Land Raider Achilles', None, [('max', '1', 'parent')], ['275'])
+  MODEL ('r79-ih-ferrus-morlocks-r41-unit-x-2-morlock-terminator-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['50'])
 
 UNIT r41-unit-xii-0-rampager-squad :: RAMPAGER SQUAD
   MODEL ('r41-unit-xii-0-rampager-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
@@ -813,6 +850,9 @@ UNIT r42-role-vii-1-effects-landing-force-phalanx-warder-squads-r41-unit-vii-1-p
 
 UNIT r42-role-vii-2-effects-templar-host-templar-brethren-squads-r41-unit-vii-0-templar-brethren-squad :: TEMPLAR BRETHREN SQUAD
   MODEL ('r42-role-vii-2-effects-templar-host-templar-brethren-squads-r41-unit-vii-0-templar-brethren-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['27'])
+
+UNIT r42-role-x-1-effects-company-of-immortals-medusan-immortal-squads-r41-unit-x-0-medusan-immortal-squad :: MEDUSAN IMMORTAL SQUAD
+  MODEL ('r79-ih-san-immortal-squads-r41-unit-x-0-medusan-immortal-squad-models', 'Squad Models', '1', [('min', '1', 'parent'), ('max', '20', 'parent')], ['0'])
 
 UNIT r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad :: RAMPAGER SQUAD
   MODEL ('r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-additional', 'Squad Models', '5', [('max', '10', 'parent'), ('min', '5', 'parent')], ['22'])
