@@ -1,0 +1,22 @@
+name: Diagnose New Recruit refresh API
+on:
+  push:
+    paths:
+      - '.github/workflows/diag-nr-refresh.yml'
+  workflow_dispatch:
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query refresh endpoint with headers and body
+        shell: bash
+        run: |
+          set +e
+          curl -sS -D /tmp/headers.txt -o /tmp/body.txt -w '%{http_code}\n' "https://www.newrecruit.eu/api/check-for-update/Azubi1234/Prohammer-30k" > /tmp/status.txt
+          echo '=== STATUS ==='
+          cat /tmp/status.txt
+          echo '=== HEADERS ==='
+          cat /tmp/headers.txt
+          echo '=== BODY ==='
+          cat /tmp/body.txt
+          exit 0
