@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="87" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="51" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="88" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="51" type="catalogue">
   <comment>Revision 62: Space Wolves Legion base rules verified against Forces of the Legions; HQ organisation now scales one selection per full or partial 750 roster-limit points.</comment>
   <readme>Core Legiones Astartes catalogue for Prohammer 30k. Revision 32 includes the generic Legion army list and Consuls, Dark Angels package, Legiones Astartes Lords of War, and Legiones Astartes Aeronautica Imperialis aircraft. Experimental Wargear and Units remains excluded.</readme>
   <sharedSelectionEntries>
@@ -143561,8 +143561,6 @@ The Detachment may not include an Allied Detachment.</description>
           </characteristics>
         </profile>
       </profiles>
-      <rules>
-        </rules>
       <selectionEntries>
         <selectionEntry id="r41-unit-xii-0-rampager-squad-r86-size" name="Rampager" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="22" /></costs><constraints><constraint id="r41-unit-xii-0-rampager-squad-r86-size-r87-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /><constraint id="r41-unit-xii-0-rampager-squad-r86-size-r87-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
@@ -143700,8 +143698,7 @@ The Detachment may not include an Allied Detachment.</description>
           </entryLinks>
         </selectionEntryGroup>
       <selectionEntryGroup id="r87-we-r41-unit-xii-0-rampager-squad-wargear" name="Wargear" hidden="false" collective="false" import="true"><selectionEntries><selectionEntry id="r87-we-r41-unit-xii-0-rampager-squad-wargear-power-armour" name="Power Armour" type="upgrade" hidden="false" import="true" defaultAmount="1"><costs><cost name="Points" typeId="pts" value="0" /></costs><constraints><constraint id="r87-we-r41-unit-xii-0-rampager-squad-wargear-power-armour-min" type="min" value="1" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /><constraint id="r87-we-r41-unit-xii-0-rampager-squad-wargear-power-armour-max" type="max" value="1" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /></constraints></selectionEntry><selectionEntry id="r87-we-r41-unit-xii-0-rampager-squad-wargear-bolt-pistol" name="Bolt pistol" type="upgrade" hidden="false" import="true" defaultAmount="1"><costs><cost name="Points" typeId="pts" value="0" /></costs><constraints><constraint id="r87-we-r41-unit-xii-0-rampager-squad-wargear-bolt-pistol-min" type="min" value="1" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /><constraint id="r87-we-r41-unit-xii-0-rampager-squad-wargear-bolt-pistol-max" type="max" value="1" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /></constraints></selectionEntry><selectionEntry id="r87-we-r41-unit-xii-0-rampager-squad-wargear-chainaxe" name="Chainaxe" type="upgrade" hidden="false" import="true" defaultAmount="1"><costs><cost name="Points" typeId="pts" value="0" /></costs><constraints><constraint id="r87-we-r41-unit-xii-0-rampager-squad-wargear-chainaxe-min" type="min" value="1" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /><constraint id="r87-we-r41-unit-xii-0-rampager-squad-wargear-chainaxe-max" type="max" value="1" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /></constraints><rules><rule id="r87-we-r41-unit-xii-0-rampager-squad-wargear-chainaxe-rule" name="Chainaxe" hidden="false"><description>An Armour Save better than 4+ is reduced to 4+ against wounds caused by a Chainaxe; Invulnerable Saves are unaffected.</description></rule></rules></selectionEntry></selectionEntries></selectionEntryGroup><selectionEntryGroup id="r87-we-r41-unit-xii-0-rampager-squad-special-rules" name="Special Rules" hidden="false" collective="false" import="true"><selectionEntries><selectionEntry id="r87-we-r41-unit-xii-0-rampager-squad-special-rules-legiones-astartes-world-eaters" name="Legiones Astartes (World Eaters)" type="upgrade" hidden="false" import="true" defaultAmount="1"><costs><cost name="Points" typeId="pts" value="0" /></costs><constraints><constraint id="r87-we-r41-unit-xii-0-rampager-squad-special-rules-legiones-astartes-world-eaters-min" type="min" value="1" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /><constraint id="r87-we-r41-unit-xii-0-rampager-squad-special-rules-legiones-astartes-world-eaters-max" type="max" value="1" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /></constraints><rules><rule id="r87-we-r41-unit-xii-0-rampager-squad-special-rules-legiones-astartes-world-eaters-rule" name="Legiones Astartes (World Eaters)" hidden="false"><description>Uses the World Eaters Legion special rule.</description></rule></rules></selectionEntry></selectionEntries></selectionEntryGroup></selectionEntryGroups>
-      <entryLinks />
-    </selectionEntry>
+      </selectionEntry>
     <selectionEntry type="unit" import="true" name="RED BUTCHER SQUAD" hidden="false" id="r41-unit-xii-1-red-butcher-squad">
       <costs>
         <cost name="Points" typeId="pts" value="0" />
@@ -143731,8 +143728,6 @@ The Detachment may not include an Allied Detachment.</description>
           </characteristics>
         </profile>
       </profiles>
-      <rules>
-        </rules>
       <selectionEntries>
         <selectionEntry id="r41-unit-xii-1-red-butcher-squad-r86-size" name="Red Butcher" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="60" /></costs><constraints><constraint id="r41-unit-xii-1-red-butcher-squad-r86-size-r87-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /><constraint id="r41-unit-xii-1-red-butcher-squad-r86-size-r87-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
@@ -143823,8 +143818,6 @@ The Detachment may not include an Allied Detachment.</description>
           </characteristics>
         </profile>
       </profiles>
-      <rules>
-        </rules>
       <selectionEntries>
         <selectionEntry id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-r86-size" name="Red Hand Destroyer" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="22" /></costs><constraints><constraint id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-r86-size-r87-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /><constraint id="r41-unit-xii-2-red-hand-destroyer-mortalis-squad-r86-size-r87-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
@@ -144046,8 +144039,6 @@ The Detachment may not include an Allied Detachment.</description>
           </characteristics>
         </profile>
       </profiles>
-      <rules>
-        </rules>
       <selectionEntries>
         <selectionEntry id="r41-unit-xii-3-world-eaters-inductii-squad-r86-size" name="Inductii" type="model" hidden="false" import="true" defaultAmount="10"><costs><cost name="Points" typeId="pts" value="13" /></costs><constraints><constraint id="r41-unit-xii-3-world-eaters-inductii-squad-r86-size-r87-min" type="min" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /><constraint id="r41-unit-xii-3-world-eaters-inductii-squad-r86-size-r87-max" type="max" value="20" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
@@ -144196,8 +144187,6 @@ The Detachment may not include an Allied Detachment.</description>
           </characteristics>
         </profile>
       </profiles>
-      <rules>
-        </rules>
       <selectionEntries>
         <selectionEntry id="r41-unit-xii-4-devourer-terminator-squad-r86-size" name="Devourer" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="45" /></costs><constraints><constraint id="r41-unit-xii-4-devourer-terminator-squad-r86-size-r87-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /><constraint id="r41-unit-xii-4-devourer-terminator-squad-r86-size-r87-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
@@ -144379,8 +144368,6 @@ The Detachment may not include an Allied Detachment.</description>
           </characteristics>
         </profile>
       </profiles>
-      <rules>
-        </rules>
       <selectionEntries>
         <selectionEntry id="r41-unit-xii-5-triarii-breacher-squad-r86-size" name="Triarii Breacher" type="model" hidden="false" import="true" defaultAmount="5"><costs><cost name="Points" typeId="pts" value="27" /></costs><constraints><constraint id="r41-unit-xii-5-triarii-breacher-squad-r86-size-r87-min" type="min" value="5" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /><constraint id="r41-unit-xii-5-triarii-breacher-squad-r86-size-r87-max" type="max" value="10" field="selections" scope="parent" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false" /></constraints></selectionEntry></selectionEntries>
       <selectionEntryGroups>
@@ -144565,8 +144552,6 @@ The Detachment may not include an Allied Detachment.</description>
           </characteristics>
         </profile>
       </profiles>
-      <rules>
-        </rules>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r41-unit-xii-7-shabran-darr-options" collective="false" import="true">
           <selectionEntries>
@@ -144632,8 +144617,6 @@ The Detachment may not include an Allied Detachment.</description>
           </characteristics>
         </profile>
       </profiles>
-      <rules>
-        </rules>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r41-unit-xii-8-gahlan-surlak-options" collective="false" import="true">
           <selectionEntries>
@@ -144686,8 +144669,6 @@ The Detachment may not include an Allied Detachment.</description>
           </characteristics>
         </profile>
       </profiles>
-      <rules>
-        </rules>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r41-unit-xii-9-kargos-the-bloodspitter-options" collective="false" import="true">
           <selectionEntries>
@@ -144771,8 +144752,6 @@ The Detachment may not include an Allied Detachment.</description>
           </characteristics>
         </profile>
       </profiles>
-      <rules>
-        </rules>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r41-unit-xii-10-captain-ehrlen-options" collective="false" import="true">
           <selectionEntries>
@@ -144838,8 +144817,6 @@ The Detachment may not include an Allied Detachment.</description>
           </characteristics>
         </profile>
       </profiles>
-      <rules>
-        </rules>
       <selectionEntryGroups>
         <selectionEntryGroup name="Options" hidden="false" id="r41-unit-xii-11-delvarus-options" collective="false" import="true">
           <selectionEntries>
@@ -144905,9 +144882,7 @@ The Detachment may not include an Allied Detachment.</description>
           </characteristics>
         </profile>
       </profiles>
-      <rules>
-        </rules>
-    </selectionEntry>
+      </selectionEntry>
     <selectionEntry type="unit" import="true" name="ANGRON, THE RED ANGEL" hidden="true" id="r41-unit-xii-13-angron-the-red-angel">
       <costs>
         <cost name="Points" typeId="pts" value="650" />
@@ -158814,43 +158789,6 @@ The army's Warlord must be equipped with a Power Weapon, Rending Weapon, Relic B
         </profile>
       </profiles>
       <rules>
-        <rule name="Source Entry" id="r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-source" hidden="false">
-          <description>Rampager | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
-Rampager Champion | 4 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
-Force Organisation:
-• Elites
-CAEDERE WEAPONS Caedere Weapons represent the many gladiatorial blades, axes, hooks and other fighting weapons employed by the XII Legion. For the purposes of these rules, a Caedere Weapon counts as a Rending Weapon.
-Unit Composition:
-• 4 Rampagers
-• 1 Rampager Champion
-Unit Type:
-• Infantry
-• The Rampager Champion is a Character
-Wargear:
-• Power Armour
-• Bolt pistol
-• Chainaxe
-Special Rules:
-• Legiones Astartes (World Eaters)
-OPTIONS
-• The squad may include up to five additional Rampagers for +22 points per model.
-• Up to three Rampagers may replace their Chainaxe with:
-• Caedere Weapon ................................. +3 points
-• Power weapon ................................... +7 points
-• If the squad numbers ten models, up to six Rampagers may make one of the above exchanges.
-• Up to three Rampagers may replace their Bolt pistol with:
-• Plasma pistol ................................. +10 points
-• If the squad numbers ten models, up to six Rampagers may make this exchange.
-• The entire squad may take:
-• Frag grenades ............................ +1 point per model
-• Krak grenades ........................... +2 points per model
-• Jump Packs .............................. +15 points per model
-If equipped with Jump Packs, the unit becomes Jump Infantry and may not select a Dedicated Transport.
-RAMPAGER CHAMPION
-The Rampager Champion may select up to 50 points of permitted weapons and wargear from the Space Marine Armoury.
-DEDICATED TRANSPORT
-A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Transport Capacity permits.</description>
-        </rule>
         <rule id="r42-role-xii-0-effects-the-red-hand-rampager-squads-rite-note" name="Rite of War Interaction" hidden="false">
           <description>A Berserker Assault commits the XII Legion to a single overwhelming attack, massed assault formations racing ahead of their support elements to close with the enemy before disciplined resistance can be organised.
 EFFECTS
@@ -170138,43 +170076,6 @@ OPTIONS
         </profile>
       </profiles>
       <rules>
-        <rule name="Source Entry" id="r46-al-reward-28-r41-unit-xii-0-rampager-squad-source" hidden="false">
-          <description>Rampager | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
-Rampager Champion | 4 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
-Force Organisation:
-• Elites
-CAEDERE WEAPONS Caedere Weapons represent the many gladiatorial blades, axes, hooks and other fighting weapons employed by the XII Legion. For the purposes of these rules, a Caedere Weapon counts as a Rending Weapon.
-Unit Composition:
-• 4 Rampagers
-• 1 Rampager Champion
-Unit Type:
-• Infantry
-• The Rampager Champion is a Character
-Wargear:
-• Power Armour
-• Bolt pistol
-• Chainaxe
-Special Rules:
-• Legiones Astartes (World Eaters)
-OPTIONS
-• The squad may include up to five additional Rampagers for +22 points per model.
-• Up to three Rampagers may replace their Chainaxe with:
-• Caedere Weapon ................................. +3 points
-• Power weapon ................................... +7 points
-• If the squad numbers ten models, up to six Rampagers may make one of the above exchanges.
-• Up to three Rampagers may replace their Bolt pistol with:
-• Plasma pistol ................................. +10 points
-• If the squad numbers ten models, up to six Rampagers may make this exchange.
-• The entire squad may take:
-• Frag grenades ............................ +1 point per model
-• Krak grenades ........................... +2 points per model
-• Jump Packs .............................. +15 points per model
-If equipped with Jump Packs, the unit becomes Jump Infantry and may not select a Dedicated Transport.
-RAMPAGER CHAMPION
-The Rampager Champion may select up to 50 points of permitted weapons and wargear from the Space Marine Armoury.
-DEDICATED TRANSPORT
-A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Transport Capacity permits.</description>
-        </rule>
         <rule id="r46-al-reward-28-rule" name="The Rewards of Treachery" hidden="false">
           <description>One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.</description>
         </rule>
@@ -170316,7 +170217,6 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <entryLinks />
       <categoryLinks>
         <categoryLink id="r46-al-reward-28-cat" targetId="cat-elites" name="Elites" hidden="false" primary="true" />
         <categoryLink id="r46-al-reward-28-limit-cat" name="Rewards of Treachery Limit" targetId="cat-alpha-reward" hidden="true" />
@@ -170354,33 +170254,6 @@ A squad without Jump Packs may select a Rhino, Drop Pod, Dreadclaw Drop Pod or L
         </profile>
       </profiles>
       <rules>
-        <rule name="Source Entry" id="r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-source" hidden="false">
-          <description>Red Butcher | 3 | 2 | 4 | 4 | 2 | 3 | 4 | 9 | 2+/4+
-Force Organisation:
-• Elites
-RAVENING MADMEN Red Butchers always hit models with a Weapon Skill on a 3+ in close combat, regardless of the normal Weapon Skill comparison. Enemy models likewise always hit Red Butchers on a 3+. This does not affect attacks made against Vehicles or other targets without a Weapon Skill and does not override a rule which allows a model to hit on a better fixed result. Red Butchers never count as a Scoring Unit.
-• 0–1
-Unit Composition:
-• 5 Red Butchers
-Unit Type:
-• Infantry
-Wargear:
-• Cataphractii Terminator Armour
-• Two Power weapons
-Special Rules:
-• Legiones Astartes (World Eaters)
-• Fearless
-• Ravening Madmen
-OPTIONS
-• The squad may include up to five additional Red Butchers for +60 points per model.
-• Any Red Butcher may replace one Power weapon with:
-• Power fist ....................................... +5 points
-• Chainfist ....................................... +10 points
-• Thunder hammer ................................. +10 points
-The Attacks characteristic shown in the profile already includes the bonus Attack for fighting with two close-combat weapons.
-DEDICATED TRANSPORT
-A squad may select a Land Raider, Dreadclaw Drop Pod or Spartan Assault Tank where Transport Capacity permits.</description>
-        </rule>
         <rule id="r46-al-reward-29-rule" name="The Rewards of Treachery" hidden="false">
           <description>One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.</description>
         </rule>
@@ -170482,60 +170355,6 @@ A squad may select a Land Raider, Dreadclaw Drop Pod or Spartan Assault Tank whe
         </profile>
       </profiles>
       <rules>
-        <rule name="Source Entry" id="r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-source" hidden="false">
-          <description>Red Hand Destroyer | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
-Red Hand Sergeant | 4 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
-Force Organisation:
-• Elites
-Unit Composition:
-• 4 Red Hand Destroyers
-• 1 Red Hand Sergeant
-Unit Type:
-• Infantry
-• The Red Hand Sergeant is a Character
-Wargear:
-• Power Armour
-• Two Bolt pistols
-• Chainaxe
-• Frag grenades
-• Rad grenades
-Special Rules:
-• Legiones Astartes (World Eaters)
-• Counter-Attack
-• Dual Pistols
-• Destroyer Cadre
-OPTIONS
-• The squad may include up to five additional Red Hand Destroyers for +22 points per model.
-• For every five models, one Red Hand Destroyer may replace one Bolt pistol with:
-• Volkite serpenta ................................. +5 points
-• Hand flamer ...................................... +5 points
-• Plasma pistol ................................... +15 points
-• Missile launcher with Suspensor Web
-and Rad Missiles ................................ +25 points
-• For every five models, one Red Hand Destroyer may take:
-• One Phosphex Bomb .............................. +10 points
-• The entire squad may take:
-• Krak grenades ............................ +2 points per model
-• Melta bombs .............................. +5 points per model
-RED HAND SERGEANT
-The Red Hand Sergeant may replace his Chainaxe with:
-• Rending Weapon .................................... +5 points
-• Power weapon ..................................... +10 points
-• Power fist ....................................... +15 points
-• Lightning claw ................................... +15 points
-• Thunder hammer ................................... +20 points
-The Red Hand Sergeant may take:
-• Artificer Armour ................................. +10 points
-• Up to three Phosphex Bombs ...................... +10 points each
-ASSAULT SQUAD
-The entire squad may take Jump Packs for +15 points per model.
-If it does so:
-• The unit becomes Jump Infantry.
-• It is renamed a Red Hand Destroyer Assault Squad.
-• It may not select a Dedicated Transport.
-DEDICATED TRANSPORT
-A Mortalis Squad may select a Rhino, Drop Pod, Dreadclaw Drop Podor Land Raider where Transport Capacity permits.</description>
-        </rule>
         <rule id="r46-al-reward-30-rule" name="The Rewards of Treachery" hidden="false">
           <description>One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.</description>
         </rule>
@@ -170773,41 +170592,6 @@ A Mortalis Squad may select a Rhino, Drop Pod, Dreadclaw Drop Podor Land Raider 
         </profile>
       </profiles>
       <rules>
-        <rule name="Source Entry" id="r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-source" hidden="false">
-          <description>Inductii | 4 | 3 | 4 | 4 | 1 | 4 | 1 | 7 | 3+
-Inductii Sergeant | 4 | 3 | 4 | 4 | 1 | 4 | 2 | 8 | 3+
-NAILS-BROKEN If an Inductii Squad is able to declare a charge during the Assault phase, it must do so. If more than one enemy unit may legally be charged, the World Eaters player chooses the target normally.
-Force Organisation:
-• Troops
-Unit Composition:
-• 9 Inductii
-• 1 Inductii Sergeant
-Unit Type:
-• Infantry
-• The Inductii Sergeant is a Character
-Wargear:
-• Power Armour
-• Bolt pistol
-• Chainsword
-Special Rules:
-• Legiones Astartes (World Eaters)
-• Nails-Broken
-OPTIONS
-• The squad may include up to ten additional Inductii for +13 points per model.
-• For every ten models, one Inductii may replace his Bolt pistol with:
-• Flamer ............................................ +5 points
-• Meltagun ......................................... +10 points
-• The entire squad may take:
-• Frag grenades ............................... +1 point per model
-• Krak grenades .............................. +2 points per model
-INDUCTII SERGEANT
-The Inductii Sergeant may replace his Chainaxe with:
-• Rending Weapon .................................... +5 points
-• Power weapon ..................................... +10 points
-• Power fist ....................................... +15 points
-DEDICATED TRANSPORT
-A squad of ten models or fewer may select a Rhino, Drop Pod or Dreadclaw Drop Pod.</description>
-        </rule>
         <rule id="r46-al-reward-31-rule" name="The Rewards of Treachery" hidden="false">
           <description>One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.</description>
         </rule>
@@ -170967,44 +170751,6 @@ A squad of ten models or fewer may select a Rhino, Drop Pod or Dreadclaw Drop Po
         </profile>
       </profiles>
       <rules>
-        <rule name="Source Entry" id="r46-al-reward-32-r41-unit-xii-4-devourer-terminator-squad-source" hidden="false">
-          <description>Devourer | 5 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 2+/4+
-Devourer Chieftain | 5 | 4 | 4 | 4 | 1 | 4 | 3 | 10 | 2+/4+
-Force Organisation:
-• Elites
-DEVOURERS Angron may select one Devourer Terminator Squad as his retinue. If selected in this manner, the Devourers do not occupy a separate Elites choice.
-Unit Composition:
-• 4 Devourers
-• 1 Devourer Chieftain
-Unit Type:
-• Infantry
-• The Devourer Chieftain is a Character
-Wargear:
-• Cataphractii Terminator Armour
-• Combi-bolter
-• Power weapon
-Special Rules:
-• Legiones Astartes (World Eaters)
-• Stubborn
-• Devourers
-OPTIONS
-• The squad may include up to five additional Devourers for +45 points per model.
-• Any model may replace his Combi-bolter with:
-• Foeblaster Boltgun .............................. +5 points
-• Combi-flamer ................................... +10 points
-• Combi-volkite charger ......................... +10 points
-• Combi-meltagun ................................ +15 points
-• Combi-plasma gun .............................. +15 points
-• Any model may replace his Power weapon with:
-• Power fist ....................................... +5 points
-• Lightning claw .................................. +5 points
-• Chainfist ....................................... +10 points
-• Thunder hammer ................................. +10 points
-• One model may take:
-• Grenade Harness ................................ +10 points
-DEDICATED TRANSPORT
-The squad may select a Land Raider, Dreadclaw Drop Pod or Spartan Assault Tank where Transport Capacity permits.</description>
-        </rule>
         <rule id="r46-al-reward-32-rule" name="The Rewards of Treachery" hidden="false">
           <description>One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.</description>
         </rule>
@@ -171197,37 +170943,6 @@ The squad may select a Land Raider, Dreadclaw Drop Pod or Spartan Assault Tank w
         </profile>
       </profiles>
       <rules>
-        <rule name="Source Entry" id="r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-source" hidden="false">
-          <description>Trarii Breacher | 4 | 4 | 4 | 4 | 1 | 4 | 2 | 9 | 3+
-Trarii Breacher Champion | 4 | 4 | 4 | 4 | 1 | 4 | 3 | 9 | 3+
-Force Organisation:
-• Elites
-Unit Composition:
-• 4 Trarii Breacher
-• 1 Trarii Breacher Champion
-Unit Type:
-• Infantry
-• The Rampager Champion is a Character
-Wargear:
-• Power Armour
-• Bolt pistol
-• Chainaxe
-• Boarding Shield
-Special Rules:
-• Legiones Astartes (World Eaters)
-OPTIONS
-• The squad may include up to five additional Trarii Breacher for +27 points per model.
-• All Trarii Breacher may replace their Chainaxe with:
-• Caedere Weapon ................................. +5 points
-• Power weapon ................................... +10 points
-• The entire squad may take:
-• Frag grenades ............................ +1 point per model
-• Krak grenades ........................... +2 points per model
-Trarii Breacher CHAMPION
-TheTriarii Breacher Champion may select up to 50 points of permitted weapons and wargear from the Space Marine Armoury.
-DEDICATED TRANSPORT
-A squad may select a Rhino, Drop Pod, Dreadclaw Drop Pod or Land Raider where Transport Capacity permits.</description>
-        </rule>
         <rule id="r46-al-reward-33-rule" name="The Rewards of Treachery" hidden="false">
           <description>One eligible Legion-specific unit from another Legion may be selected as an Elites choice. It retains its profile, equipment, options and unit-specific special rules, but replaces its original Legion-specific Legiones Astartes rules with Legiones Astartes (Alpha Legion) and benefits from Alpha Legion rules including Mutable Tactics.</description>
         </rule>

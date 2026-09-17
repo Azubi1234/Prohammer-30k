@@ -1,0 +1,20 @@
+Revision 88 — World Eaters hard Source Entry cleanup
+CAT=88 GSTref=51
+
+Target units checked: 21
+Legacy aggregate nodes removed: 7
+Exact duplicate visible choices removed: 0
+
+REMOVED SOURCE NODES
+r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad | RAMPAGER SQUAD :: removed rule r42-role-xii-0-effects-the-red-hand-rampager-squads-r41-unit-xii-0-rampager-squad-source | Source Entry
+r46-al-reward-28 | RAMPAGER SQUAD — Rewards of Treachery :: removed rule r46-al-reward-28-r41-unit-xii-0-rampager-squad-source | Source Entry
+r46-al-reward-29 | RED BUTCHER SQUAD — Rewards of Treachery :: removed rule r46-al-reward-29-r41-unit-xii-1-red-butcher-squad-source | Source Entry
+r46-al-reward-30 | RED HAND DESTROYER MORTALIS SQUAD — Rewards of Treachery :: removed rule r46-al-reward-30-r41-unit-xii-2-red-hand-destroyer-mortalis-squad-source | Source Entry
+r46-al-reward-31 | WORLD EATERS INDUCTII SQUAD — Rewards of Treachery :: removed rule r46-al-reward-31-r41-unit-xii-3-world-eaters-inductii-squad-source | Source Entry
+r46-al-reward-32 | DEVOURER TERMINATOR SQUAD — Rewards of Treachery :: removed rule r46-al-reward-32-r41-unit-xii-4-devourer-terminator-squad-source | Source Entry
+r46-al-reward-33 | TRIARII BREACHER SQUAD — Rewards of Treachery :: removed rule r46-al-reward-33-r41-unit-xii-5-triarii-breacher-squad-source | Source Entry
+
+DEDUPLICATED CHOICES
+(none)
+
+Regression check: every Delvarus entry now has structured Wargear and Special Rules groups and no aggregate Source Entry rule/profile/infoLink.
