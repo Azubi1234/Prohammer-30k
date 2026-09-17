@@ -1,0 +1,1227 @@
+CAT=79 GSTref=46 GST=46
+
+=== CANONICAL IRON HANDS ===
+
+--- r41-unit-x-0-medusan-immortal-squad ---
+selectionEntry id=r41-unit-x-0-medusan-immortal-squad name=MEDUSAN IMMORTAL SQUAD type=unit hidden=false
+  costs:
+    cost name=Points
+  categoryLinks:
+    categoryLink id=r41-unit-x-0-medusan-immortal-squad-cat name=Troops targetId=cat-troops hidden=false
+  modifiers:
+    modifier type=set
+      conditions:
+        condition type=lessThan
+  rules:
+    rule id=r79-ih-rule-r41-unit-x-0-medusan-immortal-squad-legiones-astartes-iron-hands name=Legiones Astartes (Iron Hands) hidden=false
+    rule id=r79-ih-rule-r41-unit-x-0-medusan-immortal-squad-stubborn name=Stubborn hidden=false
+  selectionEntryGroups:
+    selectionEntryGroup id=r41-unit-x-0-medusan-immortal-squad-options name=Options hidden=false
+      selectionEntries:
+        selectionEntry id=r41-unit-x-0-medusan-immortal-squad-opt-0-flamer name=Flamer type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-0-medusan-immortal-squad-opt-0-flamer-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-0-medusan-immortal-squad-opt-0-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-0-medusan-immortal-squad-opt-1-meltagun name=Meltagun type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-0-medusan-immortal-squad-opt-1-meltagun-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-0-medusan-immortal-squad-opt-1-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-0-medusan-immortal-squad-opt-2-plasma-gun name=Plasma Gun type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-0-medusan-immortal-squad-opt-2-plasma-gun-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-0-medusan-immortal-squad-opt-2-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-0-medusan-immortal-squad-opt-3-graviton-gun name=Graviton Gun type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-0-medusan-immortal-squad-opt-3-graviton-gun-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-0-medusan-immortal-squad-opt-3-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-0-medusan-immortal-squad-opt-4-legion-vexilla name=Legion Vexilla type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-0-medusan-immortal-squad-opt-4-legion-vexilla-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-0-medusan-immortal-squad-opt-4-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-0-medusan-immortal-squad-opt-5-nuncio-vox name=Nuncio Vox type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-0-medusan-immortal-squad-opt-5-nuncio-vox-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-0-medusan-immortal-squad-opt-5-context name=Option restriction hidden=false
+    selectionEntryGroup id=r49-legion-upgrades-r41-unit-x-0-medusan-immortal-squad name=Legion Wargear & Upgrades hidden=false
+      entryLinks:
+        entryLink id=r47-r41-unit-x-0-medusan-immortal-squad-ih-bionics name=Bionics — unit model type=selectionEntry targetId=r47-ih-bionics-model hidden=false
+          constraints:
+            constraint id=r47-r41-unit-x-0-medusan-immortal-squad-ih-bionics-max type=max
+          modifiers:
+            modifier id=r48-vis-312 type=set
+  entryLinks:
+  selectionEntries:
+    selectionEntry id=r79-ih-r41-unit-x-0-medusan-immortal-squad-models name=Squad Models type=model hidden=false defaultAmount=5
+      costs:
+        cost name=Points
+      profiles:
+        profile id=r41-unit-x-0-medusan-immortal-squad-profile-0 name=Medusan Immortal hidden=false
+        profile id=r41-unit-x-0-medusan-immortal-squad-profile-1 name=Immortal Sergeant hidden=false
+      constraints:
+        constraint id=r79-ih-imm-model-min type=min
+        constraint id=r79-ih-imm-model-max type=max
+    selectionEntry id=r79-ih-imm-frag name=Frag grenades (+1 pt/model) type=upgrade hidden=false
+      costs:
+        cost name=Points
+      constraints:
+        constraint id=r79-ih-imm-frag-max type=max
+      modifiers:
+        modifier id=r79-ih-imm-f-cost-0 type=increment
+    selectionEntry id=r79-ih-imm-krak name=Krak grenades (+2 pt/model) type=upgrade hidden=false
+      costs:
+        cost name=Points
+      constraints:
+        constraint id=r79-ih-imm-krak-max type=max
+      modifiers:
+        modifier id=r79-ih-imm-k-cost-0 type=increment
+
+--- r41-unit-x-1-gorgon-terminator-squad ---
+selectionEntry id=r41-unit-x-1-gorgon-terminator-squad name=GORGON TERMINATOR SQUAD type=unit hidden=false
+  costs:
+    cost name=Points
+  categoryLinks:
+    categoryLink id=r41-unit-x-1-gorgon-terminator-squad-cat name=Elites targetId=cat-elites hidden=false
+  modifiers:
+    modifier type=set
+      conditions:
+        condition type=lessThan
+  rules:
+    rule id=r79-ih-rule-r41-unit-x-1-gorgon-terminator-squad-legiones-astartes-iron-hands name=Legiones Astartes (Iron Hands) hidden=false
+    rule id=r79-ih-rule-r41-unit-x-1-gorgon-terminator-squad-fearless name=Fearless hidden=false
+    rule id=r79-ih-rule-r41-unit-x-1-gorgon-terminator-squad-gorgon-field name=Gorgon Field hidden=false
+  selectionEntries:
+    selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-additional name=Squad Models type=model hidden=false defaultAmount=5
+      constraints:
+        constraint id=r41-unit-x-1-gorgon-terminator-squad-additional-max type=max
+        constraint id=r41-unit-x-1-gorgon-terminator-squad-additional-min-total type=min
+      costs:
+        cost name=Points
+      profiles:
+        profile id=r41-unit-x-1-gorgon-terminator-squad-profile-0 name=Gorgon Terminator hidden=false
+        profile id=r41-unit-x-1-gorgon-terminator-squad-profile-1 name=Gorgon Sergeant hidden=false
+  selectionEntryGroups:
+    selectionEntryGroup id=r41-unit-x-1-gorgon-terminator-squad-options name=Options hidden=false
+      selectionEntries:
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-0-foeblaster-boltgun name=Foeblaster Boltgun type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-0-foeblaster-boltgun-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-0-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-1-combi-flamer name=Combi-flamer type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-1-combi-flamer-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-1-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-2-combi-volkite-charger name=Combi-volkite charger type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-2-combi-volkite-charger-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-2-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-3-combi-meltagun name=Combi-meltagun type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-3-combi-meltagun-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-3-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-4-combi-plasma-gun name=Combi-plasma gun type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-4-combi-plasma-gun-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-4-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-5-power-fist name=Power fist type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-5-power-fist-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-5-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-6-lightning-claw name=Lightning claw type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-6-lightning-claw-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-6-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-7-chainfist name=Chainfist type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-7-chainfist-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-7-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-8-pair-of-lightning-claws name=Pair of Lightning Claws type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-8-pair-of-lightning-claws-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-8-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-9-heavy-flamer name=Heavy Flamer type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-9-heavy-flamer-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-9-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-10-plasma-blaster name=Plasma Blaster type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-10-plasma-blaster-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-10-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-11-graviton-gun name=Graviton Gun type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-11-graviton-gun-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-11-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-1-gorgon-terminator-squad-opt-12-grenade-harness name=Grenade Harness type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-1-gorgon-terminator-squad-opt-12-grenade-harness-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-1-gorgon-terminator-squad-opt-12-context name=Option restriction hidden=false
+    selectionEntryGroup id=r49-legion-upgrades-r41-unit-x-1-gorgon-terminator-squad name=Legion Wargear & Upgrades hidden=false
+      entryLinks:
+        entryLink id=r47-r41-unit-x-1-gorgon-terminator-squad-ih-bionics name=Bionics — unit model type=selectionEntry targetId=r47-ih-bionics-model hidden=false
+          constraints:
+            constraint id=r47-r41-unit-x-1-gorgon-terminator-squad-ih-bionics-max type=max
+          modifiers:
+            modifier id=r48-vis-313 type=set
+        entryLink id=r47-r41-unit-x-1-gorgon-terminator-squad-ih-splinter name=Splinter Bolts type=selectionEntry targetId=r47-ih-splinter-bolts hidden=false
+          constraints:
+            constraint id=r47-r41-unit-x-1-gorgon-terminator-squad-ih-splinter-max type=max
+          modifiers:
+            modifier id=r48-vis-314 type=set
+  entryLinks:
+
+--- r41-unit-x-2-morlock-terminator-squad ---
+selectionEntry id=r41-unit-x-2-morlock-terminator-squad name=MORLOCK TERMINATOR SQUAD type=unit hidden=false
+  costs:
+    cost name=Points
+  categoryLinks:
+    categoryLink id=r41-unit-x-2-morlock-terminator-squad-cat name=Elites targetId=cat-elites hidden=false
+  modifiers:
+    modifier type=set
+      conditions:
+        condition type=lessThan
+  rules:
+    rule id=r79-ih-rule-r41-unit-x-2-morlock-terminator-squad-legiones-astartes-iron-hands name=Legiones Astartes (Iron Hands) hidden=false
+    rule id=r79-ih-rule-r41-unit-x-2-morlock-terminator-squad-fearless name=Fearless hidden=false
+    rule id=r79-ih-rule-r41-unit-x-2-morlock-terminator-squad-gorgon-field name=Gorgon Field hidden=false
+  selectionEntries:
+    selectionEntry id=r41-unit-x-2-morlock-terminator-squad-additional name=Squad Models type=model hidden=false defaultAmount=5
+      constraints:
+        constraint id=r41-unit-x-2-morlock-terminator-squad-additional-max type=max
+        constraint id=r41-unit-x-2-morlock-terminator-squad-additional-min-total type=min
+      costs:
+        cost name=Points
+      profiles:
+        profile id=r41-unit-x-2-morlock-terminator-squad-profile-0 name=Morlock Terminator hidden=false
+        profile id=r41-unit-x-2-morlock-terminator-squad-profile-1 name=Morlock Captain hidden=false
+  selectionEntryGroups:
+    selectionEntryGroup id=r41-unit-x-2-morlock-terminator-squad-options name=Options hidden=false
+      selectionEntries:
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-0-foeblaster-boltgun name=Foeblaster Boltgun type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-0-foeblaster-boltgun-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-0-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-1-combi-flamer name=Combi-flamer type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-1-combi-flamer-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-1-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-2-combi-volkite-charger name=Combi-volkite charger type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-2-combi-volkite-charger-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-2-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-3-combi-meltagun name=Combi-meltagun type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-3-combi-meltagun-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-3-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-4-combi-plasma-gun name=Combi-plasma gun type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-4-combi-plasma-gun-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-4-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-5-power-fist name=Power fist type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-5-power-fist-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-5-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-6-lightning-claw name=Lightning claw type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-6-lightning-claw-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-6-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-7-chainfist name=Chainfist type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-7-chainfist-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-7-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-8-thunder-hammer name=Thunder hammer type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-8-thunder-hammer-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-8-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-9-heavy-flamer name=Heavy Flamer type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-9-heavy-flamer-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-9-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-10-plasma-blaster name=Plasma Blaster type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-10-plasma-blaster-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-10-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-11-plasma-cannon name=Plasma Cannon type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-11-plasma-cannon-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-11-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-2-morlock-terminator-squad-opt-12-grenade-harness name=Grenade Harness type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-2-morlock-terminator-squad-opt-12-grenade-harness-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-2-morlock-terminator-squad-opt-12-context name=Option restriction hidden=false
+    selectionEntryGroup id=r49-legion-upgrades-r41-unit-x-2-morlock-terminator-squad name=Legion Wargear & Upgrades hidden=false
+      entryLinks:
+        entryLink id=r47-r41-unit-x-2-morlock-terminator-squad-ih-bionics name=Bionics — unit model type=selectionEntry targetId=r47-ih-bionics-model hidden=false
+          constraints:
+            constraint id=r47-r41-unit-x-2-morlock-terminator-squad-ih-bionics-max type=max
+          modifiers:
+            modifier id=r48-vis-315 type=set
+        entryLink id=r47-r41-unit-x-2-morlock-terminator-squad-ih-splinter name=Splinter Bolts type=selectionEntry targetId=r47-ih-splinter-bolts hidden=false
+          constraints:
+            constraint id=r47-r41-unit-x-2-morlock-terminator-squad-ih-splinter-max type=max
+          modifiers:
+            modifier id=r48-vis-316 type=set
+  entryLinks:
+
+--- r41-unit-x-3-venerable-forge-lord ---
+selectionEntry id=r41-unit-x-3-venerable-forge-lord name=VENERABLE FORGE LORD type=unit hidden=false
+  costs:
+    cost name=Points
+  categoryLinks:
+    categoryLink id=r41-unit-x-3-venerable-forge-lord-cat name=Elites targetId=cat-elites hidden=false
+  modifiers:
+    modifier type=set
+      conditions:
+        condition type=lessThan
+  constraints:
+    constraint id=r41-unit-x-3-venerable-forge-lord-unique type=max
+  rules:
+    rule id=r79-ih-rule-r41-unit-x-3-venerable-forge-lord-old-wise name=Old & Wise hidden=false
+    rule id=r79-ih-rule-r41-unit-x-3-venerable-forge-lord-hard-to-kill name=Hard to Kill hidden=false
+    rule id=r79-ih-rule-r41-unit-x-3-venerable-forge-lord-auto-repair-simulacra name=Auto-Repair Simulacra hidden=false
+  selectionEntryGroups:
+    selectionEntryGroup id=r41-unit-x-3-venerable-forge-lord-options name=Options hidden=false
+      selectionEntries:
+        selectionEntry id=r41-unit-x-3-venerable-forge-lord-opt-0-twin-linked-heavy-bolter name=Twin-linked Heavy Bolter type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-3-venerable-forge-lord-opt-0-twin-linked-heavy-bolter-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-3-venerable-forge-lord-opt-0-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-3-venerable-forge-lord-opt-1-multi-melta name=Multi-Melta type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-3-venerable-forge-lord-opt-1-multi-melta-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-3-venerable-forge-lord-opt-1-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-3-venerable-forge-lord-opt-2-twin-linked-autocannon name=Twin-linked Autocannon type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-3-venerable-forge-lord-opt-2-twin-linked-autocannon-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-3-venerable-forge-lord-opt-2-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-3-venerable-forge-lord-opt-3-twin-linked-missile-launcher name=Twin-linked Missile Launcher type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-3-venerable-forge-lord-opt-3-twin-linked-missile-launcher-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-3-venerable-forge-lord-opt-3-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-3-venerable-forge-lord-opt-4-plasma-cannon name=Plasma Cannon type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-3-venerable-forge-lord-opt-4-plasma-cannon-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-3-venerable-forge-lord-opt-4-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-3-venerable-forge-lord-opt-5-volkite-culverin name=Volkite Culverin type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-3-venerable-forge-lord-opt-5-volkite-culverin-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-3-venerable-forge-lord-opt-5-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-3-venerable-forge-lord-opt-6-assault-cannon name=Assault Cannon type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-3-venerable-forge-lord-opt-6-assault-cannon-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-3-venerable-forge-lord-opt-6-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-3-venerable-forge-lord-opt-7-twin-linked-lascannon name=Twin-linked Lascannon type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-3-venerable-forge-lord-opt-7-twin-linked-lascannon-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-3-venerable-forge-lord-opt-7-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-3-venerable-forge-lord-opt-8-heavy-flamer name=Heavy Flamer type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-3-venerable-forge-lord-opt-8-heavy-flamer-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-3-venerable-forge-lord-opt-8-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-3-venerable-forge-lord-opt-9-meltagun name=Meltagun type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-3-venerable-forge-lord-opt-9-meltagun-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-3-venerable-forge-lord-opt-9-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-3-venerable-forge-lord-opt-10-graviton-gun name=Graviton Gun type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-3-venerable-forge-lord-opt-10-graviton-gun-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-3-venerable-forge-lord-opt-10-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-3-venerable-forge-lord-opt-11-extra-armour name=Extra Armour type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-3-venerable-forge-lord-opt-11-extra-armour-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-3-venerable-forge-lord-opt-11-context name=Option restriction hidden=false
+  selectionEntries:
+    selectionEntry id=r79-ih-forge-model name=VENERABLE FORGE LORD type=model hidden=false defaultAmount=1
+      costs:
+        cost name=Points
+      constraints:
+        constraint id=r79-ih-forge-model-min type=min
+        constraint id=r79-ih-forge-model-max type=max
+      profiles:
+        profile id=r41-unit-x-3-venerable-forge-lord-profile-0 name=Venerable Forge Lord hidden=false
+
+--- r41-unit-x-4-shadrak-meduson ---
+selectionEntry id=r41-unit-x-4-shadrak-meduson name=SHADRAK MEDUSON type=unit hidden=false
+  costs:
+    cost name=Points
+  categoryLinks:
+    categoryLink id=r41-unit-x-4-shadrak-meduson-cat name=HQ targetId=cat-hq hidden=false
+  modifiers:
+    modifier type=set
+      conditions:
+        condition type=lessThan
+  constraints:
+    constraint id=r41-unit-x-4-shadrak-meduson-unique type=max
+  rules:
+    rule id=r79-ih-rule-r41-unit-x-4-shadrak-meduson-legiones-astartes-iron-hands name=Legiones Astartes (Iron Hands) hidden=false
+    rule id=r79-ih-rule-r41-unit-x-4-shadrak-meduson-independent-character name=Independent Character hidden=false
+    rule id=r79-ih-rule-r41-unit-x-4-shadrak-meduson-master-of-the-legion name=Master of the Legion hidden=false
+    rule id=r79-ih-rule-r41-unit-x-4-shadrak-meduson-fury-of-the-survivors name=Fury of the Survivors hidden=false
+  selectionEntryGroups:
+    selectionEntryGroup id=r41-unit-x-4-shadrak-meduson-options name=Options hidden=false
+      selectionEntries:
+        selectionEntry id=r41-unit-x-4-shadrak-meduson-opt-0-krak-grenades name=Krak grenades type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-4-shadrak-meduson-opt-0-krak-grenades-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-4-shadrak-meduson-opt-0-context name=Option restriction hidden=false
+        selectionEntry id=r41-unit-x-4-shadrak-meduson-opt-1-melta-bombs name=Melta bombs type=upgrade hidden=false
+          constraints:
+            constraint id=r41-unit-x-4-shadrak-meduson-opt-1-melta-bombs-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r41-unit-x-4-shadrak-meduson-opt-1-context name=Option restriction hidden=false
+    selectionEntryGroup id=r79-ih-meduson-command-group name=Retinue (does not occupy a separate FOC slot) hidden=false
+      constraints:
+        constraint id=r79-ih-meduson-command-group-max type=max
+      selectionEntries:
+        selectionEntry id=r79-ih-meduson-command-hq-centurion-ret-command name=Legion Command Squad type=unit hidden=false
+          constraints:
+            constraint id=r79-ih-meduson-command-hq-centurion-ret-command-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r79-ih-meduson-command-hq-centurion-ret-command-std name=Standard Wargear hidden=false
+            rule id=r79-ih-meduson-command-hq-centurion-ret-command-la name=Legiones Astartes hidden=false
+            rule id=r79-ih-meduson-command-hq-centurion-ret-command-ret name=Retinue hidden=false
+          selectionEntries:
+            selectionEntry id=r79-ih-meduson-command-hq-centurion-ret-command-vets name=Legion Veterans type=model hidden=false defaultAmount=5
+            selectionEntry id=r79-ih-meduson-command-hq-centurion-ret-command-apoth name=Legion Apothecary type=upgrade hidden=false
+            selectionEntry id=r79-ih-meduson-command-hq-centurion-ret-command-standard name=Legion Standard Bearer type=upgrade hidden=false
+            selectionEntry id=r79-ih-meduson-command-hq-centurion-ret-command-champ name=Legion Champion type=upgrade hidden=false
+            selectionEntry id=r79-ih-meduson-command-r69-centurion-command-bikes name=Space Marine Bikes (entire squad) type=upgrade hidden=true
+            selectionEntry id=r79-ih-meduson-command-r69-centurion-command-jetbikes name=Jetbikes (entire squad) type=upgrade hidden=true
+            selectionEntry id=r79-ih-meduson-command-r71-nl-gen-10-stealth name=Stealth Adept — whole squad type=upgrade hidden=true
+            selectionEntry id=r79-ih-meduson-command-r71-nl-bj-11 name=Beyond Judgement — Trophies of Judgement & Fear type=upgrade hidden=true
+          entryLinks:
+            entryLink id=r79-ih-meduson-command-hq-centurion-ret-command-bp name=Bolt Pistol type=selectionEntry targetId=gear-bolt-pistol hidden=false defaultAmount=1
+            entryLink id=r79-ih-meduson-command-hq-centurion-ret-command-cs name=Chainsword type=selectionEntry targetId=gear-chainsword hidden=false defaultAmount=1
+            entryLink id=r79-ih-meduson-command-r70-if-hammer-trans-1208 name=Teleportation Transponders — Hammerfall type=selectionEntry targetId=r64-if-gear-trans-unit hidden=true
+          selectionEntryGroups:
+            selectionEntryGroup id=r79-ih-meduson-command-hq-centurion-ret-command-weapons name=Weapon Replacements (each model may replace Bolt Pistol and/or Chainsword) hidden=false
+            selectionEntryGroup id=r79-ih-meduson-command-hq-centurion-ret-command-eq name=Per-model Equipment hidden=false
+            selectionEntryGroup id=r79-ih-meduson-command-hq-centurion-ret-command-mob name=Squad Mobility (only if the selecting HQ has the same mobility) hidden=false
+            selectionEntryGroup id=r79-ih-meduson-command-hq-centurion-ret-command-transport name=Dedicated Transport hidden=false
+  selectionEntries:
+    selectionEntry id=r79-ih-meduson-model name=SHADRAK MEDUSON type=model hidden=false defaultAmount=1
+      costs:
+        cost name=Points
+      constraints:
+        constraint id=r79-ih-meduson-model-min type=min
+        constraint id=r79-ih-meduson-model-max type=max
+      profiles:
+        profile id=r41-unit-x-4-shadrak-meduson-profile-0 name=Shadrak Meduson hidden=false
+
+--- r41-unit-x-5-autek-mor ---
+selectionEntry id=r41-unit-x-5-autek-mor name=AUTEK MOR type=unit hidden=false
+  costs:
+    cost name=Points
+  categoryLinks:
+    categoryLink id=r41-unit-x-5-autek-mor-cat name=HQ targetId=cat-hq hidden=false
+  modifiers:
+    modifier type=set
+      conditions:
+        condition type=lessThan
+  constraints:
+    constraint id=r41-unit-x-5-autek-mor-unique type=max
+  rules:
+    rule id=r79-ih-rule-r41-unit-x-5-autek-mor-legiones-astartes-iron-hands name=Legiones Astartes (Iron Hands) hidden=false
+    rule id=r79-ih-rule-r41-unit-x-5-autek-mor-independent-character name=Independent Character hidden=false
+    rule id=r79-ih-rule-r41-unit-x-5-autek-mor-master-of-the-legion name=Master of the Legion hidden=false
+    rule id=r79-ih-rule-r41-unit-x-5-autek-mor-furious-charge name=Furious Charge hidden=false
+    rule id=r79-ih-rule-r41-unit-x-5-autek-mor-battlesmith name=Battlesmith hidden=false
+  selectionEntries:
+    selectionEntry id=r79-ih-autek-model name=AUTEK MOR type=model hidden=false defaultAmount=1
+      costs:
+        cost name=Points
+      constraints:
+        constraint id=r79-ih-autek-model-min type=min
+        constraint id=r79-ih-autek-model-max type=max
+      profiles:
+        profile id=r41-unit-x-5-autek-mor-profile-0 name=Autek Mor hidden=false
+  selectionEntryGroups:
+    selectionEntryGroup id=r79-ih-autek-termcommand-group name=Retinue (does not occupy a separate FOC slot) hidden=false
+      constraints:
+        constraint id=r79-ih-autek-termcommand-group-max type=max
+      selectionEntries:
+        selectionEntry id=r79-ih-autek-termcommand-hq-praetor-ret-termcommand name=Legion Terminator Command Squad type=unit hidden=false
+          constraints:
+            constraint id=r79-ih-autek-termcommand-hq-praetor-ret-termcommand-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r79-ih-autek-termcommand-hq-praetor-ret-tc-std name=Standard Wargear hidden=false
+            rule id=r79-ih-autek-termcommand-hq-praetor-ret-tc-la name=Legiones Astartes hidden=false
+            rule id=r79-ih-autek-termcommand-hq-praetor-ret-tc-ret name=Retinue hidden=false
+          selectionEntries:
+            selectionEntry id=r79-ih-autek-termcommand-hq-praetor-ret-tc-vets name=Terminator Veterans type=model hidden=false defaultAmount=5
+            selectionEntry id=r79-ih-autek-termcommand-hq-praetor-ret-tc-apoth name=Terminator Apothecary type=upgrade hidden=false
+            selectionEntry id=r79-ih-autek-termcommand-hq-praetor-ret-tc-standard name=Terminator Standard Bearer type=upgrade hidden=false
+            selectionEntry id=r79-ih-autek-termcommand-hq-praetor-ret-tc-champ name=Terminator Champion type=upgrade hidden=false
+            selectionEntry id=r79-ih-autek-termcommand-r73-nl-bj-11 name=Beyond Judgement — Trophies of Judgement & Fear type=upgrade hidden=true
+          selectionEntryGroups:
+            selectionEntryGroup id=r79-ih-autek-termcommand-hq-praetor-ret-tc-armour name=Terminator Armour Pattern hidden=false
+            selectionEntryGroup id=r79-ih-autek-termcommand-hq-praetor-ret-tc-ranged name=Combi-Bolter Replacements (per model) hidden=false
+            selectionEntryGroup id=r79-ih-autek-termcommand-hq-praetor-ret-tc-melee name=Power Weapon Replacements (per model) hidden=false
+            selectionEntryGroup id=r79-ih-autek-termcommand-hq-praetor-ret-tc-pair name=Replace both Combi-Bolter and Power Weapon hidden=false
+            selectionEntryGroup id=r79-ih-autek-termcommand-hq-praetor-ret-tc-heavy name=Heavy Weapon (one model only) hidden=false
+            selectionEntryGroup id=r79-ih-autek-termcommand-hq-praetor-ret-tc-transport name=Dedicated Transport hidden=false
+          entryLinks:
+            entryLink id=r79-ih-autek-termcommand-hq-praetor-ret-tc-cb name=Combi-Bolter type=selectionEntry targetId=gear-combi-bolter hidden=false defaultAmount=1
+            entryLink id=r79-ih-autek-termcommand-hq-praetor-ret-tc-pw name=Power Weapon type=selectionEntry targetId=gear-power-weapon hidden=false defaultAmount=1
+            entryLink id=r79-ih-autek-termcommand-hq-praetor-ret-tc-gh name=Grenade Harness type=selectionEntry targetId=gear-hq-grenade-harness hidden=false
+            entryLink id=r79-ih-autek-termcommand-r40-da-warblade-hq-praetor-ret-tc-pw name=Calibanite Warblade type=selectionEntry targetId=da22-warblade hidden=true
+            entryLink id=r79-ih-autek-termcommand-r40-da-trans-hq-praetor-ret-termcommand name=Teleportation Transponders type=selectionEntry targetId=da22-transponders hidden=true
+            entryLink id=r79-ih-autek-termcommand-r70-if-termcmd-trans-935 name=Teleportation Transponders type=selectionEntry targetId=r64-if-gear-trans-unit hidden=false
+            entryLink id=r79-ih-autek-termcommand-r71-nl-term-trans-1 name=Teleportation Transponders type=selectionEntry targetId=r44-nl-transponder-unit hidden=false
+
+--- r41-unit-x-6-gabriel-santar ---
+selectionEntry id=r41-unit-x-6-gabriel-santar name=GABRIEL SANTAR type=unit hidden=false
+  costs:
+    cost name=Points
+  categoryLinks:
+    categoryLink id=r41-unit-x-6-gabriel-santar-cat name=HQ targetId=cat-hq hidden=false
+  modifiers:
+    modifier type=set
+      conditions:
+        condition type=lessThan
+  constraints:
+    constraint id=r41-unit-x-6-gabriel-santar-unique type=max
+    constraint id=r79-ih-santar-1500 type=min
+  rules:
+    rule id=r79-ih-rule-r41-unit-x-6-gabriel-santar-legiones-astartes-iron-hands name=Legiones Astartes (Iron Hands) hidden=false
+    rule id=r79-ih-rule-r41-unit-x-6-gabriel-santar-independent-character name=Independent Character hidden=false
+    rule id=r79-ih-rule-r41-unit-x-6-gabriel-santar-master-of-the-legion name=Master of the Legion hidden=false
+    rule id=r79-ih-rule-r41-unit-x-6-gabriel-santar-master-of-the-morlocks name=Master of the Morlocks hidden=false
+    rule id=r79-ih-rule-r41-unit-x-6-gabriel-santar-the-iron-aegis name=The Iron Aegis hidden=false
+  selectionEntries:
+    selectionEntry id=r79-ih-santar-model name=GABRIEL SANTAR type=model hidden=false defaultAmount=1
+      costs:
+        cost name=Points
+      constraints:
+        constraint id=r79-ih-santar-model-min type=min
+        constraint id=r79-ih-santar-model-max type=max
+      profiles:
+        profile id=r41-unit-x-6-gabriel-santar-profile-0 name=Gabriel Santar hidden=false
+  selectionEntryGroups:
+    selectionEntryGroup id=r79-ih-santar-morlocks-group name=Retinue (does not occupy a separate FOC slot) hidden=false
+      constraints:
+        constraint id=r79-ih-santar-morlocks-group-max type=max
+      selectionEntries:
+        selectionEntry id=r79-ih-santar-morlocks-r41-unit-x-2-morlock-terminator-squad name=Morlock Terminator Squad type=unit hidden=false
+          costs:
+            cost name=Points
+          modifiers:
+            modifier type=set
+          rules:
+            rule id=r79-ih-santar-morlocks-r79-ih-rule-r41-unit-x-2-morlock-terminator-squad-legiones-astartes-iron-hands name=Legiones Astartes (Iron Hands) hidden=false
+            rule id=r79-ih-santar-morlocks-r79-ih-rule-r41-unit-x-2-morlock-terminator-squad-fearless name=Fearless hidden=false
+            rule id=r79-ih-santar-morlocks-r79-ih-rule-r41-unit-x-2-morlock-terminator-squad-gorgon-field name=Gorgon Field hidden=false
+          selectionEntries:
+            selectionEntry id=r79-ih-santar-morlocks-r41-unit-x-2-morlock-terminator-squad-additional name=Squad Models type=model hidden=false defaultAmount=5
+          selectionEntryGroups:
+            selectionEntryGroup id=r79-ih-santar-morlocks-r41-unit-x-2-morlock-terminator-squad-options name=Options hidden=false
+            selectionEntryGroup id=r79-ih-santar-morlocks-r49-legion-upgrades-r41-unit-x-2-morlock-terminator-squad name=Legion Wargear & Upgrades hidden=false
+          entryLinks:
+
+--- r41-unit-x-7-x-ferrus-manus-the-gorgon ---
+selectionEntry id=r41-unit-x-7-x-ferrus-manus-the-gorgon name=X — FERRUS MANUS, THE GORGON type=unit hidden=false
+  costs:
+    cost name=Points
+  categoryLinks:
+    categoryLink id=r41-unit-x-7-x-ferrus-manus-the-gorgon-cat name=Lords of War targetId=cat-low hidden=false
+  modifiers:
+    modifier type=set
+      conditions:
+        condition type=lessThan
+    modifier id=r44-ih-bitter-hide-ferrus type=set
+      conditions:
+        condition type=atLeast
+    modifier id=r79-ih-bitter-hide-ferrus type=set
+      conditions:
+        condition type=atLeast
+  constraints:
+    constraint id=r41-unit-x-7-x-ferrus-manus-the-gorgon-unique type=max
+  rules:
+    rule id=r79-ih-rule-r41-unit-x-7-x-ferrus-manus-the-gorgon-primarch name=Primarch hidden=false
+    rule id=r79-ih-rule-r41-unit-x-7-x-ferrus-manus-the-gorgon-legiones-astartes-iron-hands name=Legiones Astartes (Iron Hands) hidden=false
+    rule id=r79-ih-rule-r41-unit-x-7-x-ferrus-manus-the-gorgon-the-gorgon name=The Gorgon hidden=false
+    rule id=r79-ih-rule-r41-unit-x-7-x-ferrus-manus-the-gorgon-master-of-the-forge name=Master of the Forge hidden=false
+    rule id=r79-ih-rule-r41-unit-x-7-x-ferrus-manus-the-gorgon-forged-for-war name=Forged for War hidden=false
+    rule id=r79-ih-rule-r41-unit-x-7-x-ferrus-manus-the-gorgon-forgebreaker name=Forgebreaker hidden=false
+    rule id=r79-ih-rule-r41-unit-x-7-x-ferrus-manus-the-gorgon-living-metal-hands name=Living Metal Hands hidden=false
+    rule id=r79-ih-rule-r41-unit-x-7-x-ferrus-manus-the-gorgon-medusan-carapace name=Medusan Carapace hidden=false
+  selectionEntries:
+    selectionEntry id=r79-ih-ferrus-model name=X — FERRUS MANUS, THE GORGON type=model hidden=false defaultAmount=1
+      costs:
+        cost name=Points
+      constraints:
+        constraint id=r79-ih-ferrus-model-min type=min
+        constraint id=r79-ih-ferrus-model-max type=max
+      profiles:
+        profile id=r41-unit-x-7-x-ferrus-manus-the-gorgon-profile-0 name=Ferrus Manus hidden=false
+  selectionEntryGroups:
+    selectionEntryGroup id=r79-ih-ferrus-honour-group name=Retinue (does not occupy a separate FOC slot) hidden=false
+      constraints:
+        constraint id=r79-ih-ferrus-honour-group-max type=max
+      selectionEntries:
+        selectionEntry id=r79-ih-ferrus-honour-hq-praetor-ret-honour name=Legion Honour Guard Squad type=unit hidden=false
+          constraints:
+            constraint id=r79-ih-ferrus-honour-hq-praetor-ret-honour-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r79-ih-ferrus-honour-hq-praetor-ret-honour-std name=Standard Wargear hidden=false
+            rule id=r79-ih-ferrus-honour-hq-praetor-ret-honour-la name=Legiones Astartes hidden=false
+            rule id=r79-ih-ferrus-honour-hq-praetor-ret-honour-hod name=Honour or Death hidden=false
+            rule id=r79-ih-ferrus-honour-hq-praetor-ret-honour-ret name=Retinue hidden=false
+          selectionEntries:
+            selectionEntry id=r79-ih-ferrus-honour-hq-praetor-ret-honour-champ name=Legion Champion type=model hidden=false defaultAmount=1
+            selectionEntry id=r79-ih-ferrus-honour-hq-praetor-ret-honour-base name=Legion Honour Guard type=model hidden=false defaultAmount=2
+            selectionEntry id=r79-ih-ferrus-honour-hq-praetor-ret-honour-standard name=Legion Standard Bearer type=upgrade hidden=false
+            selectionEntry id=r79-ih-ferrus-honour-r71-nl-gen-9-stealth name=Stealth Adept — whole squad type=upgrade hidden=true
+            selectionEntry id=r79-ih-ferrus-honour-r71-nl-bj-10 name=Beyond Judgement — Trophies of Judgement & Fear type=upgrade hidden=true
+          entryLinks:
+            entryLink id=r79-ih-ferrus-honour-hq-praetor-ret-honour-bp name=Bolt Pistol type=selectionEntry targetId=gear-bolt-pistol hidden=false defaultAmount=1
+            entryLink id=r79-ih-ferrus-honour-hq-praetor-ret-honour-pw name=Power Weapon type=selectionEntry targetId=gear-power-weapon hidden=false defaultAmount=1
+            entryLink id=r79-ih-ferrus-honour-hq-praetor-ret-honour-krak name=Krak Grenades (+2 pts/model) type=selectionEntry targetId=gear-krak hidden=false
+            entryLink id=r79-ih-ferrus-honour-r40-da-warblade-hq-praetor-ret-honour-pw name=Calibanite Warblade type=selectionEntry targetId=da22-warblade hidden=true
+            entryLink id=r79-ih-ferrus-honour-r70-if-hammer-trans-928 name=Teleportation Transponders — Hammerfall type=selectionEntry targetId=r64-if-gear-trans-unit hidden=true
+          selectionEntryGroups:
+            selectionEntryGroup id=r79-ih-ferrus-honour-hq-praetor-ret-honour-melee name=Power Weapon Replacements (per model) hidden=false
+            selectionEntryGroup id=r79-ih-ferrus-honour-hq-praetor-ret-honour-ranged name=Bolt Pistol Replacements (per model) hidden=false
+            selectionEntryGroup id=r79-ih-ferrus-honour-hq-praetor-ret-honour-champ-arm name=Legion Champion — additional Armoury (max 50 pts) hidden=false
+            selectionEntryGroup id=r79-ih-ferrus-honour-hq-praetor-ret-honour-transport name=Dedicated Transport hidden=false
+        selectionEntry id=r79-ih-ferrus-termcommand-hq-praetor-ret-termcommand name=Legion Terminator Command Squad type=unit hidden=false
+          constraints:
+            constraint id=r79-ih-ferrus-termcommand-hq-praetor-ret-termcommand-max type=max
+          costs:
+            cost name=Points
+          rules:
+            rule id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-std name=Standard Wargear hidden=false
+            rule id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-la name=Legiones Astartes hidden=false
+            rule id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-ret name=Retinue hidden=false
+          selectionEntries:
+            selectionEntry id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-vets name=Terminator Veterans type=model hidden=false defaultAmount=5
+            selectionEntry id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-apoth name=Terminator Apothecary type=upgrade hidden=false
+            selectionEntry id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-standard name=Terminator Standard Bearer type=upgrade hidden=false
+            selectionEntry id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-champ name=Terminator Champion type=upgrade hidden=false
+            selectionEntry id=r79-ih-ferrus-termcommand-r73-nl-bj-11 name=Beyond Judgement — Trophies of Judgement & Fear type=upgrade hidden=true
+          selectionEntryGroups:
+            selectionEntryGroup id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-armour name=Terminator Armour Pattern hidden=false
+            selectionEntryGroup id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-ranged name=Combi-Bolter Replacements (per model) hidden=false
+            selectionEntryGroup id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-melee name=Power Weapon Replacements (per model) hidden=false
+            selectionEntryGroup id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-pair name=Replace both Combi-Bolter and Power Weapon hidden=false
+            selectionEntryGroup id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-heavy name=Heavy Weapon (one model only) hidden=false
+            selectionEntryGroup id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-transport name=Dedicated Transport hidden=false
+          entryLinks:
+            entryLink id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-cb name=Combi-Bolter type=selectionEntry targetId=gear-combi-bolter hidden=false defaultAmount=1
+            entryLink id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-pw name=Power Weapon type=selectionEntry targetId=gear-power-weapon hidden=false defaultAmount=1
+            entryLink id=r79-ih-ferrus-termcommand-hq-praetor-ret-tc-gh name=Grenade Harness type=selectionEntry targetId=gear-hq-grenade-harness hidden=false
+            entryLink id=r79-ih-ferrus-termcommand-r40-da-warblade-hq-praetor-ret-tc-pw name=Calibanite Warblade type=selectionEntry targetId=da22-warblade hidden=true
+            entryLink id=r79-ih-ferrus-termcommand-r40-da-trans-hq-praetor-ret-termcommand name=Teleportation Transponders type=selectionEntry targetId=da22-transponders hidden=true
+            entryLink id=r79-ih-ferrus-termcommand-r70-if-termcmd-trans-935 name=Teleportation Transponders type=selectionEntry targetId=r64-if-gear-trans-unit hidden=false
+            entryLink id=r79-ih-ferrus-termcommand-r71-nl-term-trans-1 name=Teleportation Transponders type=selectionEntry targetId=r44-nl-transponder-unit hidden=false
+        selectionEntry id=r79-ih-ferrus-morlocks-r41-unit-x-2-morlock-terminator-squad name=Morlock Terminator Squad type=unit hidden=false
+          costs:
+            cost name=Points
+          modifiers:
+            modifier type=set
+          rules:
+            rule id=r79-ih-ferrus-morlocks-r79-ih-rule-r41-unit-x-2-morlock-terminator-squad-legiones-astartes-iron-hands name=Legiones Astartes (Iron Hands) hidden=false
+            rule id=r79-ih-ferrus-morlocks-r79-ih-rule-r41-unit-x-2-morlock-terminator-squad-fearless name=Fearless hidden=false
+            rule id=r79-ih-ferrus-morlocks-r79-ih-rule-r41-unit-x-2-morlock-terminator-squad-gorgon-field name=Gorgon Field hidden=false
+          selectionEntries:
+            selectionEntry id=r79-ih-ferrus-morlocks-r41-unit-x-2-morlock-terminator-squad-additional name=Squad Models type=model hidden=false defaultAmount=5
+          selectionEntryGroups:
+            selectionEntryGroup id=r79-ih-ferrus-morlocks-r41-unit-x-2-morlock-terminator-squad-options name=Options hidden=false
+            selectionEntryGroup id=r79-ih-ferrus-morlocks-r49-legion-upgrades-r41-unit-x-2-morlock-terminator-squad name=Legion Wargear & Upgrades hidden=false
+          entryLinks:
+
+=== ALL SOURCE ENTRY RULES UNDER IRON HANDS IDs/COPIES ===
+
+=== GRAVITON SUBSTITUTION LINKS ===
+selectionEntry r44-ih-graviton-substitution Graviton Gun instead of Flamer owner=None:None parent=None:None
+entryLink r44-tactical-unit-ih-grav Graviton Gun instead of Flamer owner=tactical-unit:Legion Tactical Squad parent=None:None
+entryLink r44-assault-unit-ih-grav Graviton Gun instead of Flamer owner=assault-unit:Legion Assault Squad parent=None:None
+entryLink r44-breacher-unit-ih-grav Graviton Gun instead of Flamer owner=breacher-unit:Legion Breacher Siege Squad parent=None:None
+entryLink r44-recon-unit-ih-grav Graviton Gun instead of Flamer owner=recon-unit:Legion Reconnaissance Squad parent=None:None
+entryLink r44-veteran-unit-ih-grav Graviton Gun instead of Flamer owner=veteran-unit:Legion Veteran Squad parent=None:None
+entryLink r44-fa-seeker-ih-grav Graviton Gun instead of Flamer owner=fa-seeker:Legion Seeker Squad parent=None:None
+entryLink r44-hs-heavy-support-squad-ih-grav Graviton Gun instead of Flamer owner=hs-heavy-support-squad:Legion Heavy Support Squad parent=None:None
+entryLink r60-ws-hibou-retinue-legion-veteran-squad-r44-veteran-unit-ih-grav Graviton Gun instead of Flamer owner=r60-ws-hibou-retinue-legion-veteran-squad:Legion Veteran Squad parent=None:None
+entryLink r60-ws-hasik-retinue-legion-veteran-squad-r44-veteran-unit-ih-grav Graviton Gun instead of Flamer owner=r60-ws-hasik-retinue-legion-veteran-squad:Legion Veteran Squad parent=None:None
+entryLink r71-nl-mal-ret-1-r44-veteran-unit-ih-grav Graviton Gun instead of Flamer owner=r71-nl-mal-ret-1-veteran-unit:Legion Veteran Squad parent=None:None
+entryLink r52-ec-sonic-hss-r44-hs-heavy-support-squad-ih-grav Graviton Gun instead of Flamer owner=r52-ec-sonic-hss:Legion Heavy Support Squad — Sonic Weaponry parent=None:None
+entryLink r57-iw-hammer-tactical-r44-tactical-unit-ih-grav Graviton Gun instead of Flamer owner=r57-iw-hammer-tactical:Legion Tactical Squad — Hammer Compulsory parent=None:None
+entryLink r57-iw-hammer-breacher-r44-breacher-unit-ih-grav Graviton Gun instead of Flamer owner=r57-iw-hammer-breacher:Legion Breacher Siege Squad — Hammer Compulsory parent=None:None
+entryLink r74-ba-rev-vet-r44-veteran-unit-ih-grav Graviton Gun instead of Flamer owner=r74-ba-rev-vet-veteran-unit:Legion Veteran Squad (Jump Packs) — Day of Revelation parent=None:None
+
+=== SPECIAL WEAPON GROUPS ===
+OWNER=tactical-unit:Legion Tactical Squad GROUP=tac-special-weapons:Special Weapons
+  LINK sp-f Flamer -> gear-flamer
+  LINK sp-m Meltagun -> gear-meltagun
+  LINK sp-p Plasma Gun -> gear-plasma-gun
+  LINK sp-vc Volkite Charger -> gear-volkite-charger
+  LINK sp-vcal Volkite Caliver -> gear-volkite-caliver
+  LINK sp-r Rotor Cannon -> gear-rotor
+  LINK da22-alt-pg-0 Calibanite Plasma Gun -> da22-plasma-gun
+  LINK da22-alt-pr-0 Plasma Repeater -> da22-plasma-repeater
+  LINK da22-alt-pb-0 Plasma Burner -> da22-plasma-burner
+OWNER=fa-seeker:Legion Seeker Squad GROUP=fa-seeker-special:Special Weapons (maximum two)
+  LINK fa-seeker-sp-fl Flamer (replaces Bolter) -> gear-flamer
+  LINK fa-seeker-sp-me Meltagun (replaces Bolter) -> gear-meltagun
+  LINK fa-seeker-sp-pg Plasma Gun (replaces Bolter) -> gear-plasma-gun
+  LINK fa-seeker-sp-m40 M.40 Targeter and Stalker Bolter (replaces Bolter) -> fa-gear-stalker
+  LINK fa-seeker-sp-hb Heavy Bolter with Suspensor and Hellfire Rounds (replaces Bolter) -> fa-gear-seeker-hb
+  LINK fa-seeker-sp-vc Volkite Charger (replaces Bolter) -> gear-volkite-charger
+  LINK fa-seeker-sp-vcal Volkite Caliver (replaces Bolter) -> gear-volkite-caliver
+  LINK da22-alt-pg-3 Calibanite Plasma Gun -> da22-plasma-gun
+  LINK da22-alt-pr-3 Plasma Repeater -> da22-plasma-repeater
+  LINK da22-alt-pb-3 Plasma Burner -> da22-plasma-burner
+OWNER=fa-bike:Legion Bike Squadron GROUP=fa-bike-special:Special Weapons — up to two Bikers replace Bolt Pistols
+  LINK fa-bike-sp-f Flamer -> gear-flamer
+  LINK fa-bike-sp-m Meltagun -> gear-meltagun
+  LINK fa-bike-sp-p Plasma Gun -> gear-plasma-gun
+  LINK da22-alt-pg-4 Calibanite Plasma Gun -> da22-plasma-gun
+  LINK da22-alt-pr-4 Plasma Repeater -> da22-plasma-repeater
+  LINK da22-alt-pb-4 Plasma Burner -> da22-plasma-burner
+OWNER=da22-interemptors:Dreadwing Interemptor Squad GROUP=da22-int-heavy:Special Weapon Replacement — one per five models
+  ENTRY da22-int-radmiss Missile Launcher with Suspensor Web, Rad Missiles and Stasis Missiles default=None
+  LINK da22-int-inc Plasma Incinerator with Suspensor Web -> da22-plasma-incinerator
+OWNER=r40-da-storm-tactical:Legion Tactical Squad (Storm of War compulsory) GROUP=r40-da-storm-tactical-tac-special-weapons:Special Weapons
+  LINK r40-da-storm-tactical-sp-f Flamer -> gear-flamer
+  LINK r40-da-storm-tactical-sp-m Meltagun -> gear-meltagun
+  LINK r40-da-storm-tactical-sp-p Plasma Gun -> gear-plasma-gun
+  LINK r40-da-storm-tactical-sp-vc Volkite Charger -> gear-volkite-charger
+  LINK r40-da-storm-tactical-sp-vcal Volkite Caliver -> gear-volkite-caliver
+  LINK r40-da-storm-tactical-sp-r Rotor Cannon -> gear-rotor
+  LINK r40-da-storm-tactical-da22-alt-pg-0 Calibanite Plasma Gun -> da22-plasma-gun
+  LINK r40-da-storm-tactical-da22-alt-pr-0 Plasma Repeater -> da22-plasma-repeater
+  LINK r40-da-storm-tactical-da22-alt-pb-0 Plasma Burner -> da22-plasma-burner
+OWNER=r40-da-eskaton-interemptor:Dreadwing Interemptor Squad GROUP=r40-da-eskaton-interemptor-da22-int-heavy:Special Weapon Replacement — one per five models
+  ENTRY r40-da-eskaton-interemptor-da22-int-radmiss Missile Launcher with Suspensor Web, Rad Missiles and Stasis Missiles default=None
+  LINK r40-da-eskaton-interemptor-da22-int-inc Plasma Incinerator with Suspensor Web -> da22-plasma-incinerator
+OWNER=r40-da-arrow-bike:Legion Bike Squadron GROUP=r40-da-arrow-bike-fa-bike-special:Special Weapons — up to two Bikers replace Bolt Pistols
+  LINK r40-da-arrow-bike-fa-bike-sp-f Flamer -> gear-flamer
+  LINK r40-da-arrow-bike-fa-bike-sp-m Meltagun -> gear-meltagun
+  LINK r40-da-arrow-bike-fa-bike-sp-p Plasma Gun -> gear-plasma-gun
+  LINK r40-da-arrow-bike-da22-alt-pg-4 Calibanite Plasma Gun -> da22-plasma-gun
+  LINK r40-da-arrow-bike-da22-alt-pr-4 Plasma Repeater -> da22-plasma-repeater
+  LINK r40-da-arrow-bike-da22-alt-pb-4 Plasma Burner -> da22-plasma-burner
+OWNER=r40-da-serpent-seeker:Legion Seeker Squad GROUP=r40-da-serpent-seeker-fa-seeker-special:Special Weapons (maximum two)
+  LINK r40-da-serpent-seeker-fa-seeker-sp-fl Flamer (replaces Bolter) -> gear-flamer
+  LINK r40-da-serpent-seeker-fa-seeker-sp-me Meltagun (replaces Bolter) -> gear-meltagun
+  LINK r40-da-serpent-seeker-fa-seeker-sp-pg Plasma Gun (replaces Bolter) -> gear-plasma-gun
+  LINK r40-da-serpent-seeker-fa-seeker-sp-m40 M.40 Targeter and Stalker Bolter (replaces Bolter) -> fa-gear-stalker
+  LINK r40-da-serpent-seeker-fa-seeker-sp-hb Heavy Bolter with Suspensor and Hellfire Rounds (replaces Bolter) -> fa-gear-seeker-hb
+  LINK r40-da-serpent-seeker-fa-seeker-sp-vc Volkite Charger (replaces Bolter) -> gear-volkite-charger
+  LINK r40-da-serpent-seeker-fa-seeker-sp-vcal Volkite Caliver (replaces Bolter) -> gear-volkite-caliver
+  LINK r40-da-serpent-seeker-da22-alt-pg-3 Calibanite Plasma Gun -> da22-plasma-gun
+  LINK r40-da-serpent-seeker-da22-alt-pr-3 Plasma Repeater -> da22-plasma-repeater
+  LINK r40-da-serpent-seeker-da22-alt-pb-3 Plasma Burner -> da22-plasma-burner
+OWNER=r41-unit-vi-0-grey-slayer-pack:Grey Slayer Pack GROUP=r63-sw-slayer-ranged:Special Weapons — one per five models
+  ENTRY r63-sw-slayer-flamer Flamer default=None
+  ENTRY r63-sw-slayer-melta Meltagun default=None
+  ENTRY r63-sw-slayer-plasma Plasma Gun default=None
+OWNER=r41-unit-vi-1-grey-stalker-pack:Grey Stalker Pack GROUP=r63-sw-stalker-ranged:Special Weapons — one per five models
+  ENTRY r63-sw-stalker-flamer Flamer default=None
+  ENTRY r63-sw-stalker-melta Meltagun default=None
+  ENTRY r63-sw-stalker-plasma Plasma Gun default=None
+  ENTRY r63-sw-stalker-volkite Volkite Charger default=None
+OWNER=r41-unit-vi-2-wolf-scout-squad:Wolf Scout Squad GROUP=r63-sw-scout-specialweps:Special Weapons — up to two Scouts
+  ENTRY r63-sw-scout-special-flamer Flamer default=None
+  ENTRY r63-sw-scout-special-melta Meltagun default=None
+  ENTRY r63-sw-scout-special-plasma Plasma Gun default=None
+  ENTRY r63-sw-scout-special-pp Plasma Pistol default=None
+  ENTRY r63-sw-scout-special-power Power Weapon default=None
+OWNER=r41-unit-viii-0-terror-squad:Terror Squad GROUP=r71-nl-terror-special:Special Weapon Replacements — one per five models
+  ENTRY r71-nl-terror-flamer Flamer default=None
+  ENTRY r71-nl-terror-rotor Rotor Cannon default=None
+  ENTRY r71-nl-terror-heavy-flamer Heavy Flamer default=None
+OWNER=r71-nl-shang-ret-0-r41-unit-viii-0-terror-squad:Terror Squad GROUP=r71-nl-shang-ret-0-r71-nl-terror-special:Special Weapon Replacements — one per five models
+  ENTRY r71-nl-shang-ret-0-r71-nl-terror-flamer Flamer default=None
+  ENTRY r71-nl-shang-ret-0-r71-nl-terror-rotor Rotor Cannon default=None
+  ENTRY r71-nl-shang-ret-0-r71-nl-terror-heavy-flamer Heavy Flamer default=None
+OWNER=r71-nl-curze-ret-3-r41-unit-viii-0-terror-squad:Terror Squad GROUP=r71-nl-curze-ret-3-r71-nl-terror-special:Special Weapon Replacements — one per five models
+  ENTRY r71-nl-curze-ret-3-r71-nl-terror-flamer Flamer default=None
+  ENTRY r71-nl-curze-ret-3-r71-nl-terror-rotor Rotor Cannon default=None
+  ENTRY r71-nl-curze-ret-3-r71-nl-terror-heavy-flamer Heavy Flamer default=None
+OWNER=r41-unit-ix-2-angel-s-tears-squad:ANGEL'S TEARS SQUAD GROUP=r74-ba-tears-special:Special Weapons — one per five models
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-0-rotor-cannon Rotor Cannon default=None
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-1-heavy-flamer Heavy Flamer default=None
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-2-angel-s-tears-grenade-launcher Angel's Tears Grenade Launcher default=None
+  ENTRY r41-unit-ix-2-angel-s-tears-squad-opt-3-assault-cannon-with-suspensor-web Assault Cannon with Suspensor Web default=None
+OWNER=r74-ba-zephon-tears-r41-unit-ix-2-angel-s-tears-squad:Angel’s Tears Squad GROUP=r74-ba-zephon-tears-r74-ba-tears-special:Special Weapons — one per five models
+  ENTRY r74-ba-zephon-tears-r41-unit-ix-2-angel-s-tears-squad-opt-0-rotor-cannon Rotor Cannon default=None
+  ENTRY r74-ba-zephon-tears-r41-unit-ix-2-angel-s-tears-squad-opt-1-heavy-flamer Heavy Flamer default=None
+  ENTRY r74-ba-zephon-tears-r41-unit-ix-2-angel-s-tears-squad-opt-2-angel-s-tears-grenade-launcher Angel's Tears Grenade Launcher default=None
+  ENTRY r74-ba-zephon-tears-r41-unit-ix-2-angel-s-tears-squad-opt-3-assault-cannon-with-suspensor-web Assault Cannon with Suspensor Web default=None
+OWNER=r45-dg-bike:Legion Bike Squadron GROUP=r45-dg-bike-fa-bike-special:Special Weapons — up to two Bikers replace Bolt Pistols
+  LINK r45-dg-bike-fa-bike-sp-f Flamer -> gear-flamer
+  LINK r45-dg-bike-fa-bike-sp-m Meltagun -> gear-meltagun
+  LINK r45-dg-bike-fa-bike-sp-p Plasma Gun -> gear-plasma-gun
+  LINK r45-dg-bike-da22-alt-pg-4 Calibanite Plasma Gun -> da22-plasma-gun
+  LINK r45-dg-bike-da22-alt-pr-4 Plasma Repeater -> da22-plasma-repeater
+  LINK r45-dg-bike-da22-alt-pb-4 Plasma Burner -> da22-plasma-burner
+OWNER=r57-iw-hammer-tactical:Legion Tactical Squad — Hammer Compulsory GROUP=r57-iw-hammer-tactical-tac-special-weapons:Special Weapons
+  LINK r57-iw-hammer-tactical-sp-f Flamer -> gear-flamer
+  LINK r57-iw-hammer-tactical-sp-m Meltagun -> gear-meltagun
+  LINK r57-iw-hammer-tactical-sp-p Plasma Gun -> gear-plasma-gun
+  LINK r57-iw-hammer-tactical-sp-vc Volkite Charger -> gear-volkite-charger
+  LINK r57-iw-hammer-tactical-sp-vcal Volkite Caliver -> gear-volkite-caliver
+  LINK r57-iw-hammer-tactical-sp-r Rotor Cannon -> gear-rotor
+  LINK r57-iw-hammer-tactical-da22-alt-pg-0 Calibanite Plasma Gun -> da22-plasma-gun
+  LINK r57-iw-hammer-tactical-da22-alt-pr-0 Plasma Repeater -> da22-plasma-repeater
+  LINK r57-iw-hammer-tactical-da22-alt-pb-0 Plasma Burner -> da22-plasma-burner
+OWNER=r60-ws-bike-troops:Legion Bike Squadron GROUP=r60-ws-bike-troops-fa-bike-special:Special Weapons — up to two Bikers replace Bolt Pistols
+  LINK r60-ws-bike-troops-fa-bike-sp-f Flamer -> gear-flamer
+  LINK r60-ws-bike-troops-fa-bike-sp-m Meltagun -> gear-meltagun
+  LINK r60-ws-bike-troops-fa-bike-sp-p Plasma Gun -> gear-plasma-gun
+  LINK r60-ws-bike-troops-da22-alt-pg-4 Calibanite Plasma Gun -> da22-plasma-gun
+  LINK r60-ws-bike-troops-da22-alt-pr-4 Plasma Repeater -> da22-plasma-repeater
+  LINK r60-ws-bike-troops-da22-alt-pb-4 Plasma Burner -> da22-plasma-burner
+OWNER=r71-nl-ta-terror-r41-unit-viii-0-terror-squad:Terror Squad — Terror Assault Troops GROUP=r71-nl-ta-terror-r71-nl-terror-special:Special Weapon Replacements — one per five models
+  ENTRY r71-nl-ta-terror-r71-nl-terror-flamer Flamer default=None
+  ENTRY r71-nl-ta-terror-r71-nl-terror-rotor Rotor Cannon default=None
+  ENTRY r71-nl-ta-terror-r71-nl-terror-heavy-flamer Heavy Flamer default=None
+
+=== RITES ===
+
+--- r25-rite-x-0-the-head-of-the-gorgon ---
+selectionEntry id=r25-rite-x-0-the-head-of-the-gorgon name=Iron Hands Rite of War — The Head Of The Gorgon type=upgrade hidden=true
+  constraints:
+    constraint id=r25-rite-x-0-the-head-of-the-gorgon-max type=max
+  modifiers:
+    modifier type=set
+      conditions:
+        condition type=lessThan
+    modifier id=r79-ih-head-show type=set
+      conditions:
+        condition type=atLeast
+  rules:
+    rule id=r79-ih-head-ground name=Ground of Choice hidden=false
+    rule id=r79-ih-head-relics name=Relics of War hidden=false
+    rule id=r79-ih-head-scions name=Scions of Iron hidden=false
+    rule id=r79-ih-head-encirclement name=Armoured Encirclement hidden=false
+    rule id=r79-ih-head-limits name=Limitations hidden=false
+
+--- r25-rite-x-1-company-of-bitter-iron ---
+selectionEntry id=r25-rite-x-1-company-of-bitter-iron name=Iron Hands Rite of War — Company Of Bitter Iron type=upgrade hidden=true
+  constraints:
+    constraint id=r25-rite-x-1-company-of-bitter-iron-max type=max
+  modifiers:
+    modifier type=set
+      conditions:
+        condition type=lessThan
+    modifier type=set
+      conditions:
+        condition type=lessThan
+    modifier id=r79-ih-bitter-show type=set
+      conditions:
+        condition type=atLeast
+        condition type=atLeast
+  rules:
+    rule id=r79-ih-bitter-company name=Company of Immortals hidden=false
+    rule id=r79-ih-bitter-hatred name=Immortal Hatred hidden=false
+    rule id=r79-ih-bitter-duty name=Bitter Duty hidden=false
+    rule id=r79-ih-bitter-purpose name=No Death Without Purpose hidden=false
+    rule id=r79-ih-bitter-limits name=Limitations hidden=false
+
+=== RITE ROLE CLONES / CATEGORIES ===
+r41-unit-x-0-medusan-immortal-squad | MEDUSAN IMMORTAL SQUAD | hidden=false cats=[('cat-troops', 'true')]
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden">
+          <ns0:conditions>
+            <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-x" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:conditions>
+        </ns0:modifier>
+      
+r41-unit-x-1-gorgon-terminator-squad | GORGON TERMINATOR SQUAD | hidden=false cats=[('cat-elites', 'true')]
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden">
+          <ns0:conditions>
+            <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-x" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:conditions>
+        </ns0:modifier>
+      
+r41-unit-x-7-x-ferrus-manus-the-gorgon | X — FERRUS MANUS, THE GORGON | hidden=false cats=[('cat-low', 'true')]
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden">
+          <ns0:conditions>
+            <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-x" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:conditions>
+        </ns0:modifier>
+        
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r44-ih-bitter-hide-ferrus" type="set" value="true" field="hidden">
+          <ns0:conditions>
+            <ns0:condition type="atLeast" value="1" field="selections" scope="force" childId="r25-rite-x-1-company-of-bitter-iron" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:conditions>
+        </ns0:modifier>
+        
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r79-ih-bitter-hide-ferrus" type="set" value="true" field="hidden">
+          <ns0:conditions>
+            <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-1-company-of-bitter-iron" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:conditions>
+        </ns0:modifier>
+      
+r42-role-x-1-effects-company-of-immortals-medusan-immortal-squads-r41-unit-x-0-medusan-immortal-squad | MEDUSAN IMMORTAL SQUAD | hidden=true cats=[('cat-troops', 'true'), ('r79-ih-bitter-comp', 'false')]
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden">
+          <ns0:conditions>
+            <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-x" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:conditions>
+        </ns0:modifier>
+        
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" type="set" value="true" field="hidden" id="r42-role-x-1-effects-company-of-immortals-medusan-immortal-squads-hide">
+          <ns0:conditions>
+            <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="r25-rite-x-1-company-of-bitter-iron" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:conditions>
+        </ns0:modifier>
+        
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r79-ih-bitter-role-show" type="set" value="false" field="hidden">
+          <ns0:conditions>
+            <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-x" shared="true" includeChildSelections="true" includeChildForces="false" />
+            <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-1-company-of-bitter-iron" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:conditions>
+        </ns0:modifier>
+      
+r46-al-reward-25 | MEDUSAN IMMORTAL SQUAD — Rewards of Treachery | hidden=false cats=[('cat-elites', 'true'), ('cat-alpha-reward', None)]
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-425" type="set" value="true" field="hidden">
+          <ns0:conditions>
+            <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="legion-xx" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:conditions>
+        </ns0:modifier>
+        
+  MOD <ns0:modifier xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="r48-vis-426" type="set" value="true" field="hidden">
+          <ns0:conditions>
+            <ns0:condition type="lessThan" value="1" field="selections" scope="force" childId="r25-rite-xx-0-the-coils-of-the-hydra" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:conditions>
+        </ns0:modifier>
+      
+
+=== GST FAST / FORCE STANDARD ===
+
+--- fl-fast ---
+<ns0:categoryLink xmlns:ns0="http://www.battlescribe.net/schema/gameSystemSchema" id="fl-fast" name="Fast Attack" hidden="false" targetId="cat-fast">
+          <ns0:constraints>
+            <ns0:constraint id="fl-fast-max" field="selections" scope="parent" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r43-iw-fast-max" type="set" value="1" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-iv" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r44-ih-gorgon-fast-max" type="set" value="1" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r64-if-stone-fast-max" type="set" value="1" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-0-the-stone-gauntlet" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r64-if-templar-fast-max" type="set" value="1" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-2-templar-assault" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r73-nl-fl-fast" type="set" value="4" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:categoryLink>
+        
+
+--- force-standard ---
+<ns0:forceEntry xmlns:ns0="http://www.battlescribe.net/schema/gameSystemSchema" id="force-standard" name="Standard Age of Darkness Detachment" hidden="false">
+      <ns0:categoryLinks>
+        <ns0:categoryLink id="fl-config" name="Configuration" hidden="false" targetId="cat-config">
+          <ns0:constraints>
+            <ns0:constraint id="fl-config-min" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="min" />
+            <ns0:constraint id="fl-config-max" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+          </ns0:constraints>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="fl-hq" name="HQ" hidden="false" targetId="cat-hq">
+          <ns0:constraints>
+            <ns0:constraint id="fl-hq-min" field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="min" />
+            <ns0:constraint id="fl-hq-max" field="selections" scope="parent" value="2" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r45-um-hq-max" type="set" value="4" field="fl-hq-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-xiii" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r45-um-logos-hq-min" type="set" value="2" field="fl-hq-min">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-xiii-0-the-logos-lectora" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r62-sw-hq-min-reset" type="set" value="0" field="fl-hq-min">
+              <ns0:conditionGroups>
+                <ns0:conditionGroup type="and">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-vi" shared="true" includeChildSelections="true" includeChildForces="false" />
+                    <ns0:condition type="greaterThan" value="0" field="limit::pts" scope="roster" childId="model" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:conditionGroup>
+              </ns0:conditionGroups>
+            </ns0:modifier>
+            <ns0:modifier id="r62-sw-hq-max-reset" type="set" value="0" field="fl-hq-max">
+              <ns0:conditionGroups>
+                <ns0:conditionGroup type="and">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-vi" shared="true" includeChildSelections="true" includeChildForces="false" />
+                    <ns0:condition type="greaterThan" value="0" field="limit::pts" scope="roster" childId="model" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:conditionGroup>
+              </ns0:conditionGroups>
+            </ns0:modifier>
+            <ns0:modifier id="r62-sw-hq-min-scale" type="increment" value="1" field="fl-hq-min">
+              <ns0:repeats>
+                <ns0:repeat field="limit::pts" scope="roster" value="750" shared="true" childId="model" includeChildSelections="true" includeChildForces="false" repeats="1" roundUp="true" />
+              </ns0:repeats>
+              <ns0:conditionGroups>
+                <ns0:conditionGroup type="and">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-vi" shared="true" includeChildSelections="true" includeChildForces="false" />
+                    <ns0:condition type="greaterThan" value="0" field="limit::pts" scope="roster" childId="model" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:conditionGroup>
+              </ns0:conditionGroups>
+            </ns0:modifier>
+            <ns0:modifier id="r62-sw-hq-max-scale" type="increment" value="1" field="fl-hq-max">
+              <ns0:repeats>
+                <ns0:repeat field="limit::pts" scope="roster" value="750" shared="true" childId="model" includeChildSelections="true" includeChildForces="false" repeats="1" roundUp="true" />
+              </ns0:repeats>
+              <ns0:conditionGroups>
+                <ns0:conditionGroup type="and">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-vi" shared="true" includeChildSelections="true" includeChildForces="false" />
+                    <ns0:condition type="greaterThan" value="0" field="limit::pts" scope="roster" childId="model" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:conditionGroup>
+              </ns0:conditionGroups>
+            </ns0:modifier>
+            <ns0:modifier id="r62-sw-hq-unlimited-max" type="set" value="4" field="fl-hq-max">
+              <ns0:conditionGroups>
+                <ns0:conditionGroup type="and">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-vi" shared="true" includeChildSelections="true" includeChildForces="false" />
+                    <ns0:condition type="lessThan" value="0" field="limit::pts" scope="roster" childId="model" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:conditionGroup>
+              </ns0:conditionGroups>
+            </ns0:modifier>
+            <ns0:modifier id="r71-nl-mawdrym-hq-min" type="set" value="2" field="fl-hq-min">
+              <ns0:conditionGroups>
+                <ns0:conditionGroup type="and">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r41-unit-viii-8-flaymaster-mawdrym-llansahai" shared="true" includeChildSelections="true" includeChildForces="false" />
+                    <ns0:condition type="lessThan" value="1" field="selections" scope="roster" childId="da22-rite-primarchs-chosen" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:conditionGroup>
+              </ns0:conditionGroups>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="fl-troops" name="Troops" hidden="false" targetId="cat-troops">
+          <ns0:constraints>
+            <ns0:constraint id="fl-troops-min" field="selections" scope="parent" value="2" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="min" />
+            <ns0:constraint id="fl-troops-max" field="selections" scope="parent" value="6" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r45-um-logos-troops-min" type="set" value="3" field="fl-troops-min">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-xiii-0-the-logos-lectora" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r46-al-coils-troops-min" type="set" value="3" field="fl-troops-min">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-xx-0-the-coils-of-the-hydra" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="fl-elites" name="Elites" hidden="false" targetId="cat-elites">
+          <ns0:constraints>
+            <ns0:constraint id="fl-elites-max" field="selections" scope="parent" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+          </ns0:constraints>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="fl-fast" name="Fast Attack" hidden="false" targetId="cat-fast">
+          <ns0:constraints>
+            <ns0:constraint id="fl-fast-max" field="selections" scope="parent" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r43-iw-fast-max" type="set" value="1" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-iv" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r44-ih-gorgon-fast-max" type="set" value="1" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r64-if-stone-fast-max" type="set" value="1" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-0-the-stone-gauntlet" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r64-if-templar-fast-max" type="set" value="1" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-vii-2-templar-assault" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r73-nl-fl-fast" type="set" value="4" field="fl-fast-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="legion-viii" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+        </ns0:categoryLink>
+        <ns0:categoryLink id="fl-heavy" name="Heavy Support" hidden="false" targetId="cat-heavy">
+          <ns0:constraints>
+            <ns0:constraint id="fl-heavy-max" field="selections" scope="parent" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" type="max" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r43-ec-maru-heavy-max" type="set" value="2" field="fl-heavy-max">
+              <ns0:conditions>
+                <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-iii-0-the-maru-skara" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+            <ns0:modifier id="r43-iw-heavy-max" t
