@@ -4,9 +4,9 @@ on:
   push:
     paths:
       - '.github/build/rev86_world_eaters_full.py'
+      - '.github/build/rev86_world_eaters_full_v2.py'
       - '.github/workflows/apply-r86-world-eaters-full.yml'
 
-# Touch after workflow creation so the push trigger executes on main.
 jobs:
   apply:
     runs-on: ubuntu-latest
@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Apply World Eaters Revision 86
-        run: python .github/build/rev86_world_eaters_full.py
+        run: python .github/build/rev86_world_eaters_full_v2.py
       - name: Run permanent unit-size audit
         run: python .github/build/r56_audit_all_unit_sizes.py
       - name: Verify XML
@@ -26,9 +26,27 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import xml.etree.ElementTree as ET
+          NS='http://www.battlescribe.net/schema/catalogueSchema'
+          C=lambda t:f'{{{NS}}}{t}'
           root=ET.parse('Legiones Astartes.cat').getroot()
           assert root.get('revision')=='86'
           assert root.get('gameSystemRevision')=='51'
+          # Devourers: 225 for five, up to five more at 45 each.
+          dev=next(e for e in root.iter(C('selectionEntry')) if e.get('id')=='r41-unit-xii-4-devourer-terminator-squad')
+          pts=next(c for c in dev.findall('./'+C('costs')+'/'+C('cost')) if c.get('typeId')=='pts')
+          assert float(pts.get('value'))==225
+          add=next(e for e in dev.iter(C('selectionEntry')) if (e.get('name') or '').lower().startswith('additional model'))
+          addpts=next(c for c in add.findall('./'+C('costs')+'/'+C('cost')) if c.get('typeId')=='pts')
+          assert float(addpts.get('value'))==45
+          assert any(c.get('type')=='max' and c.get('field')=='selections' and c.get('value') in ('5','5.0') for c in add.findall('./'+C('constraints')+'/'+C('constraint')))
+          # Kharn must use game-size semantics, not selection-ratio semantics.
+          kh=next(e for e in root.iter(C('selectionEntry')) if e.get('id')=='r41-unit-xii-6-kharn-the-bloody')
+          assert any(c.get('field','').lower()=='limit::points' and c.get('type')=='min' and c.get('value') in ('1500','1500.0') for c in kh.findall('./'+C('constraints')+'/'+C('constraint')))
+          # Daemon Angron must contain the key functional rule blocks.
+          ang=next(e for e in root.iter(C('selectionEntry')) if e.get('id')=='r41-unit-xii-13-angron-the-red-angel')
+          rnames={(r.get('name') or '') for r in ang.findall('./'+C('rules')+'/'+C('rule'))}
+          for required in ('Blood Calls to Blood','The Red Angel Descends','The Nails Sing','Daemonic Flight','Blades of the Red Angel'):
+              assert required in rnames, required
           raw=Path('Legiones Astartes.cat').read_text(encoding='utf-8')
           assert '<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema"' in raw
           assert '<ns0:' not in raw
