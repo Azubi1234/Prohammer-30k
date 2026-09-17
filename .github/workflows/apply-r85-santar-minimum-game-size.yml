@@ -1,0 +1,58 @@
+name: Apply Revision 85 Santar minimum game size
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev85_santar_minimum_game_size.py'
+      - '.github/workflows/apply-r85-santar-minimum-game-size.yml'
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Correct Gabriel Santar minimum game size
+        run: python .github/build/rev85_santar_minimum_game_size.py
+
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+
+      - name: Verify Revision 85
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          NS='http://www.battlescribe.net/schema/catalogueSchema'
+          C=lambda t:f'{{{NS}}}{t}'
+          root=ET.parse('Legiones Astartes.cat').getroot()
+          assert root.get('revision') == '85'
+          assert root.get('gameSystemRevision') == '51'
+          santar=next(e for e in root.iter(C('selectionEntry')) if e.get('id')=='r41-unit-x-6-gabriel-santar')
+          cons=santar.find(C('constraints'))
+          gate=next(x for x in cons.findall(C('constraint')) if x.get('id')=='r79-ih-santar-1500')
+          assert gate.get('field','').lower() == 'limit::points'
+          assert gate.get('scope') == 'roster'
+          assert gate.get('type') == 'min'
+          assert gate.get('value') in ('1500','1500.0')
+          assert not any(x.get('field')=='selections' and x.get('value') in ('1500','1500.0') for x in cons.findall(C('constraint')))
+          assert any(x.get('field')=='selections' and x.get('type')=='max' and x.get('value') in ('1','1.0') for x in cons.findall(C('constraint')))
+          raw=Path('Legiones Astartes.cat').read_text(encoding='utf-8')
+          assert '<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema"' in raw
+          assert '<ns0:' not in raw
+          print(open('inspection-r85-santar-minimum-game-size.txt',encoding='utf-8').read())
+          PY
+
+      - name: Commit live Revision 85
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' index.xml inspection-r85-santar-minimum-game-size.txt inspection-r56-all-unit-sizes.txt
+          git diff --cached --quiet || git commit -m 'Revision 85: fix Gabriel Santar minimum game size'
+          git pull --rebase origin main
+          for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
