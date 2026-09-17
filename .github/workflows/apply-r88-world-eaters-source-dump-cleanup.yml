@@ -1,0 +1,59 @@
+name: Apply Revision 88 World Eaters source dump cleanup
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev88_world_eaters_source_dump_hard_cleanup.py'
+      - '.github/workflows/apply-r88-world-eaters-source-dump-cleanup.yml'
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply Revision 88 hard cleanup
+        run: python .github/build/rev88_world_eaters_source_dump_hard_cleanup.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 88
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, xml.etree.ElementTree as ET
+          NS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{NS}}}{t}'
+          r=ET.parse('Legiones Astartes.cat').getroot()
+          assert r.get('revision')=='88'
+          assert r.get('gameSystemRevision')=='51'
+          def norm(s): return re.sub(r'\s+',' ',(s or '').strip()).lower()
+          def text(e): return ' '.join((x.text or '').strip() for x in e.iter() if (x.text or '').strip())
+          def blob(s):
+              lo=norm(s); return sum(k in lo for k in ('force organisation:','unit type:','wargear:','special rules:'))>=3
+          delvs=[e for e in r.iter(C('selectionEntry')) if e.get('type')=='unit' and norm(e.get('name'))=='delvarus']
+          assert delvs
+          for u in delvs:
+              for x in u.iter():
+                  if x is u: continue
+                  assert not norm(x.get('name')).startswith('source entry')
+                  if x.tag in (C('rule'),C('profile')): assert not blob(text(x))
+              groups={norm(g.get('name')) for g in u.findall('./'+C('selectionEntryGroups')+'/'+C('selectionEntryGroup'))}
+              assert 'wargear' in groups and 'special rules' in groups
+          raw=Path('Legiones Astartes.cat').read_text(encoding='utf-8')
+          assert '<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema"' in raw
+          assert '<ns0:' not in raw
+          idx=Path('index.xml').read_text(encoding='utf-8')
+          assert 'filePath="Legiones Astartes.cat"' in idx and 'dataRevision="88"' in idx
+          print(Path('inspection-r88-world-eaters-source-dump-cleanup.txt').read_text())
+          PY
+      - name: Commit live Revision 88
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' index.xml inspection-r88-world-eaters-source-dump-cleanup.txt inspection-r56-all-unit-sizes.txt
+          git diff --cached --quiet || git commit -m 'Revision 88: remove World Eaters Source Entry dumps'
+          git pull --rebase origin main
+          for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
