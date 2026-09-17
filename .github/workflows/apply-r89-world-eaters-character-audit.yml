@@ -1,0 +1,56 @@
+name: Apply Revision 89 World Eaters character audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev89_world_eaters_character_audit.py'
+      - '.github/workflows/apply-r89-world-eaters-character-audit.yml'
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply Revision 89 character audit
+        run: python .github/build/rev89_world_eaters_character_audit.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 89
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, xml.etree.ElementTree as ET
+          NS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{NS}}}{t}'
+          r=ET.parse('Legiones Astartes.cat').getroot()
+          assert r.get('revision')=='89'; assert r.get('gameSystemRevision')=='51'
+          ids=['r41-unit-xii-6-kharn-the-bloody','r41-unit-xii-7-shabran-darr','r41-unit-xii-8-gahlan-surlak','r41-unit-xii-9-kargos-the-bloodspitter','r41-unit-xii-10-captain-ehrlen','r41-unit-xii-11-delvarus','r41-unit-xii-12-xii-angron-the-red-angel','r41-unit-xii-13-angron-the-red-angel']
+          for uid in ids:
+              u=next(e for e in r.iter(C('selectionEntry')) if e.get('id')==uid)
+              groups=[re.sub(r'\s+',' ',(g.get('name') or '').strip()).lower() for g in u.findall('./'+C('selectionEntryGroups')+'/'+C('selectionEntryGroup'))]
+              assert groups.count('wargear')==1,(uid,groups)
+              assert groups.count('special rules')==1,(uid,groups)
+              for x in u.iter():
+                  assert not (x.get('name') or '').strip().lower().startswith('source entry'),(uid,x.get('name'))
+          kh=next(e for e in r.iter(C('selectionEntry')) if e.get('id')==ids[0])
+          assert any((e.get('name') or '')=='The Cutter' for e in kh.iter(C('selectionEntry')))
+          assert any((e.get('name') or '')=='Gorechild' for e in kh.iter(C('selectionEntry')))
+          da=next(e for e in r.iter(C('selectionEntry')) if e.get('id')==ids[-1])
+          for nm in ('Daemon','Fear','Fearless','Fleet','Furious Charge','Eternal Warrior','Adamantium Will','Master of the Legion','Daemonic Flight','Blood Calls to Blood','The Red Angel Descends','The Nails Sing'):
+              assert any((e.get('name') or '')==nm for e in da.iter(C('selectionEntry'))),nm
+          raw=Path('Legiones Astartes.cat').read_text(encoding='utf-8'); assert '<ns0:' not in raw
+          idx=Path('index.xml').read_text(encoding='utf-8'); assert 'dataRevision="89"' in idx
+          print(Path('inspection-r89-world-eaters-character-audit.txt').read_text())
+          PY
+      - name: Commit live Revision 89
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' index.xml inspection-r89-world-eaters-character-audit.txt inspection-r56-all-unit-sizes.txt
+          git diff --cached --quiet || git commit -m 'Revision 89: audit all World Eaters characters'
+          git pull --rebase origin main
+          for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
