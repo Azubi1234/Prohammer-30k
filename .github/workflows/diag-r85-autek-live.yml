@@ -1,0 +1,24 @@
+name: Diagnose live Autek subtree
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/r85_diag_autek_live.py'
+      - '.github/workflows/diag-r85-autek-live.yml'
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.x'}
+      - run: python .github/build/r85_diag_autek_live.py
+      - run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add inspection-r85-autek-live.txt
+          git diff --cached --quiet || git commit -m 'R85 diagnostic: live Autek subtree'
+          git pull --rebase origin main
+          git push
