@@ -1,0 +1,25 @@
+Revision 83 — Iron Hands Scions final correction
+CAT=83 GST=50
+Removed prior generated Scions entries: 0
+Added explicit legal Scions choices: 18
+Scions are now attached only to the known normal-Rhino Dedicated Transport groups listed below.
+Medusan Immortals also regained their current-source Dedicated Transport menu for squads of 10 or fewer: Rhino, Drop Pod, Dreadclaw, Phobos or Proteus.
+
+- tactical-unit / tac-transport: Land Raider Phobos (Scions of Iron)
+- tactical-unit / tac-transport: Land Raider Proteus (Scions of Iron)
+- recon-unit / recon-transport: Land Raider Phobos (Scions of Iron)
+- recon-unit / recon-transport: Land Raider Proteus (Scions of Iron)
+- veteran-unit / veteran-transport: Land Raider Phobos (Scions of Iron)
+- veteran-unit / veteran-transport: Land Raider Proteus (Scions of Iron)
+- destroyer-unit / destroyer-transport: Land Raider Phobos (Scions of Iron)
+- destroyer-unit / destroyer-transport: Land Raider Proteus (Scions of Iron)
+- fa-seeker / fa-seeker-transport: Land Raider Phobos (Scions of Iron)
+- fa-seeker / fa-seeker-transport: Land Raider Proteus (Scions of Iron)
+- hs-heavy-support-squad / hs-hss-transport: Land Raider Phobos (Scions of Iron)
+- hs-heavy-support-squad / hs-hss-transport: Land Raider Proteus (Scions of Iron)
+- hq-praetor-ret-honour / hq-praetor-ret-honour-transport: Land Raider Phobos (Scions of Iron)
+- hq-praetor-ret-honour / hq-praetor-ret-honour-transport: Land Raider Proteus (Scions of Iron)
+- hq-centurion-ret-command / hq-centurion-ret-command-transport: Land Raider Phobos (Scions of Iron)
+- hq-centurion-ret-command / hq-centurion-ret-command-transport: Land Raider Proteus (Scions of Iron)
+- techmarine-covenant / techmarine-I-transport: Land Raider Phobos (Scions of Iron)
+- techmarine-covenant / techmarine-I-transport: Land Raider Proteus (Scions of Iron)

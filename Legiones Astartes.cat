@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ns0:catalogue xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="82" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="49" type="catalogue">
+<ns0:catalogue xmlns:ns0="http://www.battlescribe.net/schema/catalogueSchema" id="cat-30a0-30b0-30c0-0001" name="Legiones Astartes" revision="83" battleScribeVersion="2.03" library="false" gameSystemId="sys-a1d2-5ede-e74f-7479" gameSystemRevision="50" type="catalogue">
   <ns0:comment>Revision 62: Space Wolves Legion base rules verified against Forces of the Legions; HQ organisation now scales one selection per full or partial 750 roster-limit points.</ns0:comment>
   <ns0:readme>Core Legiones Astartes catalogue for Prohammer 30k. Revision 32 includes the generic Legion army list and Consuls, Dark Angels package, Legiones Astartes Lords of War, and Legiones Astartes Aeronautica Imperialis aircraft. Experimental Wargear and Units remains excluded.</ns0:readme>
   <ns0:sharedSelectionEntries>
@@ -4848,7 +4848,57 @@
             </ns0:entryLink>
           </ns0:entryLinks>
           <ns0:selectionEntries>
-            </ns0:selectionEntries>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Phobos (Scions of Iron)" id="r83-ih-scions-0-hq-praetor-ret-honour-land-land-raider-phobos" hidden="true" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="250" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Phobos" id="r83-ih-scions-0-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-scions-0-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+              <ns0:modifiers>
+                <ns0:modifier id="r83-ih-scions-0-show-head" type="set" value="false" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              </ns0:modifiers>
+            </ns0:selectionEntry>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Proteus (Scions of Iron)" id="r83-ih-scions-1-hq-praetor-ret-honour-land-land-raider-proteus" hidden="true" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="200" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Proteus" id="r83-ih-scions-1-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-scions-1-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+              <ns0:modifiers>
+                <ns0:modifier id="r83-ih-scions-1-show-head" type="set" value="false" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              </ns0:modifiers>
+            </ns0:selectionEntry>
+          </ns0:selectionEntries>
         </ns0:selectionEntryGroup>
         <ns0:selectionEntryGroup name="Hexagrammaton Wing" hidden="false" id="da-wing-tactical-unit" collective="false" import="true">
           <ns0:constraints>
@@ -9395,7 +9445,57 @@
             </ns0:entryLink>
           </ns0:entryLinks>
           <ns0:selectionEntries>
-            </ns0:selectionEntries>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Phobos (Scions of Iron)" id="r83-ih-scions-2-hq-praetor-ret-honour-land-land-raider-phobos" hidden="true" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="250" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Phobos" id="r83-ih-scions-2-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-scions-2-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+              <ns0:modifiers>
+                <ns0:modifier id="r83-ih-scions-2-show-head" type="set" value="false" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              </ns0:modifiers>
+            </ns0:selectionEntry>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Proteus (Scions of Iron)" id="r83-ih-scions-3-hq-praetor-ret-honour-land-land-raider-proteus" hidden="true" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="200" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Proteus" id="r83-ih-scions-3-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-scions-3-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+              <ns0:modifiers>
+                <ns0:modifier id="r83-ih-scions-3-show-head" type="set" value="false" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              </ns0:modifiers>
+            </ns0:selectionEntry>
+          </ns0:selectionEntries>
         </ns0:selectionEntryGroup>
         <ns0:selectionEntryGroup name="Hexagrammaton Wing" hidden="false" id="da-wing-recon-unit" collective="false" import="true">
           <ns0:constraints>
@@ -11025,7 +11125,57 @@
             </ns0:modifier>
           </ns0:modifiers>
           <ns0:selectionEntries>
-            </ns0:selectionEntries>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Phobos (Scions of Iron)" id="r83-ih-scions-4-hq-praetor-ret-honour-land-land-raider-phobos" hidden="true" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="250" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Phobos" id="r83-ih-scions-4-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-scions-4-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+              <ns0:modifiers>
+                <ns0:modifier id="r83-ih-scions-4-show-head" type="set" value="false" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              </ns0:modifiers>
+            </ns0:selectionEntry>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Proteus (Scions of Iron)" id="r83-ih-scions-5-hq-praetor-ret-honour-land-land-raider-proteus" hidden="true" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="200" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Proteus" id="r83-ih-scions-5-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-scions-5-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+              <ns0:modifiers>
+                <ns0:modifier id="r83-ih-scions-5-show-head" type="set" value="false" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              </ns0:modifiers>
+            </ns0:selectionEntry>
+          </ns0:selectionEntries>
         </ns0:selectionEntryGroup>
         <ns0:selectionEntryGroup name="Hexagrammaton Wing" hidden="false" id="da-wing-veteran-unit" collective="false" import="true">
           <ns0:constraints>
@@ -14022,7 +14172,57 @@
             </ns0:modifier>
           </ns0:modifiers>
           <ns0:selectionEntries>
-            </ns0:selectionEntries>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Phobos (Scions of Iron)" id="r83-ih-scions-6-hq-praetor-ret-honour-land-land-raider-phobos" hidden="true" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="250" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Phobos" id="r83-ih-scions-6-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-scions-6-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+              <ns0:modifiers>
+                <ns0:modifier id="r83-ih-scions-6-show-head" type="set" value="false" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              </ns0:modifiers>
+            </ns0:selectionEntry>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Proteus (Scions of Iron)" id="r83-ih-scions-7-hq-praetor-ret-honour-land-land-raider-proteus" hidden="true" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="200" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Proteus" id="r83-ih-scions-7-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-scions-7-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+              <ns0:modifiers>
+                <ns0:modifier id="r83-ih-scions-7-show-head" type="set" value="false" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              </ns0:modifiers>
+            </ns0:selectionEntry>
+          </ns0:selectionEntries>
         </ns0:selectionEntryGroup>
         <ns0:selectionEntryGroup name="Hexagrammaton Wing" hidden="false" id="da-wing-destroyer-unit" collective="false" import="true">
           <ns0:constraints>
@@ -15085,7 +15285,57 @@
                 </ns0:modifier>
               </ns0:modifiers>
               <ns0:selectionEntries>
-                </ns0:selectionEntries>
+                <ns0:selectionEntry type="upgrade" name="Land Raider Phobos (Scions of Iron)" id="r83-ih-scions-16-hq-praetor-ret-honour-land-land-raider-phobos" hidden="true" import="true">
+                  <ns0:costs>
+                    <ns0:cost name="Points" typeId="pts" value="250" />
+                  </ns0:costs>
+                  <ns0:profiles>
+                    <ns0:profile name="Land Raider Phobos" id="r83-ih-scions-16-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                      <ns0:characteristics>
+                        <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                        <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                        <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                        <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                      </ns0:characteristics>
+                    </ns0:profile>
+                  </ns0:profiles>
+                  <ns0:constraints>
+                    <ns0:constraint id="r83-ih-scions-16-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:constraints>
+                  <ns0:modifiers>
+                    <ns0:modifier id="r83-ih-scions-16-show-head" type="set" value="false" field="hidden">
+                      <ns0:conditions>
+                        <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                      </ns0:conditions>
+                    </ns0:modifier>
+                  </ns0:modifiers>
+                </ns0:selectionEntry>
+                <ns0:selectionEntry type="upgrade" name="Land Raider Proteus (Scions of Iron)" id="r83-ih-scions-17-hq-praetor-ret-honour-land-land-raider-proteus" hidden="true" import="true">
+                  <ns0:costs>
+                    <ns0:cost name="Points" typeId="pts" value="200" />
+                  </ns0:costs>
+                  <ns0:profiles>
+                    <ns0:profile name="Land Raider Proteus" id="r83-ih-scions-17-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                      <ns0:characteristics>
+                        <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                        <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                        <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                        <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                      </ns0:characteristics>
+                    </ns0:profile>
+                  </ns0:profiles>
+                  <ns0:constraints>
+                    <ns0:constraint id="r83-ih-scions-17-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:constraints>
+                  <ns0:modifiers>
+                    <ns0:modifier id="r83-ih-scions-17-show-head" type="set" value="false" field="hidden">
+                      <ns0:conditions>
+                        <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                      </ns0:conditions>
+                    </ns0:modifier>
+                  </ns0:modifiers>
+                </ns0:selectionEntry>
+              </ns0:selectionEntries>
             </ns0:selectionEntryGroup>
           </ns0:selectionEntryGroups>
           <ns0:selectionEntries>
@@ -20398,7 +20648,57 @@
             </ns0:entryLink>
           </ns0:entryLinks>
           <ns0:selectionEntries>
-            </ns0:selectionEntries>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Phobos (Scions of Iron)" id="r83-ih-scions-8-hq-praetor-ret-honour-land-land-raider-phobos" hidden="true" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="250" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Phobos" id="r83-ih-scions-8-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-scions-8-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+              <ns0:modifiers>
+                <ns0:modifier id="r83-ih-scions-8-show-head" type="set" value="false" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              </ns0:modifiers>
+            </ns0:selectionEntry>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Proteus (Scions of Iron)" id="r83-ih-scions-9-hq-praetor-ret-honour-land-land-raider-proteus" hidden="true" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="200" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Proteus" id="r83-ih-scions-9-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-scions-9-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+              <ns0:modifiers>
+                <ns0:modifier id="r83-ih-scions-9-show-head" type="set" value="false" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              </ns0:modifiers>
+            </ns0:selectionEntry>
+          </ns0:selectionEntries>
         </ns0:selectionEntryGroup>
         <ns0:selectionEntryGroup name="Hexagrammaton Wing" hidden="false" id="da-wing-fa-seeker" collective="false" import="true">
           <ns0:constraints>
@@ -23956,7 +24256,57 @@
             </ns0:entryLink>
           </ns0:entryLinks>
           <ns0:selectionEntries>
-            </ns0:selectionEntries>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Phobos (Scions of Iron)" id="r83-ih-scions-10-hq-praetor-ret-honour-land-land-raider-phobos" hidden="true" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="250" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Phobos" id="r83-ih-scions-10-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-scions-10-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+              <ns0:modifiers>
+                <ns0:modifier id="r83-ih-scions-10-show-head" type="set" value="false" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              </ns0:modifiers>
+            </ns0:selectionEntry>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Proteus (Scions of Iron)" id="r83-ih-scions-11-hq-praetor-ret-honour-land-land-raider-proteus" hidden="true" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="200" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Proteus" id="r83-ih-scions-11-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-scions-11-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+              <ns0:modifiers>
+                <ns0:modifier id="r83-ih-scions-11-show-head" type="set" value="false" field="hidden">
+                  <ns0:conditions>
+                    <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                  </ns0:conditions>
+                </ns0:modifier>
+              </ns0:modifiers>
+            </ns0:selectionEntry>
+          </ns0:selectionEntries>
         </ns0:selectionEntryGroup>
         <ns0:selectionEntryGroup name="Hexagrammaton Wing" hidden="false" id="da-wing-hs-heavy-support-squad" collective="false" import="true">
           <ns0:constraints>
@@ -31859,7 +32209,57 @@
                     </ns0:selectionEntryGroup>
                   </ns0:selectionEntryGroups>
                   <ns0:selectionEntries>
-                    </ns0:selectionEntries>
+                    <ns0:selectionEntry type="upgrade" name="Land Raider Phobos (Scions of Iron)" id="r83-ih-scions-12-hq-praetor-ret-honour-land-land-raider-phobos" hidden="true" import="true">
+                      <ns0:costs>
+                        <ns0:cost name="Points" typeId="pts" value="250" />
+                      </ns0:costs>
+                      <ns0:profiles>
+                        <ns0:profile name="Land Raider Phobos" id="r83-ih-scions-12-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                          <ns0:characteristics>
+                            <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                            <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                            <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                            <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                          </ns0:characteristics>
+                        </ns0:profile>
+                      </ns0:profiles>
+                      <ns0:constraints>
+                        <ns0:constraint id="r83-ih-scions-12-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+                      </ns0:constraints>
+                      <ns0:modifiers>
+                        <ns0:modifier id="r83-ih-scions-12-show-head" type="set" value="false" field="hidden">
+                          <ns0:conditions>
+                            <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </ns0:conditions>
+                        </ns0:modifier>
+                      </ns0:modifiers>
+                    </ns0:selectionEntry>
+                    <ns0:selectionEntry type="upgrade" name="Land Raider Proteus (Scions of Iron)" id="r83-ih-scions-13-hq-praetor-ret-honour-land-land-raider-proteus" hidden="true" import="true">
+                      <ns0:costs>
+                        <ns0:cost name="Points" typeId="pts" value="200" />
+                      </ns0:costs>
+                      <ns0:profiles>
+                        <ns0:profile name="Land Raider Proteus" id="r83-ih-scions-13-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                          <ns0:characteristics>
+                            <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                            <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                            <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                            <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                          </ns0:characteristics>
+                        </ns0:profile>
+                      </ns0:profiles>
+                      <ns0:constraints>
+                        <ns0:constraint id="r83-ih-scions-13-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+                      </ns0:constraints>
+                      <ns0:modifiers>
+                        <ns0:modifier id="r83-ih-scions-13-show-head" type="set" value="false" field="hidden">
+                          <ns0:conditions>
+                            <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </ns0:conditions>
+                        </ns0:modifier>
+                      </ns0:modifiers>
+                    </ns0:selectionEntry>
+                  </ns0:selectionEntries>
                 </ns0:selectionEntryGroup>
               </ns0:selectionEntryGroups>
             </ns0:selectionEntry>
@@ -42122,7 +42522,57 @@ All other equipment is selected normally from the Space Marine Armoury.</ns0:des
                     </ns0:modifier>
                   </ns0:modifiers>
                   <ns0:selectionEntries>
-                    </ns0:selectionEntries>
+                    <ns0:selectionEntry type="upgrade" name="Land Raider Phobos (Scions of Iron)" id="r83-ih-scions-14-hq-praetor-ret-honour-land-land-raider-phobos" hidden="true" import="true">
+                      <ns0:costs>
+                        <ns0:cost name="Points" typeId="pts" value="250" />
+                      </ns0:costs>
+                      <ns0:profiles>
+                        <ns0:profile name="Land Raider Phobos" id="r83-ih-scions-14-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                          <ns0:characteristics>
+                            <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                            <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                            <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                            <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                          </ns0:characteristics>
+                        </ns0:profile>
+                      </ns0:profiles>
+                      <ns0:constraints>
+                        <ns0:constraint id="r83-ih-scions-14-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+                      </ns0:constraints>
+                      <ns0:modifiers>
+                        <ns0:modifier id="r83-ih-scions-14-show-head" type="set" value="false" field="hidden">
+                          <ns0:conditions>
+                            <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </ns0:conditions>
+                        </ns0:modifier>
+                      </ns0:modifiers>
+                    </ns0:selectionEntry>
+                    <ns0:selectionEntry type="upgrade" name="Land Raider Proteus (Scions of Iron)" id="r83-ih-scions-15-hq-praetor-ret-honour-land-land-raider-proteus" hidden="true" import="true">
+                      <ns0:costs>
+                        <ns0:cost name="Points" typeId="pts" value="200" />
+                      </ns0:costs>
+                      <ns0:profiles>
+                        <ns0:profile name="Land Raider Proteus" id="r83-ih-scions-15-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                          <ns0:characteristics>
+                            <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                            <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                            <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                            <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                          </ns0:characteristics>
+                        </ns0:profile>
+                      </ns0:profiles>
+                      <ns0:constraints>
+                        <ns0:constraint id="r83-ih-scions-15-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+                      </ns0:constraints>
+                      <ns0:modifiers>
+                        <ns0:modifier id="r83-ih-scions-15-show-head" type="set" value="false" field="hidden">
+                          <ns0:conditions>
+                            <ns0:condition type="atLeast" value="1" field="selections" scope="roster" childId="r25-rite-x-0-the-head-of-the-gorgon" shared="true" includeChildSelections="true" includeChildForces="false" />
+                          </ns0:conditions>
+                        </ns0:modifier>
+                      </ns0:modifiers>
+                    </ns0:selectionEntry>
+                  </ns0:selectionEntries>
                 </ns0:selectionEntryGroup>
               </ns0:selectionEntryGroups>
             </ns0:selectionEntry>
@@ -138439,6 +138889,73 @@ The Detachment may not include an Allied Detachment.</ns0:description>
               </ns0:modifiers>
             </ns0:entryLink>
           </ns0:entryLinks>
+        </ns0:selectionEntryGroup>
+        <ns0:selectionEntryGroup id="r83-ih-imm-transport" name="Dedicated Transport (10 models or fewer)" hidden="false">
+          <ns0:constraints>
+            <ns0:constraint id="r83-ih-imm-transport-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+          </ns0:constraints>
+          <ns0:modifiers>
+            <ns0:modifier id="r83-ih-imm-transport-hide-over10" type="set" value="true" field="hidden">
+              <ns0:conditions>
+                <ns0:condition type="greaterThan" value="10" field="selections" scope="root-entry" childId="r79-ih-r41-unit-x-0-medusan-immortal-squad-models" shared="true" includeChildSelections="false" includeChildForces="false" />
+              </ns0:conditions>
+            </ns0:modifier>
+          </ns0:modifiers>
+          <ns0:entryLinks>
+            <ns0:entryLink import="true" name="Rhino" hidden="false" id="r83-ih-imm-rhino-veteran-tr-rhino" type="selectionEntry" targetId="transport-rhino">
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-imm-rhino-veteran-tr-rhino-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </ns0:constraints>
+            </ns0:entryLink>
+            <ns0:entryLink import="true" name="Drop Pod" hidden="false" id="r83-ih-imm-drop-pod-veteran-tr-pod" type="selectionEntry" targetId="transport-drop-pod">
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-imm-drop-pod-veteran-tr-pod-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </ns0:constraints>
+            </ns0:entryLink>
+            <ns0:entryLink import="true" name="Dreadclaw Drop Pod" hidden="false" id="r83-ih-imm-dreadclaw-drop-pod-veteran-tr-dc" type="selectionEntry" targetId="transport-dreadclaw">
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-imm-dreadclaw-drop-pod-veteran-tr-dc-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="false" />
+              </ns0:constraints>
+            </ns0:entryLink>
+          </ns0:entryLinks>
+          <ns0:selectionEntries>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Phobos" id="r83-ih-imm-land-raider-phobos-hq-praetor-ret-honour-land-land-raider-phobos" hidden="false" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="250" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Phobos" id="r83-ih-imm-land-raider-phobos-hq-praetor-ret-honour-land-land-raider-phobos-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-imm-land-raider-phobos-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+            </ns0:selectionEntry>
+            <ns0:selectionEntry type="upgrade" name="Land Raider Proteus" id="r83-ih-imm-land-raider-proteus-hq-praetor-ret-honour-land-land-raider-proteus" hidden="false" import="true">
+              <ns0:costs>
+                <ns0:cost name="Points" typeId="pts" value="200" />
+              </ns0:costs>
+              <ns0:profiles>
+                <ns0:profile name="Land Raider Proteus" id="r83-ih-imm-land-raider-proteus-hq-praetor-ret-honour-land-land-raider-proteus-prof" typeId="prof-vehicle" typeName="Vehicle" hidden="false">
+                  <ns0:characteristics>
+                    <ns0:characteristic name="BS" typeId="vehicle-bs">4</ns0:characteristic>
+                    <ns0:characteristic name="Front" typeId="vehicle-front">14</ns0:characteristic>
+                    <ns0:characteristic name="Side" typeId="vehicle-side">14</ns0:characteristic>
+                    <ns0:characteristic name="Rear" typeId="vehicle-rear">14</ns0:characteristic>
+                  </ns0:characteristics>
+                </ns0:profile>
+              </ns0:profiles>
+              <ns0:constraints>
+                <ns0:constraint id="r83-ih-imm-land-raider-proteus-max" type="max" value="1" field="selections" scope="parent" shared="true" includeChildSelections="true" includeChildForces="false" />
+              </ns0:constraints>
+            </ns0:selectionEntry>
+          </ns0:selectionEntries>
         </ns0:selectionEntryGroup>
       </ns0:selectionEntryGroups>
       <ns0:entryLinks />
