@@ -1,0 +1,65 @@
+name: Apply Revision 87 World Eaters builder cleanup
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev87_world_eaters_builder_cleanup.py'
+      - '.github/workflows/apply-r87-world-eaters-builder-cleanup.yml'
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply Revision 87 cleanup
+        run: python .github/build/rev87_world_eaters_builder_cleanup.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 87
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          NS='http://www.battlescribe.net/schema/catalogueSchema'; C=lambda t:f'{{{NS}}}{t}'
+          root=ET.parse('Legiones Astartes.cat').getroot()
+          assert root.get('revision')=='87'
+          assert root.get('gameSystemRevision')=='51'
+          # No World Eaters source-entry dump rules.
+          for u in root.iter(C('selectionEntry')):
+              if not (u.get('id') or '').startswith('r41-unit-xii-'): continue
+              for r in u.iter(C('rule')):
+                  assert not (r.get('name') or '').lower().startswith('source entry')
+          # Screenshot regressions: Inductii and Red Hand each have exactly one expandable model counter.
+          for uid,label in [('r41-unit-xii-3-world-eaters-inductii-squad','Inductii'),('r41-unit-xii-2-red-hand-destroyer-mortalis-squad','Red Hand Destroyer')]:
+              u=next(e for e in root.iter(C('selectionEntry')) if e.get('id')==uid)
+              ex=[]
+              for m in u.iter(C('selectionEntry')):
+                  if m.get('type')!='model':continue
+                  mx=[float(c.get('value')) for c in m.findall('./'+C('constraints')+'/'+C('constraint')) if c.get('type')=='max' and c.get('field')=='selections']
+                  if mx and max(mx)>1:ex.append(m)
+              assert len(ex)==1,(uid,[m.get('name') for m in ex])
+              assert ex[0].get('name')==label
+          # Daemon Angron must expose the full source-listed rules under the structured Special Rules group.
+          ang=next(e for e in root.iter(C('selectionEntry')) if e.get('id')=='r41-unit-xii-13-angron-the-red-angel')
+          groups=[g for g in ang.findall('./'+C('selectionEntryGroups')+'/'+C('selectionEntryGroup')) if g.get('name')=='Special Rules']
+          assert groups
+          names={(e.get('name') or '') for e in groups[-1].iter(C('selectionEntry'))}
+          for n in ('Daemon','Fear','Fearless','Fleet','Furious Charge','Eternal Warrior','Adamantium Will','Master of the Legion','Daemonic Flight','Blood Calls to Blood','The Red Angel Descends','The Nails Sing'):assert n in names,n
+          raw=Path('Legiones Astartes.cat').read_text(encoding='utf-8')
+          assert '<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema"' in raw
+          assert '<ns0:' not in raw
+          print(Path('inspection-r87-world-eaters-builder-cleanup.txt').read_text())
+          PY
+      - name: Commit live Revision 87
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' index.xml inspection-r87-world-eaters-builder-cleanup.txt inspection-r56-all-unit-sizes.txt
+          git diff --cached --quiet || git commit -m 'Revision 87: clean World Eaters builder entries'
+          git pull --rebase origin main
+          for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
