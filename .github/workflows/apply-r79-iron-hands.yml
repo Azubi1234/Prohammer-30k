@@ -1,0 +1,39 @@
+name: Apply Revision 79 Iron Hands full pass
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/rev79_iron_hands_full.py'
+      - '.github/build/rev79_iron_hands_runner.py'
+      - '.github/workflows/apply-r79-iron-hands.yml'
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Apply Revision 79 Iron Hands
+        run: python .github/build/rev79_iron_hands_runner.py
+      - name: Run permanent unit-size audit
+        run: python .github/build/r56_audit_all_unit_sizes.py
+      - name: Verify Revision 79
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          c=ET.parse('Legiones Astartes.cat').getroot(); g=ET.parse('Prohammer 30k.gst').getroot()
+          assert c.get('revision')=='79' and c.get('gameSystemRevision')=='46'
+          assert g.get('revision')=='46'
+          print(open('inspection-r79-iron-hands-live.txt',encoding='utf-8').read())
+          PY
+      - name: Commit generated live data
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add 'Legiones Astartes.cat' 'Prohammer 30k.gst' index.xml inspection-r79-iron-hands-live.txt inspection-r56-all-unit-sizes.txt
+          git diff --cached --quiet || git commit -m 'Revision 79: complete Iron Hands standards pass'
+          git pull --rebase origin main
+          for i in 1 2 3 4; do git push && break || { sleep 2; git pull --rebase origin main; }; done
