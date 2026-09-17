@@ -1,0 +1,28 @@
+name: R90 Diagnose World Eaters character Source Entries
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/build/r90_diag_we_character_source_entries.py'
+      - '.github/workflows/r90-diag-we-character-source-entries.yml'
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Diagnose live catalogue
+        run: python .github/build/r90_diag_we_character_source_entries.py
+      - name: Commit diagnostic report
+        run: |
+          git config user.name 'Azubi1234'
+          git config user.email '132048044+Azubi1234@users.noreply.github.com'
+          git add inspection-r90-we-character-source-entry-diagnostic.txt
+          git diff --cached --quiet || git commit -m 'R90 diagnostic: inspect World Eaters character Source Entries'
+          git pull --rebase origin main
+          git push
