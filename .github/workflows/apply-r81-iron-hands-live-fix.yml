@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/build/rev81_iron_hands_live_fix.py'
+      - '.github/build/rev81_iron_hands_live_fix_runner.py'
       - '.github/workflows/apply-r81-iron-hands-live-fix.yml'
 jobs:
   apply:
@@ -15,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.x'}
       - name: Apply Revision 81
-        run: python .github/build/rev81_iron_hands_live_fix.py
+        run: python .github/build/rev81_iron_hands_live_fix_runner.py
       - name: Run permanent unit-size audit
         run: python .github/build/r56_audit_all_unit_sizes.py
       - name: Verify Revision 81
