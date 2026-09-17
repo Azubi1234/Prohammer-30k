@@ -5,4 +5,5 @@ src=src.replace("'r79-ih-head-auto-free-'+re.sub('[^a-z0-9]+','-',l.get('id') or
 src=src.replace("'r79-ih-head-auto-min-'+re.sub('[^a-z0-9]+','-',l.get('id') or 'x')[-40:]", "f'r79-ih-head-auto-min-{auto_idx}'")
 src=src.replace("'r79-ih-head-auto-force-'+re.sub('[^a-z0-9]+','-',l.get('id') or 'x')[-40:]", "f'r79-ih-head-auto-force-{auto_idx}'")
 src=src.replace("add_rule(u,'r79-ih-rule-'+key+'-'+re.sub('[^a-z0-9]+','-',n.lower()).strip('-'),n,text or COMMON.get(n,n))", "add_rule(u,'r79-ih-rule-'+re.sub('[^a-z0-9]+','-',u.get('id') or key)[-42:]+'-'+re.sub('[^a-z0-9]+','-',n.lower()).strip('-'),n,text or COMMON.get(n,n))")
+src=src.replace("if any(c in uid for c in canon) or uid in ('r46-al-reward-25','r46-al-reward-26','r46-al-reward-27'):\n        relevant.append(u)", "if u.get('type')=='unit' and (any(c in uid for c in canon) or uid in ('r46-al-reward-25','r46-al-reward-26','r46-al-reward-27')):\n        relevant.append(u)")
 exec(compile(src,'.github/build/rev79_iron_hands_full.py','exec'))
